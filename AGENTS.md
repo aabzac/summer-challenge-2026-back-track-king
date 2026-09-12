@@ -1,8 +1,9 @@
 # Back Track King bot — working agreement
 
 CodinGame Summer Challenge 2026 bot in Java 17. Goal: climb the arena as high as possible.
-Read `README.md` for commands, `docs/BOTS.md` for the version history, `docs/DEVLOG.md` for
-what has been tried.
+Read `README.md` for commands, `docs/PLAN.md` for the roadmap and open steps, `docs/BOTS.md` for
+the version history, `docs/DEVLOG.md` for what has been tried. Tick `docs/PLAN.md` when a step is
+finished.
 
 ## Non-negotiables
 
@@ -36,10 +37,10 @@ src/main/java/btk/bot       Bot, Params, Timer, MainBot, BotFactory; current/ (s
 src/main/java/btk/submit    CGRunner (ships), FileMerger
 src/main/java/btk/referee   Referee, MapGenerator, Replay (JSON for visualizer)
 src/main/java/btk/runner    LocalRunner, BenchmarkRunner, Maps, ProcessBot, ProcessCheck
-src/main/java/btk/tools     CgFetch, CgReplay, CgValidate
+src/main/java/btk/tools     CgFetch, CgReplay, CgValidate, CgPolicyStudy
 visualizer/index.html       replay viewer (local + CG-derived replays)
 replays/local, replays/cg   gitignored
-docs/                       rules/, BOTS.md, DEVLOG.md, replay_format.md
+docs/                       rules/, PLAN.md, BOTS.md, DEVLOG.md, replay_format.md
 ```
 
 ## Commands
@@ -50,4 +51,5 @@ docs/                       rules/, BOTS.md, DEVLOG.md, replay_format.md
 - `gradlew submit` then `gradlew procCheck -Pbot=v01 -Pgames=4`
 - `gradlew cgFetch -Ptop=20 -Plimit=10`, `gradlew cgFetch -Pplayer=<pseudo>`
 - `gradlew cgValidate` (`"-Pshow=<gameId>"` for a turn-by-turn dump and a local replay JSON)
+- `gradlew cgStudy "-Pbot=current"` — what winners do in the replays + agreement of our bot with them
 - visualizer: `python -m http.server 7799` then `http://127.0.0.1:7799/visualizer/index.html?file=/replays/local/<file>.json`
