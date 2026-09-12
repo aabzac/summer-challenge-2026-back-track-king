@@ -1,0 +1,21 @@
+---
+description: Keep the rules engine faithful to the CodinGame referee
+globs: src/main/java/btk/core/**/*.java
+alwaysApply: false
+---
+
+# Engine fidelity
+
+`btk.core` is the single source of game rules for the bot, the referee and the validator.
+
+After editing anything in `btk.core`:
+
+1. Add or update a JUnit test in `src/test/java/btk/core` for the rule you touched.
+2. Run `gradlew test`.
+3. Run `gradlew cgValidate` and compare the "N/M replays reproduced exactly" line with the last
+   number recorded in `docs/DEVLOG.md`. A regression there is a blocker, not a note.
+4. If the change was driven by a statement text, quote the sentence in the Javadoc and make sure the
+   statement is saved verbatim in `docs/rules/<league>.md`.
+
+Never add Java collections, streams or per-call allocations to `GameState`, `Rules.applyPlacements`
+(int[] variant), `Rules.scoreTurn` or `Pathing`: they run inside the bot's search loop.

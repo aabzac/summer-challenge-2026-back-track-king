@@ -1,0 +1,16 @@
+---
+description: How to use CodinGame replays for validation and opponent analysis
+alwaysApply: false
+---
+
+# Working with CG replays
+
+- `gradlew cgFetch -Ptop=N -Plimit=K` downloads finished games of the top N players;
+  `-Pplayer=<pseudo>` downloads our own (or a specific opponent's) games. Files are raw
+  `gameResult/findByGameId` JSON in `replays/cg/`, documented in `docs/replay_format.md`.
+- Both players' stdout is in the replay, so any CG game can be replayed through our engine with
+  `gradlew cgValidate`. Use `"-Pshow=<gameId>"` (quoted on PowerShell) to dump events turn by turn
+  and to write `replays/cg-local/<gameId>.json` for the visualizer.
+- When a lost arena game needs a post-mortem: fetch it, run `cgValidate` on it (does our engine
+  agree?), open the local replay in the visualizer, then write the finding in `docs/DEVLOG.md`.
+- Real CG maps for benches: `gradlew bench ... -Pmaps=replays/cg`.

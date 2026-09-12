@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Back Track King — replay viewer</title>
+<style>
+  :root { --bg:#14171c; --panel:#1e232b; --fg:#e6e6e6; --muted:#9aa4b2; --p0:#e4553f; --p1:#3f8fe4; --neutral:#9c9c9c; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:13px/1.4 system-ui, Segoe UI, sans-serif; display:flex; height:100vh; }
+  #left { flex:1; display:flex; flex-direction:column; min-width:0; }
+  #canvasWrap { flex:1; position:relative; }
+  canvas { position:absolute; inset:0; width:100%; height:100%; }
+  #controls { padding:8px 12px; background:var(--panel); display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  #controls input[type=range] { flex:1; min-width:200px; }
+  button { background:#2c3440; color:var(--fg); border:1px solid #3b4553; border-radius:4px; padding:4px 10px; cursor:pointer; }
+  button:hover { background:#38424f; }
+  #side { width:360px; background:var(--panel); padding:12px; overflow:auto; border-left:1px solid #2c3440; }
+  h3 { margin:12px 0 6px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .score { display:flex; gap:12px; font-size:20px; font-weight:600; }
+  .p0 { color:var(--p0); } .p1 { color:var(--p1); }
+  .mono { font-family: Consolas, monospace; font-size:12px; white-space:pre-wrap; word-break:break-all; }
+  .err { color:#ff7b6b; }
+  #drop { border:2px dashed #3b4553; border-radius:6px; padding:14px; text-align:center; color:var(--muted); }
+  #drop.over { border-color:#7fb3ff; color:#fff; }
+  label.chk { margin-right:10px; user-select:none; }
+  table { border-collapse:collapse; width:100%; }
+  td { padding:2px 4px; border-bottom:1px solid #2c3440; }
+  #hover { min-height:60px; }
+</style>
+</head>
+<body>
+<div id="left">
+  <div id="canvasWrap"><canvas id="c"></canvas></div>
+  <div id="controls">
+    <button id="first">⏮</button>
+    <button id="prev">◀</button>
+    <button id="play">▶</button>
+    <button id="next">▶|</button>
+    <button id="last">⏭</button>
+    <input type="range" id="slider" min="0" max="0" value="0">
+    <span id="turnLabel" class="mono">turn 0/0</span>
+    <select id="speed"><option value="800">1x</option><option value="400">2x</option><option value="160" selected>5x</option><option value="60">13x</option></select>
+    <label class="chk"><input type="checkbox" id="showPaths" checked> paths</label>
+    <label class="chk"><input type="checkbox" id="showRegions"> region ids</label>
+    <label class="chk"><input type="checkbox" id="showGrid" checked> grid</label>
+  </div>
+</div>
+<div id="side">
+  <div id="drop">Drop a replay JSON here or <input type="file" id="file" accept=".json"></div>
+  <h3>Game</h3>
+  <div id="meta" class="mono">—</div>
+  <h3>Score</h3>
+  <div class="score"><span class="p0" id="s0">0</span><span class="p1" id="s1">0</span><span class="mono" id="gain" style="font-size:12px;font-weight:400;color:var(--muted)"></span></div>
+  <h3>Actions this turn</h3>
+  <div class="mono"><span class="p0">P0</span> <span id="a0"></span></div>
+  <div class="mono"><span class="p1">P1</span> <span id="a1"></span></div>
+  <div id="errs" class="mono err"></div>
+  <h3>Active connections</h3>
+  <table id="paths"></table>
+  <h3>Cell</h3>
+  <div id="hover" class="mono">hover the map</div>
+  <h3>Keys</h3>
+  <div class="mono" style="color:var(--muted)">space play/pause · ← → step · home/end</div>
+</div>
+<script>
+'use strict';
+const TERRAIN = ['#3d6b3a', '#2b5c8a', '#6e6a62'];
+const PAIR_COLORS = ['#ffd166','#06d6a0','#ef476f','#118ab2','#f78c6b','#c77dff','#8ac926','#ff99c8','#00bbf9','#f15bb5','#fee440','#9b5de5','#00f5d4','#ff924c','#a0c4ff','#bdb2ff'];
+
+let replay = null, turn = 0, timer = null;
+let ownerByTurn = [];      // ownerByTurn[t] = Int8Array owner state AFTER turn t-1 (t=0: initial)
+let hoverCell = -1;
+
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const $ = id => document.getElementById(id);
+
+function load(json) {
+  replay = json;
+  const size = replay.map.width * replay.map.height;
+  ownerByTurn = [new Int8Array(size).fill(-1)];
+  for (const t of replay.turns) {
+    const o = Int8Array.from(ownerByTurn[ownerByTurn.length - 1]);
+    for (const [cell, owner] of t.placed) o[cell] = owner;
+    ownerByTurn.push(o);
+  }
+  $('slider').max = replay.turns.length;
+  const m = replay.meta;
+  $('meta').textContent = `${m.source}${m.gameId ? ' #' + m.gameId : ''}  seed ${m.seed}\nP0 ${m.bots[0]}\nP1 ${m.bots[1]}\n${replay.map.width}x${replay.map.height}, ${replay.map.towns.length} towns, ${replay.map.pairs.length} pairs, ${replay.turns.length} turns\nwinner: ${m.winner < 0 ? 'draw' : 'P' + m.winner}  final ${m.score ? m.score.join('-') : ''}`;
+  setTurn(0);
+}
+
+function setTurn(t) {
+  if (!replay) return;
+  turn = Math.max(0, Math.min(replay.turns.length, t));
+  $('slider').value = turn;
+  $('turnLabel').textContent = `turn ${turn}/${replay.turns.length}`;
+  const tr = turn > 0 ? replay.turns[turn - 1] : null;
+  $('s0').textContent = tr ? tr.score[0] : 0;
+  $('s1').textContent = tr ? tr.score[1] : 0;
+  $('gain').textContent = tr ? `(+${tr.gained[0]} / +${tr.gained[1]})` : '';
+  $('a0').textContent = tr ? (tr.actions[0] ?? '—') : '';
+  $('a1').textContent = tr ? (tr.actions[1] ?? '—') : '';
+  $('errs').textContent = tr ? [0, 1].filter(p => tr.errors[p]).map(p => `P${p}: ${tr.errors[p]}`).join('\n') : '';
+  const rows = [];
+  if (tr) for (const [pi, cells] of tr.paths) {
+    const [a, b] = replay.map.pairs[pi];
+    const o = ownerByTurn[turn];
+    let c0 = 0, c1 = 0, cn = 0;
+    for (const c of cells) { if (o[c] === 0) c0++; else if (o[c] === 1) c1++; else if (o[c] === 2) cn++; }
+    rows.push(`<tr><td><span style="color:${PAIR_COLORS[pi % PAIR_COLORS.length]}">■</span> ${a}→${b}</td><td>len ${cells.length}</td><td class="p0">${c0}</td><td class="p1">${c1}</td><td style="color:var(--neutral)">${cn}</td></tr>`);
+  }
+  $('paths').innerHTML = rows.join('') || '<tr><td style="color:var(--muted)">none</td></tr>';
+  draw();
+}
+
+function geometry() {
+  const W = canvas.clientWidth, H = canvas.clientHeight;
+  const { width: gw, height: gh } = replay.map;
+  const cs = Math.floor(Math.min((W - 20) / gw, (H - 20) / gh));
+  return { cs, ox: Math.floor((W - cs * gw) / 2), oy: Math.floor((H - cs * gh) / 2), gw, gh };
+}
+
+function draw() {
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = canvas.clientWidth * dpr; canvas.height = canvas.clientHeight * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+  if (!replay) { ctx.fillStyle = '#9aa4b2'; ctx.font = '16px system-ui'; ctx.fillText('Load a replay JSON (drag & drop)', 20, 40); return; }
+  const g = geometry();
+  const { cs, ox, oy, gw, gh } = g;
+  const map = replay.map, owner = ownerByTurn[turn];
+  const tr = turn > 0 ? replay.turns[turn - 1] : null;
+  const placedNow = new Set(tr ? tr.placed.map(p => p[0]) : []);
+  // terrain
+  for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
+    const c = y * gw + x;
+    ctx.fillStyle = TERRAIN[map.terrain[c]];
+    ctx.fillRect(ox + x * cs, oy + y * cs, cs, cs);
+  }
+  // grid + region borders
+  ctx.lineWidth = 1;
+  if ($('showGrid').checked) {
+    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+    for (let x = 0; x <= gw; x++) { ctx.beginPath(); ctx.moveTo(ox + x * cs + .5, oy); ctx.lineTo(ox + x * cs + .5, oy + gh * cs); ctx.stroke(); }
+    for (let y = 0; y <= gh; y++) { ctx.beginPath(); ctx.moveTo(ox, oy + y * cs + .5); ctx.lineTo(ox + gw * cs, oy + y * cs + .5); ctx.stroke(); }
+  }
+  ctx.strokeStyle = 'rgba(0,0,0,0.85)'; ctx.lineWidth = 2;
+  for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
+    const c = y * gw + x;
+    if (x + 1 < gw && map.region[c] !== map.region[c + 1]) { ctx.beginPath(); ctx.moveTo(ox + (x + 1) * cs, oy + y * cs); ctx.lineTo(ox + (x + 1) * cs, oy + (y + 1) * cs); ctx.stroke(); }
+    if (y + 1 < gh && map.region[c] !== map.region[c + gw]) { ctx.beginPath(); ctx.moveTo(ox + x * cs, oy + (y + 1) * cs); ctx.lineTo(ox + (x + 1) * cs, oy + (y + 1) * cs); ctx.stroke(); }
+  }
+  // tracks
+  const pad = Math.max(2, Math.floor(cs * 0.22));
+  for (let c = 0; c < owner.length; c++) {
+    const o = owner[c]; if (o < 0) continue;
+    const x = c % gw, y = Math.floor(c / gw);
+    ctx.fillStyle = o === 0 ? '#e4553f' : o === 1 ? '#3f8fe4' : '#9c9c9c';
+    ctx.fillRect(ox + x * cs + pad, oy + y * cs + pad, cs - 2 * pad, cs - 2 * pad);
+    if (placedNow.has(c)) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.strokeRect(ox + x * cs + pad - 1, oy + y * cs + pad - 1, cs - 2 * pad + 2, cs - 2 * pad + 2); }
+  }
+  // active paths
+  if ($('showPaths').checked && tr) {
+    ctx.lineWidth = Math.max(2, cs * 0.12); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    tr.paths.forEach(([pi, cells], k) => {
+      ctx.strokeStyle = PAIR_COLORS[pi % PAIR_COLORS.length];
+      ctx.globalAlpha = 0.85;
+      const off = ((k % 3) - 1) * cs * 0.12;
+      ctx.beginPath();
+      cells.forEach((c, i) => {
+        const px = ox + (c % gw) * cs + cs / 2 + off, py = oy + Math.floor(c / gw) * cs + cs / 2 + off;
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    });
+  }
+  // towns
+  for (const [id, x, y] of map.towns) {
+    const cx = ox + x * cs + cs / 2, cy = oy + y * cs + cs / 2;
+    ctx.fillStyle = '#f5f5f5'; ctx.beginPath(); ctx.arc(cx, cy, cs * 0.38, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#222'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#111'; ctx.font = `bold ${Math.max(9, cs * 0.5)}px system-ui`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(id, cx, cy + 1);
+  }
+  // region ids
+  if ($('showRegions').checked) {
+    ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.font = `${Math.max(8, cs * 0.35)}px system-ui`; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    for (let c = 0; c < map.region.length; c++) ctx.fillText(map.region[c], ox + (c % gw) * cs + 2, oy + Math.floor(c / gw) * cs + 1);
+  }
+  // hover
+  if (hoverCell >= 0) {
+    const x = hoverCell % gw, y = Math.floor(hoverCell / gw);
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.strokeRect(ox + x * cs + 1, oy + y * cs + 1, cs - 2, cs - 2);
+  }
+}
+
+canvas.addEventListener('mousemove', e => {
+  if (!replay) return;
+  const g = geometry(), r = canvas.getBoundingClientRect();
+  const x = Math.floor((e.clientX - r.left - g.ox) / g.cs), y = Math.floor((e.clientY - r.top - g.oy) / g.cs);
+  const c = (x >= 0 && y >= 0 && x < g.gw && y < g.gh) ? y * g.gw + x : -1;
+  if (c === hoverCell) return;
+  hoverCell = c;
+  if (c >= 0) {
+    const map = replay.map, o = ownerByTurn[turn][c];
+    const tr = turn > 0 ? replay.turns[turn - 1] : null;
+    const pairs = tr ? tr.paths.filter(([pi, cells]) => cells.includes(c)).map(([pi]) => map.pairs[pi].join('→')) : [];
+    const town = map.towns.find(t => t[1] === x && t[2] === y);
+    $('hover').textContent = `(${x}, ${y})  cell ${c}\nregion ${map.region[c]}  terrain ${['plains','river','mountain'][map.terrain[c]]} (cost ${map.terrain[c] + 1})\n` +
+      (town ? `TOWN ${town[0]} wants ${JSON.stringify(map.desired[town[0]])}\n` : '') +
+      `track: ${o < 0 ? 'none' : o === 2 ? 'neutral' : 'P' + o}\nconnections: ${pairs.join(', ') || '—'}`;
+  } else $('hover').textContent = 'hover the map';
+  draw();
+});
+
+function togglePlay() {
+  if (timer) { clearInterval(timer); timer = null; $('play').textContent = '▶'; return; }
+  $('play').textContent = '⏸';
+  timer = setInterval(() => { if (!replay || turn >= replay.turns.length) return togglePlay(); setTurn(turn + 1); }, +$('speed').value);
+}
+$('play').onclick = togglePlay;
+$('next').onclick = () => setTurn(turn + 1);
+$('prev').onclick = () => setTurn(turn - 1);
+$('first').onclick = () => setTurn(0);
+$('last').onclick = () => setTurn(replay ? replay.turns.length : 0);
+$('slider').oninput = e => setTurn(+e.target.value);
+$('speed').onchange = () => { if (timer) { togglePlay(); togglePlay(); } };
+for (const id of ['showPaths', 'showRegions', 'showGrid']) $(id).onchange = draw;
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+  if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+  else if (e.key === 'ArrowRight') setTurn(turn + 1);
+  else if (e.key === 'ArrowLeft') setTurn(turn - 1);
+  else if (e.key === 'Home') setTurn(0);
+  else if (e.key === 'End') setTurn(replay.turns.length);
+});
+window.addEventListener('resize', draw);
+
+function readFile(f) { const r = new FileReader(); r.onload = () => { try { load(JSON.parse(r.result)); } catch (e) { alert('bad replay: ' + e); } }; r.readAsText(f); }
+$('file').onchange = e => e.target.files[0] && readFile(e.target.files[0]);
+const drop = $('drop');
+for (const el of [document.body, drop]) {
+  el.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+  el.addEventListener('dragleave', () => drop.classList.remove('over'));
+  el.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); const f = e.dataTransfer.files[0]; if (f) readFile(f); });
+}
+const qs = new URLSearchParams(location.search).get('file');
+if (qs) fetch(qs).then(r => r.json()).then(load).catch(e => alert('cannot load ' + qs + ': ' + e));
+draw();
+</script>
+</body>
+</html>

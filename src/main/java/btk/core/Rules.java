@@ -1,0 +1,316 @@
+package btk.core;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Game rules: action validation, simultaneous turn resolution, connections and scoring.
+ * Stateless apart from the {@link Pathing} scratch buffers passed in.
+ *
+ * <p>Everything unknown about higher leagues (DISRUPT, ink, instability, POIs) is deliberately
+ * a no-op here and flagged via {@link TurnResult#unknownActions}; see docs/rules/.
+ */
+public final class Rules {
+
+    private Rules() {}
+
+    /** Outcome of expanding one player's command line into concrete placements. */
+    public static final class PlayerMoves {
+        public final int[] cells = new int[GameState.PAINT_PER_TURN];
+        public int count;
+        public int cost;
+        public final List<Integer> disrupts = new ArrayList<>(2);
+        public String message;
+        /** Null when the command line was valid. */
+        public String error;
+
+        void reset() {
+            count = 0;
+            cost = 0;
+            disrupts.clear();
+            message = null;
+            error = null;
+        }
+
+        boolean contains(int cell) {
+            for (int i = 0; i < count; i++) if (cells[i] == cell) return true;
+            return false;
+        }
+    }
+
+    public static final class TurnResult {
+        public final PlayerMoves[] moves = {new PlayerMoves(), new PlayerMoves()};
+        /** Points gained this turn per player. */
+        public final int[] gained = new int[2];
+        /** Cells that became neutral this turn. */
+        public final List<Integer> neutralised = new ArrayList<>(3);
+        /** Regions inked this turn (in order). */
+        public final List<Integer> inkedRegions = new ArrayList<>(2);
+        public boolean unknownActions;
+
+        public boolean hasError(int player) {
+            return moves[player].error != null;
+        }
+    }
+
+    /**
+     * Expands and validates one command line against the pre-turn state. Never mutates the state.
+     */
+    public static void expand(GameState s, int player, List<Action> actions, Pathing pathing,
+                              PlayerMoves out, TurnResult tr) {
+        out.reset();
+        if (actions == null || actions.isEmpty()) {
+            out.error = "no action";
+            return;
+        }
+        int autoplaces = 0;
+        int[] path = new int[s.size];
+        for (Action a : actions) {
+            switch (a.type) {
+                case WAIT:
+                    break;
+                case MESSAGE:
+                    out.message = a.text;
+                    break;
+                case DISRUPT: {
+                    int region = a.disruptRegion(s);
+                    if (region < 0) {
+                        out.error = "bad disrupt target: " + a;
+                        return;
+                    }
+                    if (s.regionHasTown(region)) {
+                        out.error = "disrupt on town region: " + a;
+                        return;
+                    }
+                    if (!out.disrupts.isEmpty()) {
+                        out.error = "more than one DISRUPT";
+                        return;
+                    }
+                    out.disrupts.add(region);
+                    break;
+                }
+                case PLACE: {
+                    if (!s.inBounds(a.x, a.y)) {
+                        out.error = "out of bounds: " + a;
+                        return;
+                    }
+                    int c = s.cell(a.x, a.y);
+                    String err = placeError(s, c, out);
+                    if (err != null) {
+                        out.error = err + ": " + a;
+                        return;
+                    }
+                    addPlacement(s, c, out);
+                    break;
+                }
+                case AUTOPLACE: {
+                    if (++autoplaces > 1) {
+                        out.error = "more than one AUTOPLACE";
+                        return;
+                    }
+                    if (!s.inBounds(a.x, a.y) || !s.inBounds(a.x2, a.y2)) {
+                        out.error = "out of bounds: " + a;
+                        return;
+                    }
+                    int from = s.cell(a.x, a.y), to = s.cell(a.x2, a.y2);
+                    if (connected(s, from, to, pathing)) break;
+                    int n = pathing.cheapestPath(s, from, to, path);
+                    if (n < 0) break;
+                    for (int i = 0; i < n; i++) {
+                        int c = path[i];
+                        if (s.passable(c) || out.contains(c) || s.inked[c]) continue;
+                        if (out.cost + s.placeCost(c) > GameState.PAINT_PER_TURN) break;
+                        addPlacement(s, c, out);
+                    }
+                    break;
+                }
+                default:
+                    out.error = "unsupported: " + a;
+                    return;
+            }
+        }
+    }
+
+    private static String placeError(GameState s, int c, PlayerMoves out) {
+        if (s.isTown(c)) return "town cell";
+        if (s.hasTrack(c)) return "occupied cell";
+        if (s.inked[c]) return "inked cell";
+        if (out.contains(c)) return "duplicate placement";
+        if (out.cost + s.placeCost(c) > GameState.PAINT_PER_TURN) return "paint budget exceeded";
+        return null;
+    }
+
+    private static void addPlacement(GameState s, int c, PlayerMoves out) {
+        out.cells[out.count++] = c;
+        out.cost += s.placeCost(c);
+    }
+
+    /** True when a connector path already links the two cells. */
+    public static boolean connected(GameState s, int from, int to, Pathing pathing) {
+        if (!s.passable(from) || !s.passable(to)) return false;
+        int[] buf = new int[s.size];
+        int tFrom = s.townAtCell[from], tTo = s.townAtCell[to];
+        if (tFrom >= 0 && tTo >= 0) return pathing.shortestPath(s, tFrom, tTo, buf) > 0;
+        // generic cells: reuse Dijkstra; cost 0 path means already connected
+        int n = pathing.cheapestPath(s, from, to, buf);
+        return n > 0 && pathing.lastCost(to) == 0;
+    }
+
+    /**
+     * Resolves one simultaneous turn: validates both command lines, applies placements
+     * (same-cell clashes become neutral), recomputes connections, awards points, advances turn.
+     * Invalid command lines are reported in the result and the player's placements are skipped;
+     * the caller (referee) decides whether that ends the game.
+     */
+    public static TurnResult resolve(GameState s, List<Action> a0, List<Action> a1, Pathing pathing) {
+        TurnResult tr = new TurnResult();
+        expand(s, 0, a0, pathing, tr.moves[0], tr);
+        expand(s, 1, a1, pathing, tr.moves[1], tr);
+        applyPlacements(s, tr);
+        applyDisrupts(s, tr);
+        updateConnections(s, pathing);
+        scoreTurn(s, tr.gained);
+        s.turn++;
+        return tr;
+    }
+
+    /**
+     * Order observed in CG viewer events: placements, then disrupts (+1 instability each, both
+     * players), regions reaching {@link GameState#INK_THRESHOLD} get inked (all tracks removed,
+     * permanently unbuildable), then connections and scoring.
+     */
+    public static void applyDisrupts(GameState s, TurnResult tr) {
+        for (int p = 0; p < 2; p++) {
+            if (tr.moves[p].error != null) continue;
+            for (int region : tr.moves[p].disrupts) disrupt(s, region);
+        }
+        for (int r = 0; r < s.regionCount; r++) {
+            if (!s.regionInked[r] && s.regionInstability[r] >= GameState.INK_THRESHOLD) {
+                ink(s, r);
+                tr.inkedRegions.add(r);
+            }
+        }
+    }
+
+    /** Search-friendly single disrupt (no ink check; call {@link #inkUnstable}). */
+    public static void disrupt(GameState s, int region) {
+        if (s.regionInked[region]) return;
+        s.regionInstability[region]++;
+        int v = s.regionInstability[region];
+        for (int c = 0; c < s.size; c++) if (s.regionId[c] == region) s.instability[c] = v;
+    }
+
+    /** Inks every region at or above the threshold; returns how many. */
+    public static int inkUnstable(GameState s) {
+        int n = 0;
+        for (int r = 0; r < s.regionCount; r++) {
+            if (!s.regionInked[r] && s.regionInstability[r] >= GameState.INK_THRESHOLD) {
+                ink(s, r);
+                n++;
+            }
+        }
+        return n;
+    }
+
+    public static void ink(GameState s, int region) {
+        s.regionInked[region] = true;
+        for (int c = 0; c < s.size; c++) {
+            if (s.regionId[c] != region) continue;
+            s.owner[c] = GameState.NO_TRACK;
+            s.inked[c] = true;
+        }
+    }
+
+    /**
+     * True when some desired pair can still be connected through non-inked cells
+     * (towns of inked regions are never observed, so town cells count as open).
+     */
+    public static boolean anyPairPossible(GameState s, Pathing pathing) {
+        for (int p = 0; p < s.pairCount; p++) {
+            if (pathing.reachableAvoidingInk(s, s.townCell[s.pairFrom[p]], s.townCell[s.pairTo[p]])) return true;
+        }
+        return false;
+    }
+
+    /** Applies already-validated placements of both players. */
+    public static void applyPlacements(GameState s, TurnResult tr) {
+        PlayerMoves m0 = tr.moves[0], m1 = tr.moves[1];
+        if (m0.error == null) {
+            for (int i = 0; i < m0.count; i++) s.owner[m0.cells[i]] = 0;
+        }
+        if (m1.error == null) {
+            for (int i = 0; i < m1.count; i++) {
+                int c = m1.cells[i];
+                if (m0.error == null && m0.contains(c)) {
+                    s.owner[c] = GameState.NEUTRAL;
+                    tr.neutralised.add(c);
+                } else {
+                    s.owner[c] = 1;
+                }
+            }
+        }
+    }
+
+    /**
+     * Fast placement path for search: both players' cells given directly, assumed valid.
+     * Same-cell clashes become neutral.
+     */
+    public static void applyPlacements(GameState s, int[] cells0, int n0, int[] cells1, int n1) {
+        for (int i = 0; i < n0; i++) s.owner[cells0[i]] = 0;
+        for (int i = 0; i < n1; i++) {
+            int c = cells1[i];
+            boolean clash = false;
+            for (int j = 0; j < n0; j++) if (cells0[j] == c) { clash = true; break; }
+            s.owner[c] = clash ? GameState.NEUTRAL : 1;
+        }
+    }
+
+    /** Recomputes the active connection (shortest path) for every desired pair. */
+    public static void updateConnections(GameState s, Pathing pathing) {
+        pathing.updateAllConnections(s);
+    }
+
+    /** End-of-turn scoring: 1 point per owned track per active connection. */
+    public static void scoreTurn(GameState s, int[] gainedOut) {
+        int g0 = 0, g1 = 0;
+        for (int p = 0; p < s.pairCount; p++) {
+            int[] path = s.pairPath[p];
+            if (path == null) continue;
+            int n = s.pairPathLen[p];
+            for (int i = 0; i < n; i++) {
+                int o = s.owner[path[i]];
+                if (o == 0) g0++;
+                else if (o == 1) g1++;
+            }
+        }
+        s.score[0] += g0;
+        s.score[1] += g1;
+        if (gainedOut != null) {
+            gainedOut[0] = g0;
+            gainedOut[1] = g1;
+        }
+    }
+
+    /** Points per turn each player currently earns from active connections (no mutation). */
+    public static void incomePerTurn(GameState s, int[] out) {
+        int g0 = 0, g1 = 0;
+        for (int p = 0; p < s.pairCount; p++) {
+            int[] path = s.pairPath[p];
+            if (path == null) continue;
+            int n = s.pairPathLen[p];
+            for (int i = 0; i < n; i++) {
+                int o = s.owner[path[i]];
+                if (o == 0) g0++;
+                else if (o == 1) g1++;
+            }
+        }
+        out[0] = g0;
+        out[1] = g1;
+    }
+
+    /** Turn limit reached, or (hypothesis from replays) no desired pair can ever be connected. */
+    public static boolean gameOver(GameState s, Pathing pathing) {
+        if (s.turn >= s.maxTurns) return true;
+        return !anyPairPossible(s, pathing);
+    }
+}
