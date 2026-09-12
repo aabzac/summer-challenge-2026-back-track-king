@@ -18,10 +18,13 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 
 ## Phase 2 — leagues (open)
 
-- [ ] Paste `Player.java` (v03) into the CG IDE, submit, leave Wood — **manual step**
-- [ ] Capture the Bronze statement verbatim into `docs/rules/bronze.md`; reconcile with
-      `inferred_gold.md` (POIs, AUTOBUILD, invalid-command handling, disrupt on town regions)
-- [ ] Add rules that only appear in the statement to `btk.core` + tests; re-run `cgValidate`
+- [x] Paste `Player.java` (v03) into the CG IDE, submit, leave Wood — Wood 2 → Wood 1 → Bronze
+- [x] Capture the Bronze statement verbatim into `docs/rules/bronze.md`; reconcile with
+      `inferred_gold.md` — all inferred rules confirmed; Bronze is the final rule set
+- [x] Referee source found (linked from the statement) and cloned to `tmp/referee-src`
+      (gitignored): impossible actions are skipped, not fatal → `Rules.expand` aligned + tests
+- [ ] Port `GridMaker` 1:1 (same `java.util.Random` usage) → authentic maps for the arena and
+      exact reproduction of any CG game from its `refereeInput` seed
 - [ ] Re-fetch replays of the current top 20 every few days (`cgFetch`), keep `cgValidate` green
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)

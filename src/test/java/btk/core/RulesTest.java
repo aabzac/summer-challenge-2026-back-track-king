@@ -46,15 +46,23 @@ class RulesTest {
         Rules.expand(s, 0, List.of(Action.place(1, 0), Action.place(2, 0)), p, m, null);
         assertNull(m.error);
         assertEquals(3, m.cost);
+        // CG referee (Game.doActions): impossible actions are skipped, the line stays valid
         Rules.expand(s, 0, List.of(Action.place(2, 0), Action.place(3, 0)), p, m, null);
-        assertNotNull(m.error, "river + mountain = 5 > 3");
-        Rules.expand(s, 0, List.of(Action.place(0, 0)), p, m, null);
-        assertNotNull(m.error, "town cell");
+        assertNull(m.error);
+        assertEquals(1, m.skipped.size(), "river + mountain = 5 > 3: mountain skipped");
+        assertEquals(2, m.cost);
+        Rules.expand(s, 0, List.of(Action.place(0, 0), Action.place(1, 0)), p, m, null);
+        assertNull(m.error);
+        assertEquals(1, m.skipped.size(), "town cell skipped");
+        assertEquals(1, m.count);
         TestMaps.track(s, 1, 1, 0);
         Rules.expand(s, 0, List.of(Action.place(1, 0)), p, m, null);
-        assertNotNull(m.error, "occupied");
+        assertEquals(1, m.skipped.size(), "occupied");
+        assertEquals(0, m.count);
         Rules.expand(s, 0, List.of(Action.place(9, 0)), p, m, null);
-        assertNotNull(m.error, "out of bounds");
+        assertEquals(1, m.skipped.size(), "out of bounds");
+        Rules.expand(s, 0, List.of(), p, m, null);
+        assertNotNull(m.error, "empty line disqualifies");
     }
 
     @Test
@@ -104,14 +112,16 @@ class RulesTest {
     }
 
     @Test
-    void invalidLineSkipsPlayerPlacements() {
+    void duplicatePlacementIsSkippedNotFatal() {
         GameState s = line5();
         Pathing p = new Pathing(s.size);
         Rules.TurnResult tr = Rules.resolve(s,
-                List.of(Action.place(1, 0), Action.place(1, 0)),
+                List.of(Action.place(1, 0), Action.place(1, 0), Action.place(2, 0)),
                 List.of(Action.place(3, 0)), p);
-        assertNotNull(tr.moves[0].error);
-        assertEquals(GameState.NO_TRACK, s.owner[s.cell(1, 0)]);
+        assertNull(tr.moves[0].error);
+        assertEquals(1, tr.moves[0].skipped.size());
+        assertEquals(0, s.owner[s.cell(1, 0)]);
+        assertEquals(0, s.owner[s.cell(2, 0)]);
         assertEquals(1, s.owner[s.cell(3, 0)]);
     }
 

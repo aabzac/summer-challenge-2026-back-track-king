@@ -64,5 +64,12 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   `procCheck`; timer checked per candidate variant.
 - Stopped tuning here: first get out of Wood with v03, then get the Bronze statement.
 
-Open questions for the Bronze statement: POIs, AUTOBUILD, whether an over-budget or invalid
-command is a loss or ignored, whether disrupting a town region is refused.
+### Bronze reached (01:36)
+
+- v03 went Wood 2 → Wood 1 → Bronze on the first submission. Bronze statement captured to
+  `docs/rules/bronze.md`; it links the **referee source** (github.com/CGjupoulton/SummerChallenge2026).
+- Every inferred rule confirmed by the source. Bronze is the last league with rule changes.
+  POIs / buying are dead code. One real difference found: CG skips impossible actions one by one
+  (only unparsable commands disqualify); our engine failed the whole line. `Rules.expand` now
+  mirrors `Game.doActions` (`PlayerMoves.skipped`); tests updated; `cgValidate` still 107/107.
+- Next infrastructure win: port `GridMaker` for authentic maps (and seed-exact CG map replay).

@@ -57,7 +57,8 @@ class InkTest {
         Rules.ink(s, 7);
         Rules.PlayerMoves m = new Rules.PlayerMoves();
         Rules.expand(s, 0, List.of(Action.place(2, 0)), p, m, null);
-        assertNotNull(m.error);
+        assertEquals(1, m.skipped.size(), "placement on inked cell is skipped");
+        assertEquals(0, m.count);
         assertEquals(-1, p.cheapestPath(s, s.townCell[0], s.townCell[1], new int[s.size]));
         assertFalse(Rules.anyPairPossible(s, p));
         assertTrue(Rules.gameOver(s, p), "no pair connectable -> game over");
@@ -69,13 +70,20 @@ class InkTest {
         Pathing p = new Pathing(s.size);
         Rules.PlayerMoves m = new Rules.PlayerMoves();
         Rules.expand(s, 0, List.of(Action.disrupt(s.regionId[s.townCell[0]])), p, m, null);
-        assertNotNull(m.error, "town region");
+        assertEquals(1, m.skipped.size(), "town region");
+        assertTrue(m.disrupts.isEmpty());
         Rules.expand(s, 0, List.of(Action.disrupt(7), Action.disrupt(7)), p, m, null);
-        assertNotNull(m.error, "two disrupts");
+        assertEquals(1, m.skipped.size(), "second disrupt: not enough disruption points");
+        assertEquals(List.of(7), m.disrupts);
         Rules.expand(s, 0, List.of(Action.disrupt(999)), p, m, null);
-        assertNotNull(m.error, "unknown region");
+        assertEquals(1, m.skipped.size(), "unknown region");
+        Rules.ink(s, 7);
+        Rules.expand(s, 0, List.of(Action.disrupt(7)), p, m, null);
+        assertEquals(1, m.skipped.size(), "already inked");
+        s = line();
         Rules.expand(s, 0, List.of(Action.place(1, 0), Action.disrupt(7)), p, m, null);
         assertNull(m.error, "disrupt costs no paint");
+        assertTrue(m.skipped.isEmpty());
         assertEquals(1, m.cost);
     }
 
