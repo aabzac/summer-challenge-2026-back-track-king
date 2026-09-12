@@ -73,3 +73,32 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   (only unparsable commands disqualify); our engine failed the whole line. `Rules.expand` now
   mirrors `Game.doActions` (`PlayerMoves.skipped`); tests updated; `cgValidate` still 107/107.
 - Next infrastructure win: port `GridMaker` for authentic maps (and seed-exact CG map replay).
+
+### Authentic GridMaker port
+
+- Hypothesis: porting the referee's generation steps and preserving RNG/collection order will
+  make new local maps representative of CG and reproduce downloaded maps directly from seed.
+- Replaced the approximate `MapGenerator` with the map-only port of referee commit
+  `23b2a02781d02751b723432865889fbc5dd75e35`. Kept hash/iteration order, floats, shuffles,
+  retries, river splitting and connection filtering; removed unused debug snapshots and engine
+  dependencies. Local runners automatically use the port. No strategy or `btk.core` changes.
+- First validation failed **0/107**: `new Random(seed)` was the wrong RNG. Checking whether
+  seed strings had lost precision via a double conversion also gave **0/107**; rejected that
+  hypothesis (the public API returns the same seed strings). The game engine's
+  `MultiplayerGameManager` supplies **SHA1PRNG SecureRandom**, despite GridMaker's `Random` type.
+  Using that exact initialization gives **107/107 maps identical**, including region IDs and
+  desired-connection order. CG seed 0 leaves the PRNG unseeded and is explicitly rejected.
+- Added `CgReplay.mapSeed()` (Java properties, signed long parsing), `gradlew cgMapValidate`
+  (fails on mismatches or missing input), and seven independent checked-in CG map fixtures
+  covering all possible heights. Regression coverage includes parallel generation and fresh
+  state as well as signed seed boundaries. `gradlew test`: **35 tests passed**;
+  `gradlew cgValidate`: **107/107 full games reproduced exactly**.
+- Integration: `gradlew run -Pbot0=current -Pbot1=v03 -Pseed=-176203007668178900` produced the
+  expected 23x15 map, 6 towns and 12 pairs (CG game 903182120); match completed, 0-0 in 100 turns.
+  Parallel smoke bench: `gradlew bench -Pbot1=v03 -Pbot2=v03 -Pgames=20 -Pthreads=2`, generated
+  seeds 1000..1019, W-L-D **5-9-6**, A **40.0% [21.9-61.3]**, avg 90.5 turns, no action errors,
+  7 seconds. Timing max 51 ms, with the existing local/JIT timing outliers; this is an
+  infrastructure smoke check, not evidence for promoting a bot version.
+- Decision: use the authentic generator by default, retain replay pools, close the GridMaker
+  PLAN item. No new bot version: strategy is unchanged. See `docs/map_generator.md` for
+  provenance, reproducibility details and commands.

@@ -145,7 +145,7 @@ public final class BenchmarkRunner {
         Maps maps = new Maps(arg(args, 3, ""));
         int threads = Integer.parseInt(arg(args, 4, String.valueOf(Math.max(1, Runtime.getRuntime().availableProcessors() - 1))));
         System.out.printf("bench %s vs %s: %d games, %d threads, maps=%s%n", a, b, games, threads,
-                maps.fromReplays() ? maps.poolSize() + " CG maps" : "procedural");
+                maps.fromReplays() ? maps.poolSize() + " CG maps" : "CG generator (SHA1PRNG)");
         long t0 = System.currentTimeMillis();
         Stats st = run(a, b, games, maps, threads, 1000);
         System.out.println(st.report());

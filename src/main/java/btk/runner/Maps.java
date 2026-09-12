@@ -9,13 +9,13 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Map source for runners: procedural by seed, or real maps taken from downloaded CG replays. */
+/** Map source for runners: authentic CG generation by seed, or maps from downloaded CG replays. */
 public final class Maps {
 
     private final List<GameState> pool = new ArrayList<>();
     private final List<String> names = new ArrayList<>();
 
-    /** @param dirOrFile empty = procedural only; directory of CG replays or a single replay file */
+    /** @param dirOrFile empty = authentic generator; directory of CG replays or a single replay file */
     public Maps(String dirOrFile) throws IOException {
         if (dirOrFile == null || dirOrFile.isEmpty()) return;
         Path p = Path.of(dirOrFile);

@@ -8,7 +8,7 @@ Downloaded by `gradlew cgFetch` into `replays/cg/<gameId>.json`. No login needed
 | field | meaning |
 |---|---|
 | `gameId` | id |
-| `refereeInput` | `seed=<long>` (CG map generator seed; our generator is different, so unused) |
+| `refereeInput` | Java properties containing `seed=<signed long>`; `CgReplay.mapSeed()` parses it and `cgMapValidate` checks exact map reproduction with `MapGenerator` |
 | `agents[]` | `{index (0/1 = player position), agentId, score, rank}` — no nicknames |
 | `btkNicknames` | added by CgFetch: `{"0": pseudo, "1": pseudo}` |
 | `ranks[]`, `scores[]` | final ranking; final scores are more reliably read from the last frame `endScreen` |

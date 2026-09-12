@@ -9,10 +9,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalLong;
+import java.util.Properties;
 
 /**
  * A CodinGame {@code gameResult/findByGameId} document as saved by {@link CgFetch}, with helpers
@@ -189,6 +192,24 @@ public final class CgReplay {
 
     public int turns() {
         return turnStdout.size();
+    }
+
+    /** Signed 64-bit map seed from the referee's Java properties; absent in some replay exports. */
+    public OptionalLong mapSeed() {
+        if (seed == null || seed.isBlank()) return OptionalLong.empty();
+        Properties input = new Properties();
+        try {
+            input.load(new StringReader(seed));
+        } catch (IOException e) {
+            throw new IllegalStateException("cannot read refereeInput for replay " + gameId, e);
+        }
+        String value = input.getProperty("seed");
+        if (value == null) return OptionalLong.empty();
+        try {
+            return OptionalLong.of(Long.parseLong(value.trim()));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("invalid refereeInput seed for replay " + gameId + ": " + value, e);
+        }
     }
 
     /** Loads every *.json replay in a directory (sorted by name). */

@@ -74,6 +74,15 @@ tasks.register<JavaExec>("cgValidate") {
     args = listOf(prop("path", "replays/cg"), prop("show", ""))
 }
 
+/** Regenerate maps from refereeInput seeds and compare every cell/town with replay viewer data. */
+tasks.register<JavaExec>("cgMapValidate") {
+    group = "cg"
+    description = "Validate the authentic map generator against downloaded CG replay seeds"
+    mainClass.set("btk.tools.CgMapValidate")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg"))
+}
+
 tasks.register<JavaExec>("cgStudy") {
     group = "cg"
     description = "Statistics on what top players do in downloaded replays; -Pbot=<spec> measures move agreement"
