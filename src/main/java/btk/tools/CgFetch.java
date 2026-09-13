@@ -82,18 +82,15 @@ public final class CgFetch {
                     continue;
                 }
                 JsonObject game = f.gameResult(gameId);
-                // attach nicknames from the battle record (gameResult agents lack them)
-                JsonArray players = b.getAsJsonArray("players");
-                JsonObject extra = new JsonObject();
-                for (JsonElement pe : players) {
-                    JsonObject p = pe.getAsJsonObject();
-                    extra.addProperty(String.valueOf(p.get("position").getAsInt()), p.get("nickname").getAsString());
-                }
-                game.add("btkNicknames", extra);
+                // lastBattles.players[].position is finishing order, not the in-game player index.
+                // Use gameResult.agents[].index so P0/P1 remain correct when P1 wins.
+                JsonObject extra = nicknamesByGameIndex(game, b);
+                if (extra.size() > 0) game.add("btkNicknames", extra);
                 Files.writeString(file, game.toString());
                 saved++;
                 System.out.printf("saved %s (%s vs %s)%n", file.getFileName(),
-                        extra.get("0").getAsString(), extra.has("1") ? extra.get("1").getAsString() : "?");
+                        extra.has("0") ? extra.get("0").getAsString() : "?",
+                        extra.has("1") ? extra.get("1").getAsString() : "?");
             }
         }
         System.out.printf("done: %d saved, %d already present%n", saved, skipped);
@@ -110,6 +107,35 @@ public final class CgFetch {
 
     JsonObject gameResult(long gameId) throws IOException, InterruptedException {
         return post("gameResult/findByGameId", "[" + gameId + ", null]").getAsJsonObject();
+    }
+
+    static JsonObject nicknamesByGameIndex(JsonObject game, JsonObject battle) {
+        JsonObject names = new JsonObject();
+        if (!game.has("agents") || !game.get("agents").isJsonArray()) return names;
+        JsonArray battlePlayers = battle.has("players") && battle.get("players").isJsonArray()
+                ? battle.getAsJsonArray("players") : new JsonArray();
+        for (JsonElement ae : game.getAsJsonArray("agents")) {
+            JsonObject agent = ae.getAsJsonObject();
+            if (!agent.has("index")) continue;
+            int index = agent.get("index").getAsInt();
+            JsonObject codingamer = agent.has("codingamer") && agent.get("codingamer").isJsonObject()
+                    ? agent.getAsJsonObject("codingamer") : null;
+            if (codingamer != null && codingamer.has("pseudo")) {
+                names.addProperty(String.valueOf(index), codingamer.get("pseudo").getAsString());
+                continue;
+            }
+            if (codingamer == null || !codingamer.has("userId")) continue;
+            long userId = codingamer.get("userId").getAsLong();
+            for (JsonElement pe : battlePlayers) {
+                JsonObject player = pe.getAsJsonObject();
+                if (player.has("userId") && player.get("userId").getAsLong() == userId
+                        && player.has("nickname")) {
+                    names.addProperty(String.valueOf(index), player.get("nickname").getAsString());
+                    break;
+                }
+            }
+        }
+        return names;
     }
 
     private JsonElement post(String service, String body) throws IOException, InterruptedException {

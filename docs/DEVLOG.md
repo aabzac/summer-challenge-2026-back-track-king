@@ -137,3 +137,18 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Workspace cleanup after an accidental IDE staging operation: removed `.idea`, `.gradle`,
   build/replay/temp artifacts and the module file from the Git index. Existing ignore rules
   cover them; local files were preserved.
+
+### CG replay player mapping fix
+
+- Hypothesis: `lastBattles.players[].position` identifies in-game P0/P1. Arena game 903337834
+  disproved it: the battle record listed winner `aabzac` at position 0, while the authoritative
+  game result had `MiniWall` at agent index 0 and reported `$0 has not provided 1 lines in time`.
+- Corpus check: 61/108 downloaded replays had `btkNicknames` reversed, exactly the 61 games whose
+  P1 won. Therefore battle `position` is finishing order, not game position.
+- Fix: `CgFetch` now keys names by `gameResult.agents[].index` (with a `userId` fallback), and
+  `CgReplay` treats the old `btkNicknames` as fallback rather than overriding authoritative agent
+  pseudonyms. Existing downloaded files are repaired at read time; no re-fetch is required.
+- Added regression tests for a P1-win/winner-first battle record. `gradlew test`: **48 tests
+  passed**. Targeted `cgValidate` now labels game 903337834 as `MiniWall vs aabzac`; its expected
+  remaining divergence is the separately identified unsupported timeout semantics. No rules or
+  strategy changed.

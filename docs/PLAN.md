@@ -44,6 +44,8 @@ Gaps measured in `BOTS.md` → "What top Gold players do". Candidate order:
 - [x] Harden comparisons: paired maps with fresh bots, fixed parameters for historical versions,
       full JSON reports, confidence grouped by distinct map, strict replay validation/input checks
       (see `benchmarking.md`).
+- [x] Fix CG replay player mapping: `lastBattles.players[].position` is finishing order, while
+      `gameResult.agents[].index` is the authoritative in-game P0/P1 position.
 
 ## Someday / maybe
 

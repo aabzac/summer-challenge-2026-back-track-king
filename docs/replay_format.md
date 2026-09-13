@@ -9,8 +9,8 @@ Downloaded by `gradlew cgFetch` into `replays/cg/<gameId>.json`. No login needed
 |---|---|
 | `gameId` | id |
 | `refereeInput` | Java properties containing `seed=<signed long>`; `CgReplay.mapSeed()` parses it and `cgMapValidate` checks exact map reproduction with `MapGenerator` |
-| `agents[]` | `{index (0/1 = player position), agentId, score, rank}` — no nicknames |
-| `btkNicknames` | added by CgFetch: `{"0": pseudo, "1": pseudo}` |
+| `agents[]` | `{index (0/1 = in-game player position), codingamer:{userId,pseudo}, agentId, score, rank}` — authoritative player mapping |
+| `btkNicknames` | compatibility field added by CgFetch, keyed by the authoritative `agents[].index`; the parser prefers `agents[].codingamer.pseudo` |
 | `ranks[]`, `scores[]` | final ranking; final scores are more reliably read from the last frame `endScreen` |
 | `metadata` | per-player stats, keys suffixed `_0/_1`: `tracksPlaced`, `tracksPlacedOnPlains/River/Mountains`, `zonesInked`, `enemyTracksInkedOut`, `ownTracksInkedOut`, `poisServed`, `totalPois`, `autobuildCalled`, `extraTilesInConnection`, `averageTrackOwnershipPercentagePerActiveConnection`, `executionTimeMs` |
 | `frames[]` | see below |

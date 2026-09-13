@@ -61,6 +61,13 @@ public final class CgReplay {
                 ? root.get("refereeInput").getAsString().trim() : "";
         r.metadata = root.has("metadata") && root.get("metadata").isJsonObject()
                 ? root.getAsJsonObject("metadata") : new JsonObject();
+        // Legacy fallback. Older CgFetch versions added this field, sometimes with P0/P1
+        // reversed because they mistook battle finishing order for the in-game index.
+        if (root.has("btkNicknames")) {
+            JsonObject n = root.getAsJsonObject("btkNicknames");
+            for (int p = 0; p < 2; p++) if (n.has(String.valueOf(p))) r.nicknames[p] = n.get(String.valueOf(p)).getAsString();
+        }
+        // gameResult.agents[].index is authoritative for the in-game player position.
         if (root.has("agents")) {
             for (JsonElement e : root.getAsJsonArray("agents")) {
                 JsonObject a = e.getAsJsonObject();
@@ -73,10 +80,6 @@ public final class CgReplay {
                 }
                 if (a.has("rank")) r.ranks[idx] = a.get("rank").getAsInt();
             }
-        }
-        if (root.has("btkNicknames")) {
-            JsonObject n = root.getAsJsonObject("btkNicknames");
-            for (int p = 0; p < 2; p++) if (n.has(String.valueOf(p))) r.nicknames[p] = n.get(String.valueOf(p)).getAsString();
         }
         if (root.has("ranks")) {
             JsonArray ranks = root.getAsJsonArray("ranks");
