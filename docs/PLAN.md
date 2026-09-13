@@ -7,7 +7,7 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 
 - [x] Gradle/Java 17 skeleton, package layout, `AGENTS.md`, Cursor rules
 - [x] `btk.core` rules engine shared by bot, referee and tools; JUnit tests
-- [x] CG replay download (`cgFetch`) and engine validation against them (`cgValidate`) — 107/107
+- [x] CG replay download (`cgFetch`) and engine validation against them (`cgValidate`) — 108/108
 - [x] Full rules inferred from Gold replays (ink at 4 disrupts, game end) — `docs/rules/inferred_gold.md`
 - [x] Referee, procedural + real maps, parallel benchmark with Wilson CI, side swap
 - [x] Process-level submission check (`procCheck`): protocol, first-turn warm-up, 50 ms turns
@@ -46,6 +46,8 @@ Gaps measured in `BOTS.md` → "What top Gold players do". Candidate order:
       (see `benchmarking.md`).
 - [x] Fix CG replay player mapping: `lastBattles.players[].position` is finishing order, while
       `gameResult.agents[].index` is the authoritative in-game P0/P1 position.
+- [x] Reproduce timeout-ending CG games: ignore retained late stdout, resolve the opponent's final
+      actions/scoring, and apply the timed-out player's terminal `-1` score.
 
 ## Someday / maybe
 

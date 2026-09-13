@@ -22,6 +22,10 @@ Downloaded by `gradlew cgFetch` into `replays/cg/<gameId>.json`. No login needed
   `view=" N\n{ "duration": ms, "graphics": "<events>" }"`). Each frame carries that agent's `stdout`
   (the full command line) — for BOTH players. `gameInformation`/`summary` are empty in this game.
 - Last keyframe also has `"endScreen": [[score0, score1], "logo.png", ["645 points", "913 points"]]`.
+- A timeout is reported in the terminal keyframe `summary`, for example
+  `$0 has not provided 1 lines in time`. CG may still retain that player's late `stdout`, but did
+  not apply it; `CgReplay.turnFailures` records the failure and `CgValidate` resolves that player
+  as `WAIT` before applying the terminal `-1` score.
 - Number of turns varies between games (observed 40 and 55) — the end condition is not yet known.
 
 ## Global graphics (map)

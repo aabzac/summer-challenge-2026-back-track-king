@@ -83,11 +83,22 @@ public final class CgValidate {
         Replay replay = new Replay(s, 0, r.nicknames[0], r.nicknames[1]);
         replay.meta.source = "cg-local";
         replay.meta.gameId = String.valueOf(r.gameId);
+        String[] serverFailures = new String[2];
         for (int t = 0; t < r.turns(); t++) {
             String[] lines = r.turnStdout.get(t);
             @SuppressWarnings("unchecked")
             List<Action>[] acts = new List[2];
+            boolean failedThisTurn = false;
             for (int p = 0; p < 2; p++) {
+                String failure = r.failure(t, p);
+                if (failure != null) {
+                    // CG may retain stdout that arrived after the deadline, but the referee does
+                    // not apply it. Keep the text in CgReplay and resolve this player as WAIT.
+                    acts[p] = List.of(Action.waitAction());
+                    serverFailures[p] = failure;
+                    failedThisTurn = true;
+                    continue;
+                }
                 try {
                     acts[p] = lines[p] == null ? List.of(Action.waitAction()) : Action.parseLine(lines[p]);
                 } catch (RuntimeException e) {
@@ -98,6 +109,15 @@ public final class CgValidate {
             int[] ownerBefore = s.owner.clone();
             Rules.TurnResult tr = Rules.resolve(s, acts[0], acts[1], pathing);
             replay.addTurn(s, acts, tr);
+            if (failedThisTurn) {
+                Replay.Turn replayTurn = replay.turns.get(replay.turns.size() - 1);
+                for (int p = 0; p < 2; p++) {
+                    if (r.failure(t, p) != null) {
+                        replayTurn.errors[p] = r.failure(t, p);
+                        replayTurn.score[p] = -1;
+                    }
+                }
+            }
             List<CgReplay.Event> events = t < r.turnEvents.size() ? r.turnEvents.get(t) : List.of();
             if (verbose) {
                 System.out.printf("-- turn %d  P0: %s | P1: %s%n", t, lines[0], lines[1]);
@@ -107,15 +127,26 @@ public final class CgValidate {
             if (o.firstDivergenceTurn >= 0 && !verbose) break;
             boolean over = Rules.gameOver(s, pathing);
             boolean cgOver = t == r.turns() - 1;
-            if (over != cgOver && o.firstDivergenceTurn < 0) {
+            if (failedThisTurn && !cgOver && o.firstDivergenceTurn < 0) {
+                note(o, t, "server failure recorded before the final CG turn");
+            } else if (!failedThisTurn && over != cgOver && o.firstDivergenceTurn < 0) {
                 note(o, t, over ? "local says game over (no pair connectable), CG continued to turn " + r.turns()
                         : "CG ended here, local would continue (pairs still connectable)");
             }
         }
         o.finalLocal[0] = s.score[0];
         o.finalLocal[1] = s.score[1];
-        if (o.firstDivergenceTurn < 0 && (r.finalScores[0] != s.score[0] || r.finalScores[1] != s.score[1])) {
-            note(o, r.turns(), "final score local " + s.score[0] + "-" + s.score[1] + " vs CG "
+        for (int p = 0; p < 2; p++) if (serverFailures[p] != null) o.finalLocal[p] = -1;
+        replay.meta.score = o.finalLocal.clone();
+        replay.meta.errors = serverFailures.clone();
+        if (serverFailures[0] != null && serverFailures[1] != null) replay.meta.winner = -1;
+        else if (serverFailures[0] != null) replay.meta.winner = 1;
+        else if (serverFailures[1] != null) replay.meta.winner = 0;
+        else replay.meta.winner = o.finalLocal[0] > o.finalLocal[1] ? 0
+                : o.finalLocal[1] > o.finalLocal[0] ? 1 : -1;
+        if (o.firstDivergenceTurn < 0
+                && (r.finalScores[0] != o.finalLocal[0] || r.finalScores[1] != o.finalLocal[1])) {
+            note(o, r.turns(), "final score local " + o.finalLocal[0] + "-" + o.finalLocal[1] + " vs CG "
                     + r.finalScores[0] + "-" + r.finalScores[1]);
         }
         o.replay = replay;

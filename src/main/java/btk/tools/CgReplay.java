@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalLong;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A CodinGame {@code gameResult/findByGameId} document as saved by {@link CgFetch}, with helpers
@@ -33,9 +35,14 @@ public final class CgReplay {
     public JsonObject metadata;
     /** turnStdout.get(t)[p] = raw stdout line of player p at turn t (null if missing). */
     public final List<String[]> turnStdout = new ArrayList<>();
+    /** Server-side failure for a player on a turn, such as a timeout; null when both succeeded. */
+    public final List<String[]> turnFailures = new ArrayList<>();
     /** Viewer events per turn (keyframe graphics parsed). */
     public final List<List<Event>> turnEvents = new ArrayList<>();
     public String globalGraphics;
+
+    private static final Pattern TIMEOUT = Pattern.compile(
+            "\\$(\\d+) has not provided \\d+ lines? in time", Pattern.CASE_INSENSITIVE);
 
     /** One viewer event: {@code type|start|end|data}. */
     public static final class Event {
@@ -103,6 +110,15 @@ public final class CgReplay {
             if (keyframe) {
                 r.turnStdout.add(current);
                 current = null;
+                String[] failures = new String[2];
+                if (f.has("summary") && !f.get("summary").isJsonNull()) {
+                    Matcher timeout = TIMEOUT.matcher(f.get("summary").getAsString());
+                    while (timeout.find()) {
+                        int player = Integer.parseInt(timeout.group(1));
+                        if (player >= 0 && player < failures.length) failures[player] = timeout.group();
+                    }
+                }
+                r.turnFailures.add(failures);
                 List<Event> events = new ArrayList<>();
                 JsonObject v = viewJson(f.get("view").getAsString());
                 if (v != null && v.has("graphics")) parseEvents(v.get("graphics").getAsString(), events);
@@ -115,8 +131,16 @@ public final class CgReplay {
                 }
             }
         }
-        if (current != null) r.turnStdout.add(current);
+        if (current != null) {
+            r.turnStdout.add(current);
+            r.turnFailures.add(new String[2]);
+        }
         return r;
+    }
+
+    public String failure(int turn, int player) {
+        return turn >= 0 && turn < turnFailures.size() && player >= 0 && player < 2
+                ? turnFailures.get(turn)[player] : null;
     }
 
     /** View strings look like {@code " 12\n{json}"}; the JSON part may be missing. */

@@ -152,3 +152,18 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   passed**. Targeted `cgValidate` now labels game 903337834 as `MiniWall vs aabzac`; its expected
   remaining divergence is the separately identified unsupported timeout semantics. No rules or
   strategy changed.
+
+### CG replay timeout handling
+
+- Hypothesis: CG retains a timed-out player's late stdout in the game result but does not apply
+  it. Game 903337834 confirms this: `$0` (`MiniWall`) timed out, its three late placements are
+  present in stdout but absent from viewer events, while P1's actions and scoring completed.
+- `CgReplay` now parses timeout summaries per turn/player. `CgValidate` preserves the late text
+  for diagnostics, resolves the failed player as `WAIT`, still checks the opponent's terminal
+  actions and scoring, then applies the server-side `-1` result and records the failure in the
+  generated visualizer replay. No `btk.core` rule was added because process timeouts are outside
+  game semantics.
+- Validation: `gradlew test` passed **49 tests**; targeted game 903337834 now reproduces exactly
+  as `MiniWall vs aabzac`, 7 turns, final **-1–57**; the full corpus is **108/108 exact**. The
+  generated final visualizer turn shows MiniWall's effective action as `WAIT`, the timeout error,
+  a `-1–57` score, and a P1 win.
