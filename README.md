@@ -17,6 +17,7 @@ gradlew cgFetch -Pgame=903337834               # download one known arena/IDE ga
 gradlew cgValidate                             # validate our engine against the arena replay corpus
 gradlew cgRender -Ppath=replays/cg/903337834.json # validated replay -> rendered/cg/arena
 gradlew cgMapValidate                          # regenerate CG maps from refereeInput seeds, compare exactly
+gradlew cgAnalyze -Pagent=6735801               # validated games of one arena entry -> build/analysis/
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -47,13 +48,30 @@ gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000 "-Po
 ```
 
 Every run saves a JSON report (by default under `build/bench/`) containing full resolved
-parameters, seeds, map hashes, both games in each pair and timing. Confidence is grouped by
+parameters, seeds, map hashes, both games in each pair and timing. `bench`, `run` and `cgStudy`
+use nominal CG search budgets (486 ms first / 36 ms later); `-Ptiming=legacy` restores the old
+1000/50-ms local allowance. The profile is saved in each bench report. Confidence is grouped by
 distinct map; replaying the same map does not manufacture independent evidence. The old
 per-game Wilson interval is retained as a diagnostic, not as the promotion gate. See
 [docs/benchmarking.md](docs/benchmarking.md) for details and the version-freezing procedure.
 
 Explicit empty or malformed replay pools fail instead of silently switching to generated maps.
 `cgValidate` also exits with an error for divergences, malformed input or an empty replay corpus.
+
+For arena diagnosis, fetch the player's latest games, then analyze the agent id printed by the
+fetcher (keeps different arena entries separate):
+
+```bash
+gradlew cgFetch -Pplayer=aabzac -Plimit=50
+gradlew cgAnalyze -Pagent=6735801
+```
+
+`cgAnalyze` validates each selected arena replay before reporting accepted placements/paint,
+disrupts, first income and per-turn diagnostics. All per-player arrays in its JSON are indexed
+by P0/P1; each game records `me`. Turns are zero-based. Counterfactuals change only the current
+simultaneous turn and then reset to the recorded state; their score deltas are not projected
+match outcomes and must not be summed as lost final points. Failed-server turns have no
+counterfactual recommendations. Boss replays are excluded.
 
 ## Authentic maps by seed
 

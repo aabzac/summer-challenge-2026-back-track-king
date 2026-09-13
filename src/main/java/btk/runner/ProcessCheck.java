@@ -5,6 +5,7 @@ import btk.bot.BotFactory;
 import btk.core.GameState;
 import btk.referee.Referee;
 import btk.submit.FileMerger;
+import btk.submit.CGRunner;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,10 +30,12 @@ public final class ProcessCheck {
             long seed = 7000 + g;
             GameState initial = maps.get(g, seed);
             ProcessBot pb = ProcessBot.javaPlayer("build/submit/classes");
-            Bot other = BotFactory.create(opp);
+            Bot other = TimingProfile.CG.cap(BotFactory.create(opp));
             boolean asP0 = g % 2 == 0;
             Referee ref = new Referee();
-            ref.turnBudgetMs = 50;
+            // Process IO deadlines must not be reduced to the in-process search budget.
+            ref.firstTurnBudgetMs = CGRunner.FIRST_TURN_MS;
+            ref.turnBudgetMs = CGRunner.TURN_MS;
             Referee.Result r = ref.play(initial, asP0 ? pb : other, asP0 ? other : pb, seed, false);
             pb.close();
             int me = asP0 ? 0 : 1;

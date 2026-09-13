@@ -242,7 +242,7 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Hypothesis: when no route increases income immediately, spend otherwise idle paint on an
   alternate route that restores income after the most vulnerable active-path region is inked.
 - The targeted test confirmed the intended behavior. On the 108-replay policy study, placement
-  frequency moved only **73% → 74%** and paint **1.76 → 1.79 per turn**. Paired benchmark versus
+  frequency moved only **73% → 74%** and placed cells **1.76 → 1.79 per turn**. Paired benchmark versus
   frozen v03 on 100 generated maps (200 games, seed 2000): **51.5%**, W-L-D **88-82-30**,
   map-grouped 95% CI **[37.9%, 65.1%]**, average score difference +227.1.
 - Decision: promotion gate not passed and the measured idle-turn gap barely changed; remove the
@@ -264,15 +264,70 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Hypothesis: current places on 73% of replay states versus 88% for top Silver players. When no
   complete route raises the evaluation, use leftover paint to grow from existing own rails or a
   town, prefer uninkable town regions, and avoid non-town regions already at instability 2+.
-- Policy study: placement frequency **73% → 100%**, paint **1.76 → 2.44/3**, adjacency to own rails
-  **36% → 53%** (top players: 51%). Immediate-income-raising turns fell 23% → 17%, so strength was
+- Policy study: placement frequency **73% → 100%**, placed cells **1.76 → 2.44 per turn**, adjacency to own rails
+  **36% → 53%** (top players: 51%). Income-raising rate among placement turns fell 23% → 17%, so strength was
   decided by the paired benchmark rather than behavioral similarity.
 - Versus frozen v03 on 150 generated maps (300 paired games, seed 2000): **64.7%**, W-L-D
   **194-106-0**, map-grouped 95% CI **[53.6%, 75.8%]**, average score difference +405.3. The
   promotion gate passed. A 100-game v02 spot-check gave 54%, exactly matching a v03-v02 control on
-  the same 50 maps; no detected non-transitive regression.
+  the same 50 maps. Equal point estimates on this small sample do not establish equivalence or
+  prove absence of a non-transitive regression.
 - `submit` compile check passed. Eight process games against v03 had no errors/timeouts; first turn
   max 745 ms and later-turn max 43 ms. Frozen as v04 and retained in `current`.
 - Manual CG check: v04 beat the currently available boss **7/7**. This confirms stability but is
   not treated as a strength benchmark because Gold is still closed and the boss may be weak;
   promotion remains provisional until games against real Silver arena opponents are observed.
+
+### CG search-budget alignment and first v04 arena loss study (2026-09-14)
+
+- Hypothesis: the previous local 1000/50-ms search allowance overestimates the submission's
+  effective budget, and comparisons against related strategies miss arena-specific failures.
+- Added `TimingProfile.CG` derived from `CGRunner` constants: nominal first/later search
+  **486/36 ms**, default for bench/run/cgStudy. Explicit `-Ptiming=legacy` retains **1000/50 ms**
+  for controls. Bench schema v2 records both budgets and profile. The local opponent in
+  `procCheck` is capped, but external process IO deadlines stay **1000/50 ms** plus existing
+  30-ms local grace. Actual CG preparation time, CPU and JIT history remain different; these
+  are search allowances, not a claim of exact process emulation.
+- Control experiment (not a new strategy): frozen v04 vs v03, new generated seeds **4000..4149**,
+  **300 games / 150 side-swapped pairs**, 2 threads, profiles run sequentially:
+  - CG: **63.7%**, W-L-D **191-109-0**, map-grouped 95% CI **[52.6%, 74.8%]**,
+    mean score diff **+249.1**, 80.9 turns, 216.1 s; no bot errors.
+    Report: `build/bench/v04-v03-cg-4000.json`.
+  - Legacy: **63.7%**, W-L-D **191-109-0**, same CI, mean score diff **+334.2**,
+    79.7 turns, 196.6 s; no bot errors. Report: `build/bench/v04-v03-legacy-4000.json`.
+  - All 150 map hashes match. Winners differ in **36/300** individual games despite equal
+    aggregate rates. This does not prove timing has no effect; it shows the previous-version
+    advantage survives alignment. Both bots share the same phase scheduling weakness.
+- Fetched **50** latest completed games for `aabzac`, current agent **6735801**. API snapshot:
+  rank **477**, score **11.78**; placement completion and source hash are not available here.
+  All new games and maps reproduce exactly: **158/158** for both full corpora.
+- Added `cgAnalyze -Pagent=<id>` with validation as a hard precondition, correct P0/P1 mapping,
+  accepted actions/paint, per-turn traces and **same-turn-only** counterfactuals. Server failures
+  ignore late stdout and disable counterfactual advice. Tests cover AUTOPLACE/paint, mutation
+  isolation, both player perspectives, simultaneous disruption, timeouts and invalid input.
+- Observations: **23 wins / 27 losses**, no server timeouts. Heights 14-17: **18/20 wins**;
+  heights 19-20: **1/20**. In losses our disruption rate is **40.1%**, opponents' **82.4%**;
+  **20/27** losses last 100 turns. Opponents differ across size strata: these are exploratory
+  signals, not a causal map-size estimate or arena win-rate confidence interval.
+- Local probes on actual large-map states reproduce route search exhausting the timer before
+  sabotage. At t40 in game **903509641**, 36/50 ms omit sabotage, while diagnostic 200 ms finds
+  DISRUPT 46. The behavior persists with idle extension disabled; similarly reproduced in
+  **903508669**. Captured stdout lacks per-phase timings, so not every missing arena command
+  can be attributed conclusively to the deadline. Local probe report/source are retained under
+  `build/analysis/timing-probes.json` and `tmp/ProbeReplayTiming.java`.
+- A separate partial-build issue appears in **903507615**: at t46, placing (12,2) changes income
+  from the no-build alternative **433-300** to **410-315**, worsening current score difference
+  by **38**. Both players' disruption commands are held fixed. The cell is also chosen with
+  idle extension disabled, so it is not evidence specifically against v04's fallback.
+- Rendered games 903509641, 903508669 and 903507615 under `replays/rendered/cg/arena/`. Visually
+  checked the ChaosCat t40 and DiogoGiassi t46 episodes (viewer sliders **41** and **47**, since
+  position 0 is the initial state); their actions and income match the diagnostic trace.
+- Final checks: **63 JUnit tests passed**, `submit` compile check passed; `procCheck` **0/4 problem
+  games**, first response max **765 ms**, later max **43 ms**. Some turns exceed the internal
+  36-ms target but stay below the external 50-ms limit. `Player.java` SHA-256 is unchanged:
+  `af6978a5f34d3049168e5c93ae3e0f29abc94b24b7b467de8f0b0788bd4e933c`.
+- Decision: keep v04 and its parameters unchanged, no new version/submission. Next experiment:
+  guarantee time for sabotage before spending the full allowance on route search; then tackle
+  partial-build safety separately and broaden reference opponents. Detailed findings and caveats
+  are in `arena-analysis-2026-09-14.md`. Also corrected old policy-study descriptions: cells are
+  not paint, and the income-raising percentage uses placement turns as its denominator.

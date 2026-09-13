@@ -46,7 +46,29 @@ Full commands, timing limitations and validation results are recorded in `DEVLOG
   29% of their cells go to regions shared with the opponent (hostage effect), 20% to town regions
   (uninkable), 51% adjacent to own tracks.
 - v04 agrees on 15.8% of winner placement cells; its 53% adjacency to own rails closely matches
-  the winners' 51%, but only 17% of its turns immediately raise income versus their 31%.
+  the winners' 51%. The reported 17% versus 31% income-raising rate is **among turns with
+  placements**, not all turns. The hypothetical placement-only check ignores simultaneous
+  sabotage and does not measure how the bot's own games develop.
+
+These historical policy-study measurements are diagnostics, not arena outcomes. Counts such as
+1.76 and 2.44 are **cells/turn**, not paint/turn. Legacy study counts only explicit PLACE_TRACKS
+commands (not accepted AUTOPLACE expansion) and is not the player-specific loss-analysis tool.
+
+## v04 arena diagnostic checkpoint (2026-09-14)
+
+- Public API snapshot: `aabzac`, agent **6735801**, rank **477**, score **11.78**; placement
+  completion was not independently established. Latest 50 completed games: **23 wins / 27 losses**,
+  no server timeouts. This matchmaking-selected sample is not an independent strength benchmark.
+- Height 14-17: **18/20 wins**; height 18: **4/10**; height 19-20: **1/20**. Opponents differ, so
+  these are exploratory strata rather than a causal estimate of map size.
+- Captured large-map states reproduce loss of the sabotage phase under tight search budgets;
+  it runs after route search on the same timer. This also happens with idle extension disabled.
+- Full findings, one-turn placement counterexamples and limits: `arena-analysis-2026-09-14.md`.
+- No strategy change / no v05. Timing-aligned v04-v03 control on new seeds 4000..4149:
+  **63.7%**, W-L-D **191-109-0**, 300 games, map-grouped 95% CI **[52.6%, 74.8%]**.
+  The previous-version advantage persists under the smaller allowance; it does not establish
+  broader arena strength. Equal 54% estimates against v02 from the old small control did not
+  establish equivalence or prove non-regression.
 
 ## Known gaps (to become versions)
 

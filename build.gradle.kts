@@ -35,7 +35,7 @@ fun prop(name: String, default: String): String =
 
 /** One local game, writes replays/local/game_<ts>_<seed>.json. -Pbot0 -Pbot1 -Pseed -Pmap */
 tasks.named<JavaExec>("run") {
-    args = listOf(prop("bot0", "current"), prop("bot1", "v01"), prop("seed", ""), prop("map", ""))
+    args = listOf(prop("bot0", "current"), prop("bot1", "v01"), prop("seed", ""), prop("map", ""), prop("timing", "cg"))
 }
 
 /** Paired-map arena. -Pbot1 -Pbot2 -Pgames (even) -Pmaps -Pthreads -Pseed -Pout (JSON report) */
@@ -45,7 +45,7 @@ tasks.register<JavaExec>("bench") {
     mainClass.set("btk.runner.BenchmarkRunner")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("bot1", "current"), prop("bot2", "v01"), prop("games", "200"),
-        prop("maps", ""), prop("threads", ""), prop("seed", "1000"), prop("out", ""))
+        prop("maps", ""), prop("threads", ""), prop("seed", "1000"), prop("out", ""), prop("timing", "cg"))
 }
 
 /** Merge core + bot.current into build/submit/Player.java and compile-check it. */
@@ -98,7 +98,15 @@ tasks.register<JavaExec>("cgStudy") {
     description = "Statistics on what top players do in downloaded replays; -Pbot=<spec> measures move agreement"
     mainClass.set("btk.tools.CgPolicyStudy")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg"), prop("bot", ""))
+    args = listOf(prop("path", "replays/cg"), prop("bot", ""), prop("timing", "cg"))
+}
+
+tasks.register<JavaExec>("cgAnalyze") {
+    group = "cg"
+    description = "Analyze validated arena games for one agent, including same-turn counterfactual diagnostics"
+    mainClass.set("btk.tools.CgPlayerStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""))
 }
 
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */

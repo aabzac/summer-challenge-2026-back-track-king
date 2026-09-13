@@ -24,7 +24,7 @@ import java.util.function.Function;
 /**
  * Two games on each map, A as P0 and P1, with fresh bots for each game.
  * Map pairs run in parallel. Draws count as half a win; uncertainty is grouped by map.
- * Args: bot1 bot2 games [mapsDir] [threads] [baseSeed] [reportJson]
+ * Args: bot1 bot2 games [mapsDir] [threads] [baseSeed] [reportJson] [timingProfile]
  */
 public final class BenchmarkRunner {
     /** Scores inside each result are indexed by player position, not by A/B. */
@@ -39,6 +39,9 @@ public final class BenchmarkRunner {
         public long baseSeed, elapsedMs;
         public int threads;
         public String mapsInput = "";
+        public TimingProfile timingProfile = TimingProfile.CG;
+        public long firstSearchBudgetMs = TimingProfile.CG.firstSearchMs;
+        public long turnSearchBudgetMs = TimingProfile.CG.turnSearchMs;
         public int games, winsA, winsB, draws, errorsA, errorsB;
         public int winsAasP0, gamesAasP0, winsAasP1, gamesAasP1;
         public long sumDiff;
@@ -98,6 +101,8 @@ public final class BenchmarkRunner {
             sb.append(String.format("  %s vs %s (%d games, %d pairs, %d distinct maps)%n",
                     a, b, games, pairs.size(), gamesPerMap.size()));
             sb.append(String.format("  A win rate: %.1f%%  W-L-D %d-%d-%d%n", rateA() * 100, winsA, winsB, draws));
+            sb.append(String.format("  search timing: %s, first %d ms / later %d ms (nominal, no protocol/JIT warm-up)%n",
+                    timingProfile, firstSearchBudgetMs, turnSearchBudgetMs));
             sb.append(String.format("  map-grouped 95%% CI (Hoeffding): %.1f%% .. %.1f%%%n", ci[0] * 100, ci[1] * 100));
             sb.append(String.format("  legacy per-game Wilson (diagnostic only): %.1f%% .. %.1f%%%n", legacy[0] * 100, legacy[1] * 100));
             sb.append(String.format("  A as P0: %d/%d (%.1f%%)   A as P1: %d/%d (%.1f%%)%n",
@@ -117,7 +122,7 @@ public final class BenchmarkRunner {
             Files.createDirectories(file.toAbsolutePath().getParent());
             var gson = new GsonBuilder().setPrettyPrinting().create();
             var json = gson.toJsonTree(this).getAsJsonObject();
-            json.addProperty("schemaVersion", 1);
+            json.addProperty("schemaVersion", 2);
             json.addProperty("confidenceMethod", "map-grouped Hoeffding 95%; assumes independent representative maps");
             json.add("confidence95", gson.toJsonTree(confidence95()));
             json.addProperty("promotionGatePassed", promotionGatePassed());
@@ -167,12 +172,22 @@ public final class BenchmarkRunner {
     }
 
     public static Stats run(String specA, String specB, int games, Maps maps, int threads, long baseSeed) throws Exception {
-        return run(specA, specB, games, maps, threads, baseSeed, BotFactory::create);
+        return run(specA, specB, games, maps, threads, baseSeed, TimingProfile.CG, BotFactory::create);
+    }
+
+    public static Stats run(String specA, String specB, int games, Maps maps, int threads, long baseSeed,
+                            TimingProfile timing) throws Exception {
+        return run(specA, specB, games, maps, threads, baseSeed, timing, BotFactory::create);
     }
 
     // Factory injection lets tests observe the actual states and player positions.
     static Stats run(String specA, String specB, int games, Maps maps, int threads, long baseSeed,
                      Function<String, Bot> bots) throws Exception {
+        return run(specA, specB, games, maps, threads, baseSeed, TimingProfile.CG, bots);
+    }
+
+    static Stats run(String specA, String specB, int games, Maps maps, int threads, long baseSeed,
+                     TimingProfile timing, Function<String, Bot> bots) throws Exception {
         if (games < 2 || games % 2 != 0) throw new IllegalArgumentException("games must be positive and even (two per map)");
         if (threads < 1) throw new IllegalArgumentException("threads must be positive");
         long lastSeed = Math.addExact(baseSeed, games / 2L - 1);
@@ -180,6 +195,9 @@ public final class BenchmarkRunner {
             throw new IllegalArgumentException("generated seed range must not contain zero");
         }
         Stats stats = new Stats(specA, specB); // Validate specs before starting workers.
+        stats.timingProfile = timing;
+        stats.firstSearchBudgetMs = timing.firstSearchMs;
+        stats.turnSearchBudgetMs = timing.turnSearchMs;
         stats.baseSeed = baseSeed;
         stats.threads = threads;
         long started = System.nanoTime();
@@ -194,6 +212,7 @@ public final class BenchmarkRunner {
                     String hash = HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256")
                             .digest(Protocol.initBlock(initial, 0).getBytes(StandardCharsets.UTF_8)));
                     Referee referee = new Referee();
+                    timing.apply(referee);
                     Referee.Result first = referee.play(initial, bots.apply(specA), bots.apply(specB), seed, false);
                     if (Thread.currentThread().isInterrupted()) throw new InterruptedException("benchmark cancelled");
                     Referee.Result second = referee.play(initial, bots.apply(specB), bots.apply(specA), seed, false);
@@ -223,7 +242,8 @@ public final class BenchmarkRunner {
         long baseSeed = Long.parseLong(arg(args, 5, "1000"));
         System.out.printf("bench %s vs %s: %d games, %d threads, maps=%s, base seed=%d%n", a, b, games, threads,
                 maps.fromReplays() ? maps.poolSize() + " CG maps" : "CG generator (SHA1PRNG)", baseSeed);
-        Stats stats = run(a, b, games, maps, threads, baseSeed);
+        TimingProfile timing = TimingProfile.parse(arg(args, 7, "cg"));
+        Stats stats = run(a, b, games, maps, threads, baseSeed, timing);
         stats.mapsInput = mapsInput;
         System.out.println(stats.report());
         System.out.printf("  %.1fs%n", stats.elapsedMs / 1000.0);

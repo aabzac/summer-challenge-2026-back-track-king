@@ -53,6 +53,15 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       `gameResult.agents[].index` is the authoritative in-game P0/P1 position.
 - [x] Reproduce timeout-ending CG games: ignore retained late stdout, resolve the opponent's final
       actions/scoring, and apply the timed-out player's terminal `-1` score.
+- [x] Align local search budgets with CG's margin/warm-up allowance; explicit legacy control,
+      timing profile recorded in bench JSON. Actual process IO remains a separate check.
+- [x] Analyze 50 fresh games of arena agent 6735801 after exact validation: 23 wins / 27 losses;
+      large-map collapse and disruption starvation identified (see `arena-analysis-2026-09-14.md`).
+- [ ] Guarantee time for sabotage on large maps: reserve a phase budget / compute a fallback
+      before route search; verify on captured failure states and varied opponents before promotion.
+- [ ] Check actual partial placements against score-difference regressions, not only the value
+      of a fully completed candidate route. Do not attribute every bad build to idle extension.
+- [ ] Add map-size-stratified reports and independent held-out maps; broaden the opponent pool.
 
 ## Someday / maybe
 

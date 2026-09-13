@@ -71,6 +71,8 @@ class BenchmarkRunnerTest {
         JsonObject json = JsonParser.parseString(Files.readString(report)).getAsJsonObject();
         assertEquals(5, json.getAsJsonArray("pairs").size());
         assertEquals(500L, json.get("baseSeed").getAsLong());
+        assertEquals("CG", json.get("timingProfile").getAsString());
+        assertEquals(TimingProfile.CG.turnSearchMs, json.get("turnSearchBudgetMs").getAsLong());
         assertEquals("0.1", json.getAsJsonObject("paramsA").get("NOISE").getAsString());
         assertFalse(json.get("promotionGatePassed").getAsBoolean());
     }

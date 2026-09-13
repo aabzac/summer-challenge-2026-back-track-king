@@ -17,6 +17,31 @@ The benchmark's wall-clock budget can still make decisions sensitive to JIT, CPU
 GC. Fixed maps and parameters reproduce inputs, not necessarily every timed search decision.
 Use few worker threads for confirmation runs and check submission timing with `procCheck`.
 
+## Search-time profiles
+
+`bench`, `run` and the optional local bot in `cgStudy` now default to `-Ptiming=cg`:
+
+- First search: `CGRunner.FIRST_TURN_MS - MARGIN_MS - WARMUP_MS` = **486 ms**.
+- Later searches: `CGRunner.TURN_MS - MARGIN_MS` = **36 ms**.
+- `-Ptiming=legacy` explicitly restores the historical local **1000/50 ms** allowance.
+  Historical `cgStudy` used a separate hard-coded 40 ms, not this legacy profile.
+
+These are **nominal search budgets**, not exact CG execution emulation: the in-process runners
+do not parse the protocol or run the submission's 500-ms JIT warm-up. The actual CG runner also
+subtracts elapsed parsing/state preparation and actual warm-up time, so it can give less time.
+CPU speed, JIT history, RNG consumed by warm-up, GC and scheduling still differ. No extra warm-up
+is charged on every local game. No submission constants or strategy were changed by this fix.
+
+The profile and both numerical budgets are saved in report schema v2 and printed in the console.
+Reports without these fields predate alignment; do not silently compare them as equivalent runs.
+`procCheck` caps only its **in-process opponent** to CG search budgets. Its external Player keeps
+the full 1000/50-ms IO deadlines (and the existing 30-ms local process grace); do not subtract the
+margin twice. Inspect measured response times, not just the timeout count.
+
+For a timing-control experiment, run both profiles sequentially on the same new seed range and
+same frozen bots. Do not run other CPU-heavy jobs concurrently. This tests sensitivity to the
+budget, not arena strength; both reference bots may have the same scheduling weakness.
+
 ## Frozen configurations
 
 `Params` remains the live source of defaults for `current` and the submitted `main` bot.

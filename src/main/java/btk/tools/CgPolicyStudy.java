@@ -6,6 +6,7 @@ import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
 import btk.core.Rules;
+import btk.runner.TimingProfile;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public final class CgPolicyStudy {
     public static void main(String[] args) throws Exception {
         Path dir = Path.of(args.length > 0 && !args[0].isEmpty() ? args[0] : "replays/cg");
         String botSpec = args.length > 1 && !args[1].isEmpty() ? args[1] : null;
+        TimingProfile timing = TimingProfile.parse(args.length > 2 ? args[2] : "cg");
+        if (botSpec != null) System.out.printf("search timing: %s, first %d ms / later %d ms%n",
+                timing, timing.firstSearchMs, timing.turnSearchMs);
 
         int games = 0, ended100 = 0, closedByLeader = 0, closedByTrailer = 0, leaderWonEarly = 0;
         long topTurns = 0, topDisruptTurns = 0, topPaint = 0, topPaintMax = 0, topXY = 0;
@@ -91,7 +95,7 @@ public final class CgPolicyStudy {
                 }
                 // --- our bot on the same state ---
                 if (bot != null) {
-                    List<Action> mine = bot.play(s.copy(), top, 40);
+                    List<Action> mine = bot.play(s.copy(), top, timing.budget(t));
                     Set<Integer> myCells = new HashSet<>();
                     int myRegion = -1;
                     for (Action a : mine) {
