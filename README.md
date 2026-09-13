@@ -30,9 +30,28 @@ mirror each other and every game is a draw.
 | `btk.bot` | `Bot` interface, `Params` (all tunables, overridable as `current?KEY=v&K2=v`), `Timer`, `MainBot` (what ships), `BotFactory`, `current/` working strategy, `vNN/` frozen versions |
 | `btk.submit` | `CGRunner` (CG entry point: fast parsing, JIT warm-up on turn 1, connection cross-check), `FileMerger` (single `Player.java`) |
 | `btk.referee` | `Referee` (in-process games), `MapGenerator`/`GridMaker` (authentic CG maps by seed), `Replay` (visualizer JSON) |
-| `btk.runner` | `LocalRunner`, `BenchmarkRunner` (parallel, side swap, Wilson CI), `Maps` (authentic generation or replay maps), `ProcessBot`/`ProcessCheck` |
+| `btk.runner` | `LocalRunner`, `BenchmarkRunner` (paired maps, confidence grouped by map, JSON reports), `Maps` (authentic generation or replay maps), `ProcessBot`/`ProcessCheck` |
 | `btk.tools` | `CgFetch` (leaderboard -> battles -> gameResult), `CgReplay` (parse + rebuild map), `CgValidate` (engine vs CG events), `CgMapValidate` (generated maps vs CG viewer data) |
 | `visualizer/index.html` | drag & drop a replay JSON; paths, ownership per connection, hover info |
+
+## Reproducible benchmarks
+
+`bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
+P0 and P1. Reference bots `v01`–`v03` load fixed parameter snapshots; explicit query overrides
+are applied afterward. `current` uses the live `Params` defaults.
+
+```bash
+gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000 "-Pout=build/bench/current-v03.json"
+```
+
+Every run saves a JSON report (by default under `build/bench/`) containing full resolved
+parameters, seeds, map hashes, both games in each pair and timing. Confidence is grouped by
+distinct map; replaying the same map does not manufacture independent evidence. The old
+per-game Wilson interval is retained as a diagnostic, not as the promotion gate. See
+[docs/benchmarking.md](docs/benchmarking.md) for details and the version-freezing procedure.
+
+Explicit empty or malformed replay pools fail instead of silently switching to generated maps.
+`cgValidate` also exits with an error for divergences, malformed input or an empty replay corpus.
 
 ## Authentic maps by seed
 

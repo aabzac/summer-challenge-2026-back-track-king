@@ -102,3 +102,38 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Decision: use the authentic generator by default, retain replay pools, close the GridMaker
   PLAN item. No new bot version: strategy is unchanged. See `docs/map_generator.md` for
   provenance, reproducibility details and commands.
+
+### Paired benchmarks and fixed reference parameters
+
+- Hypothesis: swapping sides on the same map and fixing reference parameters will make local
+  comparisons more reliable. Previously side swaps changed the map too, and changing `Params`
+  defaults silently changed historical opponents.
+- Each benchmark pair now plays the same initial map twice with fresh bots and swapped sides.
+  Generated seeds advance per pair; replay pools wrap per pair. Reports save full resolved
+  parameters, map hashes, both game results, seeds, timing and the statistical gate as JSON.
+  The primary 95% interval groups repeated maps and uses a conservative Hoeffding bound;
+  the old per-game Wilson interval remains diagnostic only.
+- Added explicit v01/v02/v03 parameter snapshots of the effective defaults at `8364ad5`.
+  These preserve the current reference checkpoint, not every original historical benchmark's
+  configuration. Overrides apply after snapshots; frozen strategy packages are unchanged.
+  Empty/malformed explicit map pools and failed/empty `cgValidate` runs now fail the command.
+- Validation: `gradlew test cgValidate cgMapValidate` passed: **46 tests**, **107/107 full games**,
+  **107/107 generated maps**. Regression tests cover actual paired inputs and bot lifetimes,
+  repeated replay maps, report contents, snapshot independence and validation failures.
+- Sanity bench: `gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000
+  "-Pout=build/bench/paired-current-v03.json"`: 100 distinct generated maps, seeds 1000..1099,
+  W-L-D **86-82-32**, A **51.0%**, map-grouped 95% CI **[37.4%, 64.6%]**, mean score diff
+  **+102.0**, 86.9 turns, no bot errors, 64.8 seconds. Current and v03 have the same strategy;
+  this is consistent with parity. Timed decisions can still vary with JIT/GC and scheduling.
+- Older-opponent smoke check: `gradlew bench -Pbot1=current -Pbot2=v02 -Pgames=40 -Pthreads=2
+  -Pmaps=replays/cg "-Pout=build/bench/paired-current-v02-replays.json"`: 20 distinct replay maps,
+  W-L-D **22-14-4**, A **60.0%**, map-grouped 95% CI **[29.6%, 90.4%]**, mean score diff
+  **+228.4**, 88.2 turns, no bot errors, 10.2 seconds. This sample is too small for promotion.
+  Maximum local move times were 51/52 ms in the first run and 53/20 ms in the second;
+  these runs do not establish submission timing safety.
+- Decision: adopt paired comparisons and parameter snapshots; no strategy change or new bot
+  version. Neither run passes the statistical promotion gate. Procedure and assumptions are
+  documented in `docs/benchmarking.md`, and the infrastructure PLAN item is complete.
+- Workspace cleanup after an accidental IDE staging operation: removed `.idea`, `.gradle`,
+  build/replay/temp artifacts and the module file from the Git index. Existing ignore rules
+  cover them; local files were preserved.

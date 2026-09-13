@@ -41,6 +41,9 @@ Gaps measured in `BOTS.md` → "What top Gold players do". Candidate order:
 - [ ] Short lookahead: 2-3 turn plan search over (placements, disrupt) with the engine
 - [ ] Parameter tuning only after the above, with >= 1000-game benches
 - [ ] Check timing after every hot-path change (`procCheck`), keep first turn < 800 ms
+- [x] Harden comparisons: paired maps with fresh bots, fixed parameters for historical versions,
+      full JSON reports, confidence grouped by distinct map, strict replay validation/input checks
+      (see `benchmarking.md`).
 
 ## Someday / maybe
 

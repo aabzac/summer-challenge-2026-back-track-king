@@ -38,14 +38,14 @@ tasks.named<JavaExec>("run") {
     args = listOf(prop("bot0", "current"), prop("bot1", "v01"), prop("seed", ""), prop("map", ""))
 }
 
-/** In-process arena. -Pbot1 -Pbot2 -Pgames -Pmaps (dir with CG replays to take maps from) -Pthreads */
+/** Paired-map arena. -Pbot1 -Pbot2 -Pgames (even) -Pmaps -Pthreads -Pseed -Pout (JSON report) */
 tasks.register<JavaExec>("bench") {
     group = "game"
-    description = "Benchmark two bots in-process (parallel, side swap, Wilson CI)"
+    description = "Benchmark two bots on paired maps with frozen reference parameters and a JSON report"
     mainClass.set("btk.runner.BenchmarkRunner")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("bot1", "current"), prop("bot2", "v01"), prop("games", "200"),
-        prop("maps", ""), prop("threads", ""))
+        prop("maps", ""), prop("threads", ""), prop("seed", "1000"), prop("out", ""))
 }
 
 /** Merge core + bot.current into build/submit/Player.java and compile-check it. */

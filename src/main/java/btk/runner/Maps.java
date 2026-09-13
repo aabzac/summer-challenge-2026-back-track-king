@@ -26,9 +26,10 @@ public final class Maps {
                 pool.add(r.toState());
                 names.add(f.getFileName().toString());
             } catch (RuntimeException e) {
-                System.err.println("skip map " + f + ": " + e);
+                throw new IOException("cannot load requested map " + f, e);
             }
         }
+        if (pool.isEmpty()) throw new IOException("no CG replay maps in " + p);
     }
 
     public boolean fromReplays() {
@@ -42,11 +43,11 @@ public final class Maps {
     /** Fresh initial state for game index {@code i} with seed {@code seed}. */
     public GameState get(int i, long seed) {
         if (pool.isEmpty()) return MapGenerator.generate(seed);
-        return pool.get(i % pool.size()).copy();
+        return pool.get(Math.floorMod(i, pool.size())).copy();
     }
 
     public String name(int i, long seed) {
         if (pool.isEmpty()) return "gen:" + seed;
-        return names.get(i % pool.size());
+        return names.get(Math.floorMod(i, pool.size()));
     }
 }

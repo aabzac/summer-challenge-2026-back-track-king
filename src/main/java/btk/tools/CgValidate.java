@@ -34,16 +34,17 @@ public final class CgValidate {
         int ok = 0, total = 0;
         List<String> failures = new ArrayList<>();
         for (Path f : files) {
+            total++;
             CgReplay r;
             try {
                 r = CgReplay.load(f);
             } catch (RuntimeException e) {
                 System.out.println(f.getFileName() + ": cannot parse: " + e);
+                failures.add(f.getFileName() + ": cannot parse: " + e);
                 continue;
             }
             boolean verbose = show.equals("all") || show.equals(String.valueOf(r.gameId));
             Outcome o = validate(r, verbose);
-            total++;
             if (o.firstDivergenceTurn < 0) ok++;
             else failures.add(String.format("%s %s vs %s: turn %d: %s", f.getFileName(), r.nicknames[0], r.nicknames[1],
                     o.firstDivergenceTurn, o.reason));
@@ -63,6 +64,7 @@ public final class CgValidate {
             System.out.println("first divergences:");
             for (String s : failures.subList(0, Math.min(failures.size(), 25))) System.out.println("  " + s);
         }
+        if (total == 0 || ok != total) throw new IllegalStateException("CG engine validation failed");
     }
 
     public static final class Outcome {
