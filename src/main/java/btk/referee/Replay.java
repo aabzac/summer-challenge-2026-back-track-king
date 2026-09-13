@@ -20,7 +20,8 @@ import java.util.List;
  * { meta:{source,seed,bots[],gameId?,winner,score[],errors[]},
  *   map:{width,height,region[],terrain[],towns:[{id,x,y,desired[]}],pairs:[[from,to],...]},
  *   turns:[{actions:[s0,s1], placed:[[cell,owner],...], score:[a,b], gained:[a,b],
- *           paths:[[pairIdx,[cells...]],...], errors:[e0,e1], msg:[m0,m1]}] }
+ *           regionInstability:[], regionInked:[], paths:[[pairIdx,[cells...]],...],
+ *           errors:[e0,e1], msg:[m0,m1]}] }
  * </pre>
  */
 public final class Replay {
@@ -49,6 +50,10 @@ public final class Replay {
         public List<int[]> placed = new ArrayList<>();
         public int[] score = new int[2];
         public int[] gained = new int[2];
+        /** End-of-turn sabotage count per region. */
+        public int[] regionInstability;
+        /** End-of-turn permanent ink state per region. */
+        public boolean[] regionInked;
         public List<Object[]> paths = new ArrayList<>();
         public String[] errors = new String[2];
         public String[] msg = new String[2];
@@ -96,6 +101,8 @@ public final class Replay {
         t.score[1] = s.score[1];
         t.gained[0] = tr.gained[0];
         t.gained[1] = tr.gained[1];
+        t.regionInstability = s.regionInstability.clone();
+        t.regionInked = s.regionInked.clone();
         for (int p = 0; p < s.pairCount; p++) {
             if (s.pairPath[p] == null) continue;
             int[] cells = new int[s.pairPathLen[p]];

@@ -131,11 +131,20 @@ function draw() {
   const { cs, ox, oy, gw, gh } = g;
   const map = replay.map, owner = ownerByTurn[turn];
   const tr = turn > 0 ? replay.turns[turn - 1] : null;
+  const regionInstability = tr?.regionInstability ?? [];
+  const regionInked = tr?.regionInked ?? [];
   const placedNow = new Set(tr ? tr.placed.map(p => p[0]) : []);
   // terrain
   for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
     const c = y * gw + x;
     ctx.fillStyle = TERRAIN[map.terrain[c]];
+    ctx.fillRect(ox + x * cs, oy + y * cs, cs, cs);
+  }
+  // A region is outlined more heavily after each sabotage, then permanently inked at four.
+  for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
+    const c = y * gw + x;
+    if (!regionInked[map.region[c]]) continue;
+    ctx.fillStyle = '#242424';
     ctx.fillRect(ox + x * cs, oy + y * cs, cs, cs);
   }
   // grid + region borders
@@ -150,6 +159,23 @@ function draw() {
     const c = y * gw + x;
     if (x + 1 < gw && map.region[c] !== map.region[c + 1]) { ctx.beginPath(); ctx.moveTo(ox + (x + 1) * cs, oy + y * cs); ctx.lineTo(ox + (x + 1) * cs, oy + (y + 1) * cs); ctx.stroke(); }
     if (y + 1 < gh && map.region[c] !== map.region[c + gw]) { ctx.beginPath(); ctx.moveTo(ox + x * cs, oy + (y + 1) * cs); ctx.lineTo(ox + (x + 1) * cs, oy + (y + 1) * cs); ctx.stroke(); }
+  }
+  // Draw only the outer edges of unstable regions. Higher instability means a thicker outline.
+  for (let level = 1; level < 4; level++) {
+    ctx.beginPath();
+    for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
+      const c = y * gw + x, region = map.region[c];
+      if (regionInked[region] || regionInstability[region] !== level) continue;
+      const x0 = ox + x * cs, y0 = oy + y * cs, x1 = x0 + cs, y1 = y0 + cs;
+      if (y === 0 || map.region[c - gw] !== region) { ctx.moveTo(x0, y0); ctx.lineTo(x1, y0); }
+      if (x === gw - 1 || map.region[c + 1] !== region) { ctx.moveTo(x1, y0); ctx.lineTo(x1, y1); }
+      if (y === gh - 1 || map.region[c + gw] !== region) { ctx.moveTo(x1, y1); ctx.lineTo(x0, y1); }
+      if (x === 0 || map.region[c - 1] !== region) { ctx.moveTo(x0, y1); ctx.lineTo(x0, y0); }
+    }
+    ctx.strokeStyle = 'rgba(8,8,8,0.96)';
+    ctx.lineWidth = Math.max(3, Math.min(cs * 0.22, 2 + level * 1.6));
+    ctx.lineJoin = 'round';
+    ctx.stroke();
   }
   // tracks
   const pad = Math.max(2, Math.floor(cs * 0.22));
@@ -208,9 +234,10 @@ canvas.addEventListener('mousemove', e => {
     const tr = turn > 0 ? replay.turns[turn - 1] : null;
     const pairs = tr ? tr.paths.filter(([pi, cells]) => cells.includes(c)).map(([pi]) => map.pairs[pi].join('→')) : [];
     const town = map.towns.find(t => t[1] === x && t[2] === y);
+    const region = map.region[c], sabotage = regionInked[region] ? 'inked' : `${regionInstability[region] ?? 0}/4`;
     $('hover').textContent = `(${x}, ${y})  cell ${c}\nregion ${map.region[c]}  terrain ${['plains','river','mountain'][map.terrain[c]]} (cost ${map.terrain[c] + 1})\n` +
       (town ? `TOWN ${town[0]} wants ${JSON.stringify(map.desired[town[0]])}\n` : '') +
-      `track: ${o < 0 ? 'none' : o === 2 ? 'neutral' : 'P' + o}\nconnections: ${pairs.join(', ') || '—'}`;
+      `sabotage: ${sabotage}\ntrack: ${o < 0 ? 'none' : o === 2 ? 'neutral' : 'P' + o}\nconnections: ${pairs.join(', ') || '—'}`;
   } else $('hover').textContent = 'hover the map';
   draw();
 });

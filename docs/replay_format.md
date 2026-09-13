@@ -15,6 +15,11 @@ performs the same exact validation and writes the reconstructed visualizer schem
 `replays/rendered/cg/arena/` or `replays/rendered/cg/bot/`; the boss category is detected from
 agent id `-2`. Fully local games continue to use `replays/local/`.
 
+Visualizer turns include end-of-turn `regionInstability[]` and `regionInked[]` snapshots. The
+viewer uses them to thicken a region's outline after each of the first three successful DISRUPTs
+and to fill the region after the fourth. Older visualizer JSON remains loadable, but needs to be
+rendered again to show this effect.
+
 ## Top level
 
 | field | meaning |

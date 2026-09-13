@@ -218,3 +218,13 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Validation: JUnit passed; `cgValidate` remains **108/108 arena** and **9/9 boss**. `cgRender`
   produced and schema-checked one replay of each category, and the four existing `cg-local`
   artifacts were regenerated under the new layout.
+
+### Sabotage state in the replay visualizer
+
+- Replay turns now preserve the engine's per-region instability and permanent ink state. The
+  visualizer progressively thickens a region outline at instability 1–3 and fills the region
+  after it is inked, matching the main visual language of the CG viewer. Hover text also reports
+  the region's sabotage state.
+- Existing visualizer JSON stays compatible but has no historical sabotage snapshots; rerun
+  `cgRender` (or generate a new local game) to see the effect. Validation: JUnit passed and boss
+  replay 903443347 rendered successfully; visual checks covered the first outline and final fill.
