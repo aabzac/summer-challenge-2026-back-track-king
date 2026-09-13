@@ -194,3 +194,7 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   server returned HTTP 500, and the userscript invoked its browser-download fallback. Replaced the
   arrow with ASCII, sent the HTTP success before diagnostic logging, and made userscript 1.2 show
   distinct messages for local saves and browser fallbacks.
+- A follow-up showed three Python servers simultaneously listening on port 7777. Python's
+  `HTTPServer` enables address reuse, which on Windows allowed new and stale copies to share the
+  port; requests then reached arbitrary versions. The save server now uses a threaded,
+  exclusive-address server and exits with a clear message if another instance already owns 7777.

@@ -21,8 +21,9 @@ Notes
 
 import json
 import os
+import socket
 from datetime import datetime
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -34,6 +35,18 @@ SAVE_DIRS = {
     'bot_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot', 'raw'),
 }
 PORT     = 7777
+
+
+class ExclusiveHTTPServer(ThreadingHTTPServer):
+    """Handle concurrent requests, but never share the port with an older server."""
+
+    allow_reuse_address = False
+    daemon_threads = True
+
+    def server_bind(self):
+        if hasattr(socket, 'SO_EXCLUSIVEADDRUSE'):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        super().server_bind()
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -84,6 +97,13 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     for save_dir in SAVE_DIRS.values():
         os.makedirs(save_dir, exist_ok=True)
+    try:
+        server = ExclusiveHTTPServer(('localhost', PORT), Handler)
+    except OSError as exc:
+        raise SystemExit(
+            f"[save_server] Cannot bind port {PORT}; another save_server is probably running"
+        ) from exc
+
     print(f"[save_server] Listening on http://localhost:{PORT}")
     print(f"[save_server] Stderr logs: {SAVE_DIRS['stderr']}")
     print(f"[save_server] Replays: {SAVE_DIRS['replay']}")
@@ -91,7 +111,7 @@ def main():
     print(f"[save_server] Boss replays: {SAVE_DIRS['bot']}")
     print(f"[save_server] Boss raw fallbacks: {SAVE_DIRS['bot_raw']}")
     print("[save_server] Press Ctrl-C to stop.\n")
-    HTTPServer(('localhost', PORT), Handler).serve_forever()
+    server.serve_forever()
 
 
 if __name__ == '__main__':
