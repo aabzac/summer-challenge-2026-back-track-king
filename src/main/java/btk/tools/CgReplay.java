@@ -223,6 +223,11 @@ public final class CgReplay {
         return turnStdout.size();
     }
 
+    /** True for an IDE TestSession game against the built-in boss agent. */
+    public boolean isBossGame() {
+        return agentIds[0] == -2 || agentIds[1] == -2;
+    }
+
     /** Signed 64-bit map seed from the referee's Java properties; absent in some replay exports. */
     public OptionalLong mapSeed() {
         if (seed == null || seed.isBlank()) return OptionalLong.empty();

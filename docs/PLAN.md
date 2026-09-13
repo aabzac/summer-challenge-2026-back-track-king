@@ -29,6 +29,8 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [ ] Re-fetch replays of the current top 20 every few days (`cgFetch`), keep `cgValidate` green
 - [x] Capture boss `TestSession/play`: it returns a replay document and public `gameId`;
       userscript stores the canonical `gameResult` under `replays/cg/bot/` automatically.
+- [x] Separate CG validation from visualizer export: `cgValidate` is read-only; `cgRender` writes
+      validated files under `replays/rendered/cg/{arena,bot}/`.
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)
 

@@ -72,7 +72,16 @@ tasks.register<JavaExec>("cgValidate") {
     description = "Validate local engine against downloaded CG replays"
     mainClass.set("btk.tools.CgValidate")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg"), prop("show", ""))
+    args = listOf(prop("path", "replays/cg"))
+}
+
+/** Validate and convert canonical CG replay(s) to the visualizer schema. Requires -Ppath. */
+tasks.register<JavaExec>("cgRender") {
+    group = "cg"
+    description = "Validate and render CG replays into replays/rendered/cg/{arena,bot}/"
+    mainClass.set("btk.tools.CgRender")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", ""), prop("out", "replays/rendered/cg"))
 }
 
 /** Regenerate maps from refereeInput seeds and compare every cell/town with replay viewer data. */

@@ -14,7 +14,8 @@ gradlew submit                                 # -> build/submit/Player.java (co
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
 gradlew cgFetch -Ptop=20 -Plimit=10            # download top players' replays -> replays/cg/
 gradlew cgFetch -Pgame=903337834               # download one known arena/IDE game id
-gradlew cgValidate                             # replay CG games through our engine, report divergences
+gradlew cgValidate                             # validate our engine against the arena replay corpus
+gradlew cgRender -Ppath=replays/cg/903337834.json # validated replay -> rendered/cg/arena
 gradlew cgMapValidate                          # regenerate CG maps from refereeInput seeds, compare exactly
 ```
 
@@ -32,7 +33,7 @@ mirror each other and every game is a draw.
 | `btk.submit` | `CGRunner` (CG entry point: fast parsing, JIT warm-up on turn 1, connection cross-check), `FileMerger` (single `Player.java`) |
 | `btk.referee` | `Referee` (in-process games), `MapGenerator`/`GridMaker` (authentic CG maps by seed), `Replay` (visualizer JSON) |
 | `btk.runner` | `LocalRunner`, `BenchmarkRunner` (paired maps, confidence grouped by map, JSON reports), `Maps` (authentic generation or replay maps), `ProcessBot`/`ProcessCheck` |
-| `btk.tools` | `CgFetch` (leaderboard -> battles -> gameResult), `CgReplay` (parse + rebuild map), `CgValidate` (engine vs CG events), `CgMapValidate` (generated maps vs CG viewer data) |
+| `btk.tools` | `CgFetch` (leaderboard -> battles -> gameResult), `CgReplay` (parse + rebuild map), `CgValidate` (engine vs CG events), `CgRender` (validated visualizer export), `CgMapValidate` (generated maps vs CG viewer data) |
 | `visualizer/index.html` | drag & drop a replay JSON; paths, ownership per connection, hover info |
 
 ## Reproducible benchmarks
@@ -74,8 +75,16 @@ python -m http.server 7799
 # http://127.0.0.1:7799/visualizer/index.html?file=/replays/local/<game>.json
 ```
 
-`gradlew cgValidate "-Pshow=<gameId>"` also writes `replays/cg-local/<gameId>.json` — the CG game
-as replayed by our engine — which the visualizer opens the same way.
+Canonical CG files are validation inputs, not visualizer documents. Render one only after exact
+engine validation:
+
+```bash
+gradlew cgRender "-Ppath=replays/cg/903337834.json"
+# http://127.0.0.1:7799/visualizer/index.html?file=/replays/rendered/cg/arena/903337834.json
+```
+
+Boss games are detected from agent id `-2` and written under `replays/rendered/cg/bot/` instead.
+`cgValidate` only validates and never creates files.
 
 ### Capturing an IDE/boss game
 
@@ -85,8 +94,9 @@ reconstructing anything from stderr. Start `python tools/save_server.py` before 
 **PLAY MY CODE**; the replay is written directly to `replays/cg/bot/<gameId>.json`, keeping it
 separate from arena games. The original response is retained under `replays/cg/bot/raw/` only when
 the canonical game-result lookup fails. Without the local server the userscript falls back to a
-browser download. Run `gradlew cgValidate "-Ppath=replays/cg/bot" "-Pshow=<gameId>"` to validate it
-and produce `replays/cg-local/<gameId>.json` for the visualizer.
+browser download. Run `gradlew cgValidate "-Ppath=replays/cg/bot"` to validate the boss corpus, or
+`gradlew cgRender "-Ppath=replays/cg/bot/<gameId>.json"` to validate one game and produce its
+visualizer document under `replays/rendered/cg/bot/`.
 
 ## Submitting
 

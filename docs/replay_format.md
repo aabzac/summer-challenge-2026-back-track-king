@@ -9,6 +9,12 @@ re-fetches the canonical document through the public `gameResult/findByGameId` e
 `replays/cg/bot/`. The raw response is kept in `bot/raw/` only as a fallback. In the canonical boss
 replay the current IDE code has agent id `-1`; the boss has id `-2` and no pseudo.
 
+Canonical CG documents are kept as validation evidence and are not opened directly by our
+visualizer. `cgValidate` only compares them with `btk.core`. `cgRender -Ppath=<file-or-directory>`
+performs the same exact validation and writes the reconstructed visualizer schema to
+`replays/rendered/cg/arena/` or `replays/rendered/cg/bot/`; the boss category is detected from
+agent id `-2`. Fully local games continue to use `replays/local/`.
+
 ## Top level
 
 | field | meaning |

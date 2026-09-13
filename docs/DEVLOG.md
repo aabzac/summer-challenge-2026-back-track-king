@@ -205,3 +205,16 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   primitive scratch buffers and preserves the full returned connector path. Added a captured-map
   regression test. Validation: **52 tests**, arena **108/108 exact**, boss **9/9 exact**, and both
   map corpora reproduce from their seeds.
+
+### Separate CG validation from visualizer rendering
+
+- `cgValidate` previously combined corpus validation with an optional `-Pshow` export into the
+  ambiguously named `replays/cg-local/`. It now performs validation only.
+- Added `cgRender -Ppath=<file-or-directory>`: it requires exact engine reproduction, then writes
+  the normalized visualizer replay under `replays/rendered/cg/arena/` or `.../bot/`. Classification
+  uses canonical agent id `-2`, not the input path.
+- Removed unused legacy save-server kinds `replay` and `replay_raw`; arena downloads already come
+  directly from `cgFetch`. Only `bot_raw` remains as the TestSession canonical-lookup fallback.
+- Validation: JUnit passed; `cgValidate` remains **108/108 arena** and **9/9 boss**. `cgRender`
+  produced and schema-checked one replay of each category, and the four existing `cg-local`
+  artifacts were regenerated under the new layout.

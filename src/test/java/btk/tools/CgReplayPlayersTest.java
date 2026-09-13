@@ -4,7 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Path;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CgReplayPlayersTest {
 
@@ -25,6 +29,10 @@ class CgReplayPlayersTest {
 
         assertEquals("MiniWall", replay.nicknames[0]);
         assertEquals("aabzac", replay.nicknames[1]);
+        assertFalse(replay.isBossGame());
+        replay.gameId = 456;
+        assertEquals(Path.of("rendered", "arena", "456.json"),
+                CgRender.outputPath(Path.of("rendered"), replay));
     }
 
     @Test
@@ -64,6 +72,10 @@ class CgReplayPlayersTest {
 
         assertEquals("aabzac", replay.nicknames[0]);
         assertEquals("Boss", replay.nicknames[1]);
+        assertTrue(replay.isBossGame());
+        replay.gameId = 123;
+        assertEquals(Path.of("rendered", "bot", "123.json"),
+                CgRender.outputPath(Path.of("rendered"), replay));
     }
 
     private static JsonObject agent(int index, long userId, String pseudo) {

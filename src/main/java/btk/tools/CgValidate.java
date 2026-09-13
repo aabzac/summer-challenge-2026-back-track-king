@@ -19,7 +19,7 @@ import java.util.Set;
  * turn by turn, what the CG viewer recorded (placements, per-connection scoring, active paths)
  * with what our {@link Rules} produce. This is the ground truth for engine fidelity.
  *
- * <p>Args: pathToReplayDirOrFile [gameIdToShowInDetail | "all"]
+ * <p>Args: pathToReplayDirOrFile
  *
  * <p>Viewer event types (see docs/replay_format.md): 1 = track placed {player x y ?},
  * 2 = disrupt {player region}, 3 = score {player points townA townB}, 7 = active path
@@ -29,7 +29,6 @@ public final class CgValidate {
 
     public static void main(String[] args) throws Exception {
         Path path = Path.of(args.length > 0 && !args[0].isEmpty() ? args[0] : "replays/cg");
-        String show = args.length > 1 ? args[1] : "";
         List<Path> files = Files.isDirectory(path) ? CgReplay.listReplays(path) : List.of(path);
         int ok = 0, total = 0;
         List<String> failures = new ArrayList<>();
@@ -43,20 +42,14 @@ public final class CgValidate {
                 failures.add(f.getFileName() + ": cannot parse: " + e);
                 continue;
             }
-            boolean verbose = show.equals("all") || show.equals(String.valueOf(r.gameId));
-            Outcome o = validate(r, verbose);
+            Outcome o = validate(r, false);
             if (o.firstDivergenceTurn < 0) ok++;
             else failures.add(String.format("%s %s vs %s: turn %d: %s", f.getFileName(), r.nicknames[0], r.nicknames[1],
                     o.firstDivergenceTurn, o.reason));
-            if (verbose || o.firstDivergenceTurn >= 0 && failures.size() <= 15) {
+            if (o.firstDivergenceTurn >= 0 && failures.size() <= 15) {
                 System.out.printf("%s: %s%n", f.getFileName(), o.firstDivergenceTurn < 0 ? "OK (" + r.turns() + " turns, final "
                         + o.finalLocal[0] + "-" + o.finalLocal[1] + " == CG " + r.finalScores[0] + "-" + r.finalScores[1] + ")"
                         : "DIVERGES at turn " + o.firstDivergenceTurn + ": " + o.reason);
-            }
-            if (verbose && o.replay != null) {
-                Path out = Path.of("replays/cg-local", r.gameId + ".json");
-                o.replay.write(out);
-                System.out.println("  local replay written: " + out);
             }
         }
         System.out.printf("%n%d/%d replays reproduced exactly%n", ok, total);
@@ -81,7 +74,7 @@ public final class CgValidate {
         Pathing pathing = new Pathing(s.size);
         Rules.updateConnections(s, pathing);
         Replay replay = new Replay(s, 0, r.nicknames[0], r.nicknames[1]);
-        replay.meta.source = "cg-local";
+        replay.meta.source = "cg";
         replay.meta.gameId = String.valueOf(r.gameId);
         String[] serverFailures = new String[2];
         for (int t = 0; t < r.turns(); t++) {

@@ -37,7 +37,7 @@ src/main/java/btk/bot       Bot, Params, Timer, MainBot, BotFactory; current/ (s
 src/main/java/btk/submit    CGRunner (ships), FileMerger
 src/main/java/btk/referee   Referee, MapGenerator, Replay (JSON for visualizer)
 src/main/java/btk/runner    LocalRunner, BenchmarkRunner, Maps, ProcessBot, ProcessCheck
-src/main/java/btk/tools     CgFetch, CgReplay, CgValidate, CgPolicyStudy
+src/main/java/btk/tools     CgFetch, CgReplay, CgValidate, CgRender, CgPolicyStudy
 visualizer/index.html       replay viewer (local + CG-derived replays)
 replays/local, replays/cg   gitignored
 docs/                       rules/, PLAN.md, BOTS.md, DEVLOG.md, replay_format.md
@@ -50,6 +50,6 @@ docs/                       rules/, PLAN.md, BOTS.md, DEVLOG.md, replay_format.m
 - `gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg`
 - `gradlew submit` then `gradlew procCheck -Pbot=v01 -Pgames=4`
 - `gradlew cgFetch -Ptop=20 -Plimit=10`, `gradlew cgFetch -Pplayer=<pseudo>`
-- `gradlew cgValidate` (`"-Pshow=<gameId>"` for a turn-by-turn dump and a local replay JSON)
+- `gradlew cgValidate`; `gradlew cgRender "-Ppath=replays/cg/<gameId>.json"` for visualizer JSON
 - `gradlew cgStudy "-Pbot=current"` — what winners do in the replays + agreement of our bot with them
 - visualizer: `python -m http.server 7799` then `http://127.0.0.1:7799/visualizer/index.html?file=/replays/local/<file>.json`

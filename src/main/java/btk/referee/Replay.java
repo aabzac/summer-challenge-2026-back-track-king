@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * Replay document consumed by {@code visualizer/index.html}. Same shape is produced for local
- * games and for CG games run through the local engine ({@code btk.tools.CgValidate}).
+ * games and for CG games run through the local engine ({@code btk.tools.CgRender}).
  *
  * <pre>
  * { meta:{source,seed,bots[],gameId?,winner,score[],errors[]},

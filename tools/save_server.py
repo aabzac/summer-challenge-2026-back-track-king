@@ -29,8 +29,6 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 SAVE_DIRS = {
     'stderr': os.path.join(PROJECT_DIR, 'logs'),
-    'replay': os.path.join(PROJECT_DIR, 'replays', 'cg'),
-    'replay_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'raw'),
     'bot': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot'),
     'bot_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot', 'raw'),
 }
@@ -106,8 +104,6 @@ def main():
 
     print(f"[save_server] Listening on http://localhost:{PORT}")
     print(f"[save_server] Stderr logs: {SAVE_DIRS['stderr']}")
-    print(f"[save_server] Replays: {SAVE_DIRS['replay']}")
-    print(f"[save_server] Raw responses: {SAVE_DIRS['replay_raw']}")
     print(f"[save_server] Boss replays: {SAVE_DIRS['bot']}")
     print(f"[save_server] Boss raw fallbacks: {SAVE_DIRS['bot_raw']}")
     print("[save_server] Press Ctrl-C to stop.\n")
