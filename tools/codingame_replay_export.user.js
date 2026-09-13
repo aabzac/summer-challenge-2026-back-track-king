@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CodinGame — Capture TestSession replay
 // @namespace    https://github.com/local/btk-tools
-// @version      1.0
+// @version      1.1
 // @description  Captures TestSession/play and downloads its canonical gameResult replay.
 // @author       local
 // @match        *://www.codingame.com/ide/*
@@ -113,8 +113,8 @@
         }
 
         const rawFilename = `testsession_play_${gameId || timestamp()}.json`;
-        const rawSaved = await postToSaveServer('replay_raw', content, rawFilename);
         if (!gameId) {
+            const rawSaved = await postToSaveServer('bot_raw', content, rawFilename);
             if (!rawSaved) download(content, rawFilename);
             showStatus(`Raw response captured: ${rawFilename}`, false);
             return;
@@ -123,16 +123,17 @@
         const canonical = await fetchCanonicalReplay(gameId);
         if (canonical) {
             const filename = `${gameId}.json`;
-            const saved = await postToSaveServer('replay', canonical, filename);
+            const saved = await postToSaveServer('bot', canonical, filename);
             if (!saved) download(canonical, filename);
             console.info(`[CG-replay] Saved canonical replay ${filename}`);
-            showStatus(`Replay ready: ${filename}`, false);
+            showStatus(`Boss replay ready: bot/${filename}`, false);
             return;
         }
 
+        const rawSaved = await postToSaveServer('bot_raw', content, rawFilename);
         if (!rawSaved) download(content, rawFilename);
         console.warn(`[CG-replay] gameResult lookup failed for ${gameId}; kept raw response`);
-        showStatus(`Raw replay saved; run cgFetch -Pgame=${gameId}`, true);
+        showStatus(`Raw boss replay saved: bot/raw/${rawFilename}`, true);
     }
 
     if (typeof page.fetch === 'function') {

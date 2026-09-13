@@ -174,10 +174,18 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   same top-level frame document as `gameResult/findByGameId` (115 frames, both players' stdout,
   seed and final 5857–601 score), only without `agents`. The game id is immediately readable from
   the public game-result endpoint, which adds the IDE pseudo and a boss agent with id `-2`.
-- Replaced the old stderr-reconstruction plan with a dedicated userscript: preserve the raw API
-  response, extract `gameId`, fetch the canonical document and save it under `replays/cg/`.
+- Replaced the old stderr-reconstruction plan with a dedicated userscript: extract `gameId`, fetch
+  the canonical document and save it under `replays/cg/bot/`. The raw response is retained under
+  `bot/raw/` only when the canonical lookup fails.
 - The first boss validation exposed an equal-cost AUTOPLACE tie missed by the arena corpus. The
   referee's `AutobuildAStar` compares cost and then the incoming N/E/S/W direction, and does not
   replace a state on an equal-cost shorter route. Local `Pathing` incorrectly preferred fewer
   cells, producing a different route. Aligned the primitive heap with the referee and added a
   regression test using the captured boss map and command.
+- Split boss captures from arena data: canonical results now use `replays/cg/bot/`, while the raw
+  `TestSession/play` response is written to `bot/raw/` only if the canonical lookup fails. Existing
+  captures were sorted into the same layout. The save server and installed userscript must both be
+  restarted/reloaded after this protocol change (`bot` / `bot_raw` save kinds).
+- Validation after the split: the arena corpus remains **108/108 exact** and all three boss maps
+  reproduce from their seeds. Game 903365560 is exact; games 903416847 and 903417464 expose further
+  boss `AUTOPLACE` tie-breaking differences (**1/3 exact**) to address separately.

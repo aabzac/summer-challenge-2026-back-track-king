@@ -28,7 +28,7 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       covering all heights. Seed 0 is non-reproducible in CG and rejected; see `map_generator.md`.
 - [ ] Re-fetch replays of the current top 20 every few days (`cgFetch`), keep `cgValidate` green
 - [x] Capture boss `TestSession/play`: it returns a replay document and public `gameId`;
-      userscript now stores the raw response and canonical `gameResult` replay automatically.
+      userscript stores the canonical `gameResult` under `replays/cg/bot/` automatically.
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)
 

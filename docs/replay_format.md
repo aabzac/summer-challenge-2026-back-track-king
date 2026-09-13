@@ -5,8 +5,9 @@ Downloaded by `gradlew cgFetch` into `replays/cg/<gameId>.json`. No login needed
 
 IDE and boss runs return the same frame document directly from `TestSession/play`, but omit most
 agent information. `tools/codingame_replay_export.user.js` captures its game id and immediately
-re-fetches the canonical document through the public `gameResult/findByGameId` endpoint. In the
-canonical boss replay the current IDE code has agent id `-1`; the boss has id `-2` and no pseudo.
+re-fetches the canonical document through the public `gameResult/findByGameId` endpoint into
+`replays/cg/bot/`. The raw response is kept in `bot/raw/` only as a fallback. In the canonical boss
+replay the current IDE code has agent id `-1`; the boss has id `-2` and no pseudo.
 
 ## Top level
 

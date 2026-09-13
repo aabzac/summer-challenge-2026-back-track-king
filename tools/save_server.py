@@ -1,7 +1,7 @@
 """
 Tiny HTTP server that receives POST requests from the Tampermonkey scripts.
-Stderr logs go to logs/, canonical replays to replays/cg/, and raw
-TestSession/play responses to replays/cg/raw/.
+Stderr logs go to logs/, captured boss replays to replays/cg/bot/, and raw
+TestSession/play fallbacks to replays/cg/bot/raw/.
 
 Usage
 -----
@@ -10,7 +10,7 @@ Usage
 Then in a userscript set:
     const SAVE_SERVER_URL = 'http://localhost:7777';
 
-The request may set kind="replay" or kind="replay_raw" to select the replay directory.
+The request may set kind="bot" or kind="bot_raw" to select the boss replay directory.
 
 Notes
 -----
@@ -30,6 +30,8 @@ SAVE_DIRS = {
     'stderr': os.path.join(PROJECT_DIR, 'logs'),
     'replay': os.path.join(PROJECT_DIR, 'replays', 'cg'),
     'replay_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'raw'),
+    'bot': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot'),
+    'bot_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot', 'raw'),
 }
 PORT     = 7777
 
@@ -86,6 +88,8 @@ def main():
     print(f"[save_server] Stderr logs: {SAVE_DIRS['stderr']}")
     print(f"[save_server] Replays: {SAVE_DIRS['replay']}")
     print(f"[save_server] Raw responses: {SAVE_DIRS['replay_raw']}")
+    print(f"[save_server] Boss replays: {SAVE_DIRS['bot']}")
+    print(f"[save_server] Boss raw fallbacks: {SAVE_DIRS['bot_raw']}")
     print("[save_server] Press Ctrl-C to stop.\n")
     HTTPServer(('localhost', PORT), Handler).serve_forever()
 

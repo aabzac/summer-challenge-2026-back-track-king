@@ -82,10 +82,11 @@ as replayed by our engine — which the visualizer opens the same way.
 `tools/codingame_replay_export.user.js` intercepts the browser's `TestSession/play` response,
 extracts its `gameId`, and downloads the canonical replay through `gameResult/findByGameId` without
 reconstructing anything from stderr. Start `python tools/save_server.py` before pressing
-**PLAY MY CODE**; the replay is written directly to `replays/cg/<gameId>.json` and the original
-response is retained in `replays/cg/raw/` for diagnostics. Without the local server the userscript
-falls back to a browser download. Run `gradlew cgValidate "-Pshow=<gameId>"` to validate it and
-produce `replays/cg-local/<gameId>.json` for the visualizer.
+**PLAY MY CODE**; the replay is written directly to `replays/cg/bot/<gameId>.json`, keeping it
+separate from arena games. The original response is retained under `replays/cg/bot/raw/` only when
+the canonical game-result lookup fails. Without the local server the userscript falls back to a
+browser download. Run `gradlew cgValidate "-Ppath=replays/cg/bot" "-Pshow=<gameId>"` to validate it
+and produce `replays/cg-local/<gameId>.json` for the visualizer.
 
 ## Submitting
 
