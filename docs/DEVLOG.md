@@ -189,3 +189,8 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Validation after the split: the arena corpus remains **108/108 exact** and all three boss maps
   reproduce from their seeds. Game 903365560 is exact; games 903416847 and 903417464 expose further
   boss `AUTOPLACE` tie-breaking differences (**1/3 exact**) to address separately.
+- PowerShell's legacy Windows console encoding could not print the Unicode arrow in the save
+  server's success log. The file write completed, but logging then raised `UnicodeEncodeError`, the
+  server returned HTTP 500, and the userscript invoked its browser-download fallback. Replaced the
+  arrow with ASCII, sent the HTTP success before diagnostic logging, and made userscript 1.2 show
+  distinct messages for local saves and browser fallbacks.

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CodinGame — Capture TestSession replay
 // @namespace    https://github.com/local/btk-tools
-// @version      1.1
+// @version      1.2
 // @description  Captures TestSession/play and downloads its canonical gameResult replay.
 // @author       local
 // @match        *://www.codingame.com/ide/*
@@ -115,8 +115,12 @@
         const rawFilename = `testsession_play_${gameId || timestamp()}.json`;
         if (!gameId) {
             const rawSaved = await postToSaveServer('bot_raw', content, rawFilename);
-            if (!rawSaved) download(content, rawFilename);
-            showStatus(`Raw response captured: ${rawFilename}`, false);
+            if (rawSaved) {
+                showStatus(`Raw boss response saved: bot/raw/${rawFilename}`, false);
+            } else {
+                download(content, rawFilename);
+                showStatus(`Save server failed; downloaded ${rawFilename}`, true);
+            }
             return;
         }
 
@@ -124,16 +128,25 @@
         if (canonical) {
             const filename = `${gameId}.json`;
             const saved = await postToSaveServer('bot', canonical, filename);
-            if (!saved) download(canonical, filename);
-            console.info(`[CG-replay] Saved canonical replay ${filename}`);
-            showStatus(`Boss replay ready: bot/${filename}`, false);
+            if (saved) {
+                console.info(`[CG-replay] Saved canonical replay ${filename}`);
+                showStatus(`Boss replay saved: bot/${filename}`, false);
+            } else {
+                download(canonical, filename);
+                console.warn(`[CG-replay] Save server rejected ${filename}; used browser download`);
+                showStatus(`Save server failed; downloaded ${filename}`, true);
+            }
             return;
         }
 
         const rawSaved = await postToSaveServer('bot_raw', content, rawFilename);
-        if (!rawSaved) download(content, rawFilename);
         console.warn(`[CG-replay] gameResult lookup failed for ${gameId}; kept raw response`);
-        showStatus(`Raw boss replay saved: bot/raw/${rawFilename}`, true);
+        if (rawSaved) {
+            showStatus(`Canonical lookup failed; raw saved: bot/raw/${rawFilename}`, true);
+        } else {
+            download(content, rawFilename);
+            showStatus(`Both API and save server failed; downloaded ${rawFilename}`, true);
+        }
     }
 
     if (typeof page.fetch === 'function') {

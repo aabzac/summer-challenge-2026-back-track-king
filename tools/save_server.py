@@ -62,9 +62,9 @@ class Handler(BaseHTTPRequestHandler):
             with open(path, 'w', encoding='utf-8') as f:
                 f.write(content)
 
-            lines = content.count('\n')
-            print(f"[save_server] Saved {lines} lines → {path}")
             self._send_cors(200)
+            lines = content.count('\n')
+            print(f"[save_server] Saved {lines} lines -> {path}")
 
         except Exception as exc:
             print(f"[save_server] ERROR: {exc}")
