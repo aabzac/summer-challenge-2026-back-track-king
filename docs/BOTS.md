@@ -70,6 +70,46 @@ commands (not accepted AUTOPLACE expansion) and is not the player-specific loss-
   broader arena strength. Equal 54% estimates against v02 from the old small control did not
   establish equivalence or prove non-regression.
 
+## Default-off experiment: sabotage time reserve (2026-09-14)
+
+No v05 promotion. `current?DISRUPT_RESERVE_MS=6` cuts route/idle search short on the same turn
+clock, leaving sabotage the final 6 ms; `0` (default) retains v04 scheduling. Frozen versions
+do not read this field. Evaluation formulas, total turn budget and CGRunner margin are unchanged.
+
+- Screen vs v04: **54.3%**, W-L-D **162-136-2**, 300 games on 150 distinct downloaded CG maps,
+  sides swapped, 2 threads, CG profile; map-grouped 95% CI **[43.2%, 65.4%]**, mean score diff
+  **+636.5**, no bot errors. **Gate not passed**. Report: `build/bench/reserve6-v04-cg.json`.
+- On two captured large-map t40 states, all 6 repeat probes now emit sabotage at 36 ms; both
+  v04 and reserve=0 omit it in all 6. This verifies the local failure mechanism, not arena wins.
+- Post-hoc height 19-20 subset: **57/92 wins (62.0%)**; smaller maps are mostly unchanged.
+  This selected small subset is diagnostic, not an independent promotion benchmark.
+- Experimental submission: 0/8 process problem games, including both sides of the two failure
+  maps; first response <=663 ms, later <=37 ms. Not a measurement of CG-host timing.
+- Initial decision: leave the flag **off**, without a 1000-game confirmation. The subsequent
+  matched v03 check below supports further testing, but does not pass the direct-v04 gate.
+  Partial-build safety and diverse-opponent validation remain open.
+
+## Common-opponent follow-up: reserve=6 versus v03 (2026-09-14)
+
+Both campaigns used new authentic generated seeds **5000..5149**, 150 identical distinct maps
+(hashes verified), both sides, 300 games each, 2 threads, CG 486/36-ms search profile. Runs were
+sequential: control then candidate; no strategy/default/threshold changes.
+
+- v04 vs v03: **61.3%**, W-L-D **184-116-0**, map-grouped 95% CI **[50.2%, 72.4%]**,
+  mean score diff **+380.8**. Report: `build/bench/v04-v03-holdout5000.json`.
+- `current?DISRUPT_RESERVE_MS=6` vs v03: **69.3%**, W-L-D **208-92-0**, same-method CI
+  **[58.2%, 80.4%]**, mean score diff **+813.3**. No bot errors in either campaign.
+  Report: `build/bench/reserve6-v03-holdout5000.json`.
+- Matched games: **33 added wins, 9 lost wins, 258 unchanged**; net **+8 percentage points**.
+  Map-pair totals improved on 24 maps, worsened on 3, tied on 123. A diagnostic paired-map
+  percentile bootstrap (20,000 samples, seed 20260914) estimates the difference against v03
+  at **[+4.3, +11.7] pp**. This approximate interval is not the acceptance gate; it does not
+  account for host/JIT/order effects or different arena opponents. Comparison report:
+  `build/bench/reserve6-v03-holdout5000-comparison.json`.
+- Decision: retain as a promising, default-off candidate, not a disproven improvement. The old
+  direct-v04 result remains inconclusive. v03 is a related reference, not diverse arena coverage;
+  beating it more often is not transitive proof of beating v04. No v05 or threshold change.
+
 ## Known gaps (to become versions)
 
 - Self-play does not reproduce the top Silver meta (v04 still averages 84 turns vs about 50):

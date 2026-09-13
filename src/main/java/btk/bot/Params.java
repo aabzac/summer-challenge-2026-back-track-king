@@ -35,6 +35,8 @@ public class Params {
 
     // ---- v02 eval bot: disrupt ----
     public boolean USE_DISRUPT = true;
+    /** Stop route/idle search this many ms before the turn deadline; 0 restores v04 scheduling. */
+    public int DISRUPT_RESERVE_MS = 0;
     /** Weight of our own income lost when inking a region (vs opponent's loss = 1). */
     public double W_SELF_LOSS = 1.2;
     /** Value per opponent track destroyed that is not (yet) earning. */

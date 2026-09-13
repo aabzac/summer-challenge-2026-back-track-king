@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * v04 candidate: v03 simulation-evaluated greedy plus safe idle network extension.
+ * v04 with an experimental, default-off build cutoff reserving time for sabotage.
  *
  * <p>Build: for every desired pair generate up to two candidate routes (cheapest path using any
  * tracks; cheapest path avoiding opponent tracks = ownership steal). Each candidate is scored by
@@ -157,7 +157,7 @@ public final class EvalBot implements Bot {
         // --- build ---
         int budget = GameState.PAINT_PER_TURN;
         int guard = 0;
-        while (budget > 0 && guard++ < 6 && !timer.up()) {
+        while (budget > 0 && guard++ < 6 && !buildTimeUp()) {
             if (!chooseCandidate(s, myId, budget)) break;
             int before = budget;
             for (int i = 0; i < bestLen; i++) if (s.canBuild(bestPath[i])) myRoute[bestPath[i]] = true;
@@ -181,7 +181,7 @@ public final class EvalBot implements Bot {
         // gain. Prefer cells adjoining our network, especially in permanent-safe town regions.
         if (P.USE_IDLE_EXTEND) {
             boolean extended = false;
-            while (budget > 0 && !timer.up()) {
+            while (budget > 0 && !buildTimeUp()) {
                 int c = chooseIdleExtension(s, myId, budget);
                 if (c < 0) break;
                 budget -= s.placeCost(c);
@@ -205,8 +205,15 @@ public final class EvalBot implements Bot {
 
     // ------------------------------------------------------------------ build
 
+    /** A phase cutoff, not a new timer: sabotage still uses the original turn deadline. */
+    private boolean buildTimeUp() {
+        return P.USE_DISRUPT && P.DISRUPT_RESERVE_MS > 0
+                ? timer.up(P.DISRUPT_RESERVE_MS) : timer.up();
+    }
+
     /** Fills bestPath/bestLen/bestCost with the best candidate for {@code me}; false when nothing is worth building. */
     private boolean chooseCandidate(GameState s, int me, int budgetNow) {
+        if (P.USE_DISRUPT && P.DISRUPT_RESERVE_MS > 0 && buildTimeUp()) return false;
         double base = evalState(s, me);
         int threatened = worstRegion;
         double bestValue = 1e-9;
@@ -214,9 +221,9 @@ public final class EvalBot implements Bot {
         int opp = 1 - me;
         for (int c = 0; c < s.size; c++) blocked[c] = s.owner[c] == opp;
         int turnsLeft = s.turnsLeft();
-        for (int p = 0; p < s.pairCount && !timer.up(); p++) {
+        for (int p = 0; p < s.pairCount && !buildTimeUp(); p++) {
             int from = s.townCell[s.pairFrom[p]], to = s.townCell[s.pairTo[p]];
-            for (int variant = 0; variant < 3 && !timer.up(); variant++) {
+            for (int variant = 0; variant < 3 && !buildTimeUp(); variant++) {
                 if (variant == 1 && !P.USE_STEAL) continue;
                 boolean[] blk = null;
                 if (variant == 1) {

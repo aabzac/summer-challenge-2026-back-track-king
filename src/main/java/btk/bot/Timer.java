@@ -15,6 +15,11 @@ public final class Timer {
         return System.nanoTime() >= deadlineNs;
     }
 
+    /** Earlier phase deadline without restarting/extending the overall turn clock. */
+    public boolean up(long reserveMs) {
+        return System.nanoTime() >= deadlineNs - Math.max(0, reserveMs) * 1_000_000L;
+    }
+
     public long elapsedMs() {
         return (System.nanoTime() - startNs) / 1_000_000L;
     }

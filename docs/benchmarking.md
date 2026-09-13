@@ -103,5 +103,18 @@ above 50%, and no bot errors. Passing it does not replace the older-opponent and
 checks from `AGENTS.md`. The benchmark saves its report and exits unsuccessfully on bot errors;
 a statistically inconclusive run is a successful measurement, not a command failure.
 
+The two thresholds serve different purposes: 55% is a chosen minimum observed effect, whereas
+the confidence bound is protection against sampling noise. With 300 games on 150 distinct maps,
+the current distribution-free bound is about +/-11.1 percentage points: the effective passing
+rate is therefore above 61.1%, not merely 55%. Lowering only the 55% threshold would not rescue
+a 54.3% result with a [43.2%, 65.4%] interval. An inconclusive result is not proof of no benefit.
+The bound is deliberately conservative and does not use the observed map-level variance.
+
+A comparison through a common opponent must rerun both candidates with the same maps, sides,
+opponent parameters and timing profile. Compare matched map results, not unrelated historical
+percentages. Doing better against v03 does not imply winning head-to-head against v04 or doing
+better against the arena population. A different interval method or acceptance policy should
+be chosen before the next confirmation experiment, not selected to make a completed run pass.
+
 `cgValidate` now fails the command on any divergence, malformed replay or empty input. This
 allows a failed fidelity check to stop a scripted sequence instead of merely printing a warning.

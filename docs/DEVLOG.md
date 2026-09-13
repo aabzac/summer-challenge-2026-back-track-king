@@ -331,3 +331,92 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   partial-build safety separately and broaden reference opponents. Detailed findings and caveats
   are in `arena-analysis-2026-09-14.md`. Also corrected old policy-study descriptions: cells are
   not paint, and the income-raising percentage uses placement turns as its denominator.
+
+### Strategy experiment: reserve time for sabotage (not promoted, 2026-09-14)
+
+- Starting checkpoint committed as **824f00d** (CG timing alignment and arena loss analysis).
+- Hypothesis: stop route/idle search 6 ms before the existing deadline so the free sabotage
+  phase can run on large maps. Added `Params.DISRUPT_RESERVE_MS`, an earlier phase-deadline
+  check in `Timer`, and build-loop checks. No scoring/pathing formula, frozen source, total
+  allowance or CGRunner margin changed. `0` restores the old scheduling; disabling sabotage
+  also disables the reserve. Atomic evaluations can still overrun a cutoff: this is not a hard
+  real-time guarantee. The parameter is **0 by default after the failed promotion screen**.
+- First ran `test cgValidate`: all tests green, **158/158** arena replays exact.
+- Single-thread, warmed probes on 11 actual states from three lost games, each repeated three
+  times at the 36-ms allowance (`NOISE=0`, no hypothetical continuation): v04 **26/33** sabotage
+  commands, current reserve=0 **27/33**, reserve=6 **33/33**. In both ChaosCat t40 states
+  (903509641 / 903508669), v04 and reserve=0 omit sabotage in **6/6** probes; reserve=6 returns
+  **DISRUPT 46 / DISRUPT 15** in **6/6**, taking 30-32 ms. Maximum over all reserve probes:
+  **34 ms**. Probe order/JIT/host load remain timing confounders; this is a mechanism check,
+  not an estimate of arena strength. Source/report: `tmp/ProbeReserveTiming.java` and
+  `build/analysis/reserve6-probes.json` (local/gitignored).
+- Checked in compact authentic map-seed/stdout prefixes for both failures, plus deterministic
+  tests: only the build deadline expires, sabotage retains the original clock; reserve=0
+  matches v04 on a fully searched state; disabled sabotage does not starve building; closing
+  while behind is still rejected. Tests use ample overall time rather than brittle 36-ms
+  assertions. Regression fixtures live in `src/test/resources/btk/bot/`.
+- Screen: reserve=6 vs frozen v04, **300 games / 150 distinct downloaded CG maps**, sides
+  swapped, fresh bots, 2 workers, CG **486/36 ms**, first 150 sorted maps of the 158-map pool.
+  **54.3%**, W-L-D **162-136-2**, map-grouped 95% CI **[43.2%, 65.4%]**, mean score diff
+  **+636.5**, mean **74.1** turns; no bot errors. **Promotion gate not passed**.
+  Report: `build/bench/reserve6-v04-cg.json`. Rerun explicitly with:
+  `gradlew bench "-Pbot1=current?DISRUPT_RESERVE_MS=6" -Pbot2=v04 -Pgames=300
+  -Pmaps=replays/cg -Pthreads=2 "-Pout=build/bench/reserve6-v04-cg-rerun.json"`.
+  The original report calls A `current` because the experimental default was 6 during the run;
+  its resolved parameters retain that value. Frozen v04 ignores the new field.
+- Post-hoc size diagnostic: h14 20/40 wins, h15 19/38, h16 13 wins +2 draws /28 games,
+  h17 19/36, h18 34/66, h19 33/50, h20 24/42. Height 19-20 combined **57/92 (62.0%)** is a
+  small selected subset, not an independent gate. Small maps mostly finish search before the
+  reserve matters. Do not infer that a larger-map gain generalizes to diverse arena opponents.
+- Experimental `submit` compile check passed. Process check: **0/8** problem games (4 normal
+  corpus maps plus both sides of each ChaosCat failure map), first response max **663 ms**,
+  later max **37 ms**; no timeouts. Large-map process harness: `tmp/ProcessReserveCheck.java`
+  (same process/referee protocol with an explicit replay-map path). These are local timings,
+  not CG-host guarantees or a win-rate sample. No 1000-game confirmation or older-opponent
+  promotion check after the failed screen.
+- Decision: retain a **default-off experimental flag**, no v05 and no new arena recommendation.
+  Do not mix in a partial-build fix or tune reserve values on the same sample. Next approach:
+  compute a safe fallback sabotage before route search, then refine if time remains; also keep
+  the diverse-opponent/held-out-map work open. Captured-state success alone is insufficient.
+- Final default-off state: **70 JUnit tests**, **158/158** CG replays, `submit` compile check
+  and **0/4** process problem games; first response max **624 ms**, later max **44 ms**.
+  Warnings above the internal 36-ms search target still occur with the old scheduling, but
+  these responses stay under 50 ms. The rebuilt Player contains the disabled experiment;
+  the source is not byte-identical to the previous submission, so no unchanged-hash claim.
+
+### Matched common-opponent check and threshold discussion (2026-09-14)
+
+- User proposed testing reserve=6 against v03 and comparing with v04-v03. Hypothesis: the
+  direct-v04 result may miss useful performance against another opponent. Re-ran both versions
+  instead of comparing candidate results against historical percentages from different maps.
+- Preselected **300 games each**, new authentic generated seeds **5000..5149**, 150 side-swapped
+  pairs, 2 threads, CG **486/36 ms**. Ran control then candidate sequentially to avoid mutual CPU
+  interference. All 150 map hashes and seeds match; v03 parameters/timing also match, no bot
+  errors. Before these runs, `cgValidate` reproduced **158/158** games exactly.
+- Control `v04` vs `v03`: **61.3%**, W-L-D **184-116-0**, map-grouped Hoeffding 95% CI
+  **[50.2%, 72.4%]**, mean score diff **+380.8**, 82.9 turns, 176.1 seconds.
+  Report: `build/bench/v04-v03-holdout5000.json`.
+- Candidate `current?DISRUPT_RESERVE_MS=6` vs `v03`: **69.3%**, W-L-D **208-92-0**, CI
+  **[58.2%, 80.4%]**, mean score diff **+813.3**, 82.3 turns, 147.0 seconds.
+  Report: `build/bench/reserve6-v03-holdout5000.json`.
+- Common arguments: `-Pbot2=v03 -Pgames=300 -Pthreads=2 -Pseed=5000`; omit `-Pmaps` to use the
+  generator, set the above bot1 spec and a distinct `-Pout` path for each report. Both runs are
+  on new maps, not the old seeds 4000..4149 or the previous downloaded-map screen.
+- Matched game outcomes: candidate gains **33** wins and loses **9**, **258** unchanged;
+  net **+24/300 = +8 pp**. Map-level means improve on **24**, regress on **3**, tie on **123**.
+  Diagnostic paired-map percentile bootstrap: **[+4.3, +11.7] pp**, 20,000 resamples, xorshift32
+  seed 20260914, each draw resamples all four outcomes of one common map together. Approximate
+  interval for the difference against v03 only, not head-to-head odds. Fixed-order/JIT/host
+  variation and arena opponent selection are not covered. It is NOT a replacement gate.
+  Comparison details: `build/bench/reserve6-v03-holdout5000-comparison.json`.
+- Explained the existing policy: observed rate >=55% AND lower confidence bound >50%, plus
+  error/timing checks. The map-grouped distribution-free bound ignores observed variance;
+  at 150 maps it is +/-11.1 pp, so the effective passing rate is >61.1%. Lowering just 55%
+  cannot make the previous 54.3% [43.2%, 65.4%] pass. An inconclusive test does not show that
+  the candidate has no benefit. Added this explanation to `benchmarking.md`; acceptance code
+  and AGENTS policy are unchanged.
+- Decision: this is a meaningful positive common-opponent signal, so keep reserve=6 as a
+  candidate worth independent confirmation. Do not infer transitivity or arena strength:
+  v03 remains related to v04, and the direct-v04 gate is still not passed. No v05, no parameter
+  changes, no submission, no commit. A future policy for accepting smaller effects should be
+  selected before the next confirmatory test, not retrofitted to this result.

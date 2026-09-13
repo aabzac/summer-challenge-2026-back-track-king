@@ -59,6 +59,13 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       large-map collapse and disruption starvation identified (see `arena-analysis-2026-09-14.md`).
 - [ ] Guarantee time for sabotage on large maps: reserve a phase budget / compute a fallback
       before route search; verify on captured failure states and varied opponents before promotion.
+- [x] Test a 6-ms build-phase reserve on captured failures and 300 paired CG-map games:
+      recovered sabotage, but 54.3% vs v04 did not pass the promotion gate; kept default-off.
+      Regression prefixes and deterministic scheduling tests are checked in. Next alternative:
+      compute a safe sabotage fallback before route search without permanently reserving 6 ms.
+- [x] Matched older-opponent follow-up on new seeds 5000..5149: reserve=6 scores 69.3% vs v03,
+      v04 scores 61.3%; 33 added / 9 lost wins in 300 matched games. Keep the candidate for
+      independent confirmation; direct-v04 promotion gate still not passed, reserve stays off.
 - [ ] Check actual partial placements against score-difference regressions, not only the value
       of a fully completed candidate route. Do not attribute every bad build to idle extension.
 - [ ] Add map-size-stratified reports and independent held-out maps; broaden the opponent pool.
