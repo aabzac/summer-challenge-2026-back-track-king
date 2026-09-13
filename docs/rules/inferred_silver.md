@@ -1,6 +1,6 @@
-# Rules inferred from Gold replays (not from a statement)
+# Rules inferred from Silver replays (not from a statement)
 
-Source: 107 Gold-league games of the top 15 (2026-09-13), replayed through `btk.core` by
+Source: 107 Silver-league games of the top 15 (2026-09-13), replayed through `btk.core` by
 `gradlew cgValidate`. Status: **107/107 games reproduced exactly** (every placement, ink event,
 per-turn score, connection path, game-end turn and final score). Replace with the official text
 of `docs/rules/bronze.md` etc. once available; keep this file as the record of what was verified.

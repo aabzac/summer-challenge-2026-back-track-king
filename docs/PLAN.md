@@ -8,7 +8,7 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Gradle/Java 17 skeleton, package layout, `AGENTS.md`, Cursor rules
 - [x] `btk.core` rules engine shared by bot, referee and tools; JUnit tests
 - [x] CG replay download (`cgFetch`) and engine validation against them (`cgValidate`) — 108/108
-- [x] Full rules inferred from Gold replays (ink at 4 disrupts, game end) — `docs/rules/inferred_gold.md`
+- [x] Full rules inferred from Silver replays (ink at 4 disrupts, game end) — `docs/rules/inferred_silver.md`
 - [x] Referee, procedural + real maps, parallel benchmark with Wilson CI, side swap
 - [x] Process-level submission check (`procCheck`): protocol, first-turn warm-up, 50 ms turns
 - [x] Single-file merger (`submit`) → `build/submit/Player.java`
@@ -18,9 +18,10 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 
 ## Phase 2 — leagues (open)
 
-- [x] Paste `Player.java` (v03) into the CG IDE, submit, leave Wood — Wood 2 → Wood 1 → Bronze
+- [x] Paste `Player.java` (v03) into the CG IDE and advance — Wood 2 → Wood 1 → Bronze → Silver;
+      currently around rank 350/645, with Gold not yet open
 - [x] Capture the Bronze statement verbatim into `docs/rules/bronze.md`; reconcile with
-      `inferred_gold.md` — all inferred rules confirmed; Bronze is the final rule set
+      `inferred_silver.md` — all inferred rules confirmed; Bronze is the final rule set
 - [x] Referee source found (linked from the statement) and cloned to `tmp/referee-src`
       (gitignored): impossible actions are skipped, not fatal → `Rules.expand` aligned + tests
 - [x] Port `GridMaker` 1:1 (CG supplies `SecureRandom` SHA1PRNG through `java.util.Random`) →
@@ -34,9 +35,9 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)
 
-Gaps measured in `BOTS.md` → "What top Gold players do". Candidate order:
+Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 
-- [ ] Reference opponent that reproduces the Gold meta (aggressive disrupts, ~50-turn games) so
+- [ ] Reference opponent that reproduces the top Silver meta (aggressive disrupts, ~50-turn games) so
       self-play benches transfer to the arena
 - [ ] No idle turns: useful placements when nothing raises the value now (extend lines,
       pre-build in town/shared regions)
@@ -56,5 +57,5 @@ Gaps measured in `BOTS.md` → "What top Gold players do". Candidate order:
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena
-- Remove `tools/CgInkStudy.java` once `inferred_gold.md` is confirmed by the statement
+- Remove the now-redundant `tools/CgInkStudy.java` when doing a tooling cleanup
 - Automated paste channel into the CG IDE (Cursor browser blocks file:// and localhost fetch)

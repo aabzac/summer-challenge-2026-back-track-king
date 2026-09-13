@@ -15,7 +15,7 @@ public final class GameState {
     public static final int NO_TRACK = -1, NEUTRAL = 2;
     public static final int[] COST = {1, 2, 3};
     public static final int PAINT_PER_TURN = 3;
-    /** Inferred from 107 Gold replays: a region is inked when its instability reaches this. */
+    /** Inferred from 107 Silver replays: a region is inked when its instability reaches this. */
     public static final int INK_THRESHOLD = 4;
     /** Wood statement: 100 turns; games end earlier when no desired pair can be connected any more. */
     public static final int DEFAULT_MAX_TURNS = 100;

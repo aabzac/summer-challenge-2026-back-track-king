@@ -7,13 +7,13 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Stack decided: Java 17 + Gradle (familiarity over C++ speed; top-10 is 9x C++, 1x Python, so the
   game is decided by evaluation quality rather than raw speed). Skeleton, FileMerger idea and CG
   capture tooling ported from the Spring 2026 (Troll Farm) project.
-- Leaderboard snapshot: 1233 players, Gold open (divisionIndex 3 = 595 players), Legend not yet.
+- Leaderboard snapshot: 1233 players, Silver open (divisionIndex 3 = 595 players), Gold not yet.
 - Wood 2 statement captured to `docs/rules/wood2.md`. Only Wood rules visible until promotion.
 - `btk.core` written from the Wood statement + Java starter protocol. 15 JUnit tests
   (cost/budget, neutral clash, N/E/S/W tie-break incl. statement example 2, AUTOPLACE expansion,
   protocol round trip).
 - Discovery: CG `gameResult/findByGameId` is public and returns **both players' stdout per turn**
-  plus viewer events. `CgFetch` downloaded 107 Gold games of the top 15; `CgValidate` replays them
+  plus viewer events. `CgFetch` downloaded 107 Silver games of the top 15; `CgValidate` replays them
   through our engine.
   - Result: placements (cost, budget, neutral) match CG in 107/107 games up to the first ink
     effects (turns 4-11). Scoring diverges as soon as regions get inked -> DISRUPT/ink rules must
@@ -37,7 +37,7 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   connected through non-inked cells (verified on every early-ending game).
 - Implemented in `btk.core` (+5 JUnit tests). **`cgValidate`: 107/107 replays reproduced exactly**
   (placements, ink, per-turn scores, paths, end turn, final score). Written up in
-  `docs/rules/inferred_gold.md`.
+  `docs/rules/inferred_silver.md`.
 - Connection recomputation now does one BFS per destination town (`Pathing.updateAllConnections`);
   the eval bot calls it a few hundred times per turn.
 
@@ -54,7 +54,7 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 
 - Opponent model (predict their route, surcharge contested cells, place them last): no effect
   (47-51%). Zero-sum logic: a clash neutralises their track too, so avoiding it is not free.
-- `CgPolicyStudy` (`gradlew cgStudy`): what winners do in the 107 Gold replays — see BOTS.md.
+- `CgPolicyStudy` (`gradlew cgStudy`): what winners do in the 107 Silver replays — see BOTS.md.
   Main gaps found: idle turns, early closing of the map, disrupt frequency.
 - Vulnerability eval (income after the opponent's best single ink) + backup routes: 60% vs the
   same bot without backups, 58.5% vs v02. Closing rule and HORIZON made no measurable difference in
@@ -228,3 +228,11 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
 - Existing visualizer JSON stays compatible but has no historical sabotage snapshots; rerun
   `cgRender` (or generate a new local game) to see the effect. Validation: JUnit passed and boss
   replay 903443347 rendered successfully; visual checks covered the first outline and final fill.
+
+### Arena status correction
+
+- Corrected the league naming used for the top-player corpus: division index 3 is Silver, not
+  Gold. The 107-replay measurements and validation results are unchanged; only their label and
+  the historical inference document name were corrected.
+- v03 is currently in Silver at roughly rank 350/645. It usually wins the available boss games;
+  Gold has not opened yet, so a later automatic placement is possible but not assumed.

@@ -56,7 +56,7 @@ public class Params {
     public boolean USE_BACKUP = true;
 
     // ---- v03 endgame / horizon ----
-    /** Income is projected over at most this many turns (Gold games close after ~50 turns). */
+    /** Income is projected over at most this many turns (top Silver games close after ~50 turns). */
     public int HORIZON = 100;
     /** Consider whether an ink closes the map (no pair connectable) and end the game when ahead. */
     public boolean USE_CLOSE = true;

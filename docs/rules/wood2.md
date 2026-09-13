@@ -91,10 +91,10 @@ Output: one line of actions.
 Constraints: response time 50 ms per turn, 1000 ms first turn; 21 <= width <= 30; 14 <= height <= 20;
 4 <= townCount <= 12.
 
-## Observed in Gold replays (not yet in statement)
+## Observed in Silver replays (not yet in statement)
 
 - Actions `DISRUPT <regionId>` (top players use one per turn), metadata fields: `zonesInked`, `enemyTracksInkedOut`,
   `ownTracksInkedOut`, `poisServed`, `totalPois`, `autobuildCalled`, `extraTilesInConnection`,
   `averageTrackOwnershipPercentagePerActiveConnection`, `tracksPlacedOnPlains/River/Mountains`.
-- Gold game length: 40 turns (81 frames).
+- Silver game length: 40 turns (81 frames).
 - Starters: Java https://gist.github.com/CGjupoulton/17397683833e324a7b8c7c7c642239d3

@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** DISRUPT / ink rules inferred from 107 Gold replays (see docs/rules/inferred_gold.md). */
+/** DISRUPT / ink rules inferred from 107 Silver replays (see docs/rules/inferred_silver.md). */
 class InkTest {
 
     /** 0 . . . 1 on one row; cells (1,0),(2,0),(3,0) form region 7, towns have own regions. */
