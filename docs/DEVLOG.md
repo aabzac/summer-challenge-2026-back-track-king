@@ -198,3 +198,10 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   `HTTPServer` enables address reuse, which on Windows allowed new and stale copies to share the
   port; requests then reached arbitrary versions. The save server now uses a threaded,
   exclusive-address server and exits with a clear message if another instance already owns 7777.
+- Boss game 903428605 exposed the remaining AUTOPLACE discrepancy at turn 2. Referee
+  `AutobuildAStar` flood-fills an existing connected rail block and emits its non-rail boundary in
+  BFS order as successors of one state; local Dijkstra walked the zero-cost rails individually,
+  changing equal-cost queue order. `Pathing.cheapestPath` now mirrors the block expansion with
+  primitive scratch buffers and preserves the full returned connector path. Added a captured-map
+  regression test. Validation: **52 tests**, arena **108/108 exact**, boss **9/9 exact**, and both
+  map corpora reproduce from their seeds.

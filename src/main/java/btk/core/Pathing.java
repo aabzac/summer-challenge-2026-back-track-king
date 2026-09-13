@@ -17,6 +17,10 @@ public final class Pathing {
     private final int[] heapPos;
     /** Referee AutobuildAStar tie breaker: direction of the edge into a queued cell. */
     private final int[] heapTie;
+    /** Scratch marks for expanding a pre-existing connected rail block as one A* state. */
+    private final int[] floodSeen;
+    private final int[] floodParent;
+    private int floodEpoch;
 
     public Pathing(int size) {
         this.size = size;
@@ -27,6 +31,8 @@ public final class Pathing {
         this.heap = new int[size];
         this.heapPos = new int[size];
         this.heapTie = new int[size];
+        this.floodSeen = new int[size];
+        this.floodParent = new int[size];
     }
 
     /**
@@ -211,11 +217,73 @@ public final class Pathing {
         costBuf[from] = 0;
         dist[from] = 0;
         heapSize = heapPush(heapSize, from);
+        int goal = -1;
+        boolean goalInsideRailBlock = false;
         while (heapSize > 0) {
             int c = heap[0];
             heapSize = heapPop(heapSize);
-            if (c == to) break;
+            if (c == to) {
+                goal = c;
+                break;
+            }
             int cx = c % s.width, cy = c / s.width;
+
+            // Referee AutobuildAStar does not walk through a pre-existing rail block one cell at
+            // a time. It flood-fills the whole block, then returns its non-rail boundary in BFS
+            // order as the successors of the current cursor state. This affects both insertion
+            // order and the incoming-direction tie breaker (remote boundary cells use UNSET=4).
+            if (s.passable(c) && (blocked == null || !blocked[c])) {
+                if (++floodEpoch == 0) {
+                    Arrays.fill(floodSeen, 0);
+                    floodEpoch = 1;
+                }
+                int head = 0, tail = 0;
+                queue[tail++] = c;
+                floodSeen[c] = floodEpoch;
+                floodParent[c] = -1;
+                boolean reachesGoal = false;
+                while (head < tail) {
+                    int q = queue[head++];
+                    if (q == to) reachesGoal = true;
+                    if (!s.passable(q) || (blocked != null && blocked[q])) continue;
+                    int qx = q % s.width, qy = q / s.width;
+                    for (int dir = 0; dir < 4; dir++) {
+                        int nx = qx + GameState.DX[dir], ny = qy + GameState.DY[dir];
+                        if (nx < 0 || ny < 0 || nx >= s.width || ny >= s.height) continue;
+                        int nc = ny * s.width + nx;
+                        if (floodSeen[nc] == floodEpoch) continue;
+                        floodSeen[nc] = floodEpoch;
+                        floodParent[nc] = q;
+                        queue[tail++] = nc;
+                    }
+                }
+                if (reachesGoal) {
+                    goal = c;
+                    goalInsideRailBlock = c != to;
+                    costBuf[to] = costBuf[c];
+                    break;
+                }
+                for (int i = 0; i < tail; i++) {
+                    int nc = queue[i];
+                    if (s.passable(nc) || s.inked[nc] || (blocked != null && blocked[nc])) continue;
+                    int step = s.placeCost(nc) + (extraCost == null ? 0 : extraCost[nc]);
+                    int nCost = costBuf[c] + step;
+                    if (nCost < costBuf[nc]) {
+                        costBuf[nc] = nCost;
+                        dist[nc] = dist[c] + 1;
+                        parent[nc] = c;
+                        int nx = nc % s.width, ny = nc / s.width;
+                        heapTie[nc] = nx == cx && ny == cy - 1 ? 0
+                                : nx == cx + 1 && ny == cy ? 1
+                                : nx == cx && ny == cy + 1 ? 2
+                                : nx == cx - 1 && ny == cy ? 3 : 4;
+                        if (heapPos[nc] >= 0) heapSize = heapFix(heapSize, heapPos[nc]);
+                        else heapSize = heapPush(heapSize, nc);
+                    }
+                }
+                continue;
+            }
+
             for (int dir = 0; dir < 4; dir++) {
                 int nx = cx + GameState.DX[dir], ny = cy + GameState.DY[dir];
                 if (nx < 0 || ny < 0 || nx >= s.width || ny >= s.height) continue;
@@ -239,13 +307,22 @@ public final class Pathing {
                 }
             }
         }
-        if (costBuf[to] >= INF) return -1;
+        if (goal < 0) return -1;
         int n = 0;
-        for (int c = to; c != -1; c = parent[c]) out[n++] = c;
+        for (int c = goal; c != -1; c = parent[c]) out[n++] = c;
         for (int i = 0, j = n - 1; i < j; i++, j--) {
             int t = out[i];
             out[i] = out[j];
             out[j] = t;
+        }
+        if (goalInsideRailBlock) {
+            int begin = n;
+            for (int c = to; c != goal; c = floodParent[c]) out[n++] = c;
+            for (int i = begin, j = n - 1; i < j; i++, j--) {
+                int t = out[i];
+                out[i] = out[j];
+                out[j] = t;
+            }
         }
         return n;
     }

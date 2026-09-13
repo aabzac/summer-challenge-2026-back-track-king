@@ -1,5 +1,6 @@
 package btk.core;
 
+import btk.referee.MapGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -143,6 +144,31 @@ class RulesTest {
         assertEquals(s.cell(15, 12), m.cells[0]);
         assertEquals(s.cell(14, 12), m.cells[1]);
         assertEquals(s.cell(14, 11), m.cells[2]);
+    }
+
+    @Test
+    void autoplaceExpandsExistingRailBlockLikeCapturedBossGame() {
+        // Boss game 903428605: after two turns, town 3 at (22,6) is connected to a short rail
+        // block. Referee AutobuildAStar expands the whole existing block at once; walking its
+        // zero-cost cells individually changes the equal-cost queue order after (19,6).
+        GameState s = MapGenerator.generate(4438460713962755000L);
+        Pathing p = new Pathing(s.size);
+        Rules.resolve(s,
+                Action.parseLine("PLACE_TRACKS 16 2;PLACE_TRACKS 15 2;PLACE_TRACKS 14 2"),
+                Action.parseLine("AUTOPLACE 18 10 1 10"), p);
+        Rules.resolve(s,
+                Action.parseLine("PLACE_TRACKS 13 2;PLACE_TRACKS 12 2;PLACE_TRACKS 11 2;DISRUPT 37"),
+                Action.parseLine("AUTOPLACE 22 6 15 14;DISRUPT 4"), p);
+
+        Rules.PlayerMoves m = new Rules.PlayerMoves();
+        Rules.expand(s, 1, Action.parseLine("AUTOPLACE 22 6 17 2;DISRUPT 4"), p, m, null);
+
+        assertNull(m.error);
+        assertEquals(3, m.count);
+        assertEquals(s.cell(19, 7), m.cells[0]);
+        assertEquals(s.cell(19, 6), m.cells[1]);
+        assertEquals(s.cell(19, 5), m.cells[2], "CG goes NORTH after the contested (19,6)");
+        assertEquals(List.of("Autobuild interrupted: not enough track points at cell 18 5"), m.skipped);
     }
 
     @Test
