@@ -48,6 +48,24 @@ class CgReplayPlayersTest {
         assertEquals("aabzac", names.get("1").getAsString());
     }
 
+    @Test
+    void testSessionBossAgentGetsReadableName() {
+        JsonObject root = new JsonObject();
+        JsonArray agents = new JsonArray();
+        agents.add(agent(0, 100, "aabzac"));
+        JsonObject boss = new JsonObject();
+        boss.addProperty("index", 1);
+        boss.addProperty("agentId", -2);
+        agents.add(boss);
+        root.add("agents", agents);
+        root.add("frames", initFrames());
+
+        CgReplay replay = CgReplay.parse(root);
+
+        assertEquals("aabzac", replay.nicknames[0]);
+        assertEquals("Boss", replay.nicknames[1]);
+    }
+
     private static JsonObject agent(int index, long userId, String pseudo) {
         JsonObject codingamer = new JsonObject();
         codingamer.addProperty("userId", userId);

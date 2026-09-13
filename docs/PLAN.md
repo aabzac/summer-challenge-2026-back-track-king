@@ -27,6 +27,8 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       authentic maps by `refereeInput` seed; `cgMapValidate` 107/107, seven checked-in map fixtures
       covering all heights. Seed 0 is non-reproducible in CG and rejected; see `map_generator.md`.
 - [ ] Re-fetch replays of the current top 20 every few days (`cgFetch`), keep `cgValidate` green
+- [x] Capture boss `TestSession/play`: it returns a replay document and public `gameId`;
+      userscript now stores the raw response and canonical `gameResult` replay automatically.
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)
 

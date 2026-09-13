@@ -23,6 +23,7 @@ import java.util.List;
  * gradlew cgFetch -Ptop=20 -Plimit=10     # last 10 finished games of each top-20 player
  * gradlew cgFetch -Pplayer=SomePseudo     # by leaderboard pseudo
  * gradlew cgFetch -Pagent=6727937         # by agent id
+ * gradlew cgFetch -Pgame=903337834        # one known arena or IDE game id
  * </pre>
  *
  * Also prints a leaderboard snapshot (league sizes, languages) for the DEVLOG.
@@ -36,9 +37,13 @@ public final class CgFetch {
     private final HttpClient http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(20)).build();
 
     public static void main(String[] args) throws Exception {
-        String top = arg(args, 0), agent = arg(args, 1), player = arg(args, 2);
+        String top = arg(args, 0), agent = arg(args, 1), player = arg(args, 2), gameIds = arg(args, 4);
         int limit = Integer.parseInt(arg(args, 3).isEmpty() ? "10" : arg(args, 3));
         CgFetch f = new CgFetch();
+        if (!gameIds.isEmpty()) {
+            f.fetchGames(gameIds);
+            return;
+        }
         JsonObject lb = f.leaderboard();
         f.printLeaderboardSummary(lb);
         List<Integer> agents = new ArrayList<>();
@@ -92,6 +97,26 @@ public final class CgFetch {
                         extra.has("0") ? extra.get("0").getAsString() : "?",
                         extra.has("1") ? extra.get("1").getAsString() : "?");
             }
+        }
+        System.out.printf("done: %d saved, %d already present%n", saved, skipped);
+    }
+
+    private void fetchGames(String ids) throws IOException, InterruptedException {
+        Files.createDirectories(OUT_DIR);
+        int saved = 0, skipped = 0;
+        for (String token : ids.split("[,\\s]+")) {
+            if (token.isBlank()) continue;
+            long gameId = Long.parseLong(token);
+            Path file = OUT_DIR.resolve(gameId + ".json");
+            if (Files.exists(file)) {
+                skipped++;
+                System.out.printf("already present %s%n", file.getFileName());
+                continue;
+            }
+            JsonObject game = gameResult(gameId);
+            Files.writeString(file, game.toString());
+            saved++;
+            System.out.printf("saved %s%n", file.getFileName());
         }
         System.out.printf("done: %d saved, %d already present%n", saved, skipped);
     }

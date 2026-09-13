@@ -1,16 +1,16 @@
 """
-Tiny HTTP server that receives a POST request from the Tampermonkey script
-and saves the stderr log to the logs/ directory of the project.
+Tiny HTTP server that receives POST requests from the Tampermonkey scripts.
+Stderr logs go to logs/, canonical replays to replays/cg/, and raw
+TestSession/play responses to replays/cg/raw/.
 
 Usage
 -----
     python tools/save_server.py
 
-Then in codingame_stderr_export.user.js set:
+Then in a userscript set:
     const SAVE_SERVER_URL = 'http://localhost:7777';
 
-The file is saved as:
-    logs/stderr_YYYYMMDD_HHMMSS.txt
+The request may set kind="replay" or kind="replay_raw" to select the replay directory.
 
 Notes
 -----
@@ -25,7 +25,12 @@ from datetime import datetime
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
-SAVE_DIR = os.path.join(os.path.dirname(__file__), '..', 'logs')
+PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+SAVE_DIRS = {
+    'stderr': os.path.join(PROJECT_DIR, 'logs'),
+    'replay': os.path.join(PROJECT_DIR, 'replays', 'cg'),
+    'replay_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'raw'),
+}
 PORT     = 7777
 
 
@@ -42,12 +47,16 @@ class Handler(BaseHTTPRequestHandler):
             data   = json.loads(body)
 
             content  = data.get('content', '')
+            kind     = data.get('kind', 'stderr')
+            if kind not in SAVE_DIRS:
+                raise ValueError(f"unsupported save kind: {kind}")
             filename = data.get('filename') or f"stderr_{datetime.now():%Y-%m-%d_%H-%M-%S}.txt"
             # Sanitise filename
             filename = os.path.basename(filename)
 
-            os.makedirs(SAVE_DIR, exist_ok=True)
-            path = os.path.join(SAVE_DIR, filename)
+            save_dir = SAVE_DIRS[kind]
+            os.makedirs(save_dir, exist_ok=True)
+            path = os.path.join(save_dir, filename)
             with open(path, 'w', encoding='utf-8') as f:
                 f.write(content)
 
@@ -71,9 +80,12 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main():
-    os.makedirs(SAVE_DIR, exist_ok=True)
+    for save_dir in SAVE_DIRS.values():
+        os.makedirs(save_dir, exist_ok=True)
     print(f"[save_server] Listening on http://localhost:{PORT}")
-    print(f"[save_server] Files will be saved to: {os.path.abspath(SAVE_DIR)}")
+    print(f"[save_server] Stderr logs: {SAVE_DIRS['stderr']}")
+    print(f"[save_server] Replays: {SAVE_DIRS['replay']}")
+    print(f"[save_server] Raw responses: {SAVE_DIRS['replay_raw']}")
     print("[save_server] Press Ctrl-C to stop.\n")
     HTTPServer(('localhost', PORT), Handler).serve_forever()
 

@@ -3,13 +3,18 @@
 Downloaded by `gradlew cgFetch` into `replays/cg/<gameId>.json`. No login needed. Parsed by
 `btk.tools.CgReplay`.
 
+IDE and boss runs return the same frame document directly from `TestSession/play`, but omit most
+agent information. `tools/codingame_replay_export.user.js` captures its game id and immediately
+re-fetches the canonical document through the public `gameResult/findByGameId` endpoint. In the
+canonical boss replay the current IDE code has agent id `-1`; the boss has id `-2` and no pseudo.
+
 ## Top level
 
 | field | meaning |
 |---|---|
 | `gameId` | id |
 | `refereeInput` | Java properties containing `seed=<signed long>`; `CgReplay.mapSeed()` parses it and `cgMapValidate` checks exact map reproduction with `MapGenerator` |
-| `agents[]` | `{index (0/1 = in-game player position), codingamer:{userId,pseudo}, agentId, score, rank}` — authoritative player mapping |
+| `agents[]` | `{index (0/1 = in-game player position), codingamer:{userId,pseudo}, agentId, score, rank}` — authoritative player mapping; boss agent id `-2` is displayed as `Boss` |
 | `btkNicknames` | compatibility field added by CgFetch, keyed by the authoritative `agents[].index`; the parser prefers `agents[].codingamer.pseudo` |
 | `ranks[]`, `scores[]` | final ranking; final scores are more reliably read from the last frame `endScreen` |
 | `metadata` | per-player stats, keys suffixed `_0/_1`: `tracksPlaced`, `tracksPlacedOnPlains/River/Mountains`, `zonesInked`, `enemyTracksInkedOut`, `ownTracksInkedOut`, `poisServed`, `totalPois`, `autobuildCalled`, `extraTilesInConnection`, `averageTrackOwnershipPercentagePerActiveConnection`, `executionTimeMs` |

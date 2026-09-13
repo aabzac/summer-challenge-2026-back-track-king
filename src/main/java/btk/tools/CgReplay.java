@@ -81,6 +81,7 @@ public final class CgReplay {
                 int idx = a.get("index").getAsInt();
                 if (idx < 0 || idx > 1) continue;
                 r.agentIds[idx] = a.has("agentId") ? a.get("agentId").getAsInt() : -1;
+                if (r.agentIds[idx] == -2) r.nicknames[idx] = "Boss";
                 if (a.has("codingamer") && a.get("codingamer").isJsonObject()) {
                     JsonObject c = a.getAsJsonObject("codingamer");
                     if (c.has("pseudo")) r.nicknames[idx] = c.get("pseudo").getAsString();
@@ -88,6 +89,7 @@ public final class CgReplay {
                 if (a.has("rank")) r.ranks[idx] = a.get("rank").getAsInt();
             }
         }
+        for (int p = 0; p < 2; p++) if (r.nicknames[p] == null) r.nicknames[p] = "P" + p;
         if (root.has("ranks")) {
             JsonArray ranks = root.getAsJsonArray("ranks");
             for (int i = 0; i < Math.min(2, ranks.size()); i++) r.ranks[i] = ranks.get(i).getAsInt();

@@ -13,6 +13,7 @@ gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
 gradlew cgFetch -Ptop=20 -Plimit=10            # download top players' replays -> replays/cg/
+gradlew cgFetch -Pgame=903337834               # download one known arena/IDE game id
 gradlew cgValidate                             # replay CG games through our engine, report divergences
 gradlew cgMapValidate                          # regenerate CG maps from refereeInput seeds, compare exactly
 ```
@@ -75,6 +76,16 @@ python -m http.server 7799
 
 `gradlew cgValidate "-Pshow=<gameId>"` also writes `replays/cg-local/<gameId>.json` — the CG game
 as replayed by our engine — which the visualizer opens the same way.
+
+### Capturing an IDE/boss game
+
+`tools/codingame_replay_export.user.js` intercepts the browser's `TestSession/play` response,
+extracts its `gameId`, and downloads the canonical replay through `gameResult/findByGameId` without
+reconstructing anything from stderr. Start `python tools/save_server.py` before pressing
+**PLAY MY CODE**; the replay is written directly to `replays/cg/<gameId>.json` and the original
+response is retained in `replays/cg/raw/` for diagnostics. Without the local server the userscript
+falls back to a browser download. Run `gradlew cgValidate "-Pshow=<gameId>"` to validate it and
+produce `replays/cg-local/<gameId>.json` for the visualizer.
 
 ## Submitting
 

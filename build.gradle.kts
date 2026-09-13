@@ -56,13 +56,14 @@ tasks.register<JavaExec>("submit") {
     classpath = sourceSets["main"].runtimeClasspath
 }
 
-/** Download CG replays. -Ptop=N (top N players) | -Pagent=ID | -Pplayer=pseudo ; -Plimit=games per agent */
+/** Download CG replays. -Ptop=N | -Pagent=ID | -Pplayer=pseudo | -Pgame=ID ; -Plimit=games per agent */
 tasks.register<JavaExec>("cgFetch") {
     group = "cg"
     description = "Download CodinGame replays into replays/cg/"
     mainClass.set("btk.tools.CgFetch")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("top", ""), prop("agent", ""), prop("player", ""), prop("limit", "10"))
+    args = listOf(prop("top", ""), prop("agent", ""), prop("player", ""), prop("limit", "10"),
+        prop("game", ""))
 }
 
 /** Replay both players' stdout from CG replays through the local referee and diff scores/events. */
