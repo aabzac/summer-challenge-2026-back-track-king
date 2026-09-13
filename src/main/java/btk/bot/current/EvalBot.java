@@ -12,13 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * v03: v02 simulation-evaluated greedy + opponent model.
+ * v04 candidate: v03 simulation-evaluated greedy plus safe idle network extension.
  *
  * <p>Build: for every desired pair generate up to two candidate routes (cheapest path using any
  * tracks; cheapest path avoiding opponent tracks = ownership steal). Each candidate is scored by
  * placing its free cells in a scratch state, recomputing connections and comparing both players'
  * income per turn, projected over the turns left after completion, discounted by build time and
  * by region instability along the route. Paint goes to the best candidate; leftovers cascade.
+ * When no complete route improves the evaluation, remaining paint extends existing rails through
+ * stable nearby cells, preferring permanent-safe town regions.
  *
  * <p>Opponent model: the same candidate search is run from the opponent's point of view first.
  * Cells they are predicted to place this turn get a routing surcharge (a clash makes the track
@@ -175,6 +177,22 @@ public final class EvalBot implements Bot {
             Rules.updateConnections(s, pathing);
         }
 
+        // Keep useful local momentum when every complete route has zero immediate evaluation
+        // gain. Prefer cells adjoining our network, especially in permanent-safe town regions.
+        if (P.USE_IDLE_EXTEND) {
+            boolean extended = false;
+            while (budget > 0 && !timer.up()) {
+                int c = chooseIdleExtension(s, myId, budget);
+                if (c < 0) break;
+                budget -= s.placeCost(c);
+                myRoute[c] = true;
+                out.add(Action.place(s.x(c), s.y(c)));
+                s.owner[c] = myId;
+                extended = true;
+            }
+            if (extended) Rules.updateConnections(s, pathing);
+        }
+
         // --- disrupt ---
         if (P.USE_DISRUPT) {
             int region = chooseDisrupt(s, myId);
@@ -251,6 +269,37 @@ public final class EvalBot implements Bot {
             }
         }
         return bestLen > 0;
+    }
+
+    /** Best cheap cell next to our network; -1 when no safe extension fits the paint left. */
+    private int chooseIdleExtension(GameState s, int me, int budgetNow) {
+        double bestValue = 1e-9;
+        int best = -1;
+        for (int c = 0; c < s.size; c++) {
+            if (!s.canBuild(c) || s.placeCost(c) > budgetNow) continue;
+            int region = s.regionId[c];
+            boolean townRegion = s.regionHasTown(region);
+            if (!townRegion && s.regionInstability[region] >= 2) continue;
+            int x = s.x(c), y = s.y(c), ownAdjacent = 0, townAdjacent = 0;
+            for (int d = 0; d < 4; d++) {
+                int nx = x + GameState.DX[d], ny = y + GameState.DY[d];
+                if (!s.inBounds(nx, ny)) continue;
+                int n = s.cell(nx, ny);
+                if (s.owner[n] == me) ownAdjacent++;
+                if (s.isTown(n)) townAdjacent++;
+            }
+            if (ownAdjacent == 0 && townAdjacent == 0) continue;
+            double value = ownAdjacent * 10.0 + townAdjacent * 6.0 + (townRegion ? 4.0 : 0.0)
+                    - s.regionInstability[region] * 3.0 - s.placeCost(c) * 2.0;
+            // Stable deterministic tie-break that differs between players without consuming the
+            // candidate-evaluation RNG used by the main search.
+            value += ((c * 31 + me * 17 + P.SEED) & 255) * 1e-6;
+            if (value > bestValue) {
+                bestValue = value;
+                best = c;
+            }
+        }
+        return best;
     }
 
     // ------------------------------------------------------------------ disrupt

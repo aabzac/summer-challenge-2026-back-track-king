@@ -236,3 +236,43 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   the historical inference document name were corrected.
 - v03 is currently in Silver at roughly rank 350/645. It usually wins the available boss games;
   Gold has not opened yet, so a later automatic placement is possible but not assumed.
+
+### Strategy experiment: post-ink route prebuild (rejected)
+
+- Hypothesis: when no route increases income immediately, spend otherwise idle paint on an
+  alternate route that restores income after the most vulnerable active-path region is inked.
+- The targeted test confirmed the intended behavior. On the 108-replay policy study, placement
+  frequency moved only **73% → 74%** and paint **1.76 → 1.79 per turn**. Paired benchmark versus
+  frozen v03 on 100 generated maps (200 games, seed 2000): **51.5%**, W-L-D **88-82-30**,
+  map-grouped 95% CI **[37.9%, 65.1%]**, average score difference +227.1.
+- Decision: promotion gate not passed and the measured idle-turn gap barely changed; remove the
+  implementation and move to pre-emptive disruption rather than tuning this weak signal.
+
+### Strategy experiment: predicted early disruption (rejected)
+
+- Hypothesis: top Silver players first disrupt on turn 0–1 in 92/108 games, while the bot cannot
+  rank empty regions. Predict the opponent's best route and use its regions as early targets.
+- Predicting every turn exceeded the useful 50-ms search budget: policy-study placement fell to
+  68%. Restricting prediction to turns 0–1 restored placement to 73%, raised disrupt agreement
+  **2433 → 2576** states and total disrupts **5576 → 5900** on the 108-replay study.
+- Paired benchmark versus frozen v03 on the same 100 generated maps (200 games, seed 2000):
+  **50.0%**, W-L-D **85-85-30**, map-grouped 95% CI **[36.4%, 63.6%]**, average score difference
+  +97.7. Decision: behavior became more leader-like but strength did not improve; reject.
+
+### v04: safe idle network extension
+
+- Hypothesis: current places on 73% of replay states versus 88% for top Silver players. When no
+  complete route raises the evaluation, use leftover paint to grow from existing own rails or a
+  town, prefer uninkable town regions, and avoid non-town regions already at instability 2+.
+- Policy study: placement frequency **73% → 100%**, paint **1.76 → 2.44/3**, adjacency to own rails
+  **36% → 53%** (top players: 51%). Immediate-income-raising turns fell 23% → 17%, so strength was
+  decided by the paired benchmark rather than behavioral similarity.
+- Versus frozen v03 on 150 generated maps (300 paired games, seed 2000): **64.7%**, W-L-D
+  **194-106-0**, map-grouped 95% CI **[53.6%, 75.8%]**, average score difference +405.3. The
+  promotion gate passed. A 100-game v02 spot-check gave 54%, exactly matching a v03-v02 control on
+  the same 50 maps; no detected non-transitive regression.
+- `submit` compile check passed. Eight process games against v03 had no errors/timeouts; first turn
+  max 745 ms and later-turn max 43 ms. Frozen as v04 and retained in `current`.
+- Manual CG check: v04 beat the currently available boss **7/7**. This confirms stability but is
+  not treated as a strength benchmark because Gold is still closed and the boss may be weak;
+  promotion remains provisional until games against real Silver arena opponents are observed.

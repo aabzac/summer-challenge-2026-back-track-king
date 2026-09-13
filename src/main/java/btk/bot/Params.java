@@ -54,6 +54,8 @@ public class Params {
     public double W_THEIR_LOSS = 1.0;
     /** Also generate backup routes for active pairs that avoid the most threatened region. */
     public boolean USE_BACKUP = true;
+    /** Spend otherwise idle paint by extending our existing network through safe nearby cells. */
+    public boolean USE_IDLE_EXTEND = true;
 
     // ---- v03 endgame / horizon ----
     /** Income is projected over at most this many turns (top Silver games close after ~50 turns). */

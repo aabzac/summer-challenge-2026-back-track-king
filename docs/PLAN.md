@@ -39,8 +39,8 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 
 - [ ] Reference opponent that reproduces the top Silver meta (aggressive disrupts, ~50-turn games) so
       self-play benches transfer to the arena
-- [ ] No idle turns: useful placements when nothing raises the value now (extend lines,
-      pre-build in town/shared regions)
+- [x] No idle turns: v04 spends otherwise idle paint extending its network through stable nearby
+      cells, preferring town regions — 64.7% vs v03 over 300 paired games
 - [ ] Disrupt every turn: pre-emptive targets on the opponent's likely corridors; closing the map
       when ahead / keeping it open when behind
 - [ ] Short lookahead: 2-3 turn plan search over (placements, disrupt) with the engine

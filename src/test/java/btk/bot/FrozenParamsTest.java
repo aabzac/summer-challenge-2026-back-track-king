@@ -14,7 +14,7 @@ class FrozenParamsTest {
     // Independent record of the effective defaults at 8364ad5, not read from the snapshots.
     private static final String BASELINE = "ALWAYS_DISRUPT=true,COLLISION_COST=2.0,DEBUG=false,DISRUPT_MIN=0.01,"
             + "HORIZON=100,MESSAGE=false,NOISE=0.1,SEED=1,SKIP_UNFINISHABLE=true,UNSTABLE_COST=1.0,"
-            + "USE_BACKUP=true,USE_CLOSE=true,USE_DISRUPT=true,USE_OPP_MODEL=false,USE_STEAL=true,W_COST=0.0,"
+            + "USE_BACKUP=true,USE_CLOSE=true,USE_DISRUPT=true,USE_IDLE_EXTEND=false,USE_OPP_MODEL=false,USE_STEAL=true,W_COST=0.0,"
             + "W_FUTURE_OWN=0.4,W_FUTURE_TRACK=0.3,W_OPP_INCOME=1.0,W_OPP_ROUTE=0.3,W_OPP=1.0,W_OWN=1.0,"
             + "W_RISK=0.6,W_SELF_LOSS=1.2,W_THEIR_LOSS=1.0,W_VULN=1.0";
 
@@ -54,6 +54,14 @@ class FrozenParamsTest {
         assertTrue(fresh.USE_BACKUP);
         assertEquals(0.6, fresh.W_RISK);
         assertEquals("0.4", BotFactory.configuration("v03?NOISE=0.4").get("NOISE"));
+    }
+
+    @Test
+    void v04SnapshotPreservesPromotedIdleExtension() {
+        Params params = BotFactory.parameters("v04");
+        assertTrue(params.USE_IDLE_EXTEND);
+        assertEquals("true", BotFactory.configuration("v04").get("USE_IDLE_EXTEND"));
+        assertEquals("v04", BotFactory.create("v04").name());
     }
 
     @Test

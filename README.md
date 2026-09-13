@@ -39,7 +39,7 @@ mirror each other and every game is a draw.
 ## Reproducible benchmarks
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
-P0 and P1. Reference bots `v01`–`v03` load fixed parameter snapshots; explicit query overrides
+P0 and P1. Reference bots `v01`–`v04` load fixed parameter snapshots; explicit query overrides
 are applied afterward. `current` uses the live `Params` defaults.
 
 ```bash

@@ -4,7 +4,7 @@ Gate: A vs previous >= 55% on >= 200 games (two sides on each map), map-grouped 
 50%, no bot errors. Process timing and an older opponent remain separate promotion checks.
 `current` = `btk.bot.current.EvalBot`; frozen copies in `btk.bot.vNN`.
 
-`BotFactory` loads fixed defaults for v01–v03 from `src/main/resources/btk/bot/versions/`, then
+`BotFactory` loads fixed defaults for v01–v04 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. The snapshots preserve the effective defaults at commit `8364ad5`;
 they do not retrospectively reconstruct the original defaults used by every historical bench.
 When freezing a new version, add its parameter snapshot as well as its source and factory entry.
@@ -21,6 +21,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 | v02 `EvalBot` | 2026-09-13 | Simulation-evaluated candidates: per pair, cheapest route (any tracks) + own route avoiding opponent tracks (steal); value = income delta after completion (mine − opp) × turns earning × instability risk / (turnsToFinish+1). Free DISRUPT chosen by simulating ink of each region (opp income lost − 1.2 × own loss, + not-yet-earning tracks) / disrupts needed. Routing surcharge for unstable regions. `NOISE` param to break self-play mirrors. | vs v01: 100% (300-0), +29k pts. Ablations (both sides NOISE=0.2, n=300): no DISRUPT 97.3%, no STEAL 87.5%, no instability avoidance 54.8% [49-60]. | not submitted separately |
 
 | v03 `EvalBot` | 2026-09-13 | v02 + state value = income diff − W_VULN × worst single ink the opponent could do (my loss − their loss, / disrupts needed, only regions on active paths with my tracks). Third candidate type: backup route for an active pair avoiding the most threatened region. Closing rule: an ink that leaves no connectable pair is taken only when ahead, never when behind. `HORIZON` param (default 100). `NOISE=0.1` default (deterministic mirrors gave 0-0 games). Opponent model (`USE_OPP_MODEL`, collision surcharge) implemented but off: 47-51% in ablations. | vs v02: 58.5% [51.6-65.1], n=200. Ablations (n=300): no backup 60.2% [54.5-65.5] sig.; W_VULN=0 & no backup 52.7%; USE_CLOSE=0 48% (self-play games rarely close); HORIZON 20/30/50 → 52/53/43%. Process check: first turn ≤ 660 ms, later ≤ 38 ms. | **Silver, around 350/645**; Gold not yet open; usually wins boss games |
+| v04 `EvalBot` | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability ≥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn ≤745 ms, later ≤43 ms. | Boss **7/7**; awaiting Silver arena result |
 
 ## Paired benchmark checkpoint (2026-09-13)
 
@@ -40,16 +41,20 @@ Full commands, timing limitations and validation results are recorded in `DEVLOG
 
 - 97/107 games close early (no connectable pair), average ~50 turns. Disrupt on 92% of turns,
   first disrupt at turn 0-1 in 86% of games, targets mostly regions with opponent-only tracks.
-- Place on 88% of turns, 2.15 cells/turn (v03: 69%, 1.66 — idles when nothing raises income now).
+- Place on 88% of turns, 2.15 cells/turn (baseline current/v03 study: 73%, 1.76; v04 idle
+  extension: 100%, 2.44 — it now overbuilds rather than idles).
   29% of their cells go to regions shared with the opponent (hostage effect), 20% to town regions
   (uninkable), 51% adjacent to own tracks.
-- v03 agrees with the winner's disrupt region 46% of the time, placement cells 13%.
+- v04 agrees on 15.8% of winner placement cells; its 53% adjacency to own rails closely matches
+  the winners' 51%, but only 17% of its turns immediately raise income versus their 31%.
 
 ## Known gaps (to become versions)
 
-- Self-play does not reproduce the top Silver meta (90-turn games vs 50): benches vs v02/v03 may not
+- Self-play does not reproduce the top Silver meta (v04 still averages 84 turns vs about 50):
+  benches against frozen versions may not
   transfer. Needs a more aggressive reference opponent or evaluation against replay states.
-- Idle turns: build something useful when no candidate raises the value (pre-build, extend lines).
+- v04 overbuilds locally (100% of turns vs 88% for winners); refine which extensions are useful
+  using replay-state evaluation rather than maximizing paint usage itself.
 - Pre-emptive disrupts of empty regions on the opponent's likely corridors; disrupt every turn.
 - No lookahead: a 2-3 turn plan search over (placements, disrupt) with the engine.
 - Arena timing shows 100-300 ms outliers under 13 threads (JIT/GC contention); not seen in

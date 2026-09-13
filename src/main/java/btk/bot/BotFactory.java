@@ -5,6 +5,7 @@ import btk.bot.v00.AutoplaceBot;
 import btk.bot.v01.GreedyBotV01;
 import btk.bot.v02.EvalBotV02;
 import btk.bot.v03.EvalBotV03;
+import btk.bot.v04.EvalBotV04;
 
 import java.util.function.Function;
 import java.lang.reflect.Modifier;
@@ -68,6 +69,7 @@ public final class BotFactory {
             case "v01": return GreedyBotV01::new;
             case "v02": return EvalBotV02::new;
             case "v03": return EvalBotV03::new;
+            case "v04": return EvalBotV04::new;
             default: return null;
         }
     }
