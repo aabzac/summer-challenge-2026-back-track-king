@@ -15,6 +15,8 @@ public final class Pathing {
     private final int[] parent;
     private final int[] heap;
     private final int[] heapPos;
+    /** Referee AutobuildAStar tie breaker: direction of the edge into a queued cell. */
+    private final int[] heapTie;
 
     public Pathing(int size) {
         this.size = size;
@@ -24,6 +26,7 @@ public final class Pathing {
         this.parent = new int[size];
         this.heap = new int[size];
         this.heapPos = new int[size];
+        this.heapTie = new int[size];
     }
 
     /**
@@ -174,8 +177,9 @@ public final class Pathing {
 
     /**
      * Cheapest path in paint points from cell {@code from} to cell {@code to}. Existing tracks and
-     * towns cost 0; free cells cost their terrain cost. Ties broken by fewer cells, then by
-     * direction order N, E, S, W (deterministic).
+     * towns cost 0; free cells cost their terrain cost. This mirrors the referee's
+     * {@code AutobuildAStar}: equal-cost queued states are ordered by the direction of their last
+     * step (N, E, S, W), and an equal-cost rediscovery does not replace the first parent.
      *
      * @param out receives cells incl. endpoints
      * @return path length in cells, or -1 if impossible
@@ -202,6 +206,7 @@ public final class Pathing {
         Arrays.fill(dist, INF);
         Arrays.fill(parent, -1);
         Arrays.fill(heapPos, -1);
+        Arrays.fill(heapTie, 0);
         int heapSize = 0;
         costBuf[from] = 0;
         dist[from] = 0;
@@ -224,11 +229,11 @@ public final class Pathing {
                     step = s.placeCost(nc) + (extraCost == null ? 0 : extraCost[nc]);
                 }
                 int nCost = costBuf[c] + step;
-                int nLen = dist[c] + 1;
-                if (nCost < costBuf[nc] || (nCost == costBuf[nc] && nLen < dist[nc])) {
+                if (nCost < costBuf[nc]) {
                     costBuf[nc] = nCost;
-                    dist[nc] = nLen;
+                    dist[nc] = dist[c] + 1;
                     parent[nc] = c;
+                    heapTie[nc] = dir;
                     if (heapPos[nc] >= 0) heapSize = heapFix(heapSize, heapPos[nc]);
                     else heapSize = heapPush(heapSize, nc);
                 }
@@ -250,10 +255,10 @@ public final class Pathing {
         return costBuf[cell];
     }
 
-    // ---- binary heap keyed by (costBuf, dist) ----
+    // ---- binary heap keyed like referee AbstractAStar: (cost, incoming direction) ----
 
     private boolean less(int a, int b) {
-        return costBuf[a] < costBuf[b] || (costBuf[a] == costBuf[b] && dist[a] < dist[b]);
+        return costBuf[a] < costBuf[b] || (costBuf[a] == costBuf[b] && heapTie[a] < heapTie[b]);
     }
 
     private int heapPush(int n, int c) {

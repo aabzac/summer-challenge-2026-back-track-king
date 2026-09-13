@@ -112,6 +112,40 @@ class RulesTest {
     }
 
     @Test
+    void autoplaceEqualCostTieMatchesCapturedRefereeGame() {
+        // Initial map from boss game 903365560. Several routes from town 5 to town 3 have the
+        // same paint cost. Referee AutobuildAStar starts west through the southern plains; our old
+        // (cost, path length) heap instead started north and collided with P0's placements.
+        GameState s = TestMaps.of(new String[]{
+                "............^^^^~......",
+                ".............^.~~......",
+                ".............^~~..0....",
+                "...1.........~~........",
+                ".............~.........",
+                "............~~.....2...",
+                "...........~~..........",
+                ".....^....3~......^....",
+                ".....^....~~......^^...",
+                "...4.^^...~.......^....",
+                ".....^^^..~............",
+                ".......^..~...........^",
+                "........~~~.....5....^^",
+                ".......~~..............",
+                ".......~..............."},
+                new int[][]{{}, {}, {}, {}, {}, {}});
+        Pathing p = new Pathing(s.size);
+        Rules.PlayerMoves m = new Rules.PlayerMoves();
+
+        Rules.expand(s, 1, List.of(Action.autoplace(16, 12, 10, 7)), p, m, null);
+
+        assertNull(m.error);
+        assertEquals(3, m.count);
+        assertEquals(s.cell(15, 12), m.cells[0]);
+        assertEquals(s.cell(14, 12), m.cells[1]);
+        assertEquals(s.cell(14, 11), m.cells[2]);
+    }
+
+    @Test
     void duplicatePlacementIsSkippedNotFatal() {
         GameState s = line5();
         Pathing p = new Pathing(s.size);

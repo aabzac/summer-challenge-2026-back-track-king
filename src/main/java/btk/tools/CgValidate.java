@@ -219,6 +219,8 @@ public final class CgValidate {
         String e = "";
         if (tr.moves[0].error != null) e += " P0err=" + tr.moves[0].error;
         if (tr.moves[1].error != null) e += " P1err=" + tr.moves[1].error;
+        if (!tr.moves[0].skipped.isEmpty()) e += " P0skipped=" + tr.moves[0].skipped;
+        if (!tr.moves[1].skipped.isEmpty()) e += " P1skipped=" + tr.moves[1].skipped;
         return e;
     }
 

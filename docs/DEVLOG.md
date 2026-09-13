@@ -167,3 +167,17 @@ Format per entry: context / hypothesis -> what was done -> result -> decision.
   as `MiniWall vs aabzac`, 7 turns, final **-1–57**; the full corpus is **108/108 exact**. The
   generated final visualizer turn shows MiniWall's effective action as `WAIT`, the timeout error,
   a `-1–57` score, and a P1 win.
+
+### Boss replay capture and AUTOPLACE fidelity
+
+- Captured IDE boss game 903365560 by intercepting `TestSession/play`. Its response is already the
+  same top-level frame document as `gameResult/findByGameId` (115 frames, both players' stdout,
+  seed and final 5857–601 score), only without `agents`. The game id is immediately readable from
+  the public game-result endpoint, which adds the IDE pseudo and a boss agent with id `-2`.
+- Replaced the old stderr-reconstruction plan with a dedicated userscript: preserve the raw API
+  response, extract `gameId`, fetch the canonical document and save it under `replays/cg/`.
+- The first boss validation exposed an equal-cost AUTOPLACE tie missed by the arena corpus. The
+  referee's `AutobuildAStar` compares cost and then the incoming N/E/S/W direction, and does not
+  replace a state on an equal-cost shorter route. Local `Pathing` incorrectly preferred fewer
+  cells, producing a different route. Aligned the primitive heap with the referee and added a
+  regression test using the captured boss map and command.
