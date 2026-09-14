@@ -50,8 +50,18 @@ public class FileMerger {
         int classes = 0;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
-            body.append("    // === ").append(SRC_ROOT.relativize(file)).append(" ===\n");
+            boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
+                String trimmed = line.trim();
+                if (inBlockComment) {
+                    if (trimmed.contains("*/")) inBlockComment = false;
+                    continue;
+                }
+                if (trimmed.startsWith("/*")) {
+                    if (!trimmed.contains("*/")) inBlockComment = true;
+                    continue;
+                }
+                if (trimmed.isEmpty() || trimmed.startsWith("//")) continue;
                 if (PACKAGE.matcher(line).matches()) continue;
                 Matcher im = IMPORT.matcher(line);
                 if (im.matches()) {
@@ -63,9 +73,9 @@ public class FileMerger {
                 if (pt.find()) {
                     line = pt.group(1) + "static " + pt.group(2) + pt.group(3) + " " + line.substring(pt.end());
                 }
-                body.append(line.isBlank() ? "" : "    " + line).append('\n');
+                // Whitespace is not semantic here; omitting the merge prefix saves about 10 KB.
+                body.append(line.stripTrailing()).append('\n');
             }
-            body.append('\n');
             classes++;
         }
 
