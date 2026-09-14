@@ -574,3 +574,93 @@ Outcome:
 - Final checks: **79 tests passed**; **214/214** CG replays exact before the bench (core unchanged).
   Existing v05 `build/submit/Player.java` was not regenerated; SHA-256 remains
   `5307e4f0f53b39ef8768d364e24fcf701d4f9ca3eafa444aa23a38d3a34a9c5a`.
+
+### 2026-09-14 — top-4 routes against top-2 likely replies
+
+- Hypothesis from the user: retain several routes that already pass v05's long-term value filter,
+  predict likely opponent moves from the same pre-turn state, resolve each combination
+  simultaneously, and choose the route that survives best. This targets collisions, current-turn
+  sabotage and harmful affordable prefixes together rather than adding another local veto.
+- Implemented default-off `USE_REPLY_RERANK` with `BUILD_BEAM_WIDTH=4` and
+  `OPP_REPLY_WIDTH=2`. Only the first build decision of the turn is reranked. Candidate identity
+  is the actual affordable placement prefix; duplicate prefixes from different complete paths are
+  collapsed. The original best route remains the fallback if any later phase runs out of time.
+- Our top four use the unchanged v05 completed-route formula and RNG. The opponent's two routes
+  use the same formula deterministically from the original board. Each reply also predicts the
+  opponent's existing sabotage choice. For every combination, core applies both placement arrays,
+  the predicted sabotage, ink, connection updates and scoring in referee order. The selected
+  route maximizes its worst value across the usable replies; ties keep v05's original order.
+- After the simultaneous turn, the evaluator hypothetically completes that same route. Its score
+  combines the immediate score difference with the existing projected route gain, completion
+  delay and instability risk. A route crossing a newly inked cell is rejected. No second-turn
+  opponent reaction, learned probabilities, new evaluation weights or parameter sweep are part of
+  this experiment. Old `USE_OPP_MODEL` and both earlier build flags remain off.
+- Buffers for four routes, two replies and scratch states are allocated at bot initialization.
+  Later-turn phase cutoffs leave time for our candidates, opponent candidates, reply evaluation
+  and the existing 6-ms sabotage reserve. If a cutoff prevents complete reranking, the stored v05
+  top candidate is used.
+- Deterministic seed-1000 regression: both player perspectives change from prefix
+  `1,2;1,3;2,3` to `6,11;7,11;8,11`, avoiding the modelled symmetric first choice; emitted actions
+  are legal. Captured build probes remain legal; the candidate changes RTJ t13 but deliberately
+  makes no claim that every historical harmful prefix is fixed.
+- Non-gating smoke check: 20 games / 10 fresh generated maps, seeds 9000..9009, sides swapped:
+  **11-9**, 55.0%, no errors or nominal-budget slow moves; candidate average search 5.23 ms,
+  max 33 ms. Report: `build/bench/reply-rerank-smoke20.json`. The sample is only a wiring/timing
+  check and is not promotion evidence.
+- Predeclared screen: candidate
+  `current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=4,OPP_REPLY_WIDTH=2,USE_OPP_MODEL=0,GUARD_BUILD_INCOME=0,CHOOSE_BUILD_DIRECTION=0`
+  versus frozen v05, **428 games / all 214 downloaded arena maps**, both sides, 2 threads, CG
+  timing, base seed 1000. Existing gate: at least 55% and map-grouped lower 95% bound above 50%;
+  no adaptive extension or tuning. A failed screen leaves the feature default-off and stops the
+  promotion sequence.
+
+Outcome:
+
+- Completed the fixed sample: **199-229-0**, candidate **46.5%**, map-grouped 95% CI
+  **[37.2%, 55.8%]**, average score difference **-50.8**, **66.7** turns, **247.1 s**.
+  A as P0 won 102/214; as P1, 97/214. All 214 map hashes are distinct and there were no bot
+  errors. Search-only time averaged **9.75 ms** for the candidate versus **6.50 ms** for v05;
+  the candidate had 3 nominal-budget slow moves (max 61 ms) versus none for v05 (max 45 ms).
+  This parallel in-process measurement is not a full process timing check. Report:
+  `build/bench/reply-rerank-v05-cg428.json`.
+- Exploratory height split: h14 **23-33**, h15 **35-29**, h16 **15-31**, h17 **22-22**,
+  h18 **39-43**, h19 **33-35**, h20 **32-36**. The selected strata are small and inconsistent;
+  they do not support enabling or tuning the feature for a map-size subset.
+- Decision: **gate NOT PASSED**. Keep `USE_REPLY_RERANK=false`; current remains v05. The exact
+  one-turn model is materially more expensive and its likely-reply maximin choice loses overall.
+  Do not tune K/R after observing this screen, and do not run a 1000-game confirmation,
+  older-opponent promotion check, process promotion check, v06 freeze or new submission.
+- Verification: **81 tests passed** in the isolated change and **214/214** CG replays reproduced
+  exactly before the bench. Core rules and frozen bot sources were unchanged. Existing v05
+  submission was not regenerated.
+
+### 2026-09-14 — reply-rerank K/R diagnostic ablation
+
+- Follow-up requested after the failed K=4/R=2 screen. Predeclared comparison on the same fresh
+  generated maps: K=4/R=1 and K=2/R=1, each versus frozen v05 for **300 games / 150 maps**,
+  both sides, 2 threads, CG timing, base seed 10000. All earlier failed flags and
+  `USE_OPP_MODEL` remain off. Reusing the same maps is intentional for matched diagnosis.
+- K=4/R=1 isolates removal of the second-reply worst-case choice. K=2/R=1 additionally reduces
+  our route beam and search cost. These are diagnostic screens after observing K=4/R=2; neither
+  can be promoted from this comparison. A result at least 55% with its map-grouped lower 95%
+  bound above 50% would justify a separately predeclared independent confirmation.
+
+Outcome:
+
+- K=4/R=1: **148-152-0**, **49.3%**, map-grouped 95% CI **[38.2%, 60.4%]**, average score
+  difference **+25.5**, **64.0** turns. Candidate search averaged **7.58 ms**, max 53 ms with
+  1 nominal-budget slow move; v05 averaged 4.66 ms. Report:
+  `build/bench/reply-rerank-k4r1-v05-gen10000.json`.
+- K=2/R=1: **166-132-2**, **55.7%**, map-grouped 95% CI **[44.6%, 66.8%]**, average score
+  difference **+138.4**, **67.7** turns. Candidate search averaged **6.84 ms**, max 53 ms with
+  2 nominal-budget slow moves; v05 averaged 4.27 ms. Report:
+  `build/bench/reply-rerank-k2r1-v05-gen10000.json`.
+- On the common sample, K=2/R=1 has a **+6.3 percentage-point** aggregate advantage over
+  K=4/R=1 and 18 more wins. The aggregate reports do not retain the per-game joint outcomes,
+  so this is a matched-map descriptive comparison, not a paired confidence interval between
+  variants. It suggests that considering fewer own alternatives is better than reranking four,
+  but does not establish the cause.
+- Decision: both diagnostic gates **NOT PASSED**. K=4/R=1 misses the 55% point threshold;
+  K=2/R=1 reaches it, but its map-grouped lower confidence bound is below 50%. Following the
+  predeclared rule, do not extend the sample adaptively or start an independent confirmation.
+  Keep `USE_REPLY_RERANK=false`, current at v05, and do not create v06 or a new submission.

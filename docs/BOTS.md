@@ -173,6 +173,28 @@ sequential: control then candidate; no strategy/default/threshold changes.
   Fixes selected Reh934/fsicre prefixes but not the captured DiogoGiassi shortcut.
   No confirmation/older-opponent/process promotion checks after this failed screen.
 
+## Unpromoted experiment: top-4 routes vs top-2 likely replies (2026-09-14)
+
+- `current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=4,OPP_REPLY_WIDTH=2` keeps four distinct
+  affordable build prefixes, predicts two deterministic opponent build-and-sabotage replies,
+  resolves each pair through the core, then selects the prefix with the best worst-case value.
+  The original v05 choice remains the timeout fallback; both earlier build flags are off.
+- Versus **v05**, all **214 distinct CG arena maps**, both sides, **428 games**, 2 threads,
+  CG timing: **46.5%**, **199-229-0**, map-grouped 95% CI **37.2-55.8%**, average score
+  difference **-50.8**, no bot errors. Candidate search averaged **9.75 ms** versus **6.50 ms**
+  and recorded 3 nominal-budget slow moves. Report:
+  `build/bench/reply-rerank-v05-cg428.json`.
+- **Not promoted**: the point estimate is below 55% and the interval includes 50%.
+  `USE_REPLY_RERANK` stays false; current and the uploaded submission remain v05.
+  No confirmation, older-opponent or process promotion checks were run after the failed screen.
+- Predeclared fresh-map diagnostics on the same 150 generated maps, 300 games each:
+  K=4/R=1 scored **49.3% (148-152-0)**, CI **38.2-60.4%**; K=2/R=1 scored
+  **55.7% (166-132-2)**, CI **44.6-66.8%**. Reports:
+  `build/bench/reply-rerank-{k4r1,k2r1}-v05-gen10000.json`.
+- K=2/R=1 is the better point estimate and cheaper average search of the two diagnostics, but
+  its lower bound does not exclude 50%. Both stay off; the sample was not adaptively extended
+  and no independent confirmation was started.
+
 ## Known gaps (to become versions)
 
 - Self-play does not reproduce the top Silver meta (v04 still averages 84 turns vs about 50):

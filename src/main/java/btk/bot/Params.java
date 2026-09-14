@@ -62,6 +62,12 @@ public class Params {
     public boolean GUARD_BUILD_INCOME = false;
     /** Experimental: build the selected route from the end with better affordable-prefix income. */
     public boolean CHOOSE_BUILD_DIRECTION = false;
+    /** Experimental: rerank several build prefixes against likely simultaneous opponent moves. */
+    public boolean USE_REPLY_RERANK = false;
+    /** Number of our distinct affordable build prefixes retained for reply-aware reranking. */
+    public int BUILD_BEAM_WIDTH = 4;
+    /** Number of distinct opponent build prefixes used as likely replies. */
+    public int OPP_REPLY_WIDTH = 2;
 
     // ---- v03 endgame / horizon ----
     /** Income is projected over at most this many turns (top Silver games close after ~50 turns). */

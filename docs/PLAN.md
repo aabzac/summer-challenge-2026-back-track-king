@@ -83,6 +83,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [x] Screen alternative placement order within a valuable route: 52.3% vs v05 on 428 games /
       214 CG maps, CI 43.1-61.6%; not promoted. `CHOOSE_BUILD_DIRECTION` stays default-off.
       Delays two captured harmful shortcuts but does not solve simultaneous-opponent prediction.
+- [x] Screen top-4 build-prefix reranking against top-2 likely simultaneous opponent replies:
+      46.5% over 428 games / 214 CG maps, CI 37.2-55.8%; slower and not promoted.
+      Fresh-map diagnostics: K=4/R=1 scored 49.3%; K=2/R=1 scored 55.7%, but its
+      map-grouped CI was 44.6-66.8%. Keep `USE_REPLY_RERANK` default-off; no confirmation.
 - [ ] Add map-size-stratified reports and independent held-out maps; broaden the opponent pool.
 
 ## Someday / maybe

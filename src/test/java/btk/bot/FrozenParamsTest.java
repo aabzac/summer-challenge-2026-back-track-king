@@ -82,6 +82,9 @@ class FrozenParamsTest {
         expected.put("DISRUPT_RESERVE_MS", "6");
         expected.put("GUARD_BUILD_INCOME", "false"); // New field is not read by frozen v05.
         expected.put("CHOOSE_BUILD_DIRECTION", "false"); // Likewise ignored by frozen v05.
+        expected.put("USE_REPLY_RERANK", "false"); // Default-off experiment; frozen v05 ignores it.
+        expected.put("BUILD_BEAM_WIDTH", "4");
+        expected.put("OPP_REPLY_WIDTH", "2");
         assertEquals(expected, BotFactory.configuration("v05"));
         assertEquals(expected, BotFactory.configuration("current"));
         Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
