@@ -17,8 +17,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class EvalBotTest {
 
     @Test
+    void currentMatchesPromotedV05OnFullySearchedState() {
+        GameState state = activeStraightConnection();
+        var current = BotFactory.create("current?NOISE=0");
+        var frozen = BotFactory.create("v05?NOISE=0");
+        current.init(state.copy(), 0);
+        frozen.init(state.copy(), 0);
+        assertEquals(Action.format(frozen.play(state.copy(), 0, 60_000)),
+                Action.format(current.play(state.copy(), 0, 60_000)));
+    }
+
+    @Test
     void zeroReservePreservesV04ActionsWhenSearchFinishes() {
-        assertEquals(0, new Params().DISRUPT_RESERVE_MS, "unpromoted experiment stays off");
         GameState state = activeStraightConnection();
         var current = BotFactory.create("current?NOISE=0,DISRUPT_RESERVE_MS=0");
         var frozen = BotFactory.create("v04?NOISE=0");

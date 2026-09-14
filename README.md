@@ -40,8 +40,9 @@ mirror each other and every game is a draw.
 ## Reproducible benchmarks
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
-P0 and P1. Reference bots `v01`–`v04` load fixed parameter snapshots; explicit query overrides
-are applied afterward. `current` uses the live `Params` defaults.
+P0 and P1. Reference bots `v01`–`v05` load fixed parameter snapshots; explicit query overrides
+are applied afterward. `current` uses the live `Params` defaults (currently v05, 6-ms sabotage
+reserve). `current?DISRUPT_RESERVE_MS=0` disables the reserve for an ablation.
 
 ```bash
 gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000 "-Pout=build/bench/current-v03.json"

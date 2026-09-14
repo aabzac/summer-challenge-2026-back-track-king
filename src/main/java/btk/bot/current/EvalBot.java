@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * v04 with an experimental, default-off build cutoff reserving time for sabotage.
+ * v05: v04 with a build cutoff reserving time for sabotage on the original turn clock.
  *
  * <p>Build: for every desired pair generate up to two candidate routes (cheapest path using any
  * tracks; cheapest path avoiding opponent tracks = ownership steal). Each candidate is scored by
@@ -160,11 +160,15 @@ public final class EvalBot implements Bot {
         while (budget > 0 && guard++ < 6 && !buildTimeUp()) {
             if (!chooseCandidate(s, myId, budget)) break;
             int before = budget;
+            // Keep the selected long-term route; only compare the cells affordable this turn.
+            // Complete routes have identical resulting ownership in either direction.
+            boolean reverse = P.CHOOSE_BUILD_DIRECTION && bestCost > budget && !buildTimeUp()
+                    && preferReverseBuild(s, myId, budget, bestPath, bestLen);
             for (int i = 0; i < bestLen; i++) if (s.canBuild(bestPath[i])) myRoute[bestPath[i]] = true;
             // uncontested cells first, then contested ones if paint is left
             for (int pass = 0; pass < 2 && budget > 0; pass++) {
                 for (int i = 0; i < bestLen && budget > 0; i++) {
-                    int c = bestPath[i];
+                    int c = bestPath[reverse ? bestLen - 1 - i : i];
                     if (!s.canBuild(c) || contested[c] != (pass == 1)) continue;
                     int cost = s.placeCost(c);
                     if (cost > budget) continue;
@@ -268,6 +272,7 @@ public final class EvalBot implements Bot {
                 value /= (turnsToFinish + 1);
                 value *= noise();
                 if (value > bestValue) {
+                    if (P.GUARD_BUILD_INCOME && !buildPrefixNonLosing(s, me, budgetNow, n)) continue;
                     bestValue = value;
                     bestLen = n;
                     bestCost = paint;
@@ -276,6 +281,55 @@ public final class EvalBot implements Bot {
             }
         }
         return bestLen > 0;
+    }
+
+    /** Strictly better raw income wins; ties preserve the historical direction, never vetoing. */
+    boolean preferReverseBuild(GameState s, int me, int budget, int[] route, int len) {
+        int forward = prefixIncome(s, me, budget, route, len, false);
+        int reverse = prefixIncome(s, me, budget, route, len, true);
+        return reverse > forward;
+    }
+
+    /** Scratch simulation uses the same cost skipping and uncontested-first order as execution. */
+    int prefixIncome(GameState s, int me, int budget, int[] route, int len, boolean reverse) {
+        sim.copyFrom(s);
+        for (int pass = 0; pass < 2 && budget > 0; pass++) {
+            for (int i = 0; i < len && budget > 0; i++) {
+                int c = route[reverse ? len - 1 - i : i];
+                if (!sim.canBuild(c) || contested[c] != (pass == 1)) continue;
+                int cost = sim.placeCost(c);
+                if (cost > budget) continue;
+                budget -= cost;
+                sim.owner[c] = me;
+            }
+        }
+        Rules.updateConnections(sim, pathing);
+        Rules.incomePerTurn(sim, inc1);
+        return inc1[me] - inc1[1 - me];
+    }
+
+    /** Simulate exactly the affordable placement order, not the fully completed route. */
+    private boolean buildPrefixNonLosing(GameState s, int me, int budget, int len) {
+        sim.copyFrom(s);
+        for (int pass = 0; pass < 2 && budget > 0; pass++) {
+            for (int i = 0; i < len && budget > 0; i++) {
+                int c = pathBuf[i];
+                if (!sim.canBuild(c) || contested[c] != (pass == 1)) continue;
+                int cost = sim.placeCost(c);
+                if (cost > budget) continue;
+                budget -= cost;
+                sim.owner[c] = me;
+            }
+        }
+        return buildIncomeNonLosing(s, me);
+    }
+
+    /** The core computes incomes; this is only a strategy veto, without future opponent moves. */
+    private boolean buildIncomeNonLosing(GameState before, int me) {
+        Rules.updateConnections(sim, pathing);
+        Rules.incomePerTurn(before, inc0);
+        Rules.incomePerTurn(sim, inc1);
+        return inc1[me] - inc1[1 - me] >= inc0[me] - inc0[1 - me];
     }
 
     /** Best cheap cell next to our network; -1 when no safe extension fits the paint left. */
@@ -302,6 +356,11 @@ public final class EvalBot implements Bot {
             // candidate-evaluation RNG used by the main search.
             value += ((c * 31 + me * 17 + P.SEED) & 255) * 1e-6;
             if (value > bestValue) {
+                if (P.GUARD_BUILD_INCOME) {
+                    sim.copyFrom(s);
+                    sim.owner[c] = me;
+                    if (!buildIncomeNonLosing(s, me)) continue;
+                }
                 bestValue = value;
                 best = c;
             }

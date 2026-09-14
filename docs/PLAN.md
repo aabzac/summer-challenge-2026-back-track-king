@@ -57,17 +57,32 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       timing profile recorded in bench JSON. Actual process IO remains a separate check.
 - [x] Analyze 50 fresh games of arena agent 6735801 after exact validation: 23 wins / 27 losses;
       large-map collapse and disruption starvation identified (see `arena-analysis-2026-09-14.md`).
-- [ ] Guarantee time for sabotage on large maps: reserve a phase budget / compute a fallback
-      before route search; verify on captured failure states and varied opponents before promotion.
+- [x] Reserve time for sabotage on large maps: v05 cuts build search short by 6 ms, verified
+      on captured failures, 1000 paired games vs v04 and common-opponent v03/aggressive-v02
+      controls. Atomic evaluations can still overrun the cutoff; this is not a hard guarantee.
 - [x] Test a 6-ms build-phase reserve on captured failures and 300 paired CG-map games:
       recovered sabotage, but 54.3% vs v04 did not pass the promotion gate; kept default-off.
       Regression prefixes and deterministic scheduling tests are checked in. Next alternative:
       compute a safe sabotage fallback before route search without permanently reserving 6 ms.
 - [x] Matched older-opponent follow-up on new seeds 5000..5149: reserve=6 scores 69.3% vs v03,
-      v04 scores 61.3%; 33 added / 9 lost wins in 300 matched games. Keep the candidate for
-      independent confirmation; direct-v04 promotion gate still not passed, reserve stays off.
+      v04 scores 61.3%; 33 added / 9 lost wins in 300 matched games. This justified keeping
+      the candidate for the independent confirmation completed below.
+- [x] Independent v05 confirmation: 57.7% vs v04 over 1000 games (seeds 6000..6499), CI
+      51.6-63.8%; aggressive-v02 control 70.0% vs v04's 67.7%. Freeze v05 and enable reserve.
+      72 tests, 158 exact replays, 0/8 process problem games; submission generated.
+- [x] User uploaded v05; record agent 6736850 and analyze first 56 fresh games: 38-18,
+      no own timeouts, 214/214 corpus games exact. Placement is still ongoing.
+- [ ] After v05 placement completes, compare a later sample; do not infer strength from rank alone.
+- [ ] Revisit warm-up scheduling: generic 5-ms warm-up calls are below v05's 6-ms reserve,
+      so they skip route search. Current full-process checks pass (<=676 ms first / 34 ms later),
+      but warming route evaluation explicitly is a separate possible startup improvement.
 - [ ] Check actual partial placements against score-difference regressions, not only the value
       of a fully completed candidate route. Do not attribute every bad build to idle extension.
+- [x] Screen a known-state income veto: fixes captured harmful builds but only 48.1% vs v05
+      on all 214 paired CG maps. Keep `GUARD_BUILD_INCOME` default-off; no v06.
+- [x] Screen alternative placement order within a valuable route: 52.3% vs v05 on 428 games /
+      214 CG maps, CI 43.1-61.6%; not promoted. `CHOOSE_BUILD_DIRECTION` stays default-off.
+      Delays two captured harmful shortcuts but does not solve simultaneous-opponent prediction.
 - [ ] Add map-size-stratified reports and independent held-out maps; broaden the opponent pool.
 
 ## Someday / maybe

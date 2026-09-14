@@ -36,7 +36,7 @@ public class Params {
     // ---- v02 eval bot: disrupt ----
     public boolean USE_DISRUPT = true;
     /** Stop route/idle search this many ms before the turn deadline; 0 restores v04 scheduling. */
-    public int DISRUPT_RESERVE_MS = 0;
+    public int DISRUPT_RESERVE_MS = 6;
     /** Weight of our own income lost when inking a region (vs opponent's loss = 1). */
     public double W_SELF_LOSS = 1.2;
     /** Value per opponent track destroyed that is not (yet) earning. */
@@ -58,6 +58,10 @@ public class Params {
     public boolean USE_BACKUP = true;
     /** Spend otherwise idle paint by extending our existing network through safe nearby cells. */
     public boolean USE_IDLE_EXTEND = true;
+    /** Experimental: veto actual affordable builds that reduce current raw income difference. */
+    public boolean GUARD_BUILD_INCOME = false;
+    /** Experimental: build the selected route from the end with better affordable-prefix income. */
+    public boolean CHOOSE_BUILD_DIRECTION = false;
 
     // ---- v03 endgame / horizon ----
     /** Income is projected over at most this many turns (top Silver games close after ~50 turns). */

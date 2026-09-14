@@ -75,6 +75,29 @@ class FrozenParamsTest {
         assertThrows(IllegalStateException.class, () -> FrozenParams.applyTo("v99", new Params()));
     }
 
+    @Test
+    void v05SnapshotPreservesEveryConfirmedParameterAndFactoryWiring() throws Exception {
+        Map<String, String> expected = baseline();
+        expected.put("USE_IDLE_EXTEND", "true");
+        expected.put("DISRUPT_RESERVE_MS", "6");
+        expected.put("GUARD_BUILD_INCOME", "false"); // New field is not read by frozen v05.
+        expected.put("CHOOSE_BUILD_DIRECTION", "false"); // Likewise ignored by frozen v05.
+        assertEquals(expected, BotFactory.configuration("v05"));
+        assertEquals(expected, BotFactory.configuration("current"));
+        Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
+        FrozenParams.applyTo("v05", changed);
+        for (var entry : expected.entrySet()) {
+            assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(changed)));
+        }
+        Bot bot = BotFactory.create("v05");
+        assertEquals("v05", bot.name());
+        var field = bot.getClass().getDeclaredField("P");
+        field.setAccessible(true);
+        assertEquals(6, ((Params) field.get(bot)).DISRUPT_RESERVE_MS);
+        assertEquals(0, BotFactory.parameters("v05?DISRUPT_RESERVE_MS=0").DISRUPT_RESERVE_MS);
+        assertEquals(6, BotFactory.parameters("v05").DISRUPT_RESERVE_MS);
+    }
+
     private static Map<String, String> baseline() {
         Map<String, String> result = new TreeMap<>();
         for (String pair : BASELINE.split(",")) {

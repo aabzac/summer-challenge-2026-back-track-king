@@ -2,11 +2,12 @@
 
 Gate: A vs previous >= 55% on >= 200 games (two sides on each map), map-grouped 95% CI excluding
 50%, no bot errors. Process timing and an older opponent remain separate promotion checks.
-`current` = `btk.bot.current.EvalBot`; frozen copies in `btk.bot.vNN`.
+`current` = **v05**, `btk.bot.current.EvalBot`; frozen copies in `btk.bot.vNN`.
 
-`BotFactory` loads fixed defaults for v01–v04 from `src/main/resources/btk/bot/versions/`, then
-applies explicit overrides. The snapshots preserve the effective defaults at commit `8364ad5`;
-they do not retrospectively reconstruct the original defaults used by every historical bench.
+`BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then
+applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,
+while later versions record their promoted configuration; they do not retrospectively
+reconstruct the original defaults used by every historical bench.
 When freezing a new version, add its parameter snapshot as well as its source and factory entry.
 See `benchmarking.md` for the complete procedure.
 
@@ -22,6 +23,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | v03 `EvalBot` | 2026-09-13 | v02 + state value = income diff − W_VULN × worst single ink the opponent could do (my loss − their loss, / disrupts needed, only regions on active paths with my tracks). Third candidate type: backup route for an active pair avoiding the most threatened region. Closing rule: an ink that leaves no connectable pair is taken only when ahead, never when behind. `HORIZON` param (default 100). `NOISE=0.1` default (deterministic mirrors gave 0-0 games). Opponent model (`USE_OPP_MODEL`, collision surcharge) implemented but off: 47-51% in ablations. | vs v02: 58.5% [51.6-65.1], n=200. Ablations (n=300): no backup 60.2% [54.5-65.5] sig.; W_VULN=0 & no backup 52.7%; USE_CLOSE=0 48% (self-play games rarely close); HORIZON 20/30/50 → 52/53/43%. Process check: first turn ≤ 660 ms, later ≤ 38 ms. | **Silver, around 350/645**; Gold not yet open; usually wins boss games |
 | v04 `EvalBot` | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability ≥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn ≤745 ms, later ≤43 ms. | Boss **7/7**; awaiting Silver arena result |
+| v05 `EvalBot` | 2026-09-14 | v04 + 6-ms reserve for sabotage: cut route/idle search short on the original turn clock; evaluation formulas and CGRunner margin unchanged. | Confirmation vs v04: **57.7%**, W-L-D **575-421-4**, n=1000/500 new paired maps, map-grouped 95% CI **[51.6%, 63.8%]**, avg diff **+879.1**. Common opponents: v03 **69.3% vs v04's 61.3%**; aggressive v02 **70.0% vs v04's 67.7%**, each 300 matched games. Process check: **0/8** problem games, first <=676 ms, later <=34 ms. | Uploaded as agent **6736850**. User: rank 321 at 43%; API snapshot rank 333. First 56 fetched games: **38-18**, no own timeouts; placement ongoing |
 
 ## Paired benchmark checkpoint (2026-09-13)
 
@@ -72,9 +74,9 @@ commands (not accepted AUTOPLACE expansion) and is not the player-specific loss-
 
 ## Default-off experiment: sabotage time reserve (2026-09-14)
 
-No v05 promotion. `current?DISRUPT_RESERVE_MS=6` cuts route/idle search short on the same turn
-clock, leaving sabotage the final 6 ms; `0` (default) retains v04 scheduling. Frozen versions
-do not read this field. Evaluation formulas, total turn budget and CGRunner margin are unchanged.
+Historical initial screen, before the confirmation below. `current?DISRUPT_RESERVE_MS=6` cuts
+route/idle search short on the same turn clock; `0` (then the default) retains v04 scheduling.
+Frozen v01-v04 do not read this field. Evaluation formulas, total budget and margin are unchanged.
 
 - Screen vs v04: **54.3%**, W-L-D **162-136-2**, 300 games on 150 distinct downloaded CG maps,
   sides swapped, 2 threads, CG profile; map-grouped 95% CI **[43.2%, 65.4%]**, mean score diff
@@ -109,6 +111,67 @@ sequential: control then candidate; no strategy/default/threshold changes.
 - Decision: retain as a promising, default-off candidate, not a disproven improvement. The old
   direct-v04 result remains inconclusive. v03 is a related reference, not diverse arena coverage;
   beating it more often is not transitive proof of beating v04. No v05 or threshold change.
+
+## v05 confirmation and promotion (2026-09-14)
+
+- Fixed candidate from **cb0f440**, `DISRUPT_RESERVE_MS=6`, against v04 on new authentic seeds
+  **6000..6499**: 1000 games / 500 distinct paired maps, 2 threads, CG 486/36-ms profile.
+  **57.7%**, W-L-D **575-421-4**, map-grouped CI **[51.6%, 63.8%]**, no bot errors.
+  Existing gate passed without changing the criterion. Report: `build/bench/reserve6-v04-confirm6000.json`.
+- Aggressive reference is the fixed spec
+  `v02?W_SELF_LOSS=0.5,W_FUTURE_TRACK=2.0,W_FUTURE_OWN=0.1`, not a new independent strategy.
+  On the same 150 fresh maps (seeds **8000..8149**, both sides, 300 games each), v04 scores
+  **67.7% (203-97)** and reserve=6 **70.0% (210-90)**. Candidate adds **14** wins and loses **7**;
+  279 unchanged. This small positive difference does not establish equivalence/non-inferiority
+  or arena strength. No errors. Reports: `build/bench/{v04,reserve6}-v02aggressive8000.json`.
+- Together with the earlier matched v03 check, this supports promotion after the primary gate.
+  Frozen as **v05** with the full confirmation-report parameter snapshot; current defaults now
+  enable the 6-ms reserve. Evaluation formulas and v01-v04 source/snapshots are unchanged.
+- `test`: **72 passed**; `cgValidate`: **158/158** exact; `submit`: compiled;
+  process checks: **0/8** problem games, including both sides of the two large failure maps.
+  First response max **676 ms**, later max **34 ms**, no local timeouts. CG-host timing differs.
+- Ready file: `build/submit/Player.java`, SHA-256
+  `5307e4f0f53b39ef8768d364e24fcf701d4f9ca3eafa444aa23a38d3a34a9c5a`.
+  Manual boss/arena verification remains pending; no CG upload was performed.
+
+## v05 arena checkpoint and build-income guard screen (2026-09-14)
+
+- User reports rank **321** at **43%** placement (~54 games); API fetch snapshot shows rank
+  **333**, score **18.11**, agent **6736850**. These are provisional observations, not matched
+  comparisons with the remembered v03 rank (~335). The public API does not expose source hash.
+- **56** fetched games: **38 wins / 18 losses**, no own server failures; one win includes an
+  opponent timeout. All **214/214** corpus replays reproduce exactly. Height 19-20 record:
+  **11/18 wins** (previous v04 sample 1/20); different opponents/placement stages prevent a
+  causal version comparison. In losses, sabotage frequency is **75.8%**, versus v04's earlier
+  **40.1%**. Report: `build/analysis/agent-6736850.json`.
+- Harmful-build examples persist: **24** simultaneous-turn counterexamples in **14/18** losses.
+  Known-board-only examples are checked in for Reh934 t27 (-26 income difference), fsicre
+  t52 (-34), and older DiogoGiassi t46 (-38). RTJ t13's -71 requires the opponent's simultaneous
+  sabotage; its construction alone improves income difference by +44, so it is a different
+  prediction problem. These deltas are not additive match-score losses.
+- Tested `current?GUARD_BUILD_INCOME=1`: veto candidates whose actual affordable prefix or
+  idle placement reduces raw current income difference, using core simulation. It finds
+  alternative builds on the three known-board regressions without using future opponent moves.
+- Screen vs v05: **48.1%**, W-L-D **206-222-0**, **428 games / 214 distinct downloaded maps**,
+  map-grouped CI **[38.8%, 57.4%]**, mean score diff **-58.1**, no errors. Gate not passed.
+  Report: `build/bench/guard-income-v05-cg428.json`. No confirmation or promotion.
+- Keep **v05** and `GUARD_BUILD_INCOME=false`. The hard veto is not supported as an overall
+  improvement, despite fixing selected positions; the wide interval does not prove inferiority.
+  Next hypothesis: change affordable placement order (e.g. build the other end first) to delay
+  a harmful shortcut without discarding a valuable future route. No v06 or new submission.
+
+## Unpromoted experiment: build direction (2026-09-14)
+
+- `current?CHOOSE_BUILD_DIRECTION=1,GUARD_BUILD_INCOME=0` preserves the selected route but
+  compares the affordable cells from either end using known-board income difference.
+  Ties retain forward order; a temporarily losing route is not rejected.
+- Versus **v05**, all **214 distinct CG arena maps**, both sides, **428 games**, 2 threads,
+  CG timing: **52.3%**, **224-204-0**, map-grouped 95% CI **43.1-61.6%**, average score
+  difference **+76.8**, no bot errors. Report: `build/bench/build-direction-v05-cg428.json`.
+- **Not promoted**: the interval includes 50% and the point estimate is below 55%.
+  Keep both experimental flags false; current and the existing submission remain v05.
+  Fixes selected Reh934/fsicre prefixes but not the captured DiogoGiassi shortcut.
+  No confirmation/older-opponent/process promotion checks after this failed screen.
 
 ## Known gaps (to become versions)
 
