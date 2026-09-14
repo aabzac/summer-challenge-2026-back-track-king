@@ -60,6 +60,22 @@ class EvalBotTest {
     }
 
     @Test
+    void earlyFallbackStillRefusesToCloseMapWhenBehind() {
+        GameState state = new GameState(3, 1, new int[]{0, 1, 2}, new int[3],
+                new int[]{0, 2}, new int[]{0, 0}, new int[][]{{1}, {}});
+        state.owner[1] = 1;
+        state.instability[1] = 3;
+        state.syncRegionsFromCells();
+        Rules.updateConnections(state, new Pathing(state.size));
+        state.score[1] = 100;
+        Params params = new Params("NOISE=0,EARLY_DISRUPT_FALLBACK=1");
+        EvalBot bot = new EvalBot(params);
+        bot.init(state.copy(), 0);
+        assertFalse(bot.play(state.copy(), 0, 0).stream()
+                .anyMatch(a -> a.type == Action.Type.DISRUPT));
+    }
+
+    @Test
     void reserveStopsBuildingButLeavesSabotageOnOriginalTimer() {
         GameState state = activeStraightConnection();
         for (int x = 1; x <= 3; x++) state.owner[state.cell(x, 1)] = 1;

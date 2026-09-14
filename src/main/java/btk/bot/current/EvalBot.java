@@ -57,6 +57,7 @@ public final class EvalBot implements Bot {
     private boolean[] blocked, contested, myRoute, regionMark;
     private final int[] inc0 = new int[2], inc1 = new int[2], incA = new int[2], incB = new int[2];
     private int bestLen, bestCost, oppLen, worstRegion;
+    private boolean disruptSearchComplete;
     private GameState replyState, completionState;
     private java.util.Random rnd;
 
@@ -194,9 +195,16 @@ public final class EvalBot implements Bot {
             }
         }
 
+        // A cheap, deterministic fallback is saved before route search can consume the turn.
+        // Only regions that one DISRUPT can ink are considered; normal post-build selection below
+        // remains authoritative whenever it completes.
+        int earlyDisrupt = P.USE_DISRUPT && P.EARLY_DISRUPT_FALLBACK
+                ? chooseEarlyDisrupt(s, myId) : -1;
+
         // --- build ---
         int budget = GameState.PAINT_PER_TURN;
         int guard = 0;
+        boolean builtAny = false;
         boolean replyRerankPending = P.USE_REPLY_RERANK;
         while (budget > 0 && guard++ < 6 && !buildTimeUp()) {
             boolean found = replyRerankPending
@@ -220,6 +228,7 @@ public final class EvalBot implements Bot {
                     budget -= cost;
                     out.add(Action.place(s.x(c), s.y(c)));
                     s.owner[c] = myId;
+                    builtAny = true;
                 }
             }
             if (budget == before) break;
@@ -237,6 +246,7 @@ public final class EvalBot implements Bot {
                 myRoute[c] = true;
                 out.add(Action.place(s.x(c), s.y(c)));
                 s.owner[c] = myId;
+                builtAny = true;
                 extended = true;
             }
             if (extended) Rules.updateConnections(s, pathing);
@@ -244,7 +254,10 @@ public final class EvalBot implements Bot {
 
         // --- disrupt ---
         if (P.USE_DISRUPT) {
+            int safeEarly = earlyDisrupt;
+            if (safeEarly >= 0 && builtAny && !earlyDisruptStillGood(s, myId, safeEarly)) safeEarly = -1;
             int region = chooseDisrupt(s, myId);
+            if (region < 0 && !disruptSearchComplete) region = safeEarly;
             if (region >= 0) out.add(Action.disrupt(region));
         }
         if (P.MESSAGE) out.add(Action.message("t" + s.turn + " " + timer.elapsedMs() + "ms"));
@@ -694,6 +707,29 @@ public final class EvalBot implements Bot {
 
     // ------------------------------------------------------------------ disrupt
 
+    /** Selects a deterministic, immediately effective fallback without consuming strategy RNG. */
+    private int chooseEarlyDisrupt(GameState s, int myId) {
+        prepareDisruptData(s, myId);
+        double bestValue = P.DISRUPT_MIN;
+        int best = -1;
+        for (int r = 0; r < s.regionCount; r++) {
+            if (s.regionInstability[r] != GameState.INK_THRESHOLD - 1) continue;
+            if (oppTracks[r] == 0 && myTracks[r] == 0) continue;
+            double value = disruptValue(s, myId, r, false);
+            if (value > bestValue) {
+                bestValue = value;
+                best = r;
+            }
+        }
+        return best;
+    }
+
+    /** Placements can change income and whether this ink would end the game, so score it again. */
+    private boolean earlyDisruptStillGood(GameState s, int myId, int region) {
+        prepareDisruptData(s, myId);
+        return disruptValue(s, myId, region, false) > P.DISRUPT_MIN;
+    }
+
     private void prepareDisruptData(GameState s, int myId) {
         int opp = 1 - myId;
         Rules.incomePerTurn(s, inc0);
@@ -773,6 +809,7 @@ public final class EvalBot implements Bot {
                 fallback = r;
             }
         }
+        disruptSearchComplete = r == s.regionCount;
         if (best < 0 && P.ALWAYS_DISRUPT) return fallback;
         return best;
     }

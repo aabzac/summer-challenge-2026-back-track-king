@@ -575,6 +575,78 @@ Outcome:
   Existing v05 `build/submit/Player.java` was not regenerated; SHA-256 remains
   `5307e4f0f53b39ef8768d364e24fcf701d4f9ca3eafa444aa23a38d3a34a9c5a`.
 
+### 2026-09-14 — next-experiment diagnosis: early sabotage fallback
+
+- Request: propose the next experiment after the two failed build screens; no strategy change.
+  Re-read the working agreement, README, PLAN, BOTS and recent DEVLOG entries. Current remains
+  v05, reserve=6; both build flags remain false.
+- Recounted the existing agent-6736850 report: **168** turns without our sabotage have a
+  positive same-turn oracle alternative across **16/18 losses** (218 turns across all outcomes
+  were already documented). These are opportunities under recorded opponent actions, not
+  168 proven timer failures or additive lost match points.
+- Validated and reconstructed four selected missed-sabotage states through core. With only
+  our recorded placements and the opponent doing nothing, inking the already-instability-3
+  target improves immediate income difference: timbersson game **903583443**, t27 region29
+  **+366**, t31 region41 **+311**, t32 region41 **+354**; Irioth game **903583695**, t56 region10
+  **+121**. Turns are zero-based. These deltas differ from the simultaneous-action oracle.
+- Warmed local probes of frozen `v05?NOISE=0` choose those same sabotage targets at both
+  36-ms and ample 1000-ms budgets. Probe: `tmp/ProbeV05Disrupt.java`; output:
+  `build/analysis/v05-disrupt-proposal-probes.txt`. This establishes known-board opportunities
+  and that the existing evaluation can select them. It does NOT reproduce the server omission
+  or prove its cause: local CPU, warm-up, RNG and execution history differ.
+- Proposed single candidate: a default-off early sabotage fallback, initially considering
+  regions at instability 3 before expensive route search; retain existing scoring weights,
+  6-ms reserve and normal post-build sabotage refinement. Revalidate the saved target after
+  actual affordable placements, including the existing losing-map-closure exclusion, before
+  emitting it. Account for this recheck in the time budget. Do not emit a stale pre-build target.
+- Suggested evaluation: deterministic scheduling/isolation regressions and these captured
+  states first; fixed 428-game screen versus v05 on the 214 existing paired CG maps, then
+  independent 1000-game confirmation on unused generated maps if the screen passes. Use the
+  existing >=55% / map-grouped lower CI >50% gate, older/aggressive-reference controls and
+  submit/process checks before promotion. Inspect results by map size without subset promotion.
+- Decision: propose this scheduling experiment before another build heuristic or weight sweep.
+  No candidate implementation, strategy benchmark, version freeze or submission performed.
+
+### 2026-09-14 — early ready-to-ink sabotage fallback screen
+
+- Implemented default-off `EARLY_DISRUPT_FALLBACK`. Before route search it deterministically
+  scores only legal regions at instability 3 with existing tracks. It consumes no strategy RNG.
+  The normal noisy post-build scan remains authoritative when it completes. The saved target is
+  used only if that scan hits the timer without finding a target; after any placement, its score
+  and map-closing safety are recomputed first. Existing scoring weights, reserve, build selection
+  and frozen v05 are unchanged.
+- The disruption scratch counters are now bot-owned primitive buffers rather than per-turn array
+  allocations. With the experiment disabled, full-search action equivalence against frozen v05 is
+  covered by the existing test. New tests force the normal scan to start after its deadline,
+  verify recovery of a ready captured target, default-off behavior, and the losing-close rule.
+- Captured v05 probes: at zero internal budget, frozen v05 returns WAIT while the candidate emits
+  regions 29/41/41/10 in the four diagnosed timbersson/Irioth states. At 36 ms and ample time both
+  choose the same placements and sabotage. This is deterministic mechanism coverage, not a timing
+  or match-strength result.
+- Predeclared screen: `current?EARLY_DISRUPT_FALLBACK=1,GUARD_BUILD_INCOME=0,CHOOSE_BUILD_DIRECTION=0`
+  versus frozen v05, **428 games / all 214 downloaded arena maps**, both sides, 2 threads, CG
+  timing, base seed 1000. Existing gate: at least 55% and map-grouped lower 95% bound above 50%;
+  no adaptive extension. If it fails, leave the flag off and do not run confirmation/promotion.
+
+Outcome:
+
+- Completed the fixed sample: **212-214-2**, candidate **49.8%**, map-grouped 95% CI
+  **[40.5%, 59.1%]**, average score difference **-28.9**, **73.3** turns, **179.0 s**.
+  A as P0 won 100/214; as P1, 112/214. All 214 map hashes are distinct; no bot errors or
+  nominal-budget slow moves. Search-only time was 5.07 ms average for the candidate and 5.30 ms
+  for v05; this is not a process timing result. Report:
+  `build/bench/early-disrupt-v05-cg428.json`.
+- Exploratory height split: h14 28-28, h15 32-32, h16 22-22-2, h17 22-22, h18 42-40,
+  h19 29-39, h20 37-31. The opposing h19/h20 estimates and small selected strata do not support
+  a size-specific promotion or follow-up tuning.
+- Decision: **gate NOT PASSED**. Keep `EARLY_DISRUPT_FALLBACK=false` and current at v05.
+  The mechanism recovers forced deadline cases, but this broad screen gives no evidence of a net
+  match-strength gain. Do not run a 1000-game confirmation, older-opponent check, process
+  promotion check, v06 freeze or new submission for this candidate.
+- Verification: **82 tests passed** and **214/214** CG replays reproduced exactly before the
+  bench. Core rules and frozen bot sources were unchanged. Existing v05 submission was not
+  regenerated.
+
 ### 2026-09-14 — top-4 routes against top-2 likely replies
 
 - Hypothesis from the user: retain several routes that already pass v05's long-term value filter,
@@ -594,7 +666,7 @@ Outcome:
   combines the immediate score difference with the existing projected route gain, completion
   delay and instability risk. A route crossing a newly inked cell is rejected. No second-turn
   opponent reaction, learned probabilities, new evaluation weights or parameter sweep are part of
-  this experiment. Old `USE_OPP_MODEL` and both earlier build flags remain off.
+  this experiment. Old `USE_OPP_MODEL` and all three failed experimental flags remain off.
 - Buffers for four routes, two replies and scratch states are allocated at bot initialization.
   Later-turn phase cutoffs leave time for our candidates, opponent candidates, reply evaluation
   and the existing 6-ms sabotage reserve. If a cutoff prevents complete reranking, the stored v05
@@ -608,7 +680,7 @@ Outcome:
   max 33 ms. Report: `build/bench/reply-rerank-smoke20.json`. The sample is only a wiring/timing
   check and is not promotion evidence.
 - Predeclared screen: candidate
-  `current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=4,OPP_REPLY_WIDTH=2,USE_OPP_MODEL=0,GUARD_BUILD_INCOME=0,CHOOSE_BUILD_DIRECTION=0`
+  `current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=4,OPP_REPLY_WIDTH=2,USE_OPP_MODEL=0,GUARD_BUILD_INCOME=0,CHOOSE_BUILD_DIRECTION=0,EARLY_DISRUPT_FALLBACK=0`
   versus frozen v05, **428 games / all 214 downloaded arena maps**, both sides, 2 threads, CG
   timing, base seed 1000. Existing gate: at least 55% and map-grouped lower 95% bound above 50%;
   no adaptive extension or tuning. A failed screen leaves the feature default-off and stops the
@@ -630,9 +702,9 @@ Outcome:
   one-turn model is materially more expensive and its likely-reply maximin choice loses overall.
   Do not tune K/R after observing this screen, and do not run a 1000-game confirmation,
   older-opponent promotion check, process promotion check, v06 freeze or new submission.
-- Verification: **81 tests passed** in the isolated change and **214/214** CG replays reproduced
-  exactly before the bench. Core rules and frozen bot sources were unchanged. Existing v05
-  submission was not regenerated.
+- Verification: **84 tests passed** and **214/214** CG replays reproduced exactly before the
+  bench. Core rules and frozen bot sources were unchanged. Existing v05 submission was not
+  regenerated.
 
 ### 2026-09-14 — reply-rerank K/R diagnostic ablation
 

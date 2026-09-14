@@ -173,12 +173,25 @@ sequential: control then candidate; no strategy/default/threshold changes.
   Fixes selected Reh934/fsicre prefixes but not the captured DiogoGiassi shortcut.
   No confirmation/older-opponent/process promotion checks after this failed screen.
 
+## Unpromoted experiment: early ready-to-ink sabotage fallback (2026-09-14)
+
+- `current?EARLY_DISRUPT_FALLBACK=1,GUARD_BUILD_INCOME=0,CHOOSE_BUILD_DIRECTION=0` saves a
+  deterministic instability-3 target before route search. The normal post-build sabotage scan
+  remains authoritative when complete; a target affected by placements is rescored before use.
+- Versus **v05**, all **214 distinct CG arena maps**, both sides, **428 games**, 2 threads,
+  CG timing: **49.8%**, **212-214-2**, map-grouped 95% CI **40.5-59.1%**, average score
+  difference **-28.9**, no bot errors or nominal-budget slow moves. Report:
+  `build/bench/early-disrupt-v05-cg428.json`.
+- **Not promoted**: the point estimate is below 55% and the interval includes 50%.
+  `EARLY_DISRUPT_FALLBACK` stays false; current and the uploaded submission remain v05.
+  No confirmation, older-opponent or process promotion checks were run.
+
 ## Unpromoted experiment: top-4 routes vs top-2 likely replies (2026-09-14)
 
 - `current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=4,OPP_REPLY_WIDTH=2` keeps four distinct
   affordable build prefixes, predicts two deterministic opponent build-and-sabotage replies,
   resolves each pair through the core, then selects the prefix with the best worst-case value.
-  The original v05 choice remains the timeout fallback; both earlier build flags are off.
+  The original v05 choice remains the timeout fallback; all earlier failed flags are off.
 - Versus **v05**, all **214 distinct CG arena maps**, both sides, **428 games**, 2 threads,
   CG timing: **46.5%**, **199-229-0**, map-grouped 95% CI **37.2-55.8%**, average score
   difference **-50.8**, no bot errors. Candidate search averaged **9.75 ms** versus **6.50 ms**

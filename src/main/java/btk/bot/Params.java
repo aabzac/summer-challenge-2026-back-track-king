@@ -84,6 +84,8 @@ public class Params {
     public double W_OPP_ROUTE = 0.3;
     /** When no region passes DISRUPT_MIN, still disrupt the region with the best track balance. */
     public boolean ALWAYS_DISRUPT = true;
+    /** Experimental: precompute a ready-to-ink target before route search as a timeout fallback. */
+    public boolean EARLY_DISRUPT_FALLBACK = false;
 
     // ---- symmetry breaking / benches ----
     /** Relative multiplicative noise on candidate values (0 = deterministic). Breaks self-play mirrors. */
