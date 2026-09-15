@@ -196,6 +196,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       367..1139 ms; two sends exhausted 1000 ms, with no response timestamp in any failure.
       Candidate passed 0/4 but first max 807 ms misses the headroom target. Preserve both
       reports; input preparation/blocking write/host/JVM startup are not yet separated.
+- [x] Run the fixed four-game IO diagnostic on that unchanged v05: no failures, first max
+      635.88 ms / later 35.44 ms. Start input time is almost entirely flush (76..144 ms), not
+      formatting (<0.15 ms). Correct misleading console response labels, two regression tests.
+      The older seconds-long stall did not recur: its exact cause remains open, not fixed.
 
 ## Someday / maybe
 

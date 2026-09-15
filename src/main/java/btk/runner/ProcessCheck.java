@@ -75,8 +75,8 @@ public final class ProcessCheck {
             if (bad) problems++;
             checks.add(new GameCheck(g, me, maps.name(g, seed), seed, r, pb.timeouts,
                     pb.nominalOverruns, List.copyOf(pb.timings)));
-            System.out.printf("game %d as P%d: %s | reader first %d ms, max later %d ms, timeouts %d, nominal overruns %d%s%n", g, me,
-                    r.summary(), pb.firstTurnMs, pb.maxResponseMs, pb.timeouts, pb.nominalOverruns, bad ? "  <-- PROBLEM" : "");
+            System.out.printf("game %d as P%d: %s | %s, timeouts %d, nominal overruns %d%s%n", g, me,
+                    r.summary(), timingSummary(pb.timings), pb.timeouts, pb.nominalOverruns, bad ? "  <-- PROBLEM" : "");
             if (diagnostics) {
                 double prepare = 0, write = 0, flush = 0;
                 for (var timing : pb.timings) if (timing.turn() > 0 && timing.io() != null) {
@@ -106,6 +106,24 @@ public final class ProcessCheck {
             case "false", "0", "" -> false;
             default -> throw new IllegalArgumentException("processDiagnostics must be true/false or 1/0");
         };
+    }
+
+    /** Never present consumer timeout/wakeup time as an observed child response. */
+    static String timingSummary(List<ProcessBot.TurnTiming> timings) {
+        ProcessBot.TurnTiming first = null;
+        Double later = null;
+        for (var t : timings) {
+            if (t.turn() == 0) first = t;
+            else if (t.responseMs() != null) later = later == null ? t.responseMs() : Math.max(later, t.responseMs());
+        }
+        return "first response " + millis(first == null ? null : first.responseMs())
+                + ", first send " + millis(first == null ? null : first.sendMs())
+                + ", first consumer " + millis(first == null ? null : first.consumerMs())
+                + ", max later response " + millis(later);
+    }
+
+    private static String millis(Double value) {
+        return value == null ? "none" : String.format(java.util.Locale.ROOT, "%.3f ms", value);
     }
 
     private static String classesHash(Path root) throws Exception {

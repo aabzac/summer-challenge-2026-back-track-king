@@ -2106,3 +2106,35 @@ Completed outcome (fixed sample, no retuning):
   `23f7463c3954b7d98cf0d2a04ee74a63b5dab41e4d6eca2c3a53610e4d5ec7bd`.
 - Updated README/BOTS/PLAN; completed rejected experiment is committed per the user's standing
   preference. No core, historical bot, historical parameter, reference or catalog archive edits.
+
+### 2026-09-16 — startup/input diagnosis before short own-build planning (predeclared)
+
+- User requested step 1 then step 2: diagnose first-turn process timeouts, then test a bounded
+  own-build plan over 2-3 turns. Keep all prior failures. First run the existing IO diagnostic
+  on exactly four v05-v04 process games, same default corpus ordering/sides as the failed run,
+  zero grace and unchanged Player source `77c5954ceded17137fe2645467d7b0602159eb5992f5ce0c368d15d087cc489c`.
+  Report: build/analysis/startup-input-v2/diagnostic4.json. No concurrent benchmarks.
+  Split preparation/write/flush with host CPU/GC counters before deciding a fix or further probe;
+  a non-recurrence is inconclusive, not cause identification or permission to retry to green.
+
+### 2026-09-16 — startup/input diagnosis (bounded outcome)
+
+- Ran the predeclared four games ONCE on unchanged v05 source/executable, with existing IO
+  diagnostics: **0/4 failures**, first responses **563.906 / 635.880 / 581.293 / 584.942 ms**,
+  later max **35.4419 ms**. Old 4/4 failures remain retained; this is a diagnostic sample, not
+  evidence that the previous failure is fixed. No runtime/strategy/deadline/grace changes.
+- First input preparation **0.045..0.142 ms**, write **0.013..0.094 ms**, flush
+  **76.333 / 143.608 / 91.804 / 80.206 ms**: almost all send time lies in flush, not protocol
+  formatting. Host thread CPU counters were 0 at their available resolution, GC delta 0.
+  Waiting for pipe/child readiness or host scheduling is plausible; the old uninstrumented
+  367..1139-ms sends cannot be apportioned retrospectively. No claim of JIT/antivirus/CPU cause.
+  During later turns phase maxima: preparation 0.305, write 0.202, flush 0.354 ms.
+- Fixed a reporting bug only: procCheck no longer labels timeout consumer elapsed time as a
+  reader response. Console now separates first response (or none), send, consumer and measured
+  later response. Two deterministic tests cover missing responses and delayed consumers;
+  process clock, submitted artifact and JSON timestamp semantics are unchanged.
+- Report `build/analysis/startup-input-v2/diagnostic4.json`, SHA-256
+  `4b4e40c2528945040749931c853ebea6349b395f5ff95bdd7ca584dba5675e13`.
+  Source is still `77c5954ceded17137fe2645467d7b0602159eb5992f5ce0c368d15d087cc489c`.
+  Keep root cause open; no repeated uninstrumented run merely to obtain a pass. Proceed to the
+  user-requested own-build experiment with its own fixed artifact/process checks and caveats.
