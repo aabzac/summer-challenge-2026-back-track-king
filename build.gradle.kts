@@ -183,6 +183,14 @@ tasks.register<JavaExec>("cgTiming") {
         prop("params", ""), prop("out", "build/analysis/search-timing.json"))
 }
 
+tasks.register<JavaExec>("cgBossStudy") {
+    group = "cg"
+    description = "Inspect observed boss defense on an explicit validated replay sample"
+    mainClass.set("btk.tools.CgBossDefenseStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("paths", ""), prop("out", "build/analysis/boss-defense-" + System.currentTimeMillis() + ".json"))
+}
+
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */
 tasks.register<JavaExec>("procCheck") {
     group = "game"

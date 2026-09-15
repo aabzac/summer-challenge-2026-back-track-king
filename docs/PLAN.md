@@ -36,6 +36,9 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       userscript stores the canonical `gameResult` under `replays/cg/bot/` automatically.
 - [x] Separate CG validation from visualizer export: `cgValidate` is read-only; `cgRender` writes
       validated files under `replays/rendered/cg/{arena,bot}/`.
+- [ ] Recognize positive boss agent ids with `agents[].arenaboss` in the general CgReplay parser
+      and renderer routing, not only legacy -2. New Boss 4 replays validate but currently get
+      arena output classification; the boss-defense study reads their identity explicitly.
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)
 
@@ -178,6 +181,16 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       boss replays exact, candidate/restored-v05 process samples each 0/4 failures; Player restored.
       Direct ON/OFF self-play was replaced before benchmarking because neutral-rail mirrors did
       not exercise sabotage. OFF history and explicit active-route fixtures guard the baseline.
+
+- [x] Inspect the five new Boss 4 replays (904047070/111/151/204/262): 313/315 sabotage turns,
+      first-hit bypass progress in 4/30 eligible observed cases, later-hit progress more common.
+      Added a validated known-board probe, four tests; 181 tests and 264 arena + 26 boss replays
+      exact. Existing EvalBot backup already searches bypasses; no policy change. See DEVLOG.
+- [ ] Proposed next single-feature experiment: give a cheap, useful bypass of an actually
+      threatened active connection an explicit deadline-aware priority within EvalBot. Reuse
+      core pathing/ownership scoring; keep construction and sabotage controls otherwise fixed.
+      Predeclare bounded work, screen and older/style control before running. Boss observations
+      motivate the hypothesis but do not establish a v05 failure cause or a promotion benefit.
 
 ## Someday / maybe
 

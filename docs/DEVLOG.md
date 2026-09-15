@@ -1903,3 +1903,87 @@ Completed outcome (fixed sample, no retuning):
 - Both heuristic selectors remain off and Player.java remains frozen v05. Prior reports and
   negative/inconclusive results are preserved. Next scope: inspect the five newly added boss
   replays for early defensive rerouting after observed sabotage, before choosing another change.
+
+### 2026-09-16 — five new boss games: observed-threat bypass study
+
+- Committed the two completed heuristic experiments and automatic-local-commit preference as
+  `27ed521`. Chose the user's replay-analysis option before another policy change. Fixed sample:
+  `replays/cg/bot/904047070.json`, `904047111.json`, `904047151.json`, `904047204.json`,
+  `904047262.json`. All identify P1 as **Boss 4, agent 6740207**, via `agents[].index` and
+  `arenaboss.nickname`; same boss identity as the previous five. P0 is aabzac IDE agent -1:
+  exact submitted source/config is unknown, so do not label these frozen-v05 results.
+- Fidelity first: **264/264 arena and 26/26 boss replays exact**, separate non-recursive
+  directory validations. The five selected files have no failure turns; boss wins all five.
+  P0/P1 final scores in file order: 562/1168, 2238/5803, 1179/1215, 1929/2611, 2042/3014.
+  This small selected sample is descriptive, not an arena strength estimate.
+- Added `cgBossStudy` / `CgBossDefenseStudy`, tools-only. Requires explicit comma-separated
+  `-Ppaths`; every input is validated before analysis. `-Pout` refuses existing files; otherwise
+  a timestamped output is used. No engine, policy, parameters, frozen opponents or Player edits.
+  General CgReplay still only recognizes legacy boss id -2, not positive ids with `arenaboss`:
+  recorded the name/render-routing issue in PLAN; this study reads the authoritative marker.
+- Probe method: use the **pre-turn board**, accepted prior-turn opponent disruption, and only
+  already unstable, uninked, non-town regions with boss tracks. For each current active desired
+  town connection crossing such a region and carrying boss tracks, ask core for cheapest paint
+  cost avoiding the entire region. Repeat on an isolated copy with **only accepted boss
+  placements** applied through core: no opponent placements, current disruption/ink or scoring.
+  Cost -1 means impossible; positive finite cost decreasing is progress, decreasing to 0 is a
+  completed alternative connection. Existing zero-cost bypasses do not count as new progress.
+  Check each direction's canonical active route before deduplicating unordered town pairs.
+- Observation boundary: previous opponent target is already observable; recorded same-turn
+  stdout is retained only as context and never used to choose the threatened region or path.
+  First observed hit means that prior target's instability was zero before its accepted hit.
+  The probe covers active routes only, not unfinished projects. It measures connectivity/paint,
+  NOT preserved ownership income, intent, response causality or subsequent game-win benefit.
+  Shared track construction can help several connections; counts below use region-turns, not
+  independent pairs/games. Positive cost is not a claim that completion fits the remaining time.
+- **Sabotage pattern:** 313/315 boss turns (99.37%), versus P0 268/315 (85.08%). The only boss
+  omissions are turn 0 of 904047070 and 904047262. Of 235 turns with a current boss target and
+  its previous target still uninked/non-town, 195 repeat that target (82.98%). This conditional
+  measure excludes turns without a current target. Targets on the known board: opponent-only
+  253, mixed 54, empty 5, own-only 1; occasional self-collateral is real, its intent is unknown.
+- **Building pattern:** boss places 461 cells / 595 paint on 200/315 turns; P0 689 cells /
+  914 paint on 310/315 turns. Boss messages: build 144, steal 45, fortify 10, block 1, none 115.
+  More spending is not automatically more useful spending; these totals cannot establish why
+  P0 lost. `fortify` is a branch label, not a ground-truth defense annotation: only 2/10 tagged
+  turns reduce the measured bypass cost of any currently probed threatened region.
+- **Timing of bypass contribution:** after a prior accepted opponent hit, 203 region-turns
+  remain eligible threats; 150 cross a probed active boss connection, and 93 have at least one
+  positive finite bypass cost. Boss placements reduce a cost in **44/93**, completing at least
+  one alternative in **16/93**. Breakdown by current instability:
+  - 1 hit: 66 threat observations, 45 with active connections, 30 positive-cost opportunities;
+    **4/30 progress, 0 completions**.
+  - 2 hits: 71 observations, 53 active, 35 opportunities; **25/35 progress, 10 completions**.
+  - 3 hits: 66 observations, 52 active, 28 opportunities; **15/28 progress, 6 completions**.
+  These are repeated observations from five trajectories, not independent trials or a test of
+  "boss reacts at instability 2". Other building may incidentally reduce bypass cost.
+- Concrete examples (all turn ids **zero-based pre-turn decisions**, not viewer frame labels):
+  - 904047070, region 22, town pair 3->2: at t6 / instability 1, bypass stays 3->3 paint;
+    at t7 / instability 2, boss builds (2,8), (2,6), (2,7), reducing it **3->0**. At t8 /
+    instability 3 it is already 0. The completing message is `build 3>0`, not `fortify`.
+  - 904047204, region 18, t12 / instability 1: boss's three placements reduce a shared bypass
+    **7->4** for six active pairs. This is compatible with immediate preparation after first hit.
+  - 904047262, region 27: t31 / instability 2 reduces **4->1**; t32 / instability 3 reduces
+    **1->0** for five active pairs. Both turns are labelled `build`. These examples support
+    pre-ink alternatives, but not an always-immediate response rule.
+- Source comparison: EvalBot already generates `USE_BACKUP` candidates for active pairs crossing
+  the single `worstRegion` from vulnerability evaluation. That region can be merely hypothetical;
+  candidates compete in the general gain/horizon/cost/risk/noise ranking. No explicit defense
+  deadline or dedicated observed-hit priority exists. Proposed next experiment: a bounded,
+  default-off cheap-bypass priority for actually threatened live income, conditioned on finishing
+  before ink. Reuse core scoring so connectivity is not mistaken for retained income. One feature,
+  predeclared matched screen plus older/style control; no tuning/promotion based on this sample.
+- Verification: **181 tests passed**, including four new boss-study tests (positive-id identity,
+  both player sides/input isolation, partial versus complete bypass, reverse-direction exposure).
+  During review corrected deduplication to check reverse canonical route exposure before skipping
+  a town pair. Preserved initial schema-1 report; reran the SAME five files as schema 2. Counts
+  above were unchanged. No new games, strength benchmark, process run or upload in this study.
+- Final local report: `build/analysis/boss-defense-20260916/new-five-v2.json`, SHA-256
+  `bb31e54d2873d5b6751791adf680c9e2affd97859fd71713d99eedbd8f3fb219`.
+  Replay SHA-256 in sample order:
+  `a2be5a790b5ff529436c328877044f73bcef5e5cbd3c96aff8e32b7571a4f5a3`,
+  `4afe1af071a480d3e861e8d689bbdcc12cbbc9f8d91f212f1bdea8a7740a677b`,
+  `f669271e1deb2f480fc1f453c1f7589c6f899453faf6211e985d1353f7deaea9`,
+  `2aa68c71217c52af023e58edb08109a6ec1f2f51b21751cdb97c3ce03c86bf11`,
+  `41d280e01cdba32da728339e8d7ab13b2c673d5dd35ee7b89bc009a9c14a6e9e`.
+  Final Player unchanged, v05 SHA-256
+  `45c25fc41d74c41b79498e8bab410dedf0e4530e8db9381382c16e11d976c6e8`.

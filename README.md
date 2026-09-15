@@ -154,6 +154,8 @@ gradlew cgRender "-Ppath=replays/cg/903337834.json"
 
 Boss games are detected from agent id `-2` and written under `replays/rendered/cg/bot/` instead.
 `cgValidate` only validates and never creates files.
+Known limitation: newer boss agents can have a positive id plus an `arenaboss` marker. The general
+parser/renderer still classifies these as arena games; updating that routing is pending in PLAN.
 
 ### Capturing an IDE/boss game
 
@@ -166,6 +168,19 @@ the canonical game-result lookup fails. Without the local server the userscript 
 browser download. Run `gradlew cgValidate "-Ppath=replays/cg/bot"` to validate the boss corpus, or
 `gradlew cgRender "-Ppath=replays/cg/bot/<gameId>.json"` to validate one game and produce its
 visualizer document under `replays/rendered/cg/bot/`.
+
+`cgBossStudy` diagnoses defensive building on an explicit boss sample, correctly reading either
+the `arenaboss` marker or legacy id `-2`. It validates every game first and records per-turn paint
+costs for bypassing already threatened regions, using only accepted boss placements in the probe:
+
+```powershell
+.\gradlew.bat cgBossStudy "-Ppaths=replays/cg/bot/904047070.json,replays/cg/bot/904047111.json,replays/cg/bot/904047151.json,replays/cg/bot/904047204.json,replays/cg/bot/904047262.json"
+```
+
+The default report path is timestamped under `build/analysis/`; `-Pout` must name an unused file.
+Turns are zero-based; cost reduction is evidence of an alternative connection, not proof of boss
+intent or preserved income. Unfinished routes are excluded. Findings and limitations are in
+the 2026-09-16 boss-defense entry in [DEVLOG](docs/DEVLOG.md).
 
 ## Submitting
 
