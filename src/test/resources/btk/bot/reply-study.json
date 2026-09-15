@@ -1,0 +1,339 @@
+[
+  {
+    "kind": "construction-prediction",
+    "seed": 20002,
+    "me": 0,
+    "turn": 10,
+    "init": "0\n24 16\n0 0\n0 0\n0 0\n1 0\n1 0\n1 0\n2 0\n2 0\n2 0\n3 0\n3 0\n3 0\n3 0\n4 0\n4 0\n4 0\n4 1\n4 0\n5 0\n5 0\n5 0\n6 0\n6 2\n6 2\n0 0\n0 0\n0 0\n1 0\n1 0\n1 0\n2 0\n2 0\n2 0\n2 0\n2 0\n3 0\n3 0\n3 0\n4 0\n4 0\n4 1\n5 1\n5 0\n5 0\n5 0\n6 2\n6 2\n6 2\n7 0\n7 0\n0 0\n0 0\n1 0\n2 0\n2 0\n9 2\n9 2\n9 0\n10 0\n3 0\n3 0\n11 0\n11 0\n4 0\n11 0\n5 1\n12 0\n12 1\n6 1\n6 1\n6 0\n13 0\n7 0\n7 0\n0 0\n8 0\n1 0\n8 2\n8 2\n9 2\n9 2\n9 0\n10 0\n10 0\n10 0\n11 0\n11 0\n11 0\n11 0\n12 1\n12 0\n12 1\n12 0\n13 1\n13 0\n13 0\n7 0\n7 0\n7 0\n8 0\n8 0\n8 0\n8 2\n16 2\n9 0\n9 0\n10 0\n10 0\n10 0\n10 0\n11 0\n18 0\n18 0\n12 1\n12 0\n19 1\n19 0\n13 1\n13 0\n13 0\n14 0\n14 0\n14 0\n8 0\n15 0\n15 0\n15 0\n16 0\n16 0\n16 0\n17 0\n17 0\n17 0\n18 0\n18 1\n18 1\n18 1\n18 1\n19 0\n19 1\n20 0\n20 1\n20 1\n20 1\n14 0\n14 0\n14 0\n14 0\n15 0\n15 0\n15 0\n15 0\n16 0\n16 0\n16 0\n17 0\n17 1\n17 1\n17 1\n25 0\n25 0\n19 0\n19 0\n19 1\n20 0\n27 0\n20 0\n20 0\n14 0\n21 0\n14 0\n22 0\n22 0\n22 0\n15 0\n23 0\n23 0\n16 0\n24 0\n24 0\n24 1\n24 0\n25 0\n25 0\n25 0\n19 1\n26 1\n26 1\n26 0\n27 0\n20 0\n20 0\n21 0\n21 0\n21 0\n21 0\n22 0\n22 0\n22 0\n22 0\n23 0\n23 0\n23 0\n24 0\n24 1\n31 0\n25 0\n25 1\n26 1\n26 1\n26 0\n26 0\n27 0\n27 0\n27 0\n34 0\n21 0\n28 0\n21 0\n28 0\n28 0\n22 0\n29 0\n30 0\n30 0\n23 0\n23 0\n38 1\n24 1\n31 0\n31 1\n32 1\n32 0\n26 0\n33 0\n33 0\n33 0\n27 0\n27 0\n34 0\n21 0\n28 0\n28 0\n28 0\n29 0\n29 0\n29 0\n29 0\n30 0\n30 0\n30 0\n38 1\n31 0\n31 0\n32 1\n32 0\n32 0\n33 0\n33 0\n33 0\n34 0\n34 0\n34 0\n34 0\n28 0\n28 0\n35 0\n35 0\n35 0\n29 0\n29 0\n29 0\n37 0\n37 0\n30 1\n38 1\n38 0\n31 1\n31 1\n32 0\n32 0\n32 0\n33 0\n33 0\n40 0\n41 0\n41 0\n34 0\n35 0\n35 0\n35 0\n36 0\n36 0\n36 0\n36 0\n37 0\n37 0\n37 0\n30 1\n44 2\n38 2\n39 1\n39 0\n39 0\n39 0\n40 0\n40 0\n40 0\n40 0\n40 0\n41 0\n34 0\n35 0\n35 0\n42 0\n36 0\n36 0\n36 0\n36 0\n37 0\n37 0\n44 0\n44 1\n44 2\n38 0\n39 1\n45 0\n39 0\n45 0\n46 0\n46 0\n40 0\n41 0\n41 0\n41 0\n41 0\n42 0\n42 0\n42 0\n36 0\n36 0\n43 0\n43 0\n43 0\n43 0\n43 1\n44 1\n38 2\n38 1\n39 1\n45 0\n45 0\n45 0\n45 0\n46 0\n47 0\n47 0\n47 0\n47 0\n41 0\n42 0\n42 0\n42 0\n42 0\n42 0\n43 0\n43 0\n43 0\n43 0\n44 1\n44 0\n44 0\n38 1\n39 0\n45 0\n45 0\n45 0\n46 0\n46 0\n46 0\n46 0\n47 0\n47 0\n47 0\n7\n0 5 1 5\n1 9 4 2,4\n2 4 5 0,5\n3 18 5 1,2,4\n4 11 7 0\n5 16 9 1,3,4\n6 22 13 0,2,4\n",
+    "stateSha256": "c51f43e5b2d066d79a47f6195400959db6788ce599724fbb5bb9c6ff9bcebe92",
+    "history": [
+      [
+        "PLACE_TRACKS 21 13;PLACE_TRACKS 20 13;PLACE_TRACKS 19 13",
+        "DISRUPT 25;PLACE_TRACKS 18 4;PLACE_TRACKS 17 4"
+      ],
+      [
+        "PLACE_TRACKS 6 1;PLACE_TRACKS 7 1;PLACE_TRACKS 8 1;DISRUPT 12",
+        "DISRUPT 25;PLACE_TRACKS 16 4;PLACE_TRACKS 15 4;PLACE_TRACKS 14 4"
+      ],
+      [
+        "PLACE_TRACKS 9 1;PLACE_TRACKS 9 2;PLACE_TRACKS 9 3;DISRUPT 12",
+        "DISRUPT 10;PLACE_TRACKS 14 5;PLACE_TRACKS 13 5"
+      ],
+      [
+        "PLACE_TRACKS 9 5;PLACE_TRACKS 10 5;PLACE_TRACKS 10 6;DISRUPT 18",
+        "DISRUPT 2;PLACE_TRACKS 12 5;PLACE_TRACKS 11 5;PLACE_TRACKS 11 6"
+      ],
+      [
+        "PLACE_TRACKS 18 13;PLACE_TRACKS 17 13;PLACE_TRACKS 16 13;DISRUPT 12",
+        "DISRUPT 2;PLACE_TRACKS 17 9;PLACE_TRACKS 18 9;PLACE_TRACKS 18 8"
+      ],
+      [
+        "PLACE_TRACKS 16 12;PLACE_TRACKS 16 11;PLACE_TRACKS 16 10;DISRUPT 12",
+        "DISRUPT 2;PLACE_TRACKS 18 7;PLACE_TRACKS 18 6"
+      ],
+      [
+        "PLACE_TRACKS 15 10;PLACE_TRACKS 14 10;DISRUPT 33",
+        "DISRUPT 2;PLACE_TRACKS 17 5"
+      ],
+      [
+        "PLACE_TRACKS 13 10;PLACE_TRACKS 13 9;PLACE_TRACKS 13 8;DISRUPT 33",
+        "DISRUPT 16;PLACE_TRACKS 16 5;PLACE_TRACKS 10 4"
+      ],
+      [
+        "PLACE_TRACKS 13 7;PLACE_TRACKS 12 7;DISRUPT 18",
+        "DISRUPT 16;PLACE_TRACKS 11 8;PLACE_TRACKS 10 8;PLACE_TRACKS 9 8"
+      ],
+      [
+        "PLACE_TRACKS 10 7;PLACE_TRACKS 8 5;PLACE_TRACKS 7 5;DISRUPT 18",
+        "DISRUPT 31;PLACE_TRACKS 8 8;PLACE_TRACKS 7 8;PLACE_TRACKS 6 8"
+      ]
+    ],
+    "opponentOracle": "DISRUPT 31;PLACE_TRACKS 4 4;PLACE_TRACKS 4 3;PLACE_TRACKS 4 2",
+    "expectedSelected": 1,
+    "expectedOracleSelected": 0,
+    "expectedImmediateSelected": 1,
+    "expectedChoices": [
+      {
+        "prefix": [
+          28,
+          52,
+          76
+        ],
+        "predicted": {
+          "heuristic": 1540,
+          "immediateDelta": 0
+        },
+        "oracle": {
+          "heuristic": 1364,
+          "immediateDelta": 0
+        }
+      },
+      {
+        "prefix": [
+          126,
+          125,
+          100
+        ],
+        "predicted": {
+          "heuristic": 2109,
+          "immediateDelta": 62
+        },
+        "oracle": {
+          "heuristic": 1222,
+          "immediateDelta": 34
+        }
+      }
+    ]
+  },
+  {
+    "kind": "different-disruption",
+    "seed": 20003,
+    "me": 1,
+    "turn": 10,
+    "init": "0\n30 20\n0 0\n0 0\n0 0\n1 0\n1 0\n1 0\n1 0\n2 2\n2 0\n2 0\n2 0\n3 0\n3 2\n3 2\n4 0\n4 0\n4 0\n4 2\n5 2\n5 2\n5 0\n5 0\n5 0\n6 0\n6 0\n6 0\n7 0\n7 0\n7 0\n7 0\n0 0\n0 0\n0 0\n1 0\n1 0\n1 0\n1 0\n1 2\n2 2\n2 0\n2 0\n2 0\n3 2\n3 2\n3 0\n3 0\n4 2\n4 2\n4 2\n5 2\n5 2\n6 0\n6 0\n6 0\n6 0\n6 0\n7 0\n7 0\n7 0\n7 0\n0 0\n0 0\n8 0\n1 0\n9 0\n9 0\n9 0\n9 1\n2 1\n2 1\n10 0\n11 0\n3 2\n3 2\n11 2\n3 0\n12 2\n12 2\n4 2\n5 2\n13 2\n13 0\n14 0\n6 0\n14 0\n6 0\n7 0\n7 0\n7 0\n15 0\n8 0\n8 1\n8 1\n8 1\n9 1\n9 0\n9 0\n9 1\n9 0\n10 1\n10 1\n11 0\n11 0\n11 2\n11 1\n12 0\n12 0\n12 2\n12 1\n12 1\n13 0\n14 0\n14 0\n14 0\n14 0\n14 0\n15 0\n15 0\n15 0\n15 0\n8 0\n8 1\n16 0\n8 0\n8 1\n8 1\n9 0\n10 0\n10 0\n10 0\n10 1\n19 0\n19 0\n11 0\n11 1\n20 1\n20 0\n12 0\n13 0\n13 1\n13 0\n13 0\n14 0\n22 0\n14 0\n14 0\n15 0\n23 2\n15 2\n15 0\n16 1\n16 1\n16 0\n17 0\n17 0\n17 1\n18 1\n18 0\n18 0\n10 0\n10 1\n19 0\n19 0\n11 0\n20 0\n20 1\n20 0\n12 0\n13 0\n13 1\n21 1\n21 1\n22 1\n22 0\n22 0\n22 2\n15 2\n23 2\n15 0\n23 0\n16 0\n16 0\n16 0\n17 0\n17 0\n17 0\n17 1\n18 1\n18 0\n18 0\n10 1\n19 0\n19 0\n19 1\n19 1\n20 1\n20 0\n20 0\n13 0\n21 0\n21 0\n21 0\n21 1\n22 1\n22 1\n22 0\n23 2\n23 0\n23 2\n23 2\n24 0\n24 0\n16 0\n16 0\n17 0\n17 0\n25 0\n18 1\n18 0\n18 1\n26 1\n19 1\n27 1\n27 1\n19 2\n28 2\n20 0\n20 0\n21 0\n21 0\n29 0\n21 0\n21 0\n22 0\n22 1\n30 0\n30 2\n23 0\n23 2\n31 2\n24 0\n24 0\n24 0\n25 0\n25 0\n25 0\n25 0\n26 1\n26 1\n26 1\n26 0\n27 0\n27 0\n27 1\n27 2\n28 0\n28 0\n28 0\n29 0\n29 0\n29 0\n29 0\n30 0\n30 0\n30 1\n30 1\n30 0\n31 0\n31 2\n31 2\n24 0\n24 0\n24 0\n25 0\n33 0\n25 0\n25 0\n25 0\n26 0\n26 0\n26 0\n26 0\n27 0\n28 1\n28 1\n28 0\n28 0\n28 0\n28 0\n29 0\n29 0\n29 0\n29 0\n30 0\n30 0\n30 1\n38 0\n31 0\n31 0\n31 0\n32 0\n32 0\n24 0\n33 0\n33 0\n33 0\n25 0\n34 0\n34 0\n26 0\n34 0\n27 0\n27 0\n35 0\n35 1\n28 1\n36 0\n36 0\n36 0\n37 0\n37 0\n37 1\n29 1\n37 1\n38 1\n38 1\n38 0\n31 0\n39 0\n31 0\n32 0\n32 0\n32 0\n33 0\n33 0\n33 0\n33 0\n34 0\n34 0\n34 0\n34 0\n35 0\n35 2\n35 0\n35 0\n36 1\n36 1\n36 1\n36 0\n36 0\n37 0\n37 1\n37 0\n37 0\n38 0\n38 0\n39 0\n39 0\n39 0\n39 0\n32 0\n40 0\n40 0\n33 0\n41 0\n41 0\n33 0\n33 0\n42 0\n42 0\n34 0\n34 0\n34 2\n35 0\n35 0\n43 0\n36 0\n36 1\n45 1\n45 1\n45 1\n37 1\n46 1\n46 2\n46 0\n38 0\n38 0\n47 0\n39 0\n39 0\n32 0\n40 0\n40 0\n40 0\n41 0\n41 0\n41 0\n41 0\n42 0\n42 0\n42 0\n42 0\n43 2\n43 0\n43 0\n43 0\n44 0\n44 1\n44 0\n44 0\n45 2\n46 0\n46 2\n46 2\n46 2\n46 2\n47 0\n47 0\n47 0\n39 0\n48 0\n40 0\n40 0\n41 0\n41 0\n41 0\n42 0\n42 0\n42 0\n42 0\n43 0\n43 0\n43 2\n43 0\n44 0\n44 0\n44 1\n44 1\n44 0\n45 2\n45 2\n45 2\n45 0\n46 0\n46 2\n54 0\n47 0\n47 0\n47 0\n47 0\n48 0\n40 0\n40 0\n40 0\n40 0\n41 0\n41 0\n49 0\n50 0\n50 0\n50 0\n51 0\n51 2\n51 0\n44 0\n44 1\n52 1\n52 0\n52 0\n53 0\n45 0\n45 0\n45 2\n46 2\n54 2\n54 0\n55 0\n55 0\n55 0\n47 0\n48 0\n48 2\n48 2\n48 0\n48 0\n49 0\n49 0\n49 0\n49 0\n50 0\n50 0\n50 0\n51 0\n51 0\n51 0\n52 1\n52 0\n52 0\n52 0\n53 0\n53 0\n53 0\n45 2\n54 0\n54 0\n54 0\n55 0\n55 0\n55 0\n55 0\n48 0\n48 0\n48 2\n56 0\n56 0\n49 0\n49 0\n49 0\n50 0\n50 0\n57 0\n57 0\n57 0\n57 0\n51 0\n52 1\n52 0\n52 0\n58 0\n58 0\n53 0\n54 0\n54 0\n54 0\n59 0\n54 0\n59 0\n59 0\n55 0\n55 0\n48 0\n56 0\n56 0\n56 0\n56 0\n56 0\n56 0\n49 0\n50 0\n50 0\n57 0\n57 0\n57 0\n57 0\n51 0\n52 1\n58 1\n58 1\n58 1\n58 0\n53 0\n53 0\n54 0\n54 0\n59 0\n59 0\n59 0\n59 0\n59 0\n55 0\n48 0\n56 0\n56 0\n56 0\n56 0\n56 0\n49 0\n49 0\n50 0\n50 0\n57 0\n57 0\n57 0\n57 0\n51 0\n51 0\n58 0\n58 0\n58 1\n58 0\n53 0\n53 0\n53 0\n53 0\n53 0\n53 0\n59 0\n59 0\n59 0\n59 0\n12\n0 1 2 1,5,7,10,11\n1 22 1 3,5,9,11\n2 10 2 1,3,11\n3 26 4 5,7,9\n4 1 9 0,2,5,6,9\n5 12 9 2,8,9\n6 27 10 0,1,5\n7 16 10 1,2,4,5,6\n8 2 13 4,6,11\n9 21 13 0,2,6,7\n10 17 17 1,3,4,5,7,8\n11 4 17 4,6,9\n",
+    "stateSha256": "60f6451be687ad36d5d1ba2af4cd545924439ba669a9c52fe0c83f3219945d3d",
+    "history": [
+      [
+        "DISRUPT 37;PLACE_TRACKS 4 16;PLACE_TRACKS 4 15;PLACE_TRACKS 3 15",
+        "PLACE_TRACKS 2 2;PLACE_TRACKS 2 3"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 2 15;PLACE_TRACKS 2 14;PLACE_TRACKS 2 12",
+        "PLACE_TRACKS 2 4;PLACE_TRACKS 2 5;PLACE_TRACKS 2 6;DISRUPT 48"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 1 12;PLACE_TRACKS 1 11;PLACE_TRACKS 1 10",
+        "PLACE_TRACKS 20 13;DISRUPT 48"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 1 6;PLACE_TRACKS 1 7;PLACE_TRACKS 1 8",
+        "PLACE_TRACKS 27 9;PLACE_TRACKS 26 9;PLACE_TRACKS 24 9;DISRUPT 48"
+      ],
+      [
+        "DISRUPT 28;PLACE_TRACKS 16 17;PLACE_TRACKS 15 17",
+        "PLACE_TRACKS 25 9;PLACE_TRACKS 23 9;DISRUPT 48"
+      ],
+      [
+        "DISRUPT 16;PLACE_TRACKS 5 15;PLACE_TRACKS 5 16;PLACE_TRACKS 5 17",
+        "PLACE_TRACKS 2 9;PLACE_TRACKS 3 9;PLACE_TRACKS 4 9;DISRUPT 32"
+      ],
+      [
+        "DISRUPT 28;PLACE_TRACKS 6 17;PLACE_TRACKS 7 17;PLACE_TRACKS 8 17",
+        "PLACE_TRACKS 5 9;PLACE_TRACKS 6 9;PLACE_TRACKS 7 9;DISRUPT 32"
+      ],
+      [
+        "DISRUPT 28;PLACE_TRACKS 14 17;PLACE_TRACKS 13 17;PLACE_TRACKS 12 17",
+        "PLACE_TRACKS 22 9;PLACE_TRACKS 21 9;PLACE_TRACKS 20 9;DISRUPT 32"
+      ],
+      [
+        "DISRUPT 28;PLACE_TRACKS 11 17;PLACE_TRACKS 10 17;PLACE_TRACKS 9 17",
+        "PLACE_TRACKS 17 16;PLACE_TRACKS 16 16;PLACE_TRACKS 14 16;DISRUPT 32"
+      ],
+      [
+        "DISRUPT 16;PLACE_TRACKS 3 12;PLACE_TRACKS 3 11;PLACE_TRACKS 3 10",
+        "PLACE_TRACKS 15 16;PLACE_TRACKS 14 15;DISRUPT 49"
+      ]
+    ],
+    "opponentOracle": "DISRUPT 26;PLACE_TRACKS 17 15;PLACE_TRACKS 18 15;PLACE_TRACKS 18 14",
+    "expectedSelected": 0,
+    "expectedOracleSelected": 1,
+    "expectedImmediateSelected": 0,
+    "expectedChoices": [
+      {
+        "prefix": [
+          278,
+          279,
+          280
+        ],
+        "predicted": {
+          "heuristic": 2047.5,
+          "immediateDelta": 0
+        },
+        "oracle": {
+          "heuristic": 1512.4333333333336,
+          "immediateDelta": 0
+        }
+      },
+      {
+        "prefix": [
+          493,
+          492,
+          491
+        ],
+        "predicted": {
+          "heuristic": 1955,
+          "immediateDelta": 0
+        },
+        "oracle": {
+          "heuristic": 1955,
+          "immediateDelta": 0
+        }
+      }
+    ]
+  },
+  {
+    "kind": "projection-versus-immediate",
+    "seed": 20000,
+    "me": 0,
+    "turn": 30,
+    "init": "0\n27 18\n0 0\n0 1\n0 0\n1 0\n1 0\n1 0\n2 0\n2 0\n2 0\n2 0\n2 0\n3 0\n3 0\n4 0\n4 0\n4 0\n4 0\n5 0\n5 0\n5 0\n6 0\n6 0\n6 0\n6 0\n7 0\n7 0\n7 0\n0 0\n0 1\n0 0\n1 0\n1 0\n1 0\n2 0\n2 0\n2 0\n2 0\n3 0\n3 0\n3 0\n3 0\n4 0\n4 0\n4 0\n4 0\n5 0\n5 0\n6 0\n6 0\n6 0\n6 0\n7 0\n7 0\n7 0\n0 0\n8 1\n8 0\n1 0\n1 0\n1 0\n10 2\n10 0\n10 0\n10 0\n3 0\n3 0\n12 2\n12 0\n12 0\n12 0\n5 0\n5 0\n5 0\n5 0\n14 0\n14 0\n14 0\n15 0\n7 0\n15 0\n7 0\n0 0\n8 1\n8 1\n9 0\n9 0\n9 0\n9 2\n10 0\n10 0\n19 0\n3 0\n11 0\n12 2\n12 0\n11 0\n12 0\n12 0\n13 0\n13 0\n13 0\n13 0\n14 0\n14 0\n15 0\n15 0\n15 0\n7 0\n0 0\n8 0\n8 1\n9 0\n9 0\n9 2\n9 2\n10 0\n10 0\n19 2\n19 0\n11 0\n11 2\n11 0\n11 0\n12 0\n13 0\n13 0\n13 0\n21 0\n13 0\n14 0\n14 0\n15 0\n15 0\n15 0\n7 0\n8 0\n8 0\n8 1\n17 0\n17 0\n17 0\n9 2\n17 2\n18 2\n18 2\n19 0\n19 0\n11 0\n20 0\n20 0\n20 0\n20 0\n13 0\n21 0\n21 0\n22 0\n14 0\n22 0\n15 0\n23 0\n23 0\n23 0\n16 0\n16 0\n16 1\n16 0\n16 0\n17 0\n17 2\n17 0\n18 0\n18 2\n19 2\n19 0\n11 0\n11 0\n20 0\n20 0\n20 0\n21 0\n21 0\n21 0\n22 0\n22 0\n22 0\n22 0\n22 0\n23 0\n23 0\n16 0\n16 0\n24 1\n16 0\n16 0\n17 0\n17 0\n17 0\n18 0\n18 0\n18 0\n18 0\n18 0\n28 0\n20 0\n20 0\n20 0\n21 0\n29 0\n21 0\n21 0\n22 0\n22 0\n22 0\n23 0\n23 0\n23 0\n24 0\n24 0\n24 1\n25 1\n25 1\n25 0\n25 0\n26 0\n26 0\n27 0\n27 0\n27 0\n27 0\n28 0\n28 0\n28 0\n28 0\n28 0\n29 0\n29 0\n30 0\n30 0\n30 0\n30 0\n30 0\n23 0\n31 0\n24 0\n24 0\n24 0\n25 0\n25 1\n25 0\n25 0\n26 0\n26 1\n26 1\n27 1\n27 1\n27 1\n27 1\n36 0\n28 0\n28 0\n29 0\n29 0\n29 0\n30 0\n30 0\n30 0\n30 0\n39 0\n31 0\n31 0\n32 0\n24 0\n32 1\n32 1\n33 1\n25 1\n34 1\n26 1\n26 1\n26 0\n35 0\n27 0\n27 0\n35 1\n36 1\n36 0\n28 0\n37 0\n29 0\n29 0\n38 0\n38 2\n38 0\n39 0\n39 0\n31 0\n31 0\n32 0\n32 1\n32 1\n33 0\n33 0\n33 0\n34 0\n34 0\n34 0\n34 0\n35 0\n35 0\n35 0\n35 0\n36 1\n36 1\n36 0\n37 0\n37 0\n37 0\n38 0\n38 2\n38 0\n39 0\n39 0\n39 0\n31 0\n32 1\n32 1\n33 0\n33 0\n33 0\n33 0\n34 0\n34 0\n34 0\n34 0\n35 0\n35 0\n35 0\n44 0\n44 2\n44 1\n36 1\n36 1\n37 0\n37 0\n38 2\n46 2\n46 2\n39 0\n39 0\n31 0\n31 0\n40 0\n40 0\n40 0\n33 0\n41 0\n41 0\n41 0\n49 0\n42 0\n34 0\n35 0\n43 0\n43 0\n44 0\n44 2\n44 2\n36 2\n45 1\n37 1\n37 0\n38 2\n46 0\n46 0\n47 0\n47 0\n47 0\n31 0\n40 0\n40 0\n40 0\n41 0\n41 0\n41 0\n49 0\n49 0\n42 0\n43 0\n43 0\n43 0\n43 0\n43 0\n44 0\n44 2\n45 0\n45 0\n45 1\n45 0\n46 0\n46 0\n46 2\n46 0\n47 0\n47 0\n47 0\n40 0\n48 0\n48 0\n48 0\n41 0\n41 0\n49 0\n49 0\n42 0\n42 0\n43 0\n50 0\n43 0\n43 0\n51 0\n44 0\n51 0\n45 0\n45 1\n45 0\n52 0\n46 2\n46 2\n47 2\n47 0\n47 0\n53 0\n40 0\n48 0\n48 0\n48 0\n41 0\n41 0\n49 0\n49 0\n42 0\n42 0\n42 0\n50 0\n50 0\n51 0\n51 0\n51 0\n51 0\n51 0\n52 1\n52 1\n52 0\n52 0\n52 2\n53 0\n53 0\n53 0\n53 0\n40 0\n48 0\n48 0\n48 0\n48 0\n49 0\n49 0\n49 0\n42 0\n42 0\n50 0\n50 0\n50 0\n50 0\n51 0\n51 0\n51 0\n51 0\n52 0\n52 1\n52 0\n52 0\n52 0\n53 0\n53 0\n53 0\n53 0\n9\n0 12 1 2,7,8\n1 1 4 0\n2 19 3 1,3,5\n3 11 7 1,4,8\n4 25 5 1,2,6,7\n5 6 8 0,1,6,8\n6 23 10 3,7,8\n7 12 13 1,3\n8 2 13 1,2,4,7\n",
+    "stateSha256": "9b5249603291981a1769b381dda4a5da3636ae718563bed44e17e06c4a2a5d92",
+    "history": [
+      [
+        "PLACE_TRACKS 2 12;PLACE_TRACKS 3 12;PLACE_TRACKS 3 11",
+        "DISRUPT 33;PLACE_TRACKS 24 5;PLACE_TRACKS 23 5;PLACE_TRACKS 23 6"
+      ],
+      [
+        "PLACE_TRACKS 3 10;PLACE_TRACKS 3 9;DISRUPT 15",
+        "DISRUPT 33;PLACE_TRACKS 23 7;PLACE_TRACKS 23 8;PLACE_TRACKS 23 9"
+      ],
+      [
+        "PLACE_TRACKS 4 9;PLACE_TRACKS 5 9;DISRUPT 15",
+        "DISRUPT 33;PLACE_TRACKS 22 7;PLACE_TRACKS 21 7;PLACE_TRACKS 20 7"
+      ],
+      [
+        "PLACE_TRACKS 25 6;PLACE_TRACKS 25 7;PLACE_TRACKS 25 8;DISRUPT 15",
+        "DISRUPT 33;PLACE_TRACKS 12 7;PLACE_TRACKS 13 7;PLACE_TRACKS 14 7"
+      ],
+      [
+        "PLACE_TRACKS 24 8;PLACE_TRACKS 24 9;PLACE_TRACKS 24 10;DISRUPT 15",
+        "DISRUPT 24;PLACE_TRACKS 19 7;PLACE_TRACKS 18 7;PLACE_TRACKS 17 7"
+      ],
+      [
+        "PLACE_TRACKS 2 14;PLACE_TRACKS 3 14;PLACE_TRACKS 4 14;DISRUPT 22",
+        "DISRUPT 30;PLACE_TRACKS 15 7;PLACE_TRACKS 16 7;PLACE_TRACKS 24 6"
+      ],
+      [
+        "PLACE_TRACKS 5 14;PLACE_TRACKS 6 14;PLACE_TRACKS 7 14;DISRUPT 22",
+        "DISRUPT 41;PLACE_TRACKS 19 6;PLACE_TRACKS 19 5;PLACE_TRACKS 19 4"
+      ],
+      [
+        "PLACE_TRACKS 8 14;PLACE_TRACKS 9 14;PLACE_TRACKS 10 14;DISRUPT 22",
+        "DISRUPT 41;PLACE_TRACKS 12 8;PLACE_TRACKS 12 9"
+      ],
+      [
+        "PLACE_TRACKS 11 14;PLACE_TRACKS 12 14;PLACE_TRACKS 13 14;DISRUPT 22",
+        "DISRUPT 41;PLACE_TRACKS 12 10;PLACE_TRACKS 12 11;PLACE_TRACKS 12 12"
+      ],
+      [
+        "PLACE_TRACKS 14 14;PLACE_TRACKS 14 15;PLACE_TRACKS 15 15;DISRUPT 29",
+        "DISRUPT 41;PLACE_TRACKS 22 8;PLACE_TRACKS 21 8;PLACE_TRACKS 20 8"
+      ],
+      [
+        "PLACE_TRACKS 23 11;PLACE_TRACKS 23 12;PLACE_TRACKS 23 13;DISRUPT 29",
+        "DISRUPT 49;PLACE_TRACKS 6 7;PLACE_TRACKS 7 7;PLACE_TRACKS 8 7"
+      ],
+      [
+        "PLACE_TRACKS 22 13;PLACE_TRACKS 21 13;PLACE_TRACKS 21 14;DISRUPT 29",
+        "DISRUPT 49;PLACE_TRACKS 10 7;PLACE_TRACKS 9 7;PLACE_TRACKS 5 7"
+      ],
+      [
+        "PLACE_TRACKS 20 14;PLACE_TRACKS 19 14;PLACE_TRACKS 17 14;DISRUPT 29",
+        "DISRUPT 24;PLACE_TRACKS 5 6;PLACE_TRACKS 4 6;PLACE_TRACKS 3 6"
+      ],
+      [
+        "PLACE_TRACKS 18 14;PLACE_TRACKS 17 15;DISRUPT 27",
+        "DISRUPT 30;PLACE_TRACKS 18 6;PLACE_TRACKS 17 6;PLACE_TRACKS 3 5"
+      ],
+      [
+        "PLACE_TRACKS 16 15;PLACE_TRACKS 2 15;PLACE_TRACKS 2 16;DISRUPT 21",
+        "DISRUPT 24;PLACE_TRACKS 2 5;PLACE_TRACKS 1 5"
+      ],
+      [
+        "PLACE_TRACKS 3 16;PLACE_TRACKS 3 17;PLACE_TRACKS 4 17;DISRUPT 21",
+        "DISRUPT 46;PLACE_TRACKS 13 1;PLACE_TRACKS 13 2;PLACE_TRACKS 13 3"
+      ],
+      [
+        "PLACE_TRACKS 6 15;PLACE_TRACKS 6 16;PLACE_TRACKS 6 17;DISRUPT 21",
+        "DISRUPT 46;PLACE_TRACKS 13 4;PLACE_TRACKS 13 5;PLACE_TRACKS 13 6"
+      ],
+      [
+        "PLACE_TRACKS 5 17;PLACE_TRACKS 11 1;PLACE_TRACKS 11 2;DISRUPT 21",
+        "DISRUPT 46"
+      ],
+      [
+        "PLACE_TRACKS 20 9;PLACE_TRACKS 20 10;PLACE_TRACKS 20 11;DISRUPT 16",
+        "DISRUPT 46;PLACE_TRACKS 18 3;PLACE_TRACKS 17 3;PLACE_TRACKS 16 3"
+      ],
+      [
+        "PLACE_TRACKS 19 11;PLACE_TRACKS 19 12;PLACE_TRACKS 19 13;DISRUPT 16",
+        "DISRUPT 49;PLACE_TRACKS 15 3;PLACE_TRACKS 14 3;PLACE_TRACKS 5 8"
+      ],
+      [
+        "PLACE_TRACKS 22 10;PLACE_TRACKS 24 11;PLACE_TRACKS 24 7;DISRUPT 16",
+        "DISRUPT 49;PLACE_TRACKS 1 13;PLACE_TRACKS 1 12"
+      ],
+      [
+        "PLACE_TRACKS 21 10;DISRUPT 16",
+        "DISRUPT 30;PLACE_TRACKS 2 10"
+      ],
+      [
+        "PLACE_TRACKS 25 9;PLACE_TRACKS 11 6;PLACE_TRACKS 11 5;DISRUPT 12",
+        "DISRUPT 30;PLACE_TRACKS 25 9;PLACE_TRACKS 5 5;PLACE_TRACKS 4 5"
+      ],
+      [
+        "PLACE_TRACKS 2 4;PLACE_TRACKS 3 4;DISRUPT 12",
+        "DISRUPT 38;PLACE_TRACKS 2 11"
+      ],
+      [
+        "PLACE_TRACKS 4 4;PLACE_TRACKS 4 3;PLACE_TRACKS 5 3;DISRUPT 12",
+        "DISRUPT 38;PLACE_TRACKS 1 11"
+      ],
+      [
+        "PLACE_TRACKS 7 8;PLACE_TRACKS 8 8;PLACE_TRACKS 9 8;DISRUPT 12",
+        "DISRUPT 38"
+      ],
+      [
+        "PLACE_TRACKS 24 13;PLACE_TRACKS 24 14;PLACE_TRACKS 24 15;DISRUPT 17",
+        "DISRUPT 38;PLACE_TRACKS 17 4;PLACE_TRACKS 17 5;PLACE_TRACKS 16 5"
+      ],
+      [
+        "PLACE_TRACKS 24 16;PLACE_TRACKS 24 17;PLACE_TRACKS 23 17;DISRUPT 27",
+        "DISRUPT 9;PLACE_TRACKS 11 3;PLACE_TRACKS 11 4;PLACE_TRACKS 16 6"
+      ],
+      [
+        "PLACE_TRACKS 22 17;PLACE_TRACKS 21 17;PLACE_TRACKS 21 16;DISRUPT 17",
+        "DISRUPT 9"
+      ],
+      [
+        "PLACE_TRACKS 20 16;PLACE_TRACKS 20 15;PLACE_TRACKS 19 15;DISRUPT 17",
+        "DISRUPT 9"
+      ]
+    ],
+    "opponentOracle": "DISRUPT 53;PLACE_TRACKS 26 5;PLACE_TRACKS 26 4;PLACE_TRACKS 26 3",
+    "expectedSelected": 0,
+    "expectedOracleSelected": 0,
+    "expectedImmediateSelected": 1,
+    "expectedChoices": [
+      {
+        "prefix": [
+          252,
+          279
+        ],
+        "predicted": {
+          "heuristic": 1382.6666666666665,
+          "immediateDelta": 0
+        },
+        "oracle": {
+          "heuristic": 1382.6666666666665,
+          "immediateDelta": 0
+        }
+      },
+      {
+        "prefix": [
+          226,
+          227,
+          145
+        ],
+        "predicted": {
+          "heuristic": 963.3333333333334,
+          "immediateDelta": 51
+        },
+        "oracle": {
+          "heuristic": 963.3333333333334,
+          "immediateDelta": 51
+        }
+      }
+    ]
+  }
+]

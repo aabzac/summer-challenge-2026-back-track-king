@@ -146,6 +146,15 @@ tasks.register<JavaExec>("cgDisrupt") {
         prop("out", "build/analysis/disrupt-diagnostic.json"))
 }
 
+tasks.register<JavaExec>("replyStudy") {
+    group = "game"
+    description = "Capture a fixed local sample, then audit narrow reply prediction on shared states (tools only)"
+    mainClass.set("btk.tools.ReplyStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("mode", "analyze"), prop("path", "build/analysis/reply-study-v1/capture"),
+        prop("out", "build/analysis/reply-study-v1/report.json"))
+}
+
 tasks.register<JavaExec>("cgTiming") {
     group = "cg"
     description = "Offline search-phase timing on validated replay states; not a process deadline check"

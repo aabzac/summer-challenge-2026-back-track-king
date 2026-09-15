@@ -291,6 +291,22 @@ Reports: `build/bench/narrow-reply-pressure-v1/`; full protocol, hashes and slic
 Next diagnostic: test predicted responses and prefix ranking on shared states before widening
 or retuning the beam. The results alone do not identify prediction error as the cause.
 
+## Shared-state K2/R1 diagnosis (2026-09-15)
+
+Tools-only follow-up: 24 newly captured games on six fixed development maps, both sides and
+v05/K2-R1 source trajectories against pressure. 110 observations, 108 distinct state/perspectives;
+NOISE=0 fresh-instance probes, no strategy changes. See [reply-study.md](reply-study.md).
+
+- First-build model active on 81 observations: exact nonempty construction forecast **12/55**,
+  disruption targets **61/81**. These are selected-state prediction metrics, not arena accuracy.
+- Actual-response oracle improves the choice under the SAME heuristic in **4 observations /
+  3 unique states**. Eleven observations prefer a projected route over a better immediate gain;
+  that can be investment, not a proven evaluation bug.
+- First prefix matches nominal/ample full play in **81/81** cases. Five of all 110 full actions
+  differ only in subsequent construction, with unchanged first prefix and sabotage target.
+- Keep disabled; no new strength bench, promotion, confirmation pool or Player rebuild.
+  Next hypothesis: inspect joint build/own-sabotage valuation, not wider search from this evidence.
+
 ## Offline diagnostic: adaptive sabotage forecast (2026-09-15)
 
 - No strategy change or v06. Five fixed experts plus adaptive weights are evaluated by

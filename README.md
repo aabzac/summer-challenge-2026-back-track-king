@@ -25,6 +25,8 @@ gradlew cgAnalyze -Pagent=6735801               # validated games of one arena e
 gradlew cgForecast -Pagent=6736850              # offline adaptive sabotage prediction, no strategy changes
 gradlew cgTiming                               # phase timing on two captured large-map replay trajectories
 gradlew cgDisrupt                              # full sabotage valuation vs timed search on captured losses
+gradlew replyStudy -Pmode=capture               # fixed 24-game local diagnostic capture (once)
+gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/time audit, no strategy change
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -202,6 +204,12 @@ see [process diagnostics](docs/benchmarking.md#optional-process-input-diagnostic
 4. Record the version and CG rank in `docs/BOTS.md`.
 
 ## Opponent prediction study
+
+`replyStudy` audits the retained narrow reply-reranking model against `pressure-v1`: first capture
+the fixed local sample, then analyze saved shared states in a separate invocation. It separates
+known-state, predicted-response and recorded-action oracle evaluations, plus nominal/ample-time
+full-play choices. See [the protocol and limitations](docs/reply-study.md). It does not alter v05
+or build a new submission.
 
 `cgForecast` evaluates a lightweight adaptive sabotage model without changing our bot's actions.
 It predicts from each pre-turn state and learns only after observing the next state; held-out

@@ -144,9 +144,13 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       three fixed 300-game development match-ups. Direct v05 57.3%, CI 46.2-68.4%; pressure
       66.0% vs fresh v05 control 69.3%, 46 added/56 lost wins. Keep off, no confirmation or
       parameter tuning; current/Player unchanged. See DEVLOG.
-- [ ] Audit narrow-rerank prediction and affordable-prefix ranking on shared captured states
-      versus pressure-v1 before another beam-size experiment. Separate model error, evaluator
-      error and time truncation; label recorded-opponent-action comparisons as oracle diagnostics.
+- [x] Audit narrow-rerank prediction and prefix ranking on 110 shared-state observations from
+      24 captured games. Exact build forecast 12/55; oracle improves ranking in 4 observations
+      (3 unique states); nominal/ample first prefix matches 81/81. Five later-build differences.
+      Prediction, projection and timing limitations separated; keep off. See reply-study.md.
+- [ ] Inspect the omitted interaction between first build and our own sabotage on shared states;
+      test joint-action value before changing strategy. Do not infer a fix from oracle rankings
+      or a hard immediate-income veto (already screened unsuccessfully).
 
 ## Someday / maybe
 

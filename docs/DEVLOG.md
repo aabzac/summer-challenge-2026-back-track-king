@@ -1357,3 +1357,88 @@ Completed outcome (fixed sample, no retuning):
   state, predicted response and recorded-action oracle diagnostics. This is a future step,
   not extra games/tuning added to the completed 900-game screen. Findings documented in BOTS;
   this turn's documentation remains uncommitted for review.
+
+### 2026-09-15 — shared-state narrow reply audit (predeclared)
+
+- Prior 900-game screen committed as 6aad987. Tools-only diagnosis; preserve the pinned engine,
+  Params/current/core/frozen sources, Player.java, default flags and promotion policy.
+- Capture exactly 24 new local games: generated seeds 20000..20005, both sides, each of v05
+  and the retained K2/R1 candidate vs pressure-v1. Nominal CG 486/36-ms budgets, serial games.
+  These are development maps selected by seed order, not by outcome. Save full action replays
+  once, before analysis in a separate JVM; they are not recreations of earlier bench trajectories.
+- Reconstruct shared pre-turn states at t10/20/30/40/50 through core; retain early-ended games
+  and report unavailable turns, rather than substituting later seeds. At most 120 positions.
+- Probe the existing private first-build/reranking methods via tools-only reflection, no policy
+  copies or shipped hooks. Fresh diagnostic instances use NOISE=0 (explicit diagnostic override),
+  K2/R1, other failed flags off. A zero-budget play primes existing preparation code; first-build
+  probe time excludes this priming. Ample 60-second allowance is a completion ceiling, not sleep.
+  Check complete probe choice against the emitted first prefix from full play.
+- On the SAME ample-time candidate set, compare unchanged replyAwareValue under no opponent
+  action (known-state), predicted reply and the captured pressure action (oracle). Resolve/check
+  effects through shared core. Prediction metrics: accepted placement-set overlap/exact agreement,
+  accepted disruption target agreement, and whether replacing prediction changes the ranking.
+  Also compare oracle heuristic ranking with immediate score-difference increments from core;
+  a conflict can be an investment tradeoff, not proof the long-horizon evaluator is wrong.
+- Compare fresh full play at 36 ms and ample time on each identical state, alternating order
+  by sample index. Initialization is outside play; no historical RNG/JIT/CPU reconstruction.
+  Record complete emitted actions and prefix differences, not just elapsed time. Budget-sensitive
+  choices are not proof of the original benchmark loss or timeout cause. Analysis overhead/JIT
+  differs from real games. Do not infer completion from elapsed time alone.
+- Save corpus plus all per-state/candidate evidence under build/analysis/reply-study-v1; refuse
+  overwrites and permit reanalysis of the saved corpus without fresh games. Add deterministic
+  isolation/core-simulation/report tests; run full tests and cgValidate. This is diagnosis, not
+  another strength screen: no confirmation pool, parameter sweep, candidate submission or upload.
+  Summarize findings/limitations and the next justified hypothesis, then commit at user request.
+
+### 2026-09-15 — shared-state narrow reply audit (completed)
+
+- Added tools-only `replyStudy` capture/analyze and `ReplyProbe`, using the retained policy's
+  actual private methods rather than copying evaluation/pathing. No core, current, Params,
+  frozen-version or submission-source changes. The catalog id still denotes K4/R2; the audit
+  explicitly requests K2/R1. Recorded opponent actions enter only after prediction is fixed.
+- Ran the predeclared capture and analysis once each: **24/24** games without bot errors,
+  **110** pre-turn observations, **10** unavailable after early end. There are **108** distinct
+  state/perspective identities; correlated turns and repeated states are not independent trials.
+  Every replay was reconstructed and checked through core before probing. Capture manifest and
+  per-game hashes preserve the evidence; incomplete, duplicate or wrong-cohort inputs and output
+  overwrites are rejected. Later validation hardening did not change measurement semantics.
+- First-build candidates exist in **81 observations / 79 unique states** (two choices in 77).
+  All 81 ample-time probes match the first prefix emitted by full play. Remaining 29 observations
+  do not enter prediction-agreement denominators. Source-v05 contributes 53 observations,
+  source-K2/R1 57; full per-policy and per-state evidence is retained.
+- Pressure's nonempty build is predicted exactly in **12/55 (21.8%)** observations; including
+  six empty/empty matches gives **18/81**. Cell intersection **48**, predicted **192**, actual
+  **144**: precision **25.0%**, recall **33.3%**. Predicted construction occurs in **20/26**
+  observed no-build cases. Sabotage target matches in **61/81 (75.3%)** eligible observations.
+- Substituting the recorded response strictly improves selected value under the SAME heuristic
+  and two-candidate set in **4 observations / 3 unique states**. One example repeats across
+  source policies; a separate argmax change is only a tie and is excluded. Thus poor action
+  prediction alone does not explain ranking quality in this sample. These are limited-heuristic
+  counterfactuals, not recoverable game points or an oracle-policy win-rate estimate.
+- Oracle projected value and immediate score increment prefer different options in **11**
+  observations. For seed 20000/P0/t30, projected values are **1382.67 vs 963.33**, immediate
+  increments **0 vs +51**. This can be an investment tradeoff, not evaluator failure; do not
+  revive a hard immediate-income veto from this diagnostic.
+- Fresh full play at nominal 36 ms versus ample time changes **0/81 first prefixes**. Complete
+  actions differ in **5/110** observations, only in later/leftover construction; first prefix
+  and own sabotage match in each. Nominal mean/max **12.04/31.25 ms**, ample **16.65/112.52 ms**.
+  These alternating-order local measurements do not reconstruct historical RNG/JIT/CPU state,
+  establish the cause of earlier losses, or close the original process-input stall.
+- Added three compact checked-in fixtures from retained data: seed 20002/P0/t10 placement
+  forecast, seed 20003/P1/t10 construction-plus-sabotage mismatch, seed 20000/P0/t30 projection
+  tradeoff. Tests cover oracle isolation, actual-play prefix agreement, optimized-simulation/core
+  agreement, replay reconstruction, invalid evidence, denominator handling and rejected/tied
+  values. **149 tests pass; cgValidate 264/264 exact; git diff --check passes.**
+- Evidence: `build/analysis/reply-study-v1/report.json`, SHA-256
+  `6c407ef3dc420b0cb85257b5be6340b65a302f1a45ca10fd0d313fc3792be7bd`;
+  capture manifest SHA-256
+  `652b2c28ca30e62ea974d58d740fb9210f8f76d213ed905364102d059f196d0b`.
+  Deduplication/fixture extraction used these saved files without rerunning games or measurements.
+  Method, limits and findings are in `docs/reply-study.md`, with BOTS/PLAN updated.
+- Decision: **keep v05 and USE_REPLY_RERANK=false**, no v06, parameter tuning, new strength
+  bench, confirmation games, submission regeneration or upload. Retained Player.java SHA-256
+  remains `d03dd610ca210922436fdefb3c3f4f18f8815d22e9d06e85a6466461f2817d29`.
+  Next hypothesis: inspect the joint effect of the first build and OUR later sabotage on shared
+  states, since current reranking omits that interaction. This is a candidate explanation, not
+  established causality or authorization to promote an untested policy. Commit this completed
+  diagnosis at the user's explicit request.
