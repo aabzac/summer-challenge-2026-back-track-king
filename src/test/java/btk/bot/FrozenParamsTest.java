@@ -85,6 +85,19 @@ class FrozenParamsTest {
         expected.put("EARLY_DISRUPT_FALLBACK", "false"); // Default-off experiment; frozen v05 ignores it.
         expected.put("USE_REPLY_RERANK", "false"); // Default-off experiment; frozen v05 ignores it.
         expected.put("USE_JOINT_ACTION", "false"); // Frozen v05 does not consume joint search.
+        expected.put("USE_HEURISTIC_POLICY", "false"); // Independent policy; v05 ignores these fields.
+        expected.put("HEURISTIC_EMERGENCY_STOP", "true");
+        expected.put("HEURISTIC_MAX_ROUTES", "64");
+        expected.put("HEURISTIC_TARGET_STICKINESS", "1.3");
+        expected.put("HEURISTIC_ROUTE_STICKINESS", "1.25");
+        expected.put("HEURISTIC_OWN_PENALTY", "2.0");
+        expected.put("HEURISTIC_ACTIVE_WEIGHT", "2.0");
+        expected.put("HEURISTIC_AVOID_INSTABILITY", "2");
+        expected.put("USE_HEURISTIC_DETOUR", "false");
+        expected.put("HEURISTIC_DETOUR_WEIGHT", "1.0");
+        expected.put("HEURISTIC_DETOUR_REGIONS", "4");
+        expected.put("HEURISTIC_DETOUR_PAIRS", "4");
+        expected.put("HEURISTIC_DETOUR_CAP", "12");
         expected.put("BUILD_BEAM_WIDTH", "4");
         expected.put("OPP_REPLY_WIDTH", "2");
         expected.put("FORECAST_DECAY", "0.95");

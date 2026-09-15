@@ -69,6 +69,13 @@ P0 and P1. Reference bots `v01`–`v05` load fixed parameter snapshots; explicit
 are applied afterward. `current` uses the live `Params` defaults (currently v05, 6-ms sabotage
 reserve). `current?DISRUPT_RESERVE_MS=0` disables the reserve for an ablation.
 
+An independent simple-policy candidate is available as `current?USE_HEURISTIC_POLICY=1`.
+It uses known-board sabotage and local route priorities, without completed-position evaluation
+or reply search. Default `current` is still v05. Its work cap, emergency-clock caveat and commands
+are described in [heuristic-policy.md](docs/heuristic-policy.md).
+Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
+experiment. It is off by default and does not change construction rules.
+
 ```bash
 gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000 "-Pout=build/bench/current-v03.json"
 ```

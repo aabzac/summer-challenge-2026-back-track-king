@@ -1695,3 +1695,211 @@ Completed outcome (fixed sample, no retuning):
   Next: audit full emitted action differences on the saved 110 states through core, separating
   no-hit/leftover changes and known/predicted/oracle evidence before any policy revision.
   PLAN/BOTS/experiment notes updated. This follow-up changes only documentation, uncommitted.
+
+### 2026-09-16 — simple heuristic policy v1 (predeclared)
+
+- User chose a simple policy for OUR bot, not a boss clone. Pause joint-branch diagnosis.
+  Add independent HeuristicBot behind USE_HEURISTIC_POLICY=false. Preserve EvalBot, frozen
+  versions, pressure reference, core rules and retained experiment identities.
+- No general state evaluator or predicted replies. Known-board sabotage ranks enemy tracks and
+  active-path exposure minus our exposure, with target persistence. Construction ranks local
+  route ownership/paint features, prefers keeping a useful route, avoids its sabotage target
+  and highly unstable free cells; safe idle extension. Only losing-close safety uses hypothetical
+  ink/core connectivity/income. No copied scoring/pathing, no claim to implement the boss.
+- Fixed cap of 64 path queries per turn, deterministic order/seeded ties, no random noise.
+  Emergency timer on, measured and counted; disabling it is a local debug option only.
+  Test replayability with ample/different budgets, legality, work bound, target memory/avoidance,
+  losing closure, expired-clock fallback, default/archived compatibility and merged-policy parity.
+- One screen: 300 games / 150 paired generated maps, seeds 22000..22149, 2 workers, CG 486/36 ms,
+  current?USE_HEURISTIC_POLICY=1 vs v05. Candidate uses SEED=1 deterministic ties; v05 unchanged
+  NOISE=0.1. Regardless of result, one 200-game style check vs pressure-v1, seeds 22000..22099.
+  No weights changed after results, no sample extension or confirmation-pool games. Style result
+  is not improvement over v05 without matched control. Normal >=55%/map-CI gate is required.
+- Run tests/cgValidate before benches. Candidate submit + one strict four-game procCheck vs v04,
+  then restore v05 + same four-game procCheck. Preserve failures, no retry-to-green/upload.
+  Select only the requested policy source in Player to stay below 100000 characters. Record full
+  configs/source/artifact hashes and outcomes. Keep all new changes uncommitted for review.
+
+### 2026-09-16 — simple heuristic policy v1 (outcome)
+
+- Implemented the independent policy and selected-policy merger/warmup. Default Params selector
+  remains false; current EvalBot, core, frozen versions, pressure-v1 and retained experiment
+  identities are unchanged. Tests cover legality/input immutability, fixed-work action equality,
+  cap/emergency fallback, target persistence/avoidance, final-turn closure safety, wiring and
+  merged-policy/warmup parity. Updated old tests to distinguish newly added unused fields from
+  archived parameter sets, without modifying historical snapshots or bytecode manifests.
+- Before strength measurement: **169 tests passed; cgValidate 264/264 arena games exact**.
+  Separately validated **21/21 boss games**, including the five newest files. Directory validation
+  is non-recursive; the boss corpus is not included in the 264 count. No rules changes.
+- Fixed main screen, two workers, Java 17.0.12, CG 486/36-ms search budgets: **126-174-0,
+  42.0%**, 300 games / 150 distinct paired generated maps, seeds 22000..22149. Map-grouped
+  Hoeffding 95% CI **30.9-53.1%**, average score difference **-205.66**, elapsed **81.782 s**.
+  A as P0 **72-78**, as P1 **54-96**. Gate not passed; interval still includes 50%, not proof
+  that every simple heuristic is weaker. No post-result tuning, extra samples or confirmation.
+- Main-screen accepted sabotage A/B **87.36% / 87.91%**, placement **83.02% / 80.72%**,
+  **76.42** turns/game and **172/300** early closures. Mean move time **1.320 / 4.776 ms**,
+  max **37 / 36 ms**, zero >50-ms slow counts or bot errors. Different policies create different
+  trajectories, so this is not an isolated performance comparison. No aggregate emergency-stop
+  count is present in these reports; zero slow counts does not prove the cutoff never fired.
+- Predeclared style check: **104-95-1, 52.25%** vs pressure-v1 on 200 games / 100 paired maps,
+  seeds 22000..22099, CI **38.67-65.83%**, average difference **+158.74**, elapsed **33.836 s**.
+  Same candidate configuration and first 100 map hashes verified against the main screen.
+  Accepted sabotage **66.39% / 99.35%**, placement **91.90% / 45.97%**; mean move time
+  **1.178 / 2.275 ms**, max **33 / 37 ms**, zero slow moves or errors. No matched new v05 control,
+  so do not compare with historical pressure win rates or infer a general strength improvement.
+- Candidate strict process check vs v04, four fixed maps/sides, zero grace: **0/4 problem games**,
+  first-response max **566.9921 ms**, later max **24.3857 ms**. Restored frozen-v05 source and
+  ran the same fixed check once: **0/4 problems**, first max **656.3044 ms**, later max **34.8016 ms**.
+  No concurrent heavy jobs, retries-to-green or upload. These small samples do not explain or
+  resolve the earlier frozen-v05 66.6288-ms input-send stall; that item stays open.
+- Candidate Player: **62,746 / 100,000 characters**, SHA-256
+  `da23979ca05f3f3a6765c7c9134f09af224261813f78a557d28085fb44aa8738`;
+  archived locally with its manifest as `build/analysis/heuristic-v1/Player-candidate.java`.
+  Final restored Player: **65,984 characters**, SHA-256
+  `18432faa975b38b5c1dd0ac0d4961cec28e8107d4ad0dd828c150342a6ba328b`.
+  Its bytes changed because of shared dispatch and unused parameter declarations, not v05 policy.
+- Reports and SHA-256:
+  - `build/bench/heuristic-v1/candidate-v05.json`:
+    `99f4040cbc4084b8d2d731e3d60a9fa0ff4fd47521efdf31241fa07e6dd6d9b1`.
+  - `build/bench/heuristic-v1/candidate-pressure.json`:
+    `bf1436c804cf62d110d890c42b43de77428130a4e8dfdfcd8c7eaddfad7caa88`.
+  - `build/analysis/heuristic-v1/candidate-process.json`:
+    `5348e20943ff46b9ed5add6868d6796d72834a42eae3f0bdac263e12de18c9cc`.
+  - `build/analysis/heuristic-v1/restored-v05-process.json`:
+    `1ec78538f7573e11bff2f9cf1d2fbcca22a27cf1bb986b7acb2ab17ef5125805`.
+- All 55 resolved parameters are in each benchmark/manifest (the independent policy consumes
+  only its documented subset). Source identity: worktree on `f02881c`, HeuristicBot SHA-256
+  `89873c737617856775ddf96982055e58893a7b12764763131a3036d81ec8fc51`, Params
+  `414da964a96d04facb87703b8c5f8409c00defc6591f30a0e82a81d96a394aa4`, MainBot
+  `a51d1089db8b2495f8407acb88ac4d6521781eb86d6e82c062562e6706755f88`.
+  Compiled HeuristicBot / Params SHA-256:
+  `71f1909d9d53fc92122f2f00233baf059e0ec1be226555db579bbcdc45444ce1` /
+  `1592bf0184c7b3ea2b425335cf888de746e84e42f0277eed5e84a4e38042d98f`.
+- Two launch failures preceded all games: wrapper-cache permission, then PowerShell splitting
+  an unquoted `.json` property. Corrected permission/quoting; each game sample ran exactly once.
+- Decision: **retain as an opt-in simple baseline, no v06 or promotion**. The next proposed
+  single-feature experiment is bounded detour-paint sabotage priority, from already observed
+  opponent routes, not guessed replies. Current v1 only uses track counts/exposure; no evidence
+  here yet attributes losses to that omission. README/BOTS/PLAN and heuristic-policy.md updated;
+  new work remains uncommitted as no commit was requested in this turn.
+
+### 2026-09-16 — heuristic detour priority v1 (predeclared)
+
+- User approved the next single-feature experiment. Prior heuristic work remains uncommitted;
+  do not commit implicitly. Preserve its source/config identity and archived merged artifact;
+  capture deterministic old-policy action-history hashes before editing the policy. Compare
+  detour ON/OFF in the SAME current implementation; OFF must retain the prior algorithm.
+- Hypothesis: track/exposure counts miss the paint cost of reconnecting an existing route after
+  ink. Add default-off USE_HEURISTIC_DETOUR. Construction/idle/close rules and all old weights
+  stay fixed. Use core cheapest paths with the entire target region blocked; current active
+  connections have zero baseline paint cost. Already-built bypass => zero added cost; no path
+  => bounded cap 12. This is a static recovery-cost feature, not an opponent action forecast.
+- Bound work: top 4 positive base targets, top 4 unique undirected active town pairs ranked by
+  absolute (enemy tracks - 2 * own tracks). For each crossed target, one core path query. Weight
+  recovery cost by that pair's signed ownership imbalance / owned track count; use strongest
+  enemy burden minus strongest own burden, not a sum of overlapping recovery projects. Clip
+  costs at 12 paint, add weight 1 before division by hits remaining and existing stickiness.
+  At most 16 added queries; ignore the whole partial adjustment if the emergency timer fires.
+  Unfinished routes and future construction are outside this first experiment.
+- Fixed samples: 300 games ON vs OFF, then 300 ON vs frozen v05, then 200 ON vs pressure-v1.
+  Generated paired maps, seeds 25000..25149 (style check first 100), both sides, 2 workers,
+  Java 17.0.12, CG 486/36 ms. Candidate spec current?USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1;
+  control current?USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=0. SEED=1 deterministic ties;
+  v05 NOISE=0.1 unchanged. No parameter tuning, sample extension or confirmation-pool games.
+  Same-code ON/OFF measures the feature package including cost. Frozen-v05 >=55% and lower
+  map-grouped Hoeffding 95% bound >50% remains the strength gate; other checks stay separate.
+  Do not compare the new v05/pressure results with unmatched old 42%/52.25% as a causal gain.
+- Tests + arena/boss cgValidate before benches. Verify core pathing on bypass/no-bypass fixtures,
+  own collateral, candidate/work bounds, input isolation, OFF history, ON reproducibility and
+  merged parity/warmup. Candidate submit + ONE strict 4-game process check vs v04; preserve
+  candidate artifact, restore frozen v05 + same strict check. No uploads or retry-to-green.
+  Preserve reports under new build/bench/heuristic-detour-v1 and build/analysis/heuristic-detour-v1.
+
+- Pre-benchmark protocol correction (no games measured yet): the full-sequence unit test found
+  that two identical simple policies produce neutral-rail mirrors and never invoke detour queries
+  on its two generated maps. Use an existing opponent-owned route in that test to exercise the
+  intended branch. Do NOT spend a strength run on known low-coverage symmetric self-play.
+  Replace the 300 ON-vs-OFF series with **300 OFF-vs-v05**, then **300 ON-vs-v05** on the same
+  150 maps/sides, seeds 25000..25149. Keep the predeclared 200 ON-vs-pressure style check.
+  Report matched v05 outcomes (added/lost wins) separately from candidate's direct v05 gate;
+  these do not establish direct ON-vs-OFF superiority. Fixed total 800 games, no extension.
+  The captured pre-edit OFF action-history hash remains a regression guard, but mostly neutral
+  self-play is limited sabotage coverage; explicit owned-route fixtures cover that branch.
+
+### 2026-09-16 — heuristic detour priority v1 (outcome)
+
+- Implemented the capped 4-region x 4-connection recovery-paint feature through existing core
+  pathing. Only the new flag selects it; construction/idle/close logic and old weights are
+  unchanged. All new buffers are allocated only when enabled. Interruption clears the whole
+  partial adjustment. No core, frozen policy, pressure reference or archived experiment changes.
+- **177 tests passed**, including the pre-edit v1 action-history digest
+  `c7c5273fb330afb0ed6dad99879eeaa2471c79511f1ca539016aa754e432109b`;
+  owned-route fixtures verify free bypass, terrain price/cap, impossible reconnection, own
+  collateral, undirected-pair deduplication, bounded work, input isolation and ON replayability.
+  Merged ON parity/warmup is checked on an active opponent-owned connection. One initial test
+  failed because generated mirror self-play never exercised detours; corrected its fixture and
+  amended the screen before any benchmark, without changing policy parameters. Fresh validations:
+  **264/264 arena + 21/21 boss replays exact** (separate non-recursive directories).
+- Followed the amended fixed protocol exactly: OFF vs v05 **140-160-0, 46.67%**, 300 games /
+  150 distinct paired maps, seeds 25000..25149; Hoeffding CI **35.58-57.76%**, mean score
+  difference **-160.11**, elapsed **79.890 s**. P0 **63-87**, P1 **77-73**. Mean local move time
+  A/B **1.217 / 4.591 ms**, max **31 / 34 ms**, zero slow moves/errors. Accepted sabotage
+  **86.35% / 87.78%**, placement **81.88% / 80.05%**, **154/300** early closures.
+- ON vs v05 **135-165-0, 45.0%**, same 300 games / 150 map hashes and sides, CI **33.91-56.09%**,
+  mean score difference **-149.8**, elapsed **83.536 s**. P0 **69-81**, P1 **66-84**. Mean local
+  move time A/B **1.395 / 4.620 ms**, max **37 / 34 ms**, zero slow moves/errors. Accepted sabotage
+  **85.22% / 87.52%**, placement **81.05% / 79.21%**, **142/300** early closures. Turn averages
+  ON/OFF **80.40 / 79.16**. Runtime figures are from different resulting trajectories, not an
+  isolated cost benchmark. These reports do not aggregate emergency cutoff counts.
+- Verified all 60 candidate/control fields: only USE_HEURISTIC_DETOUR differs. Opponent params,
+  map hashes/seeds and timing profiles match. Joined by map/side: **31 added wins, 36 lost wins,
+  233 unchanged outcomes**, net **-1.67 percentage points**. Descriptive matched outcome change,
+  not direct ON/OFF superiority, causal component attribution or a claim of statistically proven
+  harm. No post-result weight changes, map-slice tuning, additional games or confirmation run.
+- Predeclared style check: ON vs pressure-v1 **110-90-0, 55.0%**, 200 games / 100 paired maps,
+  first 100 map hashes and candidate config match. CI **41.42-68.58%**, mean difference **+187.37**,
+  elapsed **42.956 s**. P0 **50-50**, P1 **60-40**. Mean local move time **1.606 / 2.782 ms**,
+  max **36 / 39 ms**, zero slow moves/errors. Sabotage **65.08% / 99.24%**, placement
+  **91.16% / 45.15%**, **92/200** early closures. No matched OFF pressure series, so no improvement
+  claim against the old 52.25% on different maps and no pooled opponent win rate.
+- Candidate submit + one strict process check vs v04: **0/4 problem games**, max first response
+  **644.917 ms**, later **30.3946 ms**. Restored frozen-v05 source + same check once: **0/4 problems**,
+  first **674.2755 ms**, later **34.5849 ms**. Zero grace, no concurrent heavy jobs, retries-to-green
+  or upload. Neither small process sample resolves the historical 66.6288-ms host input-send stall.
+- Candidate artifact: **68,374 / 100,000 characters**, SHA-256
+  `c0f6c433089a58bd1968ca7f8fd4d01d2372bbbaacc4e0eaf2f5b5243f033035`, preserved with manifest at
+  `build/analysis/heuristic-detour-v1/Player-candidate.java`. Final Player is **v05**, **66,343 chars**,
+  SHA-256 `45c25fc41d74c41b79498e8bab410dedf0e4530e8db9381382c16e11d976c6e8`.
+  New unused Params declarations alter its bytes but not frozen strategy source/decisions.
+- Report SHA-256 (all paths local/gitignored):
+  - `build/bench/heuristic-detour-v1/control-v05.json`:
+    `5edc91c67201e55f91b5bba224d59aaec04468dc2fa1cd59443b37b3594567c3`.
+  - `build/bench/heuristic-detour-v1/candidate-v05.json`:
+    `62323651cdbda46fcc0fa69e82932da24d610305484cda9c909da9b89f7b4fab`.
+  - `build/bench/heuristic-detour-v1/candidate-pressure.json`:
+    `3055c8c51a77564a97b5810b11d0dbe8cd1a55b47eb63871b9aff1a1f9e1cfc7`.
+  - `build/analysis/heuristic-detour-v1/candidate-process.json`:
+    `1f098af5d9c8f506b999ba9e1dc855d44a7bb8581ce9e6600ac7eb937d237769`.
+  - `build/analysis/heuristic-detour-v1/restored-v05-process.json`:
+    `11d14abd088da02ae83e9d20766f44e860f1833fb07609a0ab4c571cb2b16da2`.
+- Source identity (worktree on f02881c, including prior uncommitted heuristic wiring): HeuristicBot
+  `55418dc24d19332bebc28f3d3900681c0584e6e8424e376d5f7d347996f6b2b2`, Params
+  `f7d92a9e5af293bccadb018706a112cfe54d299bbad005c17018197fed86d0ee`.
+  Compiled HeuristicBot / Params:
+  `67e40d4ea2ce0554cebadaa476a957635539ede267ecf1c233a5146b79a3be85` /
+  `65d9fd351bcd8436c228b4de35ae0ac101b6f2f3333cd94a9fddbfd1b12c94dd`.
+- **Decision: not promoted.** USE_HEURISTIC_POLICY=false and USE_HEURISTIC_DETOUR=false;
+  frozen v05 remains the submission. Mechanism works on fixtures but no strength gain shown
+  against the matched v05 control; active-route-only recovery price omits unfinished routes and
+  score/ownership changes on alternative paths. Those limitations are hypotheses, not established
+  loss causes. No next tuning campaign started. README/BOTS/PLAN/heuristic docs updated;
+  all prior and new changes remain uncommitted, as requested workflow requires explicit commit.
+
+### 2026-09-16 — close heuristic experiments and adopt automatic local commits
+
+- User requested committing both completed heuristic experiments and making local commits the
+  default after verified experiments and recorded results, including non-promoted outcomes.
+  Added the preference to AGENTS.md and the project rule; no automatic push/upload/promotion.
+- Both heuristic selectors remain off and Player.java remains frozen v05. Prior reports and
+  negative/inconclusive results are preserved. Next scope: inspect the five newly added boss
+  replays for early defensive rerouting after observed sabotage, before choosing another change.

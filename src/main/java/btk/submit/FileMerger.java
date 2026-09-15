@@ -26,7 +26,8 @@ import java.util.stream.Stream;
  * becomes a static nested class of {@code Player}, packages are dropped, imports are unioned.
  * Then compiles the result to catch merge errors before pasting into CodinGame.
  *
- * <p>The default uses {@link #SUBMIT_DIRS} plus {@link #SUBMIT_FILES}. Explicit v05 restoration
+ * <p>Uses {@link #SUBMIT_DIRS}, {@link #SUBMIT_FILES}, and only the selected policy. An explicit
+ * current?USE_HEURISTIC_POLICY=1 replaces EvalBot in the artifact, not alongside it. v05 restoration
  * imports its frozen source as the generated EvalBot and embeds its resolved parameters;
  * no frozen-package runtime dependency, referee, runner or tool ships.
  */
@@ -37,7 +38,7 @@ public class FileMerger {
     /** User-confirmed CG arena source limit; conservatively count Java UTF-16 code units. */
     public static final int MAX_SOURCE_CHARS = 100_000;
 
-    private static final List<String> SUBMIT_DIRS = List.of("core", "bot/current");
+    private static final List<String> SUBMIT_DIRS = List.of("core");
     private static final List<String> SUBMIT_FILES = List.of(
             "bot/Bot.java", "bot/Params.java", "bot/Timer.java", "bot/MainBot.java",
             "submit/CGRunner.java");
@@ -76,15 +77,15 @@ public class FileMerger {
             throw new IllegalArgumentException("submitVersion must be current or v05");
         }
         List<Path> files = new ArrayList<>();
+        boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
+        String policy = version.equals("v05") ? "bot/v05/EvalBotV05.java"
+                : heuristic ? "bot/current/HeuristicBot.java" : "bot/current/EvalBot.java";
         for (String dir : SUBMIT_DIRS) {
-            if (version.equals("v05") && dir.equals("bot/current")) {
-                files.add(SRC_ROOT.resolve("bot/v05/EvalBotV05.java"));
-                continue;
-            }
             try (Stream<Path> st = Files.list(SRC_ROOT.resolve(dir))) {
                 st.filter(p -> p.toString().endsWith(".java")).sorted().forEach(files::add);
             }
         }
+        files.add(SRC_ROOT.resolve(policy));
         for (String f : SUBMIT_FILES) files.add(SRC_ROOT.resolve(f));
 
         Set<String> imports = new TreeSet<>();
@@ -99,6 +100,13 @@ public class FileMerger {
                 }
                 if ((version.equals("v05") || queryAt >= 0) && file.endsWith("MainBot.java")) {
                     line = line.replace("new Params()", paramsExpression(spec));
+                }
+                if (heuristic && file.endsWith("HeuristicBot.java")) {
+                    line = line.replaceAll("\\bHeuristicBot\\b", "EvalBot");
+                }
+                if (file.endsWith("MainBot.java")) {
+                    line = line.replace("return params.USE_HEURISTIC_POLICY ? new HeuristicBot(params) : new EvalBot(params);",
+                            "return new EvalBot(params);");
                 }
                 String trimmed = line.trim();
                 if (inBlockComment) {

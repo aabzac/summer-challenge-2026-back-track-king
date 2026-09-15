@@ -1,0 +1,14 @@
+---
+description: Commit completed contest experiments and recorded results by default
+alwaysApply: true
+---
+
+# Experiment commits
+
+User preference recorded 2026-09-16: after an experiment is verified and its results/decision
+are recorded, make a local commit without asking again. This includes rejected and inconclusive
+experiments; update DEVLOG/BOTS/PLAN as applicable. Follow AGENTS.md for verification.
+
+Respect a later explicit request not to commit. Include only the completed work and related
+documentation; preserve unrelated user changes. Do not treat this as permission to push, upload
+to CodinGame, or promote a strategy. Report the commit hash and experiment decision.

@@ -51,6 +51,17 @@ class FileMergerTest {
         checkFrozenDecisions("v05?ISOLATED_ROUTE_WARMUP=1", true);
     }
 
+    @Test void heuristicSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {
+        String spec = "current?USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0";
+        String source = FileMerger.merge(spec);
+        assertTrue(source.contains("chooseTarget"));
+        assertFalse(source.contains("chooseJointAction"));
+        assertFalse(source.contains("evalState"));
+        assertFalse(source.contains("new HeuristicBot"));
+        assertFalse(FileMerger.merge("current").contains("private int chooseTarget"));
+        checkFrozenDecisions(spec, true);
+    }
+
     private void checkFrozenDecisions(String spec, boolean warmup) throws Exception {
         String source = FileMerger.merge(spec);
         FileMerger.checkSourceSize(source);
@@ -84,8 +95,21 @@ class FileMergerTest {
             var format = actionClass.getMethod("format", java.util.List.class); format.setAccessible(true);
             for (int me = 0; me < 2; me++) {
                 GameState s = MapGenerator.generate(1000);
+                if (spec.contains("USE_HEURISTIC_DETOUR=1")) {
+                    int[] regions = new int[15];
+                    for (int c = 0; c < regions.length; c++) regions[c] = c;
+                    s = new GameState(5, 3, regions, new int[15], new int[]{0, 4}, new int[]{1, 1}, new int[][]{{1}, {0}});
+                    for (int x = 1; x < 4; x++) s.owner[s.cell(x, 1)] = 1 - me;
+                    btk.core.Rules.updateConnections(s, new btk.core.Pathing(s.size));
+                }
                 Object generatedState = ctor.newInstance(s.width, s.height, s.regionId, s.terrain,
                         s.townX, s.townY, s.desired);
+                var owners = stateClass.getField("owner"); owners.setAccessible(true);
+                System.arraycopy(s.owner, 0, owners.get(generatedState), 0, s.size);
+                Class<?> pathClass = loader.loadClass("Player$Pathing");
+                var pathCtor = pathClass.getDeclaredConstructor(int.class); pathCtor.setAccessible(true);
+                var update = loader.loadClass("Player$Rules").getMethod("updateConnections", stateClass, pathClass);
+                update.setAccessible(true); update.invoke(null, generatedState, pathCtor.newInstance(s.size));
                 Object generatedBot = mainCtor.newInstance();
                 init.invoke(generatedBot, generatedState, me);
                 if (warmup) {
@@ -94,10 +118,14 @@ class FileMergerTest {
                     var calls = mainClass.getField("warmupCalls"); calls.setAccessible(true);
                     assertTrue(calls.getInt(generatedBot) > 0);
                 }
-                Bot frozen = BotFactory.create("v05"); frozen.init(s, me);
+                Bot frozen = BotFactory.create(spec.startsWith("current?") ? spec : "v05"); frozen.init(s, me);
                 assertEquals(Action.format(frozen.play(s.copy(), me, 60_000)),
                         format.invoke(null, play.invoke(generatedBot, generatedState, me, 60_000L)));
             }
         }
+    }
+
+    @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
+        checkFrozenDecisions("current?USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
     }
 }

@@ -88,7 +88,7 @@ public final class BotFactory {
 
     private static Function<Params, Bot> lookup(String version) {
         switch (version) {
-            case "current": return EvalBot::new;
+            case "current": return MainBot::newStrategy;
             case "main": return p -> new MainBot();
             case "v00": return p -> new AutoplaceBot();
             case "v01": return GreedyBotV01::new;

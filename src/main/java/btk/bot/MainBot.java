@@ -1,6 +1,7 @@
 package btk.bot;
 
 import btk.bot.current.EvalBot;
+import btk.bot.current.HeuristicBot;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -24,7 +25,11 @@ public final class MainBot implements Bot {
                 || params.USE_DISRUPT && params.WARMUP_SLICE_MS <= params.DISRUPT_RESERVE_MS)) {
             throw new IllegalArgumentException("Warmup slice must leave time beyond the sabotage reserve");
         }
-        delegate = new EvalBot(this.params);
+        delegate = newStrategy(this.params);
+    }
+
+    public static Bot newStrategy(Params params) {
+        return params.USE_HEURISTIC_POLICY ? new HeuristicBot(params) : new EvalBot(params);
     }
 
     @Override
@@ -51,7 +56,7 @@ public final class MainBot implements Bot {
         }
         if (ms <= 0) return;
         // Never train, mutate or consume RNG on the live delegate during speculative warmup.
-        warmupCalls = warmIsolated(new EvalBot(params.copy()), s, myId, ms,
+        warmupCalls = warmIsolated(newStrategy(params.copy()), s, myId, ms,
                 params.WARMUP_SLICE_MS, System::nanoTime);
     }
 

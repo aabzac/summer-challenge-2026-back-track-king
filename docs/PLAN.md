@@ -165,6 +165,19 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       and suppressed leftover building from projected pair value before revising this branch.
       Reuse the saved 110-position cost sample; compare through core, keep predicted vs recorded
       opponent actions separate. Mechanism diagnosis only, not another strength/confirmation run.
+      Deferred while testing the user-chosen independent heuristic branch.
+- [x] Start an independent fixed-work heuristic policy for our own bot, not a boss clone.
+      Sticky known-board sabotage, simple route priorities and target avoidance; default-off.
+      Screen: 42.0% vs v05 (300 games), CI 30.9-53.1%; style check 52.25% vs pressure-v1
+      (200 games), CI 38.7-65.8%. No promotion or tuning. 169 tests, 264 arena + 21 boss replays
+      exact, candidate/restored-v05 strict process samples each 0/4 failures. Player restored to v05.
+- [x] Screen bounded recovery-paint sabotage priority on observed active routes, with unchanged
+      construction and other weights. Matched v05 screen: ON 45.0% vs OFF 46.7%, 300 games each;
+      31 added / 36 lost wins. ON CI 33.9-56.1%; style check 55.0% vs pressure-v1, 200 games,
+      CI 41.4-68.6%. No promotion; USE_HEURISTIC_DETOUR remains off. 177 tests, 264 arena + 21
+      boss replays exact, candidate/restored-v05 process samples each 0/4 failures; Player restored.
+      Direct ON/OFF self-play was replaced before benchmarking because neutral-rail mirrors did
+      not exercise sabotage. OFF history and explicit active-route fixtures guard the baseline.
 
 ## Someday / maybe
 

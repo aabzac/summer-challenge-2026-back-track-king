@@ -13,6 +13,21 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
+    // Independent simple policy; off in the selected v05 strategy.
+    public boolean USE_HEURISTIC_POLICY = false;
+    public boolean HEURISTIC_EMERGENCY_STOP = true;
+    public int HEURISTIC_MAX_ROUTES = 64;
+    public double HEURISTIC_TARGET_STICKINESS = 1.3;
+    public double HEURISTIC_ROUTE_STICKINESS = 1.25;
+    public double HEURISTIC_OWN_PENALTY = 2.0;
+    public double HEURISTIC_ACTIVE_WEIGHT = 2.0;
+    public int HEURISTIC_AVOID_INSTABILITY = 2;
+    public boolean USE_HEURISTIC_DETOUR = false;
+    public double HEURISTIC_DETOUR_WEIGHT = 1.0;
+    public int HEURISTIC_DETOUR_REGIONS = 4;
+    public int HEURISTIC_DETOUR_PAIRS = 4;
+    public int HEURISTIC_DETOUR_CAP = 12;
+
     // ---- greedy pair selection ----
     /** Weight of opponent-owned cells on a candidate path (they earn while we build). */
     public double W_OPP = 1.0;

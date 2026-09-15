@@ -62,6 +62,39 @@ characters, but the fixed strict process sample **failed 1/4 games**: P1 turn 41
 66-ms bot search or identify the cause. Preserve the failed report; investigate before claiming
 submission timing readiness. No retry-to-green or upload; strategy source is unchanged.
 
+## Simple heuristic candidate (2026-09-16, not promoted)
+
+`current?USE_HEURISTIC_POLICY=1` selects an independent known-board policy: sticky sabotage,
+local ownership/paint route priorities, avoiding its target region, fixed path-query cap and
+emergency-clock protection. No general position evaluator or reply search. Details and debug
+commands: [heuristic-policy.md](heuristic-policy.md). Default current and selected Player remain v05.
+
+Fixed screen vs v05: **126-174-0, 42.0%**, 300 games / 150 paired generated maps, seeds
+22000..22149; map-grouped CI **30.9-53.1%**, mean difference **-205.7**. No promotion.
+Mean local move time **1.32 vs 4.78 ms**; this is timing on different match trajectories, not an
+isolated speed benchmark. Independent style check vs pressure-v1: **104-95-1, 52.25%** on
+200 games / 100 paired maps, CI **38.7-65.8%**; no reliable advantage or matched v05 comparison.
+Both runs have zero bot errors. No parameter tuning or confirmation games after these results.
+
+**169 tests**, arena **264/264** and boss **21/21** replays exact. Candidate and restored v05 each
+passed one strict four-game process sample: later-response maxima **24.39 / 34.80 ms**, respectively.
+These small checks do not resolve the earlier unexplained host input-send stall. This simple v1
+is a runnable experimental baseline, not evidence that heuristic policies cannot climb Silver.
+
+Detour follow-up: `current?USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1` adds capped recovery
+paint on existing connections (up to 16 extra path queries), with unchanged construction.
+Matched v05 screen on seeds 25000..25149: **ON 135-165 (45.0%)**, CI **33.9-56.1%**;
+**OFF 140-160 (46.7%)**, CI **35.6-57.8%**; 300 games / 150 paired maps each. The feature adds
+31 wins and loses 36 on identical map/side match-ups, with no other config difference. No
+promotion or established advantage; this is not a direct ON-vs-OFF match. Pressure style check:
+**110-90 (55.0%)**, 200 games, CI **41.4-68.6%**; no matched OFF pressure control was run.
+
+All runs have zero errors. Main-screen mean move time ON/OFF **1.39 / 1.22 ms**, on different
+trajectories; not an isolated cost measurement. **177 tests**, **264 + 21** exact replays,
+candidate/restored-v05 strict process samples **0/4 problems** each (later maxima **30.39 / 34.58 ms**).
+Keep both new policy and detour selector default-off; final Player is frozen v05. Full protocol,
+pre-benchmark mirror correction, artifact hashes and limits are in DEVLOG/heuristic-policy.md.
+
 ## Frozen submission versions
 
 `BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then

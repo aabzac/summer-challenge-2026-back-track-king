@@ -44,7 +44,7 @@ class BotCatalogTest {
             count++;
             var actual = BotFactory.configuration(entry.id());
             var expected = BotFactory.configuration("current?" + entry.recipe());
-            expected.remove("USE_JOINT_ACTION"); // archived engine predates this field
+            expected.keySet().retainAll(BotCatalog.parameterNames(entry.id())); // original fields only
             assertEquals(expected, actual, entry.id());
             var identity = BotCatalog.describe(entry.id());
             assertEquals("not_promoted", identity.status());

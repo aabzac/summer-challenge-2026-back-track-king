@@ -28,6 +28,10 @@ finished.
    ship (see `FileMerger`). Referee/runner/tools must not be referenced from those packages.
 7. **Write it down.** Every experiment (also failures) gets a DEVLOG entry: hypothesis, bench
    result, decision. Statement text of each league goes to `docs/rules/<league>.md` verbatim.
+8. **Commit completed experiments by default.** After verification and recording the results,
+   commit the experiment and its documentation without asking again, including rejected or
+   inconclusive experiments. Respect a later request not to commit; exclude unrelated changes.
+   This authorizes local commits, not pushes, arena uploads or strategy promotion.
 
 ## Layout
 
