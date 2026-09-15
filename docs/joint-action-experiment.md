@@ -85,6 +85,58 @@ strategy/core/runtime sources were not changed. No upload and no old-timeout-cau
 result specifically to joint choices, a separate fixed direct K2/R1 joint-on versus joint-off
 ablation is the next diagnostic. The present whole-candidate v05 comparison cannot isolate that
 effect. Captured-state improvements and small common-opponent differences do not bypass the gate.
+The direct ablation was subsequently completed below; it did not establish a benefit either.
+
+## Direct on/off follow-up (2026-09-16)
+
+Committed the whole-candidate screen as `b4d842442e5feb96801c9d0d802dcc947b18639d`, then ran
+the predeclared ablation without changing any executable source. Both sides use current code,
+not the archived engine: K2/R1 with `USE_JOINT_ACTION=1` (A) versus `=0` (B). All 47 effective
+parameters were checked: that flag is the only difference, and A equals the previous candidate.
+
+Exactly **300 games / 150 paired maps**, seeds **21000..21149**, same initialization hashes as
+the previous screen. These are reused development maps, not an independent confirmation pool.
+Fresh bots for each game, both sides; NOISE=0.1, Params.SEED=1. The bot's initial RNG seed is
+`SEED * 1_000_003 + playerId * 7919`, not the map seed. Java 17.0.12, two workers, CG 486/36-ms
+search budget and 6-ms reserve, no competing timing-heavy job. One completed run, **194.8 s**.
+
+```powershell
+.\gradlew.bat bench "-Pbot1=current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1" "-Pbot2=current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=0" "-Pgames=300" "-Pthreads=2" "-Pseed=21000" "-Ptiming=cg" "-Pout=build/bench/joint-action-v1/joint-on-off.json"
+```
+
+Report path was checked unused before launch; do not overwrite it to repeat the experiment.
+Result: **139-159-2, 46.7%**, map-grouped Hoeffding 95% CI **35.6-57.8%**. A as P0:
+**67-82-1**, as P1: **72-77-1**; side percentages in console count wins only, not half-draws.
+Mean score difference **-150.0**, **76.5** turns/game, **241/300** early closures, no bot errors.
+
+Accepted sabotage A/B **80.72% / 82.32%**; construction **91.81% / 92.01%**;
+cells/turn **2.188 / 2.205**, paint/turn **2.708 / 2.730**. These aggregate behavior differences
+come from different trajectories; they do not identify which local choice caused losses or show
+that maximizing paint/sabotage frequency would help. Height slices in the report are exploratory;
+none is used to pick a variant, threshold or extra sample.
+
+Search mean A/B **8.13 / 7.69 ms**, max **52 / 46 ms**, >50-ms slow counters **1 / 0**.
+These are not external-process deadlines, and the earlier input-send stall is still unresolved.
+Current/Params hashes remain those listed below; compiled classes respectively
+`fbb5cf08c41d5246044fb7764c62686e201ec56cd55575114cb18ba7a6ef6f32` /
+`64132b4e52857f2317ccf13b01d812b6eb5711b30e5c9047256329aa672889ac`.
+Full report SHA-256: `f4c7a87d1716d980cd9789a82904c151d6eb21345748dcf695d6c41f594af704`.
+
+**Decision: inconclusive, keep both experimental defaults off.** This fixed diagnostic found
+no confirmed gain; its interval also cannot establish harm or equivalence. Do not extend the
+sample, tune on a selected slice or bypass the failed v05 gate. The direct matchup measures the
+whole enabled package, including extra work and suppression of leftover builds, not those
+components individually. Non-transitive matchups prevent assigning the prior v05 result to this
+flag alone. No extra opponent run, submission rebuild, promotion or upload.
+
+Next bounded diagnostic: on the saved 110 shared states, compare the actually emitted full
+actions (including no-hit and leftover-building differences), not just projected prefix/target
+values. Reuse existing evidence, separate predicted and recorded opponent responses, and resolve
+through core. A local repaired choice would still not establish match strength.
+
+Verification before this run: existing **162 tests** remain up-to-date; freshly validated corpus
+**264/264 exact**. No source edits or new tests in this follow-up. Player.java remains the same
+frozen-v05 artifact, SHA-256 `5d0621acb2f4b819c0d9ce10a0589502832a5dea554c2e4d33549c66d2019484`.
 
 ## Retaining old comparisons
 

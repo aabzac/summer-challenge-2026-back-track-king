@@ -157,9 +157,14 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       fresh v05 65.0% on the same maps. Not promoted; flags off, Player restored to v05.
       162 tests, 264 exact replays, candidate/restored process checks 0/4 failures each.
       Retain old experiment bytecode/ids in one local archive; see joint-action-experiment.md.
-- [ ] Isolate the joint flag with a fixed direct on/off K2/R1 ablation on development maps
-      before attributing its whole-candidate v05 result to joint search or retuning WAIT/targets.
-      Diagnostic only: the failed promotion gate is not bypassed and no confirmation pool is used.
+- [x] Isolate the joint flag with a fixed direct on/off K2/R1 ablation: 139-159-2, 46.7%,
+      map-grouped CI 35.6-57.8% on 300 games / the same 150 joint-screen development maps.
+      Inconclusive, not proof of harm or equivalence; no promotion, tuning or confirmation games.
+      Both sides use the same current code, differing in exactly one parameter. Player unchanged.
+- [ ] Audit the actually emitted full actions in saved joint-on/off states: separate no-hit choices
+      and suppressed leftover building from projected pair value before revising this branch.
+      Reuse the saved 110-position cost sample; compare through core, keep predicted vs recorded
+      opponent actions separate. Mechanism diagnosis only, not another strength/confirmation run.
 
 ## Someday / maybe
 

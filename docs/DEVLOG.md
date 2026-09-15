@@ -1629,3 +1629,69 @@ Completed outcome (fixed sample, no retuning):
   attributing losses or changing target/WAIT policy. Promotion still requires the original gate.
   BOTS/PLAN/experiment docs updated. Only the previous diagnosis was committed as requested;
   this new experiment remains uncommitted for review.
+
+### 2026-09-16 — joint flag on/off ablation (predeclared)
+
+- Committed the completed joint-action screen as `b4d8424`. No strategy, core, reference,
+  parameter-default or submission changes in this follow-up. Verify the existing test results
+  and run cgValidate before measuring; keep the restored frozen-v05 Player.java unchanged.
+- Hypothesis: the additional joint prefix/target policy may lose strength relative to its own
+  K2/R1 base, rather than the prior 43.5% vs v05 being solely a different-map/base-policy effect.
+  Direct head-to-head isolates the enabled feature package (including cost, target/WAIT choice
+  and suppressed leftover building); it does not isolate those components or explain arena rank.
+- A: `current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1`.
+  B: the SAME current implementation and parameters, except `USE_JOINT_ACTION=0`.
+  Use current on both sides, not the archived engine, to avoid a code-generation/class-loader
+  difference in the on/off comparison. All 47 effective parameters will be retained in JSON;
+  verify that the new flag is their only difference and A matches the previous candidate.
+- Fixed sample: exactly 300 games / 150 paired authentic generated maps, seeds 21000..21149,
+  reusing the previous joint-screen development maps (NOT fresh independent confirmation).
+  Fresh bots/state each game, both P0/P1 per initialization. Map seeds do not seed the bot RNG:
+  its unchanged seed is Params.SEED * 1_000_003 + playerId * 7919, Params.SEED=1, NOISE=0.1.
+  Thus the initial RNG stream is fixed per side across maps. Two workers, Java 17.0.12,
+  CG search profile 486/36 ms, unchanged 6-ms reserve. No concurrent timing-heavy work.
+- One run only, no sample extension, tuning, extra opponent campaign or reserved confirmation
+  pool. Preserve `build/bench/joint-action-v1/joint-on-off.json` at a previously unused path.
+  Record map-grouped Hoeffding 95% CI, W/L/D, both sides, accepted behavior and timing/errors.
+  An interval spanning 50% is inconclusive, not equivalence. A directional result describes
+  only this head-to-head; neither outcome bypasses the failed v05 promotion gate.
+- EvalBot/Params source hashes remain respectively
+  `e69497ff356729fc9e3a477dee3140274d791f7c22234f7248c2c2533357b84f` /
+  `8df5e35ec46a826303e0ec48ee6a3e54c8ae8ebc4f4c0dcf24207ea2e3bf2416`.
+  Source/code revision and full configs identify both variants; no new version or upload.
+  No hot-path or artifact changes, so no new submit/procCheck run is needed for this diagnostic;
+  earlier process checks are limited historical evidence and the input-send stall remains open.
+
+### 2026-09-16 — joint flag on/off ablation (outcome)
+
+- Completed the single predeclared run: **139-159-2, 46.7%**, 300 games / 150 paired maps,
+  map-grouped Hoeffding CI **35.6-57.8%**, mean score difference **-150.0**. A as P0:
+  **67-82-1**; as P1: **72-77-1**. Zero bot errors; elapsed **194.759 s**.
+  All 150 initialization hashes/seeds match the previous joint screen. Both current configs
+  have 47 fields, differing only in USE_JOINT_ACTION; A exactly matches prior candidate params.
+- Accepted sabotage A/B **80.72% / 82.32%**, construction **91.81% / 92.01%**, cells/turn
+  **2.188 / 2.205**, paint/turn **2.708 / 2.730**; **76.5** turns/game, **241/300** early closures.
+  Descriptive trajectory-level differences, not causal attribution to WAIT or skipped leftovers.
+  No selected height slice is used for tuning, a new sample or a changed decision threshold.
+- Search mean **8.125 / 7.685 ms**, max **52 / 46 ms**, >50-ms local slow counts **1 / 0**.
+  In-process timing is not a protocol deadline test. No new submit/procCheck because code and
+  artifact stayed unchanged; no inference about the old unexplained input-send stall.
+- **Decision: inconclusive, no promotion or tuning.** No confirmed gain over K2/R1, but the
+  interval includes both benefit and harm; it does not prove inferiority or equivalence. This
+  head-to-head isolates the enabled package, not its target policy, lost leftover builds or
+  search overhead separately, and cannot apportion the prior loss against v05 (non-transitivity).
+  Keep USE_REPLY_RERANK=false and USE_JOINT_ACTION=false; no v06 or confirmation-pool games.
+- Report `build/bench/joint-action-v1/joint-on-off.json`, SHA-256
+  `f4c7a87d1716d980cd9789a82904c151d6eb21345748dcf695d6c41f594af704`;
+  strategy revision `b4d842442e5feb96801c9d0d802dcc947b18639d`, source hashes unchanged.
+  Compiled EvalBot/Params SHA-256 respectively
+  `fbb5cf08c41d5246044fb7764c62686e201ec56cd55575114cb18ba7a6ef6f32` /
+  `64132b4e52857f2317ccf13b01d812b6eb5711b30e5c9047256329aa672889ac`.
+  Initial launch was denied access to the Gradle wrapper lock before any game started;
+  the authorized launch completed once. No game-sample rerun or retry-to-green.
+- Existing **162 tests / zero failures** remained up-to-date, fresh **cgValidate 264/264 exact**.
+  Player.java still frozen v05, SHA-256
+  `5d0621acb2f4b819c0d9ce10a0589502832a5dea554c2e4d33549c66d2019484`.
+  Next: audit full emitted action differences on the saved 110 states through core, separating
+  no-hit/leftover changes and known/predicted/oracle evidence before any policy revision.
+  PLAN/BOTS/experiment notes updated. This follow-up changes only documentation, uncommitted.

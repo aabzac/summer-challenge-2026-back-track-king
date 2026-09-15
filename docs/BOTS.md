@@ -343,6 +343,26 @@ remains. Defaults are unchanged. See [joint-action-experiment.md](joint-action-e
   two-class archive, never shipped. Next diagnostic is a direct on/off joint-flag ablation
   within K2/R1 before inferring whether the regression belongs to this flag or the base branch.
 
+## Diagnostic: direct joint-on/off K2/R1 ablation (2026-09-16)
+
+Same current implementation at `b4d8424`, both K2/R1; full 47-field configurations differ ONLY
+in `USE_JOINT_ACTION`. One fixed 300-game run / 150 paired generated maps, seeds 21000..21149,
+reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1; no new policy.
+
+- Joint-on vs joint-off: **139-159-2, 46.7%**, map-grouped CI **35.6-57.8%**; mean score
+  difference **-150.0**. P0 **67-82-1**, P1 **72-77-1**. Zero bot errors.
+- Accepted sabotage **80.7% / 82.3%**, construction **91.8% / 92.0%**; paint/turn
+  **2.708 / 2.730**. These are different game trajectories, not a same-state causal comparison
+  or evidence that more actions would improve play. Mean game length **76.5** turns.
+- Search mean **8.13 / 7.69 ms**, max **52 / 46 ms**, >50-ms slow counts **1 / 0**;
+  nominal in-process measurements, not process timeouts. No new artifact or process check.
+- **Inconclusive; keep off.** No confirmed benefit, but the interval also does not establish
+  inferiority or equivalence. This comparison cannot apportion the prior loss against v05
+  between K2/R1 and the joint flag; matchups are not transitive. No tuning or confirmation.
+- Source/defaults/frozen references and v05 Player.java unchanged. Existing **162-test** results
+  remain up-to-date; fresh **cgValidate 264/264 exact**. Report, hashes and next mechanism audit:
+  [joint-action-experiment.md](joint-action-experiment.md#direct-onoff-follow-up-2026-09-16).
+
 ## Offline diagnostic: adaptive sabotage forecast (2026-09-15)
 
 - No strategy change or v06. Five fixed experts plus adaptive weights are evaluated by
