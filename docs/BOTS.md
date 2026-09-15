@@ -268,6 +268,29 @@ sequential: control then candidate; no strategy/default/threshold changes.
   its lower bound does not exclude 50%. Both stay off; the sample was not adaptively extended
   and no independent confirmation was started.
 
+## Retained narrow reply rerank: pressure follow-up (2026-09-15)
+
+Fixed candidate `exp-reply-rerank?BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1`, pinned engine-v1 and
+full snapshot, other experiments off. Three sequential 300-game match-ups on development-v1
+(150 identical paired maps, seeds 20000..20149), two workers, nominal CG 486/36 ms:
+
+- Candidate vs v05: **172-128-0, 57.3%**, map-grouped CI **46.2-68.4%**; primary gate not passed.
+- Fresh v05 vs pressure-v1 control: **208-92-0, 69.3%**, CI **58.2-80.4%**.
+- Candidate vs pressure-v1: **198-102-0, 66.0%**, CI **54.9-77.1%**. Beating the reference is
+  not the candidate's promotion gate; its pressure result is below v05's control.
+
+Matched map/side comparison against pressure: **46 added wins / 56 lost wins / 198 unchanged games**,
+net **-3.33 pp**; map-pair totals improve/worsen/tie on **26/40/84** maps. Descriptive evidence,
+not proof of statistical inferiority. Candidate mean search against pressure is **10.46 ms**
+versus v05's **7.58 ms**, on different evolving trajectories. All 900 games have zero bot errors
+and nominal-budget slow moves; no new process timing check or readiness claim.
+
+**Keep disabled, no v06 or confirmation.** No parameter tuning, current/source/runtime changes
+or Player.java rebuild. This already-inspected development pool is not independent confirmation.
+Reports: `build/bench/narrow-reply-pressure-v1/`; full protocol, hashes and slices in DEVLOG.
+Next diagnostic: test predicted responses and prefix ranking on shared states before widening
+or retuning the beam. The results alone do not identify prediction error as the cause.
+
 ## Offline diagnostic: adaptive sabotage forecast (2026-09-15)
 
 - No strategy change or v06. Five fixed experts plus adaptive weights are evaluated by

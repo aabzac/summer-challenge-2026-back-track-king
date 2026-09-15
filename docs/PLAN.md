@@ -140,6 +140,13 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       experiment recipes with full parameters and a classpath implementation guard. Reports and
       local replays preserve ids plus labels/provenance; CG names remain untouched. No promotion
       or expansion of the default opponent panel. See bot_catalog.md.
+- [x] Reassess retained narrow reply rerank (K2/R1) against v05 and independent pressure-v1:
+      three fixed 300-game development match-ups. Direct v05 57.3%, CI 46.2-68.4%; pressure
+      66.0% vs fresh v05 control 69.3%, 46 added/56 lost wins. Keep off, no confirmation or
+      parameter tuning; current/Player unchanged. See DEVLOG.
+- [ ] Audit narrow-rerank prediction and affordable-prefix ranking on shared captured states
+      versus pressure-v1 before another beam-size experiment. Separate model error, evaluator
+      error and time truncation; label recorded-opponent-action comparisons as oracle diagnostics.
 
 ## Someday / maybe
 

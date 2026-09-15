@@ -1271,3 +1271,89 @@ Completed outcome:
   readiness result or permission to relax deadlines. No further rerun in this step. If it recurs,
   use captured phase/input evidence to choose a targeted host/child scheduling or GC investigation.
   Documented the command and counter limitations; changes remain uncommitted for user review.
+
+### 2026-09-15 — narrow reply rerank versus pressure: predeclared development follow-up
+
+- Committed process-input diagnostics as `3c46599` at the user's request. Next bounded step
+  uses the new independent pressure reference to revisit the retained K2/R1 reply model, not
+  another timing retry or a change to live strategy. Prior K2/R1 result was 55.7% vs v05 with
+  CI 44.6-66.8%: inconclusive, selected after wider beams failed, not promotion evidence.
+- Hypothesis: the affordable K2/R1 search might help against a sabotage-first policy as well
+  as a related v05 opponent. Alternatively its same-family reply prediction may fail against
+  pressure-v1. Keep exactly this configuration; no K/R/weight tuning from the new outcomes.
+- Candidate spec `exp-reply-rerank?BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1` uses the catalog's
+  pinned engine-v1 (source 218457a), full 46-parameter snapshot and explicit overrides. Only
+  USE_REPLY_RERANK=true and K2/R1 differ from the neutral current configuration; other failed
+  experiments and USE_OPP_MODEL stay off. Frozen v05 and pressure-v1 retain their snapshots.
+  Current, core, Params, experiment identities and Player.java will not be edited.
+- Run test/cgValidate and verify the candidate configuration/engine guard first. Then exactly
+  three sequential 300-game match-ups, 150 paired generated maps per match-up, both sides,
+  development-v1 seeds 20000..20149, two workers, nominal CG 486/36-ms search budgets:
+  (1) candidate vs v05; (2) v05 vs pressure-v1; (3) candidate vs pressure-v1. No concurrent
+  CPU-heavy work. Fresh report paths under build/bench/narrow-reply-pressure-v1/ preserve all
+  outcomes. Run all three even if the first is inconclusive; stop on bot errors, not win rate.
+- This is exploratory development on an already-inspected pool, not independent confirmation.
+  New v05/pressure control is required for the common-opponent comparison; historical 69.0%
+  is context only. Match exact map hashes, seeds, sides, opponent config and timing. Report
+  direct-v05 and pressure results separately, including timing and descriptive height slices.
+- Decision fixed before play: only a direct-v05 result >=55%, map-grouped 95% lower bound >50%,
+  zero bot errors AND no point-estimate loss vs the fresh v05/pressure control can justify
+  proposing a separate confirmation. The pressure point check is a screening heuristic, not
+  proof of noninferiority. Otherwise keep the feature off. Do not extend samples, consume
+  confirmation-v1, generate a candidate Player, freeze v06 or upload in this step. Passing this
+  screen would still require independent confirmation, an older opponent and process checks.
+
+Completed outcome (fixed sample, no retuning):
+
+- Preflight passed: 140-test suite up to date, 264/264 CG replays exact; catalog verified
+  engine SHA-256 `05b2595d987156fef7e49baec8ad84900e0673d6cf634fcfa426bb817803343a` and all
+  intended effective flags. Working tree had only this predeclared log after commit 3c46599.
+- Candidate vs v05 completed: **172-128-0, 57.3%**, 300 games / 150 distinct paired maps,
+  map-grouped CI **46.2-68.4%**, average score diff **+104.6**, **67.8** turns, **171.0 s**.
+  P0/P1 wins both 86/150. No bot errors or nominal slow moves; search mean/max A **9.24/35 ms**,
+  B **6.32/34 ms**. Accepted sabotage A/B **89.4/89.8%**, 263/300 early closures.
+  Statistical gate not passed; this is another development observation, not confirmation.
+  Report: `build/bench/narrow-reply-pressure-v1/candidate-v05.json`.
+- Fresh control v05 vs pressure-v1 completed: **208-92-0, 69.3%**, 300 games / 150 distinct
+  paired maps, CI **58.2-80.4%**, average score diff **+529.5**, **59.8** turns, **116.6 s**.
+  No bot errors or nominal slow moves; search mean/max A **7.58/42 ms**, B **4.15/43 ms**.
+  Accepted sabotage A/B **84.7/99.9%**, 276/300 early closures. The printed PASS is v05's
+  comparison with a local reference, not a candidate promotion. Report:
+  `build/bench/narrow-reply-pressure-v1/control-pressure.json`.
+- Candidate vs pressure-v1 completed: **198-102-0, 66.0%**, 300 games / 150 distinct paired
+  maps, CI **54.9-77.1%**, average score diff **+633.2**, **60.4** turns, **143.8 s**.
+  No bot errors or nominal slow moves; search mean/max A **10.46/37 ms**, B **4.04/50 ms**.
+  Accepted sabotage A/B **84.0/99.9%**, 277/300 early closures. Again, the printed PASS against
+  pressure is not the required direct-v05 gate. Report:
+  `build/bench/narrow-reply-pressure-v1/candidate-pressure.json`.
+- Verified all three reports use the same 150 initialization hashes, indices, seeds, map geometry,
+  sides, pool SHA-256, Java 17.0.12 and 486/36-ms/two-worker profile. Candidate configurations
+  match between runs; v05's and pressure's full configurations match their respective controls.
+  Against pressure, joining by map hash and A's side gives **46 added wins / 56 lost wins /
+  198 unchanged games**, net **-3.33 percentage points**. Pair totals improve on **26** maps,
+  worsen on **40**, tie on **84**. These are matched descriptive outcomes, not a causal estimate
+  free of time-limited scheduling/run-order effects or proof of statistical inferiority.
+- Descriptive height split versus pressure (candidate/control wins): h14 **17/19** of 24 games,
+  h15 **40/35** of 48, h16 **25/30** of 46, h17 **30/31** of 42, h18 **31/41** of 54,
+  h19 **27/28** of 42, h20 **28/24** of 44. Slices are small and inconsistent; do not introduce
+  a height-specific switch from this result. P0 net +3 wins, P1 net -13, also exploratory.
+- Mean score difference against pressure improves (+633.2 vs +529.5) while win rate falls;
+  larger score margins in some games do not compensate for fewer wins. Search averages are
+  higher for the candidate (10.46 vs 7.58 ms in the two pressure match-ups), measured on
+  different evolving trajectories, not as a matched-position CPU microbenchmark.
+- Retained report SHA-256 values (candidate-v05 / control-pressure / candidate-pressure):
+  `dfcf276222ccff64d5bd2316787aa6129ee06852171b812c6c88bed36359dceb`,
+  `6e270be72cf50edc96040755e5aadcce020819af4b9b2f8492f83c6c66362708`,
+  `8b01b8dfe29e69f7a9fb60bf99245c55ed1561ebdd41b51220695851a38102b6`.
+- Decision: **do not promote**. Both predeclared conditions fail: direct-v05 CI includes 50%,
+  and pressure win rate is below its fresh control. No additional variants, sample extension,
+  confirmation-pool games, older-opponent promotion run, candidate submission or process rerun.
+  Current stays v05, USE_REPLY_RERANK=false; retained K4/R2 id and explicit K2/R1 override
+  remain available, without retargeting any catalog entry. Player.java/source hash is unchanged.
+  The original process-input stall remains open; no new process-readiness claim.
+- Next hypothesis, not established causality: the same-family predicted response may rank
+  affordable prefixes poorly against a sabotage-first policy. Before another beam-size change,
+  compare prediction and candidate-ranking quality on shared captured states, separating known
+  state, predicted response and recorded-action oracle diagnostics. This is a future step,
+  not extra games/tuning added to the completed 900-game screen. Findings documented in BOTS;
+  this turn's documentation remains uncommitted for review.
