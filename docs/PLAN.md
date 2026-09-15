@@ -201,6 +201,13 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       formatting (<0.15 ms). Correct misleading console response labels, two regression tests.
       The older seconds-long stall did not recur: its exact cause remains open, not fixed.
 
+- [x] Screen bounded three-turn own construction planning (three root routes, at most 27 plans):
+      147-153 (49.0%) vs v05 on 300 games / 150 paired maps, CI 37.91-60.09%; not promoted.
+      Matched aggressive-v02 control: candidate 66.5% vs v05 75.0%, 200 games each; 34 added /
+      51 lost wins. USE_OWN_BUILD_PLAN stays off; no tuning or confirmation. 200 tests, 264 arena
+      + 26 boss replays exact, candidate/restored-v05 process samples both 0/4 failures. Final
+      Player restored to v05; previous startup failure cause still open. See DEVLOG for limits.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

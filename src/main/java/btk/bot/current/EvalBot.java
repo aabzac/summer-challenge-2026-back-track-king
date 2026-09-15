@@ -59,6 +59,13 @@ public final class EvalBot implements Bot {
     private int bestLen, bestCost, oppLen, worstRegion;
     private boolean disruptSearchComplete;
     private boolean[] defenseTried;
+    private GameState[] ownPlanStates;
+    private int[][] ownPlanCells, ownPlanFirstCells;
+    private int[] ownPlanFirstLen;
+    private boolean[][] ownPlanRoutes;
+    boolean ownPlanCommitted;
+    int ownPlanNodes, ownPlanLeaves, ownPlanSelected = -1;
+    double ownPlanValue;
     int defensePathQueries, defenseRegionsScanned, defenseSelectedRegion = -1, defenseSelectedTurns;
     private GameState replyState, completionState;
     private GameState jointState;
@@ -92,6 +99,13 @@ public final class EvalBot implements Bot {
             throw new IllegalArgumentException("Joint action requires plain K2/R1 + sabotage, other experiments off");
         }
         this.P = params;
+        if (params.USE_OWN_BUILD_PLAN && (params.OWN_BUILD_WIDTH < 1 || params.OWN_BUILD_WIDTH > 3
+                || params.OWN_BUILD_DEPTH < 2 || params.OWN_BUILD_DEPTH > 3
+                || params.USE_DEFENSE_PRIORITY || params.USE_REPLY_RERANK || params.USE_JOINT_ACTION
+                || params.USE_HEURISTIC_POLICY || params.USE_OPP_MODEL || params.CHOOSE_BUILD_DIRECTION
+                || params.GUARD_BUILD_INCOME || params.EARLY_DISRUPT_FALLBACK || params.INTERRUPT_VULN_EVAL)) {
+            throw new IllegalArgumentException("Own build plan requires plain construction, width 1..3, depth 2..3");
+        }
         if (params.USE_DEFENSE_PRIORITY && (params.USE_REPLY_RERANK || params.CHOOSE_BUILD_DIRECTION
                 || params.USE_HEURISTIC_POLICY || params.DEFENSE_MAX_REGIONS < 1
                 || params.DEFENSE_MAX_REGIONS > 3 || params.DEFENSE_MAX_PAIRS < 1
@@ -163,6 +177,14 @@ public final class EvalBot implements Bot {
                 jointPrefixTargets = new int[2];
             }
             if (P.USE_DEFENSE_PRIORITY) defenseTried = new boolean[s.regionCount];
+            if (P.USE_OWN_BUILD_PLAN) {
+                ownPlanStates = new GameState[3];
+                for (int i = 0; i < 3; i++) ownPlanStates[i] = s.copy();
+                ownPlanCells = new int[3][GameState.PAINT_PER_TURN];
+                ownPlanFirstCells = new int[3][GameState.PAINT_PER_TURN];
+                ownPlanFirstLen = new int[3];
+                ownPlanRoutes = new boolean[3][s.size];
+            }
         }
     }
 
@@ -232,6 +254,8 @@ public final class EvalBot implements Bot {
         timer.start(budgetMs);
         defensePathQueries = defenseRegionsScanned = defenseSelectedTurns = 0;
         defenseSelectedRegion = -1;
+        ownPlanCommitted = false; ownPlanNodes = ownPlanLeaves = 0; ownPlanSelected = -1;
+        ownPlanValue = Double.NaN;
         jointSelectedTarget = -2; jointBuildSelected = -1; jointPairsEvaluated = 0; jointSearchComplete = false;
         if (P.PROFILE_SEARCH) {
             profileBuildNs = profileEvalNs = profileEvalMaxNs = profileDisruptNs = 0;
@@ -276,8 +300,11 @@ public final class EvalBot implements Bot {
         boolean builtAny = false;
         boolean replyRerankPending = P.USE_REPLY_RERANK;
         boolean defensePending = P.USE_DEFENSE_PRIORITY;
+        boolean ownPlanPending = P.USE_OWN_BUILD_PLAN;
         while (budget > 0 && guard++ < 6 && !buildTimeUp()) {
-            boolean found = defensePending && chooseDefenseCandidate(s, myId, budget);
+            boolean found = ownPlanPending && chooseOwnBuildPlan(s, myId, budget);
+            ownPlanPending = false;
+            if (!found) found = defensePending && chooseDefenseCandidate(s, myId, budget);
             defensePending = false;
             if (!found) found = replyRerankPending
                     ? chooseCandidateWithReplies(s, myId, budget)
@@ -305,12 +332,12 @@ public final class EvalBot implements Bot {
             }
             if (budget == before) break;
             Rules.updateConnections(s, pathing);
-            if (jointSelectedTarget >= -1) break; // emit exactly the jointly evaluated prefix
+            if (jointSelectedTarget >= -1 || ownPlanCommitted) break; // emit exactly the evaluated prefix
         }
 
         // Keep useful local momentum when every complete route has zero immediate evaluation
         // gain. Prefer cells adjoining our network, especially in permanent-safe town regions.
-        if (P.USE_IDLE_EXTEND && jointSelectedTarget == -2) {
+        if (P.USE_IDLE_EXTEND && jointSelectedTarget == -2 && !ownPlanCommitted) {
             boolean extended = false;
             while (budget > 0 && !buildTimeUp()) {
                 int c = chooseIdleExtension(s, myId, budget);
@@ -341,6 +368,121 @@ public final class EvalBot implements Bot {
     }
 
     // ------------------------------------------------------------------ build
+
+    /** Old route pool, new bounded sequences of affordable actions. No speculative enemy moves. */
+    private boolean chooseOwnBuildPlan(GameState s, int me, int budgetNow) {
+        long started = P.PROFILE_SEARCH ? System.nanoTime() : 0;
+        try {
+            int count = collectCandidates(s, me, budgetNow, P.OWN_BUILD_WIDTH,
+                    P.USE_DISRUPT ? P.DISRUPT_RESERVE_MS : 0, true,
+                    buildBeamPath, buildBeamLen, buildBeamCost, buildBeamMaxInst,
+                    buildBeamPrefix, buildBeamPrefixLen, buildBeamValue);
+            if (count == 0) return false;
+            copyBuildCandidateToBest(0); // legal ordinary route fallback, even after an interrupted search
+            rankOwnBuildPlans(s, me, count);
+            return true;
+        } finally {
+            if (P.PROFILE_SEARCH) {
+                profileBuildNs += System.nanoTime() - started;
+                profileLifetimeBuildCalls++;
+            }
+        }
+    }
+
+    /** Commit only after every distinct first action has complete, equal-depth coverage. */
+    private void rankOwnBuildPlans(GameState s, int me, int count) {
+        int depth = Math.min(P.OWN_BUILD_DEPTH, s.turnsLeft());
+        if (depth <= 0) return;
+        java.util.Arrays.fill(ownPlanFirstLen, -1);
+        int selected = -1;
+        double best = Double.NEGATIVE_INFINITY;
+        for (int first = 0; first < count; first++) {
+            if (buildTimeUp()) return;
+            java.util.Arrays.fill(ownPlanRoutes[first], false);
+            int n = simulateOwnBuild(s, me, first, count, 0, ownPlanRoutes[first]);
+            System.arraycopy(ownPlanCells[0], 0, ownPlanFirstCells[first], 0, n);
+            ownPlanFirstLen[first] = n;
+            boolean duplicate = false;
+            for (int i = 0; i < first; i++) {
+                if (samePlacementSet(ownPlanFirstCells[i], ownPlanFirstLen[i], ownPlanCells[0], n)) {
+                    duplicate = true; break;
+                }
+            }
+            if (duplicate) continue;
+            double value = ownBuildContinuation(ownPlanStates[0], me, count, 1, depth);
+            if (Double.isNaN(value) || buildTimeUp()) return;
+            if (value > best) { best = value; selected = first; }
+        }
+        if (selected < 0 || buildTimeUp()) return;
+        ownPlanCommitted = true;
+        ownPlanSelected = selected;
+        ownPlanValue = best - (s.score[me] - s.score[1 - me]);
+        bestLen = ownPlanFirstLen[selected]; bestCost = 0;
+        System.arraycopy(ownPlanFirstCells[selected], 0, bestPath, 0, bestLen);
+        for (int i = 0; i < bestLen; i++) bestCost += s.placeCost(bestPath[i]);
+        System.arraycopy(ownPlanRoutes[selected], 0, myRoute, 0, s.size);
+    }
+
+    /** At most 3 + 9 + 27 nodes. NaN discards all partial comparisons, not just this branch. */
+    private double ownBuildContinuation(GameState s, int me, int count, int level, int depth) {
+        if (buildTimeUp()) return Double.NaN;
+        if (level == depth) {
+            ownPlanLeaves++;
+            int remaining = Math.max(0, Math.min(s.turnsLeft(), P.HORIZON - depth));
+            double terminal = remaining > 0 ? evalState(s, me) * remaining : 0;
+            return buildTimeUp() ? Double.NaN : s.score[me] - s.score[1 - me] + terminal;
+        }
+        double best = Double.NEGATIVE_INFINITY;
+        for (int first = 0; first < count; first++) {
+            if (buildTimeUp()) return Double.NaN;
+            simulateOwnBuild(s, me, first, count, level, null);
+            double value = ownBuildContinuation(ownPlanStates[level], me, count, level + 1, depth);
+            if (Double.isNaN(value)) return value;
+            if (value > best) best = value;
+        }
+        return best;
+    }
+
+    /** Fill one turn's paint from the priority route, then other pool routes in stable order. */
+    private int simulateOwnBuild(GameState before, int me, int first, int count, int level,
+                                 boolean[] routeMask) {
+        GameState next = ownPlanStates[level];
+        next.copyFrom(before);
+        int budget = GameState.PAINT_PER_TURN, total = 0;
+        for (int slot = -1; slot < count && budget > 0; slot++) {
+            int project = slot < 0 ? first : slot;
+            if (slot == first) continue;
+            int n = fillAffordablePrefix(next, budget, buildBeamPath[project], buildBeamLen[project], prefixBuf);
+            if (n == 0) continue;
+            if (routeMask != null) {
+                for (int i = 0; i < buildBeamLen[project]; i++) {
+                    int c = buildBeamPath[project][i];
+                    if (next.canBuild(c)) routeMask[c] = true;
+                }
+            }
+            for (int i = 0; i < n; i++) {
+                int c = prefixBuf[i];
+                budget -= next.placeCost(c);
+                ownPlanCells[level][total++] = c;
+            }
+            Rules.applyPlacements(next, prefixBuf, me == 0 ? n : 0, prefixBuf, me == 1 ? n : 0);
+        }
+        Rules.updateConnections(next, pathing);
+        Rules.scoreTurn(next, null);
+        next.turn++;
+        ownPlanNodes++;
+        return total;
+    }
+
+    private static boolean samePlacementSet(int[] a, int an, int[] b, int bn) {
+        if (an != bn) return false;
+        for (int i = 0; i < an; i++) {
+            boolean found = false;
+            for (int j = 0; j < bn; j++) if (a[i] == b[j]) { found = true; break; }
+            if (!found) return false;
+        }
+        return true;
+    }
 
     /** Known-state defense only: bounded path work, core income, no same-turn enemy actions. */
     private boolean chooseDefenseCandidate(GameState s, int me, int budgetNow) {

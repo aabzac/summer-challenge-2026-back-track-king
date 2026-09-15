@@ -65,7 +65,9 @@ class FileMergerTest {
     private void checkFrozenDecisions(String spec, boolean warmup) throws Exception {
         String source = FileMerger.merge(spec);
         FileMerger.checkSourceSize(source);
-        if (!spec.contains("USE_DEFENSE_PRIORITY=1")) assertFalse(source.contains("chooseCandidateWithReplies"));
+        if (!spec.contains("USE_DEFENSE_PRIORITY=1") && !spec.contains("USE_OWN_BUILD_PLAN=1")) {
+            assertFalse(source.contains("chooseCandidateWithReplies"));
+        }
         assertFalse(source.contains("btk.bot.v05"));
         assertFalse(source.contains("class PressureBot"));
         assertFalse(source.contains("class BenchPool"));
@@ -142,5 +144,8 @@ class FileMergerTest {
     }
     @Test void defenseSubmissionMatchesOnDamagedActiveRouteIncludingWarmup() throws Exception {
         checkFrozenDecisions("current?USE_DEFENSE_PRIORITY=1",true);
+    }
+    @Test void ownPlanSubmissionMatchesIncludingWarmup() throws Exception {
+        checkFrozenDecisions("current?USE_OWN_BUILD_PLAN=1", true);
     }
 }

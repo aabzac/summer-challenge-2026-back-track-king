@@ -85,6 +85,9 @@ class FrozenParamsTest {
         expected.put("EARLY_DISRUPT_FALLBACK", "false"); // Default-off experiment; frozen v05 ignores it.
         expected.put("USE_REPLY_RERANK", "false"); // Default-off experiment; frozen v05 ignores it.
         expected.put("USE_JOINT_ACTION", "false"); // Frozen v05 does not consume joint search.
+        expected.put("USE_OWN_BUILD_PLAN", "false"); // Frozen v05 does not consume own-plan search.
+        expected.put("OWN_BUILD_WIDTH", "3");
+        expected.put("OWN_BUILD_DEPTH", "3");
         expected.put("USE_DEFENSE_PRIORITY", "false"); // Frozen v05 ignores these new fields.
         expected.put("DEFENSE_MAX_REGIONS", "3");
         expected.put("DEFENSE_MAX_PAIRS", "4");

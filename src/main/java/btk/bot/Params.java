@@ -93,6 +93,10 @@ public class Params {
     public int BUILD_BEAM_WIDTH = 4;
     /** Number of distinct opponent build prefixes used as likely replies. */
     public int OPP_REPLY_WIDTH = 2;
+    /** Experimental frozen-board construction sequences; no opponent reply prediction. */
+    public boolean USE_OWN_BUILD_PLAN = false;
+    public int OWN_BUILD_WIDTH = 3;
+    public int OWN_BUILD_DEPTH = 3;
 
     // ---- v03 endgame / horizon ----
     /** Income is projected over at most this many turns (top Silver games close after ~50 turns). */

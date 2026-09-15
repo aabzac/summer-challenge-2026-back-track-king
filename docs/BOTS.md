@@ -62,6 +62,28 @@ characters, but the fixed strict process sample **failed 1/4 games**: P1 turn 41
 66-ms bot search or identify the cause. Preserve the failed report; investigate before claiming
 submission timing readiness. No retry-to-green or upload; strategy source is unchanged.
 
+## Short own-build planning (2026-09-16, not promoted)
+
+`current?USE_OWN_BUILD_PLAN=1`: up to three old-scored root routes, three actual affordable build
+turns, at most 39 nodes / 27 leaves. Uses core scoring, earned points and existing terminal
+vulnerability value. No opponent moves or future sabotage; no new future routes. Incomplete
+comparisons fall back, and only the first planned placement set is emitted before normal sabotage.
+
+Fixed direct screen vs v05: **147-153-0, 49.0%**, map-grouped 95% CI **37.91-60.09%**, 300 games /
+150 paired generated maps, seeds 29000..29149. Gate not passed. Matched aggressive-v02 control,
+200 games each on seeds 29000..29099: candidate **133-67 (66.5%)**, frozen v05 **150-50 (75.0%)**;
+34 added / 51 lost wins, 115 unchanged. No promotion, tuning, confirmation or new frozen version.
+
+All runs use CG 486/36-ms search and two workers, no bot errors. Candidate direct-screen mean
+8.04 ms vs 6.99 ms, one 69-ms in-process outlier; not a process timeout diagnosis. **200 tests**,
+**264 arena + 26 boss replays exact**. Candidate/restored-v05 diagnostic-enabled zero-grace
+process samples each **0/4 failures**; first maxima 645.44 / 639.34 ms, later 35.80 / 35.17 ms.
+Old startup failures remain unexplained; small successful samples are not a general safety claim.
+
+Flag stays **off**. Final Player restored from **v05**, 50,038 chars; experiment artifact 82,376
+chars, both below 100,000. Protocol, limitations, exact hashes and retained reports are recorded
+in DEVLOG under own-build-plan-v1. Frozen strategy files and reference archives were not edited.
+
 ## Observed-threat defense priority (2026-09-16, not promoted)
 
 `current?USE_DEFENSE_PRIORITY=1` adds a bounded first-build priority for a <=6-paint bypass of

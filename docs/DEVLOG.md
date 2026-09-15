@@ -2138,3 +2138,95 @@ Completed outcome (fixed sample, no retuning):
   Source is still `77c5954ceded17137fe2645467d7b0602159eb5992f5ce0c368d15d087cc489c`.
   Keep root cause open; no repeated uninstrumented run merely to obtain a pass. Proceed to the
   user-requested own-build experiment with its own fixed artifact/process checks and caveats.
+
+### 2026-09-16 — short own-build plan v1 (predeclared)
+
+- One default-off feature, USE_OWN_BUILD_PLAN: retain up to three ordinary root route candidates,
+  enumerate their priority order over three actual affordable construction turns (at most 39
+  nodes / 27 leaves). Spend leftovers on the other retained routes in stable order. Use core
+  placement, connections and scoring; rank by earned score difference plus the existing
+  vulnerability-adjusted terminal income over the remaining horizon. No enemy actions or own
+  sabotage in this frozen-board projection; normal sabotage follows the emitted first action.
+  Replan from observations next turn. Root candidates still use the old completed-route scorer.
+- Deduplicate complete first-turn placement sets, emit exactly the selected prefix, and discard
+  an incomplete rollout comparison at the existing build cutoff. Fixed branch limits do not make
+  the whole bot timing-independent: root enumeration and cooperative deadlines remain timed.
+  No other experiment, weight, RNG seed, budget, warmup or rule changes. Width/depth both 3;
+  horizon limited by remaining game turns. Keep ordinary best-route fallback.
+- Fixed development screen: candidate vs frozen v05, 300 games / 150 new paired generated maps,
+  seeds 29000..29149, CG 486/36-ms search, 2 workers. Older/aggressive control: candidate and
+  fresh v05 each play 200 games against v02?W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2, the same
+  paired maps 29000..29099. Total 700 games, no tuning/slice selection or extension after results.
+  Reports under build/bench/own-build-plan-v1/. Require >=55% and map-grouped Hoeffding95
+  lower bound >50% before any separately declared independent confirmation; no automatic promotion.
+- Before strength: full tests, both arena/boss engine validation, off-mode parity, affordable
+  rollout/score/coverage tests and merged submission parity/size. After strength, one four-game
+  diagnostic-enabled zero-grace process sample each for candidate and restored frozen v05,
+  vs v04 on the default corpus, no simultaneous heavy jobs. Preserve reports and candidate
+  source/manifest in build/analysis/own-build-plan-v1/, including failures; no retry-to-green.
+- Implementation verification before strength: **200 tests passed**, including eight new own-plan
+  tests and merged ON/warmup parity. Core unchanged; **264 arena + 26 boss replays exact**.
+  Tests cover actual cost packing, core score equality on both stages of a turn, early income
+  (28 vs 26 in a controlled two-project ordering), full-first-action deduplication, 39-node cap,
+  endgame depth, expired-search fallback, exact emitted prefix without idle additions, captured
+  known-state reproducibility and OFF/frozen-v05 parity. No strength-result-driven edits.
+  Source SHA-256 EvalBot `4ca4f89ba8772b2144dd25511561fe8d90ec913ee55f8e5b9a2edc9cb0c757bc`,
+  Params `d7c9616bf2241dfd6af8f7a113404dea4292b24f222fda570d0bcf9c15580132`;
+  compiled EvalBot `0578f61a8e32fd0e9ebea035ccbfded7c443b36709c64ed82bc6a00b6cae6560`,
+  Params `ccc4040decdac8a19f2475eb0e2a93a5e32c8719f953e299b24efecac81fabd1`.
+
+### 2026-09-16 — short own-build plan v1 (outcome)
+
+- Fixed direct screen: **147-153-0, 49.0%** vs v05, 300 games / 150 paired generated maps,
+  seeds 29000..29149. Map-grouped Hoeffding 95% CI **37.91-60.09%**; gate not passed.
+  P0 68/150, P1 79/150; mean score difference **-45.76**, length **62.83 turns**, 276/300
+  early closures. No bot errors; search mean A/B **8.039 / 6.994 ms**, max **69 / 39 ms**,
+  slow moves **1 / 0**. In-process outlier is not an independently measured process timeout
+  or an identified cause. Accepted sabotage **93.27% / 93.04%**, placement **94.79% / 95.33%**.
+  Elapsed 152.160 s. No weight changes, additional parameter sweep or confirmation games.
+- Candidate older/aggressive control: **133-67-0, 66.5%**, CI **52.92-80.08%**, 200 games /
+  100 paired maps 29000..29099 vs v02?W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2. P0 67/100,
+  P1 66/100; difference **+309.36**, length **70.53**, 155 early closures. Search mean
+  **7.315 / 3.145 ms**, max **38 / 61**, slow **0 / 1**, no bot errors. Accepted sabotage
+  **80.94% / 94.86%**, placement **96.76% / 55.58%**. Elapsed 81.277 s.
+- Fresh matched v05 control: **150-50-0, 75.0%**, CI **61.42-88.58%**, P0 71/100, P1 79/100;
+  difference **+717.56**, length **82.33**, 131 early closures. Search mean **5.534 / 2.828 ms**,
+  max **36 / 44**, no slow moves/errors. Sabotage **66.75% / 88.87%**, placement
+  **98.37% / 49.06%**; elapsed 78.187 s. Candidate adds **34** wins but loses **51**, with
+  **115 unchanged** outcomes. Verified all 100 map hashes against both controls/direct screen,
+  B configurations identical, A configurations differ only in USE_OWN_BUILD_PLAN. Frozen and
+  current remain distinct implementations with OFF parity tests. These are matched descriptive
+  results, not a test of one subcomponent or a speed estimate on identical trajectories.
+- Decision: **USE_OWN_BUILD_PLAN=false, no new version or confirmation**. Earlier-income ordering
+  works in the unit fixture, but the whole policy does not pass the strength gate. No claim of
+  equivalence or statistical proof of harm. Limitations: only three old-scored root projects;
+  no new routes at future nodes, no WAIT alternative, no opponent construction/sabotage or our
+  future sabotage. Projects beyond three turns can lose terminal value; terminal evaluation
+  still uses the old vulnerability penalty. First-turn leftover building is limited to this pool,
+  and full ordinary re-search/idle extension is suppressed after a committed plan. Actual
+  sabotage follows, so the construction projection is not the predicted full game outcome.
+  Search-node bounds are deterministic; time-truncated root enumeration/emergency fallback are
+  not. These are hypotheses for any future revision, not established reasons for the result.
+- Candidate submission **82,376 / 100,000 characters**, SHA-256
+  `38d64417684cecb524ad137bcf072fce18662350fdf1795f7a2d7078ce172589`; archived source plus
+  manifest in build/analysis/own-build-plan-v1/. One diagnostic-enabled strict process sample
+  vs v04: **0/4 problem games**, first max **645.4417 ms**, later max **35.8022 ms**, zero grace.
+  Restored **frozen v05**: **50,038 chars**, SHA-256
+  `29039a4e96e3f68cc95411db3f4180e866e0dcdc2f16146ed69345872e359f5d`, three unused new Params
+  declarations, unchanged policy/runtime. Its one process sample: **0/4 failures**, first max
+  **639.3366 ms**, later max **35.1695 ms**. Both samples have first-send time almost entirely
+  in flush (~88..132 ms); no seconds-long recurrence. Prior failures stay retained/unexplained;
+  these small local samples do not guarantee CG timing safety. No concurrent heavy jobs/retries.
+- Bench report SHA-256 under build/bench/own-build-plan-v1/:
+  candidate-v05.json `e805d2ee3a7af587021b25bd58bd88ad2dc9c60d81b2953ff269622f020cd621`;
+  candidate-v02.json `718d115ed1dbc2785da29d632e05e588af34234ef27694b6a7535c2dda17aafc`;
+  control-v02.json `bcb80df22a9fd0598e60e2dd576cf765fa399e603d94b420f1eafe9359301a42`.
+  Process report SHA-256 under build/analysis/own-build-plan-v1/:
+  candidate-process.json `a15e80dde6c01f5c95368df28be4dd6ad0c51ba11a11a82db5236352dc5be614`;
+  restored-v05-process.json `17924cd103fc184eee86a50915eed901fdbb2bd8e5a4a27a823e298bf695ec60`.
+  Executable tree hashes candidate/restored:
+  `be3f4b65f4c6083f9ee2187666bcfcc33b93ce7b88b310045de9c19612fa9c4c` /
+  `8a1f550abd3363abc754e06574b6853db5c5396b3cf688f350ef10587ca0c966`.
+- README/BOTS/PLAN updated; 700 predeclared strength games completed, no post-result policy
+  edits, automatic local commit per working agreement. No core/frozen/reference archive changes,
+  arena upload or push. Current and final Player remain selected v05.

@@ -82,6 +82,15 @@ cheap bypass of already damaged active income before ordinary construction. It c
 per-turn placement costs to reject harmful or late recovery. It replans each turn; no future
 opponent actions are available. Default-off; see the defense-priority experiment in DEVLOG.
 
+`current?USE_OWN_BUILD_PLAN=1` is a separate default-off construction experiment: up to three
+ordinary root routes, three affordable build turns, at most 39 nodes / 27 continuations. It
+compares earned points and terminal income using the core, spends leftovers on retained routes,
+and emits only the selected first action before ordinary sabotage. No opponent moves or future
+sabotage are simulated. `OWN_BUILD_WIDTH` (1..3) and `OWN_BUILD_DEPTH` (2..3) bound the search.
+An interrupted comparison retains the ordinary route fallback; root generation is still timed,
+so fixed rollout limits do not guarantee identical timed games. Do not combine with other
+construction/opponent experiments. Protocol and results: own-build-plan-v1 in DEVLOG.
+
 ```bash
 gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000 "-Pout=build/bench/current-v03.json"
 ```

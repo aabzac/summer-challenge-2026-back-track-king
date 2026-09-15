@@ -35,7 +35,7 @@ public final class HeuristicBot implements Bot {
                 || !positive(p.HEURISTIC_OWN_PENALTY) || !positive(p.HEURISTIC_ACTIVE_WEIGHT)
                 || !Double.isFinite(p.UNSTABLE_COST) || p.UNSTABLE_COST < 0
                 || !positive(p.W_OWN) || !positive(p.W_OPP)
-                || p.USE_REPLY_RERANK || p.USE_JOINT_ACTION || p.USE_OPP_MODEL || p.GUARD_BUILD_INCOME
+                || p.USE_REPLY_RERANK || p.USE_JOINT_ACTION || p.USE_OWN_BUILD_PLAN || p.USE_OPP_MODEL || p.GUARD_BUILD_INCOME
                 || p.CHOOSE_BUILD_DIRECTION || p.EARLY_DISRUPT_FALLBACK || p.INTERRUPT_VULN_EVAL) {
             throw new IllegalArgumentException("Invalid or incompatible simple-policy parameters");
         }
