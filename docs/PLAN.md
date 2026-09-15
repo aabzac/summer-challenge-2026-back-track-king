@@ -12,6 +12,8 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Referee, procedural + real maps, parallel benchmark with Wilson CI, side swap
 - [x] Process-level submission check (`procCheck`): protocol, first-turn warm-up, 50 ms turns
 - [x] Single-file merger (`submit`) → `build/submit/Player.java`
+- [x] Enforce the 100,000-character submission limit; explicitly restore frozen v05 with
+      `submit -PsubmitVersion=v05`, recording resolved configuration and source hash.
 - [x] Replay visualizer for local and CG-derived replays
 - [x] Study tool for what top players do (`cgStudy`)
 - [x] Bots v00 (autoplace), v01 (greedy), v02 (eval + DISRUPT), v03 (vulnerability eval, backups)
@@ -90,6 +92,17 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       Fresh-map diagnostics: K=4/R=1 scored 49.3%; K=2/R=1 scored 55.7%, but its
       map-grouped CI was 44.6-66.8%. Keep `USE_REPLY_RERANK` default-off; no confirmation.
 - [ ] Add map-size-stratified reports and independent held-out maps; broaden the opponent pool.
+- [x] Offline adaptive sabotage forecast on 56 v05 arena games, split by opponent agent:
+      holdout top-1 69.9%, but log-loss improvement versus fixed mixture has a CI crossing zero.
+      Diagnostic gate not passed; keep tools-only, no strategy integration or v06.
+      See `sabotage_forecast.md` for the fixed protocol and observation boundary.
+- [x] Fix process deadline measurement: single allowance including input sending, timestamped
+      reader arrivals separate from consumer wake-up, zero default grace, terminal timeout/EOF,
+      per-turn JSON. Eight new tests and a fixed eight-game strict run; see DEVLOG.
+- [ ] Investigate v05 large-map timing with phase-level evidence before changing strategy:
+      strict run caught P0 turn 53 on 903509641 at 50.7868 ms (consumer 56.2206 ms);
+      the other seven games passed. One first response was 959.35 ms, within 1,000 ms but
+      above our 800-ms headroom target. Do not treat previous grace-based passes as strict passes.
 
 ## Someday / maybe
 

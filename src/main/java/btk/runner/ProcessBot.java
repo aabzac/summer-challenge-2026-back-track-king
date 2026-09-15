@@ -13,9 +13,11 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.util.function.LongSupplier;
 
 /**
  * Runs an external program (e.g. the merged {@code Player.java}) as a bot over the exact CG
@@ -28,17 +30,35 @@ public final class ProcessBot implements Bot {
     private final String label;
     private Process proc;
     private Writer stdin;
-    private final BlockingQueue<String> lines = new LinkedBlockingQueue<>();
-    /** Extra wall time granted on top of the referee budget (process IO overhead). */
-    public long graceMs = 30;
+    record Response(String line, long receivedNs) {}
+    public record TurnTiming(int turn, long budgetMs, long graceMs, double sendMs,
+                             Double responseMs, double consumerMs, String status) {}
+    private final BlockingQueue<Response> lines;
+    private final LongSupplier clock;
+    private boolean terminal;
+    /** Explicit diagnostic allowance only. Default checks the nominal deadline without grace. */
+    public long graceMs = 0;
     public int timeouts;
+    public int nominalOverruns;
+    public final List<TurnTiming> timings = new ArrayList<>();
     /** Slowest response after the first turn (which includes JIT warm-up). */
     public long maxResponseMs;
     public long firstTurnMs;
 
     public ProcessBot(String label, List<String> command) {
         this.label = label;
-        this.command = command;
+        this.command = List.copyOf(command);
+        this.lines = new LinkedBlockingQueue<>();
+        this.clock = System::nanoTime;
+    }
+
+    /** Deterministic transport/clock seam for deadline regression tests. */
+    ProcessBot(Writer stdin, BlockingQueue<Response> lines, LongSupplier clock) {
+        this.label = "test";
+        this.command = List.of();
+        this.stdin = stdin;
+        this.lines = lines;
+        this.clock = clock;
     }
 
     /** {@code java -cp <classesDir> Player} */
@@ -54,11 +74,13 @@ public final class ProcessBot implements Bot {
 
     @Override
     public void init(GameState s, int myId) {
+        if (proc != null || terminal) throw new IllegalStateException("ProcessBot is single-use");
         try {
             proc = new ProcessBuilder(command).start();
             stdin = new OutputStreamWriter(proc.getOutputStream(), StandardCharsets.US_ASCII);
-            Thread out = new Thread(() -> pump(proc.getInputStream(), true), "proc-stdout");
-            Thread err = new Thread(() -> pump(proc.getErrorStream(), false), "proc-stderr");
+            Process child = proc;
+            Thread out = new Thread(() -> pump(child.getInputStream(), true), "proc-stdout");
+            Thread err = new Thread(() -> pump(child.getErrorStream(), false), "proc-stderr");
             out.setDaemon(true);
             err.setDaemon(true);
             out.start();
@@ -66,6 +88,7 @@ public final class ProcessBot implements Bot {
             stdin.write(Protocol.initBlock(s, myId));
             stdin.flush();
         } catch (IOException e) {
+            stop();
             throw new IllegalStateException("cannot start " + command, e);
         }
     }
@@ -74,31 +97,61 @@ public final class ProcessBot implements Bot {
         try (BufferedReader r = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
             String line;
             while ((line = r.readLine()) != null) {
-                if (isStdout) lines.add(line);
+                if (isStdout) lines.add(new Response(line, clock.getAsLong()));
                 else System.err.println("[" + label + " stderr] " + line);
             }
         } catch (IOException ignored) {
             // process ended
+        } finally {
+            // Wake immediately on EOF/read failure; do not mislabel it as a missing response.
+            if (isStdout) lines.add(new Response(null, clock.getAsLong()));
         }
     }
 
     @Override
     public List<Action> play(GameState s, int myId, long budgetMs) {
+        if (terminal) throw new IllegalStateException("Process session already ended");
+        if (budgetMs <= 0 || graceMs < 0) throw new IllegalArgumentException("Invalid process deadline");
+        long allowedNs = TimeUnit.MILLISECONDS.toNanos(Math.addExact(budgetMs, graceMs));
         try {
-            long t0 = System.nanoTime();
+            long t0 = clock.getAsLong();
             stdin.write(Protocol.turnBlock(s, myId));
             stdin.flush();
-            String line = lines.poll(budgetMs + graceMs, TimeUnit.MILLISECONDS);
-            long ms = (System.nanoTime() - t0) / 1_000_000L;
+            long sentNs = clock.getAsLong();
+            long remainingNs = Math.max(0, allowedNs - (sentNs - t0));
+            Response response = lines.poll(remainingNs, TimeUnit.NANOSECONDS);
+            long consumedNs = clock.getAsLong();
+            // The consumer may resume well after the reader queued the answer. Judge arrival,
+            // not poll return time, but never accept a line stamped after the absolute deadline.
+            Long elapsedNs = response == null ? null : response.receivedNs() - t0;
+            boolean late = response == null || elapsedNs > allowedNs;
+            boolean nominalOverrun = response == null || elapsedNs > TimeUnit.MILLISECONDS.toNanos(budgetMs);
+            if (nominalOverrun) nominalOverruns++;
+            String status = response != null && elapsedNs < 0 ? "UNSOLICITED"
+                    : late ? "TIMEOUT" : response.line() == null ? "EOF"
+                    : nominalOverrun ? "GRACE" : "OK";
+            timings.add(new TurnTiming(s.turn, budgetMs, graceMs, (sentNs - t0) / 1e6,
+                    elapsedNs == null ? null : elapsedNs / 1e6, (consumedNs - t0) / 1e6, status));
+            long ms = (elapsedNs == null ? consumedNs - t0 : Math.max(0, elapsedNs)) / 1_000_000L;
             if (s.turn == 0) firstTurnMs = ms;
             else maxResponseMs = Math.max(maxResponseMs, ms);
-            if (line == null) {
+            if (status.equals("TIMEOUT")) {
                 timeouts++;
-                System.err.printf("[%s] TIMEOUT turn %d (> %d ms)%n", label, s.turn, budgetMs + graceMs);
-                return List.of(Action.waitAction());
+                stop();
+                throw new IllegalStateException("TIMEOUT turn " + s.turn + " (deadline "
+                        + (budgetMs + graceMs) + " ms)");
             }
-            return Action.parseLine(line);
-        } catch (IOException | InterruptedException e) {
+            if (status.equals("EOF") || status.equals("UNSOLICITED")) {
+                stop();
+                throw new IllegalStateException(status + " on turn " + s.turn);
+            }
+            return Action.parseLine(response.line());
+        } catch (InterruptedException e) {
+            stop();
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException(e);
+        } catch (IOException e) {
+            stop();
             throw new IllegalStateException(e);
         }
     }
@@ -108,9 +161,14 @@ public final class ProcessBot implements Bot {
         // the external process warms itself up on its first turn
     }
 
+    private void stop() {
+        terminal = true;
+        if (proc != null) proc.destroy();
+    }
+
     public void close() {
+        stop();
         if (proc != null) {
-            proc.destroy();
             try {
                 if (!proc.waitFor(2, TimeUnit.SECONDS)) proc.destroyForcibly();
             } catch (InterruptedException e) {

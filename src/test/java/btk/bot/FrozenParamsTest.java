@@ -86,6 +86,8 @@ class FrozenParamsTest {
         expected.put("USE_REPLY_RERANK", "false"); // Default-off experiment; frozen v05 ignores it.
         expected.put("BUILD_BEAM_WIDTH", "4");
         expected.put("OPP_REPLY_WIDTH", "2");
+        expected.put("FORECAST_DECAY", "0.95");
+        expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
         assertEquals(expected, BotFactory.configuration("current"));
         Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");

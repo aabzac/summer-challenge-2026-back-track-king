@@ -94,6 +94,10 @@ public class Params {
     public int SEED = 1;
 
     // ---- misc ----
+    /** Offline sabotage-forecast study only; not connected to current strategy. */
+    public double FORECAST_DECAY = 0.95;
+    public double FORECAST_FLOOR = 0.10;
+
     /** Emit a MESSAGE with debug info each turn. */
     public boolean MESSAGE = false;
     /** Log per-turn diagnostics to stderr. */

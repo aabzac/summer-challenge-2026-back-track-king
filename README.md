@@ -11,6 +11,7 @@ gradlew test                                   # rules unit tests
 gradlew run -Pbot0=current -Pbot1=v01 -Pseed=3  # one game -> replays/local/*.json
 gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
+gradlew submit -PsubmitVersion=v05              # restore frozen v05 source + snapshot, not current experiments
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
 gradlew cgFetch -Ptop=20 -Plimit=10            # download top players' replays -> replays/cg/
 gradlew cgFetch -Pgame=903337834               # download one known arena/IDE game id
@@ -18,6 +19,7 @@ gradlew cgValidate                             # validate our engine against the
 gradlew cgRender -Ppath=replays/cg/903337834.json # validated replay -> rendered/cg/arena
 gradlew cgMapValidate                          # regenerate CG maps from refereeInput seeds, compare exactly
 gradlew cgAnalyze -Pagent=6735801               # validated games of one arena entry -> build/analysis/
+gradlew cgForecast -Pagent=6736850              # offline adaptive sabotage prediction, no strategy changes
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -119,7 +121,37 @@ visualizer document under `replays/rendered/cg/bot/`.
 
 ## Submitting
 
+The arena source limit is **100,000 characters** (user-confirmed). `submit` checks the UTF-16
+length conservatively before writing, prints UTF-8 bytes separately, and compile-checks the
+result. `build/submit/manifest.json` records the selected strategy, full resolved parameters,
+character count and SHA-256 of the exact generated source.
+
+`submit` still defaults to `current`. To reproduce the confirmed v05 without experimental source,
+use `gradlew submit -PsubmitVersion=v05`: the merger reads frozen v05, generates it as `EvalBot`,
+and embeds its snapshot in the generated `MainBot`. Frozen files and working `current` stay
+unchanged. This restores the strategy, not the byte-for-byte historical artifact (shared core,
+runtime and packaging are current). Other frozen versions are not yet supported by this option.
+Always run `procCheck` after building; `-Pbot` selects its OPPONENT, not the submitted strategy.
+Use `-Pmap=replays/cg/<id>.json -Pgames=2` to check both sides of a particular difficult map.
+
+`procCheck` now defaults to **zero grace**: 1,000 ms first response / 50 ms later. One clock
+includes turn serialization and stdin write/flush; stdout lines are timestamped by the reader.
+Late lines fail even when the waiting thread resumes with a nonempty queue. A timeout or EOF
+ends the process session, so stale output cannot become the next turn's answer.
+`-PgraceMs=30` explicitly restores extra allowance for diagnosis, not a strict timing pass;
+nominal deadline overruns remain reported. `-Pout=build/analysis/process-check.json` selects
+the per-turn JSON report (also written when games fail). It separates send time, reader arrival
+and consumer wake-up, and records source/executable hashes. Reader scheduling and host load
+still affect the measurement; it is not CG CPU time or a hard real-time watchdog for blocked IO.
+
 1. `gradlew test && gradlew bench ...` (gate in `AGENTS.md`)
 2. `gradlew submit && gradlew procCheck`
 3. Paste `build/submit/Player.java` into the CG IDE (language Java), PLAY MY CODE, then SUBMIT.
 4. Record the version and CG rank in `docs/BOTS.md`.
+
+## Opponent prediction study
+
+`cgForecast` evaluates a lightweight adaptive sabotage model without changing our bot's actions.
+It predicts from each pre-turn state and learns only after observing the next state; held-out
+opponent entries never enter baseline selection. See [docs/sabotage_forecast.md](docs/sabotage_forecast.md)
+for the fixed experiment, information boundaries, results and limitations.

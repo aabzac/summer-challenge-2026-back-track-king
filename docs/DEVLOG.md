@@ -736,3 +736,101 @@ Outcome:
   K=2/R=1 reaches it, but its map-grouped lower confidence bound is below 50%. Following the
   predeclared rule, do not extend the sample adaptively or start an independent confirmation.
   Keep `USE_REPLY_RERANK=false`, current at v05, and do not create v06 or a new submission.
+
+### 2026-09-15 — sabotage forecast, predeclared diagnostic protocol
+
+- User approved an adaptive opponent model, starting with prediction only; no change to bot
+  decisions in this step. User also confirmed the arena's 100,000-character source limit and
+  requested restoration of the temporary Player artifact to frozen v05.
+- Offline `cgForecast` compares five fixed experts (current income damage, track balance,
+  imminent completion, persistence of an observed target, no effective sabotage). Equal initial
+  weights, Bayesian likelihood updates with `FORECAST_DECAY=0.95`, categorical smoothing
+  `FORECAST_FLOOR=0.10`; no sweep. Core computes destruction/income and observation transitions.
+  These Params fields are diagnostic only; forecast code is in tools and never ships.
+- Compare adaptive versus equal fixed mixture AND the single expert selected by development
+  mean game log-loss. Primary loss is categorical negative log likelihood; also retain Brier,
+  top-1 and target-only hits. Prediction happens before applying either current command; updates
+  see only next-board instability/ink and our own known accepted action. Opponent command text
+  is confined to the harness and truth audit. Ignore failed terminal turns and skip ambiguous
+  observations rather than using privileged labels. Reset learning every game.
+- Fixed corpus: current 214 canonical arena replays, filtered to agent 6736850 (56 previously
+  fetched games). Split by opponent agent SHA-256("forecast-v1:" + agent), first byte modulo 3:
+  bucket 0 holdout, others development. No opponent entry crosses the split. This is a new
+  diagnostic split of already inspected games, NOT pristine arena confirmation.
+- Run the fixed protocol once without tuning. Report mean per-opponent held-out log-loss
+  improvement and paired opponent-bootstrap intervals (2,000 samples, seed 15092026). Evidence
+  to consider integration: positive improvement with lower 95% bounds above zero against BOTH
+  controls, no observation/truth mismatches. Even passing this diagnostic is not win-rate proof:
+  clean future data and a separately gated strategy experiment remain required.
+
+Outcome:
+
+- Fixed diagnostic completed without tuning: 40 development games / 35 opponent agents and
+  16 holdout games / 15 opponents; 4,258 observations, zero unknowns or truth mismatches,
+  one failed terminal turn excluded. Development selected the persistence expert.
+- Holdout mean-per-game log loss: adaptive 1.7166, fixed mixture 1.8165, persistence 1.9544;
+  top-1: 69.9%, 57.7%, 68.2%. Mean-per-opponent improvement versus fixed is
+  +0.0928, 95% CI [-0.0450, +0.2220]; versus persistence +0.2292 [+0.0861, +0.3841].
+- Decision: diagnostic gate NOT PASSED (fixed-mixture interval crosses zero). Keep the model
+  tools-only, do not tune on this holdout, integrate decisions, run promotion benches or freeze
+  v06. Full protocol/results: `sabotage_forecast.md`; trace report:
+  `build/analysis/sabotage-forecast-6736850.json` (local, gitignored).
+- Added explicit `submit -PsubmitVersion=v05`, resolved frozen configuration, a 100,000-character
+  pre-write limit, and submission manifest. Frozen sources and core rules unchanged. This
+  restores v05 strategy with current shared runtime, not the original byte-for-byte artifact.
+  Source: 62,821 UTF-16 characters / UTF-8 bytes, SHA-256
+  `30a6fcd2e56c8ec52901ec3c9f329711c7cce25841cbd55b9b9cf8fa27496647`.
+- Verification: 91 tests (including isolated compilation/action parity of merged v05), 214/214
+  exact CG replays. External artifact versus v04: four standard games plus both sides of
+  `903509641` and `903508669`, 7/8 wins, zero registered timeouts/problem games. These are
+  process smoke checks, not strength evidence. First responses 669-773 ms; later maxima
+  18-38 ms in seven games and 180 ms in the last. The existing queue-based harness grants
+  30-ms grace and only counts missing poll results as timeouts; it did not flag the outlier.
+  Cause is unproven; no strict 50-ms guarantee. Track timing-harness investigation separately.
+
+### 2026-09-15 — process deadline accounting, no strategy change
+
+- Next step: investigate the 180-ms accepted response before further strategy experiments.
+  Found two accounting defects: `poll` received a fresh full timeout AFTER input preparation /
+  write, and success depended only on receiving a line, without checking its arrival deadline.
+  Consumer scheduling can also inflate elapsed time after an on-time reader arrival. The old
+  logs cannot establish which event caused that particular 180-ms observation.
+- Timestamp reader arrivals and subtract serialization/write/flush time from a single absolute
+  turn allowance. Accept an on-time reader arrival even if the consumer wakes later; reject a
+  late queued line. Default grace changes from implicit 30 ms to zero; explicit diagnostic
+  `-PgraceMs` remains available and reports nominal overruns. EOF is separate from timeout.
+  End the process session on failure instead of returning WAIT and risking stdout misalignment.
+- Record every turn's send/arrival/consumer timing and status in JSON, alongside map, side,
+  opponent configuration, source SHA-256 and actual class-directory hash. This is local observed
+  wall time, not a reconstruction of CG CPU time; reader scheduling and blocked writes remain
+  limitations. No core, strategy, frozen source or submission runtime changes.
+- Fixed verification: deterministic deadline/queue tests plus two actual child-process fixtures;
+  full tests, rebuild frozen v05, then four default-map games and both sides of captured maps
+  903509641 and 903508669 against v04, sequentially, strict zero grace. Do not relax deadlines
+  or rerun until green if failures appear. This is process evidence, not a strength bench.
+
+Outcome:
+
+- **99 tests passed**, including eight new deadline/transport tests: delayed consumer with an
+  on-time arrival, late queued answer, write-time accounting, explicit grace, missing answer,
+  EOF, boundary/unsolicited answer, and real child timeout/EOF fixtures. Core was unchanged;
+  the most recent fidelity run remains 214/214 exact replays.
+- Rebuilt v05: source still 62,821 characters, SHA-256
+  `30a6fcd2e56c8ec52901ec3c9f329711c7cce25841cbd55b9b9cf8fa27496647`.
+  All three runs used the same class-directory SHA-256
+  `b6cb320ea6b849da80b1f7debcdd550d9173c916d011f23a23170732bd84cfd8`.
+- Fixed strict sample: **7/8 games without process errors**, **one timeout**, 4/8 wins vs v04
+  (wins are smoke-check data only). Default four games passed; both games on 903508669 passed.
+  On 903509641, P0 turn 53 had send time **1.2339 ms**, reader arrival **50.7868 ms**,
+  consumer completion **56.2206 ms**. A line was actually returned by the queue AFTER the
+  absolute deadline, demonstrating the acceptance bug addressed here; the new check rejected
+  it and failed the task. It would also have fitted the old 80-ms allowance.
+- Other games' later maximum arrivals ranged 16.8258-46.1326 ms. First arrivals ranged
+  612.1949-959.3518 ms: within the formal 1,000-ms limit, but one exceeds our 800-ms headroom
+  target. No relaxed-grace reruns or strategy edits were made to hide the failure.
+- Reports: `build/analysis/process-strict-v05-default4.json`,
+  `build/analysis/process-strict-v05-903509641.json`,
+  `build/analysis/process-strict-v05-903508669.json`. Each contains all per-turn observations.
+- Decision: deadline accounting fix is verified; **v05 did not pass this strict local sample**.
+  The old 180-ms event remains unattributed. Next is phase-level timing diagnosis on large maps,
+  not promotion of an adaptive strategy or a claim of CG-host timeout probability.

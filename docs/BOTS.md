@@ -208,6 +208,21 @@ sequential: control then candidate; no strategy/default/threshold changes.
   its lower bound does not exclude 50%. Both stay off; the sample was not adaptively extended
   and no independent confirmation was started.
 
+## Offline diagnostic: adaptive sabotage forecast (2026-09-15)
+
+- No strategy change or v06. Five fixed experts plus adaptive weights are evaluated by
+  `cgForecast`, outside the submitted bot. 56 games of agent 6736850: 40 development games,
+  16 holdout games, split by opponent agent. Existing inspected corpus, not fresh confirmation.
+- Holdout top-1: adaptive **69.9%**, fixed mixture **57.7%**, persistence **68.2%**.
+  Mean-per-opponent log-loss improvement versus fixed: **+0.0928**, 95% CI **[-0.0450, +0.2220]**;
+  versus development-selected persistence: **+0.2292 [+0.0861, +0.3841]**.
+- Diagnostic gate **not passed** against both controls. No gameplay bench or promotion;
+  current stays v05. Protocol, limitations and command: `sabotage_forecast.md`.
+- Restored `Player.java` from frozen v05 strategy with current shared runtime: **62,821 / 100,000
+  characters**. Generated manifest records parameters and SHA-256. 0/8 process problem games
+  versus v04, including both sides of two captured large maps; a 180-ms measured later response
+  without a registered timeout prevents claiming strict arena timing compliance.
+
 ## Known gaps (to become versions)
 
 - Self-play does not reproduce the top Silver meta (v04 still averages 84 turns vs about 50):
@@ -217,5 +232,8 @@ sequential: control then candidate; no strategy/default/threshold changes.
   using replay-state evaluation rather than maximizing paint usage itself.
 - Pre-emptive disrupts of empty regions on the opponent's likely corridors; disrupt every turn.
 - No lookahead: a 2-3 turn plan search over (placements, disrupt) with the engine.
-- Arena timing shows 100-300 ms outliers under 13 threads (JIT/GC contention); not seen in
-  `procCheck`. Keep checking `procCheck` after every change to the hot path.
+- Parallel benches show 100-300 ms outliers under 13 threads. The 2026-09-15 strict process
+  check (zero grace) also caught one local v05 deadline miss in eight games: 50.7868 ms on
+  903509641, P0 turn 53; consumer resumed at 56.2206 ms. The other seven games passed.
+  This does not establish CG-host timeout frequency or prove a JIT/GC cause. Profile large-map
+  work and first-turn headroom before the next strategy experiment; source/artifact unchanged.

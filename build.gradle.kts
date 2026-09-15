@@ -54,6 +54,7 @@ tasks.register<JavaExec>("submit") {
     description = "Merge bot classes into a single Player.java for CodinGame"
     mainClass.set("btk.submit.FileMerger")
     classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("submitVersion", "current"))
 }
 
 /** Download CG replays. -Ptop=N | -Pagent=ID | -Pplayer=pseudo | -Pgame=ID ; -Plimit=games per agent */
@@ -109,11 +110,19 @@ tasks.register<JavaExec>("cgAnalyze") {
     args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""))
 }
 
+tasks.register<JavaExec>("cgForecast") {
+    group = "cg"
+    description = "Offline adaptive sabotage forecast; chronological observations, opponent-group holdout"
+    mainClass.set("btk.tools.CgForecastStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""), prop("params", ""))
+}
+
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */
 tasks.register<JavaExec>("procCheck") {
     group = "game"
     description = "Play build/submit/Player.java via stdin/stdout against a local bot"
     mainClass.set("btk.runner.ProcessCheck")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("bot", "v01"), prop("games", "3"))
+    args = listOf(prop("bot", "v01"), prop("games", "3"), prop("map", ""), prop("graceMs", "0"), prop("out", ""))
 }
