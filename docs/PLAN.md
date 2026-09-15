@@ -186,11 +186,16 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       first-hit bypass progress in 4/30 eligible observed cases, later-hit progress more common.
       Added a validated known-board probe, four tests; 181 tests and 264 arena + 26 boss replays
       exact. Existing EvalBot backup already searches bypasses; no policy change. See DEVLOG.
-- [ ] Proposed next single-feature experiment: give a cheap, useful bypass of an actually
-      threatened active connection an explicit deadline-aware priority within EvalBot. Reuse
-      core pathing/ownership scoring; keep construction and sabotage controls otherwise fixed.
-      Predeclare bounded work, screen and older/style control before running. Boss observations
-      motivate the hypothesis but do not establish a v05 failure cause or a promotion benefit.
+- [x] Screen deadline-aware cheap-bypass priority in EvalBot, default-off: 141-157-2 (47.33%)
+      vs v05 on 300 games / 150 new paired maps; CI 36.24-58.42%, gate not passed. Matched
+      aggressive-v02 control: candidate 63.5% vs v05 73.5% on 200 games each, 19 added / 39 lost
+      wins. Keep USE_DEFENSE_PRIORITY off; no tuning/confirmation or new frozen version.
+      Core unchanged; 189 tests, 264 arena + 26 boss replays exact. See DEVLOG for artifacts.
+- [ ] Diagnose the new restored-v05 startup/input failure before another timing-readiness claim:
+      defense-priority-v1/restored-v05-process.json failed 4/4 at turn 0. Input send took
+      367..1139 ms; two sends exhausted 1000 ms, with no response timestamp in any failure.
+      Candidate passed 0/4 but first max 807 ms misses the headroom target. Preserve both
+      reports; input preparation/blocking write/host/JVM startup are not yet separated.
 
 ## Someday / maybe
 

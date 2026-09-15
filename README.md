@@ -76,6 +76,12 @@ are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
+`current?USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
+cheap bypass of already damaged active income before ordinary construction. It checks at most
+3 regions x 4 directed connections, caps the route at 6 paint, and uses core income plus actual
+per-turn placement costs to reject harmful or late recovery. It replans each turn; no future
+opponent actions are available. Default-off; see the defense-priority experiment in DEVLOG.
+
 ```bash
 gradlew bench -Pbot1=current -Pbot2=v03 -Pgames=200 -Pthreads=2 -Pseed=1000 "-Pout=build/bench/current-v03.json"
 ```
@@ -188,6 +194,9 @@ The arena source limit is **100,000 characters** (user-confirmed). `submit` chec
 length conservatively before writing, prints UTF-8 bytes separately, and compile-checks the
 result. `build/submit/manifest.json` records the selected strategy, full resolved parameters,
 character count and SHA-256 of the exact generated source.
+The merged artifact removes leading/trailing line indentation while preserving token boundaries
+and ordinary string literals. Java text blocks are rejected by the line-based merger; source
+files themselves retain their formatting.
 
 `submit` still defaults to `current`. To reproduce the confirmed v05 without experimental source,
 use `gradlew submit -PsubmitVersion=v05`: the merger reads frozen v05, generates it as `EvalBot`,

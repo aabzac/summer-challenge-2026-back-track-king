@@ -58,6 +58,8 @@ public final class EvalBot implements Bot {
     private final int[] inc0 = new int[2], inc1 = new int[2], incA = new int[2], incB = new int[2];
     private int bestLen, bestCost, oppLen, worstRegion;
     private boolean disruptSearchComplete;
+    private boolean[] defenseTried;
+    int defensePathQueries, defenseRegionsScanned, defenseSelectedRegion = -1, defenseSelectedTurns;
     private GameState replyState, completionState;
     private GameState jointState;
     private int[] jointTargets, jointPrefixTargets;
@@ -90,6 +92,14 @@ public final class EvalBot implements Bot {
             throw new IllegalArgumentException("Joint action requires plain K2/R1 + sabotage, other experiments off");
         }
         this.P = params;
+        if (params.USE_DEFENSE_PRIORITY && (params.USE_REPLY_RERANK || params.CHOOSE_BUILD_DIRECTION
+                || params.USE_HEURISTIC_POLICY || params.DEFENSE_MAX_REGIONS < 1
+                || params.DEFENSE_MAX_REGIONS > 3 || params.DEFENSE_MAX_PAIRS < 1
+                || params.DEFENSE_MAX_PAIRS > 4 || params.DEFENSE_MAX_PAINT < 1
+                || params.DEFENSE_MAX_PAINT > 6 || params.DEFENSE_MIN_INSTABILITY < 1
+                || params.DEFENSE_MIN_INSTABILITY >= GameState.INK_THRESHOLD)) {
+            throw new IllegalArgumentException("Defense requires plain construction and bounded positive limits");
+        }
     }
 
     @Override
@@ -152,6 +162,7 @@ public final class EvalBot implements Bot {
                 jointTargets = new int[4];
                 jointPrefixTargets = new int[2];
             }
+            if (P.USE_DEFENSE_PRIORITY) defenseTried = new boolean[s.regionCount];
         }
     }
 
@@ -219,6 +230,8 @@ public final class EvalBot implements Bot {
     @Override
     public List<Action> play(GameState s, int myId, long budgetMs) {
         timer.start(budgetMs);
+        defensePathQueries = defenseRegionsScanned = defenseSelectedTurns = 0;
+        defenseSelectedRegion = -1;
         jointSelectedTarget = -2; jointBuildSelected = -1; jointPairsEvaluated = 0; jointSearchComplete = false;
         if (P.PROFILE_SEARCH) {
             profileBuildNs = profileEvalNs = profileEvalMaxNs = profileDisruptNs = 0;
@@ -262,8 +275,11 @@ public final class EvalBot implements Bot {
         int guard = 0;
         boolean builtAny = false;
         boolean replyRerankPending = P.USE_REPLY_RERANK;
+        boolean defensePending = P.USE_DEFENSE_PRIORITY;
         while (budget > 0 && guard++ < 6 && !buildTimeUp()) {
-            boolean found = replyRerankPending
+            boolean found = defensePending && chooseDefenseCandidate(s, myId, budget);
+            defensePending = false;
+            if (!found) found = replyRerankPending
                     ? chooseCandidateWithReplies(s, myId, budget)
                     : chooseCandidate(s, myId, budget);
             replyRerankPending = false;
@@ -325,6 +341,102 @@ public final class EvalBot implements Bot {
     }
 
     // ------------------------------------------------------------------ build
+
+    /** Known-state defense only: bounded path work, core income, no same-turn enemy actions. */
+    private boolean chooseDefenseCandidate(GameState s, int me, int budgetNow) {
+        java.util.Arrays.fill(regionMark, false);
+        java.util.Arrays.fill(defenseTried, false);
+        for (int p = 0; p < s.pairCount; p++) if (s.pairActive(p)) {
+            for (int i = 0; i < s.pairPathLen[p]; i++) {
+                int c = s.pairPath[p][i], r = s.regionId[c];
+                if (s.owner[c] == me && s.regionInstability[r] >= P.DEFENSE_MIN_INSTABILITY
+                        && !s.regionInked[r] && !s.regionHasTown(r)) regionMark[r] = true;
+            }
+        }
+        Rules.incomePerTurn(s, inc0);
+        int beforeMine = inc0[me], beforeDiff = inc0[me] - inc0[1 - me];
+        double best = 0;
+        bestLen = -1;
+        for (int scan = 0; scan < P.DEFENSE_MAX_REGIONS && !buildTimeUp(); scan++) {
+            int region = -1;
+            for (int r = 0; r < s.regionCount; r++) if (regionMark[r] && !defenseTried[r]
+                    && (region < 0 || s.regionInstability[r] > s.regionInstability[region])) region = r;
+            if (region < 0) break;
+            defenseTried[region] = true; defenseRegionsScanned++;
+            int hits = GameState.INK_THRESHOLD - s.regionInstability[region];
+            int deadline = Math.min(hits, s.turnsLeft());
+            if (deadline <= 0) continue;
+            sim2.copyFrom(s);
+            Rules.ink(sim2, region);
+            Rules.updateConnections(sim2, pathing);
+            Rules.incomePerTurn(sim2, incB);
+            int inkMine = incB[me], inkDiff = incB[me] - incB[1 - me];
+            if (inkMine >= beforeMine) continue;
+            for (int c = 0; c < s.size; c++) blocked[c] = s.regionId[c] == region
+                    || (s.regionInstability[s.regionId[c]] > 0 && !s.regionHasTown(s.regionId[c]));
+            int tried = 0;
+            for (int p = 0; p < s.pairCount && tried < P.DEFENSE_MAX_PAIRS && !buildTimeUp(); p++) {
+                if (!s.pairActive(p)) continue;
+                boolean crosses = false, mine = false;
+                for (int i = 0; i < s.pairPathLen[p]; i++) {
+                    int c = s.pairPath[p][i];
+                    if (s.regionId[c] == region) crosses = true;
+                    if (s.owner[c] == me) mine = true;
+                }
+                if (!crosses || !mine) continue;
+                tried++; defensePathQueries++;
+                int to = s.townCell[s.pairTo[p]];
+                int n = pathing.cheapestPath(s, s.townCell[s.pairFrom[p]], to, pathBuf, blocked);
+                if (n < 0) continue;
+                int paint = pathing.lastCost(to);
+                if (paint <= 0 || paint > P.DEFENSE_MAX_PAINT) continue;
+                int turns = prepareDefenseCompletion(s, me, budgetNow, n, deadline, beforeDiff);
+                if (turns < 0 || buildTimeUp()) continue;
+                // sim now contains only our completed placements, checked prefix-by-prefix.
+                Rules.ink(sim, region);
+                Rules.updateConnections(sim, pathing);
+                Rules.incomePerTurn(sim, incA);
+                int recovery = incA[me] - incA[1 - me] - inkDiff;
+                if (incA[me] <= inkMine || recovery <= 0 || buildTimeUp()) continue;
+                double value = (double) recovery / (paint * hits);
+                if (value > best) {
+                    best = value; bestLen = n; bestCost = paint;
+                    defenseSelectedRegion = region; defenseSelectedTurns = turns;
+                    System.arraycopy(pathBuf, 0, bestPath, 0, n);
+                }
+            }
+        }
+        return bestLen > 0;
+    }
+
+    /** Same affordable ordering as emission. Total paint alone misses per-turn packing waste. */
+    private int prepareDefenseCompletion(GameState s, int me, int budgetNow, int len,
+                                         int deadline, int beforeDiff) {
+        sim.copyFrom(s);
+        for (int turn = 1; turn <= deadline && !buildTimeUp(); turn++) {
+            int budget = turn == 1 ? budgetNow : GameState.PAINT_PER_TURN, count = 0;
+            for (int pass = 0; pass < 2; pass++) for (int i = 0; i < len; i++) {
+                int c = pathBuf[i];
+                if (!sim.canBuild(c) || contested[c] != (pass == 1)) continue;
+                int cost = sim.placeCost(c);
+                if (cost > budget) continue;
+                boolean duplicate = false;
+                for (int j = 0; j < count; j++) if (prefixBuf[j] == c) duplicate = true;
+                if (duplicate) continue;
+                budget -= cost;
+                prefixBuf[count++] = c;
+            }
+            if (count == 0) return -1;
+            Rules.applyPlacements(sim, prefixBuf, me == 0 ? count : 0, prefixBuf, me == 1 ? count : 0);
+            Rules.updateConnections(sim, pathing);
+            Rules.incomePerTurn(sim, incA);
+            if (incA[me] - incA[1 - me] < beforeDiff) return -1;
+            boolean complete = true;
+            for (int i = 0; i < len; i++) if (sim.canBuild(pathBuf[i])) { complete = false; break; }
+            if (complete) return turn;
+        }
+        return -1;
+    }
 
     /** A phase cutoff, not a new timer: sabotage still uses the original turn deadline. */
     private boolean buildTimeUp() {

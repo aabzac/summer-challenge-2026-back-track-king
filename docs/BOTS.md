@@ -62,6 +62,32 @@ characters, but the fixed strict process sample **failed 1/4 games**: P1 turn 41
 66-ms bot search or identify the cause. Preserve the failed report; investigate before claiming
 submission timing readiness. No retry-to-green or upload; strategy source is unchanged.
 
+## Observed-threat defense priority (2026-09-16, not promoted)
+
+`current?USE_DEFENSE_PRIORITY=1` adds a bounded first-build priority for a <=6-paint bypass of
+already damaged active income. It uses core pathing/scoring, checks actual per-turn packing and
+non-losing prefixes, and replans each turn. It is separate from the independent heuristic policy;
+other experiments remain off, default current/selected submission remains v05.
+
+Fixed direct screen: **141-157-2, 47.33%** vs v05 on **300 games / 150 paired generated maps**,
+seeds 27000..27149; map-grouped Hoeffding 95% CI **36.24-58.42%**, mean score difference
+**-183.69**, zero errors. **No promotion**, no confirmation run or parameter tuning.
+
+Matched older/style control against `v02?W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2`, 200 games each
+on seeds 27000..27099: candidate **127-73 (63.5%)**, CI **49.92-77.08%**; frozen v05
+**147-53 (73.5%)**, CI **59.92-87.08%**. Same map hashes, sides, opponent config and timing;
+candidate adds 19 wins but loses 39, with 142 unchanged outcomes. These are descriptive
+common-opponent results, not another direct comparison or a statistical proof of general harm.
+
+All three runs use CG 486/36-ms budgets, two workers, default SEED/NOISE, with zero bot errors
+or >50-ms in-process slow moves. Seven new defense tests plus merged ON parity/warmup: **189
+tests passed**, **264 arena + 26 boss replays exact**. Full controls, process checks and source
+hashes: defense-priority-v1 entries in DEVLOG; local reports under `build/bench/defense-priority-v1`.
+Candidate process check: 0/4 failures, first max 807.38 ms (above 800-ms headroom target), later
+39.23 ms. Restored-v05 check **failed 4/4, all at turn 0**, with input sending taking up to
+1139 ms and no recorded response. Source restored to v05, but **not freshly timing-approved**;
+preserve the failure for separate input/startup diagnosis, no retry-to-green or upload.
+
 ## Simple heuristic candidate (2026-09-16, not promoted)
 
 `current?USE_HEURISTIC_POLICY=1` selects an independent known-board policy: sticky sabotage,

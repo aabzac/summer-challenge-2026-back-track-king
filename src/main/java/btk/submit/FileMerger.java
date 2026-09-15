@@ -94,6 +94,8 @@ public class FileMerger {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
+                // This line-based merger cannot preserve text-block indentation/comment contents.
+                if (line.contains("\"\"\"")) throw new IllegalArgumentException("Submission merger does not support text blocks: " + file);
                 // Import frozen source as the generated current EvalBot, without editing v05.
                 if (version.equals("v05") && file.endsWith("EvalBotV05.java")) {
                     line = line.replaceAll("\\bEvalBotV05\\b", "EvalBot");
@@ -129,8 +131,8 @@ public class FileMerger {
                 if (pt.find()) {
                     line = pt.group(1) + "static " + pt.group(2) + pt.group(3) + " " + line.substring(pt.end());
                 }
-                // Whitespace is not semantic here; omitting the merge prefix saves about 10 KB.
-                body.append(line.stripTrailing()).append('\n');
+                // Keep line/token boundaries and string literals; discard only surrounding indentation.
+                body.append(line.strip()).append('\n');
             }
         }
 

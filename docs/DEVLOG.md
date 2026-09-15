@@ -1987,3 +1987,122 @@ Completed outcome (fixed sample, no retuning):
   `41d280e01cdba32da728339e8d7ab13b2c673d5dd35ee7b89bc009a9c14a6e9e`.
   Final Player unchanged, v05 SHA-256
   `45c25fc41d74c41b79498e8bab410dedf0e4530e8db9381382c16e11d976c6e8`.
+
+### 2026-09-16 — observed-threat defense priority v1 (predeclared)
+
+- User approved the next single-feature experiment. Base revision b4e4c1e; candidate
+  `current?USE_DEFENSE_PRIORITY=1`, baseline frozen v05; all unrelated experiments off.
+  Hypothesis: explicitly prioritizing cheap pre-ink recovery of active income can outperform
+  letting backups compete only in general completed-position evaluation. Boss observations
+  motivate the test, not a claim about the cause of our own losses.
+- Once per turn, before ordinary own construction, examine at most 3 already unstable regions
+  carrying our tracks on active routes, highest instability first, then region id. For each,
+  try at most 4 exposed directed desired pairs using core cheapest paths. Avoid the target and
+  all other already unstable non-town regions. Ignore zero-cost, impossible or >6-paint routes.
+  Simulate the actual uncontested-first affordable placement order, at 3 paint per turn, to
+  verify completion within remaining hits (including this turn) and remaining game turns.
+  This assumes one further enemy hit per turn; no new opponent forecast or attribution of old
+  instability to a particular player. Replan each turn; no persistent commitment in this v1.
+- Core income after hypothetical ink must show actual own loss without building, and the
+  completed bypass must recover both own income and raw income difference. Each simulated
+  affordable prefix must preserve the current raw income difference; this gate applies only
+  to forced defense. Choose the highest recovered difference / (paint * remaining hits),
+  deterministic ties. Ordinary construction handles leftovers; sabotage logic is unchanged.
+  At most 12 extra path queries, existing build deadline/reserve retained; interrupted defense
+  returns only a fully checked candidate. Feature-specific buffers allocated only when enabled.
+- Fixed screen: **300 games / 150 paired generated maps**, seeds **27000..27149**, candidate
+  versus v05. Older aggressive control: **200 candidate-vs-v02 and 200 v05-vs-v02 games** on
+  seeds 27000..27099, opponent `v02?W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2` in both controls.
+  Java 17.0.12, two workers, CG 486/36 ms,
+  default SEED=1 and NOISE=0.1, full configs/hashes saved in reports. No post-result tuning,
+  sample extension or confirmation-pool use. Promotion requires >=55% and lower map-grouped
+  Hoeffding 95% bound >50%, no errors, plus independent confirmation before freezing if the
+  screen passes. Older-control results stay separate, never pooled into the direct gate.
+- Before benches: unit tests, captured known-state fixture, OFF/frozen ample-time parity,
+  merged ON parity/warmup, arena + boss cgValidate. After benches: candidate submit and one
+  strict four-game process run vs v04, preserve candidate source/manifest, restore v05 and
+  repeat the same fixed process sample once. No retry-to-green, upload or implicit promotion.
+  Reports: build/bench/defense-priority-v1 and build/analysis/defense-priority-v1; preserve all
+  failures and source/artifact identities. Commit implementation and results when finished.
+
+- Implementation checks before the first game: seven new defense tests plus merged-policy
+  parity/warmup; **189 tests passed** and **264 arena + 26 boss replays exact**. Captured fixture
+  contains only the 14 prior stdout lines before P1 turn 7 of 904047070, not that turn's reply.
+  Tests cover both sides, useful two-turn recovery, packing waste (three river cells require
+  three turns despite costing six paint), deadline/cost caps, free/impossible/no-damage cases,
+  enemy-benefiting bypass rejection, original state isolation and ample-time OFF/frozen parity.
+- Initial test failures, before any bench: merged current reached **101,174 characters**;
+  changed packaging only to strip surrounding line indentation, preserving token/newline and
+  ordinary string-literal contents. Explicitly reject unsupported Java text blocks rather than
+  alter their semantics. Source files/frozen policies retain their formatting. Full merged
+  current/heuristic/frozen tests passed after this change. Also extended the frozen-parameter
+  expectation for the five new fields ignored by v05; no historical parameter resource edited.
+- Source identities used by all three benches: EvalBot SHA-256
+  `2c521893a2762cdd9f902fb4f75cf1138a1ff5e8fa716223fc4885ee314d0d6e`, Params
+  `460e487e4554ef17cf62c809d0b76c22cad7d2b901c49b1eaec7917bee459882`;
+  compiled EvalBot `bcb1ff8b2a1c88c4c9bb759f1635570ea0c2ffb9fb1f891620b96832154fc020`,
+  Params `47a62e732cacab4f4c8159bb4dcaf5dece1d5435ebee887417827e49b2161d07`.
+
+### 2026-09-16 — observed-threat defense priority v1 (outcome)
+
+- Followed the fixed direct screen: **141-157-2, 47.33%** versus frozen v05, 300 games /
+  150 paired generated maps, seeds 27000..27149. Map-grouped Hoeffding 95% CI **36.24-58.42%**;
+  no promotion or confirmation run. P0 wins 75/150, P1 66/150; mean score difference **-183.69**,
+  mean length **71.61 turns**, 256/300 early closures, zero bot errors. Local search mean
+  A/B **4.356 / 4.628 ms**, maxima **38 / 38 ms**, zero >50-ms slow moves. Accepted sabotage
+  **84.19% / 83.98%**, placement **93.92% / 93.86%**. Elapsed 108.964 s. Configuration comparison
+  confirms that USE_DEFENSE_PRIORITY is the only differing resolved parameter; historical
+  strategy source is nevertheless a separate implementation from current.
+- Candidate older-style control: **127-73-0, 63.5%** vs
+  `v02?W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2`, 200 games / 100 paired maps, seeds 27000..27099.
+  CI **49.92-77.08%**, score difference **+334.03**, length **79.35**, 135/200 early closures.
+  P0 wins 67/100, P1 60/100; zero errors/slow moves; mean search **4.036 / 2.233 ms**, max
+  **35 / 38 ms**. Sabotage **67.71% / 88.87%**, placements **97.49% / 48.82%**. Elapsed 57.983 s.
+  Verified these maps match the direct screen's first 100 hashes; no slice-based tuning.
+- Matched frozen-v05 older control: **147-53-0, 73.5%**, CI **59.92-87.08%** on the same
+  100 paired maps/opponent config/timing. Score difference **+521.51**, length **81.03**,
+  134/200 early closures. P0 wins 78/100, P1 69/100; no errors/slow moves; search mean
+  **4.253 / 2.045 ms**, max **37 / 36 ms**. Sabotage **65.97% / 88.89%**, placement
+  **96.30% / 47.53%**. Elapsed 59.454 s. Joined map/side outcomes: candidate **19 added wins,
+  39 lost wins, 142 unchanged**. All resolved A configs differ only in USE_DEFENSE_PRIORITY;
+  B configs and all selected map hashes match. No mismatched historical-rate comparison.
+- Decision: **keep USE_DEFENSE_PRIORITY=false, no new frozen version**. Direct screen fails
+  the practical/confidence gate; the older control does not support promotion either. This
+  does not establish statistical harm/equivalence or isolate any one heuristic subcondition.
+  Candidate can force useful recovery in the captured position, but the broad tradeoff is not
+  beneficial enough to adopt. Completion assumes no intervening enemy placements/other inks,
+  unchanged current contested ordering, and one enemy hit per turn; ordinary later building
+  and our sabotage may change the plan. Known-state projections are not guaranteed protection.
+  Timings come from different resulting trajectories, not an isolated speed comparison.
+  No post-result parameter edits, strength games beyond the declared 700, or confirmation use.
+- Candidate artifact: **76,878 / 100,000 characters**, source SHA-256
+  `12ccfe8ae3af70d0d75c912cbd99ef9fe13f1332eedb31a985bdd66a38dd9ccc`, archived at
+  `build/analysis/defense-priority-v1/Player-candidate.java` with `candidate-manifest.json`.
+  Candidate strict process check vs v04: **0/4 problem games**, first-response max **807.3832 ms**,
+  later max **39.233 ms**. Passes the actual 1000/50-ms deadlines in this small sample, but two
+  first responses exceed the separate 800-ms headroom target. Do not claim arena timing safety.
+- Restored **frozen v05**, now **49,870 chars** after whitespace-only packaging and five unused
+  parameter declarations; SHA-256 `77c5954ceded17137fe2645467d7b0602159eb5992f5ce0c368d15d087cc489c`.
+  Its one fixed strict process check **FAILED 4/4 games, all turn 0**. Files/positions:
+  903182120 P0, 903182383 P1, 903182464 P0, 903182662 P1; identical to the candidate sample.
+  Input preparation/send took **366.677 / 894.5249 / 1112.2006 / 1138.9977 ms**. No timestamped
+  response was received; timeout consumers woke at **1008.5119 / 1017.689 / 1112.2506 / 1139.0472 ms**.
+  Thus the last two consume the entire deadline before input sending finishes. Console "reader"
+  values in these failure cases are not actual response timestamps; JSON responseMs is null.
+  Candidate first input sending was 209.831..245.980 ms. No IO-phase diagnostics were enabled,
+  so preparation vs blocking write/host scheduling/JVM startup remains unidentified. The two
+  sequential artifacts do not isolate the cause, and this is not proof of a search regression.
+  No concurrent strength runs, retries-to-green, runtime fix or upload. Retain the failed report;
+  selected policy is v05 but the final artifact has **no fresh process-readiness pass**.
+- Reports SHA-256 under `build/bench/defense-priority-v1/`:
+  `candidate-v05.json` = `6414e7894ed59bb4c6691acbd4b6623e7e0d43391bf1a0c82964594439c6aa98`;
+  `candidate-v02.json` = `503c149cb2bbc71ac63ddac7781eb2fd2c29855b3e3ffe27b972cbd6ffd9ee34`;
+  `control-v02.json` = `048365b34667ea817479265d4341a6d56788cc90ddb25cef4d9cdb73b81c9566`.
+  Process reports under `build/analysis/defense-priority-v1/`:
+  `candidate-process.json` = `3f7c6b97587478e9485cbb8e7ef7115c87d5cd8c3e1333a16ce96046ec9a5a52`;
+  `restored-v05-process.json` = `8d2a13bee70553b1de6aca43c90efee2eff3a45c34b6dbf0f8b6398fd697735a`.
+  Executable tree SHA-256 candidate/restored:
+  `0ba0f900efc327ec9710ad0cafc7506d5926a90f702e82641534372f864c7095` /
+  `23f7463c3954b7d98cf0d2a04ee74a63b5dab41e4d6eca2c3a53610e4d5ec7bd`.
+- Updated README/BOTS/PLAN; completed rejected experiment is committed per the user's standing
+  preference. No core, historical bot, historical parameter, reference or catalog archive edits.

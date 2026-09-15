@@ -73,6 +73,12 @@ public class Params {
     public double W_THEIR_LOSS = 1.0;
     /** Also generate backup routes for active pairs that avoid the most threatened region. */
     public boolean USE_BACKUP = true;
+    /** Experimental forced cheap bypass of already damaged active income; off until promoted. */
+    public boolean USE_DEFENSE_PRIORITY = false;
+    public int DEFENSE_MAX_REGIONS = 3;
+    public int DEFENSE_MAX_PAIRS = 4;
+    public int DEFENSE_MAX_PAINT = 6;
+    public int DEFENSE_MIN_INSTABILITY = 1;
     /** Spend otherwise idle paint by extending our existing network through safe nearby cells. */
     public boolean USE_IDLE_EXTEND = true;
     /** Experimental: veto actual affordable builds that reduce current raw income difference. */
