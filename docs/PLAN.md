@@ -131,6 +131,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       check, P1 turn 41 on 903182662; input preparation/send took 66.6288 ms before a response
       was observed. Do not attribute this to search without evidence. Keep the failed report
       `build/analysis/panel-v1-restored-v05-process.json`; no timing-readiness claim or retry-to-green.
+- [x] Add opt-in process input phase/host-counter diagnostics without changing deadlines or Player.
+      Six new tests; one fixed eight-game diagnostic run had 0 failures, later response max
+      36.81 ms and input send max 4.35 ms. Original stall did not recur, so its cause remains open.
+      Preserve process-input-diagnostic8.json; counter limits and findings are in DEVLOG.
 
 - [x] Add descriptive bot labels without renaming frozen classes; retain six named local
       experiment recipes with full parameters and a classpath implementation guard. Reports and

@@ -16,13 +16,14 @@ import java.util.ArrayList;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 /**
  * Pre-submit check: merges Player.java (if needed), then plays it as an external process against
  * an in-process bot on real CG maps when available. Fails loudly on timeouts, invalid commands,
  * or process errors. Connection-model warnings are printed on stderr for inspection.
  *
- * <p>Args: opponentSpec games [map file or pool] [graceMs=0] [report path]
+ * <p>Args: opponentSpec games [map file or pool] [graceMs=0] [report path] [ioDiagnostics=false]
  */
 public final class ProcessCheck {
     record GameCheck(int game, int player, String map, long seed, Referee.Result result,
@@ -34,6 +35,8 @@ public final class ProcessCheck {
         long graceMs = args.length > 3 && !args[3].isBlank() ? Long.parseLong(args[3]) : 0;
         if (games <= 0 || graceMs < 0) throw new IllegalArgumentException("Positive games and nonnegative grace required");
         Path out = Path.of(args.length > 4 && !args[4].isBlank() ? args[4] : "build/analysis/process-check.json");
+        boolean diagnostics = args.length > 5 && parseDiagnostics(args[5]);
+        if (diagnostics && Files.exists(out)) throw new IllegalArgumentException("Choose a new diagnostic report: " + out);
         Path classes = Path.of("build/submit/classes/Player.class");
         if (!Files.exists(classes)) FileMerger.main(new String[0]);
         Path source = Path.of("build/submit/Player.java");
@@ -47,10 +50,12 @@ public final class ProcessCheck {
         List<GameCheck> checks = new ArrayList<>();
         System.out.printf("Process deadlines: first %d ms, later %d ms, explicit grace %d ms (%s)%n",
                 CGRunner.FIRST_TURN_MS, CGRunner.TURN_MS, graceMs, graceMs == 0 ? "strict local check" : "diagnostic only");
+        if (diagnostics) System.out.println("IO diagnostics enabled: host wall/CPU/GC counters add overhead; no child-search attribution.");
         for (int g = 0; g < games; g++) {
             long seed = 7000 + g;
             GameState initial = maps.get(g, seed);
             ProcessBot pb = ProcessBot.javaPlayer("build/submit/classes");
+            if (diagnostics) pb.enableIoDiagnostics();
             pb.graceMs = graceMs;
             Bot other = TimingProfile.CG.cap(BotFactory.create(opp));
             boolean asP0 = g % 2 == 0;
@@ -72,16 +77,35 @@ public final class ProcessCheck {
                     pb.nominalOverruns, List.copyOf(pb.timings)));
             System.out.printf("game %d as P%d: %s | reader first %d ms, max later %d ms, timeouts %d, nominal overruns %d%s%n", g, me,
                     r.summary(), pb.firstTurnMs, pb.maxResponseMs, pb.timeouts, pb.nominalOverruns, bad ? "  <-- PROBLEM" : "");
+            if (diagnostics) {
+                double prepare = 0, write = 0, flush = 0;
+                for (var timing : pb.timings) if (timing.turn() > 0 && timing.io() != null) {
+                    prepare = Math.max(prepare, timing.io().prepareMs());
+                    write = Math.max(write, timing.io().writeMs());
+                    flush = Math.max(flush, timing.io().flushMs());
+                }
+                System.out.printf("  later input phase maxima: prepare %.3f ms / write %.3f ms / flush %.3f ms%n", prepare, write, flush);
+            }
         }
         Files.createDirectories(out.toAbsolutePath().getParent());
-        Files.writeString(out, new GsonBuilder().setPrettyPrinting().serializeNulls().create().toJson(Map.of(
-                "schemaVersion", 1, "sourceSha256", sourceHash, "classesSha256", classesHash,
-                "javaVersion", System.getProperty("java.version"), "opponent", opp,
-                "opponentParams", BotFactory.configuration(opp), "graceMs", graceMs,
-                "strict", graceMs == 0, "problems", problems, "games", checks)), StandardCharsets.UTF_8);
+        Map<String, Object> report = new LinkedHashMap<>();
+        report.put("schemaVersion", 1); report.put("sourceSha256", sourceHash); report.put("classesSha256", classesHash);
+        report.put("javaVersion", System.getProperty("java.version")); report.put("opponent", opp);
+        report.put("opponentParams", BotFactory.configuration(opp)); report.put("graceMs", graceMs);
+        report.put("strict", graceMs == 0); report.put("problems", problems); report.put("games", checks);
+        report.put("ioDiagnostics", diagnostics);
+        Files.writeString(out, new GsonBuilder().setPrettyPrinting().serializeNulls().create().toJson(report), StandardCharsets.UTF_8);
         System.out.println("Per-turn timing report: " + out);
         System.out.printf("Player.java: %d/%d wins vs %s, %d problem games%n", wins, games, opp, problems);
         if (problems > 0) System.exit(1);
+    }
+
+    static boolean parseDiagnostics(String value) {
+        return switch (value) {
+            case "true", "1" -> true;
+            case "false", "0", "" -> false;
+            default -> throw new IllegalArgumentException("processDiagnostics must be true/false or 1/0");
+        };
     }
 
     private static String classesHash(Path root) throws Exception {

@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.LongSupplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,12 +36,16 @@ class ProcessBotTest {
         }
 
         ProcessBot bot() {
+            return bot(clock::get);
+        }
+
+        ProcessBot bot(LongSupplier timingClock) {
             Writer writer = new Writer() {
                 @Override public void write(char[] text, int offset, int length) {}
                 @Override public void flush() { clock.set((1000 + sendMs) * MS); }
                 @Override public void close() {}
             };
-            return new ProcessBot(writer, this, clock::get);
+            return new ProcessBot(writer, this, timingClock);
         }
     }
 
@@ -52,6 +58,72 @@ class ProcessBotTest {
         assertEquals("OK", bot.timings.get(0).status());
         assertEquals(35.0, bot.timings.get(0).responseMs());
         assertEquals(180.0, bot.timings.get(0).consumerMs());
+        assertNull(bot.timings.get(0).io()); // diagnostics are opt-in
+    }
+
+    @Test void diagnosticsSplitSendPhasesWithoutChargingConsumerWakeup() {
+        Transport transport = new Transport(20, 35, 180);
+        ProcessBot bot = transport.bot(clockSequence(1000, 1002, 1009, 1020, 1180));
+        bot.enableIoDiagnostics();
+        GameState state = state();
+        assertDoesNotThrow(() -> bot.play(state, 1, 50));
+        var timing = bot.timings.get(0);
+        var io = timing.io();
+        assertEquals(2.0, io.prepareMs());
+        assertEquals(7.0, io.writeMs());
+        assertEquals(11.0, io.flushMs());
+        assertEquals(timing.sendMs(), io.prepareMs() + io.writeMs() + io.flushMs());
+        assertEquals(Protocol.turnBlock(state, 1).length(), io.inputChars());
+        assertNull(io.failedInput());
+        assertTrue(io.hostThreadCpuMs() == null || io.hostThreadCpuMs() >= 0);
+        assertTrue(io.hostGcMillis() == null || io.hostGcMillis() >= 0);
+        assertEquals(30 * MS, transport.requestedNs);
+        assertEquals(35.0, timing.responseMs());
+        assertEquals(180.0, timing.consumerMs());
+        assertEquals("OK", timing.status());
+    }
+
+    @Test void diagnosticsRetainFailedInputAndDoNotExtendDeadline() {
+        Transport transport = new Transport(66, 0, 66); transport.absent = true;
+        ProcessBot bot = transport.bot(clockSequence(1000, 1003, 1063, 1066, 1066));
+        bot.enableIoDiagnostics();
+        GameState state = state(); state.turn = 41;
+        assertThrows(IllegalStateException.class, () -> bot.play(state, 1, 50));
+        var timing = bot.timings.get(0);
+        var io = timing.io();
+        assertEquals(3.0, io.prepareMs());
+        assertEquals(60.0, io.writeMs());
+        assertEquals(3.0, io.flushMs());
+        assertEquals(66.0, timing.sendMs());
+        assertEquals(Protocol.turnBlock(state, 1), io.failedInput());
+        assertEquals(io.failedInput().length(), io.inputChars());
+        assertEquals(41, timing.turn());
+        assertNull(timing.responseMs());
+        assertEquals("TIMEOUT", timing.status());
+        assertEquals(0, transport.requestedNs);
+        assertEquals(1, bot.timeouts);
+    }
+
+    @Test void diagnosticReaderDeadlineBoundaryIsUnchanged() {
+        ProcessBot exact = new Transport(1, 50, 180).bot(); exact.enableIoDiagnostics();
+        assertDoesNotThrow(() -> exact.play(state(), 0, 50));
+        ProcessBot late = new Transport(1, 51, 180).bot(); late.enableIoDiagnostics();
+        assertThrows(IllegalStateException.class, () -> late.play(state(), 0, 50));
+        assertEquals("TIMEOUT", late.timings.get(0).status());
+        assertNotNull(late.timings.get(0).io().failedInput());
+    }
+
+    @Test void disabledDiagnosticsKeepOriginalClockReadSequence() {
+        ProcessBot bot = new Transport(3, 35, 180).bot(clockSequence(1000, 1003, 1180));
+        assertDoesNotThrow(() -> bot.play(state(), 0, 50));
+        assertEquals(3.0, bot.timings.get(0).sendMs());
+        assertEquals(180.0, bot.timings.get(0).consumerMs());
+        assertNull(bot.timings.get(0).io());
+    }
+
+    private static LongSupplier clockSequence(long... milliseconds) {
+        AtomicInteger index = new AtomicInteger();
+        return () -> milliseconds[index.getAndIncrement()] * MS;
     }
 
     @Test void queuedLateLineIsRejectedEvenWhenPollReturnsIt() {

@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+import java.lang.management.GarbageCollectorMXBean;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.List;
@@ -31,11 +34,15 @@ public final class ProcessBot implements Bot {
     private Process proc;
     private Writer stdin;
     record Response(String line, long receivedNs) {}
+    /** Optional host-side evidence, not child search time or proof of the cause of a stall. */
+    public record IoTiming(double prepareMs, double writeMs, double flushMs, int inputChars,
+                           Double hostThreadCpuMs, Long hostGcMillis, String failedInput) {}
     public record TurnTiming(int turn, long budgetMs, long graceMs, double sendMs,
-                             Double responseMs, double consumerMs, String status) {}
+                             Double responseMs, double consumerMs, String status, IoTiming io) {}
     private final BlockingQueue<Response> lines;
     private final LongSupplier clock;
     private boolean terminal;
+    private HostCounters diagnostics;
     /** Explicit diagnostic allowance only. Default checks the nominal deadline without grace. */
     public long graceMs = 0;
     public int timeouts;
@@ -44,6 +51,28 @@ public final class ProcessBot implements Bot {
     /** Slowest response after the first turn (which includes JIT warm-up). */
     public long maxResponseMs;
     public long firstTurnMs;
+
+    /** Opt in BEFORE init/play; management initialization is deliberately outside the turn deadline. */
+    public void enableIoDiagnostics() { diagnostics = new HostCounters(); }
+
+    private static final class HostCounters {
+        final ThreadMXBean threads = ManagementFactory.getThreadMXBean();
+        final List<GarbageCollectorMXBean> collectors = ManagementFactory.getGarbageCollectorMXBeans();
+        long cpuNs() {
+            return threads.isCurrentThreadCpuTimeSupported() && threads.isThreadCpuTimeEnabled()
+                    ? threads.getCurrentThreadCpuTime() : -1;
+        }
+        long gcMillis() {
+            long total = 0;
+            if (collectors.isEmpty()) return -1;
+            for (var collector : collectors) {
+                long value = collector.getCollectionTime();
+                if (value < 0) return -1;
+                total += value;
+            }
+            return total;
+        }
+    }
 
     public ProcessBot(String label, List<String> command) {
         this.label = label;
@@ -114,8 +143,13 @@ public final class ProcessBot implements Bot {
         if (budgetMs <= 0 || graceMs < 0) throw new IllegalArgumentException("Invalid process deadline");
         long allowedNs = TimeUnit.MILLISECONDS.toNanos(Math.addExact(budgetMs, graceMs));
         try {
+            long cpuBefore = diagnostics == null ? -1 : diagnostics.cpuNs();
+            long gcBefore = diagnostics == null ? -1 : diagnostics.gcMillis();
             long t0 = clock.getAsLong();
-            stdin.write(Protocol.turnBlock(s, myId));
+            String input = Protocol.turnBlock(s, myId);
+            long preparedNs = diagnostics == null ? 0 : clock.getAsLong();
+            stdin.write(input);
+            long writtenNs = diagnostics == null ? 0 : clock.getAsLong();
             stdin.flush();
             long sentNs = clock.getAsLong();
             long remainingNs = Math.max(0, allowedNs - (sentNs - t0));
@@ -130,8 +164,17 @@ public final class ProcessBot implements Bot {
             String status = response != null && elapsedNs < 0 ? "UNSOLICITED"
                     : late ? "TIMEOUT" : response.line() == null ? "EOF"
                     : nominalOverrun ? "GRACE" : "OK";
+            IoTiming io = null;
+            if (diagnostics != null) {
+                long cpuAfter = diagnostics.cpuNs(), gcAfter = diagnostics.gcMillis();
+                io = new IoTiming((preparedNs - t0) / 1e6, (writtenNs - preparedNs) / 1e6,
+                        (sentNs - writtenNs) / 1e6, input.length(),
+                        cpuBefore < 0 || cpuAfter < cpuBefore ? null : (cpuAfter - cpuBefore) / 1e6,
+                        gcBefore < 0 || gcAfter < gcBefore ? null : gcAfter - gcBefore,
+                        status.equals("OK") ? null : input);
+            }
             timings.add(new TurnTiming(s.turn, budgetMs, graceMs, (sentNs - t0) / 1e6,
-                    elapsedNs == null ? null : elapsedNs / 1e6, (consumedNs - t0) / 1e6, status));
+                    elapsedNs == null ? null : elapsedNs / 1e6, (consumedNs - t0) / 1e6, status, io));
             long ms = (elapsedNs == null ? consumedNs - t0 : Math.max(0, elapsedNs)) / 1_000_000L;
             if (s.turn == 0) firstTurnMs = ms;
             else maxResponseMs = Math.max(maxResponseMs, ms);

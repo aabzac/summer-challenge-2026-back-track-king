@@ -1218,3 +1218,56 @@ Completed outcome:
   installation or unrelated configuration change was made. Existing frontmatter is untouched.
 - Commit the completed catalog/tooling with its prior 134-test, 9-label-check and 264-replay
   evidence. Next work is the recorded strict-process timeout diagnosis, not a strategy change.
+
+### 2026-09-15 — process input timeout phase diagnosis (plan)
+
+- Catalog committed as 91c77f7. Original failure has sendMs=66.6288 but no reader response:
+  that aggregate combines Protocol.turnBlock, Writer.write and flush. The old report cannot
+  distinguish serialization CPU, blocked pipe or descheduling/GC. Do not infer slow bot search.
+- Add optional process-side IO telemetry: preparation/write/flush wall times, input size,
+  caller-thread CPU and host-JVM GC-time deltas. Keep original absolute deadline, zero grace,
+  timestamped reader decision and default instrumentation-off path. Capture failed input only
+  when diagnostics are enabled. The counters identify intervals, not a universal causal oracle.
+- After deterministic tests, one fixed eight-game run on the first eight sorted canonical CG
+  maps, opponent v04, alternating sides, frozen v05 artifact, 1000/50-ms deadlines, zero grace.
+  This includes the original four-map check, including P1 on 903182662. Run serially without
+  other heavy tasks. Retain all outcomes; no repeat-until-green or strategy/budget changes.
+  Report: build/analysis/process-input-diagnostic8.json. No strength bench or confirmation pool.
+
+### 2026-09-15 — process input diagnostics implemented; old stall not reproduced
+
+- Added opt-in `procCheck -PprocessDiagnostics=true`: separate input preparation/write/flush,
+  input character count, caller-thread CPU and host JVM GC-time deltas; exact turn input retained
+  on non-OK statuses. Initialization of management counters is outside the turn deadline.
+  Default is off, reader timestamps still decide success, all input phases consume the same
+  absolute allowance, and explicit diagnostic runs refuse an existing report path.
+- Added six tests: phase split, timed-out input retention/no extra allowance, reader boundary
+  with diagnostics, unchanged clock-read sequence when off, explicit flag validation and report
+  overwrite refusal. **140 tests passed; 264/264 CG replays exact**. No core, Params, strategy,
+  frozen package or submission runtime changes; the experiment classpath guards still pass.
+- Ran exactly the predeclared eight games once, serially, on the first eight CG maps in sorted
+  order, frozen v05 vs v04, alternating P0/P1, seeds 7000..7007, strict 1000/50 ms, grace 0,
+  Java 17.0.12. **0/8 problem games, 0 nominal overruns**, 497 measured turns (489 after first).
+  Observed W-L-D 5-3-0 is not strength evidence. No confirmation-pool games or arena upload.
+  Report `build/analysis/process-input-diagnostic8.json`, SHA-256
+  `78a831017827d060570ee90607e0809533a01fbdb8c059371d44d906187b7e95`.
+- Exact Player source and classes hashes match the preceding failed run:
+  source `d03dd610ca210922436fdefb3c3f4f18f8815d22e9d06e85a6466461f2817d29`,
+  classes `e03c16d0a4f01eba37e4b85860f5bb01577dd7b6c7940a07c30cd9d55f44525b`.
+  First response max **708.4809 ms**, later response max **36.808901 ms**.
+  Later input send max **4.348399 ms** on 903183758/P1/turn54, of which flush **4.287699 ms**.
+  Across later turns the phase maxima were prepare **1.551 ms**, write **0.5812 ms**,
+  flush **4.287699 ms** (separate maxima, not one turn).
+- Original map/side/turn 903182662/P1/41: send **0.3903 ms**, response **33.891699 ms**;
+  prepare/write/flush **0.2083/0.1595/0.0225 ms**, input 10,941 chars. This is a new timed game,
+  not reproduction of the original exact input or JVM history. The old input was not saved.
+- Long first-turn send intervals were localized to flush (max **162.109101 ms**), consistent
+  with startup/pipe waiting but not proof of the old later-turn cause. No host GC-time increments
+  occurred in the measured windows. Host CPU deltas were only **0/15.625 ms** (37 nonzero calls),
+  too coarse for short phases; zero is not evidence of zero CPU work. Child GC and scheduling
+  remain unobserved; instrumentation itself adds overhead.
+- Decision: diagnostic tooling complete, **original 66.6288-ms stall remains unexplained**.
+  Retain both reports. Do not treat this instrumented pass as a timing fix, uninstrumented
+  readiness result or permission to relax deadlines. No further rerun in this step. If it recurs,
+  use captured phase/input evidence to choose a targeted host/child scheduling or GC investigation.
+  Documented the command and counter limitations; changes remain uncommitted for user review.

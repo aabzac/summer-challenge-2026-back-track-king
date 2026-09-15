@@ -42,6 +42,34 @@ For a timing-control experiment, run both profiles sequentially on the same new 
 same frozen bots. Do not run other CPU-heavy jobs concurrently. This tests sensitivity to the
 budget, not arena strength; both reference bots may have the same scheduling weakness.
 
+## Optional process input diagnostics
+
+`procCheck -PprocessDiagnostics=true -Pout=build/analysis/my-input-diagnostic.json` adds host-side
+IO evidence. It is off by default and refuses an existing report path, so a diagnostic rerun
+cannot silently replace earlier evidence. Choose the maps, sides and sample size before running;
+keep failures and do not retry until a run passes.
+
+Each timing's optional `io` object splits `sendMs` into `prepareMs` (Protocol.turnBlock), `writeMs`
+and `flushMs`, and records `inputChars`. Preparation and both write phases still consume the
+original absolute deadline; no grace or extra bot time is introduced. `responseMs` remains the
+reader's timestamp, not the waiting thread's wake-up time. Null means no response was observed.
+
+`hostThreadCpuMs` is the calling host thread's CPU delta across the call, **not child bot CPU**.
+Its resolution is platform-dependent: the first Windows diagnostic observed only 0/15.625-ms
+increments, so zero does not mean no CPU work and a short-call delta can exceed its wall time.
+`hostGcMillis` is the host JVM's coarse, JVM-wide collection-time delta, not a per-phase pause
+measurement. Unsupported/disabled counters are null, not zero. Counter snapshots slightly bracket
+the wall-time interval; neither delta pinpoints causality. For example, a long write with little
+host-thread CPU can reflect pipe backpressure or descheduling; it does not prove slow search.
+Child GC/scheduling and stdout-reader scheduling are not isolated by these counters.
+
+Only non-OK statuses retain the exact turn block as `failedInput` (including diagnostic GRACE).
+This block needs the recorded map's initialization and prior game state for meaningful replay;
+it is not a complete game or a reproducer of JVM timing history. IO exceptions before phase
+completion can terminate without a timing entry, as before. Diagnostics add measurement overhead:
+use them for attribution, not as interchangeable timing-readiness evidence from an uninstrumented
+run. They do not change Player.java, and neither mode is a hard watchdog for a blocked pipe.
+
 ## Frozen configurations
 
 `Params` remains the live source of defaults for `current` and the submitted `main` bot.

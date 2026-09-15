@@ -161,5 +161,6 @@ tasks.register<JavaExec>("procCheck") {
     description = "Play build/submit/Player.java via stdin/stdout against a local bot"
     mainClass.set("btk.runner.ProcessCheck")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("bot", "v01"), prop("games", "3"), prop("map", ""), prop("graceMs", "0"), prop("out", ""))
+    args = listOf(prop("bot", "v01"), prop("games", "3"), prop("map", ""), prop("graceMs", "0"), prop("out", ""),
+        prop("processDiagnostics", "false"))
 }

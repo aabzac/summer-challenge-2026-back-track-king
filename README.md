@@ -191,6 +191,11 @@ the per-turn JSON report (also written when games fail). It separates send time,
 and consumer wake-up, and records source/executable hashes. Reader scheduling and host load
 still affect the measurement; it is not CG CPU time or a hard real-time watchdog for blocked IO.
 
+`-PprocessDiagnostics=true` optionally splits input preparation/write/flush and records host CPU/GC
+counter deltas plus failed input. It is off by default, requires an unused report path and does
+not change deadlines or Player.java. These are host-side clues, not measured bot search time;
+see [process diagnostics](docs/benchmarking.md#optional-process-input-diagnostics).
+
 1. `gradlew test && gradlew bench ...` (gate in `AGENTS.md`)
 2. `gradlew submit && gradlew procCheck`
 3. Paste `build/submit/Player.java` into the CG IDE (language Java), PLAY MY CODE, then SUBMIT.
