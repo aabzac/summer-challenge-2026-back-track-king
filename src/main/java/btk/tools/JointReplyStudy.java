@@ -2,7 +2,7 @@ package btk.tools;
 
 import btk.bot.BotCatalog;
 import btk.bot.Timer;
-import btk.bot.current.EvalBot;
+import btk.bot.Bot;
 import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
@@ -69,7 +69,7 @@ public final class JointReplyStudy {
 
     /** The real post-build chooser sees only our prefix and all initially buildable planned cells. */
     static int target(GameState before, int me, int[] prefix, int[] route) throws Exception {
-        EvalBot bot = ReplyProbe.fresh(before, me);
+        Bot bot = ReplyProbe.fresh(before, me);
         boolean[] planned = (boolean[]) CgDisruptStudy.field(bot, "myRoute");
         for (int c : route) if (before.canBuild(c)) planned[c] = true;
         GameState afterBuild = before.copy();
@@ -90,7 +90,7 @@ public final class JointReplyStudy {
     static Joint inspect(GameState state, int me, ReplyProbe.Inspection prior) throws Exception {
         GameState unchanged = state.copy();
         ReplyProbe.Prepared prepared = ReplyProbe.prepare(state, me);
-        EvalBot bot = prepared.bot(); int count = prepared.count();
+        Bot bot = prepared.bot(); int count = prepared.count();
         if (count != prior.choices().size()) throw new IllegalStateException("Candidate count drift");
         if (count == 0) { ReplyProbe.sameState(unchanged, state); return null; }
         // Compare regenerated routes/prefixes and the prediction BEFORE any oracle use or target scan.
@@ -181,7 +181,7 @@ public final class JointReplyStudy {
         String manifestHash = ReplyStudy.hash(Files.readAllBytes(capture.resolve("manifest.json")));
         if (prior.schemaVersion != 1 || !manifestHash.equals(prior.corpusManifestSha256)
                 || !BotCatalog.describe(ReplyProbe.SPEC).equals(prior.candidate)
-                || !ReplyStudy.JSON.toJsonTree(ReplyProbe.parameters()).equals(prior.probeParams)) {
+                || !ReplyProbe.configuration().equals(prior.probeParams)) {
             throw new IllegalArgumentException("Prior report/capture/engine/configuration mismatch");
         }
         List<ReplyStudy.Position> positions = ReplyStudy.loadPositions(capture);

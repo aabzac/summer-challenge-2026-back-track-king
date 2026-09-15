@@ -14,6 +14,19 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BotCatalogTest {
+    @Test void archivedEngineKeepsItsOriginalIdentityAndSharesCoreWithoutAMoveAdapter() throws Exception {
+        var bot = BotCatalog.createExperiment("exp-reply-rerank");
+        assertEquals("btk.bot.current.EvalBot", bot.getClass().getName());
+        assertNotSame(btk.bot.current.EvalBot.class, bot.getClass());
+        assertTrue(Bot.class.isAssignableFrom(bot.getClass()));
+        assertNotNull(bot.getClass().getMethod("play", btk.core.GameState.class, int.class, long.class));
+        assertEquals("05b2595d987156fef7e49baec8ad84900e0673d6cf634fcfa426bb817803343a",
+                BotCatalog.describe("exp-reply-rerank").implementationSha256());
+        assertEquals(46, BotFactory.configuration("exp-reply-rerank").size());
+        assertFalse(BotFactory.configuration("exp-reply-rerank").containsKey("USE_JOINT_ACTION"));
+        assertThrows(IllegalArgumentException.class, () -> BotCatalog.createExperiment("current"));
+    }
+
     @Test void labelsDoNotRenameExistingIdsOrUnknownPlayers() {
         assertEquals("v05 - Disrupt Reserve", BotCatalog.displayName("v05"));
         assertEquals("v04 - Network Extension [NOISE=0.2]", BotCatalog.displayName("v04?NOISE=0.2"));
@@ -31,6 +44,7 @@ class BotCatalogTest {
             count++;
             var actual = BotFactory.configuration(entry.id());
             var expected = BotFactory.configuration("current?" + entry.recipe());
+            expected.remove("USE_JOINT_ACTION"); // archived engine predates this field
             assertEquals(expected, actual, entry.id());
             var identity = BotCatalog.describe(entry.id());
             assertEquals("not_promoted", identity.status());
@@ -48,6 +62,7 @@ class BotCatalogTest {
         assertFalse(new Params().GUARD_BUILD_INCOME);
         assertTrue(BotCatalog.describe("exp-income-guard?NOISE=0.2").explicitOverrides());
         assertThrows(IllegalArgumentException.class, () -> BotFactory.parameters("exp-income-guard?UNKNOWN=1"));
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.parameters("exp-income-guard?USE_JOINT_ACTION=0"));
     }
 
     @Test void fullSnapshotOverridesLiveDefaultsAndRejectsMissingOrExtraFields() throws Exception {

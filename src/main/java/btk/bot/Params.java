@@ -66,6 +66,8 @@ public class Params {
     public boolean CHOOSE_BUILD_DIRECTION = false;
     /** Experimental: rerank several build prefixes against likely simultaneous opponent moves. */
     public boolean USE_REPLY_RERANK = false;
+    /** Experimental K2/R1 joint prefix/own-target search; off in v05 and unrelated experiments. */
+    public boolean USE_JOINT_ACTION = false;
     /** Number of our distinct affordable build prefixes retained for reply-aware reranking. */
     public int BUILD_BEAM_WIDTH = 4;
     /** Number of distinct opponent build prefixes used as likely replies. */

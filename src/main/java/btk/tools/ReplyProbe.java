@@ -3,7 +3,8 @@ package btk.tools;
 import btk.bot.BotFactory;
 import btk.bot.Params;
 import btk.bot.Timer;
-import btk.bot.current.EvalBot;
+import btk.bot.Bot;
+import btk.bot.BotCatalog;
 import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
@@ -23,7 +24,7 @@ final class ReplyProbe {
     record Value(Double heuristic, int immediateDelta) {}
     record Choice(int[] route, int[] prefix, double originalValue, Value known, Value predicted, Value oracle) {}
     record Play(String actions, Reply accepted, double elapsedMs, long budgetMs) {}
-    record Prepared(EvalBot bot, int count, double elapsedMs) {}
+    record Prepared(Bot bot, int count, double elapsedMs) {}
     record Inspection(List<Choice> choices, Reply predicted, Reply actual, int selected,
                       int oracleSelected, int immediateSelected, Play nominal, Play ample,
                       boolean nominalFirst, boolean amplePrefixMatches, boolean nominalPrefixMatches,
@@ -36,8 +37,14 @@ final class ReplyProbe {
         return params;
     }
 
-    static EvalBot fresh(GameState state, int me) {
-        EvalBot bot = new EvalBot(parameters()); bot.init(state.copy(), me); return bot;
+    static com.google.gson.JsonObject configuration() {
+        var json = ReplyStudy.JSON.toJsonTree(parameters()).getAsJsonObject();
+        json.keySet().retainAll(BotCatalog.parameterNames("exp-reply-rerank"));
+        return json;
+    }
+
+    static Bot fresh(GameState state, int me) {
+        Bot bot = BotCatalog.createExperiment(SPEC + ",NOISE=0"); bot.init(state.copy(), me); return bot;
     }
 
     static Inspection inspect(GameState state, int me, List<Action> recordedOpponent, boolean nominalFirst)
@@ -47,7 +54,7 @@ final class ReplyProbe {
         if (nominalFirst) { nominal = play(state, me, 36); ample = play(state, me, AMPLE_MS); }
         else { ample = play(state, me, AMPLE_MS); nominal = play(state, me, 36); }
         Prepared prepared = prepare(state, me);
-        EvalBot bot = prepared.bot;
+        Bot bot = prepared.bot;
         int count = prepared.count;
         double probeMs = prepared.elapsedMs;
         int[] lengths = (int[]) CgDisruptStudy.field(bot, "buildBeamLen");
@@ -87,7 +94,7 @@ final class ReplyProbe {
     }
 
     static Play play(GameState state, int me, long budget) {
-        EvalBot bot = fresh(state, me);
+        Bot bot = fresh(state, me);
         GameState input = state.copy();
         long start = System.nanoTime();
         List<Action> actions = bot.play(input, me, budget);
@@ -97,7 +104,7 @@ final class ReplyProbe {
 
     /** Re-run deterministic candidate generation only; no full-play timing measurement. */
     static Prepared prepare(GameState state, int me) throws Exception {
-        EvalBot bot = fresh(state, me);
+        Bot bot = fresh(state, me);
         // Reuse the real play preparation (extraCost etc.) without copying it into this tool.
         bot.play(state.copy(), me, 0);
         Timer timer = (Timer) CgDisruptStudy.field(bot, "timer");
@@ -116,13 +123,13 @@ final class ReplyProbe {
     }
 
     /** Same candidate set/formula; only replace the hypothesized opponent action and its baseline. */
-    static Value[] scenario(EvalBot bot, GameState state, int me, int count, Reply reply) throws Exception {
+    static Value[] scenario(Bot bot, GameState state, int me, int count, Reply reply) throws Exception {
         int[] targets = new int[count]; Arrays.fill(targets, -1);
         return scenario(bot, state, me, count, reply, targets);
     }
 
     /** Joint diagnostic: fixed no-own-action baseline; include one known-state own target per prefix. */
-    static Value[] scenario(EvalBot bot, GameState state, int me, int count, Reply reply, int[] targets) throws Exception {
+    static Value[] scenario(Bot bot, GameState state, int me, int count, Reply reply, int[] targets) throws Exception {
         if (targets.length != count) throw new IllegalArgumentException("One own target per candidate required");
         ((Timer) CgDisruptStudy.field(bot, "timer")).start(AMPLE_MS);
         int[][] replies = (int[][]) CgDisruptStudy.field(bot, "replyBeamPrefix");

@@ -56,10 +56,26 @@ all 46 effective Params fields, and SHA-256 identities for the 17 compiled class
 current EvalBot, Bot/Params/Timer and shared core (including nested classes). It describes one
 common retained engine, not six historical executable artifacts.
 
-Before creating a named experiment, the factory verifies the actual classpath bytes against
+Before creating a named experiment, the factory verifies the actual implementation bytes against
 this manifest and overlays the recipe on a fresh complete parameter snapshot. Verification is
 cached per JVM. A missing field, unknown id/parameter or implementation mismatch fails closed.
 The guard never reads potentially stale workspace source in place of loaded class bytes.
+
+Since the joint-action experiment, `experiment-engine-v1-classes.json` preserves the ORIGINAL
+compiled Params/EvalBot bytes as base64 (Java 17.0.12), one shared archive for all six recipes.
+`RetainedEngine` child-loads ONLY those two allowlisted classes. Bot, Timer and core still come
+from the normal classpath and must pass the original dependency hashes; this is not an excuse
+to run an old strategy against silently changed rules. Both archived and shared bytecode are
+checked against the unchanged manifest; ids, fingerprints, preset hashes and original 46-field
+configurations are preserved. New flags are rejected on old ids.
+
+The archived EvalBot implements the shared Bot interface directly: no serialization/reflection
+per move or copied rules engine. Reflection is used only to construct its private Params instance;
+diagnostic tools inspect the actual class instance, not the new current EvalBot. The mutable
+current parameter bag may expose newer fields, but old experiments neither accept nor report
+them. The archive and loader never enter Player.java. Source remains recoverable from the
+manifest's source revision; bytecode preservation avoids requiring the same compiler to rerun
+old recipes. Hardware/JIT/run order are still not preserved.
 
 The bytecode guard is intentionally conservative: even a compiler change, debug information or
 harmless source-line movement can invalidate a fingerprint. It is not a semantic-equivalence test.
@@ -71,7 +87,8 @@ If the engine changes, **do not refresh an old manifest under the same experimen
 restore the recorded implementation/compiler or create a new engine snapshot and new ids (for
 example `exp-income-guard-r2`) with fresh evidence. If simultaneous comparisons against both
 engine revisions become useful, archive one shared engine implementation, not one copy per flag.
-This first catalog does not automatically check out old commits or archive executable JARs.
+The catalog does not automatically check out old commits or archive an entire execution
+environment. The v1 archive preserves only the two evolving classes, not a standalone JAR.
 
 Explicit query overrides remain supported, e.g. `exp-income-guard?NOISE=0.2`. Reports retain the
 full spec, complete resolved parameters, baseline preset hash and an `explicitOverrides` marker;

@@ -28,6 +28,7 @@ gradlew cgDisrupt                              # full sabotage valuation vs time
 gradlew replyStudy -Pmode=capture               # fixed 24-game local diagnostic capture (once)
 gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/time audit, no strategy change
 gradlew jointReplyStudy                        # joint first-build/own-sabotage audit on the SAME saved sample
+gradlew jointActionCheck                       # serial cost check of opt-in joint search on saved states
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -215,6 +216,9 @@ or build a new submission.
 `jointReplyStudy` reuses that capture and report, compares build prefixes with known-state own
 sabotage targets, and checks every simultaneous combination through core. It does not replay
 new games or rerun timing measurements. See [joint-action findings](docs/joint-reply-study.md).
+
+The subsequent opt-in `USE_JOINT_ACTION` screen did not pass promotion; defaults and the restored
+submission remain v05. See [the experiment and checks](docs/joint-action-experiment.md).
 
 `cgForecast` evaluates a lightweight adaptive sabotage model without changing our bot's actions.
 It predicts from each pre-turn state and learns only after observing the next state; held-out

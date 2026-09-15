@@ -84,6 +84,7 @@ class FrozenParamsTest {
         expected.put("CHOOSE_BUILD_DIRECTION", "false"); // Likewise ignored by frozen v05.
         expected.put("EARLY_DISRUPT_FALLBACK", "false"); // Default-off experiment; frozen v05 ignores it.
         expected.put("USE_REPLY_RERANK", "false"); // Default-off experiment; frozen v05 ignores it.
+        expected.put("USE_JOINT_ACTION", "false"); // Frozen v05 does not consume joint search.
         expected.put("BUILD_BEAM_WIDTH", "4");
         expected.put("OPP_REPLY_WIDTH", "2");
         expected.put("FORECAST_DECAY", "0.95");

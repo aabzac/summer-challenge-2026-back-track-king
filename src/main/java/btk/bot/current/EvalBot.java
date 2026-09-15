@@ -59,6 +59,12 @@ public final class EvalBot implements Bot {
     private int bestLen, bestCost, oppLen, worstRegion;
     private boolean disruptSearchComplete;
     private GameState replyState, completionState;
+    private GameState jointState;
+    private int[] jointTargets, jointPrefixTargets;
+    private boolean jointTargetScan;
+    // -2 = normal play/fallback; -1 = a committed pair explicitly choosing no sabotage.
+    private int jointSelectedTarget = -2, jointBuildSelected = -1, jointPairsEvaluated;
+    private boolean jointSearchComplete;
     private java.util.Random rnd;
     /** Inclusive phase counters; evaluation time is a subset of build time, not additive. */
     public long profileBuildNs, profileEvalNs, profileEvalMaxNs, profileDisruptNs;
@@ -76,6 +82,12 @@ public final class EvalBot implements Bot {
         }
         if (params.INTERRUPT_VULN_EVAL && params.USE_REPLY_RERANK) {
             throw new IllegalArgumentException("Interrupted eval is not supported by reply reranking");
+        }
+        if (params.USE_JOINT_ACTION && (!params.USE_REPLY_RERANK || !params.USE_DISRUPT
+                || params.BUILD_BEAM_WIDTH != 2 || params.OPP_REPLY_WIDTH != 1
+                || params.USE_OPP_MODEL || params.CHOOSE_BUILD_DIRECTION || params.GUARD_BUILD_INCOME
+                || params.EARLY_DISRUPT_FALLBACK || params.INTERRUPT_VULN_EVAL)) {
+            throw new IllegalArgumentException("Joint action requires plain K2/R1 + sabotage, other experiments off");
         }
         this.P = params;
     }
@@ -135,6 +147,11 @@ public final class EvalBot implements Bot {
             sim2 = s.copy();
             replyState = s.copy();
             completionState = s.copy();
+            if (P.USE_JOINT_ACTION) {
+                jointState = s.copy();
+                jointTargets = new int[4];
+                jointPrefixTargets = new int[2];
+            }
         }
     }
 
@@ -202,6 +219,7 @@ public final class EvalBot implements Bot {
     @Override
     public List<Action> play(GameState s, int myId, long budgetMs) {
         timer.start(budgetMs);
+        jointSelectedTarget = -2; jointBuildSelected = -1; jointPairsEvaluated = 0; jointSearchComplete = false;
         if (P.PROFILE_SEARCH) {
             profileBuildNs = profileEvalNs = profileEvalMaxNs = profileDisruptNs = 0;
             profileEvalCalls = 0;
@@ -271,11 +289,12 @@ public final class EvalBot implements Bot {
             }
             if (budget == before) break;
             Rules.updateConnections(s, pathing);
+            if (jointSelectedTarget >= -1) break; // emit exactly the jointly evaluated prefix
         }
 
         // Keep useful local momentum when every complete route has zero immediate evaluation
         // gain. Prefer cells adjoining our network, especially in permanent-safe town regions.
-        if (P.USE_IDLE_EXTEND) {
+        if (P.USE_IDLE_EXTEND && jointSelectedTarget == -2) {
             boolean extended = false;
             while (budget > 0 && !buildTimeUp()) {
                 int c = chooseIdleExtension(s, myId, budget);
@@ -291,7 +310,9 @@ public final class EvalBot implements Bot {
         }
 
         // --- disrupt ---
-        if (P.USE_DISRUPT) {
+        if (jointSelectedTarget >= -1) {
+            if (jointSelectedTarget >= 0) out.add(Action.disrupt(jointSelectedTarget));
+        } else if (P.USE_DISRUPT) {
             int safeEarly = earlyDisrupt;
             if (safeEarly >= 0 && builtAny && !earlyDisruptStillGood(s, myId, safeEarly)) safeEarly = -1;
             int region = chooseDisrupt(s, myId);
@@ -451,7 +472,86 @@ public final class EvalBot implements Bot {
             }
         }
         if (evaluatedAny) copyBuildCandidateToBest(selected);
+        if (P.USE_JOINT_ACTION && evaluatedAny && usableReplies == replyCount && !buildTimeUp()) {
+            chooseJointAction(s, me, buildCount, usableReplies, selected);
+        }
         return true;
+    }
+
+    /** Small cross product; targets use only known state. No allocations per pair. */
+    private void chooseJointAction(GameState s, int me, int count, int replies, int original) {
+        if (buildTimeUp()) return;
+        int targets = 0;
+        jointTargets[targets++] = -1;
+        int common = jointTarget(s, me, -1);
+        if (!disruptSearchComplete || buildTimeUp()) return;
+        targets = addJointTarget(targets, common);
+        for (int i = 0; i < count; i++) {
+            jointPrefixTargets[i] = jointTarget(s, me, i);
+            if (!disruptSearchComplete || buildTimeUp()) return;
+            targets = addJointTarget(targets, jointPrefixTargets[i]);
+        }
+        double best = jointPairValue(s, me, original, jointPrefixTargets[original], replies);
+        if (Double.isNaN(best)) return;
+        int selected = original, target = jointPrefixTargets[original];
+        double baseline = best;
+        for (int i = 0; i < count; i++) {
+            for (int t = 0; t < targets; t++) {
+                if (i == original && jointTargets[t] == jointPrefixTargets[original]) continue;
+                double value = jointPairValue(s, me, i, jointTargets[t], replies);
+                if (Double.isNaN(value)) {
+                    commitJointIfBetter(selected, target, best, baseline);
+                    return;
+                }
+                if (value > best + 1e-9) { best = value; selected = i; target = jointTargets[t]; }
+            }
+        }
+        jointSearchComplete = true;
+        commitJointIfBetter(selected, target, best, baseline);
+    }
+
+    private void commitJointIfBetter(int selected, int target, double value, double baseline) {
+        if (!(value > baseline + 1e-9)) return;
+        copyBuildCandidateToBest(selected);
+        jointBuildSelected = selected;
+        jointSelectedTarget = target;
+    }
+
+    private int addJointTarget(int count, int target) {
+        for (int i = 0; i < count; i++) if (jointTargets[i] == target) return count;
+        jointTargets[count] = target;
+        return count + 1;
+    }
+
+    private int jointTarget(GameState s, int me, int build) {
+        jointState.copyFrom(s);
+        java.util.Arrays.fill(myRoute, false);
+        if (build >= 0) {
+            for (int i = 0; i < buildBeamLen[build]; i++) {
+                int c = buildBeamPath[build][i];
+                if (s.canBuild(c)) myRoute[c] = true;
+            }
+            int[] cells = buildBeamPrefix[build]; int n = buildBeamPrefixLen[build];
+            Rules.applyPlacements(jointState, me == 0 ? cells : prefixBuf, me == 0 ? n : 0,
+                    me == 1 ? cells : prefixBuf, me == 1 ? n : 0);
+            Rules.updateConnections(jointState, pathing);
+        }
+        double noise = P.NOISE;
+        P.NOISE = 0; jointTargetScan = true;
+        try { return chooseDisrupt(jointState, me); }
+        finally { P.NOISE = noise; jointTargetScan = false; java.util.Arrays.fill(myRoute, false); }
+    }
+
+    private double jointPairValue(GameState s, int me, int build, int ownTarget, int replies) {
+        double worst = Double.POSITIVE_INFINITY;
+        for (int r = 0; r < replies; r++) {
+            if (buildTimeUp()) return Double.NaN;
+            double value = replyAwareValue(s, me, build, r, replyDisrupt[r], ownTarget);
+            if (buildTimeUp() || Double.isNaN(value)) return Double.NaN;
+            if (value < worst) worst = value;
+        }
+        jointPairsEvaluated++;
+        return worst;
     }
 
     /** Candidate enumeration equivalent to the normal route scorer, retaining distinct prefixes. */
@@ -628,9 +728,14 @@ public final class EvalBot implements Bot {
 
     private double replyAwareValue(GameState s, int me, int buildCandidate, int reply,
                                    int replyDisrupt) {
+        return replyAwareValue(s, me, buildCandidate, reply, replyDisrupt, -1);
+    }
+
+    private double replyAwareValue(GameState s, int me, int buildCandidate, int reply,
+                                   int replyDisrupt, int ownDisrupt) {
         simulatePredictedTurn(s, me, buildBeamPrefix[buildCandidate],
                 buildBeamPrefixLen[buildCandidate], replyBeamPrefix[reply],
-                replyBeamPrefixLen[reply], replyDisrupt, sim);
+                replyBeamPrefixLen[reply], replyDisrupt, ownDisrupt, sim);
         int opp = 1 - me;
         double immediate = (sim.score[me] - sim.score[opp])
                 - replyBaselineScoreDiff[reply];
@@ -659,12 +764,19 @@ public final class EvalBot implements Bot {
     private void simulatePredictedTurn(GameState before, int me, int[] ownCells, int ownCount,
                                        int[] replyCells, int replyCount, int replyDisrupt,
                                        GameState target) {
+        simulatePredictedTurn(before, me, ownCells, ownCount, replyCells, replyCount, replyDisrupt, -1, target);
+    }
+
+    private void simulatePredictedTurn(GameState before, int me, int[] ownCells, int ownCount,
+                                       int[] replyCells, int replyCount, int replyDisrupt,
+                                       int ownDisrupt, GameState target) {
         target.copyFrom(before);
         int[] empty = prefixBuf;
         int[] mine = ownCells == null ? empty : ownCells;
         if (me == 0) Rules.applyPlacements(target, mine, ownCount, replyCells, replyCount);
         else Rules.applyPlacements(target, replyCells, replyCount, mine, ownCount);
         if (replyDisrupt >= 0) Rules.disrupt(target, replyDisrupt);
+        if (ownDisrupt >= 0) Rules.disrupt(target, ownDisrupt);
         Rules.inkUnstable(target);
         Rules.updateConnections(target, pathing);
         Rules.scoreTurn(target, null);
@@ -855,6 +967,7 @@ public final class EvalBot implements Bot {
         int fallback = -1;
         int r = 0;
         for (; r < s.regionCount && !timer.up(); r++) {
+            if (jointTargetScan && buildTimeUp()) break;
             if (s.regionInked[r] || s.regionHasTown(r)) continue;
             int needed = Math.max(1, GameState.INK_THRESHOLD - s.regionInstability[r]);
             int earning = turnsLeft - needed;

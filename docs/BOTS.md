@@ -320,6 +320,29 @@ prefix with its normal chooser's target. This supports testing a small set of jo
 not forcing each route to keep one sabotage target. Current/v05/Player stay unchanged and reply
 reranking stays disabled. Method, regression examples and limitations: [joint-reply-study.md](joint-reply-study.md).
 
+## Unpromoted experiment: bounded joint build/sabotage (2026-09-15)
+
+`current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1` compares
+two prefixes x at most four known-state targets, retaining the old pair on ties/incomplete setup.
+Committed pairs emit exactly the evaluated prefix/target; otherwise normal leftover building
+remains. Defaults are unchanged. See [joint-action-experiment.md](joint-action-experiment.md).
+
+- Fixed 300 games / 150 paired generated maps, seeds 21000..21149, CG 486/36 ms, two workers:
+  candidate vs v05 **130-169-1, 43.5%, CI 32.4-54.6%**. Gate failed; no v06 or confirmation.
+- Same maps vs pressure-v1: candidate **196-104, 65.3%**, fresh v05 **195-105, 65.0%**.
+  Matched outcomes: **57 added wins / 56 lost / 187 unchanged**, not a transfer improvement
+  or proof of equivalence. No comparison with a historical K2/R1 percentage on other maps.
+- Saved-state cost check: candidate/control mean **13.50/12.81 ms**, 5 improved pairs on 110
+  observations; 72 complete scans, no call >36 ms. Mechanism/cost evidence, not strength.
+- **162 tests, 264/264 exact CG replays**. Candidate 93,881 characters, restored-v05 65,269;
+  both strict fixed process samples **0/4 failures**, first/later reader maxima respectively
+  **669.64/37.24 ms** and **650.75/38.88 ms**. The prior process-input stall remains unexplained.
+- Keep USE_JOINT_ACTION=false and USE_REPLY_RERANK=false. Player.java is restored frozen-v05
+  with the current Params/runtime; source hash changed due to the new unused flag, not strategy.
+  Original retained experiment ids/configurations/code hashes are preserved by one shared
+  two-class archive, never shipped. Next diagnostic is a direct on/off joint-flag ablation
+  within K2/R1 before inferring whether the regression belongs to this flag or the base branch.
+
 ## Offline diagnostic: adaptive sabotage forecast (2026-09-15)
 
 - No strategy change or v06. Five fixed experts plus adaptive weights are evaluated by

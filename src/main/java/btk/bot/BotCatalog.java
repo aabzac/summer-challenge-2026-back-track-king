@@ -66,9 +66,18 @@ public final class BotCatalog {
         return applySnapshot(engine.parameters, new Params()).apply(entry.recipe);
     }
 
+    public static Bot createExperiment(String spec) {
+        if (spec == null || !spec.startsWith("exp-")) throw new IllegalArgumentException("Expected a retained experiment spec");
+        Params params = BotFactory.parameters(spec); // verifies the whole original dependency manifest
+        return RetainedEngine.V1.create(params);
+    }
+
+    public static java.util.Set<String> parameterNames(String id) {
+        return engine(entry(id).engineSnapshot).parameters.keySet();
+    }
+
     static Params applySnapshot(Map<String, String> snapshot, Params target) {
-        var fields = new TreeSet<String>();
-        for (var field : Params.class.getFields()) if (!Modifier.isStatic(field.getModifiers())) fields.add(field.getName());
+        var fields = RetainedEngine.V1.parameterNames();
         if (!fields.equals(snapshot.keySet())) throw new IllegalStateException("Experiment snapshot must contain every Params field");
         snapshot.forEach(target::set);
         return target;
@@ -82,7 +91,8 @@ public final class BotCatalog {
             Map<String, String> classes = new TreeMap<>(), parameters = new TreeMap<>();
             json.getAsJsonObject("classes").entrySet().forEach(e -> classes.put(e.getKey(), e.getValue().getAsString()));
             json.getAsJsonObject("parameters").entrySet().forEach(e -> parameters.put(e.getKey(), e.getValue().getAsString()));
-            verifyImplementation(classes, BotCatalog::read);
+            if (!name.equals("experiment-engine-v1.json")) throw new IllegalStateException("Unknown retained engine: " + name);
+            verifyImplementation(classes, RetainedEngine.V1::read);
             StringBuilder fingerprint = new StringBuilder();
             classes.forEach((key, hash) -> fingerprint.append(key).append(':').append(hash).append('\n'));
             return new Engine(json.get("sourceRevision").getAsString(), Map.copyOf(classes), Map.copyOf(parameters),

@@ -29,7 +29,7 @@ public final class BotFactory {
     public static Bot create(String spec) {
         String version = version(spec);
         Params params = parameters(spec);
-        Bot bot = lookup(version).apply(params);
+        Bot bot = version.startsWith("exp-") ? BotCatalog.createExperiment(spec) : lookup(version).apply(params);
         if (!version.startsWith("exp-")) return bot;
         // Preserve a named preset in generic referee replays without touching strategy classes.
         return new Bot() {
@@ -49,7 +49,15 @@ public final class BotFactory {
         if ((version.equals("main") || version.equals("v00")) && !query.isBlank()) {
             throw new IllegalArgumentException(version + " does not accept parameter overrides");
         }
-        if (version.startsWith("exp-")) return BotCatalog.experimentParameters(version).apply(query);
+        if (version.startsWith("exp-")) {
+            for (String item : query.split("[&,]")) if (!item.isBlank()) {
+                int eq = item.indexOf('=');
+                if (eq < 0 || !BotCatalog.parameterNames(version).contains(item.substring(0, eq).trim())) {
+                    throw new IllegalArgumentException("Parameter absent from retained engine: " + item);
+                }
+            }
+            return BotCatalog.experimentParameters(version).apply(query);
+        }
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
         if (version.equals("pressure-v1")) FrozenParams.applyTo(version, params);
@@ -63,6 +71,7 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
+                if (version(spec).startsWith("exp-") && !BotCatalog.parameterNames(version(spec)).contains(field.getName())) continue;
                 if (!Modifier.isStatic(field.getModifiers())) values.put(field.getName(), String.valueOf(field.get(params)));
             }
         } catch (IllegalAccessException e) {

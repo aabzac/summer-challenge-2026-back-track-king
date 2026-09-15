@@ -152,10 +152,14 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       on prefix in 8/81 cases; adapted joint choice changes in 3 unique states (oracle projection
       improves in 3, worsens in 0, not match outcomes). One example prefers the old prefix with
       a different target. Keep v05 unchanged; see joint-reply-study.md.
-- [ ] Test a small joint-action candidate set: two prefixes x deduplicated known-state targets
-      (WAIT, pre-build target, both prefix-specific targets), retaining the old pair/fallback.
-      Verify mechanism, equal reply coverage and cost before a default-off strategy screen;
-      no hard immediate-income veto or promotion from captured-state oracle improvements.
+- [x] Screen two prefixes x known-state sabotage targets with old-pair fallback. Cost check
+      13.50 vs 12.81 ms; direct v05 43.5% (300 games), CI 32.4-54.6%; pressure 65.3% vs
+      fresh v05 65.0% on the same maps. Not promoted; flags off, Player restored to v05.
+      162 tests, 264 exact replays, candidate/restored process checks 0/4 failures each.
+      Retain old experiment bytecode/ids in one local archive; see joint-action-experiment.md.
+- [ ] Isolate the joint flag with a fixed direct on/off K2/R1 ablation on development maps
+      before attributing its whole-candidate v05 result to joint search or retuning WAIT/targets.
+      Diagnostic only: the failed promotion gate is not bypassed and no confirmation pool is used.
 
 ## Someday / maybe
 

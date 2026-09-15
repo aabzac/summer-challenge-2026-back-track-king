@@ -1,6 +1,7 @@
 package btk.tools;
 
 import btk.bot.BotFactory;
+import btk.bot.Bot;
 import btk.bot.Params;
 import btk.bot.Timer;
 import btk.bot.current.EvalBot;
@@ -30,12 +31,12 @@ public final class CgDisruptStudy {
                   boolean timedScanComplete, Evaluation timedBuildEvaluation) {}
 
     // Reflection is deliberately confined to this offline tool. Fail fast if evaluator internals change.
-    static Object field(EvalBot bot, String name) throws Exception {
-        Field f = EvalBot.class.getDeclaredField(name); f.setAccessible(true); return f.get(bot);
+    static Object field(Bot bot, String name) throws Exception {
+        Field f = bot.getClass().getDeclaredField(name); f.setAccessible(true); return f.get(bot);
     }
 
-    static Object call(EvalBot bot, String name, Class<?>[] types, Object... args) throws Exception {
-        Method m = EvalBot.class.getDeclaredMethod(name, types); m.setAccessible(true);
+    static Object call(Bot bot, String name, Class<?>[] types, Object... args) throws Exception {
+        Method m = bot.getClass().getDeclaredMethod(name, types); m.setAccessible(true);
         return m.invoke(bot, args);
     }
 

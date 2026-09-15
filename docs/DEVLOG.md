@@ -1521,3 +1521,111 @@ Completed outcome (fixed sample, no retuning):
   Seven new tests cover saved examples, oracle isolation, both-sided simultaneous ink,
   candidate/sample drift, ties/invalid values and non-overwriting output. No process rerun;
   the earlier input-send stall remains unresolved and is not explained by this audit.
+
+### 2026-09-15 — bounded joint-action screen (predeclared)
+
+- Commit prior diagnosis as d4670dd. Preserve the original experiment manifest/ids using ONE
+  local archive of its exact Params/EvalBot class bytes, child-loaded against the still-verified
+  shared Bot/core/Timer. Do not retarget ids or copy a policy per flag. Archived configuration
+  remains its original 46 fields; new unsupported flags are rejected. Tools inspect the actual
+  retained class. Archive is excluded from submissions and original fingerprints stay identical.
+- Add default-off USE_JOINT_ACTION to current, requiring K2/R1 reply reranking and sabotage,
+  with other earlier experimental flags off. Compare two affordable prefixes crossed with at
+  most four distinct known-state targets: WAIT, pre-build target, both prefix-specific targets.
+  Targets are deterministic, include full planned-route marks, and never use recorded replies.
+- Preserve original K2/R1 prefix and its known-state sabotage as tie/failure reference. Compare
+  only fully evaluated pairs with identical reply coverage on the existing build-phase clock;
+  incomplete target preparation or baseline evaluation returns to normal play. A complete,
+  strictly better pair can replace it. Never extend the timer or change the 6-ms reserve.
+  When a new pair is committed, emit exactly its prefix/target (no unmodeled leftover extension);
+  otherwise retain normal leftover construction and sabotage. This behavioral distinction is
+  part of the candidate, not a claim to isolate evaluation cost alone.
+- Reuse the existing projection including immediate score/completion risk, not an extra weighted
+  sabotage score. Resolve both hits through core; retain documented projection/terminal limits.
+  Test saved three-state mechanisms, disabled-policy equivalence to the archived engine, equal
+  coverage/fallbacks and legal emitted actions. Full tests and cgValidate before strength screen.
+- Fixed exploratory screen: current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,
+  USE_JOINT_ACTION=1 vs frozen v05, 300 games / 150 paired generated seeds 21000..21149,
+  2 workers, CG 486/36-ms search profile, unchanged NOISE=0.1 and all other defaults. No sample
+  extension/tuning. Gate remains >=55% and map-grouped 95% lower bound >50%; no promotion here.
+  Independent-style follow-up: same candidate and fresh v05 controls vs pressure-v1 on these
+  SAME maps, 300 games each, regardless of screen result, for transfer evidence (not promotion).
+- Before benches, run one serial recorded-state cost check on the saved 110-position corpus:
+  alternate control/candidate call order, fresh NOISE=0 instances at 36 ms, record all actions,
+  decisions and elapsed times. This is not a reconstruction of old timeouts or CG CPU time.
+- Build candidate and run one strict 4-game process sample vs v04 on the existing CG pool,
+  then restore frozen-v05 submission and run the same fixed 4-game process sample. Preserve
+  all reports, including failures; no retry-to-green or upload. Source-size and executable
+  identity checked for each artifact. Record results and next step; unpromoted flags stay off.
+
+### 2026-09-15 — bounded joint-action screen (implementation and checks)
+
+- Implemented USE_JOINT_ACTION=false in Params/current. At most two prefixes x four distinct
+  targets; old-pair tie/fallback, whole-reply coverage, build-clock cutoff, no per-node allocations.
+  Emit only the evaluated prefix/target on a strict improvement; otherwise normal play remains.
+  Same core resolution and old projection; no new scoring rules or terminal utility formula.
+- Preserved exact v1 Params/EvalBot class bytes in one local archive, original manifest unchanged.
+  Child loading isolates only those two classes; shared Bot/core/Timer are hash-verified and
+  called directly, without per-move reflection/serialization. Old specs still report 46 fields
+  and reject new flags. Tools now reflect the actual retained instance; original fixtures pass.
+  Archive SHA-256 `79fc2d11d6aa403edab9ff9475cb3bb6741efd62e46a566566f14e9c659bca95`.
+  Retained engine fingerprint remains
+  `05b2595d987156fef7e49baec8ad84900e0673d6cf634fcfa426bb817803343a`.
+- Captured cross-product regressions select prefix0/target45, prefix0/WAIT, prefix0/target29.
+  Current flag-off choices match retained code, including sequential known-state play. Tests
+  cover both-hit/core agreement, original projected values, expired-clock fallback, cleared
+  route marks/restored noise, exact emitted prefixes, unsupported combos and no disabled buffers.
+  Full tests before screen: **160 pass; cgValidate 264/264 exact**. Extra archive/merger assertions
+  were added during the bench and are checked in the final verification, not run concurrently.
+- Single serial cost run: **110 positions**, **72** complete joint scans, **5** committed pairs,
+  **8** different full actions. Control mean/max **12.8077/31.8443 ms**, candidate
+  **13.4978/31.2982 ms**, zero calls above 36 ms. NOISE=0, fresh instances, alternating order;
+  this measures neither original-loss causality nor CG process deadlines. Report
+  `build/analysis/joint-action-v1/cost.json`, SHA-256
+  `377c6b9d37d67cf283e0ffb82910e4b82dd2ddb504a60e57d4faec512d4285da`.
+- Measured strategy source hashes: EvalBot
+  `e69497ff356729fc9e3a477dee3140274d791f7c22234f7248c2c2533357b84f`, Params
+  `8df5e35ec46a826303e0ec48ee6a3e54c8ae8ebc4f4c0dcf24207ea2e3bf2416`.
+  Same source throughout all three matchups; cost JSON preserves compiled class hashes too.
+
+### 2026-09-15 — bounded joint-action screen (outcome)
+
+- Completed exactly the three predeclared 300-game matchups / 150 paired maps each, generated
+  seeds 21000..21149, 2 workers, Java 17.0.12, CG 486/36 ms, full resolved parameters retained:
+  candidate-v05 **130-169-1, 43.5%, map-grouped CI 32.4-54.6%**, mean score diff -319.6;
+  v05-pressure **195-105-0, 65.0%, CI 53.9-76.1%**, mean diff +573.0;
+  candidate-pressure **196-104-0, 65.3%, CI 54.2-76.4%**, mean diff +489.9.
+  Gate failed against v05; a PASS printed for beating pressure is not the promotion comparison.
+- Verified same 150 map hashes, seeds and sides across all runs, exact full candidate/v05/pressure
+  configs in their corresponding controls. Matched pressure outcomes: **57 added / 56 lost wins /
+  187 unchanged**, net +0.33 pp, descriptive rather than proof of equivalence/improvement.
+  No bot errors in all 900 games. In-process >50-ms slow counters A/B: 0/0, 2/0, 1/0;
+  search means 9.73/6.62, 6.52/3.60, 11.06/3.99 ms respectively. These are not process deadlines.
+  Candidate disruption versus pressure is 79.8% vs v05's 84.2%; different trajectories, not
+  causal evidence that skipping sabotage explains the direct-v05 loss.
+- Report SHA-256, candidate-v05 / control-pressure / candidate-pressure:
+  `e50802f80ef102f9fecc08e7c2cd86dbf2a48986bd1183a8f7105c722d183705`,
+  `c697d5919016a22174742ed4fd48a1fb38d17895ba92929a532e708a90fc0ef8`,
+  `59770ff3104df22786361d77d113bd528ee29ce7d8e5513e960f4d4f93d94ead`.
+  Reports in `build/bench/joint-action-v1/`; no extensions, variants or confirmation games.
+- Final **162 tests pass, cgValidate 264/264 exact**. Candidate `submit` compiles at **93,881**
+  characters; strict predeclared four-game process check vs v04 has **0 failures**, reader maxima
+  first **669.6448 ms**, later **37.239199 ms**. Source SHA-256
+  `f7e635a5df3c9277df97e7c8c08a018b3eac4a56c8589d5581c65adefea4798e`, executable classes
+  `0f9a3295cda6798a2333903839715e8cb10912d81b0ccbdfb87f7a3c0a2bede6`.
+- Restored with submitVersion=v05, **65,269** characters; same four maps/sides/seeds, **0 failures**,
+  reader maxima first **650.75 ms**, later **38.8801 ms**. Source SHA-256
+  `5d0621acb2f4b819c0d9ce10a0589502832a5dea554c2e4d33549c66d2019484`, executable classes
+  `d197313df6573657cb37c7c195dd274cc8bb5ed160476275cd762233442d9748`.
+  Artifact differs from previous v05 because the current Params includes the unused new flag;
+  frozen v05/core/shared runtime sources are untouched. Existing input-send stall remains open.
+- Process reports candidate/restored-v05 SHA-256:
+  `39dd6abaea02283a5ed4316d8aa84d6db76843576cd58efbae5d6e7a277f2b5c`,
+  `038c636e6ad86e85b6381ae2f83fc8f9bf5617548728ca1a46fb8d6fd5d67f02`,
+  under `build/analysis/joint-action-v1/`. Both use zero grace; no retry-to-green or upload.
+- Decision: **not promoted**, keep USE_JOINT_ACTION=false and USE_REPLY_RERANK=false, no v06.
+  Next diagnostic: fixed direct joint-on/off K2/R1 ablation, not comparison with old percentages
+  on different maps. This separates the added flag from the base experimental branch before
+  attributing losses or changing target/WAIT policy. Promotion still requires the original gate.
+  BOTS/PLAN/experiment docs updated. Only the previous diagnosis was committed as requested;
+  this new experiment remains uncommitted for review.

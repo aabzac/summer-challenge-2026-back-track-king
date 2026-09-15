@@ -33,6 +33,16 @@ class FileMergerTest {
         assertFalse(new btk.bot.Params().INTERRUPT_VULN_EVAL);
     }
 
+    @Test void jointCandidateFitsAndShipsNoArchive() throws Exception {
+        String source = FileMerger.merge("current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1");
+        FileMerger.checkSourceSize(source);
+        assertTrue(source.contains("USE_JOINT_ACTION=true"));
+        assertTrue(source.contains("chooseJointAction"));
+        assertFalse(source.contains("class RetainedEngine"));
+        assertFalse(source.contains("experiment-engine-v1-classes"));
+        assertFalse(new btk.bot.Params().USE_JOINT_ACTION);
+    }
+
     @Test void restoredV05CompilesAndMatchesFrozenDecisions() throws Exception {
         checkFrozenDecisions("v05", false);
     }
@@ -53,6 +63,8 @@ class FileMergerTest {
         assertFalse(source.contains("class ReplyProbe"));
         assertFalse(source.contains("class ReplyStudy"));
         assertFalse(source.contains("class JointReplyStudy"));
+        assertFalse(source.contains("class JointActionCheck"));
+        assertFalse(source.contains("class RetainedEngine"));
         assertFalse(source.contains("experiment-engine-v1"));
         Path file = temp.resolve("Player.java");
         Files.writeString(file, source);

@@ -211,7 +211,7 @@ public final class ReplyStudy {
         Map<String, Object> report = new LinkedHashMap<>();
         report.put("schemaVersion", 1); report.put("createdAt", Instant.now().toString());
         report.put("javaVersion", System.getProperty("java.version")); report.put("corpusManifestSha256", hash(manifestBytes));
-        report.put("candidate", BotCatalog.describe(ReplyProbe.SPEC)); report.put("probeParams", ReplyProbe.parameters());
+        report.put("candidate", BotCatalog.describe(ReplyProbe.SPEC)); report.put("probeParams", ReplyProbe.configuration());
         report.put("requestedTurns", TURNS); report.put("unavailableEndedPositions", 24 * TURNS.length - positions.size());
         report.put("method", "Shared captured states; NOISE=0 fresh instances; first-build candidate set only. "
                 + "Known/predicted/oracle use the SAME private heuristic; own later sabotage and leftover builds excluded "

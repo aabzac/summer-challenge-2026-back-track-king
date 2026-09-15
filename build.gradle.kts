@@ -165,6 +165,15 @@ tasks.register<JavaExec>("jointReplyStudy") {
         prop("out", "build/analysis/reply-study-v1/joint-report.json"))
 }
 
+tasks.register<JavaExec>("jointActionCheck") {
+    group = "game"
+    description = "Serial 36-ms cost check for the joint-action candidate on saved states"
+    mainClass.set("btk.tools.JointActionCheck")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "build/analysis/reply-study-v1/capture"),
+        prop("out", "build/analysis/joint-action-v1/cost.json"))
+}
+
 tasks.register<JavaExec>("cgTiming") {
     group = "cg"
     description = "Offline search-phase timing on validated replay states; not a process deadline check"
