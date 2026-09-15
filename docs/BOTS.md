@@ -16,6 +16,11 @@ zero own failures, one win by opponent timeout; **264/264** corpus replays exact
 This is a separate entry/sample from 6736850, not a controlled strength comparison.
 See `arena-analysis-2026-09-15.md` for scope, loss evidence and the next hypothesis.
 
+Sabotage follow-up (`cgDisrupt`): known-state full scans reproduce Meruem's recorded target
+preferences; local timed scans finish at all four selected positions. OldJohn's missed sabotage
+is not reproduced, leaving its original cause open. Diagnostics only: v05 and Player.java unchanged,
+no new strength bench or promotion. See `sabotage-valuation.md`.
+
 `BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,
 while later versions record their promoted configuration; they do not retrospectively

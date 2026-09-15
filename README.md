@@ -21,6 +21,7 @@ gradlew cgMapValidate                          # regenerate CG maps from referee
 gradlew cgAnalyze -Pagent=6735801               # validated games of one arena entry -> build/analysis/
 gradlew cgForecast -Pagent=6736850              # offline adaptive sabotage prediction, no strategy changes
 gradlew cgTiming                               # phase timing on two captured large-map replay trajectories
+gradlew cgDisrupt                              # full sabotage valuation vs timed search on captured losses
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,

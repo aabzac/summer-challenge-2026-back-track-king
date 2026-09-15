@@ -118,6 +118,15 @@ tasks.register<JavaExec>("cgForecast") {
     args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""), prop("params", ""))
 }
 
+tasks.register<JavaExec>("cgDisrupt") {
+    group = "cg"
+    description = "Known-state sabotage valuation vs timed search on validated replay prefixes"
+    mainClass.set("btk.tools.CgDisruptStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("targets", "replays/cg/903970829.json@0@43+46,replays/cg/903956941.json@1@19+28"),
+        prop("out", "build/analysis/disrupt-diagnostic.json"))
+}
+
 tasks.register<JavaExec>("cgTiming") {
     group = "cg"
     description = "Offline search-phase timing on validated replay states; not a process deadline check"

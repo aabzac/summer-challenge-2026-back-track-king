@@ -989,3 +989,36 @@ Outcome of the bounded diagnostic:
   valuation on Meruem 903970829 and OldJohn 903956941, separating timer truncation from the
   long-horizon value formula and simultaneous opponent actions. Full findings, reproduction and
   exact sample IDs: `arena-analysis-2026-09-15.md`. Fresh report/docs are a new uncommitted step.
+
+### 2026-09-15 — sabotage valuation versus truncated search
+
+- Committed the prior arena diagnostic as `674aaa4` at user request. Next bounded step:
+  explain Meruem 903970829 turns 43/46 and OldJohn 903956941 turns 19/28, without changing policy.
+- Hypotheses: missed immediate inks can result from incomplete timed scans, long-horizon target
+  valuation, or differences between known-state and recorded-opponent counterfactual evaluation.
+- Added tools-only `cgDisrupt`: invokes the existing private EvalBot scorer/selector via reflection,
+  with v05 parameters. No duplicated rules/evaluation formula or shipped diagnostic hooks. Full
+  noise-free scans use accepted recorded own placements; unknown unbuilt route marks cannot be
+  recovered from stdout. Timed current runs follow recorded prefixes at 486/36 ms with old generic
+  warmup, not the isolated MainBot hook or an asserted reconstruction of the deployed artifact.
+- Fixed one-pass sample, command `gradlew cgValidate cgDisrupt`: **264/264 exact**. Meruem t43/t46
+  full selection 7/6 agrees with recorded selection. OldJohn t19/t28 full selection 27/12, whereas
+  recorded outputs omit sabotage. Local timed runs choose 7/6/27/12 and all four scans complete
+  (33.45/29.81/17.52/18.30 ms). No reruns to select favorable timings, no original-CG-cause claim.
+- Meruem t43: ready region 5 known-state income-difference benefit +177, value 6608.1;
+  region 7 needs two hits but scores 9256.9 on its larger hypothetical effect. At t46 region 6
+  needs four hits yet scores 3272.6, above ready region 3 (3106.2) and region 5 (3063.5).
+  Oracle region-5 benefit +189 at t46 is only +51 against WAIT: opponent action materially
+  changes this choice. OldJohn ready targets are already positive without oracle information.
+- Decision: full valuation can explain the Meruem preference without a scan cutoff, but does
+  not establish the original OldJohn cause or prove that immediate ink wins more games. Next
+  strategy experiment should isolate a discount for additional hits/delayed sabotage effect,
+  preserving the closing rule, not enable the rejected early-fallback or blanket income-veto flags.
+- Added four compact pre-turn fixtures and three tests: known-state targets/components and
+  input preservation, RNG/noise isolation, expired versus complete scan. **112 tests pass**.
+  Tests do not assert wall-clock timings. `git diff --check` clean.
+- No strategy/core/frozen-source changes; no strength bench warranted for this tools-only step.
+  Prepared Player.java SHA-256 remains
+  `748b564a77a0d3293a925913f396a60d4598783501bc4a74a9a6624f6fadbbc5`.
+  Detailed findings: `sabotage-valuation.md`; full local report:
+  `build/analysis/disrupt-diagnostic.json`. New tooling and docs left uncommitted for review.
