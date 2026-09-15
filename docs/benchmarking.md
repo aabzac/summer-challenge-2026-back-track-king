@@ -35,8 +35,8 @@ is charged on every local game. No submission constants or strategy were changed
 The profile and both numerical budgets are saved in report schema v2 and printed in the console.
 Reports without these fields predate alignment; do not silently compare them as equivalent runs.
 `procCheck` caps only its **in-process opponent** to CG search budgets. Its external Player keeps
-the full 1000/50-ms IO deadlines (and the existing 30-ms local process grace); do not subtract the
-margin twice. Inspect measured response times, not just the timeout count.
+the full 1000/50-ms IO deadlines with **zero grace by default**; do not subtract the margin twice.
+An explicit nonzero grace is diagnostic only. Inspect measured response times, not just the timeout count.
 
 For a timing-control experiment, run both profiles sequentially on the same new seed range and
 same frozen bots. Do not run other CPU-heavy jobs concurrently. This tests sensitivity to the
@@ -118,3 +118,82 @@ be chosen before the next confirmation experiment, not selected to make a comple
 
 `cgValidate` now fails the command on any divergence, malformed replay or empty input. This
 allows a failed fidelity check to stop a scripted sequence instead of merely printing a warning.
+
+## Height strata and behavior (report schema 3)
+
+Every pair now includes width, height, townCount and pairCount from its exact initialization.
+`byHeight` contains W/L/D, games and distinct map identities, pointwise map-grouped confidence,
+score difference, average turns and early closures. `behavior` contains the corresponding whole-run
+summary. The overall promotion rule is unchanged; there is **no per-height promotion gate** or
+multiple-comparison correction. Small slices are exploratory, and must not be cherry-picked.
+
+The referee collects accepted placement/disruption turns, accepted cells and paint expenditure
+directly from `Rules.resolve`. Per-game arrays are P0/P1; `behavior` and `byHeight` arrays are **A/B**.
+Rates divide summed accepted-action turns by summed game turns, not the number of games. A region
+inked by both players does not mean one player sent two disruptions. Skipped/illegal requests are
+not accepted moves. `closedEarly` excludes bot-error terminations and turn-limit endings.
+
+Schema 2 reports lack these fields: missing metrics are unknown, not zero. Existing top-level fields
+and the map-grouped gate remain available in schema 3. Preflight generates map initializations
+before worker games; timing/JIT scheduling can differ from older benchmark implementations.
+
+## Named development and confirmation pools
+
+Checked-in manifests define the generator, exact seed range, purpose and number of map pairs:
+
+- `bench/pools/development-v1.json`: 150 maps, seeds 20000..20149, 300 games. Reusable development
+  panel; once used for screening these are not independent confirmation data.
+- `bench/pools/confirmation-v1.json`: 500 maps, seeds 30000..30499, 1000 games. Reserved for a
+  predeclared fixed candidate. No games from this pool were played while implementing the panel.
+
+With `-Ppool`, games default to the complete manifest (an explicit game count must match).
+Combining a pool with `-Pmaps` or `-Pseed` fails; ranges cannot contain seed zero or overflow.
+Without `-Ppool`, existing commands remain supported, defaulting to 200 games / seed 1000.
+Default worker count is now 2, so available CPU count no longer silently changes the bench setup.
+
+Confirmation requires `-PexcludeReports`: comma-separated **files**, each a benchmark report or
+suite `index.json`. All selected initialization hashes are compared before any bot is created;
+one overlap rejects the run. Missing/malformed/empty evidence fails. Report paths and SHA-256
+are recorded along with the pool identity and manifest hash.
+
+Example, after fixing a candidate and recording its development result:
+
+```powershell
+.\gradlew.bat bench "-Pbot1=current" "-Pbot2=v05" "-Ppool=bench/pools/confirmation-v1.json" "-PexcludeReports=build/bench/my-candidate-panel/index.json" "-Pout=build/bench/my-candidate-confirmation.json"
+```
+
+This validates disjointness against the **supplied evidence**, not every experiment ever run.
+It does not automatically know about deleted reports, unrecorded tests, or previously consumed
+confirmation data. Retain reports; after inspecting a confirmation result, do not tune and reuse
+that pool as a new independent confirmation. Create a new named pool and include all earlier
+development/confirmation report identities in the exclusion list. Merely calling a pool
+"confirmation" is not evidence of statistical independence.
+
+## Matched opponent panel
+
+`benchSuite` runs the checked-in `bench/opponents-v1.json` sequentially (each match-up uses two
+workers by default): v05, pressure-v1, v03, and v02 with future-track weights 1.0/0.2. Exact self-spec
+is omitted; otherwise every opponent receives the same initialization hashes, seeds and sides.
+
+```powershell
+.\gradlew.bat benchSuite "-Pbot=v05" "-Pout=build/bench/my-v05-panel"
+.\gradlew.bat benchSuite "-Pbot=current" "-Pout=build/bench/my-candidate-panel"
+```
+
+Compare matching opponent reports, not an average that can hide a regression against one style.
+The suite writes `opponent-N.json` after each completed match-up and an `index.json` with completed
+report hashes and a completion flag. It stops on bot errors and rejects an existing output directory.
+The index's union of map identities is accepted by `-PexcludeReports`; its map counts are evidence
+for exclusion, **not additional independent coverage across opponents**. No suite-level promotion gate.
+
+`pressure-v1` is an independent local-only policy in `btk.bot.reference`, with its own fixed consumed
+parameter snapshot. It chooses sabotage before construction, weights near-term income and public
+potential corridors, favors maintaining pressure on an existing target, then builds cheapest
+profitable routes over an eight-turn horizon. It avoids its chosen sabotage region for new tracks,
+and does not use v05's nested vulnerability evaluator. A known-state losing immediate map closure
+is rejected. No exact opponent reply is available to it.
+
+Its purpose is behavioral coverage, not promotion to Player.java or proof of top-player imitation.
+Keep this id/source/snapshot fixed once baseline results are recorded; use a new reference id for
+future policy revisions. All knobs are in Params; old/current submission strategies ignore the
+PRESSURE_* fields, and reference/benchmark classes are excluded from the submission whitelist.

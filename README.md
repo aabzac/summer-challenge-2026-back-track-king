@@ -10,6 +10,7 @@ and dev log.
 gradlew test                                   # rules unit tests
 gradlew run -Pbot0=current -Pbot1=v01 -Pseed=3  # one game -> replays/local/*.json
 gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg
+gradlew benchSuite -Pbot=current               # matched local opponent panel on development-v1
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
 gradlew submit -PsubmitVersion=v05              # restore frozen v05 source + snapshot, not current experiments
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
@@ -62,6 +63,24 @@ per-game Wilson interval is retained as a diagnostic, not as the promotion gate.
 
 Explicit empty or malformed replay pools fail instead of silently switching to generated maps.
 `cgValidate` also exits with an error for divergences, malformed input or an empty replay corpus.
+
+For the named development pool and a behaviorally different reference:
+
+```powershell
+.\gradlew.bat bench "-Pbot1=current" "-Pbot2=pressure-v1" "-Ppool=bench/pools/development-v1.json"
+.\gradlew.bat benchSuite "-Pbot=v05" "-Pout=build/bench/my-v05-panel"
+```
+
+`pressure-v1` is a local-only sabotage-first reference, not a promoted submission. The suite plays
+the same paired maps against v05, pressure-v1, v03 and aggressive v02, skipping an exact self-spec.
+Each opponent has its own report; no combined win rate is treated as a promotion decision.
+Reports include height slices, accepted action frequencies and early closures; the default is
+two worker threads. Choose a fresh suite output directory to preserve earlier evidence.
+
+`bench/pools/confirmation-v1.json` reserves a different 1000-game pool. Use it only for a fixed
+candidate, with `-PexcludeReports=<development report or suite index.json>`: overlapping map hashes
+are rejected before any game starts. See [benchmarking.md](docs/benchmarking.md) for limitations
+and confirmation commands. Do not tune on this reserved pool.
 
 For arena diagnosis, fetch the player's latest games, then analyze the agent id printed by the
 fetcher (keeps different arena entries separate):

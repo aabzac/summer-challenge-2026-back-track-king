@@ -31,6 +31,10 @@ public final class Referee {
         public final long[] totalMs = new long[2];
         public final long[] maxMs = new long[2];
         public final int[] slowMoves = new int[2];
+        /** Accepted actions from the shared resolver, never inferred from command text. */
+        public final int[] placementTurns = new int[2], disruptTurns = new int[2];
+        public final int[] placedCells = new int[2], paintSpent = new int[2];
+        public boolean closedEarly;
         public Replay replay;
 
         public String summary() {
@@ -70,11 +74,17 @@ public final class Referee {
             Rules.TurnResult tr = Rules.resolve(s, acts[0], acts[1], pathing);
             for (int p = 0; p < 2; p++) {
                 if (tr.moves[p].error != null && res.error[p] == null) res.error[p] = tr.moves[p].error;
+                if (tr.moves[p].count > 0) res.placementTurns[p]++;
+                if (!tr.moves[p].disrupts.isEmpty()) res.disruptTurns[p]++;
+                res.placedCells[p] += tr.moves[p].count;
+                res.paintSpent[p] += tr.moves[p].cost;
             }
             if (replay != null) replay.addTurn(s, acts, tr);
             if (strictInvalid && (res.error[0] != null || res.error[1] != null)) break;
         }
         res.turns = s.turn;
+        res.closedEarly = res.error[0] == null && res.error[1] == null && s.turn < s.maxTurns
+                && !Rules.anyPairPossible(s, pathing);
         res.score[0] = s.score[0];
         res.score[1] = s.score[1];
         if (strictInvalid && (res.error[0] != null || res.error[1] != null)) {

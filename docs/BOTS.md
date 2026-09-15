@@ -28,6 +28,37 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Local reference panel (not submission versions)
+
+`pressure-v1` is a separate sabotage-first, sticky-target, short-horizon policy. Its fixed consumed
+parameters live in `btk/bot/versions/pressure-v1.properties`; the policy stays outside the merged
+submission. Do not retune this reference id after recording its baseline. Use `benchSuite` to
+compare each candidate against the matched v05 / pressure-v1 / v03 / aggressive-v02 panel.
+
+On development-v1 (150 maps, seeds 20000..20149), frozen v05 vs pressure-v1 is **207-93 (69.0%)**,
+CI **57.9-80.1%**. Pressure uses accepted sabotage on **99.9%** of turns but builds on only
+**56.7%**; games average **61.3 turns**, **267/300** close early. This supplies different tactical
+pressure, not evidence that it reproduces the whole arena meta or should replace v05.
+
+Height breakdown illustrates why match-ups must stay separate: v05 wins **24/44** height-20
+games vs pressure-v1 but **36/44** vs v03 on the same maps. These small slices have wide intervals
+and are exploratory. Whole-run v05 vs v03 is **209-91 (69.7%)**, CI **58.6-80.8%**.
+New schema-3 reports and reserved confirmation pool are described in `benchmarking.md`.
+No current-policy promotion is made by this infrastructure/reference work.
+
+Third matched baseline, v05 vs aggressive v02: **217-83 (72.3%)**, CI **61.2-83.4%**,
+300 games; 81.8 turns average. All three reports use the same 150 distinct maps and have zero
+bot errors. In-process timing spikes in this last series (max 260/243 ms, 5/7 slow moves) remain
+diagnostic, not a process-deadline pass. Reports: `build/bench/panel-v1-v05-development/`.
+
+Verification: **127 tests, 264/264 exact replays**. Rebuilt frozen-v05 Player.java is 65,201
+characters, but the fixed strict process sample **failed 1/4 games**: P1 turn 41 on 903182662,
+66.6288 ms spent preparing/sending input, no timestamped response. This does not establish a
+66-ms bot search or identify the cause. Preserve the failed report; investigate before claiming
+submission timing readiness. No retry-to-green or upload; strategy source is unchanged.
+
+## Frozen submission versions
+
 `BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,
 while later versions record their promoted configuration; they do not retrospectively

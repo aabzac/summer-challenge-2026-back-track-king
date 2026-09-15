@@ -45,6 +45,9 @@ class FileMergerTest {
         FileMerger.checkSourceSize(source);
         assertFalse(source.contains("chooseCandidateWithReplies"));
         assertFalse(source.contains("btk.bot.v05"));
+        assertFalse(source.contains("class PressureBot"));
+        assertFalse(source.contains("class BenchPool"));
+        assertFalse(source.contains("class BenchmarkSuite"));
         Path file = temp.resolve("Player.java");
         Files.writeString(file, source);
         assertEquals(0, ToolProvider.getSystemJavaCompiler().run(null, null, null,

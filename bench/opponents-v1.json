@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "opponents-v1",
+  "opponents": [
+    "v05",
+    "pressure-v1",
+    "v03",
+    "v02?W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2"
+  ]
+}

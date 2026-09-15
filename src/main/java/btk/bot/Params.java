@@ -107,6 +107,13 @@ public class Params {
     public double FORECAST_DECAY = 0.95;
     public double FORECAST_FLOOR = 0.10;
 
+    // Local-only pressure reference; current and frozen vNN strategies do not read these.
+    public int PRESSURE_HORIZON = 8;
+    public int PRESSURE_BUILD_RESERVE_MS = 12;
+    public double PRESSURE_TRACK_WEIGHT = 0.8;
+    public double PRESSURE_CORRIDOR_WEIGHT = 2.0;
+    public double PRESSURE_STICKINESS = 0.25;
+
     /** Emit a MESSAGE with debug info each turn. */
     public boolean MESSAGE = false;
     /** Log per-turn diagnostics to stderr. */

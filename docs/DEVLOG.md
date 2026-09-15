@@ -1090,3 +1090,71 @@ Completed outcome:
   uncommitted for user review. The prepared submission is frozen v05 plus isolated runtime warmup,
   not the discounted-sabotage candidate. Tests and replay validation passed before the fixed runs;
   only documentation changed afterward. `git diff --check` clean.
+
+### 2026-09-15 — varied reference opponent and benchmark pools (plan)
+
+- User requested roadmap items 1-2, not another current-policy change. Add local-only
+  `pressure-v1`: sabotage-first, persistent target pressure and short-horizon route construction,
+  no nested vulnerability evaluation. Keep its consumed Params in a named fixed snapshot.
+  This is a behavioral stress opponent; resemblance to top arena play must be measured, not asserted.
+- Extend paired reports with immutable map geometry, height strata, accepted build/disrupt
+  frequency and game duration. Preserve overall promotion gate and map-grouped uncertainty;
+  per-height slices are exploratory, not independent promotion gates.
+- Add explicit development (seeds 20000..20149) and reserved confirmation (30000..30499) pool
+  manifests. Confirmation requires prior development reports and rejects initialization-hash
+  overlap before playing. Do not play the real confirmation pool in this implementation run.
+  Add sequential opponent-suite runner without pooling opponents into one promotion statistic.
+- Fixed development baseline after tests/fidelity: v05 vs pressure-v1, v03 and aggressive v02
+  (track weights 1.0/0.2), 300 paired games per opponent, two workers, 486/36-ms nominal budgets.
+  No policy promotion or tuning from this baseline. Preserve current/frozen policy source;
+  regenerate and process-check frozen v05 only if shared submission Params text changes.
+
+Completed outcome:
+
+- Implemented local-only `pressure-v1`, fixed consumed parameter snapshot, factory registration
+  and four policy/legality tests. No current/vNN policy source or core rule changes. Shared Params
+  gains five PRESSURE_* fields unused by submission strategies; merger tests exclude the reference
+  and benchmark classes. Reference source SHA-256:
+  `2df3e14f7f3affbb52fdebce430c1901575b9a7d13ca671d9bce80f2225d2243`.
+- Schema 3 adds geometry, accepted-action counters, A/B-oriented behavior and height slices.
+  Overall map-grouped gate is unchanged. BenchPool validates full named manifests and requires
+  supplied development evidence for confirmation; initialization-hash overlap fails before bots
+  are created. Suite preserves per-opponent reports and hashes, rejects overwrites and skips exact
+  self-spec. No global holdout-use ledger: independence is checked only against supplied reports.
+- Fixed command: `gradlew benchSuite -Pbot=v05 -Ppool=bench/pools/development-v1.json
+  -Popponents=bench/opponents-v1.json -Pthreads=2 -Pout=build/bench/panel-v1-v05-development`.
+  Three completed 300-game match-ups, 150 distinct maps each, same seeds/hashes/sides verified:
+  - pressure-v1: **207-93-0, 69.0%**, CI **57.9-80.1%**, mean score difference **+627.0**;
+    mean **61.28 turns**, **267/300** early closures, accepted disruption A/B **82.7/99.9%**,
+    accepted placement turns A/B **99.2/56.7%**.
+  - v03: **209-91-0, 69.7%**, CI **58.6-80.8%**, mean difference **+858.3**;
+    mean **80.32 turns**, **206/300** early closures, disruption **67.8/85.2%**.
+  - aggressive v02 (future track/own weights 1.0/0.2): **217-83-0, 72.3%**,
+    CI **61.2-83.4%**, mean difference **+582.9**; mean **81.77 turns**, **184/300** early
+    closures, disruption **67.1/88.7%**. No inert ALWAYS_DISRUPT override in this panel spec.
+  All match-ups have zero bot errors. Early closures are joint match outcomes, not causal
+  attribution to one bot. The third run had in-process max times **260/243 ms** and **5/7**
+  slow moves; nominal in-process budgets do not enforce external deadlines. No strength promotion.
+- All height counts sum to their whole runs. Height-20 results, on the same 22 maps / 44 games:
+  v05 wins **24** vs pressure, **36** vs v03, **24** vs aggressive v02. Small exploratory slices,
+  not proof of a height-specific effect. Suite index is complete with **150**, not 450,
+  distinct map hashes. Zero overlap with all **31** previously available benchmark reports.
+  The real confirmation-v1 pool remains **unplayed**; tests use separate temporary manifests.
+- Decision: retain pressure-v1 as a fixed aggressive stress reference, not a top-player clone.
+  Its high sabotage frequency and shorter matches add coverage, but low construction frequency
+  leaves calibration/additional styles open. Future candidates should use matched panel reports,
+  then a predeclared independent confirmation; do not average opponents into a promotion score.
+- Final checks: **127 tests passed; 264/264 CG replays exact**. Rebuilt with
+  `submit -PsubmitVersion=v05`: **65,201/100,000 characters**, source SHA-256
+  `d03dd610ca210922436fdefb3c3f4f18f8815d22e9d06e85a6466461f2817d29`, compiled-classes SHA-256
+  `e03c16d0a4f01eba37e4b85860f5bb01577dd7b6c7940a07c30cd9d55f44525b`.
+  Source text changed through shared unused Params fields; frozen v05 policy is unchanged.
+- Fixed strict process check (`procCheck -Pbot=v04 -Pgames=4`, zero grace) **failed 1/4 games**.
+  First response max **627.9647 ms**. Failure: game 3, map **903182662**, P1, turn **41**:
+  `sendMs=66.6288`, `responseMs=null`, `consumerMs=66.654`, 50-ms deadline. The measured stall
+  is in input preparation/write/flush, not an observed 66-ms bot response; scheduling/transport
+  versus other causes are unresolved. Successful later responses max **37.7679 ms**.
+  Report retained at `build/analysis/panel-v1-restored-v05-process.json`. No retry-to-green,
+  timing fix, upload or timing-readiness claim. Add this diagnostic follow-up to PLAN.
+- Documentation and completed roadmap items updated. Implementation remains uncommitted for
+  user review. No new current-policy experiment was started and no reference was retuned.

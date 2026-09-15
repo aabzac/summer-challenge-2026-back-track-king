@@ -1,6 +1,7 @@
 package btk.bot;
 
 import btk.bot.current.EvalBot;
+import btk.bot.reference.PressureBot;
 import btk.bot.v00.AutoplaceBot;
 import btk.bot.v01.GreedyBotV01;
 import btk.bot.v02.EvalBotV02;
@@ -38,6 +39,7 @@ public final class BotFactory {
         }
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
+        if (version.equals("pressure-v1")) FrozenParams.applyTo(version, params);
         return params.apply(query);
     }
 
@@ -72,6 +74,7 @@ public final class BotFactory {
             case "v03": return EvalBotV03::new;
             case "v04": return EvalBotV04::new;
             case "v05": return EvalBotV05::new;
+            case "pressure-v1": return PressureBot::new;
             default: return null;
         }
     }

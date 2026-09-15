@@ -75,6 +75,8 @@ class BenchmarkRunnerTest {
         assertEquals(TimingProfile.CG.turnSearchMs, json.get("turnSearchBudgetMs").getAsLong());
         assertEquals("0.1", json.getAsJsonObject("paramsA").get("NOISE").getAsString());
         assertFalse(json.get("promotionGatePassed").getAsBoolean());
+        assertEquals(3, json.get("schemaVersion").getAsInt());
+        assertEquals(10, json.getAsJsonObject("byHeight").getAsJsonObject("1").get("games").getAsInt());
     }
 
     @Test
@@ -111,6 +113,32 @@ class BenchmarkRunnerTest {
         assertThrows(IllegalArgumentException.class, () -> BenchmarkRunner.run("v01", "v02", 4, generated, 1, -1));
         assertThrows(ArithmeticException.class, () -> BenchmarkRunner.run("v01", "v02", 4, generated, 1, Long.MAX_VALUE));
         assertThrows(IllegalArgumentException.class, () -> BenchmarkRunner.run("v99", "v02", 2, generated, 1, 1));
+    }
+
+    @Test
+    void heightSlicesPreserveSideMappingAndDuplicateMapUncertainty() {
+        var stats = new BenchmarkRunner.Stats("v01", "v02");
+        var r0 = new btk.referee.Referee.Result(); var r1 = new btk.referee.Referee.Result();
+        r0.winner = 0; r1.winner = 0; r0.turns = 10; r1.turns = 20;
+        r0.score[0] = 100; r1.score[0] = 60;
+        r0.disruptTurns[0] = 8; r0.disruptTurns[1] = 2;
+        r1.disruptTurns[0] = 4; r1.disruptTurns[1] = 12;
+        r0.closedEarly = true;
+        var p = new BenchmarkRunner.PairResult(0, 1, "a", "same", 20, 14, 4, 6, r0, r1);
+        stats.add(p);
+        double[] firstCi = stats.byHeight.get(14).confidence95.clone();
+        stats.add(p);
+        stats.add(new BenchmarkRunner.PairResult(1, 2, "b", "other", 30, 20, 8, 12, r0, r1));
+        assertEquals(6, stats.games);
+        assertEquals(4, stats.byHeight.get(14).games); assertEquals(2, stats.byHeight.get(20).games);
+        assertArrayEquals(firstCi, stats.byHeight.get(14).confidence95);
+        assertArrayEquals(new long[]{60, 18}, stats.behavior.disruptTurns);
+        assertEquals(2.0 / 3, stats.behavior.disruptRate[0], 1e-12);
+        assertEquals(3, stats.behavior.closedEarly);
+        assertEquals(0.5, stats.byHeight.get(14).rateA);
+        assertEquals(20, stats.byHeight.get(14).avgDiff);
+        assertEquals(stats.games, stats.byHeight.values().stream().mapToInt(s -> s.games).sum());
+        assertEquals(stats.sumDiff, stats.byHeight.values().stream().mapToLong(s -> s.sumDiff).sum());
     }
 
     private static Bot observer(String spec, ConcurrentLinkedQueue<Seen> seen, AtomicInteger created) {

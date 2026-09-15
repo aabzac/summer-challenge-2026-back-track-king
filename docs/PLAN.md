@@ -41,8 +41,11 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 
 Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 
-- [ ] Reference opponent that reproduces the top Silver meta (aggressive disrupts, ~50-turn games) so
-      self-play benches transfer to the arena
+- [x] Add an independent sabotage-first reference and matched opponent panel: pressure-v1,
+      v05, v03, aggressive v02. Pressure baseline: 99.9% disruption, 61.3-turn games; v05 wins
+      69.0% over 300 paired development games. Local behavioral coverage, not proven top-player imitation.
+- [ ] Calibrate/extend reference styles against fresh arena behavior; pressure-v1 builds on only
+      56.7% of turns, so it does not cover every strong opponent. Preserve recorded reference ids.
 - [x] No idle turns: v04 spends otherwise idle paint extending its network through stable nearby
       cells, preferring town regions — 64.7% vs v03 over 300 paired games
 - [ ] Disrupt every turn: pre-emptive targets on the opponent's likely corridors; closing the map
@@ -105,7 +108,9 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       46.5% over 428 games / 214 CG maps, CI 37.2-55.8%; slower and not promoted.
       Fresh-map diagnostics: K=4/R=1 scored 49.3%; K=2/R=1 scored 55.7%, but its
       map-grouped CI was 44.6-66.8%. Keep `USE_REPLY_RERANK` default-off; no confirmation.
-- [ ] Add map-size-stratified reports and independent held-out maps; broaden the opponent pool.
+- [x] Add schema-3 height-stratified reports, accepted-action metrics, named development and
+      reserved confirmation pools; reject overlap with supplied prior report hashes before games.
+      Sequential benchSuite preserves separate opponent reports. Confirmation-v1 remains unplayed.
 - [x] Offline adaptive sabotage forecast on 56 v05 arena games, split by opponent agent:
       holdout top-1 69.9%, but log-loss improvement versus fixed mixture has a CI crossing zero.
       Diagnostic gate not passed; keep tools-only, no strategy integration or v06.
@@ -122,6 +127,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [x] Screen interruptible nested vulnerability eval: 51.3% vs v05 on 300 games / 150 paired
       generated maps, CI 40.2-62.4%. Not promoted; flag off. Tighter measured build-phase
       cutoff and 0/4 candidate process failures are mechanism/timing evidence, not strength.
+- [ ] Diagnose the latest frozen-v05 strict process failure: 1/4 games in the panel-tooling
+      check, P1 turn 41 on 903182662; input preparation/send took 66.6288 ms before a response
+      was observed. Do not attribute this to search without evidence. Keep the failed report
+      `build/analysis/panel-v1-restored-v05-process.json`; no timing-readiness claim or retry-to-green.
 
 ## Someday / maybe
 

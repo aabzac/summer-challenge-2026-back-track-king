@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "development-v1",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 20000,
+  "pairs": 150
+}

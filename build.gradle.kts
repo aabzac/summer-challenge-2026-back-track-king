@@ -44,8 +44,19 @@ tasks.register<JavaExec>("bench") {
     description = "Benchmark two bots on paired maps with frozen reference parameters and a JSON report"
     mainClass.set("btk.runner.BenchmarkRunner")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("bot1", "current"), prop("bot2", "v01"), prop("games", "200"),
-        prop("maps", ""), prop("threads", ""), prop("seed", "1000"), prop("out", ""), prop("timing", "cg"))
+    args = listOf(prop("bot1", "current"), prop("bot2", "v01"), prop("games", ""),
+        prop("maps", ""), prop("threads", ""), prop("seed", ""), prop("out", ""), prop("timing", "cg"),
+        prop("pool", ""), prop("excludeReports", ""))
+}
+
+tasks.register<JavaExec>("benchSuite") {
+    group = "game"
+    description = "Sequential matched opponent panel; separate reports by opponent and map height"
+    mainClass.set("btk.runner.BenchmarkSuite")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("bot", "current"), prop("pool", "bench/pools/development-v1.json"),
+        prop("opponents", "bench/opponents-v1.json"), prop("threads", "2"),
+        prop("out", "build/bench/suite-" + System.currentTimeMillis()), prop("excludeReports", ""))
 }
 
 /** Merge core + bot.current into build/submit/Player.java and compile-check it. */
