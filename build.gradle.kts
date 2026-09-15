@@ -59,6 +59,14 @@ tasks.register<JavaExec>("benchSuite") {
         prop("out", "build/bench/suite-" + System.currentTimeMillis()), prop("excludeReports", ""))
 }
 
+tasks.register<JavaExec>("botCatalog") {
+    group = "game"
+    description = "List named versions, local references and pinned experiments; -Pbot=<id> for details"
+    mainClass.set("btk.tools.BotCatalogTool")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("bot", ""))
+}
+
 /** Merge core + bot.current into build/submit/Player.java and compile-check it. */
 tasks.register<JavaExec>("submit") {
     group = "game"

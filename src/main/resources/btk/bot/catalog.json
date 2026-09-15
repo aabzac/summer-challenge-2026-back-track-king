@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "v00",
+      "title": "Autoplace",
+      "category": "version",
+      "status": "historical",
+      "description": "AUTOPLACE toward the first unfinished desired connection."
+    },
+    {
+      "id": "v01",
+      "title": "Greedy Routes",
+      "category": "version",
+      "status": "historical",
+      "description": "Cheapest routes ranked by track ownership and remaining earning time."
+    },
+    {
+      "id": "v02",
+      "title": "Route Evaluation",
+      "category": "version",
+      "status": "historical",
+      "description": "Simulated route income, ownership stealing and sabotage evaluation."
+    },
+    {
+      "id": "v03",
+      "title": "Risk Aware",
+      "category": "version",
+      "status": "historical",
+      "description": "Adds vulnerability evaluation, backup routes and deliberate map closure."
+    },
+    {
+      "id": "v04",
+      "title": "Network Extension",
+      "category": "version",
+      "status": "historical",
+      "description": "Spends otherwise idle paint extending the network near rails and towns."
+    },
+    {
+      "id": "v05",
+      "title": "Disrupt Reserve",
+      "category": "version",
+      "status": "selected",
+      "description": "Reserves 6 ms for sabotage by cutting route search short; not a timing guarantee."
+    },
+    {
+      "id": "pressure-v1",
+      "title": "Sabotage First",
+      "category": "reference",
+      "status": "local_only",
+      "description": "Independent sticky-target sabotage with short-horizon route construction."
+    },
+    {
+      "id": "current",
+      "title": "Working Copy",
+      "category": "working",
+      "status": "mutable",
+      "description": "Live policy and defaults; not an immutable experiment or archived executable."
+    },
+    {
+      "id": "main",
+      "title": "Submission Wrapper",
+      "category": "working",
+      "status": "mutable",
+      "description": "Live MainBot runtime wrapper; does not identify an existing Player.java artifact."
+    },
+    {
+      "id": "exp-income-guard",
+      "title": "Income Guard",
+      "category": "experiment",
+      "status": "not_promoted",
+      "description": "Veto affordable builds that reduce the known-state income difference.",
+      "engineSnapshot": "experiment-engine-v1.json",
+      "recipe": "GUARD_BUILD_INCOME=true",
+      "historicalEvidence": "48.1% vs v05, 428 games; not promoted. docs/DEVLOG.md, build experiments at 7557d33."
+    },
+    {
+      "id": "exp-build-direction",
+      "title": "Build Direction",
+      "category": "experiment",
+      "status": "not_promoted",
+      "description": "Choose which end of the selected route to build first.",
+      "engineSnapshot": "experiment-engine-v1.json",
+      "recipe": "CHOOSE_BUILD_DIRECTION=true",
+      "historicalEvidence": "52.3% vs v05, 428 games; inconclusive, not promoted. docs/DEVLOG.md, 7557d33."
+    },
+    {
+      "id": "exp-early-disrupt",
+      "title": "Early Disrupt",
+      "category": "experiment",
+      "status": "not_promoted",
+      "description": "Prepare a ready-to-ink sabotage fallback before route search.",
+      "engineSnapshot": "experiment-engine-v1.json",
+      "recipe": "EARLY_DISRUPT_FALLBACK=true",
+      "historicalEvidence": "49.8% vs v05, 428 games; not promoted. docs/DEVLOG.md, 2765afa."
+    },
+    {
+      "id": "exp-reply-rerank",
+      "title": "Reply Rerank",
+      "category": "experiment",
+      "status": "not_promoted",
+      "description": "Rerank four affordable build choices against two predicted simultaneous replies.",
+      "engineSnapshot": "experiment-engine-v1.json",
+      "recipe": "USE_REPLY_RERANK=true,BUILD_BEAM_WIDTH=4,OPP_REPLY_WIDTH=2",
+      "historicalEvidence": "46.5% vs v05, 428 games; not promoted. docs/DEVLOG.md, d464c9f."
+    },
+    {
+      "id": "exp-interruptible-vuln",
+      "title": "Interruptible Evaluation",
+      "category": "experiment",
+      "status": "not_promoted",
+      "description": "Discard incomplete vulnerability evaluations at the build time cutoff.",
+      "engineSnapshot": "experiment-engine-v1.json",
+      "recipe": "INTERRUPT_VULN_EVAL=true",
+      "historicalEvidence": "51.3% vs v05, 300 games; inconclusive, not promoted. docs/DEVLOG.md, fc568af."
+    },
+    {
+      "id": "exp-disrupt-delay065",
+      "title": "Delayed Sabotage Discount",
+      "category": "experiment",
+      "status": "not_promoted",
+      "description": "Discount sabotage targets that need additional hits before ink.",
+      "engineSnapshot": "experiment-engine-v1.json",
+      "recipe": "DISRUPT_DELAY_FACTOR=0.65",
+      "historicalEvidence": "49.3% vs v05, 300 games; not promoted. docs/DEVLOG.md, f665fb5."
+    }
+  ]
+}

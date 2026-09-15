@@ -2,6 +2,7 @@ package btk.runner;
 
 import btk.bot.Bot;
 import btk.bot.BotFactory;
+import btk.bot.BotCatalog;
 import btk.core.GameState;
 import btk.referee.Referee;
 
@@ -27,7 +28,8 @@ public final class LocalRunner {
         System.out.printf("search timing: %s, first %d ms / later %d ms%n",
                 timing, timing.firstSearchMs, timing.turnSearchMs);
         Referee.Result r = ref.play(initial, b0, b1, seed, true);
-        System.out.printf("%s vs %s on %s (%dx%d, %d towns, %d pairs)%n", b0.name(), b1.name(),
+        r.replay.describeLocalBots(spec0, spec1);
+        System.out.printf("%s vs %s on %s (%dx%d, %d towns, %d pairs)%n", BotCatalog.displayName(spec0), BotCatalog.displayName(spec1),
                 maps.name((int) (seed % Math.max(1, maps.poolSize())), seed),
                 initial.width, initial.height, initial.townCount, initial.pairCount);
         System.out.println(r.summary());

@@ -1,6 +1,7 @@
 package btk.referee;
 
 import btk.core.Action;
+import btk.bot.BotCatalog;
 import btk.core.GameState;
 import btk.core.Rules;
 import com.google.gson.Gson;
@@ -30,6 +31,8 @@ public final class Replay {
         public String source = "local";
         public long seed;
         public String[] bots;
+        /** Optional explicit local identities. CG player nicknames must never be resolved via our catalog. */
+        public BotCatalog.Identity[] botDetails;
         public String gameId;
         public int winner;
         public int[] score;
@@ -81,6 +84,13 @@ public final class Replay {
         }
         for (int p = 0; p < s.pairCount; p++) map.pairs.add(new int[]{s.pairFrom[p], s.pairTo[p]});
         prevOwner = s.owner.clone();
+    }
+
+    /** Attach explicit runner specs rather than guessing identity from a bot's display name. */
+    public void describeLocalBots(String spec0, String spec1) {
+        if (!"local".equals(meta.source)) throw new IllegalStateException("Not a local replay");
+        meta.bots = new String[]{spec0, spec1};
+        meta.botDetails = new BotCatalog.Identity[]{BotCatalog.describe(spec0), BotCatalog.describe(spec1)};
     }
 
     /** Records the state right after {@code Rules.resolve}. */

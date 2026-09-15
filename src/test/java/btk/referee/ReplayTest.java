@@ -8,9 +8,24 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ReplayTest {
+
+    @Test void recordsExplicitLocalLabelsButNeverRelabelsCgPlayers() {
+        var state = btk.referee.MapGenerator.generate(321);
+        var local = new Replay(state, 321, "old bot name", "other");
+        local.describeLocalBots("v05", "exp-income-guard?NOISE=0.2");
+        assertArrayEquals(new String[]{"v05", "exp-income-guard?NOISE=0.2"}, local.meta.bots);
+        assertEquals("v05 - Disrupt Reserve", local.meta.botDetails[0].displayName());
+        assertEquals("not_promoted", local.meta.botDetails[1].status());
+        assertTrue(local.toJson().contains("implementationSha256"));
+        var cg = new Replay(state, 321, "v05", "exp-income-guard");
+        cg.meta.source = "cg";
+        assertNull(cg.meta.botDetails);
+        assertThrows(IllegalStateException.class, () -> cg.describeLocalBots("v05", "exp-income-guard"));
+        assertArrayEquals(new String[]{"v05", "exp-income-guard"}, cg.meta.bots);
+    }
 
     @Test
     @SuppressWarnings("unchecked")

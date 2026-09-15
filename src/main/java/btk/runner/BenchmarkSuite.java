@@ -1,6 +1,7 @@
 package btk.runner;
 
 import btk.bot.BotFactory;
+import btk.bot.BotCatalog;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 
@@ -35,19 +36,19 @@ public final class BenchmarkSuite {
         Files.createDirectories(out);
         for (int i = 0; i < opponents.size(); i++) {
             String opponent = opponents.get(i);
-            System.out.println("Suite opponent " + (i + 1) + "/" + opponents.size() + ": " + opponent);
+            System.out.println("Suite opponent " + (i + 1) + "/" + opponents.size() + ": " + BotCatalog.displayName(opponent));
             var stats = BenchmarkRunner.run(candidate, opponent, pool.games(), new Maps(""), threads,
                     pool.baseSeed(), TimingProfile.CG, BotFactory::create, exclusions.hashes());
             pool.annotate(stats, exclusions);
             Path file = out.resolve("opponent-" + (i + 1) + ".json"); stats.write(file);
             System.out.println(stats.report());
             stats.gamesPerMap.forEach((hash, n) -> gamesPerMap.merge(hash, n, Integer::sum));
-            reports.add(Map.of("opponent", opponent, "file", file.getFileName().toString(),
+            reports.add(Map.of("opponent", opponent, "bot", stats.botB, "file", file.getFileName().toString(),
                     "sha256", BenchPool.digest(Files.readAllBytes(file)), "winRate", stats.rateA(),
                     "errors", stats.errorsA + stats.errorsB));
             // Save completed evidence even when a later match-up fails/interruption occurs.
             Files.writeString(out.resolve("index.json"), new GsonBuilder().setPrettyPrinting().create().toJson(Map.of(
-                    "schemaVersion", 1, "candidate", candidate, "pool", pool, "opponentPanelSha256", BenchPool.digest(panelBytes),
+                    "schemaVersion", 1, "candidate", candidate, "candidateBot", stats.botA, "pool", pool, "opponentPanelSha256", BenchPool.digest(panelBytes),
                     "reports", reports, "gamesPerMap", gamesPerMap, "complete", i + 1 == opponents.size(),
                     "method", "Separate matched opponent reports; no aggregate promotion gate. Exact self-spec omitted.")));
             if (stats.errorsA + stats.errorsB > 0) throw new IllegalStateException("Suite bot errors; see " + file);

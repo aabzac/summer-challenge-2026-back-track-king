@@ -132,6 +132,11 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       was observed. Do not attribute this to search without evidence. Keep the failed report
       `build/analysis/panel-v1-restored-v05-process.json`; no timing-readiness claim or retry-to-green.
 
+- [x] Add descriptive bot labels without renaming frozen classes; retain six named local
+      experiment recipes with full parameters and a classpath implementation guard. Reports and
+      local replays preserve ids plus labels/provenance; CG names remain untouched. No promotion
+      or expansion of the default opponent panel. See bot_catalog.md.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

@@ -197,3 +197,16 @@ Its purpose is behavioral coverage, not promotion to Player.java or proof of top
 Keep this id/source/snapshot fixed once baseline results are recorded; use a new reference id for
 future policy revisions. All knobs are in Params; old/current submission strategies ignore the
 PRESSURE_* fields, and reference/benchmark classes are excluded from the submission whitelist.
+
+## Bot identities and optional experiment opponents
+
+`gradlew botCatalog` lists descriptive names and separates versions, independent references,
+mutable working entries and retained experiments. Commands and report matching still use ids
+such as `v05` or `exp-reply-rerank`, not display labels. See `bot_catalog.md` for recipes and the
+strict implementation guard. `botA`/`botB` are additive schema-3 metadata; complete parameters
+remain in `paramsA`/`paramsB`. An experiment's pinned preset hash does not include explicit query
+overrides: those remain visible in the full spec and resolved parameters.
+
+The catalog does not add rejected experiments to the default panel, promote a policy, or rewrite
+old reports. The guard identifies strategy/core class bytes; it does not freeze the map generator,
+referee, timing profile or Java runtime. Compare those separately as before.

@@ -11,6 +11,8 @@ gradlew test                                   # rules unit tests
 gradlew run -Pbot0=current -Pbot1=v01 -Pseed=3  # one game -> replays/local/*.json
 gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg
 gradlew benchSuite -Pbot=current               # matched local opponent panel on development-v1
+gradlew botCatalog                            # names, categories and experiment status
+gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
 gradlew submit -PsubmitVersion=v05              # restore frozen v05 source + snapshot, not current experiments
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
@@ -43,6 +45,20 @@ mirror each other and every game is a draw.
 | `visualizer/index.html` | drag & drop a replay JSON; paths, ownership per connection, hover info |
 
 ## Reproducible benchmarks
+
+Bots have stable command ids and descriptive labels: `v03 - Risk Aware`, `v04 - Network Extension`,
+`v05 - Disrupt Reserve`. Six retained, **not promoted** experiments can also be selected by name:
+`exp-income-guard`, `exp-build-direction`, `exp-early-disrupt`, `exp-reply-rerank`,
+`exp-interruptible-vuln`, `exp-disrupt-delay065`. For example:
+
+```powershell
+.\gradlew.bat bench "-Pbot1=exp-income-guard" "-Pbot2=v05" "-Ppool=bench/pools/development-v1.json"
+```
+
+Named experiments pin complete parameters and verify their compiled engine snapshot; they do not
+silently follow future `current` changes. They are optional local opponents, not additions to the
+default panel or allowed `submitVersion` values. See [the bot catalog](docs/bot_catalog.md) for
+historical evidence, limitations and how to retain/revise an experiment.
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
 P0 and P1. Reference bots `v01`–`v05` load fixed parameter snapshots; explicit query overrides

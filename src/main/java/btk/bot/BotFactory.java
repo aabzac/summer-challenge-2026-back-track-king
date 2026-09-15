@@ -8,15 +8,19 @@ import btk.bot.v02.EvalBotV02;
 import btk.bot.v03.EvalBotV03;
 import btk.bot.v04.EvalBotV04;
 import btk.bot.v05.EvalBotV05;
+import btk.core.Action;
+import btk.core.GameState;
 
 import java.util.function.Function;
 import java.lang.reflect.Modifier;
 import java.util.Map;
+import java.util.List;
 import java.util.TreeMap;
 
 /**
- * Creates bots by spec string: {@code "<version>"} or {@code "<version>?KEY=v&KEY2=v"}.
+ * Creates bots by spec string: {@code "<version>"} or {@code "<version>?KEY=v,KEY2=v"}.
  * Versions: {@code current} (working copy), {@code main} (what ships), {@code vNN} (frozen).
+ * Local-only {@code exp-*} recipes and readable labels are described by {@link BotCatalog}.
  */
 public final class BotFactory {
 
@@ -25,7 +29,15 @@ public final class BotFactory {
     public static Bot create(String spec) {
         String version = version(spec);
         Params params = parameters(spec);
-        return lookup(version).apply(params);
+        Bot bot = lookup(version).apply(params);
+        if (!version.startsWith("exp-")) return bot;
+        // Preserve a named preset in generic referee replays without touching strategy classes.
+        return new Bot() {
+            public String name() { return spec; }
+            public void init(GameState s, int me) { bot.init(s, me); }
+            public List<Action> play(GameState s, int me, long ms) { return bot.play(s, me, ms); }
+            public void warmup(GameState s, int me, long ms) { bot.warmup(s, me, ms); }
+        };
     }
 
     /** Resolve historical defaults first, then explicit ablation overrides. Always a fresh object. */
@@ -37,6 +49,7 @@ public final class BotFactory {
         if ((version.equals("main") || version.equals("v00")) && !query.isBlank()) {
             throw new IllegalArgumentException(version + " does not accept parameter overrides");
         }
+        if (version.startsWith("exp-")) return BotCatalog.experimentParameters(version).apply(query);
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
         if (version.equals("pressure-v1")) FrozenParams.applyTo(version, params);
@@ -75,7 +88,9 @@ public final class BotFactory {
             case "v04": return EvalBotV04::new;
             case "v05": return EvalBotV05::new;
             case "pressure-v1": return PressureBot::new;
-            default: return null;
+            default:
+                if (version.startsWith("exp-") && BotCatalog.entry(version).category().equals("experiment")) return EvalBot::new;
+                return null;
         }
     }
 }

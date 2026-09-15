@@ -1158,3 +1158,63 @@ Completed outcome:
   timing fix, upload or timing-readiness claim. Add this diagnostic follow-up to PLAN.
 - Documentation and completed roadmap items updated. Implementation remains uncommitted for
   user review. No new current-policy experiment was started and no reference was retuned.
+
+### 2026-09-15 — descriptive bot catalog and retained experiment recipes
+
+- User accepted descriptive version names plus a catalog separating historical versions,
+  independent local references and unpromoted experiments. Implementation is local tooling:
+  preserve vNN ids/classes, current policy, shared Params/core, default panel and promotion rule.
+- Added catalog entries for v00 Autoplace, v01 Greedy Routes, v02 Route Evaluation, v03 Risk Aware,
+  v04 Network Extension, v05 Disrupt Reserve, pressure-v1 Sabotage First, and mutable current/main.
+  `gradlew botCatalog [-Pbot=<spec>]` lists entries or shows a recipe, full parameters and identity.
+- Retained six named configurations: exp-income-guard, exp-build-direction, exp-early-disrupt,
+  exp-reply-rerank (K4/R2), exp-interruptible-vuln, exp-disrupt-delay065. No per-flag source copies.
+  They pin all 46 parameters and 17 current/core dependency class hashes from source revision
+  `218457a9b6ce72a9e06c5b6a9102112a6c7e25e2`; compiled-engine fingerprint
+  `05b2595d987156fef7e49baec8ad84900e0673d6cf634fcfa426bb817803343a`.
+  Classpath drift or an incomplete snapshot fails before playing; explicit overrides are labelled.
+  Compiler/debug changes may also invalidate the conservative guard. Old ids must not be retargeted.
+- Historical experiment results remain historical: this shared catalog snapshot is not an archive
+  of every earlier executable. Retaining an experiment does not promote it or put it in the default
+  opponent panel. Descriptions, evidence links and restoration/revision limitations are documented
+  in `bot_catalog.md`. No automatic git checkout, JAR archive or new strategy was added.
+- Benchmark/suite reports retain machine ids and add label/status/provenance metadata. LocalRunner
+  keeps exact input specs in meta.bots and adds optional botDetails. The visualizer prefers recorded
+  labels, looks up old local ids when the catalog is available, and never interprets CG nicknames
+  as local strategies. Unknown names / unavailable catalog preserve the original text.
+- Verification: **134 Java tests passed, 264/264 CG replays exact**, plus **9 Node label checks**.
+  New tests cover preset/config isolation, missing fields, implementation drift, both-player
+  first-move equivalence for all six recipes, explicit overrides, report ids, local-vs-CG identity
+  and submission exclusion. Browser testing caught a Windows Java/console encoding mismatch in
+  the initial separator; final labels use ASCII separators and need no global encoding change.
+- CLI wiring smoke: exp-reply-rerank vs v05, **4 games / 2 paired maps**, seeds 40000..40001,
+  two workers, nominal 486/36 ms, **zero errors**, max times 31/26 ms. Report:
+  `build/bench/catalog-reply-smoke.json`. W-L-D happened to be 4-0-0, CI 4.0-100.0%:
+  **wiring smoke only, not strength evidence or promotion**. Later label-only corrections do not
+  change the report's stored original labels. Confirmation-v1 was not played.
+- Browser checks: new local v05 vs exp-income-guard replay on seed 40100, old local replay
+  `game_20260913_021834_-176203007668178900.json`, CG arena 903584094; labels and last-turn
+  navigation work, CG still shows aabzac/RTJ. Three local visual-QA runs on the same seed were
+  produced while fixing the label encoding (not a benchmark); final checked file is
+  `replays/local/game_20260915_215747_40100.json`.
+- `submit -PsubmitVersion=v05` compile-checks and reproduces the **same** 65,201-character source,
+  SHA-256 `d03dd610ca210922436fdefb3c3f4f18f8815d22e9d06e85a6466461f2817d29`.
+  No shipped source/config or packaging changes, no new process timing claim. The preceding
+  1/4 strict-process failure remains unresolved; no retry-to-green or arena upload.
+- Decision: catalog ready for user review, no policy promotion or parameter retuning. Changes
+  remain uncommitted pending an explicit request.
+
+### 2026-09-15 — compact shared-skill update and catalog commit
+
+- User requested the agreed shared lessons and a commit before the next step. Added two short
+  paragraphs to the personal codingame-bot-contest skill: stable ids vs readable labels and
+  retained experiments vs promotion (architecture.md); a small behaviorally varied opponent panel
+  with per-opponent results (benchmarking.md). Main SKILL.md and invocation metadata unchanged;
+  no project-specific bytecode mechanism, flags, seed ranges or result numbers were generalized.
+- Personal skill files live under `C:/Users/garus/.agents/skills/codingame-bot-contest`, outside
+  this repository and outside any Git repository. They are updated locally, not part of the
+  project commit. Reviewed both additions and existing reference routing. quick_validate.py
+  could not start because PyYAML is absent in both available Python runtimes; no dependency
+  installation or unrelated configuration change was made. Existing frontmatter is untouched.
+- Commit the completed catalog/tooling with its prior 134-test, 9-label-check and 264-replay
+  evidence. Next work is the recorded strict-process timeout diagnosis, not a strategy change.

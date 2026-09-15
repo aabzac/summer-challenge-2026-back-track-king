@@ -19,6 +19,7 @@
   .score { display:flex; gap:12px; font-size:20px; font-weight:600; }
   .p0 { color:var(--p0); } .p1 { color:var(--p1); }
   .mono { font-family: Consolas, monospace; font-size:12px; white-space:pre-wrap; word-break:break-all; }
+  #meta { word-break:normal; overflow-wrap:anywhere; }
   .err { color:#ff7b6b; }
   #drop { border:2px dashed #3b4553; border-radius:6px; padding:14px; text-align:center; color:var(--muted); }
   #drop.over { border-color:#7fb3ff; color:#fff; }
@@ -62,6 +63,7 @@
   <h3>Keys</h3>
   <div class="mono" style="color:var(--muted)">space play/pause · ← → step · home/end</div>
 </div>
+<script src="bot-labels.js"></script>
 <script>
 'use strict';
 const TERRAIN = ['#3d6b3a', '#2b5c8a', '#6e6a62'];
@@ -70,10 +72,26 @@ const PAIR_COLORS = ['#ffd166','#06d6a0','#ef476f','#118ab2','#f78c6b','#c77dff'
 let replay = null, turn = 0, timer = null;
 let ownerByTurn = [];      // ownerByTurn[t] = Int8Array owner state AFTER turn t-1 (t=0: initial)
 let hoverCell = -1;
+let botCatalogEntries = [];
 
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
 const $ = id => document.getElementById(id);
+
+// Old local replays have only ids. New ones carry their recorded labels and need no catalog fetch.
+fetch('../src/main/resources/btk/bot/catalog.json').then(r => {
+  if (!r.ok) throw new Error('catalog unavailable');
+  return r.json();
+}).then(catalog => {
+  botCatalogEntries = Array.isArray(catalog.entries) ? catalog.entries : [];
+  if (replay) showMeta();
+}).catch(() => {}); // Standalone/offline viewer keeps recorded labels or original ids.
+
+function showMeta() {
+  const m = replay.meta;
+  const names = [0, 1].map(p => BtkBotLabels.label(m, p, botCatalogEntries));
+  $('meta').textContent = `${m.source}${m.gameId ? ' #' + m.gameId : ''}  seed ${m.seed}\nP0 ${names[0]}\nP1 ${names[1]}\n${replay.map.width}x${replay.map.height}, ${replay.map.towns.length} towns, ${replay.map.pairs.length} pairs, ${replay.turns.length} turns\nwinner: ${m.winner < 0 ? 'draw' : 'P' + m.winner}  final ${m.score ? m.score.join('-') : ''}`;
+}
 
 function load(json) {
   replay = json;
@@ -85,8 +103,7 @@ function load(json) {
     ownerByTurn.push(o);
   }
   $('slider').max = replay.turns.length;
-  const m = replay.meta;
-  $('meta').textContent = `${m.source}${m.gameId ? ' #' + m.gameId : ''}  seed ${m.seed}\nP0 ${m.bots[0]}\nP1 ${m.bots[1]}\n${replay.map.width}x${replay.map.height}, ${replay.map.towns.length} towns, ${replay.map.pairs.length} pairs, ${replay.turns.length} turns\nwinner: ${m.winner < 0 ? 'draw' : 'P' + m.winner}  final ${m.score ? m.score.join('-') : ''}`;
+  showMeta();
   setTurn(0);
 }
 

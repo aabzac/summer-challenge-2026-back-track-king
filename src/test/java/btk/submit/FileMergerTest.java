@@ -22,6 +22,7 @@ class FileMergerTest {
         assertDoesNotThrow(() -> FileMerger.checkSourceSize("a".repeat(100_000)));
         assertThrows(IllegalStateException.class, () -> FileMerger.checkSourceSize("a".repeat(100_001)));
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("v99"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("exp-income-guard"));
     }
 
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
@@ -48,6 +49,8 @@ class FileMergerTest {
         assertFalse(source.contains("class PressureBot"));
         assertFalse(source.contains("class BenchPool"));
         assertFalse(source.contains("class BenchmarkSuite"));
+        assertFalse(source.contains("class BotCatalog"));
+        assertFalse(source.contains("experiment-engine-v1"));
         Path file = temp.resolve("Player.java");
         Files.writeString(file, source);
         assertEquals(0, ToolProvider.getSystemJavaCompiler().run(null, null, null,

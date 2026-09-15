@@ -2,6 +2,7 @@ package btk.runner;
 
 import btk.bot.Bot;
 import btk.bot.BotFactory;
+import btk.bot.BotCatalog;
 import btk.core.GameState;
 import btk.core.Protocol;
 import btk.referee.Referee;
@@ -82,6 +83,7 @@ public final class BenchmarkRunner {
 
     public static final class Stats {
         public final String a, b;
+        public final BotCatalog.Identity botA, botB;
         public final Map<String, String> paramsA, paramsB;
         public final String startedAt = Instant.now().toString();
         public final String javaVersion = System.getProperty("java.version");
@@ -109,6 +111,8 @@ public final class BenchmarkRunner {
             this.b = b;
             paramsA = BotFactory.configuration(a);
             paramsB = BotFactory.configuration(b);
+            botA = BotCatalog.describe(a);
+            botB = BotCatalog.describe(b);
         }
 
         /** Win rate of A with draws counted as half, in [0,1]. */
@@ -145,7 +149,8 @@ public final class BenchmarkRunner {
             StringBuilder sb = new StringBuilder();
             sb.append("=".repeat(64)).append('\n');
             sb.append(String.format("  %s vs %s (%d games, %d pairs, %d distinct maps)%n",
-                    a, b, games, pairs.size(), gamesPerMap.size()));
+                    botA.displayName(), botB.displayName(), games, pairs.size(), gamesPerMap.size()));
+            sb.append("  catalog status A/B: ").append(botA.status()).append(" / ").append(botB.status()).append('\n');
             sb.append(String.format("  A win rate: %.1f%%  W-L-D %d-%d-%d%n", rateA() * 100, winsA, winsB, draws));
             sb.append(String.format("  search timing: %s, first %d ms / later %d ms (nominal, no protocol/JIT warm-up)%n",
                     timingProfile, firstSearchBudgetMs, turnSearchBudgetMs));

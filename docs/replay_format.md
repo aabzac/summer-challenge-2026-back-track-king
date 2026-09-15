@@ -20,6 +20,11 @@ viewer uses them to thicken a region's outline after each of the first three suc
 and to fill the region after the fourth. Older visualizer JSON remains loadable, but needs to be
 rendered again to show this effect.
 
+LocalRunner exports now also contain optional `meta.botDetails[]` with descriptive local bot
+names and experiment provenance; `meta.bots[]` retains exact command specs. The viewer prefers
+recorded labels and can look up recognized ids in older local replays. CG nicknames are never
+resolved through this catalog. Older files without these optional fields still load normally.
+
 ## Top level
 
 | field | meaning |
