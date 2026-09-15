@@ -898,3 +898,72 @@ Outcome:
 - Both requested steps are complete. Next separately scoped experiment: reach route search
   during warmup without changing live RNG/state semantics, then check startup headroom.
   New work after `75ba0ca` remains uncommitted for review.
+
+### 2026-09-15 — isolated route warmup runtime experiment
+
+- User requested commit and warmup fix; preceding phase study committed as `fc568af`.
+- Add a default-off submission-runtime flag `ISOLATED_ROUTE_WARMUP` in MainBot. Construct a
+  disposable instance of the SAME merged strategy/parameters, reset a scratch state each call,
+  use `WARMUP_SLICE_MS=36` within the existing 500-ms allowance. Init/reset costs count toward
+  that allowance, and no undersized final slice is started. Individual calls are still cooperative
+  and can overrun. Live delegate, its RNG and game state are never used for warmup.
+- Generic Bot warmup, frozen strategy implementations, core rules, search budgets, margin,
+  scoring and all failed strategy flags remain unchanged. A mainless in-process strength bench
+  does not invoke this hook and would not evaluate it; this is a runtime fix, not v06 promotion
+  or evidence of a higher win rate. Time-limited decisions may change when JIT coverage changes.
+- Predeclared verification: scheduler/state/RNG tests, actual route-call counter check, merged
+  frozen-v05 parity with/without isolated warmup, full tests; sequential strict process sample
+  against v04, **8 games each** (four default maps plus both sides of 903509641 and 903508669).
+  Build v05 with flag 0 for control and flag 1 for candidate; compare exact hashed artifacts.
+  No concurrent CPU-heavy tasks, relaxed grace, tuning or rerun-until-green.
+- To enable the runtime fix by default: candidate must pass all 8 formal deadlines/protocol
+  checks, all first replies below the existing 800-ms headroom target, and semantic tests green.
+  Compare control descriptively, not as a statistical CPU-speed or arena-strength claim. If this
+  passes, rebuild default v05 and verify the resulting source is the tested candidate or rerun
+  its process checks. Otherwise keep flag off and restore/recheck default v05.
+
+Outcome:
+
+- **109 tests passed**, **214/214 exact CG replays**. Six added tests cover scheduler setup/reset
+  accounting, fractional remaining time, route search actually reached, live RNG/action parity
+  over successive turns for both players, zero/invalid allowance, and compiled frozen-v05
+  warmup isolation. No core, frozen source or policy change; a strength bench without the
+  submission warmup hook would not test this fix and was not run.
+- Fixed control sample: 0/8 process failures, first-response mean **626.9413 ms**, range
+  **573.9943-696.8371 ms**; later max **38.2203 ms**. Source SHA-256
+  `e4de383989b1efedee45436dbe1c459f44d316e707feb6c0acaa3099e220254a`, 64,788 characters.
+  Control flag off; the inactive isolated scheduler's rounding was tightened before the
+  candidate build (nanosecond remainder, covered by a regression test).
+- Fixed candidate sample: 0/8 failures, first mean **554.2242 ms**, range **541.9555-577.8871 ms**;
+  later max **38.2355 ms**. Source SHA-256
+  `a5c4dd51d883c294bd29845eea3cfdfd1932404688e9c7c4d65e5849924d8cd3`, 64,776 characters.
+  Both variants used zero grace; 4/8 control and 5/8 candidate wins are smoke data, not strength
+  evidence. No timing tuning or rerun-until-green. Reports:
+  `build/analysis/warmup-{control,candidate}-{default4,903509641,903508669}.json`.
+- Runtime gate **PASSED**. Enabled `ISOLATED_ROUTE_WARMUP` by default (36-ms slice unchanged).
+  The observed first-response improvement is descriptive: variants run sequentially, JIT and
+  host load vary, and the scheduler can leave up to one slice unused rather than forcing a tiny
+  final call. Do not attribute the entire difference to compilation alone or promise CG timing.
+- Default flip changes generated source, so rebuilt default v05 and checked another fixed
+  eight games on the same map schedule. **0/8 process failures**, first mean **574.0500 ms**,
+  range **540.9463-620.8807 ms**, later max **38.115 ms**; 5/8 wins (smoke only).
+  Reports: `build/analysis/warmup-final-{default4,903509641,903508669}.json`.
+- Final `build/submit/Player.java`: v05 strategy plus verified warmup runtime, **64,775 characters**,
+  SHA-256 `748b564a77a0d3293a925913f396a60d4598783501bc4a74a9a6624f6fadbbc5`.
+  No v06, no upload. Generic `cgTiming` bypasses MainBot and still measures old generic warmup;
+  its counters must not be used as evidence against the new submission hook.
+- Previous work is committed as `fc568af`; this warmup change remains uncommitted for review.
+
+### 2026-09-15 — arena checkpoint and next diagnostic
+
+- User authorized committing the warmup fix and reported that Gold opened today; our entry
+  remains in **Silver, rank 235/622**. Record as user-reported, not independently API verified.
+  Deployment of the new warmup artifact and current placement status are not yet established.
+- Clarify benchmark status: no new ordinary strength bench was run for the MainBot warmup
+  fix, because that benchmark bypasses the hook. The 8+8 process comparison and final 8-game
+  artifact check measure startup/protocol/timing, not statistically established playing strength.
+  Last strategy screen remains interrupted eval: 51.3% vs v05, not promoted.
+- Next planned step: fetch a bounded latest sample (up to 50 completed games for aabzac),
+  identify arena entry and fresh-vs-existing game IDs, validate before analysis, and inspect
+  fresh losses separately from the old corpus. Do not attribute rank changes to warmup or mix
+  arena entries/league populations into a single improvement claim. No upload or submission.

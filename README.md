@@ -138,6 +138,13 @@ the submission artifact; restore `submit -PsubmitVersion=v05` and rerun `procChe
 Always run `procCheck` after building; `-Pbot` selects its OPPONENT, not the submitted strategy.
 Use `-Pmap=replays/cg/<id>.json -Pgames=2` to check both sides of a particular difficult map.
 
+Submission `MainBot` now warms a disposable instance of the selected strategy with 36-ms calls
+inside the existing 500-ms warmup allowance. This reaches route search without consuming the
+live bot's RNG or mutating its state. `ISOLATED_ROUTE_WARMUP=true` is the runtime default;
+`submit "-PsubmitVersion=v05?ISOLATED_ROUTE_WARMUP=0"` builds the old-warmup diagnostic control.
+The v05 policy itself is unchanged. Core operations can still overrun a cooperative slice;
+local timing checks do not guarantee identical behavior on the CG host.
+
 `procCheck` now defaults to **zero grace**: 1,000 ms first response / 50 ms later. One clock
 includes turn serialization and stdin write/flush; stdout lines are timestamped by the reader.
 Late lines fail even when the waiting thread resumes with a nonempty queue. A timeout or EOF
@@ -166,3 +173,5 @@ explicit diagnostic variant and `-Pout` saves all per-turn observations. It enab
 `PROFILE_SEARCH` only for that run. Evaluation time is INCLUDED in route time, not additional.
 These instrumented current calls are not the frozen executable or the local timeout match;
 use them for attribution, and use uninstrumented `procCheck` for process deadline evidence.
+`cgTiming` invokes the generic strategy warmup, not the isolated `MainBot` submission hook;
+its warmup counters do not measure the new submission runtime.

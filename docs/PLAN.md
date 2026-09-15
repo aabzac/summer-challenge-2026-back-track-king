@@ -21,7 +21,9 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 ## Phase 2 — leagues (open)
 
 - [x] Paste `Player.java` (v03) into the CG IDE and advance — Wood 2 → Wood 1 → Bronze → Silver;
-      currently around rank 350/645, with Gold not yet open
+      initially around rank 350/645, with Gold not yet open at that historical checkpoint
+- [x] Record user snapshot, 2026-09-15: Gold opened today; our entry remains in Silver,
+      rank 235/622. User-reported, not an API verification or proof of warmup/strategy improvement.
 - [x] Capture the Bronze statement verbatim into `docs/rules/bronze.md`; reconcile with
       `inferred_silver.md` — all inferred rules confirmed; Bronze is the final rule set
 - [x] Referee source found (linked from the statement) and cloned to `tmp/referee-src`
@@ -75,11 +77,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [x] User uploaded v05; record agent 6736850 and analyze first 56 fresh games: 38-18,
       no own timeouts, 214/214 corpus games exact. Placement is still ongoing.
 - [ ] After v05 placement completes, compare a later sample; do not infer strength from rank alone.
-- [ ] Revisit warm-up scheduling: generic 5-ms warm-up calls are below v05's 6-ms reserve,
-      so they skip route search (confirmed: zero route-search calls in four profiled cases).
-      Next independent experiment: warm routes explicitly while preserving RNG/state semantics;
-      verify startup headroom and later turns separately. Historical process passes are not a
-      guarantee: a recent first response took 959.35 ms, above the 800-ms headroom target.
+- [x] Fix submission warm-up scheduling: MainBot uses a disposable same-strategy instance,
+      copied states and 36-ms slices within the existing 500-ms allowance. Route search now
+      runs without consuming live RNG. Candidate 0/8 strict process failures, first max 577.89 ms
+      versus control 696.84 ms; runtime default enabled, no policy/version promotion. See DEVLOG.
 - [ ] Check actual partial placements against score-difference regressions, not only the value
       of a fully completed candidate route. Do not attribute every bad build to idle extension.
 - [x] Screen a known-state income veto: fixes captured harmful builds but only 48.1% vs v05

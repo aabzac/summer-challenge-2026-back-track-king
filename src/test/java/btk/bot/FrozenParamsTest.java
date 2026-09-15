@@ -88,6 +88,8 @@ class FrozenParamsTest {
         expected.put("OPP_REPLY_WIDTH", "2");
         expected.put("FORECAST_DECAY", "0.95");
         expected.put("PROFILE_SEARCH", "false");
+        expected.put("ISOLATED_ROUTE_WARMUP", "true"); // Shared MainBot runtime, not frozen policy.
+        expected.put("WARMUP_SLICE_MS", "36");
         expected.put("INTERRUPT_VULN_EVAL", "false");
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));

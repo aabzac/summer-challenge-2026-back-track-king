@@ -33,7 +33,15 @@ class FileMergerTest {
     }
 
     @Test void restoredV05CompilesAndMatchesFrozenDecisions() throws Exception {
-        String source = FileMerger.merge("v05");
+        checkFrozenDecisions("v05", false);
+    }
+
+    @Test void mergedV05WarmupIsIsolatedAndUsesTheFrozenStrategy() throws Exception {
+        checkFrozenDecisions("v05?ISOLATED_ROUTE_WARMUP=1", true);
+    }
+
+    private void checkFrozenDecisions(String spec, boolean warmup) throws Exception {
+        String source = FileMerger.merge(spec);
         FileMerger.checkSourceSize(source);
         assertFalse(source.contains("chooseCandidateWithReplies"));
         assertFalse(source.contains("btk.bot.v05"));
@@ -59,6 +67,12 @@ class FileMergerTest {
                         s.townX, s.townY, s.desired);
                 Object generatedBot = mainCtor.newInstance();
                 init.invoke(generatedBot, generatedState, me);
+                if (warmup) {
+                    var warm = mainClass.getMethod("warmup", stateClass, int.class, long.class);
+                    warm.setAccessible(true); warm.invoke(generatedBot, generatedState, me, 150L);
+                    var calls = mainClass.getField("warmupCalls"); calls.setAccessible(true);
+                    assertTrue(calls.getInt(generatedBot) > 0);
+                }
                 Bot frozen = BotFactory.create("v05"); frozen.init(s, me);
                 assertEquals(Action.format(frozen.play(s.copy(), me, 60_000)),
                         format.invoke(null, play.invoke(generatedBot, generatedState, me, 60_000L)));

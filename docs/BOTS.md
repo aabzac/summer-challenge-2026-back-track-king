@@ -4,6 +4,12 @@ Gate: A vs previous >= 55% on >= 200 games (two sides on each map), map-grouped 
 50%, no bot errors. Process timing and an older opponent remain separate promotion checks.
 `current` = **v05**, `btk.bot.current.EvalBot`; frozen copies in `btk.bot.vNN`.
 
+Latest user-reported arena snapshot (2026-09-15): **Gold opened; still Silver, 235/622**.
+The exact deployed artifact and placement status have not yet been verified. League changes
+alter the ranking population, so this is not directly comparable to the old rank snapshots.
+The warmup fix has process-timing evidence, not a new strength-benchmark result: the ordinary
+in-process benchmark does not invoke MainBot's submission warmup.
+
 `BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,
 while later versions record their promoted configuration; they do not retrospectively
@@ -240,6 +246,22 @@ sequential: control then candidate; no strategy/default/threshold changes.
   calls above 31 ms 90 -> 7 of 396. This is instrumented, sequential before/after evidence,
   not a controlled CPU speedup estimate or guarantee of CG deadlines. 214 incomplete evals
   were discarded. See DEVLOG for artifact checks and the unresolved warmup gap.
+
+## Runtime fix: isolated route warmup (2026-09-15)
+
+- **v05 strategy unchanged; no v06 or strength claim.** MainBot now warms a disposable instance
+  of the selected strategy with 36-ms calls within the existing 500-ms allowance. Live RNG and
+  game state are isolated. Generic Bot warmup remains unchanged for frozen strategy consumers.
+- Fixed local process comparison against v04, 8 games each: old warmup first-response mean/max
+  **626.94 / 696.84 ms**, isolated warmup **554.22 / 577.89 ms**; both 0/8 failures, later
+  maximum **38.22 / 38.24 ms**. Sequential timing sample, not a statistical speedup claim.
+- Runtime acceptance gate passed: semantic tests green, candidate no protocol/deadline failures,
+  all first responses below 800 ms. `ISOLATED_ROUTE_WARMUP=true` is now the runtime default;
+  failed strategy flags remain off. In-process strength benches do not exercise this hook.
+- Final default v05 artifact independently rechecked: 0/8 failures, first max **620.88 ms**,
+  later max **38.115 ms**, 109 tests and 214/214 exact replays. **64,775 / 100,000 characters**,
+  source SHA-256 `748b564a77a0d3293a925913f396a60d4598783501bc4a74a9a6624f6fadbbc5`.
+  Timed decisions can differ with JIT/hardware even though ample-time strategy semantics match.
 
 ## Known gaps (to become versions)
 

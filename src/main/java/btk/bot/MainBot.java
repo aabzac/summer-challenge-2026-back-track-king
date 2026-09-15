@@ -5,11 +5,27 @@ import btk.core.Action;
 import btk.core.GameState;
 
 import java.util.List;
+import java.util.function.LongSupplier;
 
 /** The bot that ships to CodinGame: a thin pointer to the current strategy with default params. */
 public final class MainBot implements Bot {
 
-    private final Bot delegate = new EvalBot(new Params());
+    private final Params params;
+    private final Bot delegate;
+    public int warmupCalls;
+
+    public MainBot() {
+        this(new Params());
+    }
+
+    public MainBot(Params params) {
+        this.params = params.copy();
+        if (params.ISOLATED_ROUTE_WARMUP && (params.WARMUP_SLICE_MS <= 0
+                || params.USE_DISRUPT && params.WARMUP_SLICE_MS <= params.DISRUPT_RESERVE_MS)) {
+            throw new IllegalArgumentException("Warmup slice must leave time beyond the sabotage reserve");
+        }
+        delegate = new EvalBot(this.params);
+    }
 
     @Override
     public String name() {
@@ -28,6 +44,34 @@ public final class MainBot implements Bot {
 
     @Override
     public void warmup(GameState s, int myId, long ms) {
-        delegate.warmup(s, myId, ms);
+        warmupCalls = 0;
+        if (!params.ISOLATED_ROUTE_WARMUP) {
+            delegate.warmup(s, myId, ms);
+            return;
+        }
+        if (ms <= 0) return;
+        // Never train, mutate or consume RNG on the live delegate during speculative warmup.
+        warmupCalls = warmIsolated(new EvalBot(params.copy()), s, myId, ms,
+                params.WARMUP_SLICE_MS, System::nanoTime);
+    }
+
+    /** Package-visible clock seam: setup and reset time consume the same warmup allowance. */
+    static int warmIsolated(Bot disposable, GameState initial, int myId, long totalMs,
+                            int sliceMs, LongSupplier clock) {
+        if (totalMs <= 0) return 0;
+        if (sliceMs <= 0) throw new IllegalArgumentException("Positive warmup slice required");
+        long start = clock.getAsLong();
+        GameState scratch = initial.copy();
+        disposable.init(scratch, myId);
+        int iterations = 0;
+        while (true) {
+            scratch.copyFrom(initial);
+            scratch.turn = Math.min(initial.maxTurns - 1, initial.turn + iterations);
+            long remainingNs = totalMs * 1_000_000L - (clock.getAsLong() - start);
+            if (remainingNs < sliceMs * 1_000_000L) break; // no undersized final call
+            disposable.play(scratch, myId, sliceMs);
+            iterations++;
+        }
+        return iterations;
     }
 }

@@ -94,6 +94,9 @@ public class Params {
     public int SEED = 1;
 
     // ---- misc ----
+    /** Verified submission-runtime warmup; frozen strategy implementations do not consume it. */
+    public boolean ISOLATED_ROUTE_WARMUP = true;
+    public int WARMUP_SLICE_MS = 36;
     /** Diagnostic counters only; leave off in strength benches and submissions. */
     public boolean PROFILE_SEARCH = false;
     /** Default-off experiment: discard incomplete vulnerability evaluations at build cutoff. */
