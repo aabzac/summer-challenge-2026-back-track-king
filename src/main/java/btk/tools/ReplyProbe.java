@@ -23,6 +23,7 @@ final class ReplyProbe {
     record Value(Double heuristic, int immediateDelta) {}
     record Choice(int[] route, int[] prefix, double originalValue, Value known, Value predicted, Value oracle) {}
     record Play(String actions, Reply accepted, double elapsedMs, long budgetMs) {}
+    record Prepared(EvalBot bot, int count, double elapsedMs) {}
     record Inspection(List<Choice> choices, Reply predicted, Reply actual, int selected,
                       int oracleSelected, int immediateSelected, Play nominal, Play ample,
                       boolean nominalFirst, boolean amplePrefixMatches, boolean nominalPrefixMatches,
@@ -39,36 +40,17 @@ final class ReplyProbe {
         EvalBot bot = new EvalBot(parameters()); bot.init(state.copy(), me); return bot;
     }
 
-    static Play play(GameState state, int me, long budget) {
-        EvalBot bot = fresh(state, me);
-        GameState input = state.copy();
-        long start = System.nanoTime();
-        List<Action> actions = bot.play(input, me, budget);
-        double ms = (System.nanoTime() - start) / 1e6;
-        return new Play(Action.format(actions), accepted(state, me, actions), ms, budget);
-    }
-
     static Inspection inspect(GameState state, int me, List<Action> recordedOpponent, boolean nominalFirst)
             throws Exception {
-        // Full-play calls are done before any per-state oracle evaluation. The order alternates.
+        // Full-play calls precede per-state oracle evaluation. The order alternates.
         Play nominal, ample;
         if (nominalFirst) { nominal = play(state, me, 36); ample = play(state, me, AMPLE_MS); }
         else { ample = play(state, me, AMPLE_MS); nominal = play(state, me, 36); }
-        EvalBot bot = fresh(state, me);
-        // Reuse the real play preparation (extraCost etc.) without copying it into this tool.
-        bot.play(state.copy(), me, 0);
-        Timer timer = (Timer) CgDisruptStudy.field(bot, "timer");
-        timer.start(AMPLE_MS);
-        long start = System.nanoTime();
-        boolean found = (boolean) CgDisruptStudy.call(bot, "chooseCandidateWithReplies",
-                new Class<?>[]{GameState.class, int.class, int.class}, state, me, GameState.PAINT_PER_TURN);
-        double probeMs = (System.nanoTime() - start) / 1e6;
-        if (timer.up(14)) throw new IllegalStateException("Ample first-build probe hit a phase cutoff");
-
+        Prepared prepared = prepare(state, me);
+        EvalBot bot = prepared.bot;
+        int count = prepared.count;
+        double probeMs = prepared.elapsedMs;
         int[] lengths = (int[]) CgDisruptStudy.field(bot, "buildBeamLen");
-        int count = 0;
-        while (count < 2 && lengths[count] > 0) count++;
-        if (found != (count > 0)) throw new IllegalStateException("Unexpected first-build buffers");
         Reply actual = accepted(state, 1 - me, recordedOpponent);
         if (count == 0) return new Inspection(List.of(), null, actual, -1, -1, -1, nominal, ample,
                 nominalFirst, true, true, probeMs);
@@ -104,8 +86,44 @@ final class ReplyProbe {
                 nominalFirst, true, startsWith(nominal.accepted.cells, choices.get(selected).prefix), probeMs);
     }
 
+    static Play play(GameState state, int me, long budget) {
+        EvalBot bot = fresh(state, me);
+        GameState input = state.copy();
+        long start = System.nanoTime();
+        List<Action> actions = bot.play(input, me, budget);
+        double ms = (System.nanoTime() - start) / 1e6;
+        return new Play(Action.format(actions), accepted(state, me, actions), ms, budget);
+    }
+
+    /** Re-run deterministic candidate generation only; no full-play timing measurement. */
+    static Prepared prepare(GameState state, int me) throws Exception {
+        EvalBot bot = fresh(state, me);
+        // Reuse the real play preparation (extraCost etc.) without copying it into this tool.
+        bot.play(state.copy(), me, 0);
+        Timer timer = (Timer) CgDisruptStudy.field(bot, "timer");
+        timer.start(AMPLE_MS);
+        long start = System.nanoTime();
+        boolean found = (boolean) CgDisruptStudy.call(bot, "chooseCandidateWithReplies",
+                new Class<?>[]{GameState.class, int.class, int.class}, state, me, GameState.PAINT_PER_TURN);
+        double probeMs = (System.nanoTime() - start) / 1e6;
+        if (timer.up(14)) throw new IllegalStateException("Ample first-build probe hit a phase cutoff");
+
+        int[] lengths = (int[]) CgDisruptStudy.field(bot, "buildBeamLen");
+        int count = 0;
+        while (count < 2 && lengths[count] > 0) count++;
+        if (found != (count > 0)) throw new IllegalStateException("Unexpected first-build buffers");
+        return new Prepared(bot, count, probeMs);
+    }
+
     /** Same candidate set/formula; only replace the hypothesized opponent action and its baseline. */
-    private static Value[] scenario(EvalBot bot, GameState state, int me, int count, Reply reply) throws Exception {
+    static Value[] scenario(EvalBot bot, GameState state, int me, int count, Reply reply) throws Exception {
+        int[] targets = new int[count]; Arrays.fill(targets, -1);
+        return scenario(bot, state, me, count, reply, targets);
+    }
+
+    /** Joint diagnostic: fixed no-own-action baseline; include one known-state own target per prefix. */
+    static Value[] scenario(EvalBot bot, GameState state, int me, int count, Reply reply, int[] targets) throws Exception {
+        if (targets.length != count) throw new IllegalArgumentException("One own target per candidate required");
         ((Timer) CgDisruptStudy.field(bot, "timer")).start(AMPLE_MS);
         int[][] replies = (int[][]) CgDisruptStudy.field(bot, "replyBeamPrefix");
         System.arraycopy(reply.cells, 0, replies[0], 0, reply.cells.length);
@@ -119,16 +137,20 @@ final class ReplyProbe {
         Value[] values = new Value[count];
         for (int i = 0; i < count; i++) {
             int[] own = Arrays.copyOf(prefixes[i], lengths[i]);
-            GameState after = resolve(state, me, own, reply);
+            GameState after = resolve(state, me, own, targets[i], reply);
+            // Increment only, without inking/scoring: accepted placements are unchanged. The private
+            // simulation then inks after BOTH hits. Each result is checked against joint Rules.resolve.
+            GameState withOwnHit = state.copy();
+            if (targets[i] >= 0) Rules.disrupt(withOwnHit, targets[i]);
             // Guard the private optimized simulation against the full resolver, including clashes/ink.
             GameState internal = state.copy();
             CgDisruptStudy.call(bot, "simulatePredictedTurn", new Class<?>[]{GameState.class, int.class,
                     int[].class, int.class, int[].class, int.class, int.class, GameState.class},
-                    state, me, own, own.length, reply.cells, reply.cells.length, reply.disrupt, internal);
+                    withOwnHit, me, own, own.length, reply.cells, reply.cells.length, reply.disrupt, internal);
             sameState(after, internal);
             double value = (double) CgDisruptStudy.call(bot, "replyAwareValue",
                     new Class<?>[]{GameState.class, int.class, int.class, int.class, int.class},
-                    state, me, i, 0, reply.disrupt);
+                    withOwnHit, me, i, 0, reply.disrupt);
             if (Double.isNaN(value) || value == Double.POSITIVE_INFINITY) throw new IllegalStateException("Invalid value");
             values[i] = new Value(Double.isFinite(value) ? value : null,
                     after.score[me] - after.score[1 - me] - baseline.score[me] + baseline.score[1 - me]);
@@ -160,8 +182,12 @@ final class ReplyProbe {
     }
 
     static GameState resolve(GameState before, int me, int[] own, Reply reply) {
+        return resolve(before, me, own, -1, reply);
+    }
+
+    static GameState resolve(GameState before, int me, int[] own, int ownDisrupt, Reply reply) {
         GameState after = before.copy();
-        List<Action> mine = actions(before, new Reply(own, -1)), theirs = actions(before, reply);
+        List<Action> mine = actions(before, new Reply(own, ownDisrupt)), theirs = actions(before, reply);
         Rules.TurnResult result = Rules.resolve(after, me == 0 ? mine : theirs,
                 me == 1 ? mine : theirs, new Pathing(before.size));
         for (var moves : result.moves) if (moves.error != null || !moves.skipped.isEmpty()) {

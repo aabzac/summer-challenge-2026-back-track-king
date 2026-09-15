@@ -307,6 +307,19 @@ NOISE=0 fresh-instance probes, no strategy changes. See [reply-study.md](reply-s
 - Keep disabled; no new strength bench, promotion, confirmation pool or Player rebuild.
   Next hypothesis: inspect joint build/own-sabotage valuation, not wider search from this evidence.
 
+## Joint first-build / own-sabotage diagnosis (2026-09-15)
+
+Same saved 110 observations, no new games or policy changes. The real sabotage chooser sees
+known state and each affordable prefix/full planned route, never the recorded opponent action.
+Targets differ across prefixes in **8/81** candidate observations. Including each prefix's target
+changes the predicted joint choice in **3 unique states**; oracle projected value improves in 3,
+worsens in 0. Immediate score effects are **+40 / 0 / -11**, not recoverable final-match points.
+
+One of those examples values **the original prefix + another already known target** above either
+prefix with its normal chooser's target. This supports testing a small set of joint action pairs,
+not forcing each route to keep one sabotage target. Current/v05/Player stay unchanged and reply
+reranking stays disabled. Method, regression examples and limitations: [joint-reply-study.md](joint-reply-study.md).
+
 ## Offline diagnostic: adaptive sabotage forecast (2026-09-15)
 
 - No strategy change or v06. Five fixed experts plus adaptive weights are evaluated by

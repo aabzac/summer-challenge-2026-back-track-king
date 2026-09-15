@@ -1,0 +1,420 @@
+[
+  {
+    "seed": 20000,
+    "me": 1,
+    "turn": 40,
+    "stateSha256": "1bde55c8fd0bbdf95668454437371462f9a0dbffe80d63769ae054883946e65a",
+    "history": [
+      [
+        "DISRUPT 33;PLACE_TRACKS 24 5;PLACE_TRACKS 23 5;PLACE_TRACKS 23 6",
+        "PLACE_TRACKS 2 12;PLACE_TRACKS 3 12;PLACE_TRACKS 3 11"
+      ],
+      [
+        "DISRUPT 33;PLACE_TRACKS 23 7;PLACE_TRACKS 23 8;PLACE_TRACKS 23 9",
+        "PLACE_TRACKS 3 10;PLACE_TRACKS 3 9;DISRUPT 15"
+      ],
+      [
+        "DISRUPT 33;PLACE_TRACKS 22 7;PLACE_TRACKS 21 7;PLACE_TRACKS 20 7",
+        "PLACE_TRACKS 4 9;PLACE_TRACKS 5 9;DISRUPT 15"
+      ],
+      [
+        "DISRUPT 33;PLACE_TRACKS 19 7;PLACE_TRACKS 18 7;PLACE_TRACKS 17 7",
+        "PLACE_TRACKS 25 6;PLACE_TRACKS 25 7;PLACE_TRACKS 25 8;DISRUPT 15"
+      ],
+      [
+        "DISRUPT 24;PLACE_TRACKS 19 4;PLACE_TRACKS 19 5;PLACE_TRACKS 19 6",
+        "PLACE_TRACKS 24 8;PLACE_TRACKS 24 9;PLACE_TRACKS 24 10;DISRUPT 22"
+      ],
+      [
+        "DISRUPT 30;PLACE_TRACKS 25 9;PLACE_TRACKS 16 7;PLACE_TRACKS 15 7",
+        "PLACE_TRACKS 22 10;PLACE_TRACKS 22 9;PLACE_TRACKS 21 9;DISRUPT 15"
+      ],
+      [
+        "DISRUPT 24;PLACE_TRACKS 12 7;PLACE_TRACKS 13 7;PLACE_TRACKS 14 7",
+        "PLACE_TRACKS 2 14;PLACE_TRACKS 3 14;PLACE_TRACKS 4 14;DISRUPT 30"
+      ],
+      [
+        "DISRUPT 24;PLACE_TRACKS 12 8;PLACE_TRACKS 12 9",
+        "PLACE_TRACKS 5 14;PLACE_TRACKS 6 14;PLACE_TRACKS 7 14;DISRUPT 30"
+      ],
+      [
+        "DISRUPT 24;PLACE_TRACKS 12 10;PLACE_TRACKS 12 11;PLACE_TRACKS 12 12",
+        "PLACE_TRACKS 21 10;DISRUPT 30"
+      ],
+      [
+        "DISRUPT 31;PLACE_TRACKS 24 7;PLACE_TRACKS 8 14;PLACE_TRACKS 9 14",
+        "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 18 10;DISRUPT 29"
+      ],
+      [
+        "DISRUPT 41;PLACE_TRACKS 7 8;PLACE_TRACKS 8 8;PLACE_TRACKS 9 8",
+        "PLACE_TRACKS 17 10;PLACE_TRACKS 16 10;PLACE_TRACKS 15 10;DISRUPT 29"
+      ],
+      [
+        "DISRUPT 41;PLACE_TRACKS 10 7;PLACE_TRACKS 9 7;PLACE_TRACKS 5 8",
+        "PLACE_TRACKS 14 10;PLACE_TRACKS 13 11;DISRUPT 29"
+      ],
+      [
+        "DISRUPT 41;PLACE_TRACKS 5 7;PLACE_TRACKS 4 7;PLACE_TRACKS 3 7",
+        "PLACE_TRACKS 26 8;PLACE_TRACKS 26 9;PLACE_TRACKS 26 10;DISRUPT 29"
+      ],
+      [
+        "DISRUPT 31;PLACE_TRACKS 18 6;PLACE_TRACKS 17 6;PLACE_TRACKS 10 14",
+        "PLACE_TRACKS 20 11;PLACE_TRACKS 19 11;PLACE_TRACKS 18 11;DISRUPT 22"
+      ],
+      [
+        "DISRUPT 41;PLACE_TRACKS 3 6;PLACE_TRACKS 3 5;PLACE_TRACKS 3 4",
+        "PLACE_TRACKS 17 11;PLACE_TRACKS 14 11;DISRUPT 22"
+      ],
+      [
+        "DISRUPT 36;PLACE_TRACKS 2 4;PLACE_TRACKS 13 6",
+        "PLACE_TRACKS 13 12;PLACE_TRACKS 13 13;PLACE_TRACKS 11 13;DISRUPT 22"
+      ],
+      [
+        "DISRUPT 36;PLACE_TRACKS 13 1;PLACE_TRACKS 13 2;PLACE_TRACKS 13 3",
+        "PLACE_TRACKS 11 6;PLACE_TRACKS 11 5;PLACE_TRACKS 11 4;DISRUPT 16"
+      ],
+      [
+        "DISRUPT 36;PLACE_TRACKS 13 4;PLACE_TRACKS 13 5;PLACE_TRACKS 16 8",
+        "PLACE_TRACKS 16 9;PLACE_TRACKS 16 8;PLACE_TRACKS 10 4;DISRUPT 16"
+      ],
+      [
+        "DISRUPT 36;PLACE_TRACKS 2 10;PLACE_TRACKS 1 13",
+        "PLACE_TRACKS 10 3;PLACE_TRACKS 9 3;PLACE_TRACKS 8 3;DISRUPT 16"
+      ],
+      [
+        "DISRUPT 31;PLACE_TRACKS 2 11",
+        "PLACE_TRACKS 7 3;PLACE_TRACKS 5 3;PLACE_TRACKS 4 3;DISRUPT 16"
+      ],
+      [
+        "DISRUPT 31;PLACE_TRACKS 4 5;PLACE_TRACKS 5 5;PLACE_TRACKS 5 6",
+        "PLACE_TRACKS 2 15;PLACE_TRACKS 3 15;PLACE_TRACKS 3 16;DISRUPT 12"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 1 11",
+        "PLACE_TRACKS 6 3;DISRUPT 27"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 1 12;PLACE_TRACKS 20 3",
+        "PLACE_TRACKS 3 3;PLACE_TRACKS 2 3;DISRUPT 27"
+      ],
+      [
+        "DISRUPT 10;PLACE_TRACKS 20 2;PLACE_TRACKS 20 1;PLACE_TRACKS 21 1",
+        "PLACE_TRACKS 19 2;PLACE_TRACKS 18 2;PLACE_TRACKS 17 2;DISRUPT 27"
+      ],
+      [
+        "DISRUPT 10;PLACE_TRACKS 26 5;PLACE_TRACKS 26 4;PLACE_TRACKS 26 3",
+        "PLACE_TRACKS 16 2;PLACE_TRACKS 16 1;PLACE_TRACKS 15 1;DISRUPT 27"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 22 1;PLACE_TRACKS 23 1;PLACE_TRACKS 24 1",
+        "PLACE_TRACKS 14 1;PLACE_TRACKS 14 0;PLACE_TRACKS 13 0;DISRUPT 21"
+      ],
+      [
+        "DISRUPT 37;PLACE_TRACKS 25 1;PLACE_TRACKS 26 1;PLACE_TRACKS 26 2",
+        "PLACE_TRACKS 12 0;PLACE_TRACKS 11 1;PLACE_TRACKS 11 2;DISRUPT 21"
+      ],
+      [
+        "DISRUPT 5;PLACE_TRACKS 11 14;PLACE_TRACKS 7 13;PLACE_TRACKS 7 12",
+        "PLACE_TRACKS 1 3;PLACE_TRACKS 11 3;DISRUPT 21"
+      ],
+      [
+        "DISRUPT 5;PLACE_TRACKS 7 11;PLACE_TRACKS 7 10",
+        "PLACE_TRACKS 6 9;PLACE_TRACKS 7 9;PLACE_TRACKS 7 11;DISRUPT 21"
+      ],
+      [
+        "DISRUPT 10;PLACE_TRACKS 8 7;PLACE_TRACKS 13 14;PLACE_TRACKS 14 14",
+        "PLACE_TRACKS 6 10;PLACE_TRACKS 6 11;DISRUPT 26"
+      ],
+      [
+        "DISRUPT 10;PLACE_TRACKS 14 15;PLACE_TRACKS 15 15;PLACE_TRACKS 16 15",
+        "PLACE_TRACKS 8 11;PLACE_TRACKS 8 12;PLACE_TRACKS 8 13;DISRUPT 26"
+      ],
+      [
+        "DISRUPT 19;PLACE_TRACKS 17 15;PLACE_TRACKS 17 14;PLACE_TRACKS 19 14",
+        "PLACE_TRACKS 5 2;PLACE_TRACKS 5 1;PLACE_TRACKS 6 1;DISRUPT 26"
+      ],
+      [
+        "DISRUPT 19;PLACE_TRACKS 23 11;PLACE_TRACKS 23 12;PLACE_TRACKS 23 13",
+        "PLACE_TRACKS 10 1;PLACE_TRACKS 9 1;PLACE_TRACKS 8 1;DISRUPT 26"
+      ],
+      [
+        "DISRUPT 19;PLACE_TRACKS 22 13;PLACE_TRACKS 21 13;PLACE_TRACKS 21 14",
+        "PLACE_TRACKS 7 1;PLACE_TRACKS 6 7;PLACE_TRACKS 9 13;DISRUPT 12"
+      ],
+      [
+        "DISRUPT 19;PLACE_TRACKS 20 14;PLACE_TRACKS 18 14",
+        "PLACE_TRACKS 10 13;DISRUPT 12"
+      ],
+      [
+        "DISRUPT 1;PLACE_TRACKS 7 7",
+        "PLACE_TRACKS 6 6;DISRUPT 45"
+      ],
+      [
+        "DISRUPT 1",
+        "PLACE_TRACKS 6 5;DISRUPT 12"
+      ],
+      [
+        "DISRUPT 1;PLACE_TRACKS 12 4",
+        "PLACE_TRACKS 3 17;PLACE_TRACKS 4 17;PLACE_TRACKS 5 17;DISRUPT 45"
+      ],
+      [
+        "DISRUPT 1",
+        "PLACE_TRACKS 6 17;PLACE_TRACKS 7 17;PLACE_TRACKS 8 17;DISRUPT 28"
+      ],
+      [
+        "DISRUPT 35",
+        "PLACE_TRACKS 9 17;PLACE_TRACKS 10 17;PLACE_TRACKS 11 17;DISRUPT 45"
+      ]
+    ],
+    "opponentOracle": "DISRUPT 35",
+    "expectedPreBuildTarget": 45,
+    "expectedPrefixTargets": [
+      32,
+      45
+    ],
+    "expectedPriorSelected": 0,
+    "expectedPredictedSelected": 1,
+    "expectedPredictedFixed": [
+      {
+        "heuristic": 2120,
+        "immediateDelta": 61
+      },
+      {
+        "heuristic": 1441.4642857142858,
+        "immediateDelta": 54
+      }
+    ],
+    "expectedPredictedAdapted": [
+      {
+        "heuristic": 521.5,
+        "immediateDelta": 14
+      },
+      {
+        "heuristic": 1441.4642857142858,
+        "immediateDelta": 54
+      }
+    ],
+    "expectedOracleAdapted": [
+      {
+        "heuristic": 521.5,
+        "immediateDelta": 14
+      },
+      {
+        "heuristic": 1441.4642857142858,
+        "immediateDelta": 54
+      }
+    ]
+  },
+  {
+    "seed": 20004,
+    "me": 1,
+    "turn": 10,
+    "stateSha256": "e3a1d7eed995143a11f5dbe747e0648efc3e857190d77eadeefc54fc27c99fba",
+    "history": [
+      [
+        "DISRUPT 9;PLACE_TRACKS 6 1;PLACE_TRACKS 6 2;PLACE_TRACKS 5 2",
+        "PLACE_TRACKS 4 9;PLACE_TRACKS 6 9"
+      ],
+      [
+        "DISRUPT 29;PLACE_TRACKS 5 3;PLACE_TRACKS 5 4;PLACE_TRACKS 5 5",
+        "PLACE_TRACKS 4 6;PLACE_TRACKS 4 7;PLACE_TRACKS 4 8;DISRUPT 1"
+      ],
+      [
+        "DISRUPT 29;PLACE_TRACKS 3 8;PLACE_TRACKS 8 1;PLACE_TRACKS 9 1",
+        "PLACE_TRACKS 5 8;PLACE_TRACKS 6 8;DISRUPT 1"
+      ],
+      [
+        "DISRUPT 29;PLACE_TRACKS 13 4;PLACE_TRACKS 13 3",
+        "PLACE_TRACKS 7 9;PLACE_TRACKS 8 10;PLACE_TRACKS 9 10;DISRUPT 1"
+      ],
+      [
+        "DISRUPT 29;PLACE_TRACKS 12 3;PLACE_TRACKS 11 3;PLACE_TRACKS 10 3",
+        "PLACE_TRACKS 7 8;PLACE_TRACKS 19 12;PLACE_TRACKS 17 12;DISRUPT 1"
+      ],
+      [
+        "DISRUPT 22;PLACE_TRACKS 3 7;PLACE_TRACKS 3 6;PLACE_TRACKS 6 3",
+        "PLACE_TRACKS 7 2;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4;DISRUPT 10"
+      ],
+      [
+        "DISRUPT 22;PLACE_TRACKS 9 3;PLACE_TRACKS 9 2;PLACE_TRACKS 14 5",
+        "PLACE_TRACKS 10 10;PLACE_TRACKS 11 10;DISRUPT 10"
+      ],
+      [
+        "DISRUPT 22;PLACE_TRACKS 19 11;PLACE_TRACKS 19 10;PLACE_TRACKS 18 10",
+        "PLACE_TRACKS 18 12;PLACE_TRACKS 16 12;DISRUPT 10"
+      ],
+      [
+        "DISRUPT 22;PLACE_TRACKS 14 6;PLACE_TRACKS 14 7",
+        "PLACE_TRACKS 12 10;PLACE_TRACKS 12 11;PLACE_TRACKS 13 11;DISRUPT 10"
+      ],
+      [
+        "DISRUPT 39;PLACE_TRACKS 10 4;PLACE_TRACKS 14 8",
+        "PLACE_TRACKS 7 5;PLACE_TRACKS 7 6;PLACE_TRACKS 8 8;DISRUPT 9"
+      ]
+    ],
+    "opponentOracle": "DISRUPT 39;PLACE_TRACKS 11 4;PLACE_TRACKS 15 8",
+    "expectedPreBuildTarget": 9,
+    "expectedPrefixTargets": [
+      9,
+      9
+    ],
+    "expectedPriorSelected": 0,
+    "expectedPredictedSelected": 1,
+    "expectedPredictedFixed": [
+      {
+        "heuristic": 394.40000000000003,
+        "immediateDelta": 0
+      },
+      {
+        "heuristic": 886.2666666666667,
+        "immediateDelta": 0
+      }
+    ],
+    "expectedPredictedAdapted": [
+      {
+        "heuristic": 394.40000000000003,
+        "immediateDelta": 0
+      },
+      {
+        "heuristic": 886.2666666666667,
+        "immediateDelta": 0
+      }
+    ],
+    "expectedOracleAdapted": [
+      {
+        "heuristic": 324.8,
+        "immediateDelta": 0
+      },
+      {
+        "heuristic": 583.1,
+        "immediateDelta": 0
+      }
+    ]
+  },
+  {
+    "seed": 20005,
+    "me": 0,
+    "turn": 20,
+    "stateSha256": "9d0b1ec016f57abf01f337463a8f9dcae717203e3c9fba9f7cfa7c52912d3a17",
+    "history": [
+      [
+        "PLACE_TRACKS 17 4;PLACE_TRACKS 17 5;PLACE_TRACKS 17 6",
+        "DISRUPT 10;PLACE_TRACKS 17 4;PLACE_TRACKS 17 5;PLACE_TRACKS 17 6"
+      ],
+      [
+        "PLACE_TRACKS 17 7;PLACE_TRACKS 17 8;PLACE_TRACKS 17 9",
+        "DISRUPT 29;PLACE_TRACKS 17 7;PLACE_TRACKS 17 8;PLACE_TRACKS 17 9"
+      ],
+      [
+        "PLACE_TRACKS 4 5;PLACE_TRACKS 5 5;PLACE_TRACKS 7 5",
+        "DISRUPT 29;PLACE_TRACKS 16 3;PLACE_TRACKS 15 3;PLACE_TRACKS 14 3"
+      ],
+      [
+        "PLACE_TRACKS 1 12;PLACE_TRACKS 1 11;PLACE_TRACKS 1 10;DISRUPT 11",
+        "DISRUPT 29;PLACE_TRACKS 14 2;PLACE_TRACKS 13 2;PLACE_TRACKS 12 2"
+      ],
+      [
+        "PLACE_TRACKS 16 6;PLACE_TRACKS 15 6;DISRUPT 11",
+        "DISRUPT 15;PLACE_TRACKS 11 2;PLACE_TRACKS 10 2"
+      ],
+      [
+        "PLACE_TRACKS 14 6;PLACE_TRACKS 13 6;PLACE_TRACKS 12 6;DISRUPT 11",
+        "DISRUPT 15;PLACE_TRACKS 10 1;PLACE_TRACKS 3 4;PLACE_TRACKS 3 3"
+      ],
+      [
+        "PLACE_TRACKS 11 6;PLACE_TRACKS 10 6;PLACE_TRACKS 9 6;DISRUPT 11",
+        "DISRUPT 15;PLACE_TRACKS 4 3;PLACE_TRACKS 5 3"
+      ],
+      [
+        "PLACE_TRACKS 8 6;PLACE_TRACKS 8 5;PLACE_TRACKS 7 4;DISRUPT 8",
+        "DISRUPT 15;PLACE_TRACKS 8 1;PLACE_TRACKS 8 2;PLACE_TRACKS 8 3"
+      ],
+      [
+        "PLACE_TRACKS 7 3;PLACE_TRACKS 6 3;PLACE_TRACKS 1 9;DISRUPT 4",
+        "DISRUPT 17;PLACE_TRACKS 6 3;PLACE_TRACKS 7 3;PLACE_TRACKS 15 1"
+      ],
+      [
+        "PLACE_TRACKS 1 8;PLACE_TRACKS 1 7;PLACE_TRACKS 1 6;DISRUPT 4",
+        "DISRUPT 17;PLACE_TRACKS 13 1;PLACE_TRACKS 16 1"
+      ],
+      [
+        "PLACE_TRACKS 2 6;PLACE_TRACKS 2 5;PLACE_TRACKS 7 6;DISRUPT 4",
+        "DISRUPT 17;PLACE_TRACKS 16 2;PLACE_TRACKS 14 1"
+      ],
+      [
+        "PLACE_TRACKS 7 2;PLACE_TRACKS 7 1;PLACE_TRACKS 7 0;DISRUPT 4",
+        "DISRUPT 17"
+      ],
+      [
+        "PLACE_TRACKS 13 7;PLACE_TRACKS 13 8;DISRUPT 5",
+        "DISRUPT 22;PLACE_TRACKS 1 5;PLACE_TRACKS 11 3"
+      ],
+      [
+        "PLACE_TRACKS 12 8;PLACE_TRACKS 11 8;PLACE_TRACKS 11 10;DISRUPT 8",
+        "DISRUPT 35;PLACE_TRACKS 13 5;PLACE_TRACKS 11 5"
+      ],
+      [
+        "PLACE_TRACKS 2 11;DISRUPT 8",
+        "DISRUPT 35;PLACE_TRACKS 12 5;PLACE_TRACKS 11 4"
+      ],
+      [
+        "PLACE_TRACKS 10 8;PLACE_TRACKS 8 8;DISRUPT 8",
+        "DISRUPT 21;PLACE_TRACKS 7 7;PLACE_TRACKS 7 8"
+      ],
+      [
+        "PLACE_TRACKS 6 7;PLACE_TRACKS 5 7;DISRUPT 10",
+        "DISRUPT 21;PLACE_TRACKS 7 9;PLACE_TRACKS 7 10;PLACE_TRACKS 7 11"
+      ],
+      [
+        "PLACE_TRACKS 3 6;PLACE_TRACKS 3 7;PLACE_TRACKS 4 7;DISRUPT 5",
+        "DISRUPT 21;PLACE_TRACKS 3 12;PLACE_TRACKS 4 12;PLACE_TRACKS 5 12"
+      ],
+      [
+        "PLACE_TRACKS 9 8;PLACE_TRACKS 8 0;DISRUPT 10",
+        "DISRUPT 21;PLACE_TRACKS 6 12;PLACE_TRACKS 7 12"
+      ],
+      [
+        "PLACE_TRACKS 3 11;DISRUPT 10",
+        "DISRUPT 25"
+      ]
+    ],
+    "opponentOracle": "DISRUPT 25;PLACE_TRACKS 16 10;PLACE_TRACKS 15 10;PLACE_TRACKS 14 10",
+    "expectedPreBuildTarget": 29,
+    "expectedPrefixTargets": [
+      29,
+      37
+    ],
+    "expectedPriorSelected": 1,
+    "expectedPredictedSelected": 0,
+    "expectedPredictedFixed": [
+      {
+        "heuristic": 1204,
+        "immediateDelta": 19
+      },
+      {
+        "heuristic": null,
+        "immediateDelta": 7
+      }
+    ],
+    "expectedPredictedAdapted": [
+      {
+        "heuristic": 1204,
+        "immediateDelta": 19
+      },
+      {
+        "heuristic": 802.2,
+        "immediateDelta": 30
+      }
+    ],
+    "expectedOracleAdapted": [
+      {
+        "heuristic": 1204,
+        "immediateDelta": 19
+      },
+      {
+        "heuristic": 802.2,
+        "immediateDelta": 30
+      }
+    ]
+  }
+]

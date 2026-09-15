@@ -1442,3 +1442,82 @@ Completed outcome (fixed sample, no retuning):
   states, since current reranking omits that interaction. This is a candidate explanation, not
   established causality or authorization to promote an untested policy. Commit this completed
   diagnosis at the user's explicit request.
+
+### 2026-09-15 — joint first-build / own-sabotage audit (predeclared)
+
+- Follow-up to 994d290; tools-only. Reuse the SAME hashed 24-game capture and 110 recorded
+  positions/report. No new games, full-play timing reruns, tuning, promotion or submission change.
+  Reconstruct/validate all states; regenerate deterministic NOISE=0 candidates and check routes,
+  prefixes, predictions and no-own-hit values against the retained report before interpreting.
+- For each first-build candidate, select our sabotage with the existing complete known-state
+  chooser after that affordable prefix, preserving full planned-route marks. Ignore leftover
+  construction explicitly. Select a common pre-build target separately. Neither chooser sees
+  predicted or recorded opponent actions. Reuse the pinned policy and full parameters.
+- Compare no own hit, common pre-build hit, and per-prefix hit under known WAIT / predicted
+  reply / recorded-action oracle. Keep the original no-own-action baseline fixed within each
+  opponent scenario. Reuse the actual replyAwareValue formula by staging only our instability
+  increment before its simulation (no early ink); check every joint result against Rules.resolve.
+  This is a diagnostic extension of its projection, not addition of a differently scaled sabotage
+  score. Terminal outcomes and routes inked this turn are reported separately; projected value
+  can be misleading at game end and can discount a shared sabotage benefit by route duration.
+- Report strict ranking changes (not tie breaks), whether targets depend on the route, physical
+  prefix losses / route invalidation, and oracle value of the prediction-selected joint action
+  versus the old route plus its own known-state target. Do NOT select own targets from the oracle
+  or sum counterfactual deltas as match gains. Count repeated states and separate source policies.
+- Preserve new evidence under build/analysis/reply-study-v1/joint-report.json, refusing overwrite.
+  Add isolation/core-equivalence/regression tests, run tests and cgValidate. Record a bounded
+  next hypothesis from the result; current remains v05 and the reply experiment remains off.
+
+### 2026-09-15 — joint first-build / own-sabotage audit (completed)
+
+- Added tools-only `jointReplyStudy`; factored capture validation and deterministic candidate
+  preparation from existing tools. No copied scoring/pathing formula or changes to current,
+  Params, core, frozen versions, catalog identities or submission code. The shared private
+  projection is reused with one staged own instability increment; each joint successor must
+  equal full Rules.resolve, including same-cell clashes and simultaneous fourth hits.
+- Analyzed the original sample once: **110 observations / 108 distinct state-perspectives**,
+  **81 / 79** with build candidates. All regenerated candidates, predictions and original
+  no-own-hit values match the saved report. No new capture, games or full-play timing runs.
+  Known-state own targets are chosen before any oracle evaluation; sample mapping, recorded
+  actions, manifest/engine/full parameters are checked. Existing evidence is never overwritten.
+- Targets depend on the prefix in **8/81** observations, differ from the common pre-build
+  target in at least one choice in **13/81**. For the old selected prefix, the target agrees
+  with saved ample full play **81/81**, despite excluding leftover construction.
+- Strict ranking changes (fixed target vs no hit / adapted target vs no hit / adapted vs fixed):
+  known WAIT **1/3/2**, predicted **2/3/1**, oracle **2/3/1**. Prediction-selected adapted pair
+  vs old prefix + its own adapted target: oracle projection **3 better / 0 worse / 78 equal**,
+  or **3/0/76** distinct states. One change is from source-v05, two from source-K2/R1, across
+  three different maps. Counts remain correlated development observations, not strength trials.
+- Preserved all three changed cases as seed/pre-turn-history/state-hash regression fixtures,
+  with separately labelled opponent oracle and expected fixed/adapted values:
+  seed 20000/P1/t40 -> prefix 1/target45, projected 1441.46 vs 521.5, immediate +40;
+  seed 20004/P1/t10 -> prefix 1/target9, projected 583.1 vs 324.8, immediate 0;
+  seed 20005/P0/t20 -> prefix 0/target29, projected 1204 vs 802.2, immediate -11.
+  These effects are NOT summed as match points. No selected joint action is terminal; the
+  one existing oracle-inked prefix remains (single candidate), so no claim of repairing it.
+- Important counterexample to assigning one target per route: on seed 20000/P1/t40, the
+  already evaluated original prefix + common target45 scores **2120**, better than either
+  adapted pair, with +47 immediate difference over the old pair. Thus a different sabotage
+  choice, not necessarily a different route, may be preferable under the SAME projection.
+  Our standalone target chooser and joint evaluator do not optimize the same objective.
+- Limitations: projected completion/risk formula unchanged, delayed hit benefits incompletely
+  represented, terminal projections can mislead, and a shared sabotage benefit can be discounted
+  by route duration. Prefix-target search is not exhaustive; no future own target decisions or
+  leftover-paint policy are modeled. Oracle never chooses targets and cannot justify promotion.
+- Report `build/analysis/reply-study-v1/joint-report.json`, SHA-256
+  `b3fe234a7b462814299128a26af63cd025e4b74884202521ef2ea1ce8c4198b5`;
+  prior report and capture hashes remain respectively
+  `6c407ef3dc420b0cb85257b5be6340b65a302f1a45ca10fd0d313fc3792be7bd` and
+  `652b2c28ca30e62ea974d58d740fb9210f8f76d213ed905364102d059f196d0b`.
+  Post-analysis fixture extraction and invalid-value hardening used saved evidence, no sample rerun.
+- Decision: **v05 unchanged; USE_REPLY_RERANK=false; no v06, bench, artifact rebuild or upload**.
+  Next bounded experiment: two prefixes crossed with deduplicated known-state targets (WAIT,
+  pre-build target, per-prefix targets), preserving the old pair and fallback. Verify mechanism
+  and cost, then use a default-off flag and normal fixed paired bench before any promotion.
+  See joint-reply-study.md; BOTS and PLAN updated. Changes remain uncommitted for user review.
+- Final verification: **156 tests pass; cgValidate 264/264 exact; git diff --check clean**.
+  Player.java SHA-256 remains
+  `d03dd610ca210922436fdefb3c3f4f18f8815d22e9d06e85a6466461f2817d29`.
+  Seven new tests cover saved examples, oracle isolation, both-sided simultaneous ink,
+  candidate/sample drift, ties/invalid values and non-overwriting output. No process rerun;
+  the earlier input-send stall remains unresolved and is not explained by this audit.

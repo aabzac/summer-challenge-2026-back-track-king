@@ -159,8 +159,7 @@ public final class ReplyStudy {
         return selected;
     }
 
-    static void analyze(Path directory, Path out) throws Exception {
-        if (Files.exists(out)) throw new IllegalArgumentException("Choose a new report path: " + out);
+    static List<Position> loadPositions(Path directory) throws Exception {
         byte[] manifestBytes = Files.readAllBytes(directory.resolve("manifest.json"));
         Manifest manifest = JSON.fromJson(new String(manifestBytes, StandardCharsets.UTF_8), Manifest.class);
         if (manifest.schemaVersion != 1 || !manifest.complete || manifest.games.size() != 24) {
@@ -191,6 +190,13 @@ public final class ReplyStudy {
             }
             positions.addAll(reconstruct(entry.file, game, TURNS));
         }
+        return positions;
+    }
+
+    static void analyze(Path directory, Path out) throws Exception {
+        if (Files.exists(out)) throw new IllegalArgumentException("Choose a new report path: " + out);
+        byte[] manifestBytes = Files.readAllBytes(directory.resolve("manifest.json"));
+        List<Position> positions = loadPositions(directory);
         List<Sample> samples = new ArrayList<>();
         Summary total = new Summary(); Map<String, Summary> byPolicy = new LinkedHashMap<>();
         for (int i = 0; i < positions.size(); i++) {

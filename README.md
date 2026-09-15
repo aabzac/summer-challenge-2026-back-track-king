@@ -27,6 +27,7 @@ gradlew cgTiming                               # phase timing on two captured la
 gradlew cgDisrupt                              # full sabotage valuation vs timed search on captured losses
 gradlew replyStudy -Pmode=capture               # fixed 24-game local diagnostic capture (once)
 gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/time audit, no strategy change
+gradlew jointReplyStudy                        # joint first-build/own-sabotage audit on the SAME saved sample
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -210,6 +211,10 @@ the fixed local sample, then analyze saved shared states in a separate invocatio
 known-state, predicted-response and recorded-action oracle evaluations, plus nominal/ample-time
 full-play choices. See [the protocol and limitations](docs/reply-study.md). It does not alter v05
 or build a new submission.
+
+`jointReplyStudy` reuses that capture and report, compares build prefixes with known-state own
+sabotage targets, and checks every simultaneous combination through core. It does not replay
+new games or rerun timing measurements. See [joint-action findings](docs/joint-reply-study.md).
 
 `cgForecast` evaluates a lightweight adaptive sabotage model without changing our bot's actions.
 It predicts from each pre-turn state and learns only after observing the next state; held-out

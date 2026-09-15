@@ -122,3 +122,6 @@ beam nor improving prediction alone is justified by these observations. The next
 hypothesis is to inspect build-and-OWN-sabotage jointly: the current first-build ranking omits
 our later sabotage and leftover paint. Test its effect on shared states before implementing a
 policy change; omitted interactions are a candidate explanation, not a proven cause of losses.
+
+Completed follow-up: [joint first-build / own-sabotage audit](joint-reply-study.md), using this
+same capture and report without new games or full-play timing measurements.

@@ -148,9 +148,14 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       24 captured games. Exact build forecast 12/55; oracle improves ranking in 4 observations
       (3 unique states); nominal/ample first prefix matches 81/81. Five later-build differences.
       Prediction, projection and timing limitations separated; keep off. See reply-study.md.
-- [ ] Inspect the omitted interaction between first build and our own sabotage on shared states;
-      test joint-action value before changing strategy. Do not infer a fix from oracle rankings
-      or a hard immediate-income veto (already screened unsuccessfully).
+- [x] Inspect first-build/own-sabotage interaction on the same 110 observations: target depends
+      on prefix in 8/81 cases; adapted joint choice changes in 3 unique states (oracle projection
+      improves in 3, worsens in 0, not match outcomes). One example prefers the old prefix with
+      a different target. Keep v05 unchanged; see joint-reply-study.md.
+- [ ] Test a small joint-action candidate set: two prefixes x deduplicated known-state targets
+      (WAIT, pre-build target, both prefix-specific targets), retaining the old pair/fallback.
+      Verify mechanism, equal reply coverage and cost before a default-off strategy screen;
+      no hard immediate-income veto or promotion from captured-state oracle improvements.
 
 ## Someday / maybe
 

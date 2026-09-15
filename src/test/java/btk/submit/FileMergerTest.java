@@ -52,6 +52,7 @@ class FileMergerTest {
         assertFalse(source.contains("class BotCatalog"));
         assertFalse(source.contains("class ReplyProbe"));
         assertFalse(source.contains("class ReplyStudy"));
+        assertFalse(source.contains("class JointReplyStudy"));
         assertFalse(source.contains("experiment-engine-v1"));
         Path file = temp.resolve("Player.java");
         Files.writeString(file, source);

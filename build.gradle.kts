@@ -155,6 +155,16 @@ tasks.register<JavaExec>("replyStudy") {
         prop("out", "build/analysis/reply-study-v1/report.json"))
 }
 
+tasks.register<JavaExec>("jointReplyStudy") {
+    group = "game"
+    description = "Audit joint first-build/own-sabotage values on the retained replyStudy sample (tools only)"
+    mainClass.set("btk.tools.JointReplyStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "build/analysis/reply-study-v1/capture"),
+        prop("prior", "build/analysis/reply-study-v1/report.json"),
+        prop("out", "build/analysis/reply-study-v1/joint-report.json"))
+}
+
 tasks.register<JavaExec>("cgTiming") {
     group = "cg"
     description = "Offline search-phase timing on validated replay states; not a process deadline check"
