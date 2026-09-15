@@ -118,6 +118,15 @@ tasks.register<JavaExec>("cgForecast") {
     args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""), prop("params", ""))
 }
 
+tasks.register<JavaExec>("cgTiming") {
+    group = "cg"
+    description = "Offline search-phase timing on validated replay states; not a process deadline check"
+    mainClass.set("btk.tools.CgTimingStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("paths", "replays/cg/903509641.json,replays/cg/903508669.json"),
+        prop("params", ""), prop("out", "build/analysis/search-timing.json"))
+}
+
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */
 tasks.register<JavaExec>("procCheck") {
     group = "game"

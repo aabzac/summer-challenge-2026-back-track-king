@@ -223,6 +223,24 @@ sequential: control then candidate; no strategy/default/threshold changes.
   versus v04, including both sides of two captured large maps; a 180-ms measured later response
   without a registered timeout prevents claiming strict arena timing compliance.
 
+## Unpromoted experiment: interrupt nested vulnerability evaluation (2026-09-15)
+
+- `current?INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=0` checks the existing build cutoff between
+  region simulations, discards incomplete candidate values, and retains the best completed
+  candidate. No changed evaluation weights, sabotage reserve or warmup. Other experiments off.
+- Fixed screen vs **v05**, **300 games / 150 generated paired maps**, seeds 12000..12149,
+  CG timing, 2 workers: **51.3% (154-146-0)**, map-grouped 95% CI **40.2-62.4%**, average
+  score difference **+38.9**, no bot errors. Candidate search averaged 7.06 ms (max 61, one
+  nominal-budget slow move), reference 7.01 ms (max 36). Report:
+  `build/bench/interrupt-eval-v05-gen12000.json`.
+- **Not promoted**: neither the practical nor confidence gate passed. Flag remains false,
+  current remains v05; no confirmation or older-opponent promotion bench. The separately
+  predeclared process checks are timing diagnosis, not promotion evidence.
+- Recorded-state profiling suggests tighter phase timing: later build p95 32.30 -> 30.54 ms,
+  calls above 31 ms 90 -> 7 of 396. This is instrumented, sequential before/after evidence,
+  not a controlled CPU speedup estimate or guarantee of CG deadlines. 214 incomplete evals
+  were discarded. See DEVLOG for artifact checks and the unresolved warmup gap.
+
 ## Known gaps (to become versions)
 
 - Self-play does not reproduce the top Silver meta (v04 still averages 84 turns vs about 50):

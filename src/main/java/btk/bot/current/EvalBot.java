@@ -60,12 +60,19 @@ public final class EvalBot implements Bot {
     private boolean disruptSearchComplete;
     private GameState replyState, completionState;
     private java.util.Random rnd;
+    /** Inclusive phase counters; evaluation time is a subset of build time, not additive. */
+    public long profileBuildNs, profileEvalNs, profileEvalMaxNs, profileDisruptNs;
+    public int profileEvalCalls, profileLifetimeBuildCalls;
+    public int profileAbortedEvals;
 
     public EvalBot() {
         this(new Params());
     }
 
     public EvalBot(Params params) {
+        if (params.INTERRUPT_VULN_EVAL && params.USE_REPLY_RERANK) {
+            throw new IllegalArgumentException("Interrupted eval is not supported by reply reranking");
+        }
         this.P = params;
     }
 
@@ -133,6 +140,20 @@ public final class EvalBot implements Bot {
      * disrupts it still needs. Sets {@link #worstRegion} to that region (-1 if none).
      */
     private double evalState(GameState st, int me) {
+        if (!P.PROFILE_SEARCH) return evalStateImpl(st, me);
+        long started = System.nanoTime();
+        try {
+            return evalStateImpl(st, me);
+        } finally {
+            long elapsed = System.nanoTime() - started;
+            profileEvalNs += elapsed;
+            profileEvalMaxNs = Math.max(profileEvalMaxNs, elapsed);
+            profileEvalCalls++;
+        }
+    }
+
+    private double evalStateImpl(GameState st, int me) {
+        if (abortEvaluation()) return Double.NaN;
         int opp = 1 - me;
         Rules.incomePerTurn(st, incA);
         double imm = incA[me] - P.W_OPP_INCOME * incA[opp];
@@ -150,6 +171,7 @@ public final class EvalBot implements Bot {
         double worst = 0;
         for (int r = 0; r < st.regionCount; r++) {
             if (!regionMark[r] || st.regionInked[r] || st.regionHasTown(r)) continue;
+            if (abortEvaluation()) return Double.NaN;
             int needed = Math.max(1, GameState.INK_THRESHOLD - st.regionInstability[r]);
             sim2.copyFrom(st);
             Rules.ink(sim2, r);
@@ -166,9 +188,21 @@ public final class EvalBot implements Bot {
         return imm - P.W_VULN * worst;
     }
 
+    private boolean abortEvaluation() {
+        if (!P.INTERRUPT_VULN_EVAL || !buildTimeUp()) return false;
+        worstRegion = -1;
+        if (P.PROFILE_SEARCH) profileAbortedEvals++;
+        return true;
+    }
+
     @Override
     public List<Action> play(GameState s, int myId, long budgetMs) {
         timer.start(budgetMs);
+        if (P.PROFILE_SEARCH) {
+            profileBuildNs = profileEvalNs = profileEvalMaxNs = profileDisruptNs = 0;
+            profileEvalCalls = 0;
+            profileAbortedEvals = 0;
+        }
         ensureBuffers(s);
         int opp = 1 - myId;
         List<Action> out = new ArrayList<>(4);
@@ -275,10 +309,22 @@ public final class EvalBot implements Bot {
 
     /** Fills bestPath/bestLen/bestCost with the best candidate for {@code me}; false when nothing is worth building. */
     private boolean chooseCandidate(GameState s, int me, int budgetNow) {
+        if (!P.PROFILE_SEARCH) return chooseCandidateImpl(s, me, budgetNow);
+        long started = System.nanoTime();
+        profileLifetimeBuildCalls++;
+        try {
+            return chooseCandidateImpl(s, me, budgetNow);
+        } finally {
+            profileBuildNs += System.nanoTime() - started;
+        }
+    }
+
+    private boolean chooseCandidateImpl(GameState s, int me, int budgetNow) {
         if (P.USE_DISRUPT && P.DISRUPT_RESERVE_MS > 0 && buildTimeUp()) return false;
         double base = evalState(s, me);
         int threatened = worstRegion;
         double bestValue = 1e-9;
+        if (!Double.isFinite(base)) return false;
         bestLen = -1;
         int opp = 1 - me;
         for (int c = 0; c < s.size; c++) blocked[c] = s.owner[c] == opp;
@@ -327,6 +373,7 @@ public final class EvalBot implements Bot {
                 if (gain <= 1e-9) continue;
                 double risk = Math.max(0, 1 - P.W_RISK * maxInst / GameState.INK_THRESHOLD);
                 double value = gain * earning * risk - P.W_COST * paint;
+                if (!Double.isFinite(gain)) break; // incomplete evaluations cannot replace bestPath
                 value /= (turnsToFinish + 1);
                 value *= noise();
                 if (value > bestValue) {
@@ -777,6 +824,16 @@ public final class EvalBot implements Bot {
     }
 
     private int chooseDisrupt(GameState s, int myId) {
+        if (!P.PROFILE_SEARCH) return chooseDisruptImpl(s, myId);
+        long started = System.nanoTime();
+        try {
+            return chooseDisruptImpl(s, myId);
+        } finally {
+            profileDisruptNs += System.nanoTime() - started;
+        }
+    }
+
+    private int chooseDisruptImpl(GameState s, int myId) {
         prepareDisruptData(s, myId);
         int turnsLeft = s.turnsLeft();
         double bestValue = P.DISRUPT_MIN;

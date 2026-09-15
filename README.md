@@ -20,6 +20,7 @@ gradlew cgRender -Ppath=replays/cg/903337834.json # validated replay -> rendered
 gradlew cgMapValidate                          # regenerate CG maps from refereeInput seeds, compare exactly
 gradlew cgAnalyze -Pagent=6735801               # validated games of one arena entry -> build/analysis/
 gradlew cgForecast -Pagent=6736850              # offline adaptive sabotage prediction, no strategy changes
+gradlew cgTiming                               # phase timing on two captured large-map replay trajectories
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -131,6 +132,9 @@ use `gradlew submit -PsubmitVersion=v05`: the merger reads frozen v05, generates
 and embeds its snapshot in the generated `MainBot`. Frozen files and working `current` stay
 unchanged. This restores the strategy, not the byte-for-byte historical artifact (shared core,
 runtime and packaging are current). Other frozen versions are not yet supported by this option.
+For an explicitly temporary experiment, `submit "-PsubmitVersion=current?INTERRUPT_VULN_EVAL=1"`
+embeds the full resolved candidate parameters and records them in the manifest. This overwrites
+the submission artifact; restore `submit -PsubmitVersion=v05` and rerun `procCheck` afterward.
 Always run `procCheck` after building; `-Pbot` selects its OPPONENT, not the submitted strategy.
 Use `-Pmap=replays/cg/<id>.json -Pgames=2` to check both sides of a particular difficult map.
 
@@ -155,3 +159,10 @@ still affect the measurement; it is not CG CPU time or a hard real-time watchdog
 It predicts from each pre-turn state and learns only after observing the next state; held-out
 opponent entries never enter baseline selection. See [docs/sabotage_forecast.md](docs/sabotage_forecast.md)
 for the fixed experiment, information boundaries, results and limitations.
+
+`cgTiming` profiles baseline route search, its nested vulnerability evaluation and sabotage
+on recorded states. Optional `-Ppaths` is a comma-separated replay list; `-Pparams` selects an
+explicit diagnostic variant and `-Pout` saves all per-turn observations. It enables
+`PROFILE_SEARCH` only for that run. Evaluation time is INCLUDED in route time, not additional.
+These instrumented current calls are not the frozen executable or the local timeout match;
+use them for attribution, and use uninstrumented `procCheck` for process deadline evidence.

@@ -24,6 +24,14 @@ class FileMergerTest {
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("v99"));
     }
 
+    @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
+        String source = FileMerger.merge("current?INTERRUPT_VULN_EVAL=1");
+        FileMerger.checkSourceSize(source);
+        assertTrue(source.contains("INTERRUPT_VULN_EVAL=true"));
+        assertTrue(source.contains("PROFILE_SEARCH=false"));
+        assertFalse(new btk.bot.Params().INTERRUPT_VULN_EVAL);
+    }
+
     @Test void restoredV05CompilesAndMatchesFrozenDecisions() throws Exception {
         String source = FileMerger.merge("v05");
         FileMerger.checkSourceSize(source);

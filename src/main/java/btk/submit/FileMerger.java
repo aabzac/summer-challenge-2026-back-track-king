@@ -69,6 +69,9 @@ public class FileMerger {
     }
 
     static String merge(String version) throws IOException {
+        String spec = version;
+        int queryAt = version.indexOf('?');
+        if (queryAt >= 0) version = version.substring(0, queryAt);
         if (!version.equals("current") && !version.equals("v05")) {
             throw new IllegalArgumentException("submitVersion must be current or v05");
         }
@@ -94,8 +97,8 @@ public class FileMerger {
                 if (version.equals("v05") && file.endsWith("EvalBotV05.java")) {
                     line = line.replaceAll("\\bEvalBotV05\\b", "EvalBot");
                 }
-                if (version.equals("v05") && file.endsWith("MainBot.java")) {
-                    line = line.replace("new Params()", frozenParamsExpression());
+                if ((version.equals("v05") || queryAt >= 0) && file.endsWith("MainBot.java")) {
+                    line = line.replace("new Params()", paramsExpression(spec));
                 }
                 String trimmed = line.trim();
                 if (inBlockComment) {
@@ -134,9 +137,9 @@ public class FileMerger {
         return sb.toString();
     }
 
-    private static String frozenParamsExpression() {
+    private static String paramsExpression(String spec) {
         StringBuilder query = new StringBuilder();
-        for (var entry : BotFactory.configuration("v05").entrySet()) {
+        for (var entry : BotFactory.configuration(spec).entrySet()) {
             if (query.length() > 0) query.append(',');
             query.append(entry.getKey()).append('=').append(entry.getValue());
         }

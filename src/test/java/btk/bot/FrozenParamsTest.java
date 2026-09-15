@@ -87,6 +87,8 @@ class FrozenParamsTest {
         expected.put("BUILD_BEAM_WIDTH", "4");
         expected.put("OPP_REPLY_WIDTH", "2");
         expected.put("FORECAST_DECAY", "0.95");
+        expected.put("PROFILE_SEARCH", "false");
+        expected.put("INTERRUPT_VULN_EVAL", "false");
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
         assertEquals(expected, BotFactory.configuration("current"));

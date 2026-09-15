@@ -834,3 +834,67 @@ Outcome:
 - Decision: deadline accounting fix is verified; **v05 did not pass this strict local sample**.
   The old 180-ms event remains unattributed. Next is phase-level timing diagnosis on large maps,
   not promotion of an adaptive strategy or a claim of CG-host timeout probability.
+
+### 2026-09-15 — two-step timing investigation and interrupted-evaluation screen
+
+- User requested a commit and two next steps. Committed preceding tools as `75ba0ca`.
+- Step 1: opt-in primitive phase counters in current's baseline-equivalent search (frozen v05
+  source untouched), plus `cgTiming` on validated states from 903509641 and 903508669, both
+  sides. 400 calls, 486/36-ms search allowances, 500-ms standard warmup; reset to recorded
+  positions after each call. This is not the local match trajectory where turn 53 timed out,
+  nor an exact frozen-executable profile. Instrumentation and JIT influence wall time.
+- Baseline: build 10,172.10 ms, inclusive nested vulnerability eval 5,487.35 ms (**53.9%**),
+  sabotage 678.92 ms. Example t59 P0 on 903509641: build **35.24 ms**, longest eval **4.04 ms**,
+  beyond the intended 30-ms build boundary of a 36-ms call. All four warmups ran about
+  500 ms with **zero route-search calls**: the 5-ms call budget is below the 6-ms reserve.
+  Report: `build/analysis/search-timing-baseline.json`. Old exact timeout cause is unproven.
+- Step 2 hypothesis: default-off `INTERRUPT_VULN_EVAL` checks the build deadline between
+  vulnerability-region simulations. Incomplete evaluations return a sentinel, not an optimistic
+  partial value; no candidate RNG is consumed and only fully evaluated candidates may replace
+  the saved best route. Incomplete base evaluation skips that search. Sabotage retains its
+  original allowance; no warmup, weights, reserve or core changes. Reply-rerank combination
+  is rejected until explicitly supported. A single core simulation remains atomic.
+- Predeclared screen: `current?INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=0` vs frozen v05, **300
+  games / 150 generated paired maps**, seed 12000, two workers, CG timing. All previous
+  experimental flags off. Existing >=55% / map-grouped lower CI >50% gate; no adaptive sample
+  extension. Only if passed: independent confirmation and older-opponent checks before promotion.
+- Additional mechanism check: same cgTiming replay states once with the flag; diagnostic only.
+  Process check candidate merged with an explicit parameter query, two sides of both captured
+  large maps, then restore v05 and check four default maps. No relaxed grace or rerun-until-green.
+  Candidate artifact is temporary; no upload or automatic promotion.
+
+Outcome:
+
+- Mechanism diagnostic completed once: 400 candidate calls, build 10,167.48 ms, nested eval
+  5,440.23 ms, sabotage 677.55 ms. Across the 396 later-turn calls, build p95 decreased from
+  **32.3034 to 30.5352 ms**, maximum from 35.4970 to 32.9619 ms, calls above 31 ms from
+  **90 to 7**. Discarded 214 incomplete evaluations. Overall work still uses the available
+  allowance (including sabotage), and atomic core operations can still overrun; this is tighter
+  phase accounting, not a hard deadline guarantee. Sequential instrumented runs are not a
+  controlled CPU speedup comparison. Report: `build/analysis/search-timing-interrupted.json`.
+- Fixed strength screen: **154-146-0**, **51.3%**, map-grouped 95% CI **40.2-62.4%**,
+  average score difference **+38.9**, 73.0 turns, 167.6 s. Candidate as P0 74/150, as P1 80/150;
+  no bot errors. Search averaged 7.06 ms vs 7.01 ms; candidate max 61 ms / one nominal-budget
+  slow move, reference max 36 ms / zero. Report: `build/bench/interrupt-eval-v05-gen12000.json`.
+- Decision: **gate NOT PASSED**. Keep `INTERRUPT_VULN_EVAL=false`, current v05; no v06,
+  independent confirmation, older-opponent promotion bench or upload. The separately
+  predeclared process checks are diagnostic, not an exception to the strength gate.
+- **103 tests passed**, **214/214 exact replays**. Tests cover expired evaluation sentinel,
+  no build after cutoff while sabotage remains possible, unsupported reply-rerank combination,
+  ample-time action parity with frozen v05, and explicit parameter embedding. Core and frozen
+  sources unchanged. `PROFILE_SEARCH=false` during strength and process checks.
+- Temporary candidate submission: **85,368 / 100,000 characters**, SHA-256
+  `36f058fb39deb664a2797d64633c5ba165419f85eea8aae780aa1ca8d1e506f5`.
+  Both sides of both large maps vs v04: **0/4 process failures**, 3/4 wins (smoke only),
+  first 676.24-729.62 ms, later max 38.8861 ms, strict zero grace. Reports:
+  `build/analysis/process-interrupt-eval-{903509641,903508669}.json`.
+- Restored v05 strategy artifact: **62,959 characters**, SHA-256
+  `491fadca4ec22867e886859b88e0d66beda58e7cf6cbff38ec5f3d62aa1ebba3`.
+  Two unused, default-off Params fields account for the changed v05 packaging; no candidate
+  implementation ships in this restored source. Four default-map process games: **0/4 failures**,
+  first 675.89-853.44 ms, later max 38.3078 ms, zero grace. The 853.44-ms first response still
+  exceeds the 800-ms headroom target despite fitting the formal 1,000-ms deadline. Report:
+  `build/analysis/process-v05-restored-after-interrupt.json`. This does not erase earlier failures.
+- Both requested steps are complete. Next separately scoped experiment: reach route search
+  during warmup without changing live RNG/state semantics, then check startup headroom.
+  New work after `75ba0ca` remains uncommitted for review.

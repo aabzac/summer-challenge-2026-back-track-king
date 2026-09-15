@@ -94,6 +94,10 @@ public class Params {
     public int SEED = 1;
 
     // ---- misc ----
+    /** Diagnostic counters only; leave off in strength benches and submissions. */
+    public boolean PROFILE_SEARCH = false;
+    /** Default-off experiment: discard incomplete vulnerability evaluations at build cutoff. */
+    public boolean INTERRUPT_VULN_EVAL = false;
     /** Offline sabotage-forecast study only; not connected to current strategy. */
     public double FORECAST_DECAY = 0.95;
     public double FORECAST_FLOOR = 0.10;

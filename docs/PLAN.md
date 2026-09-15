@@ -76,8 +76,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       no own timeouts, 214/214 corpus games exact. Placement is still ongoing.
 - [ ] After v05 placement completes, compare a later sample; do not infer strength from rank alone.
 - [ ] Revisit warm-up scheduling: generic 5-ms warm-up calls are below v05's 6-ms reserve,
-      so they skip route search. Current full-process checks pass (<=676 ms first / 34 ms later),
-      but warming route evaluation explicitly is a separate possible startup improvement.
+      so they skip route search (confirmed: zero route-search calls in four profiled cases).
+      Next independent experiment: warm routes explicitly while preserving RNG/state semantics;
+      verify startup headroom and later turns separately. Historical process passes are not a
+      guarantee: a recent first response took 959.35 ms, above the 800-ms headroom target.
 - [ ] Check actual partial placements against score-difference regressions, not only the value
       of a fully completed candidate route. Do not attribute every bad build to idle extension.
 - [x] Screen a known-state income veto: fixes captured harmful builds but only 48.1% vs v05
@@ -99,10 +101,15 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [x] Fix process deadline measurement: single allowance including input sending, timestamped
       reader arrivals separate from consumer wake-up, zero default grace, terminal timeout/EOF,
       per-turn JSON. Eight new tests and a fixed eight-game strict run; see DEVLOG.
-- [ ] Investigate v05 large-map timing with phase-level evidence before changing strategy:
+- [x] Investigate v05 large-map timing with phase-level evidence before changing strategy:
       strict run caught P0 turn 53 on 903509641 at 50.7868 ms (consumer 56.2206 ms);
       the other seven games passed. One first response was 959.35 ms, within 1,000 ms but
-      above our 800-ms headroom target. Do not treat previous grace-based passes as strict passes.
+      above our 800-ms headroom target. `cgTiming` on 400 recorded-state calls attributes 53.9%
+      of route-search time to nested vulnerability evaluation; build calls can overrun the phase
+      boundary. Exact old timeout cause remains unknown; instrumentation is not the frozen process.
+- [x] Screen interruptible nested vulnerability eval: 51.3% vs v05 on 300 games / 150 paired
+      generated maps, CI 40.2-62.4%. Not promoted; flag off. Tighter measured build-phase
+      cutoff and 0/4 candidate process failures are mechanism/timing evidence, not strength.
 
 ## Someday / maybe
 
