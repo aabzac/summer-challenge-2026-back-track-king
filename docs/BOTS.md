@@ -5,10 +5,16 @@ Gate: A vs previous >= 55% on >= 200 games (two sides on each map), map-grouped 
 `current` = **v05**, `btk.bot.current.EvalBot`; frozen copies in `btk.bot.vNN`.
 
 Latest user-reported arena snapshot (2026-09-15): **Gold opened; still Silver, 235/622**.
-The exact deployed artifact and placement status have not yet been verified. League changes
+User confirms the arena still runs the previous build, without the new isolated warmup;
+the exact deployed source hash and placement status remain unverified. League changes
 alter the ranking population, so this is not directly comparable to the old rank snapshots.
 The warmup fix has process-timing evidence, not a new strength-benchmark result: the ordinary
 in-process benchmark does not invoke MainBot's submission warmup.
+
+Fresh diagnostic: arena entry **6739024**, 50 newly downloaded games, **25 wins / 25 losses**,
+zero own failures, one win by opponent timeout; **264/264** corpus replays exact.
+This is a separate entry/sample from 6736850, not a controlled strength comparison.
+See `arena-analysis-2026-09-15.md` for scope, loss evidence and the next hypothesis.
 
 `BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,

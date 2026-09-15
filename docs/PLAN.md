@@ -77,6 +77,12 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [x] User uploaded v05; record agent 6736850 and analyze first 56 fresh games: 38-18,
       no own timeouts, 214/214 corpus games exact. Placement is still ongoing.
 - [ ] After v05 placement completes, compare a later sample; do not infer strength from rank alone.
+- [x] Fetch and analyze a later separate arena entry, 6739024: 50 new games, 25-25,
+      no own failures; 264/264 corpus replays exact. User confirms previous runtime is deployed.
+      Placement completion and exact deployment hash remain unknown; see arena-analysis-2026-09-15.md.
+- [ ] Diagnose sabotage target valuation on captured losses (Meruem / OldJohn): distinguish
+      incomplete timed search from long-horizon valuation and simultaneous-reply effects before
+      screening a default-off strategy change. Do not reuse oracle actions as available information.
 - [x] Fix submission warm-up scheduling: MainBot uses a disposable same-strategy instance,
       copied states and 36-ms slices within the existing 500-ms allowance. Route search now
       runs without consuming live RNG. Candidate 0/8 strict process failures, first max 577.89 ms

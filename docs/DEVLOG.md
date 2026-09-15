@@ -958,7 +958,8 @@ Outcome:
 
 - User authorized committing the warmup fix and reported that Gold opened today; our entry
   remains in **Silver, rank 235/622**. Record as user-reported, not independently API verified.
-  Deployment of the new warmup artifact and current placement status are not yet established.
+  Follow-up: user confirms the previous build is deployed, not the new isolated warmup artifact.
+  The exact deployed source hash and current placement status remain unverified.
 - Clarify benchmark status: no new ordinary strength bench was run for the MainBot warmup
   fix, because that benchmark bypasses the hook. The 8+8 process comparison and final 8-game
   artifact check measure startup/protocol/timing, not statistically established playing strength.
@@ -967,3 +968,24 @@ Outcome:
   identify arena entry and fresh-vs-existing game IDs, validate before analysis, and inspect
   fresh losses separately from the old corpus. Do not attribute rank changes to warmup or mix
   arena entries/league populations into a single improvement claim. No upload or submission.
+
+Outcome of the bounded diagnostic:
+
+- Committed the preceding warmup work and initial league snapshot as `1a63fd7`.
+- `cgFetch -Pplayer=aabzac -Plimit=50`: arena entry **6739024**, 50 saved, none existing;
+  canonical arena corpus grew from 214 to 264. API global-query rank was 363, score 18.5501;
+  this is not the same rank scope as the user's Silver 235/622 snapshot.
+- `cgValidate cgAnalyze -Pagent=6739024 -Pout=build/analysis/agent-6739024-2026-09-15.json`:
+  **264/264 exact**, **25 wins / 25 losses**, 38 distinct opponent entries; zero own failures,
+  one opponent timeout. Analysis IDs match all 50 newly fetched files; no old entry mixed in.
+- Hypothesis check: old large-map sabotage starvation is not a sufficient explanation here.
+  Losses: own accepted disruption on 84.7% of turns vs opponent 88.6%; own cells never earning
+  51.4% vs opponent 28.3%. Heights 19-20 yield 5-4 (one timeout win), not the old 1-19 pattern;
+  small, selected samples with different opponents cannot establish a version improvement.
+- Captured one-turn oracle alternatives reveal both harmful builds and missed sabotage targets.
+  They are not additive recoverable final points or deployable opponent predictions. Prior income
+  veto / early fallback experiments remain rejected; do not silently re-enable them.
+- Decision: leave strategy/submission unchanged. Next narrow diagnostic is sabotage target
+  valuation on Meruem 903970829 and OldJohn 903956941, separating timer truncation from the
+  long-horizon value formula and simultaneous opponent actions. Full findings, reproduction and
+  exact sample IDs: `arena-analysis-2026-09-15.md`. Fresh report/docs are a new uncommitted step.
