@@ -21,6 +21,13 @@ preferences; local timed scans finish at all four selected positions. OldJohn's 
 is not reproduced, leaving its original cause open. Diagnostics only: v05 and Player.java unchanged,
 no new strength bench or promotion. See `sabotage-valuation.md`.
 
+Delayed-sabotage experiment (2026-09-15): `DISRUPT_DELAY_FACTOR=0.65` scores **49.3%** vs v05,
+146-150-4 over 300 games / 150 new paired maps, map-grouped CI **38.2-60.4%**. Gate not passed.
+On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05 **76.5%**
+(153-47-0); no common-opponent support for promotion. Keep **factor 1.0**, no v06.
+116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
+Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
+
 `BotFactory` loads fixed defaults for v01–v05 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,
 while later versions record their promoted configuration; they do not retrospectively

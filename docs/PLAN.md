@@ -84,9 +84,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       reproduces Meruem target preferences; local timed scans complete on all four positions.
       OldJohn missed outputs are not reproduced locally, so original cause remains unknown.
       Known-state vs oracle deltas differ; see sabotage-valuation.md. No strategy change.
-- [ ] Screen one default-off discount for delayed sabotage effects (additional required hits),
-      rather than a blanket ready-to-ink priority. Preserve closing logic; use captured mechanism
-      tests, fresh paired maps vs v05 and a different opponent. Do not retune on confirmation maps.
+- [x] Screen delayed-sabotage discount (factor 0.65 per additional hit): 49.3% vs v05 on
+      300 games / 150 fresh paired maps, CI 38.2-60.4%; not promoted. Aggressive-v02 control:
+      candidate 73.3% vs v05's 76.5% on 200 matched games each. Keep factor 1.0 (neutral).
+      116 tests, 264 exact replays, candidate/restored-v05 0/4 process failures each.
 - [x] Fix submission warm-up scheduling: MainBot uses a disposable same-strategy instance,
       copied states and 36-ms slices within the existing 500-ms allowance. Route search now
       runs without consuming live RNG. Candidate 0/8 strict process failures, first max 577.89 ms

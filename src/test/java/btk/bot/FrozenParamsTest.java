@@ -91,6 +91,7 @@ class FrozenParamsTest {
         expected.put("ISOLATED_ROUTE_WARMUP", "true"); // Shared MainBot runtime, not frozen policy.
         expected.put("WARMUP_SLICE_MS", "36");
         expected.put("INTERRUPT_VULN_EVAL", "false");
+        expected.put("DISRUPT_DELAY_FACTOR", "1.0"); // Frozen v05 does not read this field.
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
         assertEquals(expected, BotFactory.configuration("current"));

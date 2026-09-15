@@ -79,6 +79,68 @@ class CgDisruptStudyTest {
     }
 
     @Test
+    void delayDiscountChangesMeruemPreferenceButNotReadyTargetValues() throws Exception {
+        int[] expected = {5, 3, 27, 12};
+        int index = 0;
+        for (var item : fixtures()) {
+            var fixture = item.getAsJsonObject(); var state = state(fixture);
+            int me = fixture.get("me").getAsInt();
+            var actions = Action.parseLine(fixture.get("recordedAction").getAsString());
+            var baseline = CgDisruptStudy.recordedBuild(state, me, actions, BotFactory.parameters("current"));
+            var candidate = CgDisruptStudy.recordedBuild(state, me, actions,
+                    BotFactory.parameters("current?DISRUPT_DELAY_FACTOR=0.65"));
+            assertEquals(expected[index++], candidate.selected());
+            for (int i = 0; i < baseline.targets().size(); i++) {
+                var b = baseline.targets().get(i); var c = candidate.targets().get(i);
+                assertEquals(b.region(), c.region());
+                if (b.value() == null) assertNull(c.value());
+                else if (b.needed() == 1) assertEquals(b.value(), c.value());
+                else assertEquals(b.value() * Math.pow(0.65, b.needed() - 1), c.value(), 1e-8);
+            }
+        }
+    }
+
+    @Test
+    void neutralFactorPreservesFrozenV05FullActionsOnCapturedStates() throws Exception {
+        assertEquals(1.0, new Params().DISRUPT_DELAY_FACTOR);
+        for (var item : fixtures()) {
+            var fixture = item.getAsJsonObject(); var state = state(fixture);
+            for (int me = 0; me < 2; me++) {
+                var current = BotFactory.create("current?NOISE=0");
+                var frozen = BotFactory.create("v05?NOISE=0");
+                current.init(state.copy(), me); frozen.init(state.copy(), me);
+                assertEquals(Action.format(frozen.play(state.copy(), me, 60_000)),
+                        Action.format(current.play(state.copy(), me, 60_000)));
+            }
+        }
+    }
+
+    @Test
+    void delayDiscountPreservesTerminalWinAndLossSafeguard() throws Exception {
+        GameState state = new GameState(3, 1, new int[]{0, 1, 2}, new int[3],
+                new int[]{0, 2}, new int[]{0, 0}, new int[][]{{1}, {}});
+        state.owner[1] = 1; state.instability[1] = 3; state.syncRegionsFromCells();
+        Rules.updateConnections(state, new Pathing(state.size));
+        for (double factor : new double[]{0, 0.65, 1}) {
+            EvalBot bot = new EvalBot(new Params("NOISE=0,DISRUPT_DELAY_FACTOR=" + factor));
+            bot.init(state.copy(), 0);
+            state.score[0] = 0; state.score[1] = 100;
+            assertEquals(-1, CgDisruptStudy.evaluate(bot, state, 0).selected());
+            state.score[0] = 200;
+            assertEquals(1, CgDisruptStudy.evaluate(bot, state, 0).selected());
+            assertEquals(1_000_100.0, CgDisruptStudy.evaluate(bot, state, 0).targets().get(0).value());
+        }
+    }
+
+    @Test
+    void invalidDelayFactorsAreRejected() {
+        for (String value : new String[]{"-0.01", "1.01", "NaN", "Infinity"}) {
+            assertThrows(IllegalArgumentException.class,
+                    () -> BotFactory.create("current?DISRUPT_DELAY_FACTOR=" + value));
+        }
+    }
+
+    @Test
     void distinguishesExpiredScanFromFullScanWithoutTimingSensitiveAssertions() throws Exception {
         var fixture = fixtures().get(0).getAsJsonObject(); var state = state(fixture);
         int me = fixture.get("me").getAsInt();

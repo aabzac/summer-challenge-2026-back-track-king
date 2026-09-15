@@ -45,6 +45,8 @@ public class Params {
     public double W_FUTURE_OWN = 0.4;
     /** Minimum value to bother disrupting (below: no DISRUPT). */
     public double DISRUPT_MIN = 0.01;
+    /** Experimental retention per extra hit before ink (0..1); 1 preserves v05 valuation. */
+    public double DISRUPT_DELAY_FACTOR = 1.0;
 
     // ---- v03 vulnerability eval ----
     /**

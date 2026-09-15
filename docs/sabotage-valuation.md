@@ -62,9 +62,9 @@ In the single local timed run, targets were 7, 6, 27, 12 respectively and all sc
 Elapsed times were 33.45, 29.81, 17.52 and 18.30 ms. Both OldJohn omissions were **not reproduced**.
 This is diagnostic evidence, not a formal process deadline check or a claim about the CG CPU.
 
-## Next experiment, not yet implemented
+## Follow-up experiment: delayed effect discount
 
-Test one parameter discounting a sabotage effect that needs additional future hits. Existing
+Tested one parameter discounting a sabotage effect that needs additional future hits. Existing
 valuation projects a hypothetical ink's income effect across nearly the entire remaining game,
 then divides by hits needed. That can prefer starting a four-hit target to collecting a useful
 one-hit effect while the opponent keeps changing the network.
@@ -76,6 +76,46 @@ First demonstrate the intended mechanism on captured states, then predeclare a f
 screen against frozen v05 and a different/older opponent. Keep the normal promotion gate; selected
 arena positions and these four successful scans alone are not evidence of increased strength.
 
-The prepared v05 Player.java is unchanged (SHA-256
+At the diagnostic-only checkpoint the prepared v05 Player.java was unchanged (SHA-256
 `748b564a77a0d3293a925913f396a60d4598783501bc4a74a9a6624f6fadbbc5`). No upload, no new version,
-and no strength benchmark for this tools-only step.
+and no strength benchmark for that tools-only step.
+
+### Fixed screen and decision
+
+Implemented neutral-default `DISRUPT_DELAY_FACTOR=1.0`; tested only **0.65**. Nonterminal
+sabotage value and empty-track fallback are multiplied by factor^(needed-1). No change to ready
+inks, closing rules, timers or opponent modeling. Four tests cover captured preferences, neutral
+v05 parity on both sides, closing decisions and invalid factors. Meruem changes 7 -> 5 at turn
+43 and 6 -> 3 at turn 46. OldJohn choices remain 27/12. Total **116 tests passed**.
+
+Predeclared main screen: 300 games / 150 paired generated maps, seeds 13000..13149, two workers,
+486/36-ms budgets, noise 0.1 / bot seed 1, all other experiments off. Result **49.3%** vs frozen
+v05 (146-150-4), map-grouped 95% CI **38.2-60.4%**, average score difference -71.0, zero errors.
+The promotion gate **did not pass**.
+
+Separate common-opponent sample: 200 games / 100 paired maps for each variant, seeds
+14000..14099, same budgets/workers, aggressive v02 track weights 1.0/0.2. Candidate **73.25%**
+(146-53-1), control v05 **76.5%** (153-47-0). Matching maps/sides, candidate gains 15 wins and
+loses 22, net -3.25 percentage points with draws half-counted. This does not establish a
+statistically significant regression, but provides no support for adopting the candidate.
+The explicit ALWAYS_DISRUPT field is ignored by frozen v02; its two track weights do take effect.
+
+Both new map sets are disjoint by initialization hash from each other and prior available bench
+reports. Reports (local/gitignored):
+
+- `build/bench/disrupt-delay065-v05-gen13000.json`
+- `build/bench/disrupt-delay065-v02aggressive-gen14000.json`
+- `build/bench/v05-v02aggressive-gen14000.json`
+
+Candidate packaging: 87,843 characters, four strict process games vs v04, zero failures,
+first-response max 678.36 ms, later max 36.58 ms. Afterward restored frozen v05 and checked it:
+64,846 characters, zero failures in four games, first max 636.22 ms, later max 39.43 ms.
+All 264 downloaded arena replays still validate exactly. These small process samples are not
+playing-strength evidence or guarantees for the CG host.
+
+**Decision: keep factor 1.0; no v06, no confirmation or further tuning of this screen.** The
+candidate fixes selected preferences but did not establish an overall improvement. Final
+`build/submit/Player.java` contains frozen v05 and the verified isolated warmup, not the candidate.
+Final SHA-256: `089db72f16977f26b1c49c910ff1b31735524aba630e236e3d21520451555810`.
+The neutral shared parameter changes its text/hash, not frozen strategy decisions. Process
+reports and source identities are recorded in DEVLOG. No arena upload was performed.

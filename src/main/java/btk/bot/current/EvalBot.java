@@ -70,6 +70,10 @@ public final class EvalBot implements Bot {
     }
 
     public EvalBot(Params params) {
+        if (!Double.isFinite(params.DISRUPT_DELAY_FACTOR)
+                || params.DISRUPT_DELAY_FACTOR < 0 || params.DISRUPT_DELAY_FACTOR > 1) {
+            throw new IllegalArgumentException("DISRUPT_DELAY_FACTOR must be in [0,1]");
+        }
         if (params.INTERRUPT_VULN_EVAL && params.USE_REPLY_RERANK) {
             throw new IllegalArgumentException("Interrupted eval is not supported by reply reranking");
         }
@@ -819,8 +823,17 @@ public final class EvalBot implements Bot {
             value = 1e6 + lead;
         } else {
             value = ((oppLoss - P.W_SELF_LOSS * myLoss) * earning + balance) / needed;
+            value *= disruptDelayDiscount(needed);
         }
         return noisy ? value * noise() : value;
+    }
+
+    private double disruptDelayDiscount(int needed) {
+        double discount = 1.0;
+        if (P.DISRUPT_DELAY_FACTOR != 1.0) {
+            for (int hit = 1; hit < needed; hit++) discount *= P.DISRUPT_DELAY_FACTOR;
+        }
+        return discount;
     }
 
     private int chooseDisrupt(GameState s, int myId) {
@@ -849,7 +862,7 @@ public final class EvalBot implements Bot {
             double balance = P.W_FUTURE_TRACK * oppTracks[r] + P.W_OPP_ROUTE * oppRouteByRegion[r]
                     - P.W_FUTURE_OWN * myTracks[r] - P.W_FUTURE_OWN * myPlanByRegion[r];
             if (oppTracks[r] == 0 && myTracks[r] == 0) {
-                double fb = balance / needed;
+                double fb = balance / needed * disruptDelayDiscount(needed);
                 if (fb > fallbackBest) {
                     fallbackBest = fb;
                     fallback = r;

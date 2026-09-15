@@ -1022,3 +1022,71 @@ Outcome of the bounded diagnostic:
   `748b564a77a0d3293a925913f396a60d4598783501bc4a74a9a6624f6fadbbc5`.
   Detailed findings: `sabotage-valuation.md`; full local report:
   `build/analysis/disrupt-diagnostic.json`. New tooling and docs left uncommitted for review.
+
+### 2026-09-15 — delayed-sabotage discount: predeclared screen
+
+- Previous diagnostic committed as `dc4b056`. Hypothesis: the v05 target evaluator overvalues
+  benefits requiring several future hits while the board changes. Test ONE neutral-default
+  parameter `DISRUPT_DELAY_FACTOR=1.0`, candidate **0.65**: multiply nonterminal target value
+  (including empty-track fallback) by factor^(needed-1). Ready inks and terminal close decisions
+  stay unchanged. No additional allocations, opponent model or timer changes.
+- Candidate source is the working-tree change on `dc4b056`; frozen v05 source/parameters untouched.
+  Main screen: `current?DISRUPT_DELAY_FACTOR=0.65` vs `v05`, **300 games / 150 paired generated
+  maps, seeds 13000..13149**, two workers, CG nominal budgets 486/36 ms. Maps are new relative
+  to the recorded bench seed ranges. Noise 0.1 / bot SEED 1; all other parameters at v05 defaults,
+  all previous experimental flags off. Full resolved configurations/hashes in JSON reports.
+- Regardless of main result, common-opponent check: candidate AND frozen v05 separately against
+  `v02?ALWAYS_DISRUPT=1,W_FUTURE_TRACK=1.0,W_FUTURE_OWN=0.2`, **200 games / 100 paired generated
+  maps each, seeds 14000..14099**, same budgets/workers. This is an aggressive stress profile,
+  not a claim that v02 represents all real opponents. Compare matched outcomes, not old numbers.
+- Fixed sample, no tuning or reruns until significance. Gate unchanged: >=55%, map-grouped 95%
+  lower bound >50%, zero errors; older-opponent/process checks separate. A promising screen still
+  needs independent confirmation before promotion. Fail/inconclusive -> keep factor 1, no v06.
+- Verification: captured-state mechanism/neutral parity and closing tests, full tests/cgValidate;
+  build candidate and four strict process games (zero grace) on default maps, then restore frozen
+  v05 build and repeat its four-game check. No concurrent heavy workloads during process checks.
+  Save hashes/reports and leave a verified v05 artifact, never the experimental submission.
+
+Initial results:
+
+- Mechanism: noise-free captured Meruem targets change 7 -> 5 at t43 and 6 -> 3 at t46;
+  ready-region values and both OldJohn targets remain unchanged. Neutral factor preserves full
+  v05 actions on all four captured states for both players. Terminal win/loss tests pass.
+- **116 tests pass, 264/264 CG replays exact.** Main fixed screen: **49.3%**, W-L-D **146-150-4**,
+  300 games / 150 distinct maps; map-grouped 95% CI **38.2-60.4%**, average score difference
+  **-71.0**, zero bot errors. **Gate not passed**; no confirmation or promotion on this evidence.
+  Report: `build/bench/disrupt-delay065-v05-gen13000.json`.
+- Source identity for the screen (raw file SHA-256): EvalBot.java
+  `2b0c0121cfb8abfe5bc336ba030050194dae481bd4c863640d7631af2d7ed64d`, Params.java
+  `2be7d34d95216d3dc5166083d8c2eecd80d97df5a8c6b697765ed170fd9ba430`.
+  Note: frozen v02 reads the track weights but not ALWAYS_DISRUPT; that explicit flag in the
+  historical stress spec is inert. Both common-opponent runs use the identical resolved spec.
+
+Completed outcome:
+
+- Matched aggressive-v02 check: candidate **73.25%**, **146-53-1**, CI **59.7-86.8%**;
+  frozen v05 **76.5%**, **153-47-0**, CI **62.9-90.1%**, 200 games / 100 distinct maps each.
+  Same opponent configuration, map hashes, seeds and sides verified. Candidate adds 15 wins,
+  loses 22, leaves 163 outcomes unchanged; half-credit delta **-6.5/200 (-3.25 percentage points)**.
+  This is descriptive, not a statistically established regression. Reports:
+  `build/bench/disrupt-delay065-v02aggressive-gen14000.json` and
+  `build/bench/v05-v02aggressive-gen14000.json`. Main and stress map hashes have zero overlap
+  with each other or with prior available benchmark reports.
+- Fixed four-game strict process sample, opponent v04, maps 903182120/903182383/903182464/
+  903182662, alternating P0/P1. Candidate **0/4 failures**, first max **678.3579 ms**, later max
+  **36.5757 ms**. Source **87,843 characters**, SHA-256
+  `eeb7283d4f091b8c9719e40460add81252fc33090516f5b54e0148572ae64f2a`.
+  Report: `build/analysis/disrupt-delay065-process.json`.
+- Restored with `submit -PsubmitVersion=v05` and repeated four strict games: **0/4 failures**,
+  first max **636.2177 ms**, later max **39.4285 ms**. One internal 38-ms warning is below the
+  formal 50-ms deadline; no grace or nominal overrun. Final Player.java **64,846 characters**,
+  SHA-256 `089db72f16977f26b1c49c910ff1b31735524aba630e236e3d21520451555810`.
+  Its hash changed because the shared Params field and embedded config were added; frozen v05
+  never reads the experimental field. Report: `build/analysis/disrupt-delay-restored-v05-process.json`.
+  Both process samples happened to win 2/4: protocol/timing smoke only, not strength evidence.
+- **Decision: do not promote; DISRUPT_DELAY_FACTOR stays 1.0.** Selected positions improved in
+  the intended way, but the fixed main screen and older-opponent control do not support adoption.
+  No tuning, independent confirmation, new version or upload. Experimental code/tests/docs remain
+  uncommitted for user review. The prepared submission is frozen v05 plus isolated runtime warmup,
+  not the discounted-sabotage candidate. Tests and replay validation passed before the fixed runs;
+  only documentation changed afterward. `git diff --check` clean.
