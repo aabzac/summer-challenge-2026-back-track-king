@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "confirmation-v2",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 90000,
+  "pairs": 500
+}

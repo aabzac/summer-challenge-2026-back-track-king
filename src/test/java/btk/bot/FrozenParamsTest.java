@@ -94,6 +94,20 @@ class FrozenParamsTest {
         expected.put("DEFENSE_MAX_PAINT", "6");
         expected.put("DEFENSE_MIN_INSTABILITY", "1");
         expected.put("USE_HEURISTIC_POLICY", "false"); // Independent policy; v05 ignores these fields.
+        expected.put("USE_ROLLOUT_POLICY", "false"); // Independent policy; v05 ignores these fields.
+        expected.put("ROLLOUT_WIDTH", "6");
+        expected.put("ROLLOUT_REPLIES", "2");
+        expected.put("ROLLOUT_DEPTH", "8");
+        expected.put("ROLLOUT_MAX_ROUTES", "64");
+        expected.put("ROLLOUT_RESERVE_MS", "20");
+        expected.put("ROLLOUT_TARGETS", "4");
+        expected.put("ROLLOUT_TAIL", "3.0");
+        expected.put("ROLLOUT_ROBUSTNESS", "0.5");
+        expected.put("ROLLOUT_TRACK_WEIGHT", "0.4");
+        expected.put("ROLLOUT_TARGET_HORIZON", "8.0");
+        expected.put("ROLLOUT_ROUTE_HORIZON", "16.0");
+        expected.put("ROLLOUT_THREAT_WEIGHT", "0.5");
+        expected.put("ROLLOUT_WIN_VALUE", "1000000.0");
         expected.put("HEURISTIC_EMERGENCY_STOP", "true");
         expected.put("HEURISTIC_MAX_ROUTES", "64");
         expected.put("HEURISTIC_TARGET_STICKINESS", "1.3");

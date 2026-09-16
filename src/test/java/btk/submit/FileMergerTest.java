@@ -47,6 +47,17 @@ class FileMergerTest {
         checkFrozenDecisions("v05", false);
     }
 
+    @Test void rolloutSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {
+        String spec = "current?USE_ROLLOUT_POLICY=1";
+        String source = FileMerger.merge(spec);
+        assertTrue(source.contains("private double rollout("));
+        assertFalse(source.contains("chooseCandidateWithReplies"));
+        assertFalse(source.contains("class HeuristicBot"));
+        assertFalse(FileMerger.merge("current").contains("private double rollout("));
+        assertFalse(FileMerger.merge("v05").contains("private double rollout("));
+        checkFrozenDecisions(spec, true);
+    }
+
     @Test void mergedV05WarmupIsIsolatedAndUsesTheFrozenStrategy() throws Exception {
         checkFrozenDecisions("v05?ISOLATED_ROUTE_WARMUP=1", true);
     }

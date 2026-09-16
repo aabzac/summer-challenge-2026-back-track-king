@@ -2,6 +2,7 @@ package btk.bot;
 
 import btk.bot.current.EvalBot;
 import btk.bot.current.HeuristicBot;
+import btk.bot.current.RolloutBot;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -29,6 +30,7 @@ public final class MainBot implements Bot {
     }
 
     public static Bot newStrategy(Params params) {
+        if (params.USE_ROLLOUT_POLICY) return new RolloutBot(params);
         return params.USE_HEURISTIC_POLICY ? new HeuristicBot(params) : new EvalBot(params);
     }
 

@@ -2230,3 +2230,131 @@ Completed outcome (fixed sample, no retuning):
 - README/BOTS/PLAN updated; 700 predeclared strength games completed, no post-result policy
   edits, automatic local commit per working agreement. No core/frozen/reference archive changes,
   arena upload or push. Current and final Player remain selected v05.
+
+### 2026-09-16 — independent adversarial rollout v1 (predeclared)
+
+- User requested a radically different, potentially stronger strategy. Implement a separate
+  RolloutBot behind USE_ROLLOUT_POLICY=false, leaving EvalBot and all prior experiments untouched.
+  Retain a small portfolio of routes for each player, simulate affordable construction and
+  simultaneous sabotage over eight turns, and rank first actions by earned score plus a short
+  terminal income tail. Opponent scenarios use two different retained construction priorities;
+  sabotage reacts to each simulated pre-turn board and that player's own intended construction.
+  Compare building priorities jointly with immediate sabotage versus WAIT; replan next real turn.
+  This is a bounded model, not a prediction of actual opponent actions or full minimax search.
+- Root route ranking only proposes actions; final comparison includes construction costs,
+  neutral collisions, ink before income, and game termination through the shared core. Add a
+  reusable core search workspace to avoid per-node allocations, with differential tests against
+  Rules.resolve and cgValidate after the core change. Never score incomplete scenario coverage.
+  Keep a legal independent fallback when the time limit interrupts the search.
+- Fixed development screen: current?USE_ROLLOUT_POLICY=1 vs v05, 300 games / 150 generated
+  paired maps, seeds 30000..30149. Then 200 games each vs frozen v03 and pressure-v1 on
+  seeds 30000..30099. CG search budgets 486/36 ms, two workers, bot SEED=1, no other experimental
+  flags. Reports build/bench/rollout-v1/. These are development maps, not the reserved confirmation
+  pool. Record full resolved parameters and code/artifact hashes before strength games.
+- Gate: >=55% and map-grouped Hoeffding95 lower bound >50% vs v05, no bot errors; older/style
+  results remain separate checks. No post-result edits, tuning, sample extensions or automatic
+  promotion. A passing screen can justify a separately declared fixed confirmation; a failed
+  screen leaves current=v05. Record implementation corrections made before strength testing.
+- Verify unit tests, default-off parity, both replay corpora, candidate-only merger and warmup
+  parity, source size, then one diagnostic-enabled zero-grace four-game procCheck vs v04 for
+  candidate and restored v05, serially without benchmarks. Preserve failures; no retries-to-green.
+  Archive source/manifests under build/analysis/rollout-v1/ and commit the completed experiment.
+- Before strength: **214 tests passed**, **264 arena + 27 boss replays exact**. Four core
+  differential/storage tests and nine policy tests cover simultaneous collision and double
+  disruption, income after ink, affordable cost packing, active/inactive path-buffer reuse,
+  input isolation, endgame, future opponent sabotage, root WAIT, bounded coverage and expired
+  search; merged-policy/warmup parity also passes. Existing OFF/frozen-v05 regressions pass.
+- Initial implementation extended Pathing/Rules, triggering 17 archive-identity test failures.
+  Corrected BEFORE any strength runs: keep both existing classes bytecode-identical and add only
+  SearchState, which calls the canonical Pathing.shortestPath into retained buffers and delegates
+  placements/disruption/scoring/termination to Rules. This uses one BFS per directed pair instead
+  of the existing allocating per-destination updater. No historical archive hashes were changed.
+  Also fixed a Java test declaration and retention of the better duplicate-prefix continuation.
+- One serial work audit on ALL 110 previously saved public states (36 ms, fresh instances,
+  no recorded enemy actions supplied): **110/110** had a complete action/scenario comparison,
+  **660** complete comparisons, **10,423** simulated turns; mean **24.224 ms**, max **36.134 ms**.
+  No illegal/skipped output or input mutation. This is work-cost evidence, not a strength test
+  or process deadline guarantee. `build/analysis/rollout-v1/cost.json`; no parameter adjustment.
+- Candidate source **56,008 / 100,000 chars**, SHA-256
+  `d7f259ca8ecf70757458e69282f89c2597151e5e895c8d3753490707e1c92c8f`.
+  Source, complete parameter manifest and source/class identities are archived under
+  `build/analysis/rollout-v1/`; base revision `7439062`. Candidate process check is run before
+  strength so an unusable artifact is identified early; the restored-v05 check follows the screen.
+- Candidate strict process sample: **0/4 problem games**, first response max **579.574 ms**,
+  later max **40.587 ms**, no grace. The wrapper initially could not open its Gradle lock when
+  invoked in a composite shell command; no game started on that invocation. The standalone
+  command ran the single declared process sample. No process retries or deadline adjustments.
+- **Protocol correction during the direct screen:** the chosen development seeds 30000..30149
+  overlap the previously reserved confirmation-v1 range (30000..30499), contrary to the pool
+  statement above. Detected after 100 completed games; do not erase/restart/relabel the run.
+  Keep all 700 declared development games and unchanged candidate/configuration. No tuning
+  occurred, but this screen must not later be reused as independent confirmation. Retire v1 as
+  a reserve while preserving its original file. Register confirmation-v2, seeds 90000..90499,
+  after inspecting the existing bench report seed ranges (40000 also has a prior smoke run).
+  No games on v2 here; future use still requires exact map-hash exclusion against development
+  reports. README/benchmarking/pool-status docs point to v2. This is a protocol mistake, not an
+  engine or strategy correction; the fixed screen's paired outcome remains development evidence.
+
+### 2026-09-16 — independent adversarial rollout v1 (outcome)
+
+- Fixed direct development screen: **170-130-0, 56.67%** vs v05, 300 games / 150 paired
+  generated maps, seeds 30000..30149. Map-grouped Hoeffding95 **45.58-67.76%**: practical
+  threshold reached, confidence gate **not passed**. P0 84/150, P1 86/150; mean score difference
+  **+277.17**, length **72.36** turns, 213/300 early closures. No bot errors; search mean A/B
+  **19.40 / 5.58 ms**, max **55 / 34 ms**, slow **2 / 0**. The two in-process slow moves are
+  not process-deadline measurements or an identified cause. Accepted sabotage **84.42 / 84.26%**.
+  Elapsed **283.089 s**. The separate per-game Wilson interval is not used to bypass the
+  map-grouped gate. No extension, strategy/parameter edits or confirmation after this result.
+  Report `build/bench/rollout-v1/candidate-v05.json`, SHA-256
+  `aed6dff387b9aa820795bf7537c17a76cc00e9db689c23dc7cacfcfe565c65fb`.
+- Older-opponent check vs frozen v03: **137-63-0, 68.5%**, 200 games / 100 paired maps,
+  map-grouped Hoeffding95 **54.92-82.08%**. P0 69/100, P1 68/100; score difference **+961.75**,
+  length **79.115**, 103/200 early closures. Search mean A/B **17.02 / 4.79 ms**, max **71 / 39**,
+  slow **2 / 0**, no errors. Accepted sabotage **69.75 / 83.85%**, placement **52.76 / 51.14%**;
+  elapsed **180.156 s**. All 100 map hashes match the direct screen. This opponent-specific
+  pass does not replace the failed v05 confidence gate or establish superiority to v05 through
+  an unmatched historical percentage. Report `build/bench/rollout-v1/candidate-v03.json`, SHA-256
+  `dde968314f4cb755e864c31a6622986e9aea4e99c3225feb0e8c5b6139736abe`.
+- Style check vs pressure-v1: **149-51-0, 74.5%**, 200 games / 100 paired maps, Hoeffding95
+  **60.92-88.08%**. P0 79/100, P1 70/100; score difference **+1118.315**, length **78.265**,
+  109/200 early closures. Search mean A/B **19.486 / 3.855 ms**, max **196 / 296 ms**, slow
+  **14 / 6**; no bot errors. Sabotage **61.29 / 94.42%**, placement **57.55 / 44.48%**;
+  elapsed **190.677 s**. Large in-process outliers affect both policies; no host/JIT/GC cause
+  is established. All maps and candidate parameters match the other runs. Report
+  `build/bench/rollout-v1/candidate-pressure.json`, SHA-256
+  `f61127d1fade3557f42a4e5082d71b047b21c527a61b215fba0f288177a00a7f`.
+- **Decision: retain the candidate, USE_ROLLOUT_POLICY=false; no v06 or promotion.** Its point
+  estimate is promising against v05 and it wins both separate reference checks, but the v05
+  confidence gate was not passed. These 700 games complete the fixed development experiment;
+  no additional games, independent confirmation or parameter tuning. Reference results cannot
+  establish improvement over v05 through historical rates. Candidate placement **54.68%** vs
+  v05's **93.33%** in the direct match is a behavior difference, not proof that waiting causes
+  the gain. Fixed route portfolios, four-region sabotage shortlist, two similar opponent scenarios
+  and constant terminal-income tail remain limitations, detailed in rollout-policy.md.
+- Restored frozen-v05: **52,219 chars**, source SHA-256
+  `1b7ba04b299e7e31af66c8d2de45654cec2a78b80233dac673402aae825214a3`.
+  Policy/existing core unchanged; new unused Params fields and SearchState are included by the
+  merger. Its single diagnostic-enabled strict process sample **FAILED 4/4**: 903182120 P0
+  turn 6, 903182383 P1 turn 17, 903182464 P0 turn 0, 903182662 P1 turn 0. First measured
+  responses **866.880 / 827.068 ms** in the two games that started exceed the 800-ms headroom
+  target. First input sends **344.605 / 266.768 / 512.240 / 1178.099 ms**, almost entirely
+  flush (**344.051 / 266.132 / 511.868 / 1177.608 ms**). Last two have no response timestamp;
+  the last send alone exhausts the 1000-ms deadline.
+- Later failures: turn 6 send **2.076 ms**, response **134.928**, consumer **235.420**; turn 17
+  send **176.552**, response **53.240**, consumer **176.605**, preparation **18.203** and flush
+  **158.168 ms**. Reader timestamp can precede completion of host flush. Host-thread CPU and
+  host GC counters are zero at their available resolution; this neither identifies scheduling,
+  pipe or child-runtime cause nor proves no CPU use. No competing strength jobs during process
+  checks, runtime changes or retries-to-green. Earlier startup trouble remains unresolved, now
+  with another instrumented failure. Candidate's separate 0/4 failure sample does not isolate
+  a strategy/artifact cause. Final Player is v05 **without a fresh process-readiness pass**.
+- Process hashes under `build/analysis/rollout-v1/`:
+  `candidate-process.json` = `2fb0c3efc1324c408cca7b2d350e80517709cc902250b9ef464b875b51f5f7e0`;
+  `restored-v05-process.json` = `cfbb607079c4113240ab1ba41e08363fd5e57680e9eb191919ad2fdb134c556c`.
+  Cost report = `df359b4c90e25c109a2920516535fad482235e410ef3adb176ad4dc3761711af`.
+  Candidate/restored executable tree hashes:
+  `fcadccc0d2df020b57d026cc1cbf0fb23987dbd3d02d5bf8d7467d74aef279e6` /
+  `41de201baf91ea8ec6c2ead8ff0ac423deb78049cab1e468e9fe49f1de222f83`.
+  Both sources and manifests archived beside reports; all candidate source/class hashes were
+  verified unchanged across strength runs. README/BOTS/PLAN, policy and pool status updated;
+  completed unpromoted experiment committed locally, including failures. No upload or push.

@@ -78,7 +78,10 @@ public class FileMerger {
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
+        boolean rollout = version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY;
+        if (rollout && heuristic) throw new IllegalArgumentException("Select only one independent policy");
         String policy = version.equals("v05") ? "bot/v05/EvalBotV05.java"
+                : rollout ? "bot/current/RolloutBot.java"
                 : heuristic ? "bot/current/HeuristicBot.java" : "bot/current/EvalBot.java";
         for (String dir : SUBMIT_DIRS) {
             try (Stream<Path> st = Files.list(SRC_ROOT.resolve(dir))) {
@@ -106,7 +109,11 @@ public class FileMerger {
                 if (heuristic && file.endsWith("HeuristicBot.java")) {
                     line = line.replaceAll("\\bHeuristicBot\\b", "EvalBot");
                 }
+                if (rollout && file.endsWith("RolloutBot.java")) {
+                    line = line.replaceAll("\\bRolloutBot\\b", "EvalBot");
+                }
                 if (file.endsWith("MainBot.java")) {
+                    if (line.contains("if (params.USE_ROLLOUT_POLICY) return new RolloutBot(params);")) continue;
                     line = line.replace("return params.USE_HEURISTIC_POLICY ? new HeuristicBot(params) : new EvalBot(params);",
                             "return new EvalBot(params);");
                 }

@@ -76,6 +76,12 @@ are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
+`current?USE_ROLLOUT_POLICY=1` selects a separate experimental eight-turn strategy: both players
+construct affordable routes and disrupt regions inside simultaneous rollouts. It compares earned
+points across two opponent construction priorities and chooses the first build/sabotage action.
+The default remains v05. See [rollout-policy.md](docs/rollout-policy.md) for the fixed route
+portfolio, limits, verification and results; `gradlew rolloutCheck` audits saved public positions.
+
 `current?USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
 cheap bypass of already damaged active income before ordinary construction. It checks at most
 3 regions x 4 directed connections, caps the route at 6 paint, and uses core income plus actual
@@ -119,10 +125,12 @@ Each opponent has its own report; no combined win rate is treated as a promotion
 Reports include height slices, accepted action frequencies and early closures; the default is
 two worker threads. Choose a fresh suite output directory to preserve earlier evidence.
 
-`bench/pools/confirmation-v1.json` reserves a different 1000-game pool. Use it only for a fixed
+`bench/pools/confirmation-v2.json` reserves a different 1000-game pool. Use it only for a fixed
 candidate, with `-PexcludeReports=<development report or suite index.json>`: overlapping map hashes
 are rejected before any game starts. See [benchmarking.md](docs/benchmarking.md) for limitations
 and confirmation commands. Do not tune on this reserved pool.
+The older confirmation-v1 is retired: rollout-v1 inadvertently used part of its seed range for
+a development screen. Its original file remains for history; see [pool status](bench/pools/README.md).
 
 For arena diagnosis, fetch the player's latest games, then analyze the agent id printed by the
 fetcher (keeps different arena entries separate):

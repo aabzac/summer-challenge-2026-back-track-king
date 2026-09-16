@@ -208,6 +208,18 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       + 26 boss replays exact, candidate/restored-v05 process samples both 0/4 failures. Final
       Player restored to v05; previous startup failure cause still open. See DEVLOG for limits.
 
+- [x] Complete independent eight-turn simultaneous rollout strategy: **170-130 (56.67%)** vs
+      v05 over 300 paired games, CI **45.58-67.76%**, confidence gate not passed. Separate
+      200-game checks: **68.5%** vs v03, **74.5%** vs pressure-v1. Keep USE_ROLLOUT_POLICY off;
+      no new version/confirmation/tuning. 214 tests, 264 arena + 27 boss replays exact, candidate
+      process 0/4 failures. See DEVLOG/rollout-policy.md for fixed portfolios and timing outliers.
+- [x] Correct rollout-v1 seed/reserve overlap: keep fixed screen outcomes as development evidence,
+      retire confirmation-v1 without altering its historical file, register untouched v2
+      (90000..90499). Future confirmation requires map-hash exclusions.
+- [ ] Diagnose renewed instrumented restored-v05 process failure: rollout-v1 sample failed 4/4
+      (turns 6,17,0,0); first flush 266..1178 ms, one later flush 158 ms, another later response
+      134.9 ms after only 2.1-ms send. Preserve evidence; no cause claim or readiness pass.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

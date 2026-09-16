@@ -13,6 +13,22 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
+    // Independent simultaneous multi-turn policy; experimental, not the selected submission.
+    public boolean USE_ROLLOUT_POLICY = false;
+    public int ROLLOUT_WIDTH = 6;
+    public int ROLLOUT_REPLIES = 2;
+    public int ROLLOUT_DEPTH = 8;
+    public int ROLLOUT_MAX_ROUTES = 64;
+    public int ROLLOUT_RESERVE_MS = 20;
+    public int ROLLOUT_TARGETS = 4;
+    public double ROLLOUT_TAIL = 3.0;
+    public double ROLLOUT_ROBUSTNESS = 0.5;
+    public double ROLLOUT_TRACK_WEIGHT = 0.4;
+    public double ROLLOUT_TARGET_HORIZON = 8.0;
+    public double ROLLOUT_ROUTE_HORIZON = 16.0;
+    public double ROLLOUT_THREAT_WEIGHT = 0.5;
+    public double ROLLOUT_WIN_VALUE = 1000000.0;
+
     // Independent simple policy; off in the selected v05 strategy.
     public boolean USE_HEURISTIC_POLICY = false;
     public boolean HEURISTIC_EMERGENCY_STOP = true;

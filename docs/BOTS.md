@@ -62,6 +62,38 @@ characters, but the fixed strict process sample **failed 1/4 games**: P1 turn 41
 66-ms bot search or identify the cause. Preserve the failed report; investigate before claiming
 submission timing readiness. No retry-to-green or upload; strategy source is unchanged.
 
+## Independent simultaneous rollout v1 (2026-09-16, not promoted)
+
+`current?USE_ROLLOUT_POLICY=1` selects a separate RolloutBot. It searches eight affordable turns
+of both players' construction and sabotage, comparing earned score across two opponent route
+priorities. Core SearchState provides reusable exact simulation; historical policies and existing
+core implementations are unchanged. [Design and limitations](rollout-policy.md); evidence in DEVLOG.
+
+Fixed development results, CG 486/36-ms search, two workers, paired generated maps:
+
+- vs **v05: 170-130-0, 56.67%**, 300 games / 150 maps, Hoeffding95 **45.58-67.76%**.
+  Mean score difference +277.17. The confidence gate is **not passed**.
+- vs **v03: 137-63-0, 68.5%**, 200 games / 100 maps, CI **54.92-82.08%**.
+- vs **pressure-v1: 149-51-0, 74.5%**, 200 games / 100 maps, CI **60.92-88.08%**.
+
+No bot errors; candidate parameters unchanged throughout all 700 games. Reference results do not
+replace the v05 gate. Keep USE_ROLLOUT_POLICY=false and current=v05; retain the candidate without
+a new frozen version or extra confirmation/tuning. Development seeds 30000..30149 inadvertently
+overlapped reserved confirmation-v1: preserve the screen as development evidence and retire that
+reserve. Future fixed confirmation uses untouched v2 with map-hash exclusion; see
+[pool status](../bench/pools/README.md).
+
+**214 tests**, **264 arena + 27 boss exact replays**. All 110 saved-state work/legality checks
+completed at least one full comparison. Candidate submission 56,008 chars; strict process sample
+**0/4 failures**, first max 579.57 ms, later 40.59 ms. In-process outliers include 196/296-ms
+candidate/opponent maxima against pressure; do not infer arena timing safety.
+
+Restored v05 submission **52,219 chars**, source `1b7ba04b299e7e31af66c8d2de45654cec2a78b80233dac673402aae825214a3`.
+Its strict process sample **FAILED 4/4**, two later turns and two first turns. First input send
+took 267..1178 ms, dominated by flush; one send exhausted the deadline. Cause remains open;
+both reports retained, no retries or upload. Final Player is v05 **without a fresh process pass**.
+Reports/artifacts: `build/bench/rollout-v1/`, `build/analysis/rollout-v1/`.
+
 ## Short own-build planning (2026-09-16, not promoted)
 
 `current?USE_OWN_BUILD_PLAN=1`: up to three old-scored root routes, three actual affordable build
