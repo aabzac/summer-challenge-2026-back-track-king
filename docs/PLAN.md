@@ -287,7 +287,8 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [x] Try quick follow-up 1 (earlier complete comparison): 55.67%/300 then 49.70%/1000,
       NOT PASSED. 227 tests, 264 exact replays; all standby-paused games retained.
       See quick-income-followups.md for fixed protocol, 77-state coverage study and limitations.
-- [ ] Try quick follow-up 2: income per actual construction turn, independently from original.
+- [x] Quick follow-up 2: income per actual construction turn, 150-138-12 / 300 = 52.00%;
+      STOP_SCREEN_300 at the strict >52% floor, 229 tests pass. No continuation or promotion.
 - [ ] Try quick follow-up 3: survival filter against predicted threat, independently from original.
 
 ## Someday / maybe

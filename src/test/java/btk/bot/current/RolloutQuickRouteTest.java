@@ -10,6 +10,39 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RolloutQuickRouteTest {
+    @Test void valueChoosesMoreIncomeWhenTwoRoutesBothTakeTwoTurns() throws Exception {
+        int[] regions = new int[24];
+        for (int i = 0; i < regions.length; i++) regions[i] = i;
+        var s = new GameState(8,3,regions,new int[24],new int[]{0,5,0,7},new int[]{0,0,2,2},
+                new int[][]{{1},{},{3},{}});
+        Rules.updateConnections(s, new Pathing(s.size));
+        for (int me = 0; me < 2; me++) {
+            var old = bot(s, me, true); old.play(s, me, 60_000);
+            var p = new Params(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = true; p.USE_ROLLOUT_QUICK_VALUE = true;
+            var value = new RolloutBot(p); value.init(s, me); value.play(s, me, 60_000);
+            assertEquals(4, field(old, "quickCost")); assertEquals(4, field(old, "quickGain"));
+            assertEquals(6, field(value, "quickCost")); assertEquals(6, field(value, "quickGain"));
+            assertEquals(old.routeQueries, value.routeQueries);
+            assertEquals(0, s.turn); assertArrayEquals(new int[2], s.score);
+        }
+    }
+
+    @Test void actualConstructionTurnsAccountForUnspentPaintOnRivers() throws Exception {
+        var s = new GameState(5,1,new int[]{0,1,2,3,4},new int[]{0,1,1,1,0},
+                new int[]{0,4},new int[]{0,0},new int[][]{{1},{}});
+        Rules.updateConnections(s, new Pathing(s.size));
+        for (int me = 0; me < 2; me++) {
+            var b = bot(s, me, true);
+            int[] path = (int[]) field(b, "path");
+            for (int i = 0; i < 5; i++) path[i] = i;
+            var method = RolloutBot.class.getDeclaredMethod("quickBuildTurns", GameState.class, int.class, int.class);
+            method.setAccessible(true);
+            assertEquals(3, method.invoke(b, s, me, 5)); // Six paint, but only one river fits each turn.
+            assertEquals(GameState.NO_TRACK, s.owner[1]);
+            assertEquals(GameState.NO_TRACK, s.owner[2]);
+            assertEquals(GameState.NO_TRACK, s.owner[3]);
+        }
+    }
     @Test void earlyComparisonVisitsEveryRootOnceAndPreservesFirstFallback() throws Exception {
         for (boolean enabled : new boolean[]{false, true}) for (int slot = -1; slot < 6; slot++) {
             var p = new Params(); p.USE_ROLLOUT_QUICK_EARLY = enabled;

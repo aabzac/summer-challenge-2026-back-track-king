@@ -671,3 +671,18 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
 - 227 tests pass; 264/264 replay validation exact. Recorded source/class identities unchanged.
   Durable full per-map evidence and diagnosis: docs/evidence/quick-followup-early-*.json.
 - Commit this completed experiment before activating value; all experiment defaults remain off.
+
+
+## 2026-09-16 - quick-followup-value-v1, stopped at 52 percent
+
+- Independent second follow-up: early flag OFF; quick selection ranks expected net earnings
+  per actual affordable construction turn using core placements on a private scratch board.
+  No new path queries, wider search, core changes or retuning. Protocol fixed before play.
+- Mechanism tests on both sides: more income at equal two-turn completion; three river cells
+  need three turns despite six paint. 229 Java tests pass; default v06 equivalence preserved.
+- Fresh 300 paired games, seeds 110000..110149: 150-138-12, 52.00%, zero errors.
+  practical v2 requires strictly MORE than 52% to continue: STOP_SCREEN_300. No extra games,
+  common-opponent stages, retry, promotion or new process claim. Max search A/B 51/42 ms.
+- Same 77 recorded states: nominal quick retained/full/selected 70/64/10; ample 70/70/12.
+  Diagnostics only. Evidence: docs/evidence/quick-followup-value-v1.json and diagnostic-v1.json.
+- Source/class hashes verified unchanged across play. Commit completed experiment, retain OFF.

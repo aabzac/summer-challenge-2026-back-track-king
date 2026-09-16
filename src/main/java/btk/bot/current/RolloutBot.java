@@ -34,6 +34,7 @@ public final class RolloutBot implements Bot {
     private Random random;
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain, quickSlot;
+    private double quickValue;
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
 
@@ -82,6 +83,7 @@ public final class RolloutBot implements Bot {
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         quickSlot = -1;
+        quickValue = 0;
         if (budgetMs <= 0) return List.of(Action.waitAction());
         Arrays.fill(counts, 0);
         // A usable sabotage answer exists before route enumeration and all speculative work.
@@ -183,11 +185,8 @@ public final class RolloutBot implements Bot {
         double gain = income[me] - income[1 - me] - baseDiff[me];
         // Reuse the bounded proposal pool: no extra path query, simulation or random draw.
         // Current own income is zero, so a positive completed own income is also a gain.
-        if (me == quickPlayer && cost <= p.ROLLOUT_QUICK_MAX_PAINT && income[me] > 0 && gain > 0
-                && (quickLength == 0 || cost < quickCost || cost == quickCost && gain > quickGain)) {
-            System.arraycopy(path, 0, quickPath, 0, n);
-            quickLength = n; quickCost = cost; quickGain = (int) gain;
-        }
+        if (me == quickPlayer && cost <= p.ROLLOUT_QUICK_MAX_PAINT && income[me] > 0 && gain > 0)
+            considerQuick(s, me, n, cost, gain);
         if (threats[me] >= 0) {
             Rules.ink(completion.state, threats[me]); completion.refresh();
             Rules.incomePerTurn(completion.state, income);
@@ -224,6 +223,35 @@ public final class RolloutBot implements Bot {
         }
         System.arraycopy(path, 0, routes[me][slot], 0, length);
         lengths[me][slot] = length; values[me][slot] = value;
+    }
+
+    private void considerQuick(GameState s, int me, int n, int cost, double gain) {
+        double value = 0;
+        if (p.USE_ROLLOUT_QUICK_VALUE) {
+            int turns = quickBuildTurns(s, me, n);
+            double earning = Math.min(p.ROLLOUT_ROUTE_HORIZON, s.turnsLeft()) - turns + 1;
+            if (turns <= 0 || earning <= 0) return;
+            value = gain * earning / turns;
+        }
+        boolean better = p.USE_ROLLOUT_QUICK_VALUE
+                ? value > quickValue || value == quickValue && cost < quickCost
+                : cost < quickCost || cost == quickCost && gain > quickGain;
+        if (quickLength == 0 || better) {
+            System.arraycopy(path, 0, quickPath, 0, n);
+            quickLength = n; quickCost = cost; quickGain = (int) gain; quickValue = value;
+        }
+    }
+
+    /** Exact affordable packing on a private board, without opponent actions or income rules. */
+    private int quickBuildTurns(GameState s, int me, int n) {
+        targetBoard.set(s);
+        for (int turns = 0; turns < p.ROLLOUT_QUICK_MAX_PAINT; turns++) {
+            int count = pack(targetBoard.state, path, n, prefix, 0, GameState.PAINT_PER_TURN);
+            if (count == 0) return turns;
+            Rules.applyPlacements(targetBoard.state, me == 0 ? prefix : moves[0], me == 0 ? count : 0,
+                    me == 1 ? prefix : moves[1], me == 1 ? count : 0);
+        }
+        return p.ROLLOUT_QUICK_MAX_PAINT;
     }
 
     /** Preserve one cheap completion, replacing a duplicate prefix or the last existing slot. */

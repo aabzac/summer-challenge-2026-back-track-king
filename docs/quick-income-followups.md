@@ -94,3 +94,23 @@ at completion. No system power-plan settings were changed.
 - Durable evidence: `docs/evidence/quick-followup-early-v1.json` and
   `docs/evidence/quick-followup-early-diagnostic-v1.json`. Full reports/launch identity snapshot:
   `build/bench/quick-followup-early-v1/`. All source/class identities matched before/after play.
+
+## 2. Income per actual construction turn - STOP_SCREEN_300
+
+- Independent VALUE flag, EARLY off. Among otherwise eligible quick routes rank by
+  `netGain * (min(routeHorizon, turnsLeft) - actualBuildTurns + 1) / actualBuildTurns`,
+  with lower paint breaking ties. Core placements on an existing private scratch board and
+  the actual packing function count construction turns; no opponent action or new path query.
+- Two mechanism regressions, both player sides: prefer six-income over four-income routes
+  taking two turns each; three river cells costing six paint require three turns, not two.
+- Same 77 captured states: nominal retained/fully-compared/selected **70/64/10**;
+  ample **70/70/12**. These diagnostics do not establish strength.
+- Fixed 300, seeds 110000..110149: **150-138-12, 52.00%**, zero errors. Exactly 52% stops
+  under the predeclared strict continuation floor. No 1000, matched v05, retry or promotion.
+  Descriptive CI 40.91..63.09%; mean score difference +98.1; elapsed 461.8 seconds.
+  Search max A/B 51/42 ms, slow moves 1/0; not an external-process deadline check.
+- **229 Java tests pass**. Core unchanged since 264/264 exact validation; default equivalence
+  and all earlier regressions pass. All source/class identities matched before/after play.
+- Durable evidence: `docs/evidence/quick-followup-value-v1.json` and
+  `docs/evidence/quick-followup-value-diagnostic-v1.json`; raw report/launch snapshot under
+  `build/bench/quick-followup-value-v1/`. Retain default-off, selected v06/Player unchanged.
