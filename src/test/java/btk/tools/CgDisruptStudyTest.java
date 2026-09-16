@@ -88,7 +88,7 @@ class CgDisruptStudyTest {
             var actions = Action.parseLine(fixture.get("recordedAction").getAsString());
             var baseline = CgDisruptStudy.recordedBuild(state, me, actions, BotFactory.parameters("current"));
             var candidate = CgDisruptStudy.recordedBuild(state, me, actions,
-                    BotFactory.parameters("current?DISRUPT_DELAY_FACTOR=0.65"));
+                    BotFactory.parameters("current?USE_ROLLOUT_POLICY=0,DISRUPT_DELAY_FACTOR=0.65"));
             assertEquals(expected[index++], candidate.selected());
             for (int i = 0; i < baseline.targets().size(); i++) {
                 var b = baseline.targets().get(i); var c = candidate.targets().get(i);
@@ -106,7 +106,7 @@ class CgDisruptStudyTest {
         for (var item : fixtures()) {
             var fixture = item.getAsJsonObject(); var state = state(fixture);
             for (int me = 0; me < 2; me++) {
-                var current = BotFactory.create("current?NOISE=0");
+                var current = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0");
                 var frozen = BotFactory.create("v05?NOISE=0");
                 current.init(state.copy(), me); frozen.init(state.copy(), me);
                 assertEquals(Action.format(frozen.play(state.copy(), me, 60_000)),
@@ -136,7 +136,7 @@ class CgDisruptStudyTest {
     void invalidDelayFactorsAreRejected() {
         for (String value : new String[]{"-0.01", "1.01", "NaN", "Infinity"}) {
             assertThrows(IllegalArgumentException.class,
-                    () -> BotFactory.create("current?DISRUPT_DELAY_FACTOR=" + value));
+                    () -> BotFactory.create("current?USE_ROLLOUT_POLICY=0,DISRUPT_DELAY_FACTOR=" + value));
         }
     }
 

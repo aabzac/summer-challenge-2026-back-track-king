@@ -17,7 +17,7 @@ import java.util.Map;
 
 /** Serial nominal-budget cost check on fixed saved states; not a strength or process test. */
 public final class JointActionCheck {
-    public static final String SPEC = "current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1";
+    public static final String SPEC = "current?USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1";
     record Play(String actions, double elapsedMs, int pairs, boolean complete, int committedTarget) {}
     record Sample(String game, int turn, int me, String stateSha256, boolean candidateFirst, Play control, Play candidate) {}
 

@@ -2,7 +2,20 @@
 
 Gate: A vs previous >= 55% on >= 200 games (two sides on each map), map-grouped 95% CI excluding
 50%, no bot errors. Process timing and an older opponent remain separate promotion checks.
-`current` = **v05**, `btk.bot.current.EvalBot`; frozen copies in `btk.bot.vNN`.
+`current` = **v06**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+
+v06 was selected on 2026-09-16 at the user's request after fixed 2x1000 confirmation:
+**1230-770 (61.5%) vs v05**, map-grouped 95% CI **57.21-65.79%**. Both individual gates pass;
+older-opponent checks are **68.5% vs v03** and **74.5% vs pressure-v1**, 200 games each.
+The frozen policy and all parameters match that evidence. Earlier sections below retain their
+historical decisions; the current selection supersedes their prior default-v05 status.
+
+Packaging checks: **217 tests pass**, **264/264 arena replays exact**. Final default Player is
+56,007 characters, source `7f4d94e40e5252d09b86df6e1b8c208e92c86d98a521d858eaf182a9178c2c9c`.
+Its fixed strict process check **FAILED 1/42 games**: map 903510176, P0 turn 73, response
+**50.462 ms** with a 50-ms deadline (send 0.164 ms). This supersedes a readiness claim based
+only on the earlier candidate's 0/42 pass. v06 is selected locally; timing readiness is open,
+no arena upload. Report and executable archive: `build/analysis/v06-promotion/`.
 
 Readable labels and six runnable retained experiments are listed in [bot_catalog.md](bot_catalog.md)
 and `gradlew botCatalog`. Version ids remain stable; `EvalBotVNN` class names remain frozen.
@@ -62,7 +75,7 @@ characters, but the fixed strict process sample **failed 1/4 games**: P1 turn 41
 66-ms bot search or identify the cause. Preserve the failed report; investigate before claiming
 submission timing readiness. No retry-to-green or upload; strategy source is unchanged.
 
-## Independent simultaneous rollout v1 (2026-09-16, not promoted)
+## Independent simultaneous rollout v1 (2026-09-16, initial screen; later promoted as v06)
 
 `current?USE_ROLLOUT_POLICY=1` selects a separate RolloutBot. It searches eight affordable turns
 of both players' construction and sabotage, comparing earned score across two opponent route
@@ -240,6 +253,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 | v03 Risk Aware | 2026-09-13 | v02 + state value = income diff − W_VULN × worst single ink the opponent could do (my loss − their loss, / disrupts needed, only regions on active paths with my tracks). Third candidate type: backup route for an active pair avoiding the most threatened region. Closing rule: an ink that leaves no connectable pair is taken only when ahead, never when behind. `HORIZON` param (default 100). `NOISE=0.1` default (deterministic mirrors gave 0-0 games). Opponent model (`USE_OPP_MODEL`, collision surcharge) implemented but off: 47-51% in ablations. | vs v02: 58.5% [51.6-65.1], n=200. Ablations (n=300): no backup 60.2% [54.5-65.5] sig.; W_VULN=0 & no backup 52.7%; USE_CLOSE=0 48% (self-play games rarely close); HORIZON 20/30/50 → 52/53/43%. Process check: first turn ≤ 660 ms, later ≤ 38 ms. | **Silver, around 350/645**; Gold not yet open; usually wins boss games |
 | v04 Network Extension | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability ≥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn ≤745 ms, later ≤43 ms. | Boss **7/7**; awaiting Silver arena result |
 | v05 Disrupt Reserve | 2026-09-14 | v04 + 6-ms reserve for sabotage: cut route/idle search short on the original turn clock; evaluation formulas and CGRunner margin unchanged. | Confirmation vs v04: **57.7%**, W-L-D **575-421-4**, n=1000/500 new paired maps, map-grouped 95% CI **[51.6%, 63.8%]**, avg diff **+879.1**. Common opponents: v03 **69.3% vs v04's 61.3%**; aggressive v02 **70.0% vs v04's 67.7%**, each 300 matched games. Process check: **0/8** problem games, first <=676 ms, later <=34 ms. | Uploaded as agent **6736850**. User: rank 321 at 43%; API snapshot rank 333. First 56 fetched games: **38-18**, no own timeouts; placement ongoing |
+| v06 Simultaneous Rollout | 2026-09-16 | Independent eight-turn simultaneous construction/sabotage rollout; six route proposals, two opponent priorities; exact confirmed policy and full parameter snapshot. Selected by the user. | Fixed confirmation vs v05: **1230-770 (61.5%)**, 2x1000 games / 1000 distinct paired maps, map-grouped 95% CI **57.21-65.79%**; both individual gates pass. Older checks: v03 **68.5%**, pressure-v1 **74.5%**, 200 games each. Earlier process 0/42; final packaged source **FAILED 1/42**, later response 50.462 ms. | Selected locally; not uploaded; timing readiness remains open |
 
 ## Paired benchmark checkpoint (2026-09-13)
 

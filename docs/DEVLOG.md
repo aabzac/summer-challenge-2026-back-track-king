@@ -2,6 +2,24 @@
 
 Format per entry: context / hypothesis -> what was done -> result -> decision.
 
+## 2026-09-16 — v06 promotion: packaging protocol (declared before final process games)
+
+- User explicitly requested promotion/packaging after the completed strength and timing checks.
+  Base revision: e99a947. Freeze the confirmed independent RolloutBot as v06; select it in current,
+  MainBot and the catalog. No strategy tuning or core changes. Existing 2x1000 confirmation and
+  older-opponent screens supply strength evidence; packaging does not create a new strength claim.
+- Verify the frozen source differs only by package/class/constructor/name, and that all resolved
+  parameters match the archived confirmation record. Preserve every older frozen source/snapshot.
+  Test default/frozen submission decisions, isolated warmup and historical experiment selection.
+- Final fixed sample: the ordinary `submit` artifact, 42 serial games against v04 on the same
+  21 real maps in `build/analysis/rollout-process-v1/maps`, each side once. Strict 1000/50-ms
+  process deadlines, zero grace, IO diagnostics off, one attempt, no filtering or retries.
+  Record `build/analysis/v06-promotion/final-process.json`, retaining all failures if any.
+  Check the exact generated source/classes and archive the manifest before play. This is an
+  artifact check, not independent population-strength evidence or a CG-host timing guarantee.
+- Local commit is authorized; arena upload and push are outside this request. Results follow
+  in the completion entry at the end of this log.
+
 ## 2026-09-13 (contest day 6 of 14) — infrastructure day
 
 - Stack decided: Java 17 + Gradle (familiarity over C++ speed; top-10 is 9x C++, 1x Python, so the
@@ -2522,3 +2540,59 @@ Completed outcome (fixed sample, no retuning):
   v05 and final `build/submit/Player.java` restored to v05, now with a fresh strict 42-game pass.
   The separately archived `Player-candidate.java` is the exact submit-generated, tested candidate.
   No shipping code or parameter changes; update BOTS/PLAN/policy and commit the experiment.
+
+## 2026-09-16 — v06 selected and packaged; final process check failed 1/42
+
+- **Scope/result:** user-authorized promotion of the already confirmed RolloutBot, without tuning.
+  Freeze `RolloutBotV06` plus a complete snapshot copied from confirmation run 1. Register v06,
+  set the rollout selector true for current/MainBot and mark v06 selected in the catalog.
+  Older frozen files/snapshots remain unchanged. The snapshot loader supplies the original false
+  selector for older snapshots predating that field; named archived engines remain isolated.
+- **Identity:** working RolloutBot source remains SHA-256
+  `80091279236072ccfd390ea1b4a78cea10761dbc3b149e646e0ab4cff0b7b60f`.
+  Frozen v06 differs only by package/class/constructor/name. Full current/main/v06 parameters
+  match the archived 13aee8e confirmation record, guarded by an independent test fixture.
+  Multi-turn decision parity covers current, frozen v06 and MainBot; generated default and
+  frozen submissions also match, including isolated warmup. Core and CGRunner are unchanged.
+- **Strength evidence carried forward:** 605-395 and 625-375 vs v05; pooled 1230-770 (61.5%),
+  map-grouped Hoeffding95 57.2053-65.7947%, 1000 distinct paired maps, both individual gates pass.
+  Prior older-opponent screens: 68.5% vs v03 and 74.5% vs pressure-v1, 200 games each. No new
+  strength sample, tuning, reserve consumption or reinterpretation of old timing outliers.
+- **Integration verification:** 217 tests pass; `cgValidate` reproduces 264/264 arena replays.
+  Initial test run had ten failures from old implicit-current selectors, version-name suffix
+  expectations and a method-name assertion shared by both policies. Corrected those tests to
+  preserve their original coverage; no policy fixes. Legacy diagnostic tools explicitly choose
+  EvalBot. README and policy documentation distinguish historical recipes from the new default.
+- **Packaging:** FileMerger supports frozen v06 and embeds full resolved parameters even in a
+  default build. Frozen-v06 artifact: 55,991 characters, SHA-256
+  `19de918ecced53a04f5df3c41dcd129d466d085a1854335e6ebc669fe1b619c8`.
+  Final ordinary-submit artifact: **56,007 characters**, SHA-256
+  `7f4d94e40e5252d09b86df6e1b8c208e92c86d98a521d858eaf182a9178c2c9c`, classes-tree
+  `2cb6b2830feec19e99d3656a685489c57e98d31d7f6d96de057f07827fbcf0c8`.
+  Exact source comparison with the prior tested candidate finds only the boolean selector
+  default false -> true; its embedded effective parameters are identical. Both builds compile.
+  Gradle launcher cache access was denied before two task starts; rerun with cache permission
+  started the tasks. No game sample was started or discarded by those launcher failures.
+- **Fixed final process result: FAIL, 1/42 problem games**, 21 maps each on both sides,
+  serial vs v04, zero grace, no IO diagnostic instrumentation. 3147 responses: 42 first turns,
+  3105 later. Startup max **671.9882 ms**, p95 **646.1796 ms**; later p95 **38.1085 ms**,
+  p99 **39.8142 ms**, max **50.462 ms**. Three later responses exceed the separate 45-ms
+  headroom target: 903185759 P1 turn 9 (46.6145 ms, send 9.7123), 903188024 P0 turn 8
+  (46.2100 ms, send 0.0742), and the failure below. Incidental 30/42 wins are not strength evidence.
+- **Failure inspection:** map **903510176, P0, turn 73**, deadline 50 ms, send **0.1640 ms**,
+  reader response **50.4620 ms**, consumer **50.5301 ms**, status TIMEOUT. The reader timestamp
+  itself is late; this is not merely late consumer wakeup with an on-time response. Input send
+  does not explain this overrun. Existing timings do not separate child search/GC from host or
+  reader scheduling, and do not identify the cause. The prior candidate 0/42 result remains valid
+  for that earlier sample but does not turn this final sample into a pass. No retries or grace
+  changes; exact failed artifact, classes, manifests and all games retained.
+- **Evidence:** `build/analysis/v06-promotion/final-process.json` SHA-256
+  `94fbd6aae09200099eae33214e948b93852ebc1107d3249bc2d757770ea100df`;
+  `summary.json` SHA-256 `4f62c4f0129dc2e807d9efe9b6cf28f2994f05bb6d6c7f982eb3f81803caa4f0`.
+  `Player-current.java`, `manifest.json` and `classes/` preserve the final executed artifact;
+  `Player-frozen-v06.java` and `frozen-v06-manifest.json` preserve the alternative frozen build.
+- **Decision:** v06 is frozen and selected locally as requested; final Player contains v06.
+  Record packaging as complete and the final strict timing check as failed, leaving timing
+  readiness explicitly open. Do not claim submission readiness, change the confirmed policy
+  without another experiment, or erase the failure by rerunning. No arena upload or push.
+  Commit the completed promotion work and its failed check under the standing working agreement.

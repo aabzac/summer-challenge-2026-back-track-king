@@ -14,7 +14,8 @@ gradlew benchSuite -Pbot=current               # matched local opponent panel on
 gradlew botCatalog                            # names, categories and experiment status
 gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
-gradlew submit -PsubmitVersion=v05              # restore frozen v05 source + snapshot, not current experiments
+gradlew submit -PsubmitVersion=v06              # selected frozen v06 source + complete snapshot
+gradlew submit -PsubmitVersion=v05              # optional historical v05 reference build
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
 gradlew cgFetch -Ptop=20 -Plimit=10            # download top players' replays -> replays/cg/
 gradlew cgFetch -Pgame=903337834               # download one known arena/IDE game id
@@ -32,7 +33,7 @@ gradlew jointActionCheck                       # serial cost check of opt-in joi
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
-`gradlew bench "-Pbot1=current?NOISE=0.2,USE_STEAL=0" -Pbot2=v02`. Use `,` (not `&`) between params —
+`gradlew bench "-Pbot1=current?NOISE=0.2,ROLLOUT_WIDTH=4" -Pbot2=v02`. Use `,` (not `&`) between params —
 cmd.exe swallows `&`. Bench two deterministic clones with different `SEED`/`NOISE`, otherwise they
 mirror each other and every game is a draw.
 
@@ -51,7 +52,7 @@ mirror each other and every game is a draw.
 ## Reproducible benchmarks
 
 Bots have stable command ids and descriptive labels: `v03 - Risk Aware`, `v04 - Network Extension`,
-`v05 - Disrupt Reserve`. Six retained, **not promoted** experiments can also be selected by name:
+`v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout` (selected). Six retained, **not promoted** experiments can also be selected by name:
 `exp-income-guard`, `exp-build-direction`, `exp-early-disrupt`, `exp-reply-rerank`,
 `exp-interruptible-vuln`, `exp-disrupt-delay065`. For example:
 
@@ -65,30 +66,32 @@ default panel or allowed `submitVersion` values. See [the bot catalog](docs/bot_
 historical evidence, limitations and how to retain/revise an experiment.
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
-P0 and P1. Reference bots `v01`–`v05` load fixed parameter snapshots; explicit query overrides
-are applied afterward. `current` uses the live `Params` defaults (currently v05, 6-ms sabotage
-reserve). `current?DISRUPT_RESERVE_MS=0` disables the reserve for an ablation.
+P0 and P1. Reference bots `v01`–`v06` load fixed parameter snapshots; explicit query overrides
+are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v06
+rollout policy. Its fixed 2x1000 confirmation won **61.5% vs v05**, map-grouped 95% CI
+**57.21–65.79%**. `current?USE_ROLLOUT_POLICY=0` selects the older working EvalBot; add that
+selector when revisiting historical EvalBot or heuristic experiment recipes.
 
-An independent simple-policy candidate is available as `current?USE_HEURISTIC_POLICY=1`.
+An independent simple-policy candidate is available as `current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1`.
 It uses known-board sabotage and local route priorities, without completed-position evaluation
-or reply search. Default `current` is still v05. Its work cap, emergency-clock caveat and commands
+or reply search. It remains an unpromoted alternative. Its work cap, emergency-clock caveat and commands
 are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
-`current?USE_ROLLOUT_POLICY=1` selects a separate experimental eight-turn strategy: both players
+`current` and frozen `v06` select an eight-turn rollout strategy: both players
 construct affordable routes and disrupt regions inside simultaneous rollouts. It compares earned
 points across two opponent construction priorities and chooses the first build/sabotage action.
-The default remains v05. See [rollout-policy.md](docs/rollout-policy.md) for the fixed route
+See [rollout-policy.md](docs/rollout-policy.md) for the fixed route
 portfolio, limits, verification and results; `gradlew rolloutCheck` audits saved public positions.
 
-`current?USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
+`current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
 cheap bypass of already damaged active income before ordinary construction. It checks at most
 3 regions x 4 directed connections, caps the route at 6 paint, and uses core income plus actual
 per-turn placement costs to reject harmful or late recovery. It replans each turn; no future
 opponent actions are available. Default-off; see the defense-priority experiment in DEVLOG.
 
-`current?USE_OWN_BUILD_PLAN=1` is a separate default-off construction experiment: up to three
+`current?USE_ROLLOUT_POLICY=0,USE_OWN_BUILD_PLAN=1` is a separate default-off construction experiment: up to three
 ordinary root routes, three affordable build turns, at most 39 nodes / 27 continuations. It
 compares earned points and terminal income using the core, spends leftovers on retained routes,
 and emits only the selected first action before ordinary sabotage. No opponent moves or future
@@ -213,18 +216,22 @@ The arena source limit is **100,000 characters** (user-confirmed). `submit` chec
 length conservatively before writing, prints UTF-8 bytes separately, and compile-checks the
 result. `build/submit/manifest.json` records the selected strategy, full resolved parameters,
 character count and SHA-256 of the exact generated source.
+The v06 packaging sample on 2026-09-16 failed **1/42** strict process games (50.462 ms on a
+50-ms turn). The source is built and selected locally, but final timing readiness is unresolved;
+see [BOTS](docs/BOTS.md) and [DEVLOG](docs/DEVLOG.md) for the retained evidence.
 The merged artifact removes leading/trailing line indentation while preserving token boundaries
 and ordinary string literals. Java text blocks are rejected by the line-based merger; source
 files themselves retain their formatting.
 
-`submit` still defaults to `current`. To reproduce the confirmed v05 without experimental source,
-use `gradlew submit -PsubmitVersion=v05`: the merger reads frozen v05, generates it as `EvalBot`,
-and embeds its snapshot in the generated `MainBot`. Frozen files and working `current` stay
-unchanged. This restores the strategy, not the byte-for-byte historical artifact (shared core,
-runtime and packaging are current). Other frozen versions are not yet supported by this option.
-For an explicitly temporary experiment, `submit "-PsubmitVersion=current?INTERRUPT_VULN_EVAL=1"`
+`submit` defaults to `current`, now v06. To reproduce the selected frozen policy, use
+`gradlew submit -PsubmitVersion=v06`; `-PsubmitVersion=v05` also remains available. The merger
+includes only the selected strategy as `EvalBot`, embedding its complete resolved parameters
+in `MainBot` for both default and frozen builds. Frozen files and working source stay unchanged.
+This reproduces the strategy, not a byte-for-byte historical artifact (shared core, runtime and
+packaging are current). Other frozen versions are not supported by this option.
+For an explicitly temporary experiment, `submit "-PsubmitVersion=current?ROLLOUT_WIDTH=4"`
 embeds the full resolved candidate parameters and records them in the manifest. This overwrites
-the submission artifact; restore `submit -PsubmitVersion=v05` and rerun `procCheck` afterward.
+the submission artifact; restore `submit -PsubmitVersion=v06` and rerun `procCheck` afterward.
 Always run `procCheck` after building; `-Pbot` selects its OPPONENT, not the submitted strategy.
 Use `-Pmap=replays/cg/<id>.json -Pgames=2` to check both sides of a particular difficult map.
 
@@ -267,19 +274,20 @@ or build a new submission.
 sabotage targets, and checks every simultaneous combination through core. It does not replay
 new games or rerun timing measurements. See [joint-action findings](docs/joint-reply-study.md).
 
-The subsequent opt-in `USE_JOINT_ACTION` screen did not pass promotion; defaults and the restored
-submission remain v05. See [the experiment and checks](docs/joint-action-experiment.md).
+The subsequent opt-in `USE_JOINT_ACTION` screen did not pass promotion; that feature remains
+off. Historical recipes require `USE_ROLLOUT_POLICY=0` now that v06 is selected.
+See [the experiment and checks](docs/joint-action-experiment.md).
 
 `cgForecast` evaluates a lightweight adaptive sabotage model without changing our bot's actions.
 It predicts from each pre-turn state and learns only after observing the next state; held-out
 opponent entries never enter baseline selection. See [docs/sabotage_forecast.md](docs/sabotage_forecast.md)
 for the fixed experiment, information boundaries, results and limitations.
 
-`cgTiming` profiles baseline route search, its nested vulnerability evaluation and sabotage
+`cgTiming` explicitly selects the older EvalBot and profiles its route search, nested vulnerability evaluation and sabotage
 on recorded states. Optional `-Ppaths` is a comma-separated replay list; `-Pparams` selects an
 explicit diagnostic variant and `-Pout` saves all per-turn observations. It enables
 `PROFILE_SEARCH` only for that run. Evaluation time is INCLUDED in route time, not additional.
-These instrumented current calls are not the frozen executable or the local timeout match;
+These instrumented EvalBot calls do not profile v06 or reproduce the local timeout match;
 use them for attribution, and use uninstrumented `procCheck` for process deadline evidence.
 `cgTiming` invokes the generic strategy warmup, not the isolated `MainBot` submission hook;
 its warmup counters do not measure the new submission runtime.

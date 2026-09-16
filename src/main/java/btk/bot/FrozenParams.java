@@ -14,6 +14,8 @@ final class FrozenParams {
             Properties snapshot = new Properties();
             snapshot.load(input);
             if (snapshot.isEmpty()) throw new IllegalStateException("empty frozen parameters: " + resource);
+            // Pre-v06 snapshots predate this selector and retain their original false value.
+            if (!snapshot.containsKey("USE_ROLLOUT_POLICY")) params.USE_ROLLOUT_POLICY = false;
             for (String key : snapshot.stringPropertyNames()) params.set(key, snapshot.getProperty(key));
             return params;
         } catch (IOException e) {

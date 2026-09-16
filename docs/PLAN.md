@@ -236,6 +236,16 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       Two candidate turns exceed the separate 45-ms headroom target. No conditional diagnostics
       triggered, no retries or strategy changes. Final Player v05; candidate artifact archived.
 
+- [x] Freeze confirmed RolloutBot as v06 and select it in current/MainBot/catalog at the user's
+      request. Full parameters match the fixed 2x1000 record; frozen source differs only in names.
+      Default/frozen builds compile and match decisions; 217 tests pass, 264 arena replays exact.
+      Final Player 56,007 chars. Final fixed process check completed but **FAILED 1/42**, no retry.
+- [ ] Resolve v06 timing readiness before claiming the final artifact passes: 903510176 P0
+      turn 73 response **50.462 ms** (50-ms deadline), send **0.164 ms**, consumer **50.5301 ms**.
+      Prior candidate 0/42 pass does not erase this result. Preserve the exact failing artifact
+      and report under `build/analysis/v06-promotion/`; distinguish child runtime from host/reader
+      scheduling before changing budgets or policy. v06 selected locally, no upload performed.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

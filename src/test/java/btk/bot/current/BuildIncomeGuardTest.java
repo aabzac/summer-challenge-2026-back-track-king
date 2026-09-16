@@ -45,7 +45,7 @@ class BuildIncomeGuardTest {
                 assertEquals(fixture.get("knownBuildDelta").getAsInt(), incomeDiff(bad, me) - before);
 
                 // The bot receives neither the opponent's current actions nor future turns.
-                var bot = BotFactory.create("current?NOISE=0,GUARD_BUILD_INCOME=1,USE_DISRUPT=0");
+                var bot = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0,GUARD_BUILD_INCOME=1,USE_DISRUPT=0");
                 bot.init(state.copy(), me);
                 var actions = bot.play(state.copy(), me, 60_000);
                 assertTrue(actions.stream().anyMatch(a -> a.type == Action.Type.PLACE),

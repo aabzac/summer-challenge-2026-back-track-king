@@ -6,7 +6,10 @@ The predeclared protocol and full outcome are in DEVLOG; the hypothesis comes fr
 
 ## Candidate and fallback
 
-`current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1`
+`current?USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1`
+
+Since v06 promotion, historical EvalBot recipes below require `USE_ROLLOUT_POLICY=0`.
+Their original default-v05 decisions remain historical records, not the current selection.
 
 All other failed experiments remain off; defaults still implement v05. The new flag requires
 K2/R1, sabotage enabled, and no conflicting income/direction/early-fallback/opponent-model or

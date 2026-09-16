@@ -26,7 +26,7 @@ class FileMergerTest {
     }
 
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
-        String source = FileMerger.merge("current?INTERRUPT_VULN_EVAL=1");
+        String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);
         assertTrue(source.contains("INTERRUPT_VULN_EVAL=true"));
         assertTrue(source.contains("PROFILE_SEARCH=false"));
@@ -34,7 +34,7 @@ class FileMergerTest {
     }
 
     @Test void jointCandidateFitsAndShipsNoArchive() throws Exception {
-        String source = FileMerger.merge("current?USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1");
+        String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1");
         FileMerger.checkSourceSize(source);
         assertTrue(source.contains("USE_JOINT_ACTION=true"));
         assertTrue(source.contains("chooseJointAction"));
@@ -53,7 +53,7 @@ class FileMergerTest {
         assertTrue(source.contains("private double rollout("));
         assertFalse(source.contains("chooseCandidateWithReplies"));
         assertFalse(source.contains("class HeuristicBot"));
-        assertFalse(FileMerger.merge("current").contains("private double rollout("));
+        assertTrue(FileMerger.merge("current").contains("private double rollout("));
         assertFalse(FileMerger.merge("v05").contains("private double rollout("));
         checkFrozenDecisions(spec, true);
     }
@@ -62,14 +62,23 @@ class FileMergerTest {
         checkFrozenDecisions("v05?ISOLATED_ROUTE_WARMUP=1", true);
     }
 
+    @Test void defaultAndFrozenV06SubmissionsMatchIncludingIsolatedWarmup() throws Exception {
+        String source = FileMerger.merge("current");
+        assertTrue(source.contains("USE_ROLLOUT_POLICY=true"));
+        assertTrue(source.contains("ROLLOUT_DEPTH=8"));
+        assertTrue(FileMerger.merge("v06").contains("private double rollout("));
+        checkFrozenDecisions("current", true);
+        checkFrozenDecisions("v06", true);
+    }
+
     @Test void heuristicSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {
-        String spec = "current?USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0";
+        String spec = "current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0";
         String source = FileMerger.merge(spec);
         assertTrue(source.contains("chooseTarget"));
         assertFalse(source.contains("chooseJointAction"));
         assertFalse(source.contains("evalState"));
         assertFalse(source.contains("new HeuristicBot"));
-        assertFalse(FileMerger.merge("current").contains("private int chooseTarget"));
+        assertFalse(source.contains("private double rollout("));
         checkFrozenDecisions(spec, true);
     }
 
@@ -80,6 +89,7 @@ class FileMergerTest {
             assertFalse(source.contains("chooseCandidateWithReplies"));
         }
         assertFalse(source.contains("btk.bot.v05"));
+        assertFalse(source.contains("btk.bot.v06"));
         assertFalse(source.contains("class PressureBot"));
         assertFalse(source.contains("class BenchPool"));
         assertFalse(source.contains("class BenchmarkSuite"));
@@ -143,7 +153,7 @@ class FileMergerTest {
                     var calls = mainClass.getField("warmupCalls"); calls.setAccessible(true);
                     assertTrue(calls.getInt(generatedBot) > 0);
                 }
-                Bot frozen = BotFactory.create(spec.startsWith("current?") ? spec : "v05"); frozen.init(s, me);
+                Bot frozen = BotFactory.create(spec); frozen.init(s, me);
                 assertEquals(Action.format(frozen.play(s.copy(), me, 60_000)),
                         format.invoke(null, play.invoke(generatedBot, generatedState, me, 60_000L)));
             }
@@ -151,12 +161,12 @@ class FileMergerTest {
     }
 
     @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
-        checkFrozenDecisions("current?USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
+        checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
     }
     @Test void defenseSubmissionMatchesOnDamagedActiveRouteIncludingWarmup() throws Exception {
-        checkFrozenDecisions("current?USE_DEFENSE_PRIORITY=1",true);
+        checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1",true);
     }
     @Test void ownPlanSubmissionMatchesIncludingWarmup() throws Exception {
-        checkFrozenDecisions("current?USE_OWN_BUILD_PLAN=1", true);
+        checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_OWN_BUILD_PLAN=1", true);
     }
 }

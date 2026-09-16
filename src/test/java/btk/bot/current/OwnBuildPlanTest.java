@@ -132,7 +132,7 @@ class OwnBuildPlanTest {
                     Action.parseLine(stdout.get(2*i+1).getAsString()),new Pathing(s.size));
             var a=new EvalBot(new Params("USE_OWN_BUILD_PLAN=1")); a.init(s,me);
             var b=new EvalBot(new Params("USE_OWN_BUILD_PLAN=1")); b.init(s,me);
-            var off=BotFactory.create("current?USE_OWN_BUILD_PLAN=0"); off.init(s,me);
+            var off=BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_OWN_BUILD_PLAN=0"); off.init(s,me);
             var frozen=BotFactory.create("v05"); frozen.init(s,me);
             assertNull(field((EvalBot)off,"ownPlanStates"));
             for(int i=0;i<3;i++) {
@@ -151,7 +151,7 @@ class OwnBuildPlanTest {
                 "USE_DEFENSE_PRIORITY=1","USE_REPLY_RERANK=1","USE_JOINT_ACTION=1","USE_OPP_MODEL=1",
                 "CHOOSE_BUILD_DIRECTION=1","GUARD_BUILD_INCOME=1","EARLY_DISRUPT_FALLBACK=1","INTERRUPT_VULN_EVAL=1",
                 "USE_HEURISTIC_POLICY=1"}) {
-            assertThrows(IllegalArgumentException.class,()->BotFactory.create("current?USE_OWN_BUILD_PLAN=1,"+bad),bad);
+            assertThrows(IllegalArgumentException.class,()->BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_OWN_BUILD_PLAN=1,"+bad),bad);
         }
     }
 }

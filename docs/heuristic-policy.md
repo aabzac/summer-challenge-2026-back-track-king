@@ -1,7 +1,8 @@
 # Simple heuristic policy v1
 
-Independent `btk.bot.current.HeuristicBot`, selected by `current?USE_HEURISTIC_POLICY=1`.
-Default `current`, frozen versions and the local pressure reference are unchanged. This is a
+Independent `btk.bot.current.HeuristicBot`, selected by `current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1`.
+Since v06 promotion, add `USE_ROLLOUT_POLICY=0` to every historical heuristic recipe below;
+restore the selected submission with `submit -PsubmitVersion=v06`. This document records a
 starting policy for our bot, not a reconstruction of the boss or a promoted submission.
 
 ## Decisions

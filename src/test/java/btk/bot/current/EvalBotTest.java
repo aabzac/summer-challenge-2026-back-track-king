@@ -19,7 +19,7 @@ class EvalBotTest {
     @Test
     void currentMatchesPromotedV05OnFullySearchedState() {
         GameState state = activeStraightConnection();
-        var current = BotFactory.create("current?NOISE=0");
+        var current = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0");
         var frozen = BotFactory.create("v05?NOISE=0");
         current.init(state.copy(), 0);
         frozen.init(state.copy(), 0);
@@ -30,7 +30,7 @@ class EvalBotTest {
     @Test
     void zeroReservePreservesV04ActionsWhenSearchFinishes() {
         GameState state = activeStraightConnection();
-        var current = BotFactory.create("current?NOISE=0,DISRUPT_RESERVE_MS=0");
+        var current = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0,DISRUPT_RESERVE_MS=0");
         var frozen = BotFactory.create("v04?NOISE=0");
         current.init(state.copy(), 0);
         frozen.init(state.copy(), 0);

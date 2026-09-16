@@ -29,6 +29,9 @@ class BotCatalogTest {
 
     @Test void labelsDoNotRenameExistingIdsOrUnknownPlayers() {
         assertEquals("v05 - Disrupt Reserve", BotCatalog.displayName("v05"));
+        assertEquals("v06 - Simultaneous Rollout", BotCatalog.displayName("v06"));
+        assertEquals("selected", BotCatalog.describe("v06").status());
+        assertEquals("historical", BotCatalog.describe("v05").status());
         assertEquals("v04 - Network Extension [NOISE=0.2]", BotCatalog.displayName("v04?NOISE=0.2"));
         assertEquals("external player", BotCatalog.displayName("external player"));
         assertEquals("v03", BotFactory.create("v03").name().split("\\?", 2)[0]);
@@ -98,7 +101,7 @@ class BotCatalogTest {
             for (int player = 0; player < 2; player++) {
                 var state = MapGenerator.generate(321);
                 var named = BotFactory.create(entry.id() + "?NOISE=0");
-                var explicit = BotFactory.create("current?" + entry.recipe() + ",NOISE=0");
+                var explicit = BotFactory.create("current?USE_ROLLOUT_POLICY=0," + entry.recipe() + ",NOISE=0");
                 named.init(state.copy(), player); explicit.init(state.copy(), player);
                 assertEquals(Action.format(explicit.play(state.copy(), player, 60_000)),
                         Action.format(named.play(state.copy(), player, 60_000)), entry.id());

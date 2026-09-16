@@ -61,7 +61,7 @@ class FrozenParamsTest {
         Params params = BotFactory.parameters("v04");
         assertTrue(params.USE_IDLE_EXTEND);
         assertEquals("true", BotFactory.configuration("v04").get("USE_IDLE_EXTEND"));
-        assertEquals("v04", BotFactory.create("v04").name());
+        assertEquals("v04", BotFactory.create("v04").name().split("\\?", 2)[0]);
     }
 
     @Test
@@ -135,14 +135,14 @@ class FrozenParamsTest {
         expected.put("PRESSURE_STICKINESS", "0.25");
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
-        assertEquals(expected, BotFactory.configuration("current"));
+        assertEquals(expected, BotFactory.configuration("current?USE_ROLLOUT_POLICY=0"));
         Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
         FrozenParams.applyTo("v05", changed);
         for (var entry : expected.entrySet()) {
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(changed)));
         }
         Bot bot = BotFactory.create("v05");
-        assertEquals("v05", bot.name());
+        assertEquals("v05", bot.name().split("\\?", 2)[0]);
         var field = bot.getClass().getDeclaredField("P");
         field.setAccessible(true);
         assertEquals(6, ((Params) field.get(bot)).DISRUPT_RESERVE_MS);

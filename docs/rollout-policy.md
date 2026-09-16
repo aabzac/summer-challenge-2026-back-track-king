@@ -1,15 +1,24 @@
-# Independent rollout policy v1
+# v06 — simultaneous rollout policy
 
-Experimental command: `current?USE_ROLLOUT_POLICY=1`. The default and selected submission remain
-v05. This is a separate `RolloutBot`, not another branch in the existing EvalBot. See DEVLOG for
-the predeclared experiment, artifacts and outcome.
+Selected on 2026-09-16 after the user authorized promotion: `current`, `main` and ordinary
+`submit` now select this policy. Frozen `v06` preserves the confirmed full parameter snapshot
+and RolloutBot implementation. `submit -PsubmitVersion=v06` builds that frozen strategy.
+This is a separate `RolloutBot`; the older EvalBot is available through
+`current?USE_ROLLOUT_POLICY=0`. See DEVLOG for promotion verification and artifact evidence.
+
+Final packaging check: **217 tests pass**, **264 arena replays exact**, Player 56,007 characters.
+The fixed 42-game strict process check **failed once**: map 903510176, P0 turn 73, response
+**50.462 ms / 50 ms**, input send 0.164 ms. Later p99 is 39.81 ms; startup max 671.99 ms.
+v06 is selected locally, but this artifact does not have a passing final timing sample.
+No retry, grace increase or upload; retain `build/analysis/v06-promotion/final-process.json`.
+The timings cannot separate child search/GC from scheduling or reader delay on the host.
 
 Fixed screen: **56.67% vs v05** (170-130, 300 games), map-grouped 95% CI **45.58-67.76%**;
 promotion gate not passed. Separate 200-game checks: **68.5% vs v03**, **74.5% vs pressure-v1**.
-The candidate stays default-off. Its strict process sample passed four games, but in-process
+The candidate initially stayed default-off. Its strict process sample passed four games, but in-process
 outliers remain and the restored-v05 process sample failed all four games. DEVLOG preserves
-timing evidence and the reserve-pool overlap correction. Final Player is v05 without a fresh
-process-readiness pass.
+timing evidence and the reserve-pool overlap correction. At that checkpoint the final Player
+was v05 without a fresh process-readiness pass.
 
 The subsequent fixed **2x1000** confirmation with unchanged code/parameters passed the strength
 gate in both runs: **60.5%** (605-395, CI **54.43-66.57%**) and **62.5%** (625-375,
@@ -23,7 +32,7 @@ The subsequent strict process sample passed **42/42 games** for this unchanged c
 **42/42** for v05, on 21 real maps with both sides and no grace. Candidate startup max **662.59 ms**,
 later p99 **39.05 ms**, max **47.857 ms**; two turns miss the separate 45-ms headroom target.
 The old large stalls did not recur; their cause remains unknown. This is a local artifact timing
-pass, not an arena guarantee. Default/final Player remains v05; the tested candidate source,
+pass, not an arena guarantee. Default/final Player remained v05 at that checkpoint; the candidate source,
 manifests and both reports are retained in `build/analysis/rollout-process-v1/`.
 
 ## Decision process
@@ -88,7 +97,7 @@ experiment identities. Differential tests compare search transitions with `Rules
 Build only the selected policy:
 
 ```powershell
-.\gradlew.bat submit "-PsubmitVersion=current?USE_ROLLOUT_POLICY=1"
+.\gradlew.bat submit "-PsubmitVersion=v06"
 .\gradlew.bat procCheck "-Pbot=v04" "-Pgames=4" "-PprocessDiagnostics=true" "-Pout=build/analysis/rollout-new-process.json"
 ```
 
@@ -96,4 +105,4 @@ Build only the selected policy:
 legality, input isolation, work coverage and serial 36-ms cost. It refuses to overwrite its report.
 The original audit and source/parameter/process evidence are under `build/analysis/rollout-v1/`.
 This audit is not a strength benchmark, and the four-game process sample does not guarantee
-timing on CodinGame's host. Restore the selected submission using `submit -PsubmitVersion=v05`.
+timing on CodinGame's host. Restore the selected submission using `submit -PsubmitVersion=v06`.

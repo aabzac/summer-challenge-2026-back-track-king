@@ -14,7 +14,8 @@ accept the original ids; the labels do not rename frozen Java classes or change 
 ## Three roles, not one ranking
 
 - **Versions**: v00 Autoplace, v01 Greedy Routes, v02 Route Evaluation, v03 Risk Aware,
-  v04 Network Extension, v05 Disrupt Reserve. `selected` identifies the chosen policy, not proof
+  v04 Network Extension, v05 Disrupt Reserve, **v06 Simultaneous Rollout (selected)**.
+  `selected` identifies the chosen policy, not proof
   of the exact arena upload or process-timing readiness. Historical versions remain reference
   opponents; their numbers are a development history, not an ordering against every possible bot.
 - **Local references**: pressure-v1 Sabotage First is an independent strategy intended to broaden

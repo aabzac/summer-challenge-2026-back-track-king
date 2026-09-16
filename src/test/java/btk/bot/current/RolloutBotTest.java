@@ -101,9 +101,10 @@ class RolloutBotTest {
         var end=((SearchState)field(b,"work")).state;
         for(int c=1;c<5;c++)assertEquals(GameState.NEUTRAL,end.owner[c]);
     }
-    @Test void independentSelectorRejectsMixedExperimentsAndOffIsStillV05() {
-        assertFalse(new Params().USE_ROLLOUT_POLICY);
-        assertInstanceOf(EvalBot.class,BotFactory.create("current"));
+    @Test void promotedSelectorRejectsMixedExperimentsAndOffIsStillV05() {
+        assertTrue(new Params().USE_ROLLOUT_POLICY);
+        assertInstanceOf(RolloutBot.class,BotFactory.create("current"));
+        assertInstanceOf(EvalBot.class,BotFactory.create("current?USE_ROLLOUT_POLICY=0"));
         assertInstanceOf(RolloutBot.class,BotFactory.create("current?USE_ROLLOUT_POLICY=1"));
         for(String extra:new String[]{"USE_OWN_BUILD_PLAN=1","USE_HEURISTIC_POLICY=1","ROLLOUT_DEPTH=0","ROLLOUT_WIDTH=20","ROLLOUT_TAIL=NaN"})
             assertThrows(IllegalArgumentException.class,()->BotFactory.create("current?USE_ROLLOUT_POLICY=1,"+extra));

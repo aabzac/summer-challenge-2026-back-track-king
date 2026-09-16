@@ -13,8 +13,8 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
-    // Independent simultaneous multi-turn policy; experimental, not the selected submission.
-    public boolean USE_ROLLOUT_POLICY = false;
+    // Selected v06 policy; disable explicitly to use the retained EvalBot experiments.
+    public boolean USE_ROLLOUT_POLICY = true;
     public int ROLLOUT_WIDTH = 6;
     public int ROLLOUT_REPLIES = 2;
     public int ROLLOUT_DEPTH = 8;
@@ -29,7 +29,7 @@ public class Params {
     public double ROLLOUT_THREAT_WEIGHT = 0.5;
     public double ROLLOUT_WIN_VALUE = 1000000.0;
 
-    // Independent simple policy; off in the selected v05 strategy.
+    // Independent simple policy; off in the selected v06 strategy.
     public boolean USE_HEURISTIC_POLICY = false;
     public boolean HEURISTIC_EMERGENCY_STOP = true;
     public int HEURISTIC_MAX_ROUTES = 64;

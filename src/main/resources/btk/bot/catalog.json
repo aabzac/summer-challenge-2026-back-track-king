@@ -40,8 +40,15 @@
       "id": "v05",
       "title": "Disrupt Reserve",
       "category": "version",
-      "status": "selected",
+      "status": "historical",
       "description": "Reserves 6 ms for sabotage by cutting route search short; not a timing guarantee."
+    },
+    {
+      "id": "v06",
+      "title": "Simultaneous Rollout",
+      "category": "version",
+      "status": "selected",
+      "description": "Eight-turn construction and sabotage rollouts against two opponent route priorities."
     },
     {
       "id": "pressure-v1",

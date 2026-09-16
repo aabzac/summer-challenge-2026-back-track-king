@@ -26,9 +26,9 @@ import java.util.stream.Stream;
  * becomes a static nested class of {@code Player}, packages are dropped, imports are unioned.
  * Then compiles the result to catch merge errors before pasting into CodinGame.
  *
- * <p>Uses {@link #SUBMIT_DIRS}, {@link #SUBMIT_FILES}, and only the selected policy. An explicit
- * current?USE_HEURISTIC_POLICY=1 replaces EvalBot in the artifact, not alongside it. v05 restoration
- * imports its frozen source as the generated EvalBot and embeds its resolved parameters;
+ * <p>Uses {@link #SUBMIT_DIRS}, {@link #SUBMIT_FILES}, and only the selected policy.
+ * Frozen v05/v06 builds import their source as the generated
+ * EvalBot and embed resolved parameters; current builds also embed their full configuration;
  * no frozen-package runtime dependency, referee, runner or tool ships.
  */
 public class FileMerger {
@@ -73,14 +73,15 @@ public class FileMerger {
         String spec = version;
         int queryAt = version.indexOf('?');
         if (queryAt >= 0) version = version.substring(0, queryAt);
-        if (!version.equals("current") && !version.equals("v05")) {
-            throw new IllegalArgumentException("submitVersion must be current or v05");
+        if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")) {
+            throw new IllegalArgumentException("submitVersion must be current, v05 or v06");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
-        boolean rollout = version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY;
+        boolean rollout = version.equals("v06") || version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY;
         if (rollout && heuristic) throw new IllegalArgumentException("Select only one independent policy");
         String policy = version.equals("v05") ? "bot/v05/EvalBotV05.java"
+                : version.equals("v06") ? "bot/v06/RolloutBotV06.java"
                 : rollout ? "bot/current/RolloutBot.java"
                 : heuristic ? "bot/current/HeuristicBot.java" : "bot/current/EvalBot.java";
         for (String dir : SUBMIT_DIRS) {
@@ -103,7 +104,10 @@ public class FileMerger {
                 if (version.equals("v05") && file.endsWith("EvalBotV05.java")) {
                     line = line.replaceAll("\\bEvalBotV05\\b", "EvalBot");
                 }
-                if ((version.equals("v05") || queryAt >= 0) && file.endsWith("MainBot.java")) {
+                if (version.equals("v06") && file.endsWith("RolloutBotV06.java")) {
+                    line = line.replaceAll("\\bRolloutBotV06\\b", "EvalBot");
+                }
+                if (file.endsWith("MainBot.java")) {
                     line = line.replace("new Params()", paramsExpression(spec));
                 }
                 if (heuristic && file.endsWith("HeuristicBot.java")) {

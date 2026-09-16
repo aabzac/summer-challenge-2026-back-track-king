@@ -22,9 +22,10 @@ public final class CgTimingStudy {
     record Warmup(long gameId, int player, double elapsedMs, int buildCalls) {}
 
     public static void main(String[] args) throws Exception {
-        Params params = BotFactory.parameters("current").apply(args.length > 1 ? args[1] : "");
+        Params params = BotFactory.parameters("current?USE_ROLLOUT_POLICY=0").apply(args.length > 1 ? args[1] : "");
         params.PROFILE_SEARCH = true;
-        if (params.USE_REPLY_RERANK || params.USE_OPP_MODEL || params.EARLY_DISRUPT_FALLBACK
+        if (params.USE_ROLLOUT_POLICY || params.USE_HEURISTIC_POLICY
+                || params.USE_REPLY_RERANK || params.USE_OPP_MODEL || params.EARLY_DISRUPT_FALLBACK
                 || params.GUARD_BUILD_INCOME || params.CHOOSE_BUILD_DIRECTION) {
             throw new IllegalArgumentException("Timing study isolates the baseline build/disrupt policy");
         }
