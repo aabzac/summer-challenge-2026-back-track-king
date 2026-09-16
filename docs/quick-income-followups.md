@@ -114,3 +114,33 @@ at completion. No system power-plan settings were changed.
 - Durable evidence: `docs/evidence/quick-followup-value-v1.json` and
   `docs/evidence/quick-followup-value-diagnostic-v1.json`; raw report/launch snapshot under
   `build/bench/quick-followup-value-v1/`. Retain default-off, selected v06/Player unchanged.
+
+## 3. Predicted-threat survival filter - STOP_SCREEN_300
+
+- Independent SAFE flag, EARLY and VALUE off. Require positive net-income gain relative to
+  the threatened baseline after the already predicted region is inked; choose least paint
+  among eligible survivors. No extra path queries, disruption scans or rollout scenarios.
+- Regression on both sides: the cheapest three-paint completion is destroyed by the known
+  predicted region; retain a six-paint alternative. With no predicted threat, keep the original
+  cheap choice. Input state remains unchanged.
+- Same 77 captured states: nominal retained/fully-compared/selected **64/52/14**;
+  ample **67/66/19**. One ample quick root shares its complete first action with an earlier
+  root and is deduplicated, not interrupted. Mechanism evidence only.
+- Fixed 300, seeds 120000..120149: **153-142-5, 51.8333%**, zero errors. Below the >52%
+  continuation floor: no 1000, matched v05 stages, retries, promotion or new process claim.
+  Search max A/B 46/45 ms, slow moves 0/0; elapsed 543.3 seconds. In-process timing only.
+- **230 Java tests pass**. Core and frozen versions unchanged, 264/264 exact validation remains
+  applicable. All source/class identities matched before/after play. Durable evidence:
+  `docs/evidence/quick-followup-safe-v1.json` and `quick-followup-safe-diagnostic-v1.json`.
+
+## Combined decision
+
+Completed all three predeclared independent variants, **1900 new games / 950 distinct maps**,
+zero bot errors. Each failed the practical gate; none reached common-opponent testing.
+Do not rank their percentages as a matched head-to-head comparison: each used fresh maps,
+and the first variant also suffered recorded standby pauses. No combined variant or retuning
+was attempted. Retain all flags OFF, selected v06 and the previous selected Player unchanged.
+The known old v06 external-process timing issue remains open; these runs do not resolve it.
+Final selected Player SHA-256 remains
+`5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266`.
+Temporary sleep/display requests are released after testing; no global power settings changed.

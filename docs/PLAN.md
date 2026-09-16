@@ -289,7 +289,9 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       See quick-income-followups.md for fixed protocol, 77-state coverage study and limitations.
 - [x] Quick follow-up 2: income per actual construction turn, 150-138-12 / 300 = 52.00%;
       STOP_SCREEN_300 at the strict >52% floor, 229 tests pass. No continuation or promotion.
-- [ ] Try quick follow-up 3: survival filter against predicted threat, independently from original.
+- [x] Quick follow-up 3: predicted-threat survival filter, 153-142-5 / 300 = 51.8333%;
+      STOP_SCREEN_300, 230 tests pass. All three done, 1900 games, no promotion.
+      Temporary sleep/display requests released; first experiment standby limitation recorded.
 
 ## Someday / maybe
 

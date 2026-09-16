@@ -183,14 +183,18 @@ public final class RolloutBot implements Bot {
         if (earning <= 0) return;
         completion.refresh(); Rules.incomePerTurn(completion.state, income);
         double gain = income[me] - income[1 - me] - baseDiff[me];
-        // Reuse the bounded proposal pool: no extra path query, simulation or random draw.
+        // Reuse the bounded proposal pool: no extra path query or random draw.
         // Current own income is zero, so a positive completed own income is also a gain.
-        if (me == quickPlayer && cost <= p.ROLLOUT_QUICK_MAX_PAINT && income[me] > 0 && gain > 0)
+        boolean quickEligible = me == quickPlayer && cost <= p.ROLLOUT_QUICK_MAX_PAINT && income[me] > 0 && gain > 0;
+        double rawGain = gain;
+        if (quickEligible && (!p.USE_ROLLOUT_QUICK_SAFE || threats[me] < 0))
             considerQuick(s, me, n, cost, gain);
         if (threats[me] >= 0) {
             Rules.ink(completion.state, threats[me]); completion.refresh();
             Rules.incomePerTurn(completion.state, income);
             double protectedGain = income[me] - income[1 - me] - threatDiff[me];
+            if (quickEligible && p.USE_ROLLOUT_QUICK_SAFE && protectedGain > 0)
+                considerQuick(s, me, n, cost, rawGain);
             gain = (1 - p.ROLLOUT_THREAT_WEIGHT) * gain + p.ROLLOUT_THREAT_WEIGHT * protectedGain;
         }
         if (gain <= 0) return;

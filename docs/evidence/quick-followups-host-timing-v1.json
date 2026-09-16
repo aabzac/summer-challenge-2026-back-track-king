@@ -1,0 +1,123 @@
+{
+  "events": [
+    {
+      "id": 507,
+      "utc": "2026-09-16T19:38:00.5243027Z",
+      "data": {
+        "PowerStateAc": "false",
+        "SleepEntered": "true",
+        "LidOpenState": "true",
+        "SleepDurationInUs": "138219087",
+        "Reason": "32"
+      }
+    },
+    {
+      "id": 506,
+      "utc": "2026-09-16T19:30:33.5819197Z",
+      "data": {
+        "Reason": "12",
+        "LidOpenState": "true"
+      }
+    },
+    {
+      "id": 507,
+      "utc": "2026-09-16T19:19:41.3933265Z",
+      "data": {
+        "PowerStateAc": "false",
+        "SleepEntered": "true",
+        "LidOpenState": "true",
+        "SleepDurationInUs": "59634067",
+        "Reason": "32"
+      }
+    },
+    {
+      "id": 506,
+      "utc": "2026-09-16T19:18:27.1116322Z",
+      "data": {
+        "Reason": "12",
+        "LidOpenState": "true"
+      }
+    },
+    {
+      "id": 507,
+      "utc": "2026-09-16T19:07:50.6034188Z",
+      "data": {
+        "PowerStateAc": "false",
+        "SleepEntered": "true",
+        "LidOpenState": "true",
+        "SleepDurationInUs": "91983529",
+        "Reason": "31"
+      }
+    },
+    {
+      "id": 506,
+      "utc": "2026-09-16T19:06:13.6038055Z",
+      "data": {
+        "Reason": "55",
+        "LidOpenState": "true"
+      }
+    },
+    {
+      "id": 507,
+      "utc": "2026-09-16T19:06:13.6020849Z",
+      "data": {
+        "PowerStateAc": "false",
+        "SleepEntered": "true",
+        "LidOpenState": "true",
+        "SleepDurationInUs": "25558059",
+        "Reason": "55"
+      }
+    },
+    {
+      "id": 506,
+      "utc": "2026-09-16T19:05:39.6130327Z",
+      "data": {
+        "Reason": "12",
+        "LidOpenState": "true"
+      }
+    },
+    {
+      "id": 507,
+      "utc": "2026-09-16T19:00:27.0311627Z",
+      "data": {
+        "PowerStateAc": "false",
+        "SleepEntered": "true",
+        "LidOpenState": "true",
+        "SleepDurationInUs": "265268439",
+        "Reason": "31"
+      }
+    },
+    {
+      "id": 506,
+      "utc": "2026-09-16T18:55:35.2124291Z",
+      "data": {
+        "Reason": "12",
+        "LidOpenState": "true"
+      }
+    }
+  ],
+  "requests": {
+    "awake-display-end": {
+      "utc": "2026-09-16T20:04:39.104347+00:00"
+    },
+    "awake-display-start": {
+      "pid": 16368,
+      "utc": "2026-09-16T19:39:08.846658+00:00",
+      "previous": 2147483648,
+      "flags": "ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED",
+      "expiresAfterHours": 4
+    },
+    "awake-end": {
+      "utc": "2026-09-16T19:39:23.293500+00:00"
+    },
+    "awake-start": {
+      "pid": 16832,
+      "utc": "2026-09-16T19:21:15.060952+00:00",
+      "previous": 2147483648,
+      "flags": "ES_CONTINUOUS | ES_SYSTEM_REQUIRED",
+      "expiresAfterHours": 4
+    }
+  },
+  "reference": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate",
+  "note": "No global power settings changed. Both temporary requests released. Preserve all paused games."
+}

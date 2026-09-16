@@ -10,6 +10,26 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RolloutQuickRouteTest {
+    @Test void safeFilterKeepsLongerRouteWhenPredictedInkDestroysCheapestIncome() throws Exception {
+        for (int me = 0; me < 2; me++) {
+            int[] regions = new int[24];
+            for (int i = 0; i < regions.length; i++) regions[i] = i;
+            var s = new GameState(8,3,regions,new int[24],new int[]{0,5,0,7},new int[]{0,0,2,2},
+                    new int[][]{{1},{},{3},{}});
+            s.owner[2] = me;
+            Rules.updateConnections(s, new Pathing(s.size));
+            var old = bot(s, me, true); old.play(s, me, 60_000);
+            var p = new Params(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = true; p.USE_ROLLOUT_QUICK_SAFE = true;
+            var safe = new RolloutBot(p); safe.init(s, me); safe.play(s, me, 60_000);
+            assertEquals(2, ((int[]) field(safe, "threats"))[me]);
+            assertEquals(3, field(old, "quickCost")); assertEquals(6, field(safe, "quickCost"));
+            assertEquals(old.routeQueries, safe.routeQueries);
+            assertEquals(me, s.owner[2]); assertFalse(s.inked[2]); assertEquals(0, s.turn);
+            p.USE_DISRUPT = false;
+            var noThreat = new RolloutBot(p); noThreat.init(s, me); noThreat.play(s, me, 60_000);
+            assertEquals(3, field(noThreat, "quickCost"));
+        }
+    }
     @Test void valueChoosesMoreIncomeWhenTwoRoutesBothTakeTwoTurns() throws Exception {
         int[] regions = new int[24];
         for (int i = 0; i < regions.length; i++) regions[i] = i;

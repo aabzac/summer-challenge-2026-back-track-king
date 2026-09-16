@@ -2842,3 +2842,24 @@ Completed outcome (fixed sample, no retuning):
 - Same 77 recorded states: nominal quick retained/full/selected 70/64/10; ample 70/70/12.
   Diagnostics only. Evidence: docs/evidence/quick-followup-value-v1.json and diagnostic-v1.json.
 - Source/class hashes verified unchanged across play. Commit completed experiment, retain OFF.
+
+
+## 2026-09-16 - quick-followup-safe-v1; all three follow-ups complete
+
+- Independent third follow-up, EARLY/VALUE OFF: retain a cheap quick route only if its net
+  income gain survives the already predicted ink region. Reuse the existing core evaluation.
+- Both-side regression demonstrates a six-paint survivor replacing a destroyed three-paint
+  route, and unchanged cheap choice without a threat. 230 Java tests pass.
+- Fresh 300 paired games, seeds 120000..120149: 153-142-5, 51.8333%, zero errors.
+  STOP_SCREEN_300; no direct 1000 or matched v05 stages. Max search A/B 46/45 ms, slow 0/0.
+- Shared 77-state diagnosis: nominal quick retained/full/selected 64/52/14; ample 67/66/19,
+  one ample duplicate actual-action root skipped. Not a population strength test.
+- All three experiments complete: 1900 new games on 950 distinct maps, zero bot errors,
+  none passed practical v2. Do not compare unmatched percentages as causal improvements.
+  Early series has confirmed standby interruptions; all data retained without retries.
+- Selected v06 and Player SHA 5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266
+  unchanged. All flags OFF; no promotion/upload or new process readiness claim.
+- Both temporary system/display power requests released; no global power setting changes.
+  Host events/request timestamps retained in docs/evidence/quick-followups-host-timing-v1.json.
+- Reports/protocol: docs/quick-income-followups.md; complete per-map evidence and parameters in
+  docs/evidence/quick-followup-safe-v1.json. Commit final completed experiment under AGENTS #8.

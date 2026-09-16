@@ -1,0 +1,3562 @@
+{
+  "spec": "current?USE_ROLLOUT_QUICK_ROUTE\u003d1,USE_ROLLOUT_QUICK_SAFE\u003d1,NOISE\u003d0",
+  "params": {
+    "ALWAYS_DISRUPT": "true",
+    "BUILD_BEAM_WIDTH": "4",
+    "CHOOSE_BUILD_DIRECTION": "false",
+    "COLLISION_COST": "2.0",
+    "DEBUG": "false",
+    "DEFENSE_MAX_PAINT": "6",
+    "DEFENSE_MAX_PAIRS": "4",
+    "DEFENSE_MAX_REGIONS": "3",
+    "DEFENSE_MIN_INSTABILITY": "1",
+    "DISRUPT_DELAY_FACTOR": "1.0",
+    "DISRUPT_MIN": "0.01",
+    "DISRUPT_RESERVE_MS": "6",
+    "EARLY_DISRUPT_FALLBACK": "false",
+    "FORECAST_DECAY": "0.95",
+    "FORECAST_FLOOR": "0.1",
+    "GUARD_BUILD_INCOME": "false",
+    "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+    "HEURISTIC_AVOID_INSTABILITY": "2",
+    "HEURISTIC_DETOUR_CAP": "12",
+    "HEURISTIC_DETOUR_PAIRS": "4",
+    "HEURISTIC_DETOUR_REGIONS": "4",
+    "HEURISTIC_DETOUR_WEIGHT": "1.0",
+    "HEURISTIC_EMERGENCY_STOP": "true",
+    "HEURISTIC_MAX_ROUTES": "64",
+    "HEURISTIC_OWN_PENALTY": "2.0",
+    "HEURISTIC_ROUTE_STICKINESS": "1.25",
+    "HEURISTIC_TARGET_STICKINESS": "1.3",
+    "HORIZON": "100",
+    "INTERRUPT_VULN_EVAL": "false",
+    "ISOLATED_ROUTE_WARMUP": "true",
+    "MESSAGE": "false",
+    "NOISE": "0.0",
+    "OPP_REPLY_WIDTH": "2",
+    "OWN_BUILD_DEPTH": "3",
+    "OWN_BUILD_WIDTH": "3",
+    "PRESSURE_BUILD_RESERVE_MS": "12",
+    "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+    "PRESSURE_HORIZON": "8",
+    "PRESSURE_STICKINESS": "0.25",
+    "PRESSURE_TRACK_WEIGHT": "0.8",
+    "PROFILE_SEARCH": "false",
+    "ROLLOUT_DEPTH": "8",
+    "ROLLOUT_MAX_ROUTES": "64",
+    "ROLLOUT_QUICK_MAX_PAINT": "6",
+    "ROLLOUT_REPLIES": "2",
+    "ROLLOUT_RESERVE_MS": "20",
+    "ROLLOUT_ROBUSTNESS": "0.5",
+    "ROLLOUT_ROUTE_HORIZON": "16.0",
+    "ROLLOUT_TAIL": "3.0",
+    "ROLLOUT_TARGETS": "4",
+    "ROLLOUT_TARGET_HORIZON": "8.0",
+    "ROLLOUT_THREAT_WEIGHT": "0.5",
+    "ROLLOUT_TRACK_WEIGHT": "0.4",
+    "ROLLOUT_WIDTH": "6",
+    "ROLLOUT_WIN_VALUE": "1000000.0",
+    "SEED": "1",
+    "SKIP_UNFINISHABLE": "true",
+    "UNSTABLE_COST": "1.0",
+    "USE_BACKUP": "true",
+    "USE_CLOSE": "true",
+    "USE_DEFENSE_PRIORITY": "false",
+    "USE_DISRUPT": "true",
+    "USE_HEURISTIC_DETOUR": "false",
+    "USE_HEURISTIC_POLICY": "false",
+    "USE_IDLE_EXTEND": "true",
+    "USE_JOINT_ACTION": "false",
+    "USE_OPP_MODEL": "false",
+    "USE_OWN_BUILD_PLAN": "false",
+    "USE_REPLY_RERANK": "false",
+    "USE_ROLLOUT_POLICY": "true",
+    "USE_ROLLOUT_QUICK_EARLY": "false",
+    "USE_ROLLOUT_QUICK_ROUTE": "true",
+    "USE_ROLLOUT_QUICK_SAFE": "true",
+    "USE_ROLLOUT_QUICK_VALUE": "false",
+    "USE_STEAL": "true",
+    "WARMUP_SLICE_MS": "36",
+    "W_COST": "0.0",
+    "W_FUTURE_OWN": "0.4",
+    "W_FUTURE_TRACK": "0.3",
+    "W_OPP": "1.0",
+    "W_OPP_INCOME": "1.0",
+    "W_OPP_ROUTE": "0.3",
+    "W_OWN": "1.0",
+    "W_RISK": "0.6",
+    "W_SELF_LOSS": "1.2",
+    "W_THEIR_LOSS": "1.0",
+    "W_VULN": "1.0"
+  },
+  "inputSha256": "07c0f9dd11c7e1f31f2f7d5f6e34453c2724dee5728c8005f56b29786b11c955",
+  "classSha256": "c3de55974d4f3d902bcfb2e694a4cba017cf7a7fd35a441d5a634bad57306dd3",
+  "method": "All own-zero-income pre-turn states in turns 0..19 of all 14 user-labelled v06 boss games, wins and losses. Fresh noise-free instances, nominal 486/36 ms vs 60000 ms, init outside clock. This is not original arena RNG/timing. Coverage reconstructed from completed comparisons and actual search order; a completed comparison covers every opponent reply. Recorded opponent actions are used only AFTER choosing for independent one-turn oracle counterfactuals. Never sum these as recoverable match points. No strength or process readiness claim.",
+  "samples": [
+    {
+      "gameId": 904146009,
+      "outcome": "win",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "2d122877023e56ed1c5d38fd657a64f46517b2ddc793b76d1d8b56ab42ee83d6",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 42.5815,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 7 13;PLACE_TRACKS 8 13;PLACE_TRACKS 9 13",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 18.2216,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 7 13;PLACE_TRACKS 8 13;PLACE_TRACKS 9 13",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146009,
+      "outcome": "win",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "9708868b37a7c7a846392a2b3367a9ea3f1d537b78712b926996eda0a2136221",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 34.8743,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 10 13;PLACE_TRACKS 11 13;PLACE_TRACKS 12 13;DISRUPT 16",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 38.7789,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 10 13;PLACE_TRACKS 11 13;PLACE_TRACKS 12 13;DISRUPT 16",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146009,
+      "outcome": "win",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "b55c1adf73097e3ca58bffbcf3164ca02e36aeaaec78070608411466fba7a995",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0148,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 12,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 3 11;PLACE_TRACKS 4 11;PLACE_TRACKS 5 11;DISRUPT 16",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          3,
+          3
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 40.3297,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 3 11;PLACE_TRACKS 4 11;PLACE_TRACKS 5 11;DISRUPT 16",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "6c73a72e49cbd9d6fe6e1b6e9c611c43c9dffdfff6b09f8352521d44f0e5563e",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 14.2298,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 104,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 17 1;PLACE_TRACKS 18 1;PLACE_TRACKS 18 2",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 12.4912,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 104,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 17 1;PLACE_TRACKS 18 1;PLACE_TRACKS 18 2",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "8508cd7a58fcc3c1723b2eba8fbeacc4be3f4eac6a59af75925cfc9ef742c80d",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 18.2713,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 24 11;PLACE_TRACKS 23 11;PLACE_TRACKS 22 11;DISRUPT 22",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 19.9267,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 24 11;PLACE_TRACKS 23 11;PLACE_TRACKS 22 11;DISRUPT 22",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "8358ead40d9ffd356d371757c19bb445bd71ffc7b0fbe6eed534de1667294b50",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0978,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 8,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 18 3;PLACE_TRACKS 19 3;PLACE_TRACKS 20 3;DISRUPT 22",
+        "oracleOneTurnScoreDifferenceGain": 6,
+        "oracleIncome": [
+          6,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 31.6091,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 18 3;PLACE_TRACKS 19 3;PLACE_TRACKS 20 3;DISRUPT 22",
+        "oracleOneTurnScoreDifferenceGain": 6,
+        "oracleIncome": [
+          6,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "8ff5d6bce796ba2c4060ea64139e878dd115b23416f19527f513206aa452e2fd",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0625,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 5,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 11,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 18 3;PLACE_TRACKS 18 4;PLACE_TRACKS 18 5",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 31.6541,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 5,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 12,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 18 3;PLACE_TRACKS 18 4;PLACE_TRACKS 18 5",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 4,
+      "me": 0,
+      "stateSha256": "0ab4730c14ff582402fd7ecd6f2ff15b37e386fde245ebe10612e327600b2af3",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0439,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 10,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 17 5;PLACE_TRACKS 17 6;PLACE_TRACKS 17 7;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -6,
+        "oracleIncome": [
+          0,
+          6
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 40.2228,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 17 5;PLACE_TRACKS 17 6;PLACE_TRACKS 17 7;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -6,
+        "oracleIncome": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 5,
+      "me": 0,
+      "stateSha256": "35f7c2d8e3e20cf012840c3e6dc992fbb30f5ff7a34de7aaf879e81135cc652a",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 35.9103,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 22 4;PLACE_TRACKS 17 8;PLACE_TRACKS 17 10;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -11,
+        "oracleIncome": [
+          0,
+          11
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 39.7586,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 22 4;PLACE_TRACKS 17 8;PLACE_TRACKS 17 10;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -11,
+        "oracleIncome": [
+          0,
+          11
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 6,
+      "me": 0,
+      "stateSha256": "ab488e83cbdb3c9ed5f47b2aa8be9572701f39f1c6cbb51551ab8adba6b8bf42",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 28.7287,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 2 8;PLACE_TRACKS 3 8;PLACE_TRACKS 3 9;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -11,
+        "oracleIncome": [
+          0,
+          11
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 23.8177,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 2 8;PLACE_TRACKS 3 8;PLACE_TRACKS 3 9;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -11,
+        "oracleIncome": [
+          0,
+          11
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 7,
+      "me": 0,
+      "stateSha256": "176736f3bfc9b78d5aaebb26059852d224d17a763c5a7a5ce220b173f30806b6",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 29.4883,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 21 4;DISRUPT 31",
+        "oracleOneTurnScoreDifferenceGain": 19,
+        "oracleIncome": [
+          76,
+          57
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 25.6346,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 21 4;DISRUPT 31",
+        "oracleOneTurnScoreDifferenceGain": 19,
+        "oracleIncome": [
+          76,
+          57
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 8,
+      "me": 0,
+      "stateSha256": "5e19250d498543958e64a58b7918640bbee0f9a7e43ab90c5b60249ec15e42d0",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 24.0733,
+        "quickSlot": 5,
+        "quickPaint": 1,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 2 8;PLACE_TRACKS 3 8;PLACE_TRACKS 3 9;DISRUPT 31",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 23.4539,
+        "quickSlot": 5,
+        "quickPaint": 1,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 2 8;PLACE_TRACKS 3 8;PLACE_TRACKS 3 9;DISRUPT 31",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "gameId": 904146157,
+      "outcome": "win",
+      "turn": 9,
+      "me": 0,
+      "stateSha256": "684f0c9b7cd0c98399a946499b1ac6d523424d9f50f1a279f6794f1f32656ea1",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 28.605,
+        "quickSlot": 5,
+        "quickPaint": 1,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 4 9;PLACE_TRACKS 10 9;PLACE_TRACKS 11 9;DISRUPT 31",
+        "oracleOneTurnScoreDifferenceGain": -49,
+        "oracleIncome": [
+          2,
+          51
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 27.9924,
+        "quickSlot": 5,
+        "quickPaint": 1,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 4 9;PLACE_TRACKS 10 9;PLACE_TRACKS 11 9;DISRUPT 31",
+        "oracleOneTurnScoreDifferenceGain": -49,
+        "oracleIncome": [
+          2,
+          51
+        ]
+      }
+    },
+    {
+      "gameId": 904146239,
+      "outcome": "win",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "405f15fff644a3dfbba12e365512c937b063ce1af9aef954bf3e696783d35493",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 3.23,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 52,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 11 8;PLACE_TRACKS 12 8",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 3.4159,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 52,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 11 8;PLACE_TRACKS 12 8",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146239,
+      "outcome": "win",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "74d956986f59e95917ba293f8daa91b7ff3198c07534f68e38da74a0a991f084",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 7.3241,
+        "quickSlot": 2,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 13,
+        "routeQueries": 78,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 21 12;PLACE_TRACKS 20 12;PLACE_TRACKS 19 12",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 8.0633,
+        "quickSlot": 2,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 13,
+        "routeQueries": 78,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 21 12;PLACE_TRACKS 20 12;PLACE_TRACKS 19 12",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146239,
+      "outcome": "win",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "87b45eb9bc1b95792a8c34d79d0f3994d1acfdcfdd62b53def1c9fe6d583f640",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 11.7583,
+        "quickSlot": 4,
+        "quickPaint": 6,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 78,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 12 9;PLACE_TRACKS 13 9;PLACE_TRACKS 14 9;DISRUPT 34",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 14.2782,
+        "quickSlot": 4,
+        "quickPaint": 6,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 78,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 12 9;PLACE_TRACKS 13 9;PLACE_TRACKS 14 9;DISRUPT 34",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146239,
+      "outcome": "win",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "ce53a5450b8c884499a005afebc722590326f8dd592de8ce12441673553af697",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 18.5738,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 78,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 18 12",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 16.1288,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 78,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 18 12",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146307,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "5018347df1e772068980ed15818b9e4e8ad19250f03684301c470b9fe3c8d973",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 5.2604,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 7,
+        "routeQueries": 64,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 8 5;PLACE_TRACKS 8 13",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 5.3092,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 7,
+        "routeQueries": 64,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 8 5;PLACE_TRACKS 8 13",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146307,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "5423329b319fb784f75b5a3580797c74f07ca8aa79ea70c49e7b87372be0fd41",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 12.9671,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 80,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 8 5;PLACE_TRACKS 8 11",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 14.0012,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 80,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 8 5;PLACE_TRACKS 8 11",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146307,
+      "outcome": "loss",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "9f4638306e179e217f8cce599a1d5311eee4315a1bb15584b4b401ce695802a8",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 12.339,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 8 9;PLACE_TRACKS 8 6",
+        "oracleOneTurnScoreDifferenceGain": 6,
+        "oracleIncome": [
+          6,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 12.961,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 8 9;PLACE_TRACKS 8 6",
+        "oracleOneTurnScoreDifferenceGain": 6,
+        "oracleIncome": [
+          6,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146307,
+      "outcome": "loss",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "9d8493ff0709494f0d32f15f488854586d1246cfd6ab635850a59a4c4fb919b7",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 12.6673,
+        "quickSlot": 0,
+        "quickPaint": 5,
+        "quickGain": 10,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 8 4;PLACE_TRACKS 8 5;DISRUPT 27",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 14.9685,
+        "quickSlot": 0,
+        "quickPaint": 5,
+        "quickGain": 10,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 8 4;PLACE_TRACKS 8 5;DISRUPT 27",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146307,
+      "outcome": "loss",
+      "turn": 4,
+      "me": 0,
+      "stateSha256": "877ffb80530d1a705b3b0fe51140164d0cfe09aa832b0acc4e4ecac948629ecb",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 14.3631,
+        "quickSlot": 0,
+        "quickPaint": 5,
+        "quickGain": 10,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 3;PLACE_TRACKS 10 3",
+        "oracleOneTurnScoreDifferenceGain": -2,
+        "oracleIncome": [
+          4,
+          6
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 16.1899,
+        "quickSlot": 0,
+        "quickPaint": 5,
+        "quickGain": 10,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 3;PLACE_TRACKS 10 3",
+        "oracleOneTurnScoreDifferenceGain": -2,
+        "oracleIncome": [
+          4,
+          6
+        ]
+      }
+    },
+    {
+      "gameId": 904146458,
+      "outcome": "win",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "7244a6247750ac61eb99022ab37a3752f06e835f789127d18ad2ca61cc1d5bf7",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 4.2762,
+        "quickSlot": 4,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 7,
+        "routeQueries": 56,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 5 8;PLACE_TRACKS 5 7;PLACE_TRACKS 5 6",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 4.5666,
+        "quickSlot": 4,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 7,
+        "routeQueries": 56,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 5 8;PLACE_TRACKS 5 7;PLACE_TRACKS 5 6",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146458,
+      "outcome": "win",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "6212acc2f09e26f3bbd9093a6adbf2ac10427c124fdd68acb4834a1e6e5f433e",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 10.7633,
+        "quickSlot": 0,
+        "quickPaint": 6,
+        "quickGain": 8,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 84,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 3 5;PLACE_TRACKS 3 6;PLACE_TRACKS 4 6;DISRUPT 10",
+        "oracleOneTurnScoreDifferenceGain": 6,
+        "oracleIncome": [
+          6,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 8.6774,
+        "quickSlot": 0,
+        "quickPaint": 6,
+        "quickGain": 8,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 84,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 3 5;PLACE_TRACKS 3 6;PLACE_TRACKS 4 6;DISRUPT 10",
+        "oracleOneTurnScoreDifferenceGain": 6,
+        "oracleIncome": [
+          6,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904146458,
+      "outcome": "win",
+      "turn": 5,
+      "me": 0,
+      "stateSha256": "3ad50beeb441910d8bf0dc5bb9c07ed84fc7b37ef490f32a42a44cc1313e4f93",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 14.6239,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 8,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 84,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 8 9;PLACE_TRACKS 7 9;PLACE_TRACKS 6 9;DISRUPT 18",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          8,
+          11
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 15.3147,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 8,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 84,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 8 9;PLACE_TRACKS 7 9;PLACE_TRACKS 6 9;DISRUPT 18",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          8,
+          11
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "a6ace5ee881a7b40c28aa97e3d5231fad0b0a9f37d2a5fd3fc1a83049614ab0b",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 11.487,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 3 2;PLACE_TRACKS 3 3;PLACE_TRACKS 3 4",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 11.4967,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 3 2;PLACE_TRACKS 3 3;PLACE_TRACKS 3 4",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "e025e1ac4629e5daafca82c0be37690bf410d58568ec8487351bbf4f83e18716",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 18.4619,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 27 2;PLACE_TRACKS 27 3;PLACE_TRACKS 26 3;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 21.8929,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 27 2;PLACE_TRACKS 27 3;PLACE_TRACKS 26 3;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "5f914088ac5e527a7a2be9027b6be65ac0e3f72dced2b979aaf55966b111914a",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 16.6321,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 12 8;PLACE_TRACKS 11 8;PLACE_TRACKS 10 8;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 17.6256,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 12 8;PLACE_TRACKS 11 8;PLACE_TRACKS 10 8;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "c6bc31763aaf8647bbd6a7978a7ee75cb1ceb5e38c6533ef0847ecae80e53ae6",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 23.4748,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 18 17;PLACE_TRACKS 17 17;PLACE_TRACKS 16 17;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 21.4177,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 18 17;PLACE_TRACKS 17 17;PLACE_TRACKS 16 17;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 4,
+      "me": 0,
+      "stateSha256": "94262936682b5769a357de663a83225a930136ef99a4e4b03a768d8de73e5887",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 18.4207,
+        "quickSlot": 4,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 18 7;PLACE_TRACKS 18 8;PLACE_TRACKS 19 8;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": -8,
+        "oracleIncome": [
+          0,
+          8
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 19.3163,
+        "quickSlot": 4,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 18 7;PLACE_TRACKS 18 8;PLACE_TRACKS 19 8;DISRUPT 9",
+        "oracleOneTurnScoreDifferenceGain": -8,
+        "oracleIncome": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 5,
+      "me": 0,
+      "stateSha256": "1a483c70b8335979b3e1e5938955a3d1d074042e05bdb43cee0a377d89ed52ec",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 22.5705,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 9,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 15 17;PLACE_TRACKS 15 16;PLACE_TRACKS 14 16;DISRUPT 26",
+        "oracleOneTurnScoreDifferenceGain": 1,
+        "oracleIncome": [
+          9,
+          8
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 24.4351,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 9,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 15 17;PLACE_TRACKS 15 16;PLACE_TRACKS 14 16;DISRUPT 26",
+        "oracleOneTurnScoreDifferenceGain": 1,
+        "oracleIncome": [
+          9,
+          8
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 9,
+      "me": 0,
+      "stateSha256": "e21c6dcc09cbd5a63c93c7b26011de4c41d1854474c6e4670d526a32c820d0f8",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 28.5425,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 4 13;PLACE_TRACKS 5 13;PLACE_TRACKS 5 12",
+        "oracleOneTurnScoreDifferenceGain": -29,
+        "oracleIncome": [
+          0,
+          29
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 32.5746,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 4 13;PLACE_TRACKS 5 13;PLACE_TRACKS 5 12",
+        "oracleOneTurnScoreDifferenceGain": -29,
+        "oracleIncome": [
+          0,
+          29
+        ]
+      }
+    },
+    {
+      "gameId": 904147739,
+      "outcome": "loss",
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "03513093179bde198217a41873790c7324c3bc328d5b3815512a6de48c0af4b8",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 30.8728,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 2 1;PLACE_TRACKS 2 2;PLACE_TRACKS 2 3;DISRUPT 18",
+        "oracleOneTurnScoreDifferenceGain": -29,
+        "oracleIncome": [
+          0,
+          29
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 36.0094,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 2 1;PLACE_TRACKS 2 2;PLACE_TRACKS 2 3;DISRUPT 18",
+        "oracleOneTurnScoreDifferenceGain": -29,
+        "oracleIncome": [
+          0,
+          29
+        ]
+      }
+    },
+    {
+      "gameId": 904147809,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "21918d03ca2dd72bfcc36cfb11640b90c374357337ddd2e8db924acd3fd62909",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 12.8203,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 76,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 11 8;PLACE_TRACKS 11 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 11.5735,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 76,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 11 8;PLACE_TRACKS 11 9",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147809,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "b310895738b3c87e3298aee2474aebfc97315611bc42f488130b6e316e3d428c",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 22.5393,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 19 10;PLACE_TRACKS 19 11;PLACE_TRACKS 19 12",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 13.4066,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 19 10;PLACE_TRACKS 19 11;PLACE_TRACKS 19 12",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147809,
+      "outcome": "loss",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "8fdc476b5b99d2090e0e7c6db1dfde2b68f2222bcdacefdc2d48a330844da120",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 14.9623,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 19 10;PLACE_TRACKS 19 11",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 11.0354,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 19 10;PLACE_TRACKS 19 11",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147809,
+      "outcome": "loss",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "ab62f3bcfffd444c5beb74837bc1af6e5f1f45a260a9bb5c3998513028feb888",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 22.7034,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 18 13;PLACE_TRACKS 17 13;PLACE_TRACKS 16 13;DISRUPT 30",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 15.052,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 18 13;PLACE_TRACKS 17 13;PLACE_TRACKS 16 13;DISRUPT 30",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147809,
+      "outcome": "loss",
+      "turn": 4,
+      "me": 0,
+      "stateSha256": "b22d48233542bab8d9bfda2c8837ca2a4adc257a331e44cbb22b48752d6adbb9",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 13.9789,
+        "quickSlot": 1,
+        "quickPaint": 5,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 17 13;PLACE_TRACKS 16 13;PLACE_TRACKS 15 13;DISRUPT 30",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 12.6197,
+        "quickSlot": 1,
+        "quickPaint": 5,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 17 13;PLACE_TRACKS 16 13;PLACE_TRACKS 15 13;DISRUPT 30",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147809,
+      "outcome": "loss",
+      "turn": 5,
+      "me": 0,
+      "stateSha256": "30ca23d3c18c34bf5669041da402084942c71b2fea71263875a31735d931bdde",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 23.8463,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 9 12;PLACE_TRACKS 10 12;PLACE_TRACKS 18 3;DISRUPT 30",
+        "oracleOneTurnScoreDifferenceGain": -1,
+        "oracleIncome": [
+          2,
+          3
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 17.3473,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 1,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 114,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 9 12;PLACE_TRACKS 10 12;PLACE_TRACKS 18 3;DISRUPT 30",
+        "oracleOneTurnScoreDifferenceGain": -1,
+        "oracleIncome": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "a690cbfa2cf3f5f41aaf76f5245d85befadfe8397acfa547e555f28b686a9c1a",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 14.3883,
+        "quickSlot": 2,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 7 15;PLACE_TRACKS 7 14;PLACE_TRACKS 7 13",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 12.6654,
+        "quickSlot": 2,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 7 15;PLACE_TRACKS 7 14;PLACE_TRACKS 7 13",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "6599e04294260c14ee6ed339de259208e0d720d9702c341d698c8bfda0c019aa",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 17.4506,
+        "quickSlot": 2,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 14 11;PLACE_TRACKS 13 11;PLACE_TRACKS 12 11;DISRUPT 2",
+        "oracleOneTurnScoreDifferenceGain": 3,
+        "oracleIncome": [
+          3,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 17.7539,
+        "quickSlot": 2,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 14 11;PLACE_TRACKS 13 11;PLACE_TRACKS 12 11;DISRUPT 2",
+        "oracleOneTurnScoreDifferenceGain": 3,
+        "oracleIncome": [
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "7559e56b27d6a06ef76ff99edbb64008d55aee161a4dae01dac311563258d60b",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 21.2917,
+        "quickSlot": 4,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 14 11;PLACE_TRACKS 13 11;PLACE_TRACKS 12 11;DISRUPT 2",
+        "oracleOneTurnScoreDifferenceGain": 3,
+        "oracleIncome": [
+          3,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 22.305,
+        "quickSlot": 4,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 14 11;PLACE_TRACKS 13 11;PLACE_TRACKS 12 11;DISRUPT 2",
+        "oracleOneTurnScoreDifferenceGain": 3,
+        "oracleIncome": [
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "73de5cd54f48f5fa01eb38da13b01f95b12676c63b007a2f9eb47dc9105f8aa2",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 23.9182,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 23 7;PLACE_TRACKS 22 7;DISRUPT 2",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 24.2449,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 23 7;PLACE_TRACKS 22 7;DISRUPT 2",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 6,
+      "me": 0,
+      "stateSha256": "21fcf7d817e5a7de8c175d8d7a06043c49ed59f70a88b7ba048645ca112afe9c",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 27.5507,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 19 6;PLACE_TRACKS 19 5;PLACE_TRACKS 15 8",
+        "oracleOneTurnScoreDifferenceGain": 2,
+        "oracleIncome": [
+          5,
+          3
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 27.8004,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 19 6;PLACE_TRACKS 19 5;PLACE_TRACKS 15 8",
+        "oracleOneTurnScoreDifferenceGain": 2,
+        "oracleIncome": [
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 7,
+      "me": 0,
+      "stateSha256": "19f3b8923c26f3052b358cc5c17ec320edf0499517c0c435e069d9e4661717c4",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 27.8745,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 15 8;PLACE_TRACKS 16 8;PLACE_TRACKS 17 8;DISRUPT 35",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          0,
+          3
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 27.4234,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 15 8;PLACE_TRACKS 16 8;PLACE_TRACKS 17 8;DISRUPT 35",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "gameId": 904147863,
+      "outcome": "win",
+      "turn": 8,
+      "me": 0,
+      "stateSha256": "61537dff8157a5789c72143edee69145925fb7e51c119e4993bd0b982b8f55fe",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 28.0198,
+        "quickSlot": 4,
+        "quickPaint": 3,
+        "quickGain": 8,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;PLACE_TRACKS 8 11;DISRUPT 44",
+        "oracleOneTurnScoreDifferenceGain": 5,
+        "oracleIncome": [
+          14,
+          9
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 29.3842,
+        "quickSlot": 4,
+        "quickPaint": 3,
+        "quickGain": 8,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;PLACE_TRACKS 8 11;DISRUPT 44",
+        "oracleOneTurnScoreDifferenceGain": 5,
+        "oracleIncome": [
+          14,
+          9
+        ]
+      }
+    },
+    {
+      "gameId": 904147970,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "efec50b72a2d37c474f9a0a7cb12f7458b7148a6930ac0bc88e91a68ff632bb4",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 7.5517,
+        "quickSlot": 3,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 96,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 22 3;PLACE_TRACKS 21 3;PLACE_TRACKS 20 3",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 5.148,
+        "quickSlot": 3,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 96,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 22 3;PLACE_TRACKS 21 3;PLACE_TRACKS 20 3",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904148031,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "ec7dd970c917f6f2b071b33bf9ea9b2f6c1ef4e1b2d46cbe8aec32699fe6dfb4",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 6.1687,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 64,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 6 5;PLACE_TRACKS 6 6;PLACE_TRACKS 6 7",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 4.07,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 64,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 6 5;PLACE_TRACKS 6 6;PLACE_TRACKS 6 7",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904148031,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "f425d880eb42f6af824e66c93bd920a8d360dcfbe4a088677e6c1755cb8297fd",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 10.5677,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 13,
+        "routeQueries": 96,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 11 9;PLACE_TRACKS 10 9;PLACE_TRACKS 9 9",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          0,
+          3
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 9.7224,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 13,
+        "routeQueries": 96,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 11 9;PLACE_TRACKS 10 9;PLACE_TRACKS 9 9",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "gameId": 904148031,
+      "outcome": "loss",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "4f8eb28905926e557e8dfa462dc078162542f7ca02bfa0338d2643270ac1d7eb",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 11.6706,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 6 11;PLACE_TRACKS 7 11;PLACE_TRACKS 7 10;DISRUPT 17",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          0,
+          3
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 12.269,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 6 11;PLACE_TRACKS 7 11;PLACE_TRACKS 7 10;DISRUPT 17",
+        "oracleOneTurnScoreDifferenceGain": -3,
+        "oracleIncome": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "gameId": 904148031,
+      "outcome": "loss",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "d42a9e2f8dc1c7128d08a6ad074dae27af62d9163f6e308daacd4cf85e6a4e79",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 15.7275,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 7 7;PLACE_TRACKS 8 7;PLACE_TRACKS 6 11;DISRUPT 17",
+        "oracleOneTurnScoreDifferenceGain": -1,
+        "oracleIncome": [
+          5,
+          6
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 16.1583,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 96,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 7 7;PLACE_TRACKS 8 7;PLACE_TRACKS 6 11;DISRUPT 17",
+        "oracleOneTurnScoreDifferenceGain": -1,
+        "oracleIncome": [
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "gameId": 904148102,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "0d56a10e9a0d8e5209eb2593c537c765ddb8d234c3879cfa3ebf857d14ac72bd",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 28.35,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 20 3;PLACE_TRACKS 19 3;PLACE_TRACKS 19 4",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 12.858,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 20 3;PLACE_TRACKS 19 3;PLACE_TRACKS 19 4",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904148102,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "54da900a46651ddb9da35ebeca4d0e8942f792ce6848efa8f8b18b17d2118406",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 28.7456,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 2,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 13,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 2 14;PLACE_TRACKS 3 14;PLACE_TRACKS 4 14;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -4,
+        "oracleIncome": [
+          0,
+          4
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 24.7522,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 2,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 13,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 2 14;PLACE_TRACKS 3 14;PLACE_TRACKS 4 14;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -4,
+        "oracleIncome": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "gameId": 904148102,
+      "outcome": "loss",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "db6f91733940976a2dceb41012be903ef6afa99fb57daf0eab9f2eb1a2354564",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 27.5517,
+        "quickSlot": 2,
+        "quickPaint": 5,
+        "quickGain": 12,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 18 5;PLACE_TRACKS 17 5;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -4,
+        "oracleIncome": [
+          0,
+          4
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 26.6631,
+        "quickSlot": 2,
+        "quickPaint": 5,
+        "quickGain": 12,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 18 5;PLACE_TRACKS 17 5;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -4,
+        "oracleIncome": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "gameId": 904148102,
+      "outcome": "loss",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "a79c60122ca85ae1e2e26684e289732091f03a540f0e3f3de59de75d0e238c2b",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 29.6965,
+        "quickSlot": 0,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 16 7;PLACE_TRACKS 15 7;DISRUPT 25",
+        "oracleOneTurnScoreDifferenceGain": 20,
+        "oracleIncome": [
+          35,
+          15
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 23.5868,
+        "quickSlot": 0,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 16 7;PLACE_TRACKS 15 7;DISRUPT 25",
+        "oracleOneTurnScoreDifferenceGain": 20,
+        "oracleIncome": [
+          35,
+          15
+        ]
+      }
+    },
+    {
+      "gameId": 904148102,
+      "outcome": "loss",
+      "turn": 4,
+      "me": 0,
+      "stateSha256": "7d5849ada52ba5999ff9d973ff56940f799546f8391d7586820f4e9ed6ab32cb",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 26.4511,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 16 5;PLACE_TRACKS 15 5;DISRUPT 25",
+        "oracleOneTurnScoreDifferenceGain": 22,
+        "oracleIncome": [
+          35,
+          13
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 22.7627,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 5,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 16 5;PLACE_TRACKS 15 5;DISRUPT 25",
+        "oracleOneTurnScoreDifferenceGain": 22,
+        "oracleIncome": [
+          35,
+          13
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "4a84018ff8a68215a04bf3ecdb74d669be7ea0fff3b66432e529c7bf80ccb8f5",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 11.6978,
+        "quickSlot": 3,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 14 5;PLACE_TRACKS 14 6",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 10.0634,
+        "quickSlot": 3,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 14 5;PLACE_TRACKS 14 6",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "acfb342cdce7c2d37bacfadb28b24947b60c5aeba9f19893fa1f257afd0baf20",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 20.1236,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 14 5;PLACE_TRACKS 14 6;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 57.0695,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 14 5;PLACE_TRACKS 14 6;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 2,
+      "me": 0,
+      "stateSha256": "e64fa3fb188a26e6396a0ac52433afabd64937e47b10ca9da9e75c226869b57f",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.1539,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 25 2;PLACE_TRACKS 24 2;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 56.1069,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 3,
+        "action": "PLACE_TRACKS 25 2;PLACE_TRACKS 24 2;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "5446130e995c7d8b24621feca45f55c650e68588151b9b2042670e8a158381c5",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.044,
+        "quickSlot": 3,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 5,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 2 9;PLACE_TRACKS 2 8;PLACE_TRACKS 2 6;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 57.3659,
+        "quickSlot": 3,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 26 3;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -5,
+        "oracleIncome": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 4,
+      "me": 0,
+      "stateSha256": "3d3acaf76fd59c175d69478a2a65f943d8de5afd126e8ecb9bcbb0d639dcc272",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0263,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 5,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 2 7;PLACE_TRACKS 2 5;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -17,
+        "oracleIncome": [
+          0,
+          17
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 49.5462,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 23 12;PLACE_TRACKS 24 12;PLACE_TRACKS 25 12;DISRUPT 41",
+        "oracleOneTurnScoreDifferenceGain": -17,
+        "oracleIncome": [
+          0,
+          17
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 5,
+      "me": 0,
+      "stateSha256": "89128a53bbb3119fbe7de55627cdb75f9c2d0f4ccf24909c22217e8498b52bbb",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0705,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 4,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 2 2;PLACE_TRACKS 2 3;PLACE_TRACKS 2 4;DISRUPT 20",
+        "oracleOneTurnScoreDifferenceGain": -6,
+        "oracleIncome": [
+          11,
+          17
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 69.1752,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 23 12;PLACE_TRACKS 24 12;PLACE_TRACKS 25 12",
+        "oracleOneTurnScoreDifferenceGain": -17,
+        "oracleIncome": [
+          0,
+          17
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 6,
+      "me": 0,
+      "stateSha256": "f585d9da00d589f4647857f44e4df0bee745155d74e96146d1b6a98d745b3be6",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0268,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 4,
+        "routeQueries": 113,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 25 2;PLACE_TRACKS 24 2;DISRUPT 20",
+        "oracleOneTurnScoreDifferenceGain": -17,
+        "oracleIncome": [
+          0,
+          17
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 91.3158,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 25 2;PLACE_TRACKS 24 2;DISRUPT 20",
+        "oracleOneTurnScoreDifferenceGain": -17,
+        "oracleIncome": [
+          0,
+          17
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 7,
+      "me": 0,
+      "stateSha256": "37e24c53bfb7368c79f36debf563eae7cb7bd929b5015e492b6849187bb7d1d4",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0762,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 3,
+        "routeQueries": 106,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 12 12;PLACE_TRACKS 12 10;PLACE_TRACKS 12 8;DISRUPT 20",
+        "oracleOneTurnScoreDifferenceGain": -7,
+        "oracleIncome": [
+          0,
+          7
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 96.5397,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 14 7;PLACE_TRACKS 13 7;PLACE_TRACKS 12 7;DISRUPT 20",
+        "oracleOneTurnScoreDifferenceGain": -7,
+        "oracleIncome": [
+          0,
+          7
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 8,
+      "me": 0,
+      "stateSha256": "5764296a602fd7f9f1338bb057a0e30c6c11daac60d1aaba059fdddaedb86925",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0241,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 2,
+        "routeQueries": 112,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 8 14;PLACE_TRACKS 9 14;PLACE_TRACKS 12 12;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -7,
+        "oracleIncome": [
+          0,
+          7
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 103.1536,
+        "quickSlot": 5,
+        "quickPaint": 5,
+        "quickGain": 2,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 6 12;PLACE_TRACKS 5 12;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -7,
+        "oracleIncome": [
+          0,
+          7
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 9,
+      "me": 0,
+      "stateSha256": "fe1ca32aac7f33954dff2f3955a1a379033ef431dc237b0ebbb997eb70a43187",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0782,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 3,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 8 14;PLACE_TRACKS 9 14;PLACE_TRACKS 12 12;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -33,
+        "oracleIncome": [
+          0,
+          33
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 92.4046,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 8 14;PLACE_TRACKS 9 14;PLACE_TRACKS 13 13;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -33,
+        "oracleIncome": [
+          0,
+          33
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "c652a674f31796d7e866ac77d11c0451221315062f9226ad90aabe42e7de3ab5",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0225,
+        "quickSlot": 2,
+        "quickPaint": 6,
+        "quickGain": 14,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 2,
+        "routeQueries": 93,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 8 13;PLACE_TRACKS 8 12;PLACE_TRACKS 7 12;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -62,
+        "oracleIncome": [
+          0,
+          62
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 111.2827,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 12 10;PLACE_TRACKS 12 9;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -62,
+        "oracleIncome": [
+          0,
+          62
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 11,
+      "me": 0,
+      "stateSha256": "92f124a9d009963ba8d25bdc909c7888b5af241741bebb0128949700836172a8",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.2058,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 2,
+        "routeQueries": 83,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 12 15;PLACE_TRACKS 11 15;PLACE_TRACKS 11 14;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -27,
+        "oracleIncome": [
+          0,
+          27
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 129.2039,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 23 12;PLACE_TRACKS 24 12;PLACE_TRACKS 25 12;DISRUPT 12",
+        "oracleOneTurnScoreDifferenceGain": -27,
+        "oracleIncome": [
+          0,
+          27
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 12,
+      "me": 0,
+      "stateSha256": "d61065355d5174aa6d2410b195d81234bc16af84e6ade937a2bb5c523bc3f00d",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0644,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 2,
+        "routeQueries": 109,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 6 12;PLACE_TRACKS 6 11;PLACE_TRACKS 6 10;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -27,
+        "oracleIncome": [
+          0,
+          27
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 111.6248,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 14 2;PLACE_TRACKS 13 2;PLACE_TRACKS 12 2;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -27,
+        "oracleIncome": [
+          0,
+          27
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 13,
+      "me": 0,
+      "stateSha256": "02f45cabffc879590a9fc8c635ff25da7729394589a771698fb2bd01bf484fea",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0145,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 2,
+        "routeQueries": 89,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 12 15;PLACE_TRACKS 11 15;PLACE_TRACKS 11 14;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -76,
+        "oracleIncome": [
+          0,
+          76
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 143.4055,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 10,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 4,
+        "action": "PLACE_TRACKS 23 2;PLACE_TRACKS 22 2;PLACE_TRACKS 21 2;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -76,
+        "oracleIncome": [
+          0,
+          76
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 14,
+      "me": 0,
+      "stateSha256": "901be57c37cc7467dc4c15e5788ff96aa0bf29588a1bc7f1c7d72e780eed6f71",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0723,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 1,
+        "routeQueries": 72,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 23 2;PLACE_TRACKS 22 2;PLACE_TRACKS 21 2;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -76,
+        "oracleIncome": [
+          0,
+          76
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 163.7974,
+        "quickSlot": 5,
+        "quickPaint": 6,
+        "quickGain": 6,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 21 4;PLACE_TRACKS 22 4",
+        "oracleOneTurnScoreDifferenceGain": -70,
+        "oracleIncome": [
+          3,
+          73
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 15,
+      "me": 0,
+      "stateSha256": "f2526481ee452d23b12d28e883c545f8ad0d2298cc688d9a92d93bdba2d278a4",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.0726,
+        "quickSlot": -1,
+        "quickPaint": 0,
+        "quickGain": 0,
+        "quickExpectedComparisons": 0,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 2,
+        "routeQueries": 43,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 23 2;PLACE_TRACKS 22 2;PLACE_TRACKS 21 2;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": -11,
+        "oracleIncome": [
+          0,
+          11
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 150.233,
+        "quickSlot": 0,
+        "quickPaint": 3,
+        "quickGain": 39,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 19",
+        "oracleOneTurnScoreDifferenceGain": 28,
+        "oracleIncome": [
+          40,
+          12
+        ]
+      }
+    },
+    {
+      "gameId": 904148181,
+      "outcome": "loss",
+      "turn": 16,
+      "me": 0,
+      "stateSha256": "1c88c1886ceb2a6724309811bc98f74ad925aa02792da7447ba09679cdbd0e68",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 36.1266,
+        "quickSlot": 5,
+        "quickPaint": 1,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 0,
+        "selectedQuick": false,
+        "completedComparisons": 1,
+        "routeQueries": 94,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 4",
+        "oracleOneTurnScoreDifferenceGain": -27,
+        "oracleIncome": [
+          16,
+          43
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 129.3455,
+        "quickSlot": 5,
+        "quickPaint": 1,
+        "quickGain": 4,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": false,
+        "completedComparisons": 14,
+        "routeQueries": 128,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 20 3;PLACE_TRACKS 20 2;DISRUPT 4",
+        "oracleOneTurnScoreDifferenceGain": -30,
+        "oracleIncome": [
+          32,
+          62
+        ]
+      }
+    },
+    {
+      "gameId": 904148249,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "9fa9d4be201469c252ec3df4adb47a34e036f377150cf65f9cc196c3d4cdfd97",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 7.0542,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 36,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 14 8",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 7.0707,
+        "quickSlot": 5,
+        "quickPaint": 4,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 36,
+        "selectedRoute": 2,
+        "action": "PLACE_TRACKS 14 8",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904148249,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "18e3f805a92f6322586add7004967e3f1f121aef9eaf441aa6024c33e9910a6d",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 13.1389,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 2,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 11,
+        "routeQueries": 45,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 14 7;PLACE_TRACKS 14 6;PLACE_TRACKS 5 10",
+        "oracleOneTurnScoreDifferenceGain": 2,
+        "oracleIncome": [
+          3,
+          1
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 13.4094,
+        "quickSlot": 5,
+        "quickPaint": 2,
+        "quickGain": 2,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": true,
+        "completedComparisons": 11,
+        "routeQueries": 45,
+        "selectedRoute": 5,
+        "action": "PLACE_TRACKS 14 7;PLACE_TRACKS 14 6;PLACE_TRACKS 5 10",
+        "oracleOneTurnScoreDifferenceGain": 2,
+        "oracleIncome": [
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "gameId": 904148315,
+      "outcome": "loss",
+      "turn": 0,
+      "me": 0,
+      "stateSha256": "73468621343333206a1db3c565c8e6b8615910bdd66657552f0e0a9dbeed508c",
+      "nominal": {
+        "budgetMs": 486,
+        "elapsedMs": 8.304,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 36,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 13 9;PLACE_TRACKS 12 9;PLACE_TRACKS 12 8",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 7.3671,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 1,
+        "quickCompletedComparisons": 1,
+        "selectedQuick": false,
+        "completedComparisons": 7,
+        "routeQueries": 36,
+        "selectedRoute": 0,
+        "action": "PLACE_TRACKS 13 9;PLACE_TRACKS 12 9;PLACE_TRACKS 12 8",
+        "oracleOneTurnScoreDifferenceGain": 0,
+        "oracleIncome": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "gameId": 904148315,
+      "outcome": "loss",
+      "turn": 1,
+      "me": 0,
+      "stateSha256": "0d760dd44307357f6a8700dfbff0d3162ba2b90f15b46fb950fd16eebb5f60bd",
+      "nominal": {
+        "budgetMs": 36,
+        "elapsedMs": 22.9335,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 54,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 11 4;PLACE_TRACKS 11 3;PLACE_TRACKS 11 2;DISRUPT 25",
+        "oracleOneTurnScoreDifferenceGain": 2,
+        "oracleIncome": [
+          2,
+          0
+        ]
+      },
+      "ample": {
+        "budgetMs": 60000,
+        "elapsedMs": 18.7183,
+        "quickSlot": 1,
+        "quickPaint": 3,
+        "quickGain": 3,
+        "quickExpectedComparisons": 2,
+        "quickCompletedComparisons": 2,
+        "selectedQuick": true,
+        "completedComparisons": 14,
+        "routeQueries": 54,
+        "selectedRoute": 1,
+        "action": "PLACE_TRACKS 11 4;PLACE_TRACKS 11 3;PLACE_TRACKS 11 2;DISRUPT 25",
+        "oracleOneTurnScoreDifferenceGain": 2,
+        "oracleIncome": [
+          2,
+          0
+        ]
+      }
+    }
+  ]
+}

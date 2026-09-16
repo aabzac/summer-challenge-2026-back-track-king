@@ -99,6 +99,7 @@ class FrozenParamsTest {
         expected.put("USE_ROLLOUT_QUICK_ROUTE", "false");
         expected.put("USE_ROLLOUT_QUICK_EARLY", "false");
         expected.put("USE_ROLLOUT_QUICK_VALUE", "false");
+        expected.put("USE_ROLLOUT_QUICK_SAFE", "false");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         expected.put("ROLLOUT_REPLIES", "2");
         expected.put("ROLLOUT_DEPTH", "8");

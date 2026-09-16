@@ -24,6 +24,7 @@ class V06PromotionTest {
         expected.put("USE_ROLLOUT_QUICK_ROUTE", "false");
         expected.put("USE_ROLLOUT_QUICK_EARLY", "false");
         expected.put("USE_ROLLOUT_QUICK_VALUE", "false");
+        expected.put("USE_ROLLOUT_QUICK_SAFE", "false");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         for (var spec : new String[]{"current", "main", "v06"})
             assertEquals(expected, BotFactory.configuration(spec), spec);
