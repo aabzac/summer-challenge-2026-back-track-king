@@ -10,10 +10,11 @@ alwaysApply: false
 - New behaviour goes into `btk.bot.current`. Anything tunable is a public field of `btk.bot.Params`
   (default = what ships); expose feature switches as boolean params so ablations run as
   `gradlew bench -Pbot1="current?FLAG=0" -Pbot2=current`.
-- A change is finished only after `gradlew bench -Pbot1=current -Pbot2=v<prev> -Pgames=300 -Pmaps=replays/cg`
-  and a row in `docs/BOTS.md` (win rate with CI, avg score diff). Promote to a new frozen version
-  when A >= 55% and the CI excludes 50%: copy `bot/current` to `bot/vNN`, rename the class with a
-  `VNN` suffix, change `name()` to `"vNN"`, register it in `BotFactory`.
+- Record a paired 300-game screen and a row in `docs/BOTS.md` (win rate with CI, avg score diff).
+  Use the practical 300/1000 direct AND matched common-opponent policy in `AGENTS.md` and
+  `docs/benchmarking.md`; the CI is diagnostic only. Passing checks does not itself authorize
+  changing the selected submission. When promotion is authorized, copy `bot/current` to `bot/vNN`,
+  rename the class with a `VNN` suffix, change `name()` to `"vNN"`, register it in `BotFactory`.
 - Record failed experiments in `docs/DEVLOG.md` too (hypothesis, numbers, why rejected).
 - Before saying a bot is "ready to submit": `gradlew submit` and `gradlew procCheck` must pass with
   zero timeouts.

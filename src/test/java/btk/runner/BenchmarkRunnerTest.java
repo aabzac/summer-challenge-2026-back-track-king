@@ -34,6 +34,29 @@ class BenchmarkRunnerTest {
     @TempDir Path temp;
     record Seen(String bot, int side, String map) {}
 
+    @Test void practicalThresholdsCountDrawsAndRequireCompleteFreshPairs() {
+        var stats = new BenchmarkRunner.Stats("v01", "v02");
+        stats.games = 300; stats.winsA = 179; stats.draws = 2;
+        for (int i = 0; i < 150; i++) stats.gamesPerMap.put("map" + i, 2);
+        assertEquals("PASS_300", stats.practicalDirectStage());
+        assertFalse(stats.promotionGatePassed(), "60% does not pass the historical CI gate");
+        stats.draws = 1;
+        assertEquals("NEEDS_FRESH_1000", stats.practicalDirectStage());
+        stats.games = 1000; stats.winsA = 549; stats.draws = 2;
+        for (int i = 150; i < 500; i++) stats.gamesPerMap.put("map" + i, 2);
+        assertEquals("PASS_1000", stats.practicalDirectStage());
+        stats.draws = 1;
+        assertEquals("NOT_PASSED", stats.practicalDirectStage());
+        stats.gamesPerMap.remove("map499"); stats.gamesPerMap.put("map0", 4);
+        assertEquals("INVALID_MAP_COVERAGE", stats.practicalDirectStage());
+        stats.errorsB = 1;
+        assertEquals("INVALID_ERRORS", stats.practicalDirectStage());
+        stats.errorsB = 0; stats.timingProfile = TimingProfile.LEGACY;
+        assertEquals("INVALID_TIMING", stats.practicalDirectStage());
+        stats.games = 1300;
+        assertEquals("NOT_APPLICABLE", stats.practicalDirectStage());
+    }
+
     @Test
     void bothSidesActuallyReceiveTheSameGeneratedMapsWithFreshBots() throws Exception {
         var seen = new ConcurrentLinkedQueue<Seen>();

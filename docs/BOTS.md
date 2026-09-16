@@ -1,7 +1,11 @@
 # Bot versions
 
-Gate: A vs previous >= 55% on >= 200 games (two sides on each map), map-grouped 95% CI excluding
-50%, no bot errors. Process timing and an older opponent remain separate promotion checks.
+Active strength policy (2026-09-16): **practical-300-1000-v1**. Direct 300 games at >=60%,
+otherwise separate fresh 1000 at >=55%; then matched candidate/control vs a common opponent,
+300 each at >=+3 percentage points, otherwise fresh 1000 each at a nonnegative difference.
+CI is diagnostic only; no overall 95% guarantee. Both stages, zero bot errors, engine fidelity
+and exact-artifact process checks are required. See [benchmarking.md](benchmarking.md).
+Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v06**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
 v06 was selected on 2026-09-16 at the user's request after fixed 2x1000 confirmation:
@@ -631,3 +635,20 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   903509641, P0 turn 53; consumer resumed at 56.2206 ms. The other seven games passed.
   This does not establish CG-host timeout frequency or prove a JIT/GC cause. Profile large-map
   work and first-turn headroom before the next strategy experiment; source/artifact unchanged.
+
+
+## Quick-income reevaluation under practical-300-1000-v1 (2026-09-16)
+
+- User explicitly adopted a new practical policy and applied it to the unchanged latest
+  candidate, `current?USE_ROLLOUT_QUICK_ROUTE=1`. Historical verdicts above remain intact.
+- Reused 300-game screen: **160-134-6, 54.33%**, below the new 60% fast-pass threshold.
+- Separate fresh direct continuation vs **v06**: **525-465-10, 53.00%**, **1000 games / 500
+  distinct paired maps**, seeds 42000..42499, CG 486/36-ms budgets, two workers, zero errors.
+  New practical threshold **55% not met**; descriptive CI **46.93-59.07%** is not the gate.
+- Common-opponent comparisons vs v05 **skipped after direct failure**, as predeclared. No
+  reinterpretation of the old unmatched 62% as evidence of improvement over current.
+- **Not promoted; v06 selected, quick-route flag false.** All 39 original class hashes and
+  full parameters match; 4324 older map identities excluded. Strategy/Player unchanged.
+  Search maxima A/B 85/97 ms, slow moves 3/5, retained; no new process-readiness claim.
+- 226 Java tests, six Python checker tests, installed skill valid, 264/264 arena replays exact.
+  Protocol, results and durable evidence: [quick-income-practical-v1.md](quick-income-practical-v1.md).

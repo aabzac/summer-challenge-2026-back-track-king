@@ -13,6 +13,9 @@ build/
 *.class
 hs_err_pid*
 
+# Python report tools
+__pycache__/
+
 # OS
 .DS_Store
 Thumbs.db

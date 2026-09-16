@@ -102,12 +102,52 @@ Core rules and shared utilities remain shared. A parameter snapshot is not an ar
 the whole executable; retain the code revision along with reports when comparing across changes
 to the engine or runtime.
 
+## Active practical selection policy (2026-09-16)
+
+The user adopted **practical-300-1000-v1**, replacing the strict CI promotion gate. Freeze
+candidate A, selected control B, common older/style opponent C and all settings before play.
+Draws count as half a win. Every map is played with both sides; all stages use distinct fresh
+maps and nominal CG timing. Keep stages separate and complete them regardless of running score.
+
+1. **Direct screen:** A vs B, exactly 300 games / 150 maps. Score >=60% passes this stage.
+2. Otherwise **direct continuation:** separate 1000 games / 500 new maps. Score >=55% in these
+   1000 alone passes; otherwise stop promotion evaluation. Never pool the first 300 with these.
+3. After direct success, **matched common-opponent screen:** A vs C and B vs C, 300 games each
+   on the SAME new 150 maps, seeds and sides, with matching C parameters, timing and workers.
+   Compare map-level paired scores. Candidate-control advantage >=3 percentage points passes.
+4. Otherwise **matched continuation:** A vs C and B vs C, 1000 games each on the SAME separate
+   new 500 maps. Candidate score >= control score in this larger sample alone passes; ties pass.
+   A loss stops evaluation. Preserve the candidate and all evidence; no automatic retries.
+
+Both strength stages are required. The 3-point threshold is a practical cutoff, not an error
+margin. This policy has **no overall 95% statistical guarantee**; confidence intervals remain
+descriptive diagnostics. Do not tune candidates, change methods, or extend sample sizes between
+stages. Predeclare all pools and branches. Error-free benches, engine fidelity and strict process
+checks of the exact submission are still required; a strength pass is not authorization to
+promote or upload. Stage provenance and complete matching must be checked outside a single report.
+
+Explicitly requested retrospective adoption may reuse an existing 300-game screen only after
+verifying the unchanged strategy and complete parameters. Keep its old verdict and label the
+policy change; subsequent stages must be new. Do not reuse unmatched historical percentages
+for the common-opponent comparison. First application: [quick-income-practical-v1.md](quick-income-practical-v1.md).
+
+Evaluate saved stages with `python tools/practical_gate.py --screen <300-game-report>`.
+Add `--direct <1000-game-report>` when required; then `--style-candidate` and `--style-control`
+for the matched 300-game reports, and `--full-candidate` / `--full-control` for the conditional
+matched 1000-game reports. `--out <new-file.json>` writes compact evidence without overwriting.
+The checker validates complete per-side outcomes, distinct/fresh maps between stages, exact
+thresholds, unchanged parameters, matching map seeds and timing/worker/Java conditions. It
+reports the next required stage or the strength verdict, never process readiness or promotion.
+Source/class identity and disjointness from all older experiments still require the experiment
+manifest and benchmark exclusions. Test the checker with
+`python -m unittest discover -s tools -p test_practical_gate.py`.
+
 ## Reports and uncertainty
 
 `-Pout=build/bench/current-v03.json` chooses the report path. Otherwise each run writes
 `build/bench/bench_<timestamp>.json`. Reports contain the requested specs, full resolved parameter
 values, Java version, thread count, seed range start, map source, every pair's map hash and both
-games' scores/errors/timing, plus aggregates and the statistical gate decision. Scores within
+games' scores/errors/timing, plus aggregates and decision diagnostics. Scores within
 each game's result are indexed by player position P0/P1.
 
 Draws count as half a win. Both games on a map, and any repeated visits to the same map, are
@@ -126,14 +166,18 @@ This bound assumes independent representative map groups; it cannot compensate f
 unrepresentative opponent or map selection. The former per-game Wilson interval remains in the
 text report for historical comparison and does not control promotion.
 
-The statistical gate requires at least 200 games, A's win rate >=55%, the map-grouped lower bound
-above 50%, and no bot errors. Passing it does not replace the older-opponent and process-timing
-checks from `AGENTS.md`. The benchmark saves its report and exits unsuccessfully on bot errors;
-a statistically inconclusive run is a successful measurement, not a command failure.
+The historical `promotionGatePassed` field is retained for report compatibility: it tests the
+OLD >=200 games, score >=55%, CI lower bound >50%, zero-error rule. It is explicitly marked
+diagnostic-only by `promotionGateRole` and the console. The active policy id is `promotionPolicy`.
+`practicalDirectStage` checks only the 300/1000 direct-size threshold, complete distinct map pairs,
+CG timing and errors; it cannot validate prior-stage provenance or a common-opponent comparison.
+Never treat either single-report field as a full promotion decision. The benchmark saves its
+report and exits unsuccessfully on bot errors; a failed strength threshold is a successful
+measurement, not a command failure.
 
-The two thresholds serve different purposes: 55% is a chosen minimum observed effect, whereas
-the confidence bound is protection against sampling noise. With 300 games on 150 distinct maps,
-the current distribution-free bound is about +/-11.1 percentage points: the effective passing
+Under the historical policy, 55% was a chosen minimum observed effect, whereas
+the confidence bound protected against sampling noise. With 300 games on 150 distinct maps,
+the distribution-free bound is about +/-11.1 percentage points: the old effective passing
 rate is therefore above 61.1%, not merely 55%. Lowering only the 55% threshold would not rescue
 a 54.3% result with a [43.2%, 65.4%] interval. An inconclusive result is not proof of no benefit.
 The bound is deliberately conservative and does not use the observed map-level variance.
@@ -141,8 +185,8 @@ The bound is deliberately conservative and does not use the observed map-level v
 A comparison through a common opponent must rerun both candidates with the same maps, sides,
 opponent parameters and timing profile. Compare matched map results, not unrelated historical
 percentages. Doing better against v03 does not imply winning head-to-head against v04 or doing
-better against the arena population. A different interval method or acceptance policy should
-be chosen before the next confirmation experiment, not selected to make a completed run pass.
+better against the arena population. Choose the policy before fresh evaluation. An explicit
+user-directed policy change does not retroactively turn an old failure into independent proof.
 
 `cgValidate` now fails the command on any divergence, malformed replay or empty input. This
 allows a failed fidelity check to stop a scripted sequence instead of merely printing a warning.

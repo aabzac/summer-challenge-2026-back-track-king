@@ -263,8 +263,17 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       Final artifact and exact results: quick-income-experiment.md.
 - [ ] Diagnose quick-route selection and value on fixed shared pre-turn states: distinguish
       candidate availability, complete timed scenario coverage and eventual choice; include wins
-      and losses, known-state predictions versus recorded-action counterfactuals. No further
-      parameter search or confirmation until the mechanism is understood.
+      and losses, known-state predictions versus recorded-action counterfactuals. No parameter
+      search yet. The subsequent user-requested practical-policy evaluation below authorizes
+      fresh confirmation of the unchanged candidate before that optional mechanism study.
+
+- [x] Adopt practical-300-1000-v1 in the contest skill, project rules and report labels:
+      direct 300/60% or fresh 1000/55%, then matched common-opponent 300/+3 points or fresh
+      1000/nonnegative difference. CI is diagnostic; no overall 95% guarantee.
+- [x] Apply practical-300-1000-v1 to unchanged quick-income: reused screen 54.33%; fresh
+      1000 vs v06 = **525-465-10, 53.00%**, below 55%. Direct failure stops the rule;
+      matched v05 stages skipped, no promotion, v06/Player unchanged. 226 Java + six Python
+      tests pass, skill valid, 264/264 arena replays exact. See quick-income-practical-v1.md.
 
 - [ ] Fix ProcessCheck map/side scheduling: current map index `i` and player `i%2` repeat the
       same side for even-sized map pools. Use paired map selection with a regression test; audit

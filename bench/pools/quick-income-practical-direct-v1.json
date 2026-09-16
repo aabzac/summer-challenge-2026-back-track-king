@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-income-practical-direct-v1",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 42000,
+  "pairs": 500
+}

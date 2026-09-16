@@ -12,10 +12,14 @@ finished.
 2. **Engine fidelity before strategy.** After any `btk.core` change run `gradlew cgValidate`. Local
    benches are only trusted while the engine reproduces downloaded CG games. When the local bench
    and the CG arena disagree, run `cgValidate` first, then form hypotheses.
-3. **One change, one version, one bench.** A strategy change is done only when `gradlew bench`
-   against the previous version (>= 200 games, sides swapped) is recorded in `docs/BOTS.md`.
-   Gate to promote: A wins >= 55% and the 95% CI excludes 50%. Also spot-check against an older
-   version to catch non-transitive "improvements".
+3. **One change, one version, one bench.** Record every experiment in `docs/BOTS.md`.
+   Practical strength gate: candidate vs selected control, 300 paired games at >=60%; otherwise
+   a separate 1000 fresh games at >=55%. Then candidate AND control vs the same older/style bot
+   on matched fresh maps: 300 games each, candidate advantage >=3 percentage points; otherwise
+   separate matched 1000 each, candidate score >= control score (ties pass). Draws count half.
+   Fixed complete stages, no tuning/retries/pooling; stop promotion evaluation on direct failure.
+   Confidence intervals are diagnostics, not a gate or an overall 95% guarantee. Follow
+   `docs/benchmarking.md`; engine, errors and exact-artifact process checks remain mandatory.
 4. **Parameters, not file copies.** All weights/flags are fields of `btk.bot.Params`; ablations are
    run as `current?KEY=value` bot specs. Never edit `btk.bot.vNN` packages — they are frozen
    reference opponents. New version = copy `bot/current` to `bot/vNN`, rename classes, register in

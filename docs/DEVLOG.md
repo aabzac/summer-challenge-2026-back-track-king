@@ -2736,3 +2736,54 @@ Completed outcome (fixed sample, no retuning):
   Both supplemental reports and protocol preserved. README/PLAN warn about checker scheduling;
   BenchmarkRunner's 500 strength games already paired correctly. Final Player restored to the
   same default-off hash, no policy changes after benchmark.
+
+
+## 2026-09-16 - adopt practical-300-1000-v1 at the user's request
+
+- User selected fixed practical stages instead of the old strict confidence gate: direct
+  300 games at >=60%, otherwise separate fresh 1000 at >=55%; then matched candidate/control
+  vs one common older/style opponent, 300 each at >=+3 percentage points, otherwise fresh
+  1000 each at a nonnegative candidate-control difference. Draws count half; ties pass only
+  the final matched comparison. Stop promotion evaluation on direct failure.
+- Updated the user skill codingame-bot-contest (entrypoint and benchmarking reference),
+  AGENTS, the strategy rule, README, BOTS header, PLAN and benchmark documentation. The
+  historical strict-CI verdict remains in old evidence and as a labelled report diagnostic;
+  it no longer controls the active policy. No overall 95% guarantee is claimed.
+- Added exact half-win thresholds to the benchmark report and a separate report checker for
+  complete stage outcomes, unchanged parameters/conditions, distinct maps, matched seeds,
+  fresh continuations and all stopping branches. Neither tool promotes a bot or uploads.
+- Verification: 226 Java tests pass, six Python report-checker tests pass, installed skill
+  passes quick_validate; 264/264 arena replays exact. Initial validation needed access to
+  the existing Gradle cache and Python temporary files plus a build-local PyYAML dependency;
+  those environment issues were resolved before declaring validation successful.
+- Applying the rule to the latest quick-income candidate is explicitly retrospective for its
+  old 300-game screen (54.33%); the old verdict is preserved. The complete continuation
+  protocol, new pools and original 39 strategy-class hashes were captured before new games.
+  No strategy, parameter, core, frozen version or submission change. Results follow below.
+
+
+## 2026-09-16 - quick-income practical-policy continuation, not promoted
+
+- **Question:** does unchanged quick-income pass the newly adopted practical policy on a
+  larger fresh sample? User explicitly requested applying the policy to this existing candidate.
+  Reused original screen 160-134-6 (54.33%) routes to 1000; old strict-gate verdict preserved.
+- **Protocol before new games:** quick-income-practical-v1.md and immutable launch snapshot.
+  Candidate/source/Params unchanged, 39 old class hashes verified. CG budgets 486/36 ms,
+  two workers, RNG SEED=1; 500 new map pairs, seeds 42000..42499, exclude all 4324 prior hashes.
+- **Result:** 525-465-10, **53.00%**, zero errors, **55% threshold not met**. All 1000 completed
+  once in 1704.1 s. CI 46.93-59.07% is descriptive only. A P0/P1 wins 269/500 and 256/500;
+  mean score difference +67.8, game length 91.6. Search mean A/B 18.20/18.17 ms, max 85/97,
+  slow moves 3/5. No failed or slow games discarded and no cause assigned to timing outliers.
+- **Decision:** stop at direct failure; conditional matched 300/1000 vs v05 not run. Those
+  pools and confirmation-v4 remain untouched. Preserve the candidate for possible mechanism
+  work; no tuning, second attempt, new version, promotion or arena upload in this evaluation.
+  A sub-threshold result is not proof of no smaller benefit. Selected v06 and default-off
+  Player unchanged; source SHA 5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266.
+- **Verification:** 226 Java tests, six Python checker tests, skill validator pass,
+  264/264 arena replays exact. The report checker independently reconstructs every outcome,
+  verifies stage disjointness and complete parameter/condition equality, and returns
+  NOT_PASSED / SKIPPED_DIRECT_FAILURE. All source and class identities rechecked after play.
+- **Evidence:** full direct report `build/bench/quick-income-practical-v1/direct-1000.json`, SHA `ea15ba58a19630573bdd8b118516fbfe893543e6257185374fd49fda25017780`;
+  durable `docs/evidence/quick-income-practical-v1.json`, SHA `8a42e2b114983372435512f3f1b0ae5f4877c6086090c033bd4288a66d604e11`. Includes both
+  screen and continuation per-side results, parameters, all prior map hashes, pre-run protocol,
+  source/class identities and exact decision. Commit completed evaluation under AGENTS rule 8.

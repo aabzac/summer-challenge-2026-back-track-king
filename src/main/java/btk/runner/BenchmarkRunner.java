@@ -139,9 +139,23 @@ public final class BenchmarkRunner {
             return confidence(rateA(), games, gamesPerMap);
         }
 
+        /** Historical strict gate, retained for report compatibility; no longer a promotion decision. */
         public boolean promotionGatePassed() {
             return games >= 200 && errorsA == 0 && errorsB == 0
                     && rateA() >= 0.55 && confidence95()[0] > 0.5;
+        }
+
+        /** Direct-stage threshold only. Protocol provenance, common opponent and process checks are separate. */
+        public String practicalDirectStage() {
+            if (errorsA != 0 || errorsB != 0) return "INVALID_ERRORS";
+            if (games != 300 && games != 1000) return "NOT_APPLICABLE";
+            if (timingProfile != TimingProfile.CG) return "INVALID_TIMING";
+            if (gamesPerMap.size() != games / 2 || gamesPerMap.values().stream().anyMatch(n -> n != 2))
+                return "INVALID_MAP_COVERAGE";
+            // Integer half-win units avoid floating-point ambiguity at exact thresholds.
+            int halfWins = 2 * winsA + draws;
+            if (games == 300) return halfWins >= 360 ? "PASS_300" : "NEEDS_FRESH_1000";
+            return halfWins >= 1100 ? "PASS_1000" : "NOT_PASSED";
         }
 
         public String report() {
@@ -164,8 +178,9 @@ public final class BenchmarkRunner {
                     avg(sumMsA), maxMsA, slowA, avg(sumMsB), maxMsB, slowB));
             if (errorsA + errorsB > 0) sb.append(String.format("  ERRORS: A %d, B %d%n", errorsA, errorsB));
             for (String note : notes) sb.append("  ").append(note).append('\n');
-            sb.append("  statistical promotion gate: ").append(promotionGatePassed() ? "PASS" : "NOT PASSED").append('\n');
-            sb.append("  Process timing and an older opponent still need separate checks.\n");
+            sb.append("  historical strict CI gate (diagnostic only): ").append(promotionGatePassed() ? "PASS" : "NOT PASSED").append('\n');
+            sb.append("  practical direct-size threshold: ").append(practicalDirectStage()).append('\n');
+            sb.append("  This single report is not a promotion decision: fixed-stage provenance, matched common-opponent and process checks are separate.\n");
             sb.append(String.format("  accepted disrupt A/B: %.1f%% / %.1f%%; early closures %d/%d%n",
                     100 * behavior.disruptRate[0], 100 * behavior.disruptRate[1], behavior.closedEarly, games));
             sb.append("  Height slices (exploratory pointwise intervals; no per-slice promotion):\n");
@@ -184,6 +199,9 @@ public final class BenchmarkRunner {
             json.addProperty("confidenceMethod", "map-grouped Hoeffding 95%; assumes independent representative maps");
             json.add("confidence95", gson.toJsonTree(confidence95()));
             json.addProperty("promotionGatePassed", promotionGatePassed());
+            json.addProperty("promotionGateRole", "historical strict CI diagnostic only; not the active policy");
+            json.addProperty("promotionPolicy", "practical-300-1000-v1");
+            json.addProperty("practicalDirectStage", practicalDirectStage());
             Files.writeString(file, gson.toJson(json));
         }
 
