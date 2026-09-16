@@ -18,6 +18,7 @@ public class Params {
     // Experimental single-slot early-income diversity; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = false;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;
+    public boolean USE_ROLLOUT_QUICK_EARLY = false;
     public int ROLLOUT_WIDTH = 6;
     public int ROLLOUT_REPLIES = 2;
     public int ROLLOUT_DEPTH = 8;

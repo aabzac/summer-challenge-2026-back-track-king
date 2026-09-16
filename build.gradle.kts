@@ -218,6 +218,15 @@ tasks.register<JavaExec>("cgRolloutBossProbe") {
         prop("out", "build/analysis/boss-v06-losses-v2/rollout-probe.json"))
 }
 
+tasks.register<JavaExec>("quickRouteStudy") {
+    group = "cg"
+    description = "Quick-income route coverage and recorded-state diagnostics (not strength)"
+    mainClass.set("btk.tools.QuickRouteStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
+        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1"), prop("out", "build/analysis/quick-route-study.json"))
+}
+
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */
 tasks.register<JavaExec>("procCheck") {
     group = "game"

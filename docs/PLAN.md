@@ -284,6 +284,12 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       >52% and <60% receives fresh 1000, >=60% passes directly. Updated skill, rules,
       report/checker and boundary tests. Historical quick-income verdict unchanged; no new bench.
 
+- [x] Try quick follow-up 1 (earlier complete comparison): 55.67%/300 then 49.70%/1000,
+      NOT PASSED. 227 tests, 264 exact replays; all standby-paused games retained.
+      See quick-income-followups.md for fixed protocol, 77-state coverage study and limitations.
+- [ ] Try quick follow-up 2: income per actual construction turn, independently from original.
+- [ ] Try quick follow-up 3: survival filter against predicted threat, independently from original.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

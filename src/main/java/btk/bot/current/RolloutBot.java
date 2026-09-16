@@ -33,7 +33,7 @@ public final class RolloutBot implements Bot {
     private int[] rootCounts, rootTargets;
     private Random random;
     private int[] quickPath;
-    private int quickPlayer, quickLength, quickCost, quickGain;
+    private int quickPlayer, quickLength, quickCost, quickGain, quickSlot;
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
 
@@ -81,6 +81,7 @@ public final class RolloutBot implements Bot {
         routeQueries = completedComparisons = simulatedTurns = 0;
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
+        quickSlot = -1;
         if (budgetMs <= 0) return List.of(Action.waitAction());
         Arrays.fill(counts, 0);
         // A usable sabotage answer exists before route enumeration and all speculative work.
@@ -126,7 +127,8 @@ public final class RolloutBot implements Bot {
         double best = -Double.MAX_VALUE;
         int replies = Math.max(1, Math.min(p.ROLLOUT_REPLIES, counts[1 - me]));
         search:
-        for (int root = 0; root < rootSize; root++) {
+        for (int order = 0; order < rootSize; order++) {
+            int root = searchRoot(order);
             boolean duplicate = false;
             for (int j = 0; j < root; j++) {
                 if (sameSet(roots[root], rootCounts[root], roots[j], rootCounts[j])) duplicate = true;
@@ -238,8 +240,16 @@ public final class RolloutBot implements Bot {
         }
         System.arraycopy(quickPath, 0, routes[me][slot], 0, quickLength);
         lengths[me][slot] = quickLength;
+        quickSlot = slot;
         // Values are only used during proposal insertion, which has finished.
         values[me][slot] = 0;
+    }
+
+    /** Keep the ordinary first comparison/fallback, then evaluate quick income before other roots. */
+    private int searchRoot(int order) {
+        if (!p.USE_ROLLOUT_QUICK_EARLY || quickSlot <= 0) return order;
+        if (order == 1) return quickSlot;
+        return order > 1 && order <= quickSlot ? order - 1 : order;
     }
 
     /** Pack real paint costs, including leftovers across projects; never mutate the pre-turn board. */

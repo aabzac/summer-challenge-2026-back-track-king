@@ -97,6 +97,7 @@ class FrozenParamsTest {
         expected.put("USE_ROLLOUT_POLICY", "false"); // Independent policy; v05 ignores these fields.
         expected.put("ROLLOUT_WIDTH", "6");
         expected.put("USE_ROLLOUT_QUICK_ROUTE", "false");
+        expected.put("USE_ROLLOUT_QUICK_EARLY", "false");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         expected.put("ROLLOUT_REPLIES", "2");
         expected.put("ROLLOUT_DEPTH", "8");

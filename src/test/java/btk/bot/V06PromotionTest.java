@@ -22,6 +22,7 @@ class V06PromotionTest {
         for (var key : record.stringPropertyNames()) expected.put(key, record.getProperty(key));
         // Post-v06 fields are inactive and absent from the immutable confirmation record.
         expected.put("USE_ROLLOUT_QUICK_ROUTE", "false");
+        expected.put("USE_ROLLOUT_QUICK_EARLY", "false");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         for (var spec : new String[]{"current", "main", "v06"})
             assertEquals(expected, BotFactory.configuration(spec), spec);

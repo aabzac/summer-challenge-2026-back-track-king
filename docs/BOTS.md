@@ -652,3 +652,22 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   Search maxima A/B 85/97 ms, slow moves 3/5, retained; no new process-readiness claim.
 - 226 Java tests, six Python checker tests, installed skill valid, 264/264 arena replays exact.
   Protocol, results and durable evidence: [quick-income-practical-v1.md](quick-income-practical-v1.md).
+
+
+## 2026-09-16 - quick-followup-early-v1, not promoted
+
+- User requested all three quick-income follow-ups in order; independent variants, fixed v06
+  control and v05 common opponent. Protocol: docs/quick-income-followups.md, practical v2.
+- Hypothesis: quick root in last slot may miss complete comparisons. Default-off EARLY flag
+  compares it after root zero, preserving portfolio, continuations, widths and fallback.
+- Shared-state diagnostic: 77 positions from wins AND losses; nominal full quick coverage
+  original/early 53/61, selected 14/21. Fresh NOISE=0 instances, not original arena timing.
+- Screen 300: 164-130-6, 55.67%; fresh 1000: 489-495-16, 49.70%. Zero bot errors.
+  NOT PASSED; no matched v05 stages, retry, promotion, upload or process readiness claim.
+- Windows Modern Standby interrupted both series (maxima up to 266542 ms), independently
+  confirmed by Kernel-Power events. All games preserved. Temporary system sleep inhibition
+  started during continuation; insufficient on battery, replaced by a task-scoped system AND
+  display request after the series. No global power-setting change. Timing is limited evidence.
+- 227 tests pass; 264/264 replay validation exact. Recorded source/class identities unchanged.
+  Durable full per-map evidence and diagnosis: docs/evidence/quick-followup-early-*.json.
+- Commit this completed experiment before activating value; all experiment defaults remain off.

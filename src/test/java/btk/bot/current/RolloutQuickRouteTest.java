@@ -10,6 +10,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RolloutQuickRouteTest {
+    @Test void earlyComparisonVisitsEveryRootOnceAndPreservesFirstFallback() throws Exception {
+        for (boolean enabled : new boolean[]{false, true}) for (int slot = -1; slot < 6; slot++) {
+            var p = new Params(); p.USE_ROLLOUT_QUICK_EARLY = enabled;
+            var b = new RolloutBot(p);
+            var f = RolloutBot.class.getDeclaredField("quickSlot"); f.setAccessible(true); f.set(b, slot);
+            var m = RolloutBot.class.getDeclaredMethod("searchRoot", int.class); m.setAccessible(true);
+            int[] order = new int[7];
+            for (int i = 0; i < 7; i++) order[i] = (int) m.invoke(b, i);
+            assertEquals(0, order[0]);
+            if (enabled && slot > 0) assertEquals(slot, order[1]);
+            else assertArrayEquals(new int[]{0,1,2,3,4,5,6}, order);
+            java.util.Arrays.sort(order); assertArrayEquals(new int[]{0,1,2,3,4,5,6}, order);
+        }
+    }
     private static Object field(RolloutBot bot, String name) throws Exception {
         var f = RolloutBot.class.getDeclaredField(name); f.setAccessible(true); return f.get(bot);
     }

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-followup-safe-v1-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 120000,
+  "pairs": 150
+}

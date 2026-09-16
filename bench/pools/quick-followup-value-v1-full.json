@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-followup-value-v1-full",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 113000,
+  "pairs": 500
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-followup-safe-v1-direct",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 121000,
+  "pairs": 500
+}
