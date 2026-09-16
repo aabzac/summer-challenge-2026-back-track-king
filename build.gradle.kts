@@ -218,6 +218,15 @@ tasks.register<JavaExec>("cgRolloutBossProbe") {
         prop("out", "build/analysis/boss-v06-losses-v2/rollout-probe.json"))
 }
 
+tasks.register<JavaExec>("rolloutFollowupStudy") {
+    group = "cg"
+    description = "Shared-state diagnostics for independent rollout follow-ups (not strength)"
+    mainClass.set("btk.tools.RolloutFollowupStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
+        prop("bot", "current?USE_ROLLOUT_DIVERSE_REPLIES=1"), prop("out", "build/analysis/rollout-followup-study.json"))
+}
+
 tasks.register<JavaExec>("quickRouteStudy") {
     group = "cg"
     description = "Quick-income route coverage and recorded-state diagnostics (not strength)"

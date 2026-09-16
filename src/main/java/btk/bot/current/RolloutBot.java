@@ -31,6 +31,7 @@ public final class RolloutBot implements Bot {
     private double[] priority;
     private int[][] roots;
     private int[] rootCounts, rootTargets;
+    private int[] replyRoutes;
     private Random random;
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain, quickSlot;
@@ -75,6 +76,7 @@ public final class RolloutBot implements Bot {
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
+        if (p.USE_ROLLOUT_DIVERSE_REPLIES) replyRoutes = new int[p.ROLLOUT_REPLIES];
     }
 
     public List<Action> play(GameState s, int me, long budgetMs) {
@@ -128,6 +130,7 @@ public final class RolloutBot implements Bot {
         selectedRoute = counts[me] == 0 ? -1 : 0;
         double best = -Double.MAX_VALUE;
         int replies = Math.max(1, Math.min(p.ROLLOUT_REPLIES, counts[1 - me]));
+        if (p.USE_ROLLOUT_DIVERSE_REPLIES) selectReplyRoutes(1 - me, replies);
         search:
         for (int order = 0; order < rootSize; order++) {
             int root = searchRoot(order);
@@ -141,7 +144,8 @@ public final class RolloutBot implements Bot {
                 if (attack == 1 && rootTargets[root] < 0) continue;
                 double sum = 0, worst = Double.MAX_VALUE;
                 for (int reply = 0; reply < replies; reply++) {
-                    double value = rollout(s, me, root, target, reply);
+                    double value = rollout(s, me, root, target,
+                            p.USE_ROLLOUT_DIVERSE_REPLIES ? replyRoutes[reply] : reply);
                     if (!Double.isFinite(value)) break search; // discard ALL partial scenario coverage
                     sum += value; worst = Math.min(worst, value);
                 }
@@ -160,6 +164,44 @@ public final class RolloutBot implements Bot {
         if (selectedTarget >= 0) actions.add(Action.disrupt(selectedTarget));
         if (actions.isEmpty()) actions.add(Action.waitAction());
         return actions;
+    }
+
+    /** Keep scenario count fixed, preferring another project over its reverse construction. */
+    private void selectReplyRoutes(int enemy, int replies) {
+        replyRoutes[0] = 0;
+        for (int slot = 1; slot < replies; slot++) {
+            int chosen = -1;
+            for (int mode = 0; mode < 3 && chosen < 0; mode++) {
+                for (int route = 1; route < counts[enemy]; route++) {
+                    boolean distinct = true;
+                    for (int j = 0; j < slot; j++) {
+                        int previous = replyRoutes[j];
+                        if (route == previous || mode == 0 && sameProject(enemy, route, previous)
+                                || mode == 1 && sameCorridor(enemy, route, previous)) distinct = false;
+                    }
+                    if (distinct) { chosen = route; break; }
+                }
+            }
+            replyRoutes[slot] = chosen;
+        }
+    }
+
+    private boolean sameProject(int player, int a, int b) {
+        int[] x = routes[player][a], y = routes[player][b];
+        int xn = lengths[player][a], yn = lengths[player][b];
+        return x[0] == y[0] && x[xn - 1] == y[yn - 1]
+                || x[0] == y[yn - 1] && x[xn - 1] == y[0];
+    }
+
+    private boolean sameCorridor(int player, int a, int b) {
+        int n = lengths[player][a];
+        if (n != lengths[player][b]) return false;
+        boolean forward = true, reverse = true;
+        for (int i = 0; i < n; i++) {
+            if (routes[player][a][i] != routes[player][b][i]) forward = false;
+            if (routes[player][a][i] != routes[player][b][n - 1 - i]) reverse = false;
+        }
+        return forward || reverse;
     }
 
     private void propose(GameState s, int me, int pair, int variant) {

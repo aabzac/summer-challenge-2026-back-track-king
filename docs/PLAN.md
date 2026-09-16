@@ -298,3 +298,11 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena
 - Remove the now-redundant `tools/CgInkStudy.java` when doing a tooling cleanup
 - Automated paste channel into the CG IDE (Cursor browser blocks file:// and localhost fetch)
+
+## Independent rollout follow-ups (registered 2026-09-16)
+
+- [x] Diverse opponent projects: 151-148-1 / 300 = 50.50%; STOP_SCREEN_300, flag OFF.
+- [ ] Reconsider own continuation after four forecast turns; independent gate.
+- [ ] Extra sabotage target for selected construction; independent gate.
+
+See docs/rollout-followups.md for frozen variants, pools and conditional stages.

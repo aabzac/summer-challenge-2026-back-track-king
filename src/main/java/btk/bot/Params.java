@@ -21,6 +21,7 @@ public class Params {
     public boolean USE_ROLLOUT_QUICK_EARLY = false;
     public boolean USE_ROLLOUT_QUICK_VALUE = false;
     public boolean USE_ROLLOUT_QUICK_SAFE = false;
+    public boolean USE_ROLLOUT_DIVERSE_REPLIES = false;
     public int ROLLOUT_WIDTH = 6;
     public int ROLLOUT_REPLIES = 2;
     public int ROLLOUT_DEPTH = 8;

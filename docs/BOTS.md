@@ -707,3 +707,18 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   Host events/request timestamps retained in docs/evidence/quick-followups-host-timing-v1.json.
 - Reports/protocol: docs/quick-income-followups.md; complete per-map evidence and parameters in
   docs/evidence/quick-followup-safe-v1.json. Commit final completed experiment under AGENTS #8.
+
+## 2026-09-16 - rollout-followup-diverse-v1
+
+- Independent default-off diverse replies: choose another retained town connection before a
+  reverse route, then a different corridor; same reply count, depth and path-query bounds.
+- 133 recorded states: ample same-town-pair replies 91/101 -> 10/101, unchanged 1187 complete
+  comparisons and 13753 queries, 23 changed actions. Mechanism evidence only.
+- Fresh 300 paired games, seeds 130000..130149: 151-148-1 = 50.50%, zero errors.
+  STOP_SCREEN_300 under practical-300-1000-v2. No 1000, common-opponent stage or retry.
+  Search maxima A/B 59/45 ms, slow 1/0; elapsed 574.6 seconds. No process-readiness claim.
+- 232 Java tests and seven gate tests pass; 264/264 arena replays exact. Source/class hashes
+  matched across the fixed run. Frozen versions and selected Player unchanged; flag OFF.
+- Protocol/results: docs/rollout-followups.md; durable full per-map evidence and diagnostic
+  in docs/evidence/rollout-followup-diverse-v1.json and diverse-diagnostic-v1.json.
+  Shared orchestration extracted without changing the old quick-variant protocol.

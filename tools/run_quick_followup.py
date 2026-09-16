@@ -45,15 +45,21 @@ def main():
     parser.add_argument('variant', choices=FLAGS)
     args = parser.parse_args()
     name = 'quick-followup-' + args.variant + '-v1'
+    candidate = 'current?USE_ROLLOUT_QUICK_ROUTE=1,' + FLAGS[args.variant] + '=1'
+    run_variant(name, candidate, 'docs/quick-income-followups.md')
+
+
+def run_variant(name, candidate, protocol):
     folder = ROOT / 'build/bench' / name
     folder.mkdir(parents=True, exist_ok=False)  # Refuse reruns, including interrupted/failed ones.
-    candidate = 'current?USE_ROLLOUT_QUICK_ROUTE=1,' + FLAGS[args.variant] + '=1'
     frozen = identities()
     old_maps = known_maps()
     manifest = {'name': name, 'createdAt': datetime.now(timezone.utc).isoformat(),
                 'candidate': candidate, 'control': 'v06', 'commonOpponent': 'v05',
                 'code': frozen, 'priorMapHashes': sorted(old_maps),
-                'protocol': (ROOT / 'docs/quick-income-followups.md').read_text(encoding='utf-8'),
+                'protocol': (ROOT / protocol).read_text(encoding='utf-8'),
+                'runnerSha256': sha(Path(__file__)),
+                'gateSha256': sha(ROOT / 'tools/practical_gate.py'),
                 'policy': 'practical-300-1000-v2', 'threads': 2, 'timing': 'CG',
                 'poolHashes': {stage: sha(ROOT / f'bench/pools/{name}-{stage}.json')
                                for stage in ('screen', 'direct', 'style', 'full')}}

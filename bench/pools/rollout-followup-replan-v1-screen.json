@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "rollout-followup-replan-v1-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 140000,
+  "pairs": 150
+}

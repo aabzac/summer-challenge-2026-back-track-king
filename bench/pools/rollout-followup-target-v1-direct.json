@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "rollout-followup-target-v1-direct",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 151000,
+  "pairs": 500
+}
