@@ -302,7 +302,7 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 ## Independent rollout follow-ups (registered 2026-09-16)
 
 - [x] Diverse opponent projects: 151-148-1 / 300 = 50.50%; STOP_SCREEN_300, flag OFF.
-- [ ] Reconsider own continuation after four forecast turns; independent gate.
+- [x] Reconsider own continuation: 52.1667% / 300 then 48.40% / fresh 1000; NOT PASSED.
 - [ ] Extra sabotage target for selected construction; independent gate.
 
 See docs/rollout-followups.md for frozen variants, pools and conditional stages.

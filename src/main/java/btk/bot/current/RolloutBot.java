@@ -38,6 +38,7 @@ public final class RolloutBot implements Bot {
     private double quickValue;
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
+    public int replanCalls, replanChanges;
 
     public RolloutBot(Params params) {
         p = params.copy();
@@ -48,6 +49,7 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_REPLIES > p.ROLLOUT_WIDTH || p.ROLLOUT_DEPTH < 1 || p.ROLLOUT_DEPTH > 12
                 || p.ROLLOUT_MAX_ROUTES < 1 || p.ROLLOUT_MAX_ROUTES > 128
                 || p.ROLLOUT_QUICK_MAX_PAINT < 1 || p.ROLLOUT_QUICK_MAX_PAINT > 12
+                || p.ROLLOUT_REPLAN_TURN < 1 || p.ROLLOUT_REPLAN_TURN > 11
                 || p.ROLLOUT_RESERVE_MS < 0 || p.ROLLOUT_TARGETS < 1 || p.ROLLOUT_TARGETS > 8
                 || !finitePositive(p.ROLLOUT_TARGET_HORIZON) || !finitePositive(p.ROLLOUT_ROUTE_HORIZON)
                 || !finitePositive(p.ROLLOUT_WIN_VALUE)
@@ -82,6 +84,7 @@ public final class RolloutBot implements Bot {
     public List<Action> play(GameState s, int me, long budgetMs) {
         timer.start(budgetMs);
         routeQueries = completedComparisons = simulatedTurns = 0;
+        replanCalls = replanChanges = 0;
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         quickSlot = -1;
@@ -373,16 +376,21 @@ public final class RolloutBot implements Bot {
     private double rollout(GameState original, int me, int root, int ownTarget, int reply) {
         work.set(original);
         int depth = Math.min(p.ROLLOUT_DEPTH, original.turnsLeft());
+        int ownFirst = root < counts[me] ? root : 0;
         for (int turn = 0; turn < depth; turn++) {
             if (timer.up()) return Double.NaN;
             GameState s = work.state;
+            if (p.USE_ROLLOUT_REPLAN && turn == p.ROLLOUT_REPLAN_TURN) {
+                ownFirst = reconsider(s, me, ownFirst);
+                if (ownFirst == -2) return Double.NaN;
+            }
             for (int player = 0; player < 2; player++) {
                 if (turn == 0 && player == me) {
                     moveCounts[player] = rootCounts[root];
                     System.arraycopy(roots[root], 0, moves[player], 0, rootCounts[root]);
                     targets[player] = ownTarget;
                 } else {
-                    int first = player == me ? (root < counts[me] ? root : 0) : reply;
+                    int first = player == me ? ownFirst : reply;
                     moveCounts[player] = fillBuild(s, player, first, moves[player]);
                     targetBoard.set(s);
                     placeOwn(targetBoard, player, moves[player], moveCounts[player]);
@@ -400,6 +408,39 @@ public final class RolloutBot implements Bot {
         Rules.incomePerTurn(work.state, income);
         return work.state.score[me] - work.state.score[1 - me]
                 + Math.min(p.ROLLOUT_TAIL, work.state.turnsLeft()) * (income[me] - income[1 - me]);
+    }
+
+    /** Revalue only retained continuations on the evolved simulated board; -2 discards partial work. */
+    private int reconsider(GameState s, int me, int previous) {
+        replanCalls++;
+        Rules.incomePerTurn(s, income);
+        int before = income[me] - income[1 - me], chosen = previous;
+        double best = 0;
+        for (int pass = -1; pass < counts[me]; pass++) {
+            if (timer.up()) return -2;
+            int route = pass < 0 ? previous : pass;
+            if (route < 0 || route >= counts[me] || pass == previous) continue;
+            int cost = 0;
+            boolean valid = true;
+            completion.set(s);
+            for (int i = 0; i < lengths[me][route]; i++) {
+                int cell = routes[me][route][i];
+                if (s.inked[cell]) { valid = false; break; }
+                if (s.canBuild(cell)) {
+                    cost += s.placeCost(cell); completion.state.owner[cell] = me;
+                }
+            }
+            if (!valid || cost == 0) continue;
+            int turns = (cost + GameState.PAINT_PER_TURN - 1) / GameState.PAINT_PER_TURN;
+            double earning = Math.min(p.ROLLOUT_ROUTE_HORIZON, s.turnsLeft()) - turns + 1;
+            if (earning <= 0) continue;
+            completion.refresh(); Rules.incomePerTurn(completion.state, income);
+            double value = (income[me] - income[1 - me] - before) * earning / turns;
+            if (value > best) { best = value; chosen = route; }
+        }
+        if (timer.up()) return -2;
+        if (chosen != previous) replanChanges++;
+        return chosen;
     }
 
     /** Cheap exposure shortlist, then exact core ink evaluation. No actual future enemy action is read. */

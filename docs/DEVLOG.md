@@ -2878,3 +2878,19 @@ Completed outcome (fixed sample, no retuning):
 - Protocol/results: docs/rollout-followups.md; durable full per-map evidence and diagnostic
   in docs/evidence/rollout-followup-diverse-v1.json and diverse-diagnostic-v1.json.
   Shared orchestration extracted without changing the old quick-variant protocol.
+
+## 2026-09-17 - rollout-followup-replan-v1
+
+- Independent default-off own-route reconsideration after four forecast turns, among the same
+  retained routes. Core net income and remaining paint; no new paths or opponent replanning.
+- 234 Java tests pass, including both-side priority reversal after partial construction,
+  ink rejection, deadline invalidation, captured legality and default-v06 equivalence.
+- 133-state study: ample unchanged 1187 comparisons/13753 queries, 1236 priority changes,
+  12 changed actions. Nominal complete comparisons 558 -> 524; nine changed actions.
+- Fresh screen 300: 154-141-5 = 52.1667%, zero errors. Strict >52% continuation applies.
+- Independent 1000: 469-501-30 = 48.40%, zero errors, below 55%; NOT PASSED.
+  Max search A/B 55/47 ms, slow 2/0; elapsed 1775.3 seconds. No matched-v05 stage or retry.
+- All source/class identities verified before/after both stages. Core unchanged since 264/264
+  exact replay validation. Retain flag OFF, selected v06 and original Player unchanged.
+- Protocol/results: docs/rollout-followups.md; durable complete outcomes/parameters/identities
+  in docs/evidence/rollout-followup-replan-v1.json; shared-state diagnostic alongside it.

@@ -76,3 +76,32 @@ search maxima 59/45 ms, slow moves 1/0; elapsed 574.6 seconds. All games retaine
 Source/class identities verified before/after; seven gate tests also pass. Keep flag OFF,
 selected v06/Player unchanged, no process-readiness or arena improvement claim.
 Durable strength evidence: docs/evidence/rollout-followup-diverse-v1.json.
+
+## 2. Mid-rollout own-plan reconsideration - mechanism checks
+
+- Independent REPLAN flag; DIVERSE and all quick flags OFF. Once after four simulated turns,
+  revalue at most six existing own routes with core income after completion and remaining paint.
+  No new path queries; expired partial reconsideration invalidates that whole comparison.
+- 234 Java tests pass: a partly built river route becomes preferable to the old project, inked
+  routes are rejected, expired reconsideration returns no result; both sides, input isolation,
+  captured-state legality, work bounds and default-v06 equivalence checked. Core unchanged.
+- Same 133 recorded states. Ample baseline/candidate: 1187/1187 comparisons, 13753/13753 queries;
+  candidate reconsiders 2304 times, changes priority 1236 times in 76 states; 12 changed actions.
+- Nominal baseline/candidate: 558/524 comparisons, 12345/12272 queries; 1064 reconsiderations,
+  520 priority changes in 62 states; nine changed actions. This added work can reduce coverage.
+  Diagnostic evidence only: docs/evidence/rollout-followup-replan-diagnostic-v1.json.
+
+### Screen: continuation required
+
+Fresh 300 / 150 maps, seeds 140000..140149: **154-141-5 = 52.1667%**, zero errors.
+The strict >52% floor is passed by half a win-equivalent point. Continue unchanged to the
+predeclared separate 1000, seeds 141000..141499; only that sample must reach 55%.
+Screen search maxima A/B 45/39 ms, slow 0/0; elapsed 558.6 seconds. No outcome retuning.
+
+### Independent 1000: NOT PASSED
+
+**469-501-30 = 48.40%**, zero errors, below 55%. No matched common-opponent stage,
+retry, promotion or process-readiness claim. Search maxima A/B 55/47 ms, slow 2/0;
+elapsed 1775.3 seconds; mean score difference +25.2. All source/class hashes verified
+unchanged across both stages. Retain OFF and selected v06/Player unchanged.
+Durable full strength evidence: docs/evidence/rollout-followup-replan-v1.json.
