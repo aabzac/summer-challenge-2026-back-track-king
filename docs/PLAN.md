@@ -220,6 +220,14 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       (turns 6,17,0,0); first flush 266..1178 ms, one later flush 158 ms, another later response
       134.9 ms after only 2.1-ms send. Preserve evidence; no cause claim or readiness pass.
 
+- [x] Complete user-requested fixed 2x1000 rollout-v1 vs v05 confirmation: **605-395 (60.5%)**
+      and **625-375 (62.5%)**, individual gates pass. Pooled **1230-770 (61.5%)**, map-grouped
+      CI **57.21-65.79%**, gate pass, zero errors. Disjoint pools v2/v3 consumed; v4 is a fresh
+      reserve. Source/configuration unchanged. Current remains v05; no promotion requested.
+- [ ] Investigate confirmation timing outliers before a readiness claim: run 2 max A/B
+      **515/461 ms**, slow **307/180** across 36 games, compared with run 1 **61/39 ms**, slow
+      **2/0**. All results retained; no cause established, no process sample or retries here.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

@@ -2358,3 +2358,85 @@ Completed outcome (fixed sample, no retuning):
   Both sources and manifests archived beside reports; all candidate source/class hashes were
   verified unchanged across strength runs. README/BOTS/PLAN, policy and pool status updated;
   completed unpromoted experiment committed locally, including failures. No upload or push.
+
+### 2026-09-16 — rollout fixed 2x1000 confirmation (predeclared protocol)
+
+- User explicitly requests two 1000-game runs after the completed 700-game screen. This is a
+  new fixed experiment, not an adaptive extension of its 300-game direct comparison. Hypothesis:
+  unchanged rollout-v1 is stronger than frozen v05 on fresh maps. Source revision `13aee8e`;
+  candidate `current?USE_ROLLOUT_POLICY=1`, reference `v05`, original full effective parameters.
+- Two sequential runs, each 500 distinct generated maps with both sides: confirmation-v2 seeds
+  **90000..90499**, then new confirmation-v3 seeds **91000..91499**. CG timing **486/36 ms**,
+  **two workers**, RNG SEED=1. Complete both regardless of intermediate win rate; no parameter,
+  source, clock or sample-size changes, and no retries to improve results.
+- Primary outcome is the pooled fixed **2000 games / 1000 distinct map groups**, using the
+  existing map-grouped Hoeffding95 rule (>=55%, lower bound >50%, zero bot errors). Also report
+  each 1000-game result, its unchanged gate and side/timing metrics separately. Do not choose
+  the better series or include the old development games in confirmation. A statistical pass
+  alone does not authorize promotion or establish process timing readiness.
+- Before play, archive all existing benchmark map identities in
+  `build/analysis/rollout-confirmation-2x1000/prior-maps.json`, with original report paths/hashes.
+  Run 1 excludes that union; run 2 excludes it plus run 1. The runner checks exact map hashes
+  before play. Source/class provenance and unchanged v05 Player hash are saved beside it.
+  Reports: `build/bench/rollout-confirmation-2x1000/run-1.json` and `run-2.json`; refuse to
+  overwrite existing artifacts. Revalidate downloaded arena/boss games before these benches.
+- Keep the earlier failed restored-v05 process report; this request is for strength samples,
+  with no packaging changes or new process-readiness claim. Default policy and Player remain
+  v05. Record both outcomes, consume both pools, update BOTS/PLAN and commit the experiment.
+
+### 2026-09-16 — rollout fixed 2x1000 confirmation (outcome)
+
+- Fresh validation before play: **264/264 arena**, **16/16 bot** and **5/5 bot/raw** downloaded
+  replays reproduced exactly. No core or strategy edits. Prior-map index contains **3076**
+  identities from **57** reports/indexes; one old comparison summary without gamesPerMap was
+  skipped, with both its original source reports included. Index SHA-256
+  `275b0cb81008c494434f14aad69611a914f28d84113e1df5e4c730f0bc6797c1`.
+- Run 1, confirmation-v2: **605-395-0, 60.5%**, **1000 games / 500 distinct paired maps**,
+  map-grouped Hoeffding95 **54.4264-66.5736%**; individual statistical gate **PASS**. P0
+  **308/500**, P1 **297/500**. Mean score difference **+338.303**, length **74.134** turns,
+  **657** early closures. No bot errors. Search mean A/B **19.0412 / 5.7730 ms**, max
+  **61 / 39 ms**, slow **2 / 0**. Accepted placement **53.9496 / 91.8634%**, sabotage
+  **84.2839 / 83.3221%**. Elapsed **953.064 s**. These in-process outliers are not process
+  deadline measurements. Full effective parameters and source identities match the original
+  development candidate. Run 2 started unmodified as predeclared, regardless of this pass.
+  Report `build/bench/rollout-confirmation-2x1000/run-1.json`, SHA-256
+  `85835d5bbb4c70088de2971dfaec3f999088f6caf048d41724d16c985a5dacad`.
+- Run 2, confirmation-v3: **625-375-0, 62.5%**, **1000 games / 500 distinct paired maps**,
+  Hoeffding95 **56.4264-68.5736%**, individual statistical gate **PASS**. P0 **319/500**,
+  P1 **306/500**. Mean score difference **+377.823**, length **73.862** turns, **665** early
+  closures. No bot errors. Search mean A/B **21.8514 / 7.7070 ms**, max **515 / 461 ms**,
+  slow **307 / 180**. Accepted placement **53.7029 / 91.3338%**, sabotage **85.5704 / 82.5350%**.
+  Elapsed **1127.641 s**. Report `build/bench/rollout-confirmation-2x1000/run-2.json`, SHA-256
+  `572150fb6952df2b21057bd31c6c175be6d318e21c2e37e61001b8cab5999934`.
+- **Primary pooled result: 1230-770-0, 61.5% over 2000 games / 1000 distinct map groups**,
+  Hoeffding95 **57.2053-65.7947%**, statistical gate **PASS**. P0 **627/1000**, P1 **603/1000**;
+  mean score difference **+358.063**, length **73.998**, **1322** early closures. No bot errors.
+  Total benchmark time **2080.705 s** (34m 40.7s). Aggregate report
+  `build/bench/rollout-confirmation-2x1000/combined.json`, SHA-256
+  `3416e572775d6834727215886d15f9b3f2db83546f2465f397025671540b4eea`.
+- Rechecked every source/resource/class hash, full effective A/B parameters against the original
+  development report, both manifest identities, all excluded-report hashes, exact seed ranges,
+  map counts and side pairing. The pools are disjoint from each other and all supplied prior
+  maps. Player remains unchanged v05, SHA-256
+  `1b7ba04b299e7e31af66c8d2de45654cec2a78b80233dac673402aae825214a3`.
+- Timing limitation: run 2 has slow moves in **35 candidate games / 24 reference games**, **36**
+  games total (25 map pairs). Preserve every result; do not filter slow games or retry. Both
+  policies experienced large outliers, but this does not identify host scheduling, GC or search
+  as the cause. The in-process referee records slow moves without enforcing process deadlines;
+  timed action selection can also change under contention. The win-rate gate passes on these
+  measured games; neither that interval nor zero bot errors establishes arena timing safety.
+  Detailed descriptive audit: `build/analysis/rollout-confirmation-2x1000/run-2-timing.json`.
+- Postprocessing correction: the first temporary aggregate selected PowerShell integer Max/Min
+  overloads while clipping the interval, yielding invalid [1,1]. Archived it outside the bench
+  corpus as `combined-invalid-ci.json`, along with the original script, before correcting to
+  explicit doubles. Both Java-generated run reports are untouched. The corrected aggregation
+  reconstructs both canonical run intervals and checks the pooled width and bracketing; no
+  change to the confidence method or decision rule, no games rerun.
+- **Decision: strength gate passed in each full run and the predeclared combined result.**
+  This confirms an advantage over frozen v05 on these held-out generated maps at the nominal
+  budgets. Keep USE_ROLLOUT_POLICY=false/current=v05: the user requested measurement, not
+  promotion. Earlier v03/pressure-v1 checks remain development evidence. No new submission,
+  procCheck, strategy edits, v06, upload or push; unresolved timing evidence remains open.
+  Both confirmation-v2/v3 pools are consumed. Register untouched confirmation-v4 seeds
+  **92000..92499** for future fixed candidates, still requiring all prior map-hash exclusions.
+  Update BOTS/PLAN/policy and pool documentation; commit this completed experiment locally.

@@ -78,9 +78,9 @@ Fixed development results, CG 486/36-ms search, two workers, paired generated ma
 
 No bot errors; candidate parameters unchanged throughout all 700 games. Reference results do not
 replace the v05 gate. Keep USE_ROLLOUT_POLICY=false and current=v05; retain the candidate without
-a new frozen version or extra confirmation/tuning. Development seeds 30000..30149 inadvertently
+a new frozen version at the end of that screen. Development seeds 30000..30149 inadvertently
 overlapped reserved confirmation-v1: preserve the screen as development evidence and retire that
-reserve. Future fixed confirmation uses untouched v2 with map-hash exclusion; see
+reserve. The subsequent user-requested fixed confirmation is recorded below; see
 [pool status](../bench/pools/README.md).
 
 **214 tests**, **264 arena + 27 boss exact replays**. All 110 saved-state work/legality checks
@@ -93,6 +93,29 @@ Its strict process sample **FAILED 4/4**, two later turns and two first turns. F
 took 267..1178 ms, dominated by flush; one send exhausted the deadline. Cause remains open;
 both reports retained, no retries or upload. Final Player is v05 **without a fresh process pass**.
 Reports/artifacts: `build/bench/rollout-v1/`, `build/analysis/rollout-v1/`.
+
+### Fixed confirmation: two independent 1000-game series (2026-09-16)
+
+Unchanged `13aee8e` strategy/parameters vs v05, CG 486/36-ms budgets, two workers, sequential
+runs on disjoint fresh maps; all prior benchmark map identities excluded before play:
+
+- confirmation-v2, seeds 90000..90499: **605-395-0, 60.5%**, map-grouped Hoeffding95
+  **54.43-66.57%**, gate **PASS**. P0 308/500, P1 297/500; score difference +338.303.
+- confirmation-v3, seeds 91000..91499: **625-375-0, 62.5%**, CI **56.43-68.57%**, gate
+  **PASS**. P0 319/500, P1 306/500; score difference +377.823.
+- Predeclared pooled result: **1230-770-0, 61.5%**, **2000 games / 1000 distinct maps**,
+  CI **57.21-65.79%**, gate **PASS**. P0 627/1000, P1 603/1000; score difference +358.063.
+
+Zero bot errors. Source/class hashes, effective parameters and unchanged v05 Player verified.
+Run 1 search max A/B 61/39 ms, slow 2/0; run 2 max **515/461 ms**, slow **307/180**, affecting
+36 games for either side. Keep all games: no filtering or retries. In-process timing outliers
+are not process-deadline measurements, and their cause remains unknown. Statistical passes
+support the measured head-to-head advantage, not an arena timing-readiness claim.
+
+**Not promoted**: this was a measurement request; current=v05 and USE_ROLLOUT_POLICY=false.
+No packaging changes or new process sample. Consumed v2/v3 are no longer reserves; untouched
+v4 is registered for future confirmation. Reports: `build/bench/rollout-confirmation-2x1000/`;
+protocol, full outcome, hashes and timing limitations in DEVLOG.
 
 ## Short own-build planning (2026-09-16, not promoted)
 

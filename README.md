@@ -125,10 +125,12 @@ Each opponent has its own report; no combined win rate is treated as a promotion
 Reports include height slices, accepted action frequencies and early closures; the default is
 two worker threads. Choose a fresh suite output directory to preserve earlier evidence.
 
-`bench/pools/confirmation-v2.json` reserves a different 1000-game pool. Use it only for a fixed
+`bench/pools/confirmation-v4.json` reserves a fresh 1000-game pool. Use it only for a fixed
 candidate, with `-PexcludeReports=<development report or suite index.json>`: overlapping map hashes
 are rejected before any game starts. See [benchmarking.md](docs/benchmarking.md) for limitations
 and confirmation commands. Do not tune on this reserved pool.
+Confirmation-v2/v3 were consumed by the fixed rollout 2x1000 experiment; exclude those reports
+as well as earlier development maps from future confirmation.
 The older confirmation-v1 is retired: rollout-v1 inadvertently used part of its seed range for
 a development screen. Its original file remains for history; see [pool status](bench/pools/README.md).
 

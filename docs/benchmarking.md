@@ -171,8 +171,11 @@ Checked-in manifests define the generator, exact seed range, purpose and number 
 
 - `bench/pools/development-v1.json`: 150 maps, seeds 20000..20149, 300 games. Reusable development
   panel; once used for screening these are not independent confirmation data.
-- `bench/pools/confirmation-v2.json`: 500 maps, seeds 90000..90499, 1000 games. Reserved for a
+- `bench/pools/confirmation-v4.json`: 500 maps, seeds 92000..92499, 1000 games. Reserved for a
   predeclared fixed candidate. No games from this pool were played when registered on 2026-09-16.
+- `confirmation-v2.json` (90000..90499) and `confirmation-v3.json` (91000..91499) were consumed
+  by the fixed rollout-v1 2x1000 confirmation. Neither is an untouched reserve; exclude both
+  result reports (or their combined gamesPerMap index) in future confirmation experiments.
 
 The original confirmation-v1 file is retained for historical identity but **retired as a reserve**:
 the rollout-v1 development screen inadvertently used seeds 30000..30149. That run remains
@@ -191,7 +194,7 @@ are recorded along with the pool identity and manifest hash.
 Example, after fixing a candidate and recording its development result:
 
 ```powershell
-.\gradlew.bat bench "-Pbot1=current" "-Pbot2=v05" "-Ppool=bench/pools/confirmation-v2.json" "-PexcludeReports=build/bench/my-candidate-panel/index.json" "-Pout=build/bench/my-candidate-confirmation.json"
+.\gradlew.bat bench "-Pbot1=current" "-Pbot2=v05" "-Ppool=bench/pools/confirmation-v4.json" "-PexcludeReports=build/analysis/rollout-confirmation-2x1000/prior-maps.json,build/bench/rollout-confirmation-2x1000/combined.json,build/bench/my-candidate-panel/index.json" "-Pout=build/bench/my-candidate-confirmation.json"
 ```
 
 This validates disjointness against the **supplied evidence**, not every experiment ever run.
