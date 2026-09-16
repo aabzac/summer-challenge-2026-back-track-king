@@ -24,6 +24,7 @@ public class Params {
     public boolean USE_ROLLOUT_DIVERSE_REPLIES = false;
     public boolean USE_ROLLOUT_REPLAN = false;
     public int ROLLOUT_REPLAN_TURN = 4;
+    public boolean USE_ROLLOUT_SECOND_TARGET = false;
     public int ROLLOUT_WIDTH = 6;
     public int ROLLOUT_REPLIES = 2;
     public int ROLLOUT_DEPTH = 8;

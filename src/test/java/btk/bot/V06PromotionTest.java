@@ -28,6 +28,7 @@ class V06PromotionTest {
         expected.put("USE_ROLLOUT_DIVERSE_REPLIES", "false");
         expected.put("USE_ROLLOUT_REPLAN", "false");
         expected.put("ROLLOUT_REPLAN_TURN", "4");
+        expected.put("USE_ROLLOUT_SECOND_TARGET", "false");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         for (var spec : new String[]{"current", "main", "v06"})
             assertEquals(expected, BotFactory.configuration(spec), spec);

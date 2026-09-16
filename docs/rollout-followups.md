@@ -105,3 +105,45 @@ retry, promotion or process-readiness claim. Search maxima A/B 55/47 ms, slow 2/
 elapsed 1775.3 seconds; mean score difference +25.2. All source/class hashes verified
 unchanged across both stages. Retain OFF and selected v06/Player unchanged.
 Durable full strength evidence: docs/evidence/rollout-followup-replan-v1.json.
+
+## 3. Extra target for the selected construction - mechanism checks
+
+- Independent SECOND_TARGET flag, DIVERSE/REPLAN/quick flags OFF. Remember a distinct second
+  positive score from the existing completed target shortlist. After normal search, compare
+  it for the selected construction only, on all existing replies, if time remains. Maximum
+  one extra complete comparison / 16 forecast turns; discard partial coverage.
+- 236 Java tests pass: positive distinct runner-up, no stale alternate after expiration or
+  immediate winning closure, captured middle-game exercise on both sides, same construction
+  and ordinary comparisons with ample time, legal output and unchanged default-v06 choices.
+- Same 133 states. Ample: 105 extra comparisons, alternate chosen in 17 states; comparisons
+  1187 -> 1292, identical 13753 path queries, exactly 17 changed actions.
+- Nominal: 31 complete extra comparisons, alternate chosen in four states; total comparisons
+  521 -> 542 (normal candidate 511), queries 11962 -> 11744, 14 changed actions. Timing-limited
+  proposal differences contribute to action changes. Search maxima baseline/candidate
+  76.35/55.32 ms show this fresh-instance study is not a process deadline guarantee.
+- Evidence: docs/evidence/rollout-followup-target-diagnostic-v1.json.
+
+### Strength result: STOP_SCREEN_300
+
+**136-144-20 = 48.6667%** on 300 games / 150 new maps, zero errors. Below the >52%
+continuation floor: no 1000, matched v05 stage, retry or promotion. Mean score difference
++225.2 did not translate to a passing win score. Max search A/B 87/59 ms, slow 2/2;
+elapsed 499.0 seconds. All timing outliers kept; no process-readiness claim. Source/class
+identities verified unchanged before/after. Evidence: docs/evidence/rollout-followup-target-v1.json.
+
+## Combined decision
+
+All three predeclared independent experiments completed, **1900 games / 950 distinct fresh
+maps**, zero bot errors. None passed the direct gate; common-opponent stages were correctly
+skipped. No combined variant, retuning, retry, promotion or upload. The separate percentages
+are not a matched head-to-head ranking of these candidates.
+
+Final audit recomputed each decision from complete reports, verified map exclusions, paired
+sides, disjoint pools, single enabled experimental flags and identical 133 diagnostic state
+hashes. 236 Java tests and seven policy tests pass; core unchanged since 264/264 exact arena
+replay validation. Audit: docs/evidence/rollout-followups-final-audit-v1.json.
+
+All new flags remain OFF; selected v06 and its existing Player are unchanged. Selected Player
+SHA-256: `5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266`.
+The older v06 strict-process timing issue remains open; this task makes no new process claim.
+Each completed experiment and evidence is committed locally under AGENTS #8.

@@ -32,6 +32,8 @@ public final class RolloutBot implements Bot {
     private int[][] roots;
     private int[] rootCounts, rootTargets;
     private int[] replyRoutes;
+    private int[] rootAlternateTargets;
+    private int secondTarget;
     private Random random;
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain, quickSlot;
@@ -39,6 +41,8 @@ public final class RolloutBot implements Bot {
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
     public int replanCalls, replanChanges;
+    public int extraTargetComparisons;
+    public boolean selectedExtraTarget;
 
     public RolloutBot(Params params) {
         p = params.copy();
@@ -79,12 +83,14 @@ public final class RolloutBot implements Bot {
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
         if (p.USE_ROLLOUT_DIVERSE_REPLIES) replyRoutes = new int[p.ROLLOUT_REPLIES];
+        if (p.USE_ROLLOUT_SECOND_TARGET) rootAlternateTargets = new int[roots.length];
     }
 
     public List<Action> play(GameState s, int me, long budgetMs) {
         timer.start(budgetMs);
         routeQueries = completedComparisons = simulatedTurns = 0;
         replanCalls = replanChanges = 0;
+        extraTargetComparisons = 0; selectedExtraTarget = false;
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         quickSlot = -1;
@@ -125,7 +131,9 @@ public final class RolloutBot implements Bot {
             rootCounts[i] = i == counts[me] ? 0 : fillBuild(s, me, i, roots[i]);
             targetBoard.set(s);
             placeOwn(targetBoard, me, roots[i], rootCounts[i]);
+            if (p.USE_ROLLOUT_SECOND_TARGET) secondTarget = -1;
             rootTargets[i] = timer.up() ? fallbackTarget : chooseTarget(targetBoard.state, me);
+            if (p.USE_ROLLOUT_SECOND_TARGET) rootAlternateTargets[i] = secondTarget;
         }
         int bestCount = rootCounts[0];
         System.arraycopy(roots[0], 0, bestCells, 0, bestCount);
@@ -159,6 +167,28 @@ public final class RolloutBot implements Bot {
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
                     bestCount = rootCounts[root];
                     System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
+                }
+            }
+        }
+        // Ordinary roots retain their budget priority; only the winning construction gets an extra target.
+        if (p.USE_ROLLOUT_SECOND_TARGET && completedComparisons > 0 && !timer.up()) {
+            int root = selectedRoute < 0 ? counts[me] : selectedRoute;
+            int target = rootAlternateTargets[root];
+            if (target >= 0 && target != selectedTarget) {
+                double sum = 0, worst = Double.MAX_VALUE;
+                boolean complete = true;
+                for (int reply = 0; reply < replies; reply++) {
+                    double value = rollout(s, me, root, target,
+                            p.USE_ROLLOUT_DIVERSE_REPLIES ? replyRoutes[reply] : reply);
+                    if (!Double.isFinite(value)) { complete = false; break; }
+                    sum += value; worst = Math.min(worst, value);
+                }
+                if (complete) {
+                    completedComparisons++; extraTargetComparisons++;
+                    double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
+                    if (value > best) {
+                        selectedValue = value; selectedTarget = target; selectedExtraTarget = true;
+                    }
                 }
             }
         }
@@ -445,6 +475,7 @@ public final class RolloutBot implements Bot {
 
     /** Cheap exposure shortlist, then exact core ink evaluation. No actual future enemy action is read. */
     private int chooseTarget(GameState s, int me) {
+        if (p.USE_ROLLOUT_SECOND_TARGET) secondTarget = -1;
         if (!p.USE_DISRUPT) return -1;
         Arrays.fill(trackBalance, 0); Arrays.fill(priority, 0);
         for (int c = 0; c < s.size; c++) {
@@ -474,7 +505,7 @@ public final class RolloutBot implements Bot {
         }
         Rules.incomePerTurn(s, income);
         int before = income[me] - income[1 - me], bestTarget = -1;
-        double best = 0;
+        double best = 0, second = 0;
         for (int i = 0; i < shortlist.length && !timer.up(); i++) {
             int r = shortlist[i]; if (r < 0) break;
             int needed = GameState.INK_THRESHOLD - s.regionInstability[r];
@@ -482,13 +513,22 @@ public final class RolloutBot implements Bot {
             Rules.incomePerTurn(inkBoard.state, income);
             int after = income[me] - income[1 - me];
             if (needed == 1 && !Rules.anyPairPossible(inkBoard.state, pathing)) {
-                if (s.score[me] - s.score[1 - me] + after > 0) return r;
+                if (s.score[me] - s.score[1 - me] + after > 0) {
+                    if (p.USE_ROLLOUT_SECOND_TARGET) secondTarget = -1;
+                    return r;
+                }
                 continue;
             }
             double value = ((after - before) * Math.max(0, Math.min(p.ROLLOUT_TARGET_HORIZON, s.turnsLeft()) - needed + 1)
                     + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT) / needed;
-            if (value > best) { best = value; bestTarget = r; }
+            if (value > best) {
+                if (p.USE_ROLLOUT_SECOND_TARGET) { second = best; secondTarget = bestTarget; }
+                best = value; bestTarget = r;
+            } else if (p.USE_ROLLOUT_SECOND_TARGET && value > second) {
+                second = value; secondTarget = r;
+            }
         }
+        if (p.USE_ROLLOUT_SECOND_TARGET && timer.up()) secondTarget = -1;
         return bestTarget;
     }
 }

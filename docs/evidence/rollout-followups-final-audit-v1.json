@@ -1,0 +1,73 @@
+{
+  "policy": "practical-300-1000-v2",
+  "experiments": [
+    {
+      "variant": "diverse",
+      "stages": [
+        {
+          "stage": "screen",
+          "games": 300,
+          "wins": 151,
+          "losses": 148,
+          "draws": 1,
+          "errors": 0,
+          "score": 0.505
+        }
+      ],
+      "status": "NOT_PASSED"
+    },
+    {
+      "variant": "replan",
+      "stages": [
+        {
+          "stage": "screen",
+          "games": 300,
+          "wins": 154,
+          "losses": 141,
+          "draws": 5,
+          "errors": 0,
+          "score": 0.5216666666666666
+        },
+        {
+          "stage": "direct",
+          "games": 1000,
+          "wins": 469,
+          "losses": 501,
+          "draws": 30,
+          "errors": 0,
+          "score": 0.484
+        }
+      ],
+      "status": "NOT_PASSED"
+    },
+    {
+      "variant": "target",
+      "stages": [
+        {
+          "stage": "screen",
+          "games": 300,
+          "wins": 136,
+          "losses": 144,
+          "draws": 20,
+          "errors": 0,
+          "score": 0.4866666666666667
+        }
+      ],
+      "status": "NOT_PASSED"
+    }
+  ],
+  "games": 1900,
+  "distinctMaps": 950,
+  "botErrors": 0,
+  "sharedDiagnosticStates": 133,
+  "tests": {
+    "tests": 236,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "selected": "v06",
+  "selectedPlayerSha256": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266",
+  "processReadiness": "not assessed: every variant failed direct strength",
+  "method": "Recomputed decisions from complete paired reports; verified independent map sets, prior exclusions, single enabled experimental flag, durable decisions, identical diagnostic state hashes, JUnit XML and selected source hash."
+}

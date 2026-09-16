@@ -303,6 +303,7 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 
 - [x] Diverse opponent projects: 151-148-1 / 300 = 50.50%; STOP_SCREEN_300, flag OFF.
 - [x] Reconsider own continuation: 52.1667% / 300 then 48.40% / fresh 1000; NOT PASSED.
-- [ ] Extra sabotage target for selected construction; independent gate.
+- [x] Extra sabotage target: 136-144-20 / 300 = 48.6667%; STOP_SCREEN_300.
+      All three complete: 1900 games / 950 fresh maps, zero errors, 236 tests; retain v06.
 
 See docs/rollout-followups.md for frozen variants, pools and conditional stages.

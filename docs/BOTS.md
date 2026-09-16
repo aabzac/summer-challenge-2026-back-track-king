@@ -738,3 +738,25 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   exact replay validation. Retain flag OFF, selected v06 and original Player unchanged.
 - Protocol/results: docs/rollout-followups.md; durable complete outcomes/parameters/identities
   in docs/evidence/rollout-followup-replan-v1.json; shared-state diagnostic alongside it.
+
+## 2026-09-17 - rollout-followup-target-v1; all three complete
+
+- Independent default-off second target for the winning construction only, after ordinary
+  search. Existing completed shortlist; at most one additional full scenario comparison.
+- 236 Java tests pass: distinct positive alternate, timeout/closure reset, both-side recorded
+  middle-game coverage, unchanged construction, legal actions and default-v06 equivalence.
+- 133 shared states: ample 105 extra comparisons / 17 alternate selections, same path queries;
+  nominal 31 extra / four selected. The useful alternate often lacks time to be evaluated.
+- Fresh 300, seeds 150000..150149: 136-144-20 = 48.6667%, zero errors; STOP_SCREEN_300.
+  Max search A/B 87/59 ms, slow 2/2, elapsed 499.0 seconds. All timing outliers retained;
+  no external-process readiness claim. No 1000, matched-v05 stage, retry or promotion.
+- All three independent experiments complete: 1900 games / 950 disjoint fresh maps, zero
+  bot errors. Diverse 50.50%/300; replan 52.1667%/300 then 48.40%/1000; target 48.6667%/300.
+  Each failed the practical gate. Unmatched variant percentages do not rank the variants.
+- Final audit recomputed every decision, checked map exclusions/pairing, identical diagnostic
+  state hashes and single enabled experimental flags. 236 Java + seven policy tests pass;
+  core unchanged since 264/264 exact replay validation. All experiment flags stay OFF.
+- Selected v06 and Player SHA 5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266
+  unchanged. Historical selected-v06 strict process timing issue remains open, unaffected.
+- Protocol/results: docs/rollout-followups.md. Durable full evidence: rollout-followup-target-v1
+  and target-diagnostic-v1 JSONs under docs/evidence; rollout-followups-final-audit-v1.json.
