@@ -32,6 +32,8 @@ public final class RolloutBot implements Bot {
     private int[][] roots;
     private int[] rootCounts, rootTargets;
     private Random random;
+    private int[] quickPath;
+    private int quickPlayer, quickLength, quickCost, quickGain;
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
 
@@ -43,6 +45,7 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_WIDTH < 1 || p.ROLLOUT_WIDTH > 8 || p.ROLLOUT_REPLIES < 1
                 || p.ROLLOUT_REPLIES > p.ROLLOUT_WIDTH || p.ROLLOUT_DEPTH < 1 || p.ROLLOUT_DEPTH > 12
                 || p.ROLLOUT_MAX_ROUTES < 1 || p.ROLLOUT_MAX_ROUTES > 128
+                || p.ROLLOUT_QUICK_MAX_PAINT < 1 || p.ROLLOUT_QUICK_MAX_PAINT > 12
                 || p.ROLLOUT_RESERVE_MS < 0 || p.ROLLOUT_TARGETS < 1 || p.ROLLOUT_TARGETS > 8
                 || !finitePositive(p.ROLLOUT_TARGET_HORIZON) || !finitePositive(p.ROLLOUT_ROUTE_HORIZON)
                 || !finitePositive(p.ROLLOUT_WIN_VALUE)
@@ -70,12 +73,14 @@ public final class RolloutBot implements Bot {
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
+        if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
     }
 
     public List<Action> play(GameState s, int me, long budgetMs) {
         timer.start(budgetMs);
         routeQueries = completedComparisons = simulatedTurns = 0;
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
+        quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         if (budgetMs <= 0) return List.of(Action.waitAction());
         Arrays.fill(counts, 0);
         // A usable sabotage answer exists before route enumeration and all speculative work.
@@ -83,6 +88,7 @@ public final class RolloutBot implements Bot {
         threats[1 - me] = fallbackTarget;
         threats[me] = chooseTarget(s, 1 - me);
         Rules.incomePerTurn(s, income);
+        if (p.USE_ROLLOUT_QUICK_ROUTE && income[me] == 0) quickPlayer = me;
         for (int player = 0; player < 2; player++) {
             baseDiff[player] = income[player] - income[1 - player];
             threatDiff[player] = baseDiff[player];
@@ -105,6 +111,7 @@ public final class RolloutBot implements Bot {
             }
             if (timer.up(reserve)) break;
         }
+        if (quickLength > 0) retainQuickRoute(s, me);
         int rootSize = counts[me] + 1; // last choice waits for construction this turn only
         for (int i = 0; i < rootSize; i++) {
             rootCounts[i] = i == counts[me] ? 0 : fillBuild(s, me, i, roots[i]);
@@ -172,6 +179,13 @@ public final class RolloutBot implements Bot {
         if (earning <= 0) return;
         completion.refresh(); Rules.incomePerTurn(completion.state, income);
         double gain = income[me] - income[1 - me] - baseDiff[me];
+        // Reuse the bounded proposal pool: no extra path query, simulation or random draw.
+        // Current own income is zero, so a positive completed own income is also a gain.
+        if (me == quickPlayer && cost <= p.ROLLOUT_QUICK_MAX_PAINT && income[me] > 0 && gain > 0
+                && (quickLength == 0 || cost < quickCost || cost == quickCost && gain > quickGain)) {
+            System.arraycopy(path, 0, quickPath, 0, n);
+            quickLength = n; quickCost = cost; quickGain = (int) gain;
+        }
         if (threats[me] >= 0) {
             Rules.ink(completion.state, threats[me]); completion.refresh();
             Rules.incomePerTurn(completion.state, income);
@@ -208,6 +222,24 @@ public final class RolloutBot implements Bot {
         }
         System.arraycopy(path, 0, routes[me][slot], 0, length);
         lengths[me][slot] = length; values[me][slot] = value;
+    }
+
+    /** Preserve one cheap completion, replacing a duplicate prefix or the last existing slot. */
+    private void retainQuickRoute(GameState s, int me) {
+        int n = pack(s, quickPath, quickLength, prefix, 0, GameState.PAINT_PER_TURN);
+        int slot = -1;
+        for (int i = 0; i < counts[me]; i++) {
+            int other = pack(s, routes[me][i], lengths[me][i], moves[me], 0, GameState.PAINT_PER_TURN);
+            if (sameSet(prefix, n, moves[me], other)) { slot = i; break; }
+        }
+        if (slot < 0) {
+            slot = Math.min(counts[me], p.ROLLOUT_WIDTH - 1);
+            counts[me] = Math.min(counts[me] + 1, p.ROLLOUT_WIDTH);
+        }
+        System.arraycopy(quickPath, 0, routes[me][slot], 0, quickLength);
+        lengths[me][slot] = quickLength;
+        // Values are only used during proposal insertion, which has finished.
+        values[me][slot] = 0;
     }
 
     /** Pack real paint costs, including leftovers across projects; never mutate the pre-turn board. */

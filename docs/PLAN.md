@@ -36,9 +36,10 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       userscript stores the canonical `gameResult` under `replays/cg/bot/` automatically.
 - [x] Separate CG validation from visualizer export: `cgValidate` is read-only; `cgRender` writes
       validated files under `replays/rendered/cg/{arena,bot}/`.
-- [ ] Recognize positive boss agent ids with `agents[].arenaboss` in the general CgReplay parser
-      and renderer routing, not only legacy -2. New Boss 4 replays validate but currently get
-      arena output classification; the boss-defense study reads their identity explicitly.
+- [x] Recognize positive boss agent ids with `agents[].arenaboss` in the general CgReplay parser
+      and renderer routing, including nickname and authoritative player index. Both slots tested.
+      All 30 boss games rendered under `replays/rendered/cg/bot/`; collection `boss-30.html`
+      separates corrected 16 v05 / 14 v06 groups. Browser checked at initial and terminal turns.
 
 ## Phase 3 — strength (open; one feature per version, bench-gated)
 
@@ -247,16 +248,28 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       scheduling before changing budgets or policy. v06 selected locally, no upload performed.
 
 - [x] Record user-reported v06 arena upload/rank 153/645 (previous v05 rank 270); analyze all
-      30 Boss 4 games with the user-attributed 15/15 split. Outcomes 2-13 vs 5-10; 30/30 exact,
-      no failures/skipped commands. Probe all 1082 new-cohort states using frozen, noise-free v06.
+      30 Boss 4 games with the corrected user-attributed 16/14 split (first v06: 904146009).
+      Outcomes 2-14 vs 5-9; 30/30 exact, no failures/skipped commands. Probe all 1002 new-cohort
+      states using frozen, noise-free v06. Original v1 reports retained; corrected v2 reports added.
       Short useful routes can be absent from the six-route portfolio; 21/23 large-damage loss
       turns already have the correct boss target in the model. 220 tests pass, two compact
       pre-turn fixtures retained. See boss-v06-loss-analysis.md; selected v06/Player unchanged.
-- [ ] Next isolated strategy experiment: retain one cheap positive-net-income construction
-      candidate within the existing six-route portfolio when current income is zero. Let rollout
-      choose, rather than forcing the route. Default-off Params flag; preserve v06, verify actual
-      clock cost, predeclare a fresh paired screen vs v06 and an older/style check. No widening,
-      depth change or sabotage retuning in the same experiment; do not use boss sample as confirmation.
+- [x] Test one cheap positive-net-income slot inside the existing six-route portfolio when
+      own income is zero. Fixed screen vs v06: **160-134-6, 54.33%**, 300 games / 150 maps,
+      CI **43.24�65.42%**, gate not passed. Older v05 check: **124-76, 62.0%**, 200 games.
+      Default-off flag retained, no promotion/tuning/confirmation, core and frozen bots unchanged.
+      225 tests pass; candidate/restored-default process samples both 0/12 problems,
+      original 8 plus 4 missing-side checks; all four maps on both sides covered.
+      Final artifact and exact results: quick-income-experiment.md.
+- [ ] Diagnose quick-route selection and value on fixed shared pre-turn states: distinguish
+      candidate availability, complete timed scenario coverage and eventual choice; include wins
+      and losses, known-state predictions versus recorded-action counterfactuals. No further
+      parameter search or confirmation until the mechanism is understood.
+
+- [ ] Fix ProcessCheck map/side scheduling: current map index `i` and player `i%2` repeat the
+      same side for even-sized map pools. Use paired map selection with a regression test; audit
+      older process coverage before claiming both sides. Quick-income samples were supplemented
+      with only the four missing combinations per artifact; strength BenchmarkRunner is already paired.
 
 ## Someday / maybe
 

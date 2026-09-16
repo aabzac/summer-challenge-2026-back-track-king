@@ -10,12 +10,12 @@ older-opponent checks are **68.5% vs v03** and **74.5% vs pressure-v1**, 200 gam
 The frozen policy and all parameters match that evidence. Earlier sections below retain their
 historical decisions; the current selection supersedes their prior default-v05 status.
 
-Packaging checks: **217 tests pass**, **264/264 arena replays exact**. Final default Player is
+Packaging checks at v06 promotion: **217 tests pass**, **264/264 arena replays exact**. The promotion-time default Player is
 56,007 characters, source `7f4d94e40e5252d09b86df6e1b8c208e92c86d98a521d858eaf182a9178c2c9c`.
 Its fixed strict process check **FAILED 1/42 games**: map 903510176, P0 turn 73, response
 **50.462 ms** with a 50-ms deadline (send 0.164 ms). This supersedes a readiness claim based
 only on the earlier candidate's 0/42 pass. v06 is selected locally; timing readiness is open,
-no arena upload. Report and executable archive: `build/analysis/v06-promotion/`.
+no arena upload by the agent. Report and executable archive: `build/analysis/v06-promotion/`.
 
 Readable labels and six runnable retained experiments are listed in [bot_catalog.md](bot_catalog.md)
 and `gradlew botCatalog`. Version ids remain stable; `EvalBotVNN` class names remain frozen.
@@ -24,7 +24,8 @@ Their historical screen results are not new evidence for the shared catalog snap
 
 Latest user-reported arena snapshot (2026-09-16): **v06 uploaded, 153/645**, after **rank 270
 for v05** before upload. Exact deployed source hash is not independently verified. The 30 saved
-Boss 4 games split by the user's first-15/last-15 assignment give **v05 2-13**, **v06 5-10**,
+Boss 4 games split by the user's corrected first-16/last-14 assignment give **v05 2-14**, **v06 5-9**,
+with the first v06 game **904146009**,
 on 30 distinct unpaired maps; all validate exactly, with no failures or skipped commands.
 See [the loss diagnosis](boss-v06-loss-analysis.md) for route-portfolio evidence and the next
 single-change proposal. No strategy change or new strength confirmation in this analysis.
@@ -588,6 +589,33 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   later max **38.115 ms**, 109 tests and 214/214 exact replays. **64,775 / 100,000 characters**,
   source SHA-256 `748b564a77a0d3293a925913f396a60d4598783501bc4a74a9a6624f6fadbbc5`.
   Timed decisions can differ with JIT/hardware even though ample-time strategy semantics match.
+
+## Unpromoted experiment: quick income portfolio slot (2026-09-16)
+
+- `current?USE_ROLLOUT_QUICK_ROUTE=1` retains one <=6-paint positive-own/net-income route
+  inside the existing six slots while our income is zero. Reuses existing path proposals;
+  unchanged depth, opponent model, sabotage, budgets and other parameters. Default-off.
+- Fixed direct screen vs **v06**: **160-134-6**, **54.33%** with half credit for draws;
+  **300 games / 150 distinct paired maps**, seeds 40000..40149, CG 486/36-ms budget, two workers.
+  Map-grouped 95% CI **43.24–65.42%**, zero errors. **Gate not passed**.
+- Separate older-opponent check vs **v05**: **124-76-0 (62.0%)**, **200 games / 100 paired maps**,
+  seeds 41000..41099, CI **48.42–75.58%**, zero errors. No matched v06 control in this panel;
+  the historical v06/v05 percentage is not a baseline for estimating a new improvement.
+- No promotion, tuning or confirmation: selected **v06**, flag **false**, no v07 or upload.
+  The mechanism works on the captured opening (4-paint candidate retained), but population
+  improvement is unproven. The next question is selection/value/clock coverage of retained routes.
+- **225 tests pass**; **264 arena + 30 boss replays exact**. Candidate strict process sample
+  **0/8 problems**, max first/later response **747.670/47.118 ms**. Final default-off process
+  **0/8 problems**, max first/later **718.680/45.982 ms**.
+  Final coverage audit found repeated sides in the even-sized process map pool; original reports
+  retained, four previously missing map/side combinations checked per exact artifact, **0/4**
+  each. Combined **0/12 problems each**, all four maps on both sides. See
+  [the experiment report](quick-income-experiment.md) for the protocol deviation and all results.
+  Bench maxima A/B were **58/40 ms** vs v06 and **96/36 ms** vs v05; 2/0 slow moves each.
+  These outliers are retained and do not establish a cause or explain the older v06 timeout.
+- Full reports: `build/bench/quick-income-v1/`; durable parameters, hashes and paired outcomes:
+  `docs/evidence/quick-income-v1.json`. Updated default Player: **57,405 characters**, SHA-256
+  `5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266`.
 
 ## Known gaps (to become versions)
 

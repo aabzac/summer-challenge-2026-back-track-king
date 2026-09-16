@@ -78,6 +78,31 @@ class CgReplayPlayersTest {
                 CgRender.outputPath(Path.of("rendered"), replay));
     }
 
+    @Test
+    void positiveArenaBossIdUsesAuthoritativeSlotAndRendersAsBossGame() {
+        for (int slot = 0; slot < 2; slot++) {
+            JsonObject root = new JsonObject();
+            JsonArray agents = new JsonArray();
+            JsonObject boss = new JsonObject();
+            boss.addProperty("index", slot);
+            boss.addProperty("agentId", 6740207);
+            JsonObject identity = new JsonObject();
+            identity.addProperty("nickname", "Boss 4");
+            boss.add("arenaboss", identity);
+            agents.add(boss); // array order deliberately differs from player order for P1
+            agents.add(agent(1 - slot, 100, "aabzac"));
+            root.add("agents", agents);
+            root.add("frames", initFrames());
+            CgReplay replay = CgReplay.parse(root);
+            assertEquals("Boss 4", replay.nicknames[slot]);
+            assertEquals("aabzac", replay.nicknames[1 - slot]);
+            assertTrue(replay.isBossGame());
+            replay.gameId = 904146009;
+            assertEquals(Path.of("rendered", "bot", "904146009.json"),
+                    CgRender.outputPath(Path.of("rendered"), replay));
+        }
+    }
+
     private static JsonObject agent(int index, long userId, String pseudo) {
         JsonObject codingamer = new JsonObject();
         codingamer.addProperty("userId", userId);

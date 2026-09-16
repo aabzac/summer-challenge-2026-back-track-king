@@ -205,8 +205,8 @@ tasks.register<JavaExec>("cgBossLossStudy") {
     description = "Validated descriptive comparison of explicitly counted chronological boss cohorts"
     mainClass.set("btk.tools.CgBossLossStudy")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg/bot"), prop("before", "15"), prop("total", "30"),
-        prop("out", "build/analysis/boss-v06-losses-v1/cohorts.json"))
+    args = listOf(prop("path", "replays/cg/bot"), prop("before", "16"), prop("total", "30"),
+        prop("out", "build/analysis/boss-v06-losses-v2/cohorts.json"))
 }
 
 tasks.register<JavaExec>("cgRolloutBossProbe") {
@@ -214,8 +214,8 @@ tasks.register<JavaExec>("cgRolloutBossProbe") {
     description = "Known-state frozen rollout diagnostics on a previously recorded boss cohort"
     mainClass.set("btk.tools.CgRolloutBossProbe")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("input", "build/analysis/boss-v06-losses-v1/cohorts.json"),
-        prop("out", "build/analysis/boss-v06-losses-v1/rollout-probe.json"))
+    args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
+        prop("out", "build/analysis/boss-v06-losses-v2/rollout-probe.json"))
 }
 
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */

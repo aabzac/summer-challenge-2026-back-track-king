@@ -1,0 +1,87 @@
+{
+  "v05": {
+    "games": 16,
+    "wins": 2,
+    "turns": 1123,
+    "ownPaint": 2827,
+    "bossPaint": 1877,
+    "ownCells": 2235,
+    "bossCells": 1512,
+    "ownNeverEarned": 1114,
+    "bossNeverEarned": 216,
+    "bossDisruptTurns": 1067,
+    "failures": 0,
+    "skipped": 0
+  },
+  "v06": {
+    "games": 14,
+    "wins": 5,
+    "turns": 1002,
+    "ownPaint": 1664,
+    "bossPaint": 1921,
+    "ownCells": 1368,
+    "bossCells": 1496,
+    "ownNeverEarned": 254,
+    "bossNeverEarned": 219,
+    "bossDisruptTurns": 837,
+    "failures": 0,
+    "skipped": 0
+  },
+  "probe_all": {
+    "states": 1002,
+    "attacks": 837,
+    "twoScenarioTargetCovered": 707,
+    "persistenceEligible": 618,
+    "priorTargetMatches": 521,
+    "modelMatchesOnPersistenceEligible": 550,
+    "recordedOwnBuildCovered": 946,
+    "zeroComparisons": 0,
+    "nonemptyBossBuilds": 644,
+    "nonemptyBossBuildCovered": 111,
+    "quickGapStates": 71,
+    "quickGapGames": 14
+  },
+  "probe_win": {
+    "states": 279,
+    "attacks": 278,
+    "twoScenarioTargetCovered": 230,
+    "persistenceEligible": 203,
+    "priorTargetMatches": 169,
+    "modelMatchesOnPersistenceEligible": 180,
+    "recordedOwnBuildCovered": 258,
+    "zeroComparisons": 0,
+    "nonemptyBossBuilds": 239,
+    "nonemptyBossBuildCovered": 28,
+    "quickGapStates": 25,
+    "quickGapGames": 5
+  },
+  "probe_loss": {
+    "states": 723,
+    "attacks": 559,
+    "twoScenarioTargetCovered": 477,
+    "persistenceEligible": 415,
+    "priorTargetMatches": 352,
+    "modelMatchesOnPersistenceEligible": 370,
+    "recordedOwnBuildCovered": 688,
+    "zeroComparisons": 0,
+    "nonemptyBossBuilds": 405,
+    "nonemptyBossBuildCovered": 83,
+    "quickGapStates": 46,
+    "quickGapGames": 9
+  },
+  "largeDamageLoss": {
+    "turns": 23,
+    "targetCovered": 21
+  },
+  "sourceReportsSha256": {
+    "cohorts.json": "07c0f9dd11c7e1f31f2f7d5f6e34453c2724dee5728c8005f56b29786b11c955",
+    "rollout-probe.json": "3ead073970de85659b2548213b3e7fd318589a2042ace337b2e04ff32aa7fb4a",
+    "summary.json": "a9053efe892179e944c9354e04ca44f1751e961285300b88041e84607ec6c810"
+  },
+  "cohortBoundary": {
+    "beforeCount": 16,
+    "afterCount": 14,
+    "firstV06GameId": 904146009,
+    "attribution": "user-reported, no independent submitted-source hash"
+  }
+}

@@ -20,6 +20,9 @@ class V06PromotionTest {
         try (var in = getClass().getResourceAsStream("/v06-confirmed.properties")) { record.load(in); }
         var expected = new TreeMap<String,String>();
         for (var key : record.stringPropertyNames()) expected.put(key, record.getProperty(key));
+        // Post-v06 fields are inactive and absent from the immutable confirmation record.
+        expected.put("USE_ROLLOUT_QUICK_ROUTE", "false");
+        expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         for (var spec : new String[]{"current", "main", "v06"})
             assertEquals(expected, BotFactory.configuration(spec), spec);
         Params dirty = new Params();
@@ -30,7 +33,7 @@ class V06PromotionTest {
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
         FrozenParams.applyTo("v06", dirty);
-        for (var entry : expected.entrySet())
+        for (var entry : expected.entrySet()) if (record.containsKey(entry.getKey()))
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
         assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
         assertInstanceOf(RolloutBotV06.class, BotFactory.create("v06"));

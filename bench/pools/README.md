@@ -10,3 +10,7 @@
 - `confirmation-v1.json`: **retired as a reserve**. Its original file is kept for historical
   identity. The rollout-v1 screen inadvertently selected seeds 30000..30149 from this range.
   Do not use it as independent confirmation or relabel that screen as confirmation. See DEVLOG.
+
+- `quick-income-v1.json` and `quick-income-style-v1.json`: consumed development pools,
+  seeds 40000..40149 (300 paired games vs v06) and 41000..41099 (200 vs v05), respectively.
+  The quick-income screen did not pass promotion; these maps are not fresh confirmation.

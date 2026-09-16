@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-income-v1",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 40000,
+  "pairs": 150
+}

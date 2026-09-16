@@ -30,6 +30,7 @@ public final class CgReplay {
     public String seed;
     public String[] nicknames = new String[2];
     public int[] agentIds = new int[2];
+    public boolean[] arenaBosses = new boolean[2];
     public int[] finalScores = new int[2];
     public int[] ranks = new int[2];
     public JsonObject metadata;
@@ -85,6 +86,12 @@ public final class CgReplay {
                 if (a.has("codingamer") && a.get("codingamer").isJsonObject()) {
                     JsonObject c = a.getAsJsonObject("codingamer");
                     if (c.has("pseudo")) r.nicknames[idx] = c.get("pseudo").getAsString();
+                }
+                if (a.has("arenaboss") && a.get("arenaboss").isJsonObject()) {
+                    r.arenaBosses[idx] = true;
+                    JsonObject boss = a.getAsJsonObject("arenaboss");
+                    r.nicknames[idx] = boss.has("nickname") && !boss.get("nickname").isJsonNull()
+                            ? boss.get("nickname").getAsString() : "Boss";
                 }
                 if (a.has("rank")) r.ranks[idx] = a.get("rank").getAsInt();
             }
@@ -225,7 +232,7 @@ public final class CgReplay {
 
     /** True for an IDE TestSession game against the built-in boss agent. */
     public boolean isBossGame() {
-        return agentIds[0] == -2 || agentIds[1] == -2;
+        return arenaBosses[0] || arenaBosses[1] || agentIds[0] == -2 || agentIds[1] == -2;
     }
 
     /** Signed 64-bit map seed from the referee's Java properties; absent in some replay exports. */

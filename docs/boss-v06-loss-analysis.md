@@ -3,19 +3,24 @@
 The next experiment should improve **which construction routes reach the rollout search**.
 Keep v06 as selected. This investigation changes diagnostic tools only, not the submitted bot.
 
+Correction: the user clarified the split on 2026-09-16: **16 v05 / 14 v06**, with the first
+v06 game **904146009**. The original v1 reports remain unchanged; v2 recomputes all cohorts
+and probes. This document describes the diagnostic baseline, before the separate
+[quick-income experiment](quick-income-experiment.md).
+
 ## Sample and provenance
 
 The user reports an arena upload and rank **153/645**, compared with rank **270** for v05
 before uploading. This is a user-reported snapshot, not an API-verified deployment hash or a
-controlled comparison of ranks. The locally packaged source remains
+controlled comparison of ranks. At the original diagnosis, the locally packaged source was
 `7f4d94e40e5252d09b86df6e1b8c208e92c86d98a521d858eaf182a9178c2c9c`.
 
 All 30 canonical files directly in `replays/cg/bot` were included, sorted by game id. The user's
-first-15/last-15 assignment labels the cohorts v05/v06. The IDE replay does not independently
+first-16/last-14 assignment labels the cohorts v05/v06. The IDE replay does not independently
 record the source version; agent -1 alone cannot verify that assignment.
 
-- v05-labelled: 904021106 through 904125203, **2 wins / 13 losses**.
-- v06-labelled: 904125321 through 904148315, **5 wins / 10 losses**.
+- v05-labelled: 904021106 through 904125321, **2 wins / 14 losses**.
+- v06-labelled: 904146009 through 904148315, **5 wins / 9 losses**.
 - All games: aabzac P0, Boss 4 P1, boss agent **6740207**, identified by `agents.index` and
   `arenaboss`, not the array's finishing order. **30 distinct maps**, no map shared between cohorts.
 - **30/30 replay validations exact; zero failures and zero skipped commands**, both players.
@@ -24,19 +29,19 @@ record the source version; agent -1 alone cannot verify that assignment.
 ## What improved in these records
 
 Cells we placed that never subsequently appeared on an income-producing connection:
-v05 **970/2054 (47.22%)**, v06 **398/1549 (25.69%)**. Boss: **205/1432 (14.32%)** and
-**230/1576 (14.59%)**, respectively. v06 spends less paint overall, **1891 over 1082 turns**,
-compared with v05's **2600 over 1043 turns**. Different maps prevent attributing the entire
+v05 **1114/2235 (49.84%)**, v06 **254/1368 (18.57%)**. Boss: **216/1512 (14.29%)** and
+**219/1496 (14.64%)**, respectively. v06 spends less paint overall, **1664 over 1002 turns**,
+compared with v05's **2827 over 1123 turns**. Different maps prevent attributing the entire
 difference to the strategy, but the new games contain substantially less unproductive building.
 This metric does not measure return on paint or prove that a never-earning investment was irrational.
 
 ## Main finding: quick income can be absent from the route portfolio
 
-The frozen v06 was examined on **all 1082 recorded pre-turn states** of the new cohort.
+The frozen v06 was examined on **all 1002 recorded pre-turn states** of the new cohort.
 Each probe uses a fresh instance, `v06?NOISE=0`, and a 60,000-ms allowance so the bounded search
 can finish. This is a mechanism probe, not a reconstruction of the original timed search or RNG
 history. All probes completed at least one full comparison; their root portfolios contain the
-recorded placement set in **971/1082** positions. Actual same-turn boss actions are never policy inputs.
+recorded placement set in **946/1002** positions. Actual same-turn boss actions are never policy inputs.
 
 Example: **904148181, turn 0** (turn indices below are zero-based):
 
@@ -51,7 +56,7 @@ Example: **904148181, turn 0** (turn indices below are zero-based):
   route costs **17**. The observation is not confined to the initial map.
 
 Across first-20-turn observations with zero own income, a useful route costing at most 6 paint
-is cheaper than every retained route in **48 states from all 10 losses**. The same condition
+is cheaper than every retained route in **46 states from all 9 losses**. The same condition
 appears in **25 states from all 5 wins**. These repeated observations are neither independent
 trials nor proof that this condition causes defeat. They establish a recurring restriction of
 the candidate set, including in successful games.
@@ -72,7 +77,7 @@ v05 or pressure-v1 separately before any confirmation/promotion.
 ## Sabotage prediction is not the first bottleneck to widen
 
 The actual frozen first-turn opponent scenarios cover the boss's chosen target in
-**779/917 attacks (84.95%)**. Among v06 losses, for the **23 turns** where omitting the boss's
+**707/837 attacks (84.47%)**. Among v06 losses, for the **23 turns** where omitting the boss's
 recorded same-turn sabotage improves immediate net points by at least 30, the model includes
 the real target in **21/23**. This threshold is an exploratory descriptive slice, not a held-out test.
 
@@ -91,12 +96,12 @@ looks defensive is not automatically better than the chosen investment. Both exa
 examining construction alternatives and their valuation before adding more sabotage scenarios.
 
 A simple repeat-the-previous-target baseline also does not beat the existing model on its
-eligible slice: **576/678** correct for repetition, versus **605/678** covered by the two current
+eligible slice: **521/618** correct for repetition, versus **550/618** covered by the two current
 scenarios when the previous target remains legal and the boss attacks. Do not replace the model
 with target stickiness based only on selected examples.
 
-The exact boss placement set is covered by the two construction scenarios on **118/673 turns
-with nonempty boss construction (17.53%)**. That is a later modeling question; multiple different
+The exact boss placement set is covered by the two construction scenarios on **111/644 turns
+with nonempty boss construction (17.24%)**. That is a later modeling question; multiple different
 placement sets can have similar strategic effects. Low exact-action agreement alone does not
 justify a wider or more expensive search.
 
@@ -106,8 +111,8 @@ Reproduction, with fresh output paths if reports already exist:
 
 ```powershell
 .\gradlew.bat cgValidate "-Ppath=replays/cg/bot"
-.\gradlew.bat cgBossLossStudy -Pbefore=15 -Ptotal=30 "-Pout=build/analysis/boss-v06-losses-v1/cohorts.json"
-.\gradlew.bat cgRolloutBossProbe "-Pinput=build/analysis/boss-v06-losses-v1/cohorts.json" "-Pout=build/analysis/boss-v06-losses-v1/rollout-probe.json"
+.\gradlew.bat cgBossLossStudy -Pbefore=16 -Ptotal=30 "-Pout=build/analysis/boss-v06-losses-v2/cohorts.json"
+.\gradlew.bat cgRolloutBossProbe "-Pinput=build/analysis/boss-v06-losses-v2/cohorts.json" "-Pout=build/analysis/boss-v06-losses-v2/rollout-probe.json"
 .\gradlew.bat test
 ```
 
@@ -115,18 +120,19 @@ The cohort command refuses changed file counts and existing output. Each replay'
 stored in the report; the probe checks those hashes and revalidates the input. Diagnostic route
 completion, placements, scoring and pathing all use core. No rules are reimplemented.
 
-- `cohorts.json`: `7ab85b8bdb849fbcac9985a0a526f557f477c4a8e35dd1194fd86e93722c0876`.
-- `rollout-probe.json`: `c2569c38aa14f7a6e2c612f115af7c00cb27a4e8d00012140a84da26120661a4`.
-- `summary.json`: `9e131306820080e168badba63916179501dc8a253f5193c4989b59694ec7a020`.
+- `cohorts.json`: `07c0f9dd11c7e1f31f2f7d5f6e34453c2724dee5728c8005f56b29786b11c955`.
+- `rollout-probe.json`: `3ead073970de85659b2548213b3e7fd318589a2042ace337b2e04ff32aa7fb4a`.
+- `summary.json`: `a9053efe892179e944c9354e04ca44f1751e961285300b88041e84607ec6c810`.
 
 Compact positions are retained in `src/test/resources/btk/bot/rollout-boss-positions.json`:
 904148181 t0 and 904147739 t20. Their initial graphics plus prior actions reconstruct the exact
 pre-turn hash through core. Same-turn actions are clearly marked diagnostic labels only.
-**220 tests pass.** Tests also check terrain costs, player perspective, net-income versus mere connectivity,
+**220 tests passed at the original diagnosis.** Tests also check terrain costs, player perspective, net-income versus mere connectivity,
 unreachable inked paths and input isolation.
 The reused defense helper's JSON field `bossTracks` refers to the probed player's own tracks
 in `priorTargetDefense`; this probe passes our player index to that helper, not the boss index.
 
-No policy, frozen version, default parameter or Player.java changes; no new matches, upload,
-strength benchmark or claim to fix the earlier local process timeout. The absence of failures
+The original diagnosis made no policy, frozen-version, default-parameter or Player.java changes.
+The subsequent strategy experiment and its matches are recorded separately in
+[quick-income-experiment.md](quick-income-experiment.md). Neither analysis claims to fix the earlier local process timeout. The absence of failures
 in these 30 boss games does not explain that separate local 50.462-ms overrun.

@@ -2658,3 +2658,81 @@ Completed outcome (fixed sample, no retuning):
   selected; final Player hash remains `7f4d94e40e5252d09b86df6e1b8c208e92c86d98a521d858eaf182a9178c2c9c`.
   No new games or upload by the agent. These failure-free boss records do not explain or erase
   the separate local packaging timeout; keep that investigation open. Commit the diagnostic work.
+
+## 2026-09-16 — corrected boss cohorts and rendered collection
+
+- User corrected the boundary: **16 v05 / 14 v06**, first v06 **904146009**; game 904125321
+  belongs to v05. The preceding entry used the initial 15/15 report and is superseded for all
+  cohort-dependent totals. Preserve its v1 files; new v2 reports recompute all 30 games and
+  re-probe the 1002 v06 states with the same frozen noise-free policy.
+- Correct outcomes: **v05 2-14**, **v06 5-9**. Own cells never earning: **1114/2235 (49.84%)**
+  versus **254/1368 (18.57%)**; unpaired descriptive evidence. Quick-route gap in the first 20
+  turns: **46 states / 9 losses**, **25 states / 5 wins**. Boss-target coverage **707/837**;
+  high-immediate-damage loss slice remains **21/23**. These corrections preserve the original
+  mechanism hypothesis but do not establish causality or a promotion gate.
+- Parser now recognizes positive-ID bosses via `arenaboss`, names them via `nickname`, and
+  preserves authoritative `agents.index`; legacy -2 still works. Regression covers both slots.
+  All **30/30** validated and rendered to `replays/rendered/cg/bot/`. Local collection
+  `replays/rendered/cg/boss-30.html` shows the corrected groups; browser checked opening and
+  terminal frames, correct score and Boss 4 label. Canonical replay inputs unchanged.
+- Setup corrections before any strategy match: a parser insertion was initially in the wrong
+  scope (compile failure); combining rendering and analysis with their shared `-Pout` created
+  a directory instead of an analysis file. Moved only the newly generated files into the correct
+  render directory, then ran tasks separately. No prior reports were overwritten. First test
+  used `gameId` instead of fixture `sourceGameId`; corrected. All **224 tests** then passed and
+  **264/264 arena** replays reproduced exactly. Nickname regression rerun after the final metadata fix.
+- Quick-income experiment protocol, default-off implementation and checks are documented in
+  `docs/quick-income-experiment.md`; results will be appended after the fixed samples.
+
+## 2026-09-16 — quick-income route-slot experiment, not promoted
+
+- **Hypothesis:** retain one cheap positive-own/net-income completion among existing six routes
+  at zero own income; the rollout decides whether to build it. Default-off
+  `USE_ROLLOUT_QUICK_ROUTE`, limit `ROLLOUT_QUICK_MAX_PAINT=6`. Reuse bounded path proposals,
+  minimum paint / maximum net-gain tie-break, canonical direction. Replace a matching first
+  prefix or final slot; no extra route query, widened search, sabotage or opponent-model change.
+- **Predeclared protocol:** `docs/quick-income-experiment.md`; fresh development pools 40000..40149
+  (300 games vs frozen v06) and 41000..41099 (200 vs v05), both sides, two workers, CG 486/36-ms
+  timing, RNG SEED=1. Exclusion index covers 4074 previous map identities; second sample also
+  excludes the first. All 250 new maps distinct. No parameter adjustment, extension or reserve use.
+  A PowerShell unquoted pool argument failed before any game; quoted the path and started once.
+- **Main result:** **160-134-6 (54.33%) vs v06**, map-grouped CI **43.24–65.42%**, zero errors.
+  P0/P1 wins 75/150 and 85/150; avg score difference +153.6. Neither practical nor confidence
+  gate passed. A/B average search 16.71/16.72 ms, maxima 58/40 ms, slow moves 2/0, retained.
+- **Older check:** **124-76 (62.0%) vs v05**, CI **48.42–75.58%**, zero errors; P0/P1 wins
+  68/100 and 56/100. A/B averages 18.29/5.17 ms, maxima 96/36 ms, slow 2/0. This separate panel
+  does not estimate an improvement over v06 against v05; no matched control was declared.
+- **Mechanism and safety:** captured 904148181 t0 now retains a 4-paint candidate on both sides
+  within the same query and simulation bounds. Negative net income, >6 paint, inked routes,
+  income-start/reset and expired-turn fallback covered. Disabled policy matches frozen v06
+  over evolving boards. Merged candidate parameters/decisions and isolated warmup also tested.
+  **225 tests, zero failures**; **264 arena + 30 boss replays exact**, no core/frozen changes.
+- **Exact artifact checks:** candidate source 57,404 chars, SHA
+  `8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd`;
+  fixed strict process sample **0/8 problems**, 583 turns, first/later max **747.670/47.118 ms**,
+  one later response >45 ms. Restored default-off source 57,405 chars, SHA
+  `5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266`;
+  same fixed sample **0/8 problems**, 639 turns, first/later max
+  **718.680/45.982 ms**, 1 later response >45 ms.
+  Sequential local samples, no retries; neither proves CG-host safety or explains the old v06
+  50.462-ms failure. Keep that historical issue open.
+- **Decision:** not promoted; flag remains false, selected policy v06, no v07 or upload. Preserve
+  this inconclusive experiment and investigate retained-candidate selection/value/clock coverage
+  before another strategic change. Success on one fixture is not population-strength evidence.
+- **Evidence:** full bench reports under `build/bench/quick-income-v1/`, artifacts/process reports
+  under `build/analysis/quick-income-v1/`, complete compact parameters/map outcomes/hashes in
+  `docs/evidence/quick-income-v1.json`. Main report SHA
+  `669168ea5d6f57f274627f15d4e3063e25c0d82fcf7691418951e2b32a5c35fb`;
+  older-check SHA `ce0b084f8f114212d34207873a498a64ee01a6196aaf0c16432b63d0ef1c4aea`.
+  Commit completed experiment and corrected/rendered boss analysis under the standing agreement.
+
+- **Final process-coverage audit/correction:** ProcessCheck map index `i`, player `i%2` repeated
+  the same sides on the even four-map pool; the initial eight-game samples did not implement
+  the intended both-side coverage. Preserved them and predeclared only four missing combinations
+  per exact artifact (904146009 P0, 903510176 P1, 904148181 P0, 904147739 P1), using numbered
+  map copies with unchanged contents. Supplements **0/4 problems each**, source AND executable
+  hashes match originals. Combined **0/12 problems each**, 8 distinct map/side combinations;
+  candidate 913 turns, default 947 turns. No failed sample discarded or retried.
+  Both supplemental reports and protocol preserved. README/PLAN warn about checker scheduling;
+  BenchmarkRunner's 500 strength games already paired correctly. Final Player restored to the
+  same default-off hash, no policy changes after benchmark.

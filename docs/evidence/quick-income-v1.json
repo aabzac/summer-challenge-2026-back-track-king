@@ -1,0 +1,5540 @@
+{
+  "decision": "not_promoted; default flag false; selected v06",
+  "method": "Fixed development screen and separate older-opponent check; paired maps, no optional extension, all outcomes retained. Not confirmation.",
+  "protocolManifest": {
+    "parentRevision": "63e39dc",
+    "candidate": "current?USE_ROLLOUT_QUICK_ROUTE=1",
+    "control": "v06",
+    "sourceSha256": {
+      "src\\main\\java\\btk\\bot\\current\\RolloutBot.java": "1571e7df6bc2ab600b88a92d6319b363f9148c020c4f5078ea255a5652a55e43",
+      "src\\main\\java\\btk\\bot\\Params.java": "380a14651f62f0d56fa57ccdded162acd761430df4ffc4837d33cecc4e5e8770",
+      "docs\\quick-income-experiment.md": "cb0d3ae47151f1692dfb287a23b36d69ca7c0e9ee71bad9231bdee45f34c75f9",
+      "bench\\pools\\quick-income-v1.json": "2e6d5ac10b03cf026d3deacd99a6ae401775ab348850324077eca0d1ba9db71b",
+      "bench\\pools\\quick-income-style-v1.json": "14c0ec74c0e616f849c600e0997b85404e0f3ffc632027d87dce93fdd66fa39d"
+    },
+    "compiledSha256": {
+      "build\\classes\\java\\main\\btk\\bot\\Bot.class": "52f1ac25a70b6321022905646d62698a6b9bfa12cca9259cd8f19d068b09e144",
+      "build\\classes\\java\\main\\btk\\bot\\BotCatalog$Engine.class": "68dc432921f4972677935a24ab1979fd97cc7d17ca1b3bb3ede0070cb57850f3",
+      "build\\classes\\java\\main\\btk\\bot\\BotCatalog$Entry.class": "513003433f1fcc2390932634824264fb1744d931566c245ebc66c34c75a29d87",
+      "build\\classes\\java\\main\\btk\\bot\\BotCatalog$Identity.class": "6ad79c1eff3d4fcd1e9d8c71264e932b3407e5695470159c8fabbc4d618976de",
+      "build\\classes\\java\\main\\btk\\bot\\BotCatalog.class": "c98bddf61565a4158337a4f784fc32171336431b44bbeda2deeaae3c041bd1f7",
+      "build\\classes\\java\\main\\btk\\bot\\BotFactory$1.class": "50c28297af731c8c6aa0a92405f88863eb0469ae8c0683be045e054ba324a40b",
+      "build\\classes\\java\\main\\btk\\bot\\BotFactory.class": "386add5803a2fc7e5a2ca1506556f0355c20caffd68dfae32c39366254abbb9c",
+      "build\\classes\\java\\main\\btk\\bot\\FrozenParams.class": "5d587b3d5e54b721737cebc141e85e73c13d46d4fd026715618f98584dc8063b",
+      "build\\classes\\java\\main\\btk\\bot\\MainBot.class": "825b2b9f77efdaed7867826ca07b74d937660014dff2950f5743fe58abd7c60b",
+      "build\\classes\\java\\main\\btk\\bot\\Params.class": "b5e2d0230c70ae9c90f818d7edba5c1c046e7a7fbc0a754448fa3b270a03a9ec",
+      "build\\classes\\java\\main\\btk\\bot\\RetainedEngine.class": "0eb5e17bf162305a30b68d10170cd0af64390dcc4d9f5758aaf6373f33ad77e3",
+      "build\\classes\\java\\main\\btk\\bot\\Timer.class": "3974fa6f1d0586291011ddcdf97c71b5dcb6dd7a74ec380b6b37358be3424235",
+      "build\\classes\\java\\main\\btk\\core\\Action$1.class": "89bdc7c66c45a26122e2a2dffbba8052d1bf2270bb30007ccf5f76fe8051e4de",
+      "build\\classes\\java\\main\\btk\\core\\Action$Type.class": "e3d8498fe4d62a036c2c9253362c0194c4a07ed35ebc4430499ee16946ff91ba",
+      "build\\classes\\java\\main\\btk\\core\\Action.class": "49f57987fbed37b1e9b0dc6e42d40d97a300c1f4745172f87cc8dc5ca7a6dd85",
+      "build\\classes\\java\\main\\btk\\core\\GameState.class": "ddca4768bf211f2f23928a1c81a4caf735067d3e22ef6caeb6c1ce48cc1f6edb",
+      "build\\classes\\java\\main\\btk\\core\\Pathing.class": "6f09c8bdeb0c3ceb9018647d4cf6e5b02506ac99f15ee4e3292c3f8a49163f45",
+      "build\\classes\\java\\main\\btk\\core\\Protocol$Init.class": "d134f205fa01049bf7e73650748b76f0737f581cf04fa4ea616679e27089e954",
+      "build\\classes\\java\\main\\btk\\core\\Protocol$TokenReader.class": "7fb36d045abf3e38858781648f08b74ede8dba9429fce3ba9bc6c9cd84145fde",
+      "build\\classes\\java\\main\\btk\\core\\Protocol$TurnInfo.class": "a8c4a3e16b7b38de62da547a6ebfe222b319a6c43340cbbaa433a4882a74f4cc",
+      "build\\classes\\java\\main\\btk\\core\\Protocol.class": "b40541a05e98bf2ad6ea2f909dbba21da0b2d69d180bdff95312c48fdb5d721d",
+      "build\\classes\\java\\main\\btk\\core\\Rules$1.class": "64797d2e221dbde0123a47af66e77cb167ab2a40b9afddf744b42e998afc99f4",
+      "build\\classes\\java\\main\\btk\\core\\Rules$PlayerMoves.class": "cedd6e7bf303f5b122c0d11c24a92fd905dcece5a3aa6c04ad4dbfda041d3062",
+      "build\\classes\\java\\main\\btk\\core\\Rules$TurnResult.class": "04f6591cd35d73a4485fe98354d05f279c5f72289baee3a17c8f9a0b01477603",
+      "build\\classes\\java\\main\\btk\\core\\Rules.class": "195db7e02620cd0d4f562ac4280714fa7b7fd7703aa039af8f0d6b64aec64ac3",
+      "build\\classes\\java\\main\\btk\\core\\SearchState.class": "701464854c6818ee889333f5853aeaffd75725a1e10efb2c465ec99a8ef335c8",
+      "build\\classes\\java\\main\\btk\\submit\\CGRunner.class": "fc6efa7f6386963602b8f5933ac08619988a94af81ea27b08421f4e285875cd1",
+      "build\\classes\\java\\main\\btk\\submit\\FileMerger.class": "4ee734a29a7ec51d4a39f7f8b140e7904e5cdbf59de312cc03ad1ff89f2ad338",
+      "build\\classes\\java\\main\\btk\\bot\\current\\EvalBot.class": "0578f61a8e32fd0e9ebea035ccbfded7c443b36709c64ed82bc6a00b6cae6560",
+      "build\\classes\\java\\main\\btk\\bot\\current\\HeuristicBot.class": "f35a612fb7000ede218df689e70bc8f441b3185a98e62bd35b695d25ef0602e3",
+      "build\\classes\\java\\main\\btk\\bot\\current\\RolloutBot.class": "1555c3976cdecec7e23c240ef4dd252e28b34437b54a0beea60288ea4fa2124a",
+      "build\\classes\\java\\main\\btk\\bot\\reference\\PressureBot.class": "962690fee1a1b571d3dbbe0a1e6da3395c06e408211d89d892128a66754ba89f",
+      "build\\classes\\java\\main\\btk\\bot\\v00\\AutoplaceBot.class": "0f0a22773150d6cbea4231dca9d40c0d846fa923c0b73e544265597f46c24132",
+      "build\\classes\\java\\main\\btk\\bot\\v01\\GreedyBotV01.class": "91ffacce62b6e63be04f793b64eea379358bf7b681d731a4d8972b097a6704d8",
+      "build\\classes\\java\\main\\btk\\bot\\v02\\EvalBotV02.class": "072c2f8a39a3bd0dc26d9a0a56892db9fc940b2f811e41e46d72c7811fb2dce3",
+      "build\\classes\\java\\main\\btk\\bot\\v03\\EvalBotV03.class": "6b508f4a9a2c09871d795cc38988dd45ca91d599dd62c8a48c14cd4991daad9d",
+      "build\\classes\\java\\main\\btk\\bot\\v04\\EvalBotV04.class": "264d09722952812d28b76c5a9d438f5fa241402e3e2ab54875e6b0545f5e2da6",
+      "build\\classes\\java\\main\\btk\\bot\\v05\\EvalBotV05.class": "65b35b05dee3a117c40e58bd3922697776335b2a1946509d1f2e735c5cf9d3d3",
+      "build\\classes\\java\\main\\btk\\bot\\v06\\RolloutBotV06.class": "f2e8a39e8c22ecdb5b83c433b41d1dd4f19501552d40577bd8d60e25512a7773"
+    },
+    "capturePhase": "At benchmark launch; protocol document and pools written before launch."
+  },
+  "matches": {
+    "v06": {
+      "a": "current?USE_ROLLOUT_QUICK_ROUTE=1",
+      "b": "v06",
+      "startedAt": "2026-09-16T13:34:01.909494900Z",
+      "paramsA": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "paramsB": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_ROUTE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "games": 300,
+      "winsA": 160,
+      "winsB": 134,
+      "draws": 6,
+      "errorsA": 0,
+      "errorsB": 0,
+      "confidenceMethod": "map-grouped Hoeffding 95%; assumes independent representative maps",
+      "confidence95": [
+        0.4324448089178356,
+        0.654221857748831
+      ],
+      "promotionGatePassed": false,
+      "baseSeed": 40000,
+      "poolId": "quick-income-v1",
+      "poolSha256": "2e6d5ac10b03cf026d3deacd99a6ae401775ab348850324077eca0d1ba9db71b",
+      "poolPurpose": "development",
+      "threads": 2,
+      "firstSearchBudgetMs": 486,
+      "turnSearchBudgetMs": 36,
+      "javaVersion": "17.0.12",
+      "elapsedMs": 477998,
+      "maxMsA": 58,
+      "maxMsB": 40,
+      "slowA": 2,
+      "slowB": 0,
+      "sumMsA": 465004,
+      "sumMsB": 465055,
+      "turns": 27820,
+      "sumDiff": 46080,
+      "winsAasP0": 75,
+      "winsAasP1": 85,
+      "gamesAasP0": 150,
+      "gamesAasP1": 150,
+      "excludedReports": {
+        "build\\bench\\quick-income-v1\\exclusions.json": "87b67331ffb3c13a37f5d8a79f1994b9089f338a43a89bc05bfe7020d16db109"
+      },
+      "gamesPerMap": {
+        "79a37279ca3a27736bbe15d1f76bc24027edd504df4e38d0b4731634178f8ee3": 2,
+        "b38265f40ff4bc1471661d68cae32edc2b8efe67cfe9c84108501c0a82715b3a": 2,
+        "359f5559acc5cb9e8ca0d8b7e08bea70a49418302d233a9b95ca54b60ea0466e": 2,
+        "16edbf707478c4d6503edc36a36b1e5d75150cc616afc73f4d8dcda74029d27b": 2,
+        "f50577a1bc5b2c5b223738ffba26666967d241584d81aa182451bcd1fc748642": 2,
+        "fd5a488cf612deb93340643c62b76a761e78406c43d7a95d014ccbb4dad794e7": 2,
+        "2054262911969cecdc5809411cf1f61798a242483edabb996b85fe51ecec73fe": 2,
+        "63557ed3850a00d5283327917461ef7403887a280cb2a3bb848676a6aa57281e": 2,
+        "8ddb625f673f8349433bf4c1d1b18abf197f8bee7784851c0f5d2bba1d6f510a": 2,
+        "7b44ff04096d9e4e426434a813887a4ef94b99990f8dc477858f47dfec890226": 2,
+        "69a5988b935a431edf3e7b403ed8ac1e8d1176e209582793b4cb6a7c452071cb": 2,
+        "93f05492605df400c188c6675fcd62421fadf970332ea6c9127a049d901a518f": 2,
+        "2c46b07236ccc073f316ee0b97030efce2c2390291a8f44af8a728fe02530335": 2,
+        "0aefb8b44229051fac622cd9653153c6d4e9d451bee3acf23df649d56fdd54ff": 2,
+        "527eeba70a449ef440990a3c9666abadbec5c2d814d7be7a8af3bfb5f7e1127a": 2,
+        "53b054f50a7f23a33e31a5f282361e72442526dc5d5cec331bb9b536376ada75": 2,
+        "fec16eb57c2a4c28bee2d8886e1c82577bdcb53f5cdc6eca5dbbae3eff7d4eae": 2,
+        "d4fecb053cfcd60acdf22229adbfe6b6777c0a2c1f3be5f1f1682420bdb37da2": 2,
+        "0491de6bb573def54c2eb0a14db5ffde6b96333ff0bc9b13c16fb11cd877be31": 2,
+        "e28f4cfe75cacfd5612fd18bed8042b5bea3899a7c8d94be4a271130f0609f6e": 2,
+        "3203b2b99b6295f8a1d89915afb406f2cf438583b6cb6576f96eb811a7e4f8d1": 2,
+        "51a0106f6be73b86c8b01e1942ebe58d56038e556480ad963e4397bdb54b8c6f": 2,
+        "c9c0052c153fbe307cd4453871af7be922c725c3ff02ceb82c6701c1fbbbfde4": 2,
+        "d5254440882d626e55171b0425b8ff2c0d7900b4f561652a7d008a23241c67b6": 2,
+        "4971eb253da8512d86c6c2b42f8427d3de6a98dd28a5219356cf0d7f9378c8ca": 2,
+        "68cc1095e7adf4edb60956035746a722efa64d2e846e04107bb4531e68ee881d": 2,
+        "e54b16cc202b61960338a3e4c99f72874ea358dfa5fe34f7aaf786b9e990f896": 2,
+        "611905973f0b789fa64c6c0021782dcfc8bfffe487181ac3f3958e2c5fb6a069": 2,
+        "584321d2b2df24990fbb5bdc0c705064c1f5b211be73fed31caf9e42bc15aa55": 2,
+        "d6722aedead7a75f0cb5970bf7eefb7ff1b06afd40f9c92453a3ed773b1a9de3": 2,
+        "768740eb8de133c72a12671cc2e153644e5b49b53dce15f6f351598ceec16ee3": 2,
+        "585fa683301491097211768472ea7cb0357d2970e51e701003fb2a736015d222": 2,
+        "95ed050bc89207409e429561774839b5b00b58de83725ffd7bdb2a065a7fd22c": 2,
+        "8fcb082d946a81fe2780d456d66598adf700f900b135103ea92164c92d363a82": 2,
+        "17e5d1d6c3e5229abb572259ae10f72087ac9d30f0eb05aabd523b356a5f10f0": 2,
+        "4beb1dbf4eaf50c5ab73cf33e97b632a1e0d3f69c2ab5756cc2320ac71ffe877": 2,
+        "95876d378653de778de91b2276441deddc10fdcd8dfc892c17582aeaa4328ae9": 2,
+        "edb65fbfc94a6dda79ec7b4517167e8dc964822a59cd3074f10622931157ddbc": 2,
+        "ce8bb53de5e68a30775903e7bf320027652e1032cb573be0037e587573a4f3c1": 2,
+        "753431f4786eb60c735abcf36590906e74b18bb80bd97a02b822a9052ad38556": 2,
+        "332ec36e8f55e28f0c8d174edba52a907a99fc7937400caeaf6f399b9319af76": 2,
+        "b455cadfb79efc884a56e0e26635f9dac5831f5457d09714c5bb0063c62b4853": 2,
+        "f194601336f6151f84e0f2b7173116199410f5983a305301490cebd7b78c45d9": 2,
+        "73991a1c261fb9018e1ca3a40b7c2d5b0049b4e93574db1b210f52e889376eb5": 2,
+        "cb12445c2fbf9d18d6aa58b5294feab7c885737ee6b224795bf316c7eb2dea75": 2,
+        "56a562cf9496976176dc9390f977cdc57310029307fdbe13d053a96cfb259809": 2,
+        "39dd0833387b4e828bba47c627abf3e1fdc1b814683066146e748eca1c008eb3": 2,
+        "f90b8e755ded05a0d16f0326d02ff98fcff413b501d9c37e220390e5effe8e4b": 2,
+        "1fcb9aa58e000b2c65eafeb68e7d07bca60e6908506c6bb6b2346a39f5b3e8af": 2,
+        "e5c3ff57248093eb7c345013803e4ed2202cf185dec7b67685c10b10392b5a78": 2,
+        "f5c71071d844105751b04f7b4b4ea7e5f81627538416f76207fd8f53cd623fc8": 2,
+        "8a02cc0dccaf8d66557c428ef2746fe3ebad9f0885b35424cfb09955d143003b": 2,
+        "6aeaddf312d470d1bf7f36be612c66c89411850dab85336594f42b4197809c71": 2,
+        "a1fdf13ab943aab875ff829c31cbeaa18a7b5db759f0c654d5a2a09a55cf41e1": 2,
+        "fc9cfd3d91f4bbea063c6204640ce0ab6490f4ab6031e87536a7d660d2485b23": 2,
+        "a933bfb7e998a34ad7c8f5b359c07a4e48b98eabe5a9291b8e08573b2b69ef5f": 2,
+        "bbb0462109e6ea004a9d84dff90479339faa94e7f7f38a1dfcac5aabc143105b": 2,
+        "c48f83edd93ada6e4b3d546fda859891f33d89e80b4ea0b12e5ba25b1a153623": 2,
+        "9ae660f8b615b6ca244836e8d86725817b9b06dc3707f9ea2d282ef134582cdd": 2,
+        "4e7c73cad99007400335c7fd18957dd2a182ddf4f474e46d92a97f4054053d97": 2,
+        "b58b9fbeff194841138935ba6cd2bcfa8c7f6c356c3b3f055e32641477037ca5": 2,
+        "007002d41559df2295265cd573bbc8bdebe41c47e26627ba09edfc6626958eef": 2,
+        "0e3ea6d3e46e409e4d1519e0f7cd62b967e878b82270e52e0010b8305292cf55": 2,
+        "151d48d762c75c634aefa91b6efac0ff6cab5e66d69ae9e5d6ff6c46db5cd27e": 2,
+        "d87d553cf610ab69fc932106607e85da2477d314021c2b813a70009ba5497e10": 2,
+        "26a94c069e54403d7eeddf795a15f6a8f4d1d636d0cbbc5cebd25a2ad43f97b5": 2,
+        "bd23647b8c8763ba3942a60c65cb25b0099eec28429e08969c8a7f7c523d99e4": 2,
+        "b6c5fc2a583420b571a0ca2f2b0f8e6e65786b7343bf52d414addfab0ab0935f": 2,
+        "cb2d92f691a712e2aa6369a3f650b17132d1faa26390c32589d267dc32be3be2": 2,
+        "af205357223fff098bd2033cb5219e1af13b6197b22cb3d397f2412e4e790d09": 2,
+        "0cb71c0a3aec0dca433a8bc09b465cf597eb4b3320b50fc6b179a103740783c4": 2,
+        "1be07fddcda5ccd10f8e6aebbf9a69ae465c4cef5067b0a90b28d69cbbd86c17": 2,
+        "83635f92d41e2464894c3f695ed3b1f7424934c7f7510084a50cefb34bc4cd17": 2,
+        "11263ac31542cc9fb98094e4cec7248130e1441ba845c850f194667156863109": 2,
+        "db29fc7df500bf7df81006c29a955020c901a6c9fe80c042db48fe2d210a68cb": 2,
+        "4901d74df7e00968cb2fdda4ec5b223430e40f71fc7dc3002e43cc818f1624aa": 2,
+        "f76fde2ed42cb582478a594eb64288b9b5c768e5349ca235617f84eda0b5b8dc": 2,
+        "da0780ea7d51cf4aeb391afaffcf64cc8172396dab1408fb75f006d92101dfcb": 2,
+        "8992ecb69363a4d9abfcfaec3198bd35edb40d3ada1895a97d19a56ff17e4bcb": 2,
+        "2398fefef6af26e43c02ace81a88aeaf2e71200e7bcdcdaa76c9eb090633b9f4": 2,
+        "a44fe19fee8439705722963aa0e6904ca33877d1b162748ab48c58593aae3c39": 2,
+        "76dae902962043ba1489af55eddb3f6f5f9c0ad52ccbb745811c0e49862aba58": 2,
+        "8cfcfe16975356b9e868eacbefbf33507eedfee5532f29ab7b4f77f1f4c82033": 2,
+        "fbf22c651ea94d6aab4eb287c08be0fd1534d110df5bbb89cf7e68b77dbde96f": 2,
+        "97f75a78e4b7de3dffee96697d2cfdfc79fb0704845f7f0eef6cfd02786fea3a": 2,
+        "2fe9e1bd8cd90ed29441744ff7886156f407bf76658eddfd99f85d168ced5c14": 2,
+        "0a240ab119cf328bac954d0abd07123e8eabf8163d87302176954da941fd819b": 2,
+        "b0b238b9eaa10e5d375526b7e558584c8d23a91ffc92be56ca2396c71f37149c": 2,
+        "f48c3f91910bea012f0f0823af26b7bb3692bf416624f0d9dd189d5e7b770a93": 2,
+        "8558c065090ea4675213cb9278feb238bbf080fb8acaab068b9b01b9658695aa": 2,
+        "865b09aa09fad6ed04087da8c6c894969c8a749e00d9145f715eb8e292e48fee": 2,
+        "301f3a23a09ed7a7281c904c899d2f837d3f8508cf9f55966b08820524324e70": 2,
+        "65bf906ae5d18ceb5d1908d2a7cf7f0750e5b144eeaab08a8a6e7fee025ef268": 2,
+        "5591fe319c346720ed41d5d0aaf14062390928687d9b29da78b10bed8d311f6a": 2,
+        "4ea00fbd72724ee9e2190e26cf0a4c05e179f81c78a8c072fdb4da6d1af49f21": 2,
+        "8b43d077486789c9358a3fdc19bf5059d7804e8f5636110e0a81cdbc0ba22b9f": 2,
+        "188623ee113c0070f3a22591a2e16c289ddea8acbc40fc43f40b12b4504e48b9": 2,
+        "32f6b5c877be05979c45ca3f57c6d4363343269d49f40191435d7c8dfc2de118": 2,
+        "9aa6c8eaacb7c2b1320a26784fc35ead79d73803ce853c04e9721337f4a79c8c": 2,
+        "28c94ac523f473ebfe123cb1a588feae1329c40e3c1bb47ab4f5140c1b0b2b7e": 2,
+        "5782cc040ee2f4386c9b0dfd8411e870a7dd89f8aa9df5b5ae4ce7c50676ac4f": 2,
+        "e8c8393b30c906b07620948b6fcced5582170963e5e3751a6798268c127a5db5": 2,
+        "26b72c352950a2f23e1606f3d8128bcfa3d3b3d6d6b1efc3d20e59c7ab09df23": 2,
+        "15de16ee60e818ff7fbb22cd00f83a823b86beb286ffb5bda142ca0a7d8169db": 2,
+        "d325b17dbdbca63eab5d795d3c858369307fc3afdaa06f621f3c2ae69b12d817": 2,
+        "f22a4422364f5c7c5a2798200333b28c7b2511a282bd462d0c516d1425d9782d": 2,
+        "4756e7e4c7003eda0b3d58ea01ff66833ffb7456e9268c26fe907db200a3830a": 2,
+        "8658eed6614c4cf303a45942fa6c27eb34b64ad5d73c4f3a1865f3ad94659cc0": 2,
+        "fae17e3dfe7a21fc46002c900f520b5d4fb31231406f7ffdfddf96706e288b9a": 2,
+        "66e476963bb873dfb01ab5d6d00c2a16dfbe803fff431cf1fcd3897e573e7b74": 2,
+        "8ced74268f01e1d78379f2bf7705320cbaf3edce98acf7d4097ef22a84b1cc96": 2,
+        "79df67591fe9d21a9b614c544c5a1ffd593e1ce0442335b365a4feb1496ffdd7": 2,
+        "0b906860ba39c65e190edf8cf89e7e47d75ed7fceab479c73cb609004c31f84b": 2,
+        "53c90bbd219569cff4c1d80f5463d4f4bff3578dad92228743dfc025173ad183": 2,
+        "5173e5862d4a49e80bae2fd747454c513b830ab356ab496b1036effb7fb379fd": 2,
+        "00f88e08b0811704066834a7df8539e3194fc4549d6df679da4aa9519ab47845": 2,
+        "bc8c748a5ae7b020a0fbeed341624f8d849b53e36e98b001e9eac2f9164f4a27": 2,
+        "fd71470d0e466c80df870d69fb14c20c3368d142238cd08dcfc33c167708b957": 2,
+        "86d308585975df7b94a1630b740f26b254b52492a28f623efc27e2257bd91aa5": 2,
+        "c54b64eab95e26cad8df61f23fa8e2ab7f79e46cd6162b20198e28ab402377f7": 2,
+        "404c4372dc3290f55b49f84cf68237172593ab15f8622a7556affe692886d1f3": 2,
+        "50e7c83e3cf7b7051e9daf2fc4fd86f1fe9aa02067b6b53ad531ed07c942fd15": 2,
+        "f8ab2f2f6090550e09de778dc15103b03d86dd1c33e3b116a912b81359001141": 2,
+        "e511225323225dcc681c3d75bfcdfe449a0c8ea0763676e9261d1206685b233d": 2,
+        "98c7c29f59a256ec7d5d7a6c83750b28569a152dd68a89551973f38a85b1f89d": 2,
+        "7c222f2ab6bd237d785be613b180abb5538846dc95f2f2449807215f8fd3cceb": 2,
+        "477602daaefe3a0ebcd28549e57f6e0197db00fed1223a275ebbb66164204cf8": 2,
+        "ba66ccf71de5bde0b36fd28287a97fd563dfef0932c384efd27f93de733839dd": 2,
+        "a0b79ee81dbc4cfccb0c1fe62cc46344779438448b9102a46954b340a309d147": 2,
+        "d81080d49798c3863f0a8b63f75d4c830c9a1066eec87d897d5f0bac31fc361f": 2,
+        "3c6ca8be2ec1474a6d7e65629afbbf9a9ee2eb2b291a2c2b8bf40bad9299bfa5": 2,
+        "e7ba75b6c6d0ef531688b4a0dc5468fffd0d0674cffeebdc1a078ee590b47530": 2,
+        "1e839dcbc2ef57baf003317cf56352540964a5d1c23d10dfadd3e9f2442b8992": 2,
+        "5165b1fae6e9cb021f96ec80f2937e40a92081ba4a07dc908dad60b0612a21d9": 2,
+        "65cc201277c05ba7878236cd12903c314b5a0f2ae989f1135706314b358b61a0": 2,
+        "8a94d10b424873d7efdadb74c42b823c5cfb17566bfcbf6abcc8bfe56bc2c7ef": 2,
+        "3af3deb935e024b010beced13fe72fdd0c9874c11608cab87b8ef670a72152bb": 2,
+        "7112c51e32f49487e8f10b802b2fef0773ae28e6c164099eb69415bdd4e37a06": 2,
+        "d55c3dc893af9de003f847d7b52c16fac32081899a73196ad221877e287ead47": 2,
+        "1d73a276cd4bb776f5c60eea6089b72ee183a61f74b84c0a419ac514363012f9": 2,
+        "7a072ae1d3c181615c8a6af9577ce9f4b7c1357deb50d67bd5aed1225aadc69d": 2,
+        "ba94085aa218d2fa1cffae287a6f3dfee68862cef818ddbbc0948dec84ecb3a1": 2,
+        "1dcc7f0a488e18c9594f7d42a10c83bc1c7b961a3a7bbfd858280e9f09f8293f": 2,
+        "725ece2f6577c6fe18472166838a0081cdc2cd4a51b809deb4aa9fca0412db48": 2,
+        "71787e2d039fc3ef1f0bffa0e629ddade081964710e574b2e1482800abb7935c": 2,
+        "c222fa7ad3b45777ac8fca1fde08811761e2c9a5ac97cb42421f01675ad9ffa1": 2,
+        "4dab41224b9daf4dd2d6d771bc2937d6f0b053cd45928a162cdcc842c446b3d1": 2,
+        "8c81928d51534d55d50cfb4f85821b53a29ed14d1d05ec9dc60df8037bb14788": 2,
+        "a5135858aeadef8597fc6d1486e219f1aac615d8276280768d4085bc2e97cb0f": 2,
+        "f788fc546366e238549c6d38cd59d090b0da35f2d662e67078fced30788ca3fa": 2
+      },
+      "reportSha256": "669168ea5d6f57f274627f15d4e3063e25c0d82fcf7691418951e2b32a5c35fb",
+      "rateA": 0.5433333333333333,
+      "pairOutcomes": [
+        {
+          "seed": 40000,
+          "mapHash": "79a37279ca3a27736bbe15d1f76bc24027edd504df4e38d0b4731634178f8ee3",
+          "aAsP0": {
+            "score": [
+              2908,
+              2717
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1792,
+              2365
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40001,
+          "mapHash": "b38265f40ff4bc1471661d68cae32edc2b8efe67cfe9c84108501c0a82715b3a",
+          "aAsP0": {
+            "score": [
+              3830,
+              1278
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2808,
+              3471
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40002,
+          "mapHash": "359f5559acc5cb9e8ca0d8b7e08bea70a49418302d233a9b95ca54b60ea0466e",
+          "aAsP0": {
+            "score": [
+              6235,
+              4590
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6128,
+              5572
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40003,
+          "mapHash": "16edbf707478c4d6503edc36a36b1e5d75150cc616afc73f4d8dcda74029d27b",
+          "aAsP0": {
+            "score": [
+              9830,
+              12806
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4717,
+              5640
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40004,
+          "mapHash": "f50577a1bc5b2c5b223738ffba26666967d241584d81aa182451bcd1fc748642",
+          "aAsP0": {
+            "score": [
+              5316,
+              3289
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3672,
+              3184
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40005,
+          "mapHash": "fd5a488cf612deb93340643c62b76a761e78406c43d7a95d014ccbb4dad794e7",
+          "aAsP0": {
+            "score": [
+              402,
+              121
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              405,
+              466
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40006,
+          "mapHash": "2054262911969cecdc5809411cf1f61798a242483edabb996b85fe51ecec73fe",
+          "aAsP0": {
+            "score": [
+              3864,
+              1535
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10297,
+              11164
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40007,
+          "mapHash": "63557ed3850a00d5283327917461ef7403887a280cb2a3bb848676a6aa57281e",
+          "aAsP0": {
+            "score": [
+              4486,
+              4848
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2410,
+              3706
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40008,
+          "mapHash": "8ddb625f673f8349433bf4c1d1b18abf197f8bee7784851c0f5d2bba1d6f510a",
+          "aAsP0": {
+            "score": [
+              22766,
+              13337
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4246,
+              5922
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40009,
+          "mapHash": "7b44ff04096d9e4e426434a813887a4ef94b99990f8dc477858f47dfec890226",
+          "aAsP0": {
+            "score": [
+              8864,
+              5350
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6743,
+              8021
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40010,
+          "mapHash": "69a5988b935a431edf3e7b403ed8ac1e8d1176e209582793b4cb6a7c452071cb",
+          "aAsP0": {
+            "score": [
+              4067,
+              1577
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              793,
+              1452
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40011,
+          "mapHash": "93f05492605df400c188c6675fcd62421fadf970332ea6c9127a049d901a518f",
+          "aAsP0": {
+            "score": [
+              5145,
+              5077
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3380,
+              3227
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40012,
+          "mapHash": "2c46b07236ccc073f316ee0b97030efce2c2390291a8f44af8a728fe02530335",
+          "aAsP0": {
+            "score": [
+              3091,
+              2904
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5714,
+              3623
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40013,
+          "mapHash": "0aefb8b44229051fac622cd9653153c6d4e9d451bee3acf23df649d56fdd54ff",
+          "aAsP0": {
+            "score": [
+              7006,
+              5276
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              12700,
+              9478
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40014,
+          "mapHash": "527eeba70a449ef440990a3c9666abadbec5c2d814d7be7a8af3bfb5f7e1127a",
+          "aAsP0": {
+            "score": [
+              6672,
+              6058
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4563,
+              6702
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40015,
+          "mapHash": "53b054f50a7f23a33e31a5f282361e72442526dc5d5cec331bb9b536376ada75",
+          "aAsP0": {
+            "score": [
+              3179,
+              4467
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5499,
+              3203
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40016,
+          "mapHash": "fec16eb57c2a4c28bee2d8886e1c82577bdcb53f5cdc6eca5dbbae3eff7d4eae",
+          "aAsP0": {
+            "score": [
+              5695,
+              7524
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7248,
+              10929
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40017,
+          "mapHash": "d4fecb053cfcd60acdf22229adbfe6b6777c0a2c1f3be5f1f1682420bdb37da2",
+          "aAsP0": {
+            "score": [
+              8826,
+              13980
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5355,
+              9820
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40018,
+          "mapHash": "0491de6bb573def54c2eb0a14db5ffde6b96333ff0bc9b13c16fb11cd877be31",
+          "aAsP0": {
+            "score": [
+              13249,
+              6414
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4476,
+              5543
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40019,
+          "mapHash": "e28f4cfe75cacfd5612fd18bed8042b5bea3899a7c8d94be4a271130f0609f6e",
+          "aAsP0": {
+            "score": [
+              12563,
+              8323
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2306,
+              3721
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40020,
+          "mapHash": "3203b2b99b6295f8a1d89915afb406f2cf438583b6cb6576f96eb811a7e4f8d1",
+          "aAsP0": {
+            "score": [
+              3424,
+              6138
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              9787,
+              5994
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40021,
+          "mapHash": "51a0106f6be73b86c8b01e1942ebe58d56038e556480ad963e4397bdb54b8c6f",
+          "aAsP0": {
+            "score": [
+              5353,
+              5594
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5345,
+              4966
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40022,
+          "mapHash": "c9c0052c153fbe307cd4453871af7be922c725c3ff02ceb82c6701c1fbbbfde4",
+          "aAsP0": {
+            "score": [
+              4251,
+              3417
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3613,
+              2854
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40023,
+          "mapHash": "d5254440882d626e55171b0425b8ff2c0d7900b4f561652a7d008a23241c67b6",
+          "aAsP0": {
+            "score": [
+              1626,
+              2613
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1626,
+              2613
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40024,
+          "mapHash": "4971eb253da8512d86c6c2b42f8427d3de6a98dd28a5219356cf0d7f9378c8ca",
+          "aAsP0": {
+            "score": [
+              10315,
+              10716
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              14867,
+              11154
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40025,
+          "mapHash": "68cc1095e7adf4edb60956035746a722efa64d2e846e04107bb4531e68ee881d",
+          "aAsP0": {
+            "score": [
+              4394,
+              7414
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2563,
+              4633
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40026,
+          "mapHash": "e54b16cc202b61960338a3e4c99f72874ea358dfa5fe34f7aaf786b9e990f896",
+          "aAsP0": {
+            "score": [
+              10385,
+              12177
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              12830,
+              10067
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40027,
+          "mapHash": "611905973f0b789fa64c6c0021782dcfc8bfffe487181ac3f3958e2c5fb6a069",
+          "aAsP0": {
+            "score": [
+              4527,
+              3573
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3528,
+              3277
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40028,
+          "mapHash": "584321d2b2df24990fbb5bdc0c705064c1f5b211be73fed31caf9e42bc15aa55",
+          "aAsP0": {
+            "score": [
+              1383,
+              2405
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2282,
+              2326
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40029,
+          "mapHash": "d6722aedead7a75f0cb5970bf7eefb7ff1b06afd40f9c92453a3ed773b1a9de3",
+          "aAsP0": {
+            "score": [
+              1441,
+              2323
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3633,
+              4085
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40030,
+          "mapHash": "768740eb8de133c72a12671cc2e153644e5b49b53dce15f6f351598ceec16ee3",
+          "aAsP0": {
+            "score": [
+              2306,
+              5578
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5724,
+              6171
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40031,
+          "mapHash": "585fa683301491097211768472ea7cb0357d2970e51e701003fb2a736015d222",
+          "aAsP0": {
+            "score": [
+              2544,
+              2223
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4761,
+              7996
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40032,
+          "mapHash": "95ed050bc89207409e429561774839b5b00b58de83725ffd7bdb2a065a7fd22c",
+          "aAsP0": {
+            "score": [
+              4796,
+              3620
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3132,
+              6647
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40033,
+          "mapHash": "8fcb082d946a81fe2780d456d66598adf700f900b135103ea92164c92d363a82",
+          "aAsP0": {
+            "score": [
+              0,
+              0
+            ],
+            "winner": -1
+          },
+          "aAsP1": {
+            "score": [
+              0,
+              0
+            ],
+            "winner": -1
+          }
+        },
+        {
+          "seed": 40034,
+          "mapHash": "17e5d1d6c3e5229abb572259ae10f72087ac9d30f0eb05aabd523b356a5f10f0",
+          "aAsP0": {
+            "score": [
+              10010,
+              4435
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5404,
+              3593
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40035,
+          "mapHash": "4beb1dbf4eaf50c5ab73cf33e97b632a1e0d3f69c2ab5756cc2320ac71ffe877",
+          "aAsP0": {
+            "score": [
+              5226,
+              5047
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10916,
+              8520
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40036,
+          "mapHash": "95876d378653de778de91b2276441deddc10fdcd8dfc892c17582aeaa4328ae9",
+          "aAsP0": {
+            "score": [
+              10723,
+              11627
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              8431,
+              11034
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40037,
+          "mapHash": "edb65fbfc94a6dda79ec7b4517167e8dc964822a59cd3074f10622931157ddbc",
+          "aAsP0": {
+            "score": [
+              5272,
+              2783
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6412,
+              5235
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40038,
+          "mapHash": "ce8bb53de5e68a30775903e7bf320027652e1032cb573be0037e587573a4f3c1",
+          "aAsP0": {
+            "score": [
+              2301,
+              1195
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1814,
+              1638
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40039,
+          "mapHash": "753431f4786eb60c735abcf36590906e74b18bb80bd97a02b822a9052ad38556",
+          "aAsP0": {
+            "score": [
+              1245,
+              3773
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1097,
+              814
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40040,
+          "mapHash": "332ec36e8f55e28f0c8d174edba52a907a99fc7937400caeaf6f399b9319af76",
+          "aAsP0": {
+            "score": [
+              5620,
+              6066
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              11535,
+              7587
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40041,
+          "mapHash": "b455cadfb79efc884a56e0e26635f9dac5831f5457d09714c5bb0063c62b4853",
+          "aAsP0": {
+            "score": [
+              6403,
+              6003
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3709,
+              4464
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40042,
+          "mapHash": "f194601336f6151f84e0f2b7173116199410f5983a305301490cebd7b78c45d9",
+          "aAsP0": {
+            "score": [
+              12709,
+              13069
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              11717,
+              10128
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40043,
+          "mapHash": "73991a1c261fb9018e1ca3a40b7c2d5b0049b4e93574db1b210f52e889376eb5",
+          "aAsP0": {
+            "score": [
+              3290,
+              2834
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2964,
+              2696
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40044,
+          "mapHash": "cb12445c2fbf9d18d6aa58b5294feab7c885737ee6b224795bf316c7eb2dea75",
+          "aAsP0": {
+            "score": [
+              13528,
+              10028
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              11896,
+              7641
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40045,
+          "mapHash": "56a562cf9496976176dc9390f977cdc57310029307fdbe13d053a96cfb259809",
+          "aAsP0": {
+            "score": [
+              7251,
+              6719
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5138,
+              4453
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40046,
+          "mapHash": "39dd0833387b4e828bba47c627abf3e1fdc1b814683066146e748eca1c008eb3",
+          "aAsP0": {
+            "score": [
+              1331,
+              1359
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1678,
+              1665
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40047,
+          "mapHash": "f90b8e755ded05a0d16f0326d02ff98fcff413b501d9c37e220390e5effe8e4b",
+          "aAsP0": {
+            "score": [
+              4489,
+              3606
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2921,
+              2070
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40048,
+          "mapHash": "1fcb9aa58e000b2c65eafeb68e7d07bca60e6908506c6bb6b2346a39f5b3e8af",
+          "aAsP0": {
+            "score": [
+              2306,
+              1169
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2306,
+              1169
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40049,
+          "mapHash": "e5c3ff57248093eb7c345013803e4ed2202cf185dec7b67685c10b10392b5a78",
+          "aAsP0": {
+            "score": [
+              4562,
+              3796
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4093,
+              5445
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40050,
+          "mapHash": "f5c71071d844105751b04f7b4b4ea7e5f81627538416f76207fd8f53cd623fc8",
+          "aAsP0": {
+            "score": [
+              2801,
+              2633
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2663,
+              2405
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40051,
+          "mapHash": "8a02cc0dccaf8d66557c428ef2746fe3ebad9f0885b35424cfb09955d143003b",
+          "aAsP0": {
+            "score": [
+              1069,
+              1213
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3225,
+              1926
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40052,
+          "mapHash": "6aeaddf312d470d1bf7f36be612c66c89411850dab85336594f42b4197809c71",
+          "aAsP0": {
+            "score": [
+              4283,
+              7088
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4776,
+              6836
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40053,
+          "mapHash": "a1fdf13ab943aab875ff829c31cbeaa18a7b5db759f0c654d5a2a09a55cf41e1",
+          "aAsP0": {
+            "score": [
+              2923,
+              2305
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3105,
+              6185
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40054,
+          "mapHash": "fc9cfd3d91f4bbea063c6204640ce0ab6490f4ab6031e87536a7d660d2485b23",
+          "aAsP0": {
+            "score": [
+              9708,
+              12438
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              11035,
+              6891
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40055,
+          "mapHash": "a933bfb7e998a34ad7c8f5b359c07a4e48b98eabe5a9291b8e08573b2b69ef5f",
+          "aAsP0": {
+            "score": [
+              5532,
+              6695
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5541,
+              6965
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40056,
+          "mapHash": "bbb0462109e6ea004a9d84dff90479339faa94e7f7f38a1dfcac5aabc143105b",
+          "aAsP0": {
+            "score": [
+              9488,
+              10757
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7878,
+              10534
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40057,
+          "mapHash": "c48f83edd93ada6e4b3d546fda859891f33d89e80b4ea0b12e5ba25b1a153623",
+          "aAsP0": {
+            "score": [
+              10411,
+              14958
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10626,
+              10973
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40058,
+          "mapHash": "9ae660f8b615b6ca244836e8d86725817b9b06dc3707f9ea2d282ef134582cdd",
+          "aAsP0": {
+            "score": [
+              4637,
+              5668
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3717,
+              3135
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40059,
+          "mapHash": "4e7c73cad99007400335c7fd18957dd2a182ddf4f474e46d92a97f4054053d97",
+          "aAsP0": {
+            "score": [
+              14795,
+              17761
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              18538,
+              19116
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40060,
+          "mapHash": "b58b9fbeff194841138935ba6cd2bcfa8c7f6c356c3b3f055e32641477037ca5",
+          "aAsP0": {
+            "score": [
+              12958,
+              11274
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7037,
+              4588
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40061,
+          "mapHash": "007002d41559df2295265cd573bbc8bdebe41c47e26627ba09edfc6626958eef",
+          "aAsP0": {
+            "score": [
+              9006,
+              7113
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5898,
+              6281
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40062,
+          "mapHash": "0e3ea6d3e46e409e4d1519e0f7cd62b967e878b82270e52e0010b8305292cf55",
+          "aAsP0": {
+            "score": [
+              3404,
+              1950
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4835,
+              8222
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40063,
+          "mapHash": "151d48d762c75c634aefa91b6efac0ff6cab5e66d69ae9e5d6ff6c46db5cd27e",
+          "aAsP0": {
+            "score": [
+              6605,
+              10269
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              12098,
+              8588
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40064,
+          "mapHash": "d87d553cf610ab69fc932106607e85da2477d314021c2b813a70009ba5497e10",
+          "aAsP0": {
+            "score": [
+              597,
+              1725
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1044,
+              1536
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40065,
+          "mapHash": "26a94c069e54403d7eeddf795a15f6a8f4d1d636d0cbbc5cebd25a2ad43f97b5",
+          "aAsP0": {
+            "score": [
+              11038,
+              8809
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              11083,
+              12008
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40066,
+          "mapHash": "bd23647b8c8763ba3942a60c65cb25b0099eec28429e08969c8a7f7c523d99e4",
+          "aAsP0": {
+            "score": [
+              5318,
+              3318
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4408,
+              6835
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40067,
+          "mapHash": "b6c5fc2a583420b571a0ca2f2b0f8e6e65786b7343bf52d414addfab0ab0935f",
+          "aAsP0": {
+            "score": [
+              10851,
+              8393
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              8848,
+              10672
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40068,
+          "mapHash": "cb2d92f691a712e2aa6369a3f650b17132d1faa26390c32589d267dc32be3be2",
+          "aAsP0": {
+            "score": [
+              3186,
+              6348
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7769,
+              8337
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40069,
+          "mapHash": "af205357223fff098bd2033cb5219e1af13b6197b22cb3d397f2412e4e790d09",
+          "aAsP0": {
+            "score": [
+              9071,
+              11436
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              8791,
+              7097
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40070,
+          "mapHash": "0cb71c0a3aec0dca433a8bc09b465cf597eb4b3320b50fc6b179a103740783c4",
+          "aAsP0": {
+            "score": [
+              0,
+              0
+            ],
+            "winner": -1
+          },
+          "aAsP1": {
+            "score": [
+              2768,
+              2520
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40071,
+          "mapHash": "1be07fddcda5ccd10f8e6aebbf9a69ae465c4cef5067b0a90b28d69cbbd86c17",
+          "aAsP0": {
+            "score": [
+              3982,
+              3254
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7068,
+              5459
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40072,
+          "mapHash": "83635f92d41e2464894c3f695ed3b1f7424934c7f7510084a50cefb34bc4cd17",
+          "aAsP0": {
+            "score": [
+              1406,
+              1366
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1819,
+              2483
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40073,
+          "mapHash": "11263ac31542cc9fb98094e4cec7248130e1441ba845c850f194667156863109",
+          "aAsP0": {
+            "score": [
+              5014,
+              2113
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              9122,
+              11989
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40074,
+          "mapHash": "db29fc7df500bf7df81006c29a955020c901a6c9fe80c042db48fe2d210a68cb",
+          "aAsP0": {
+            "score": [
+              5817,
+              5486
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4482,
+              6453
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40075,
+          "mapHash": "4901d74df7e00968cb2fdda4ec5b223430e40f71fc7dc3002e43cc818f1624aa",
+          "aAsP0": {
+            "score": [
+              4755,
+              6897
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4461,
+              4063
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40076,
+          "mapHash": "f76fde2ed42cb582478a594eb64288b9b5c768e5349ca235617f84eda0b5b8dc",
+          "aAsP0": {
+            "score": [
+              7596,
+              8341
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3566,
+              5173
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40077,
+          "mapHash": "da0780ea7d51cf4aeb391afaffcf64cc8172396dab1408fb75f006d92101dfcb",
+          "aAsP0": {
+            "score": [
+              2223,
+              1062
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              850,
+              2441
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40078,
+          "mapHash": "8992ecb69363a4d9abfcfaec3198bd35edb40d3ada1895a97d19a56ff17e4bcb",
+          "aAsP0": {
+            "score": [
+              10711,
+              13077
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10437,
+              13132
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40079,
+          "mapHash": "2398fefef6af26e43c02ace81a88aeaf2e71200e7bcdcdaa76c9eb090633b9f4",
+          "aAsP0": {
+            "score": [
+              5600,
+              7241
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6992,
+              6011
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40080,
+          "mapHash": "a44fe19fee8439705722963aa0e6904ca33877d1b162748ab48c58593aae3c39",
+          "aAsP0": {
+            "score": [
+              11765,
+              11840
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6005,
+              6402
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40081,
+          "mapHash": "76dae902962043ba1489af55eddb3f6f5f9c0ad52ccbb745811c0e49862aba58",
+          "aAsP0": {
+            "score": [
+              4233,
+              4541
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1991,
+              4472
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40082,
+          "mapHash": "8cfcfe16975356b9e868eacbefbf33507eedfee5532f29ab7b4f77f1f4c82033",
+          "aAsP0": {
+            "score": [
+              14841,
+              15670
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3879,
+              4629
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40083,
+          "mapHash": "fbf22c651ea94d6aab4eb287c08be0fd1534d110df5bbb89cf7e68b77dbde96f",
+          "aAsP0": {
+            "score": [
+              2272,
+              2475
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2625,
+              5019
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40084,
+          "mapHash": "97f75a78e4b7de3dffee96697d2cfdfc79fb0704845f7f0eef6cfd02786fea3a",
+          "aAsP0": {
+            "score": [
+              4813,
+              6860
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              23929,
+              25497
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40085,
+          "mapHash": "2fe9e1bd8cd90ed29441744ff7886156f407bf76658eddfd99f85d168ced5c14",
+          "aAsP0": {
+            "score": [
+              5119,
+              3707
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3641,
+              5297
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40086,
+          "mapHash": "0a240ab119cf328bac954d0abd07123e8eabf8163d87302176954da941fd819b",
+          "aAsP0": {
+            "score": [
+              8138,
+              9854
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10771,
+              6409
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40087,
+          "mapHash": "b0b238b9eaa10e5d375526b7e558584c8d23a91ffc92be56ca2396c71f37149c",
+          "aAsP0": {
+            "score": [
+              6815,
+              4633
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3378,
+              4169
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40088,
+          "mapHash": "f48c3f91910bea012f0f0823af26b7bb3692bf416624f0d9dd189d5e7b770a93",
+          "aAsP0": {
+            "score": [
+              7567,
+              7737
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              8999,
+              11852
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40089,
+          "mapHash": "8558c065090ea4675213cb9278feb238bbf080fb8acaab068b9b01b9658695aa",
+          "aAsP0": {
+            "score": [
+              7712,
+              12434
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10246,
+              10610
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40090,
+          "mapHash": "865b09aa09fad6ed04087da8c6c894969c8a749e00d9145f715eb8e292e48fee",
+          "aAsP0": {
+            "score": [
+              2879,
+              1992
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2065,
+              2913
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40091,
+          "mapHash": "301f3a23a09ed7a7281c904c899d2f837d3f8508cf9f55966b08820524324e70",
+          "aAsP0": {
+            "score": [
+              11446,
+              13681
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6884,
+              8005
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40092,
+          "mapHash": "65bf906ae5d18ceb5d1908d2a7cf7f0750e5b144eeaab08a8a6e7fee025ef268",
+          "aAsP0": {
+            "score": [
+              3207,
+              4427
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4094,
+              3300
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40093,
+          "mapHash": "5591fe319c346720ed41d5d0aaf14062390928687d9b29da78b10bed8d311f6a",
+          "aAsP0": {
+            "score": [
+              14534,
+              19477
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              8353,
+              6276
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40094,
+          "mapHash": "4ea00fbd72724ee9e2190e26cf0a4c05e179f81c78a8c072fdb4da6d1af49f21",
+          "aAsP0": {
+            "score": [
+              2017,
+              2574
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4411,
+              9192
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40095,
+          "mapHash": "8b43d077486789c9358a3fdc19bf5059d7804e8f5636110e0a81cdbc0ba22b9f",
+          "aAsP0": {
+            "score": [
+              9519,
+              8410
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              14515,
+              12190
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40096,
+          "mapHash": "188623ee113c0070f3a22591a2e16c289ddea8acbc40fc43f40b12b4504e48b9",
+          "aAsP0": {
+            "score": [
+              5168,
+              3130
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3463,
+              4011
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40097,
+          "mapHash": "32f6b5c877be05979c45ca3f57c6d4363343269d49f40191435d7c8dfc2de118",
+          "aAsP0": {
+            "score": [
+              12960,
+              6385
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2368,
+              1678
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40098,
+          "mapHash": "9aa6c8eaacb7c2b1320a26784fc35ead79d73803ce853c04e9721337f4a79c8c",
+          "aAsP0": {
+            "score": [
+              3525,
+              2361
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2982,
+              2317
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40099,
+          "mapHash": "28c94ac523f473ebfe123cb1a588feae1329c40e3c1bb47ab4f5140c1b0b2b7e",
+          "aAsP0": {
+            "score": [
+              8221,
+              5536
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              11883,
+              11142
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40100,
+          "mapHash": "5782cc040ee2f4386c9b0dfd8411e870a7dd89f8aa9df5b5ae4ce7c50676ac4f",
+          "aAsP0": {
+            "score": [
+              4158,
+              4002
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10783,
+              15149
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40101,
+          "mapHash": "e8c8393b30c906b07620948b6fcced5582170963e5e3751a6798268c127a5db5",
+          "aAsP0": {
+            "score": [
+              3508,
+              2937
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6899,
+              4392
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40102,
+          "mapHash": "26b72c352950a2f23e1606f3d8128bcfa3d3b3d6d6b1efc3d20e59c7ab09df23",
+          "aAsP0": {
+            "score": [
+              2524,
+              4289
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4716,
+              2827
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40103,
+          "mapHash": "15de16ee60e818ff7fbb22cd00f83a823b86beb286ffb5bda142ca0a7d8169db",
+          "aAsP0": {
+            "score": [
+              7981,
+              6222
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              9303,
+              8113
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40104,
+          "mapHash": "d325b17dbdbca63eab5d795d3c858369307fc3afdaa06f621f3c2ae69b12d817",
+          "aAsP0": {
+            "score": [
+              5677,
+              8952
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              15076,
+              20800
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40105,
+          "mapHash": "f22a4422364f5c7c5a2798200333b28c7b2511a282bd462d0c516d1425d9782d",
+          "aAsP0": {
+            "score": [
+              9329,
+              9424
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7467,
+              7641
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40106,
+          "mapHash": "4756e7e4c7003eda0b3d58ea01ff66833ffb7456e9268c26fe907db200a3830a",
+          "aAsP0": {
+            "score": [
+              12800,
+              14676
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6108,
+              8543
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40107,
+          "mapHash": "8658eed6614c4cf303a45942fa6c27eb34b64ad5d73c4f3a1865f3ad94659cc0",
+          "aAsP0": {
+            "score": [
+              1705,
+              2619
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1705,
+              2619
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40108,
+          "mapHash": "fae17e3dfe7a21fc46002c900f520b5d4fb31231406f7ffdfddf96706e288b9a",
+          "aAsP0": {
+            "score": [
+              9545,
+              15781
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              21323,
+              23775
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40109,
+          "mapHash": "66e476963bb873dfb01ab5d6d00c2a16dfbe803fff431cf1fcd3897e573e7b74",
+          "aAsP0": {
+            "score": [
+              4932,
+              4492
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3423,
+              2165
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40110,
+          "mapHash": "8ced74268f01e1d78379f2bf7705320cbaf3edce98acf7d4097ef22a84b1cc96",
+          "aAsP0": {
+            "score": [
+              12803,
+              8228
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7393,
+              9712
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40111,
+          "mapHash": "79df67591fe9d21a9b614c544c5a1ffd593e1ce0442335b365a4feb1496ffdd7",
+          "aAsP0": {
+            "score": [
+              3705,
+              3348
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2684,
+              2681
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40112,
+          "mapHash": "0b906860ba39c65e190edf8cf89e7e47d75ed7fceab479c73cb609004c31f84b",
+          "aAsP0": {
+            "score": [
+              1358,
+              743
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1337,
+              1902
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40113,
+          "mapHash": "53c90bbd219569cff4c1d80f5463d4f4bff3578dad92228743dfc025173ad183",
+          "aAsP0": {
+            "score": [
+              4005,
+              7536
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2965,
+              2914
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40114,
+          "mapHash": "5173e5862d4a49e80bae2fd747454c513b830ab356ab496b1036effb7fb379fd",
+          "aAsP0": {
+            "score": [
+              6492,
+              8948
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              8869,
+              7687
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40115,
+          "mapHash": "00f88e08b0811704066834a7df8539e3194fc4549d6df679da4aa9519ab47845",
+          "aAsP0": {
+            "score": [
+              2984,
+              8010
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5870,
+              6935
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40116,
+          "mapHash": "bc8c748a5ae7b020a0fbeed341624f8d849b53e36e98b001e9eac2f9164f4a27",
+          "aAsP0": {
+            "score": [
+              0,
+              0
+            ],
+            "winner": -1
+          },
+          "aAsP1": {
+            "score": [
+              0,
+              0
+            ],
+            "winner": -1
+          }
+        },
+        {
+          "seed": 40117,
+          "mapHash": "fd71470d0e466c80df870d69fb14c20c3368d142238cd08dcfc33c167708b957",
+          "aAsP0": {
+            "score": [
+              2608,
+              1595
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7644,
+              6783
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40118,
+          "mapHash": "86d308585975df7b94a1630b740f26b254b52492a28f623efc27e2257bd91aa5",
+          "aAsP0": {
+            "score": [
+              8341,
+              5494
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              14235,
+              10545
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40119,
+          "mapHash": "c54b64eab95e26cad8df61f23fa8e2ab7f79e46cd6162b20198e28ab402377f7",
+          "aAsP0": {
+            "score": [
+              0,
+              0
+            ],
+            "winner": -1
+          },
+          "aAsP1": {
+            "score": [
+              7295,
+              5879
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40120,
+          "mapHash": "404c4372dc3290f55b49f84cf68237172593ab15f8622a7556affe692886d1f3",
+          "aAsP0": {
+            "score": [
+              11243,
+              12911
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              12668,
+              11448
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40121,
+          "mapHash": "50e7c83e3cf7b7051e9daf2fc4fd86f1fe9aa02067b6b53ad531ed07c942fd15",
+          "aAsP0": {
+            "score": [
+              2272,
+              3008
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2285,
+              4492
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40122,
+          "mapHash": "f8ab2f2f6090550e09de778dc15103b03d86dd1c33e3b116a912b81359001141",
+          "aAsP0": {
+            "score": [
+              7703,
+              6871
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6233,
+              5171
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40123,
+          "mapHash": "e511225323225dcc681c3d75bfcdfe449a0c8ea0763676e9261d1206685b233d",
+          "aAsP0": {
+            "score": [
+              3706,
+              7263
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3711,
+              3990
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40124,
+          "mapHash": "98c7c29f59a256ec7d5d7a6c83750b28569a152dd68a89551973f38a85b1f89d",
+          "aAsP0": {
+            "score": [
+              4690,
+              8169
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1753,
+              2217
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40125,
+          "mapHash": "7c222f2ab6bd237d785be613b180abb5538846dc95f2f2449807215f8fd3cceb",
+          "aAsP0": {
+            "score": [
+              4400,
+              4885
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3097,
+              3204
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40126,
+          "mapHash": "477602daaefe3a0ebcd28549e57f6e0197db00fed1223a275ebbb66164204cf8",
+          "aAsP0": {
+            "score": [
+              4093,
+              3551
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3604,
+              3797
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40127,
+          "mapHash": "ba66ccf71de5bde0b36fd28287a97fd563dfef0932c384efd27f93de733839dd",
+          "aAsP0": {
+            "score": [
+              12702,
+              12315
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5599,
+              6923
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40128,
+          "mapHash": "a0b79ee81dbc4cfccb0c1fe62cc46344779438448b9102a46954b340a309d147",
+          "aAsP0": {
+            "score": [
+              5627,
+              7820
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6242,
+              13588
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40129,
+          "mapHash": "d81080d49798c3863f0a8b63f75d4c830c9a1066eec87d897d5f0bac31fc361f",
+          "aAsP0": {
+            "score": [
+              4785,
+              2561
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2587,
+              2788
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40130,
+          "mapHash": "3c6ca8be2ec1474a6d7e65629afbbf9a9ee2eb2b291a2c2b8bf40bad9299bfa5",
+          "aAsP0": {
+            "score": [
+              2063,
+              2965
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3092,
+              3810
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40131,
+          "mapHash": "e7ba75b6c6d0ef531688b4a0dc5468fffd0d0674cffeebdc1a078ee590b47530",
+          "aAsP0": {
+            "score": [
+              1022,
+              2408
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1022,
+              2408
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40132,
+          "mapHash": "1e839dcbc2ef57baf003317cf56352540964a5d1c23d10dfadd3e9f2442b8992",
+          "aAsP0": {
+            "score": [
+              2886,
+              1916
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2403,
+              3145
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40133,
+          "mapHash": "5165b1fae6e9cb021f96ec80f2937e40a92081ba4a07dc908dad60b0612a21d9",
+          "aAsP0": {
+            "score": [
+              12456,
+              6993
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10645,
+              12008
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40134,
+          "mapHash": "65cc201277c05ba7878236cd12903c314b5a0f2ae989f1135706314b358b61a0",
+          "aAsP0": {
+            "score": [
+              13582,
+              6655
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3392,
+              2552
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40135,
+          "mapHash": "8a94d10b424873d7efdadb74c42b823c5cfb17566bfcbf6abcc8bfe56bc2c7ef",
+          "aAsP0": {
+            "score": [
+              6965,
+              12891
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              14175,
+              9982
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40136,
+          "mapHash": "3af3deb935e024b010beced13fe72fdd0c9874c11608cab87b8ef670a72152bb",
+          "aAsP0": {
+            "score": [
+              6919,
+              7563
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2802,
+              3405
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40137,
+          "mapHash": "7112c51e32f49487e8f10b802b2fef0773ae28e6c164099eb69415bdd4e37a06",
+          "aAsP0": {
+            "score": [
+              8904,
+              8071
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2544,
+              3670
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40138,
+          "mapHash": "d55c3dc893af9de003f847d7b52c16fac32081899a73196ad221877e287ead47",
+          "aAsP0": {
+            "score": [
+              7119,
+              8803
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              9001,
+              7519
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40139,
+          "mapHash": "1d73a276cd4bb776f5c60eea6089b72ee183a61f74b84c0a419ac514363012f9",
+          "aAsP0": {
+            "score": [
+              9638,
+              11877
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              9202,
+              10032
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40140,
+          "mapHash": "7a072ae1d3c181615c8a6af9577ce9f4b7c1357deb50d67bd5aed1225aadc69d",
+          "aAsP0": {
+            "score": [
+              10942,
+              9856
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10144,
+              15565
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40141,
+          "mapHash": "ba94085aa218d2fa1cffae287a6f3dfee68862cef818ddbbc0948dec84ecb3a1",
+          "aAsP0": {
+            "score": [
+              2355,
+              1915
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3860,
+              2894
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40142,
+          "mapHash": "1dcc7f0a488e18c9594f7d42a10c83bc1c7b961a3a7bbfd858280e9f09f8293f",
+          "aAsP0": {
+            "score": [
+              5642,
+              5137
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7011,
+              6961
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40143,
+          "mapHash": "725ece2f6577c6fe18472166838a0081cdc2cd4a51b809deb4aa9fca0412db48",
+          "aAsP0": {
+            "score": [
+              1526,
+              3713
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2550,
+              1329
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40144,
+          "mapHash": "71787e2d039fc3ef1f0bffa0e629ddade081964710e574b2e1482800abb7935c",
+          "aAsP0": {
+            "score": [
+              7926,
+              8843
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7384,
+              9169
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40145,
+          "mapHash": "c222fa7ad3b45777ac8fca1fde08811761e2c9a5ac97cb42421f01675ad9ffa1",
+          "aAsP0": {
+            "score": [
+              12266,
+              9913
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              16185,
+              12840
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40146,
+          "mapHash": "4dab41224b9daf4dd2d6d771bc2937d6f0b053cd45928a162cdcc842c446b3d1",
+          "aAsP0": {
+            "score": [
+              10190,
+              4362
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2767,
+              2288
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 40147,
+          "mapHash": "8c81928d51534d55d50cfb4f85821b53a29ed14d1d05ec9dc60df8037bb14788",
+          "aAsP0": {
+            "score": [
+              3728,
+              4484
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1937,
+              2442
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40148,
+          "mapHash": "a5135858aeadef8597fc6d1486e219f1aac615d8276280768d4085bc2e97cb0f",
+          "aAsP0": {
+            "score": [
+              9985,
+              8304
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6247,
+              9295
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 40149,
+          "mapHash": "f788fc546366e238549c6d38cd59d090b0da35f2d662e67078fced30788ca3fa",
+          "aAsP0": {
+            "score": [
+              6913,
+              4848
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6659,
+              9946
+            ],
+            "winner": 1
+          }
+        }
+      ]
+    },
+    "v05": {
+      "a": "current?USE_ROLLOUT_QUICK_ROUTE=1",
+      "b": "v05",
+      "startedAt": "2026-09-16T13:42:07.296493600Z",
+      "paramsA": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "paramsB": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_POLICY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "games": 200,
+      "winsA": 124,
+      "winsB": 76,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "confidenceMethod": "map-grouped Hoeffding 95%; assumes independent representative maps",
+      "confidence95": [
+        0.48418984842593804,
+        0.755810151574062
+      ],
+      "promotionGatePassed": false,
+      "baseSeed": 41000,
+      "poolId": "quick-income-style-v1",
+      "poolSha256": "14c0ec74c0e616f849c600e0997b85404e0f3ffc632027d87dce93fdd66fa39d",
+      "poolPurpose": "development",
+      "threads": 2,
+      "firstSearchBudgetMs": 486,
+      "turnSearchBudgetMs": 36,
+      "javaVersion": "17.0.12",
+      "elapsedMs": 183161,
+      "maxMsA": 96,
+      "maxMsB": 36,
+      "slowA": 2,
+      "slowB": 0,
+      "sumMsA": 273154,
+      "sumMsB": 77186,
+      "turns": 14938,
+      "sumDiff": 83319,
+      "winsAasP0": 68,
+      "winsAasP1": 56,
+      "gamesAasP0": 100,
+      "gamesAasP1": 100,
+      "excludedReports": {
+        "build\\bench\\quick-income-v1\\exclusions.json": "87b67331ffb3c13a37f5d8a79f1994b9089f338a43a89bc05bfe7020d16db109",
+        "build\\bench\\quick-income-v1\\candidate-v06.json": "669168ea5d6f57f274627f15d4e3063e25c0d82fcf7691418951e2b32a5c35fb"
+      },
+      "gamesPerMap": {
+        "4af6072befb593d74845e149c6145e43f8a7cc3d13a2bd086ba547f38d1633ca": 2,
+        "9b56aa6515341b2c2ed2a6dd20580c8e94d0ecf2996283fad56a84e663160c42": 2,
+        "75b5cc30a868a975672f92b710a1821c933818642a2ee94c97a6d9d7fb7e4585": 2,
+        "cedb30142f8dd2b50a82839b7a303c362939d7a9e95fd1ca7656400584725cf0": 2,
+        "14ee9bcbd2ecfa9d21a68b26245e0b4db7cfd62f2285765b0ef2848707c9e096": 2,
+        "d3a820303eeb158092db1eeed32585b6d1aa3cdf751a38d9c84a877a3841c86a": 2,
+        "6f9ed58c061882f137b581f4b89d4a67a8681e3e5b658ebd30dd653a459fef22": 2,
+        "c705b79a6be909aabfdbcc15c8b3c98dc221fe925fef1f38ad92fc14397f1b1c": 2,
+        "981e5b033e49f3b30408ebffe0379e3537d90710e57763f18c8a70f834674895": 2,
+        "d0853c31fb5ede5c17f74f8fd1d052b1692886ec22662b9d06af2da51ba14abe": 2,
+        "837f1d6988b9d3b0f9e231b599d9f9231088f2542bebbd5534acc46f991dd6da": 2,
+        "78439306184d4ea61e0b329ab6f49ae3ae5e0aad79f03a61163a6250176d5187": 2,
+        "4171f3c46899b2fa1b2582431c6c3b12bbf16d3eadc3b73dfdbe1a9ee04ef2a7": 2,
+        "e0bb236d160d0db7f53ab7c05ec183a187592ffffc51105fc3e91a0c39582afe": 2,
+        "1cff2963da43975bd469e042397c8d83f6a27750bebb35e090dfda8c5668bc32": 2,
+        "f2b441be9f81155aeb170a6c567a9dccfcaba09e5aa995051e08fe11556a542e": 2,
+        "e784973d2fa25fade07a17c2d0203c53b82fed8a6a32347027cee16cf71858bd": 2,
+        "ff6bca3d8a69219bb2f06153e1334016fb56482f656d08235dd28d54b1debbe3": 2,
+        "26401f46178aa41d754654edce4eaf5c37a55ddeed2c48f69e09cfa9110d4c6a": 2,
+        "456e31fb1432b13af2ee493a214fa2ce6dc4b00fd1a7536508b108d4c7640c10": 2,
+        "095301c4bdbf4ee790ef17792b23fc37c4a44abb76fa61445221811630a96530": 2,
+        "fc3dccd7c0b680f12d23f893b7c4606b4607b7fc0cf537d4a8e004916a7ed91b": 2,
+        "a471653c7fdcc9a264a89d7a1399411e2205ebde5f396f8808bf6938b5b92dfa": 2,
+        "c7c0e3bb2bf482905d757cbc869d304bb3dd40a530cad29b47ee4f2dd310203c": 2,
+        "74f8317320519fe23225760c5da247ca83b110a74c91ddb3e3e96e4132417222": 2,
+        "dfa52e5144b8ee881d896065cc2a5debe0ab50762cf61b50ee7c92c3019b6ac8": 2,
+        "66f0df3225f85b6e954f1acda51e4ca98751cdcd3e4f52537f83b84600f0cf02": 2,
+        "c79becf327f76b9013717e1e7187cecf428b9c327915a68c0c1112b804036f85": 2,
+        "ed79249a9b2865d07d56f178bcc403d56131745ac6aea85b82c45fae88b94fd5": 2,
+        "a5a7215b6ba354175b5ca366d980c99517f82ae33b973b6c537da15c04c1d93c": 2,
+        "7e38fa731c8bd748c44331c216a2e0b0a72f723c3706a88a331ba0ff58907c6e": 2,
+        "614fa21a32c253f96ad04a050483a1a0d6503e59a10e2db5a3a7f24c3bba1956": 2,
+        "c5179f6eb1d62526eb2ecb3c43eb933b24632b65fa1dfbce3b10923814c0ff71": 2,
+        "ca111f49ba53bed76964775f5f5d0f5c218745aef73d3bf0fcc4ad12441c3592": 2,
+        "d7f48b44bb5b5c79a813c374d0838c4b3374fc26d79cb3da47942f9208de270c": 2,
+        "4fd006ca7963b8525879dd0e6e3e89ac807a84659fa3a5e4286b8805c382e652": 2,
+        "c58c9976d483a3d2a0ead3ba35d387717355ad68407cddc9749b04f0ca372923": 2,
+        "e0a5c832c721de730c3b208c9c308873e11a631a88d855119be216972490f5b6": 2,
+        "d8b4273f7ba3ddf154a031092cf392e089e427ea2579b4438c8991e005e23cb2": 2,
+        "317c85ab80afaabea316a4bf2b671eeb3be15d4abb1b40bd61fbe114220264d8": 2,
+        "9eead484b2da18525185525872a6089b69524258afd91093f4763972be9d958a": 2,
+        "d49d6fded274a1098bcd5683f5b2a4645b27963fcc1bba917ef549864b2aea60": 2,
+        "a7e6813b920a5dbaaff80d70681003dd2fc66c2413109559706e638fb865b5a7": 2,
+        "1f6d31511c4194569a80ab209618af5d98247960d1143ca4936e142d8403e91e": 2,
+        "1228948436836ee15ebd5086c43453af49a7b8fd32844d6afdb91bff44bb2edb": 2,
+        "d7a539a41ce939b39b11c05904c17cc468f4cdc5e232df37a866edbb2da53120": 2,
+        "356705232b752aa4f0062df93a9468dc12723aea04875c5dab6999e0e1c99c10": 2,
+        "787e89f50653b0b1270569d2c8b3cb2b8243c41e26e34858b6d418d2307bacf6": 2,
+        "d6fc62f5d39b86e642747ab6118b3dced12cf287f585e8996b18945e1e140659": 2,
+        "3c8911dfc3f20e4f2fcb8130e41bc47dfc3498e2c9c8f6daf4817a10e5082dc6": 2,
+        "312a055e361071f35b4b5606fbae5cb00b7a2f4b61f31fe034c69fdf0dbc9d9a": 2,
+        "f56e43fdf03bf4c43d95d1f1416ca365437e0e1f47501a485ee6f499b50d421a": 2,
+        "f4e27732ef37fb2f42a39cea46a89eca208805403cbfbd132d96cc5a8737ca05": 2,
+        "3073c7ed5a5e8242552ac78fb8d32a0cc4e7ebda737725a84517da6395a70a8a": 2,
+        "d8f747ac12278c292e5169c0f2c09dcd1737e681e17c24d766cf1858912cab8d": 2,
+        "bb9459ec76f94d80fd3f317795f4eec61041fbbe48dde035bd853a7f1c255120": 2,
+        "31e43a1f7d604e31e0caaee6186b709be398299cf3fd440b3c7d81cfe0fd90af": 2,
+        "d80d60f17359c7d13dc43cbaee78a975dcb7bddeed797d46750d121c468f57f7": 2,
+        "c954c56f0ec8e235a89eba0857a2f81f5a5f0c2e0aeba54c8804dfa8e4e369ef": 2,
+        "f07abd169e207fd42fc8a1e8313ce2faaf1a97855e61ab011cddadb646015b14": 2,
+        "b34ea025e47442695d6bd549f82484a10c0a7024fe8e556ba7264ef1877f7691": 2,
+        "4baa284dea1fd9e478598ecdbcc42f0fd8e906573da00e95fd3e397dc2af24bd": 2,
+        "9cda0492e2281a247ff9bf0e90da83d2ff2416cf34ad7476b32063c4cf4483fa": 2,
+        "d6f7a7abdb2ccfac96690088c5ace4d5461dc9d1018ebdf3db0da9c3dd0cb6f7": 2,
+        "7216feebf2b33ede0120cfb3258a31a38bff284d6fde5c266c00ff57774f9f02": 2,
+        "5cc266685eebc18c74dd07fbbf67895fd8fbb17aa4731f954cf4fd40c89e3055": 2,
+        "3747d1735cdf4608e087d1833bbd78b62012b57e306bff5d9c3bab9145b6633c": 2,
+        "f700030161769824884f5d8d6d374259c349a4cf5fcc4dfdb5d65c472d9aac6a": 2,
+        "b078df36fe0874ea114d8c792af4ede93b873aada2849cf7568ccb4937520e23": 2,
+        "15c911505c4af6475382a88a133aeef5d727c7bbeb3a05478bc18df577b1ed10": 2,
+        "212840d9078d7a5e87fb1c58d6086735e14d0ea7e114bde9be9601f21c1e5ad9": 2,
+        "7469cc9bec9f9a87f4a0ccc3eaf7ba7bcfd210d68f6d629567780a735411bc01": 2,
+        "c0b9a0e175e033bf82f032a460d611d1e1271a57bae0ae53ef4e942c4dc7fd63": 2,
+        "5ea89e67a6f2f47a3c0a86bdde4914fbfa6dd570f7e0a295fd4ac33818555a16": 2,
+        "05ca7b47a2d7175f65e589ff3def61a7666e2343528e2b4841f4c75c3a4397b9": 2,
+        "d8094e7f2c46e55e1e543b0eeb117f43e90de9cd6fba58abd01846fe6d4f8431": 2,
+        "6e4b41b8a129d2729638232e49426b696ce1937c501b302637013371e651522b": 2,
+        "f298d2fc229bed5f7b03c22a10f45d8dd1b13c66cd49c949fdd662be86c42535": 2,
+        "4ec42fbc919bcb7b183e9465a4c8aa231ae32bf49cfd7c00d6251166c656ce15": 2,
+        "9ebd18bdc44e05634f05bf8b61d1578b9d6066555e0114a524431ac1e1bde549": 2,
+        "3ef988c3d96b70ccdf82518ca2170aad54e08d3c1eb8e5f0fe59f210f7f25b72": 2,
+        "b8a37e5dd78cb4158c0fbbc8b43e58822f540ab648d8b3cadf829532d3941dc2": 2,
+        "58ef5f13a42155d514a97fe89736063c302878aee5f13a9f5c078b23269fad6f": 2,
+        "7e55a304ad80f9dafe569a56565574a69626ef331e0fa23e8b84faf0f93de867": 2,
+        "3f36589833969f1a6c077552cdd214d0c4f9bf6cf367631ad780f38b941a03e3": 2,
+        "119103ffec8632e9489fabbd3af9ca458aa294f6c3bd5031a933e4326b122a8d": 2,
+        "c674333e6b31c2df9aaa1424c3bc55a48aac0be90875348fad9ccaaf5a26e54f": 2,
+        "85f59bca82328f53e4b26e485c5e9ad1ff1a0c26f43cd7a15d1f893fc79426e7": 2,
+        "6e4799e49f1134f66add4ef41e31c42a4aeef0467de2cc7a32b3f8d3bbbcf643": 2,
+        "c901bb03ae35729e57928ca9e90e9b2432af73935367fc92988a10435fba34ee": 2,
+        "6f6d2d585456dd6367d0ea1ed2bcc1064f9007fb6e52ad8c0a1644af3444b748": 2,
+        "fff9e4d973277c2e9945e9706bc67ccbbc53a92a2fe8f89577e5bf32e308c036": 2,
+        "d4be527dbe25560a8164458baea0da8ab9d77e60c46d59ab5696f1753cd64251": 2,
+        "1c9907f2ddd348b01e27f26ae122338f4ac3caccceaa62853158ebc985932926": 2,
+        "adbb23863aebda26a4ce56f657d0780b1a724ced2b432af620120831a0e148b6": 2,
+        "5a290c88014ede74345d72c05a491e43442436b430d5793c94858a490fddb9e1": 2,
+        "b58844196c87873c0aa3ae85c1d89499ded07b89d360471018c12424b5e9bebc": 2,
+        "db68dee7d7de874a876067cb81656838f99533eac092c58b2ad24502fc0625b7": 2,
+        "e78040078f3ea93f861f48170f1f9886f19ec0eba206fd8e5f2b1c0f97d745c7": 2,
+        "68742f43f2a8d2f4c1000b931adbc6afa792748af108c68d718705883f3ca3f4": 2
+      },
+      "reportSha256": "ce0b084f8f114212d34207873a498a64ee01a6196aaf0c16432b63d0ef1c4aea",
+      "rateA": 0.62,
+      "pairOutcomes": [
+        {
+          "seed": 41000,
+          "mapHash": "4af6072befb593d74845e149c6145e43f8a7cc3d13a2bd086ba547f38d1633ca",
+          "aAsP0": {
+            "score": [
+              2825,
+              3041
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2456,
+              3116
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41001,
+          "mapHash": "9b56aa6515341b2c2ed2a6dd20580c8e94d0ecf2996283fad56a84e663160c42",
+          "aAsP0": {
+            "score": [
+              3039,
+              3487
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2639,
+              2809
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41002,
+          "mapHash": "75b5cc30a868a975672f92b710a1821c933818642a2ee94c97a6d9d7fb7e4585",
+          "aAsP0": {
+            "score": [
+              3708,
+              1392
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1456,
+              2787
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41003,
+          "mapHash": "cedb30142f8dd2b50a82839b7a303c362939d7a9e95fd1ca7656400584725cf0",
+          "aAsP0": {
+            "score": [
+              2466,
+              845
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4087,
+              3785
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41004,
+          "mapHash": "14ee9bcbd2ecfa9d21a68b26245e0b4db7cfd62f2285765b0ef2848707c9e096",
+          "aAsP0": {
+            "score": [
+              6114,
+              2662
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4333,
+              4962
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41005,
+          "mapHash": "d3a820303eeb158092db1eeed32585b6d1aa3cdf751a38d9c84a877a3841c86a",
+          "aAsP0": {
+            "score": [
+              2616,
+              1099
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              912,
+              2388
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41006,
+          "mapHash": "6f9ed58c061882f137b581f4b89d4a67a8681e3e5b658ebd30dd653a459fef22",
+          "aAsP0": {
+            "score": [
+              5513,
+              6351
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5868,
+              4202
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41007,
+          "mapHash": "c705b79a6be909aabfdbcc15c8b3c98dc221fe925fef1f38ad92fc14397f1b1c",
+          "aAsP0": {
+            "score": [
+              20450,
+              15225
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6345,
+              6103
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41008,
+          "mapHash": "981e5b033e49f3b30408ebffe0379e3537d90710e57763f18c8a70f834674895",
+          "aAsP0": {
+            "score": [
+              2286,
+              2666
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1759,
+              833
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41009,
+          "mapHash": "d0853c31fb5ede5c17f74f8fd1d052b1692886ec22662b9d06af2da51ba14abe",
+          "aAsP0": {
+            "score": [
+              10930,
+              6508
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7101,
+              5320
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41010,
+          "mapHash": "837f1d6988b9d3b0f9e231b599d9f9231088f2542bebbd5534acc46f991dd6da",
+          "aAsP0": {
+            "score": [
+              5705,
+              9000
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              9210,
+              7212
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41011,
+          "mapHash": "78439306184d4ea61e0b329ab6f49ae3ae5e0aad79f03a61163a6250176d5187",
+          "aAsP0": {
+            "score": [
+              6547,
+              10235
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3357,
+              4885
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41012,
+          "mapHash": "4171f3c46899b2fa1b2582431c6c3b12bbf16d3eadc3b73dfdbe1a9ee04ef2a7",
+          "aAsP0": {
+            "score": [
+              2235,
+              1148
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              812,
+              1092
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41013,
+          "mapHash": "e0bb236d160d0db7f53ab7c05ec183a187592ffffc51105fc3e91a0c39582afe",
+          "aAsP0": {
+            "score": [
+              1817,
+              1416
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1776,
+              3216
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41014,
+          "mapHash": "1cff2963da43975bd469e042397c8d83f6a27750bebb35e090dfda8c5668bc32",
+          "aAsP0": {
+            "score": [
+              884,
+              720
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1011,
+              1283
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41015,
+          "mapHash": "f2b441be9f81155aeb170a6c567a9dccfcaba09e5aa995051e08fe11556a542e",
+          "aAsP0": {
+            "score": [
+              5425,
+              4860
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4333,
+              7627
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41016,
+          "mapHash": "e784973d2fa25fade07a17c2d0203c53b82fed8a6a32347027cee16cf71858bd",
+          "aAsP0": {
+            "score": [
+              1193,
+              1124
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1790,
+              1173
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41017,
+          "mapHash": "ff6bca3d8a69219bb2f06153e1334016fb56482f656d08235dd28d54b1debbe3",
+          "aAsP0": {
+            "score": [
+              4195,
+              2082
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3508,
+              3138
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41018,
+          "mapHash": "26401f46178aa41d754654edce4eaf5c37a55ddeed2c48f69e09cfa9110d4c6a",
+          "aAsP0": {
+            "score": [
+              2784,
+              3362
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2225,
+              2670
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41019,
+          "mapHash": "456e31fb1432b13af2ee493a214fa2ce6dc4b00fd1a7536508b108d4c7640c10",
+          "aAsP0": {
+            "score": [
+              12234,
+              13981
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7253,
+              6618
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41020,
+          "mapHash": "095301c4bdbf4ee790ef17792b23fc37c4a44abb76fa61445221811630a96530",
+          "aAsP0": {
+            "score": [
+              5711,
+              6558
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5106,
+              5081
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41021,
+          "mapHash": "fc3dccd7c0b680f12d23f893b7c4606b4607b7fc0cf537d4a8e004916a7ed91b",
+          "aAsP0": {
+            "score": [
+              2358,
+              1965
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1284,
+              1901
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41022,
+          "mapHash": "a471653c7fdcc9a264a89d7a1399411e2205ebde5f396f8808bf6938b5b92dfa",
+          "aAsP0": {
+            "score": [
+              4102,
+              2634
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3034,
+              4826
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41023,
+          "mapHash": "c7c0e3bb2bf482905d757cbc869d304bb3dd40a530cad29b47ee4f2dd310203c",
+          "aAsP0": {
+            "score": [
+              8034,
+              10061
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              12698,
+              12693
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41024,
+          "mapHash": "74f8317320519fe23225760c5da247ca83b110a74c91ddb3e3e96e4132417222",
+          "aAsP0": {
+            "score": [
+              3853,
+              2444
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2349,
+              2287
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41025,
+          "mapHash": "dfa52e5144b8ee881d896065cc2a5debe0ab50762cf61b50ee7c92c3019b6ac8",
+          "aAsP0": {
+            "score": [
+              3294,
+              2206
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4235,
+              5000
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41026,
+          "mapHash": "66f0df3225f85b6e954f1acda51e4ca98751cdcd3e4f52537f83b84600f0cf02",
+          "aAsP0": {
+            "score": [
+              3379,
+              3380
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              3126,
+              3638
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41027,
+          "mapHash": "c79becf327f76b9013717e1e7187cecf428b9c327915a68c0c1112b804036f85",
+          "aAsP0": {
+            "score": [
+              8209,
+              10968
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10117,
+              9796
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41028,
+          "mapHash": "ed79249a9b2865d07d56f178bcc403d56131745ac6aea85b82c45fae88b94fd5",
+          "aAsP0": {
+            "score": [
+              5130,
+              4538
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3648,
+              3201
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41029,
+          "mapHash": "a5a7215b6ba354175b5ca366d980c99517f82ae33b973b6c537da15c04c1d93c",
+          "aAsP0": {
+            "score": [
+              15473,
+              10075
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10522,
+              12980
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41030,
+          "mapHash": "7e38fa731c8bd748c44331c216a2e0b0a72f723c3706a88a331ba0ff58907c6e",
+          "aAsP0": {
+            "score": [
+              5381,
+              4022
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5182,
+              7414
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41031,
+          "mapHash": "614fa21a32c253f96ad04a050483a1a0d6503e59a10e2db5a3a7f24c3bba1956",
+          "aAsP0": {
+            "score": [
+              5850,
+              5241
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7543,
+              4477
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41032,
+          "mapHash": "c5179f6eb1d62526eb2ecb3c43eb933b24632b65fa1dfbce3b10923814c0ff71",
+          "aAsP0": {
+            "score": [
+              1205,
+              1375
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1112,
+              937
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41033,
+          "mapHash": "ca111f49ba53bed76964775f5f5d0f5c218745aef73d3bf0fcc4ad12441c3592",
+          "aAsP0": {
+            "score": [
+              3710,
+              2112
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2588,
+              2066
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41034,
+          "mapHash": "d7f48b44bb5b5c79a813c374d0838c4b3374fc26d79cb3da47942f9208de270c",
+          "aAsP0": {
+            "score": [
+              5456,
+              5893
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5729,
+              4962
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41035,
+          "mapHash": "4fd006ca7963b8525879dd0e6e3e89ac807a84659fa3a5e4286b8805c382e652",
+          "aAsP0": {
+            "score": [
+              3049,
+              2955
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3562,
+              2908
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41036,
+          "mapHash": "c58c9976d483a3d2a0ead3ba35d387717355ad68407cddc9749b04f0ca372923",
+          "aAsP0": {
+            "score": [
+              1760,
+              1474
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1503,
+              1260
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41037,
+          "mapHash": "e0a5c832c721de730c3b208c9c308873e11a631a88d855119be216972490f5b6",
+          "aAsP0": {
+            "score": [
+              4077,
+              3314
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1622,
+              1740
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41038,
+          "mapHash": "d8b4273f7ba3ddf154a031092cf392e089e427ea2579b4438c8991e005e23cb2",
+          "aAsP0": {
+            "score": [
+              9828,
+              9388
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10624,
+              7340
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41039,
+          "mapHash": "317c85ab80afaabea316a4bf2b671eeb3be15d4abb1b40bd61fbe114220264d8",
+          "aAsP0": {
+            "score": [
+              4008,
+              3668
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4270,
+              9552
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41040,
+          "mapHash": "9eead484b2da18525185525872a6089b69524258afd91093f4763972be9d958a",
+          "aAsP0": {
+            "score": [
+              8183,
+              7630
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              9866,
+              6941
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41041,
+          "mapHash": "d49d6fded274a1098bcd5683f5b2a4645b27963fcc1bba917ef549864b2aea60",
+          "aAsP0": {
+            "score": [
+              8063,
+              5556
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              5066,
+              4829
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41042,
+          "mapHash": "a7e6813b920a5dbaaff80d70681003dd2fc66c2413109559706e638fb865b5a7",
+          "aAsP0": {
+            "score": [
+              1530,
+              1348
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2714,
+              2455
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41043,
+          "mapHash": "1f6d31511c4194569a80ab209618af5d98247960d1143ca4936e142d8403e91e",
+          "aAsP0": {
+            "score": [
+              1856,
+              887
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              798,
+              954
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41044,
+          "mapHash": "1228948436836ee15ebd5086c43453af49a7b8fd32844d6afdb91bff44bb2edb",
+          "aAsP0": {
+            "score": [
+              6774,
+              3441
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2691,
+              2929
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41045,
+          "mapHash": "d7a539a41ce939b39b11c05904c17cc468f4cdc5e232df37a866edbb2da53120",
+          "aAsP0": {
+            "score": [
+              2833,
+              2618
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3422,
+              4573
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41046,
+          "mapHash": "356705232b752aa4f0062df93a9468dc12723aea04875c5dab6999e0e1c99c10",
+          "aAsP0": {
+            "score": [
+              2745,
+              2067
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4522,
+              4958
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41047,
+          "mapHash": "787e89f50653b0b1270569d2c8b3cb2b8243c41e26e34858b6d418d2307bacf6",
+          "aAsP0": {
+            "score": [
+              817,
+              769
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              706,
+              1039
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41048,
+          "mapHash": "d6fc62f5d39b86e642747ab6118b3dced12cf287f585e8996b18945e1e140659",
+          "aAsP0": {
+            "score": [
+              2522,
+              1590
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2338,
+              2619
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41049,
+          "mapHash": "3c8911dfc3f20e4f2fcb8130e41bc47dfc3498e2c9c8f6daf4817a10e5082dc6",
+          "aAsP0": {
+            "score": [
+              8859,
+              9017
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6364,
+              5385
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41050,
+          "mapHash": "312a055e361071f35b4b5606fbae5cb00b7a2f4b61f31fe034c69fdf0dbc9d9a",
+          "aAsP0": {
+            "score": [
+              2212,
+              2944
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1575,
+              3370
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41051,
+          "mapHash": "f56e43fdf03bf4c43d95d1f1416ca365437e0e1f47501a485ee6f499b50d421a",
+          "aAsP0": {
+            "score": [
+              2113,
+              2202
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1779,
+              1621
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41052,
+          "mapHash": "f4e27732ef37fb2f42a39cea46a89eca208805403cbfbd132d96cc5a8737ca05",
+          "aAsP0": {
+            "score": [
+              3522,
+              2959
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1705,
+              2988
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41053,
+          "mapHash": "3073c7ed5a5e8242552ac78fb8d32a0cc4e7ebda737725a84517da6395a70a8a",
+          "aAsP0": {
+            "score": [
+              4529,
+              6203
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2116,
+              3005
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41054,
+          "mapHash": "d8f747ac12278c292e5169c0f2c09dcd1737e681e17c24d766cf1858912cab8d",
+          "aAsP0": {
+            "score": [
+              1089,
+              258
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1302,
+              1372
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41055,
+          "mapHash": "bb9459ec76f94d80fd3f317795f4eec61041fbbe48dde035bd853a7f1c255120",
+          "aAsP0": {
+            "score": [
+              2128,
+              2092
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2751,
+              1893
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41056,
+          "mapHash": "31e43a1f7d604e31e0caaee6186b709be398299cf3fd440b3c7d81cfe0fd90af",
+          "aAsP0": {
+            "score": [
+              4821,
+              3263
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3305,
+              5636
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41057,
+          "mapHash": "d80d60f17359c7d13dc43cbaee78a975dcb7bddeed797d46750d121c468f57f7",
+          "aAsP0": {
+            "score": [
+              848,
+              1272
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1178,
+              799
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41058,
+          "mapHash": "c954c56f0ec8e235a89eba0857a2f81f5a5f0c2e0aeba54c8804dfa8e4e369ef",
+          "aAsP0": {
+            "score": [
+              1030,
+              1317
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1320,
+              1134
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41059,
+          "mapHash": "f07abd169e207fd42fc8a1e8313ce2faaf1a97855e61ab011cddadb646015b14",
+          "aAsP0": {
+            "score": [
+              4802,
+              5716
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4095,
+              5502
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41060,
+          "mapHash": "b34ea025e47442695d6bd549f82484a10c0a7024fe8e556ba7264ef1877f7691",
+          "aAsP0": {
+            "score": [
+              3016,
+              1622
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1666,
+              2865
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41061,
+          "mapHash": "4baa284dea1fd9e478598ecdbcc42f0fd8e906573da00e95fd3e397dc2af24bd",
+          "aAsP0": {
+            "score": [
+              5858,
+              5193
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3224,
+              7277
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41062,
+          "mapHash": "9cda0492e2281a247ff9bf0e90da83d2ff2416cf34ad7476b32063c4cf4483fa",
+          "aAsP0": {
+            "score": [
+              3767,
+              3695
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4445,
+              1698
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41063,
+          "mapHash": "d6f7a7abdb2ccfac96690088c5ace4d5461dc9d1018ebdf3db0da9c3dd0cb6f7",
+          "aAsP0": {
+            "score": [
+              4170,
+              2690
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              4929,
+              6846
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41064,
+          "mapHash": "7216feebf2b33ede0120cfb3258a31a38bff284d6fde5c266c00ff57774f9f02",
+          "aAsP0": {
+            "score": [
+              11050,
+              14860
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              5488,
+              10506
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41065,
+          "mapHash": "5cc266685eebc18c74dd07fbbf67895fd8fbb17aa4731f954cf4fd40c89e3055",
+          "aAsP0": {
+            "score": [
+              8036,
+              6995
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              8939,
+              9403
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41066,
+          "mapHash": "3747d1735cdf4608e087d1833bbd78b62012b57e306bff5d9c3bab9145b6633c",
+          "aAsP0": {
+            "score": [
+              9719,
+              12502
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              6038,
+              4914
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41067,
+          "mapHash": "f700030161769824884f5d8d6d374259c349a4cf5fcc4dfdb5d65c472d9aac6a",
+          "aAsP0": {
+            "score": [
+              5723,
+              4264
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2531,
+              4287
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41068,
+          "mapHash": "b078df36fe0874ea114d8c792af4ede93b873aada2849cf7568ccb4937520e23",
+          "aAsP0": {
+            "score": [
+              2221,
+              2888
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7380,
+              8095
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41069,
+          "mapHash": "15c911505c4af6475382a88a133aeef5d727c7bbeb3a05478bc18df577b1ed10",
+          "aAsP0": {
+            "score": [
+              4402,
+              3271
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3203,
+              3093
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41070,
+          "mapHash": "212840d9078d7a5e87fb1c58d6086735e14d0ea7e114bde9be9601f21c1e5ad9",
+          "aAsP0": {
+            "score": [
+              7223,
+              4894
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3610,
+              3599
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41071,
+          "mapHash": "7469cc9bec9f9a87f4a0ccc3eaf7ba7bcfd210d68f6d629567780a735411bc01",
+          "aAsP0": {
+            "score": [
+              1609,
+              1548
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1688,
+              1558
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41072,
+          "mapHash": "c0b9a0e175e033bf82f032a460d611d1e1271a57bae0ae53ef4e942c4dc7fd63",
+          "aAsP0": {
+            "score": [
+              7921,
+              6362
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              13012,
+              15166
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41073,
+          "mapHash": "5ea89e67a6f2f47a3c0a86bdde4914fbfa6dd570f7e0a295fd4ac33818555a16",
+          "aAsP0": {
+            "score": [
+              3394,
+              6090
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10084,
+              10908
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41074,
+          "mapHash": "05ca7b47a2d7175f65e589ff3def61a7666e2343528e2b4841f4c75c3a4397b9",
+          "aAsP0": {
+            "score": [
+              3543,
+              4054
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              7236,
+              8395
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41075,
+          "mapHash": "d8094e7f2c46e55e1e543b0eeb117f43e90de9cd6fba58abd01846fe6d4f8431",
+          "aAsP0": {
+            "score": [
+              2945,
+              4363
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2972,
+              2343
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41076,
+          "mapHash": "6e4b41b8a129d2729638232e49426b696ce1937c501b302637013371e651522b",
+          "aAsP0": {
+            "score": [
+              4346,
+              3001
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1196,
+              3411
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41077,
+          "mapHash": "f298d2fc229bed5f7b03c22a10f45d8dd1b13c66cd49c949fdd662be86c42535",
+          "aAsP0": {
+            "score": [
+              4465,
+              4686
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4962,
+              2510
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41078,
+          "mapHash": "4ec42fbc919bcb7b183e9465a4c8aa231ae32bf49cfd7c00d6251166c656ce15",
+          "aAsP0": {
+            "score": [
+              2842,
+              2042
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              3963,
+              4465
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41079,
+          "mapHash": "9ebd18bdc44e05634f05bf8b61d1578b9d6066555e0114a524431ac1e1bde549",
+          "aAsP0": {
+            "score": [
+              2170,
+              2649
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              2779,
+              2187
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41080,
+          "mapHash": "3ef988c3d96b70ccdf82518ca2170aad54e08d3c1eb8e5f0fe59f210f7f25b72",
+          "aAsP0": {
+            "score": [
+              15738,
+              10891
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              9782,
+              11995
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41081,
+          "mapHash": "b8a37e5dd78cb4158c0fbbc8b43e58822f540ab648d8b3cadf829532d3941dc2",
+          "aAsP0": {
+            "score": [
+              3494,
+              2654
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10341,
+              4949
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41082,
+          "mapHash": "58ef5f13a42155d514a97fe89736063c302878aee5f13a9f5c078b23269fad6f",
+          "aAsP0": {
+            "score": [
+              6646,
+              5434
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1860,
+              1579
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41083,
+          "mapHash": "7e55a304ad80f9dafe569a56565574a69626ef331e0fa23e8b84faf0f93de867",
+          "aAsP0": {
+            "score": [
+              5041,
+              5227
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              4841,
+              3525
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41084,
+          "mapHash": "3f36589833969f1a6c077552cdd214d0c4f9bf6cf367631ad780f38b941a03e3",
+          "aAsP0": {
+            "score": [
+              2446,
+              1336
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              930,
+              1475
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41085,
+          "mapHash": "119103ffec8632e9489fabbd3af9ca458aa294f6c3bd5031a933e4326b122a8d",
+          "aAsP0": {
+            "score": [
+              10170,
+              10954
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              10694,
+              9168
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41086,
+          "mapHash": "c674333e6b31c2df9aaa1424c3bc55a48aac0be90875348fad9ccaaf5a26e54f",
+          "aAsP0": {
+            "score": [
+              7103,
+              6033
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6236,
+              10057
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41087,
+          "mapHash": "85f59bca82328f53e4b26e485c5e9ad1ff1a0c26f43cd7a15d1f893fc79426e7",
+          "aAsP0": {
+            "score": [
+              13257,
+              12159
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              7403,
+              6100
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41088,
+          "mapHash": "6e4799e49f1134f66add4ef41e31c42a4aeef0467de2cc7a32b3f8d3bbbcf643",
+          "aAsP0": {
+            "score": [
+              10050,
+              8629
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              10768,
+              12818
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41089,
+          "mapHash": "c901bb03ae35729e57928ca9e90e9b2432af73935367fc92988a10435fba34ee",
+          "aAsP0": {
+            "score": [
+              8095,
+              5027
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              6105,
+              7549
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41090,
+          "mapHash": "6f6d2d585456dd6367d0ea1ed2bcc1064f9007fb6e52ad8c0a1644af3444b748",
+          "aAsP0": {
+            "score": [
+              4531,
+              3235
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2107,
+              2236
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41091,
+          "mapHash": "fff9e4d973277c2e9945e9706bc67ccbbc53a92a2fe8f89577e5bf32e308c036",
+          "aAsP0": {
+            "score": [
+              2668,
+              1928
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2117,
+              2340
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41092,
+          "mapHash": "d4be527dbe25560a8164458baea0da8ab9d77e60c46d59ab5696f1753cd64251",
+          "aAsP0": {
+            "score": [
+              6470,
+              2945
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2794,
+              7662
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41093,
+          "mapHash": "1c9907f2ddd348b01e27f26ae122338f4ac3caccceaa62853158ebc985932926",
+          "aAsP0": {
+            "score": [
+              2365,
+              1779
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1640,
+              3786
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41094,
+          "mapHash": "adbb23863aebda26a4ce56f657d0780b1a724ced2b432af620120831a0e148b6",
+          "aAsP0": {
+            "score": [
+              2040,
+              1279
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              1634,
+              1678
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41095,
+          "mapHash": "5a290c88014ede74345d72c05a491e43442436b430d5793c94858a490fddb9e1",
+          "aAsP0": {
+            "score": [
+              1787,
+              1075
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              912,
+              1239
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41096,
+          "mapHash": "b58844196c87873c0aa3ae85c1d89499ded07b89d360471018c12424b5e9bebc",
+          "aAsP0": {
+            "score": [
+              4167,
+              3251
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2826,
+              1421
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41097,
+          "mapHash": "db68dee7d7de874a876067cb81656838f99533eac092c58b2ad24502fc0625b7",
+          "aAsP0": {
+            "score": [
+              3996,
+              3760
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2364,
+              1942
+            ],
+            "winner": 0
+          }
+        },
+        {
+          "seed": 41098,
+          "mapHash": "e78040078f3ea93f861f48170f1f9886f19ec0eba206fd8e5f2b1c0f97d745c7",
+          "aAsP0": {
+            "score": [
+              3588,
+              9530
+            ],
+            "winner": 1
+          },
+          "aAsP1": {
+            "score": [
+              1732,
+              2319
+            ],
+            "winner": 1
+          }
+        },
+        {
+          "seed": 41099,
+          "mapHash": "68742f43f2a8d2f4c1000b931adbc6afa792748af108c68d718705883f3ca3f4",
+          "aAsP0": {
+            "score": [
+              4775,
+              2385
+            ],
+            "winner": 0
+          },
+          "aAsP1": {
+            "score": [
+              2451,
+              4103
+            ],
+            "winner": 1
+          }
+        }
+      ]
+    }
+  },
+  "processChecks": {
+    "candidate": {
+      "sourceSha256": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+      "classesSha256": "815a4e12dea29e988c1e4cbcf09d3430436f478f559af81f034e7b74ebc18145",
+      "javaVersion": "17.0.12",
+      "opponent": "v05",
+      "graceMs": 0,
+      "strict": true,
+      "problems": 0,
+      "reportSha256": "251b9f9dbbec0de886060d4bfed48f288fbd00e2bbb859f26f145d45cfa14d10",
+      "games": 8,
+      "turns": 583,
+      "maxFirstResponseMs": 747.6701,
+      "maxLaterResponseMs": 47.1182,
+      "laterAbove45Ms": 1,
+      "mapsAndSides": [
+        {
+          "map": "903510176.json",
+          "player": 0
+        },
+        {
+          "map": "904146009.json",
+          "player": 1
+        },
+        {
+          "map": "904147739.json",
+          "player": 0
+        },
+        {
+          "map": "904148181.json",
+          "player": 1
+        },
+        {
+          "map": "903510176.json",
+          "player": 0
+        },
+        {
+          "map": "904146009.json",
+          "player": 1
+        },
+        {
+          "map": "904147739.json",
+          "player": 0
+        },
+        {
+          "map": "904148181.json",
+          "player": 1
+        }
+      ],
+      "supplement": {
+        "reportSha256": "b262ce0aab42fa1dc0407c32928046e56600e45eb12b426aff88758dbfa401be",
+        "games": 4,
+        "problems": 0,
+        "turns": 330,
+        "maxFirstResponseMs": 728.057,
+        "maxLaterResponseMs": 42.2819,
+        "laterAbove45Ms": 0,
+        "sameSourceAndExecutable": true,
+        "mapsAndSides": [
+          {
+            "gameId": 903510176,
+            "player": 1
+          },
+          {
+            "gameId": 904146009,
+            "player": 0
+          },
+          {
+            "gameId": 904147739,
+            "player": 1
+          },
+          {
+            "gameId": 904148181,
+            "player": 0
+          }
+        ]
+      },
+      "combinedGames": 12,
+      "combinedProblems": 0,
+      "distinctMapSideCombinations": 8
+    },
+    "restoredDefault": {
+      "sourceSha256": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266",
+      "classesSha256": "d368c0608d1278642b367be0cf7344deb8080169cd5163e929c9bfae46bae2cf",
+      "javaVersion": "17.0.12",
+      "opponent": "v05",
+      "graceMs": 0,
+      "strict": true,
+      "problems": 0,
+      "reportSha256": "891cfaf6ea338be80cb4dd01830ed09c31b17e20874ff128cfd5dc4ef57207fb",
+      "games": 8,
+      "turns": 639,
+      "maxFirstResponseMs": 718.6802,
+      "maxLaterResponseMs": 45.9822,
+      "laterAbove45Ms": 1,
+      "mapsAndSides": [
+        {
+          "map": "903510176.json",
+          "player": 0
+        },
+        {
+          "map": "904146009.json",
+          "player": 1
+        },
+        {
+          "map": "904147739.json",
+          "player": 0
+        },
+        {
+          "map": "904148181.json",
+          "player": 1
+        },
+        {
+          "map": "903510176.json",
+          "player": 0
+        },
+        {
+          "map": "904146009.json",
+          "player": 1
+        },
+        {
+          "map": "904147739.json",
+          "player": 0
+        },
+        {
+          "map": "904148181.json",
+          "player": 1
+        }
+      ],
+      "supplement": {
+        "reportSha256": "4ec6b199fbe41dc5b48b4b7daf0bab28be9cef7daaae665ee79fd69ec4762d04",
+        "games": 4,
+        "problems": 0,
+        "turns": 308,
+        "maxFirstResponseMs": 654.4648,
+        "maxLaterResponseMs": 42.4682,
+        "laterAbove45Ms": 0,
+        "sameSourceAndExecutable": true,
+        "mapsAndSides": [
+          {
+            "gameId": 903510176,
+            "player": 1
+          },
+          {
+            "gameId": 904146009,
+            "player": 0
+          },
+          {
+            "gameId": 904147739,
+            "player": 1
+          },
+          {
+            "gameId": 904148181,
+            "player": 0
+          }
+        ]
+      },
+      "combinedGames": 12,
+      "combinedProblems": 0,
+      "distinctMapSideCombinations": 8
+    }
+  },
+  "tests": {
+    "tests": 225,
+    "failures": 0,
+    "errors": 0
+  },
+  "replayValidation": {
+    "arenaExact": 264,
+    "bossExact": 30
+  },
+  "submission": {
+    "strategy": "current",
+    "params": {
+      "ALWAYS_DISRUPT": "true",
+      "BUILD_BEAM_WIDTH": "4",
+      "CHOOSE_BUILD_DIRECTION": "false",
+      "COLLISION_COST": "2.0",
+      "DEBUG": "false",
+      "DEFENSE_MAX_PAINT": "6",
+      "DEFENSE_MAX_PAIRS": "4",
+      "DEFENSE_MAX_REGIONS": "3",
+      "DEFENSE_MIN_INSTABILITY": "1",
+      "DISRUPT_DELAY_FACTOR": "1.0",
+      "DISRUPT_MIN": "0.01",
+      "DISRUPT_RESERVE_MS": "6",
+      "EARLY_DISRUPT_FALLBACK": "false",
+      "FORECAST_DECAY": "0.95",
+      "FORECAST_FLOOR": "0.1",
+      "GUARD_BUILD_INCOME": "false",
+      "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+      "HEURISTIC_AVOID_INSTABILITY": "2",
+      "HEURISTIC_DETOUR_CAP": "12",
+      "HEURISTIC_DETOUR_PAIRS": "4",
+      "HEURISTIC_DETOUR_REGIONS": "4",
+      "HEURISTIC_DETOUR_WEIGHT": "1.0",
+      "HEURISTIC_EMERGENCY_STOP": "true",
+      "HEURISTIC_MAX_ROUTES": "64",
+      "HEURISTIC_OWN_PENALTY": "2.0",
+      "HEURISTIC_ROUTE_STICKINESS": "1.25",
+      "HEURISTIC_TARGET_STICKINESS": "1.3",
+      "HORIZON": "100",
+      "INTERRUPT_VULN_EVAL": "false",
+      "ISOLATED_ROUTE_WARMUP": "true",
+      "MESSAGE": "false",
+      "NOISE": "0.1",
+      "OPP_REPLY_WIDTH": "2",
+      "OWN_BUILD_DEPTH": "3",
+      "OWN_BUILD_WIDTH": "3",
+      "PRESSURE_BUILD_RESERVE_MS": "12",
+      "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+      "PRESSURE_HORIZON": "8",
+      "PRESSURE_STICKINESS": "0.25",
+      "PRESSURE_TRACK_WEIGHT": "0.8",
+      "PROFILE_SEARCH": "false",
+      "ROLLOUT_DEPTH": "8",
+      "ROLLOUT_MAX_ROUTES": "64",
+      "ROLLOUT_QUICK_MAX_PAINT": "6",
+      "ROLLOUT_REPLIES": "2",
+      "ROLLOUT_RESERVE_MS": "20",
+      "ROLLOUT_ROBUSTNESS": "0.5",
+      "ROLLOUT_ROUTE_HORIZON": "16.0",
+      "ROLLOUT_TAIL": "3.0",
+      "ROLLOUT_TARGETS": "4",
+      "ROLLOUT_TARGET_HORIZON": "8.0",
+      "ROLLOUT_THREAT_WEIGHT": "0.5",
+      "ROLLOUT_TRACK_WEIGHT": "0.4",
+      "ROLLOUT_WIDTH": "6",
+      "ROLLOUT_WIN_VALUE": "1000000.0",
+      "SEED": "1",
+      "SKIP_UNFINISHABLE": "true",
+      "UNSTABLE_COST": "1.0",
+      "USE_BACKUP": "true",
+      "USE_CLOSE": "true",
+      "USE_DEFENSE_PRIORITY": "false",
+      "USE_DISRUPT": "true",
+      "USE_HEURISTIC_DETOUR": "false",
+      "USE_HEURISTIC_POLICY": "false",
+      "USE_IDLE_EXTEND": "true",
+      "USE_JOINT_ACTION": "false",
+      "USE_OPP_MODEL": "false",
+      "USE_OWN_BUILD_PLAN": "false",
+      "USE_REPLY_RERANK": "false",
+      "USE_ROLLOUT_POLICY": "true",
+      "USE_ROLLOUT_QUICK_ROUTE": "false",
+      "USE_STEAL": "true",
+      "WARMUP_SLICE_MS": "36",
+      "W_COST": "0.0",
+      "W_FUTURE_OWN": "0.4",
+      "W_FUTURE_TRACK": "0.3",
+      "W_OPP": "1.0",
+      "W_OPP_INCOME": "1.0",
+      "W_OPP_ROUTE": "0.3",
+      "W_OWN": "1.0",
+      "W_RISK": "0.6",
+      "W_SELF_LOSS": "1.2",
+      "W_THEIR_LOSS": "1.0",
+      "W_VULN": "1.0"
+    },
+    "charactersUtf16": 57405,
+    "bytesUtf8": 57405,
+    "sourceLimit": 100000,
+    "sha256": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266"
+  },
+  "processCoverageCorrection": {
+    "reason": "Initial ProcessCheck maps.load(i) with player=i%2 repeats the same side on an even-sized pool. Preserve both original 8-game reports. Check only the four previously missing map/player combinations, once per exact artifact. No failed-sample retry.",
+    "games": [
+      {
+        "file": "00-904146009.json",
+        "gameId": 904146009,
+        "player": 0
+      },
+      {
+        "file": "01-903510176.json",
+        "gameId": 903510176,
+        "player": 1
+      },
+      {
+        "file": "02-904148181.json",
+        "gameId": 904148181,
+        "player": 0
+      },
+      {
+        "file": "03-904147739.json",
+        "gameId": 904147739,
+        "player": 1
+      }
+    ],
+    "candidateSourceSha256": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+    "defaultSourceSha256": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266"
+  }
+}

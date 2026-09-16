@@ -26,7 +26,7 @@ gradlew cgAnalyze -Pagent=6735801               # validated games of one arena e
 gradlew cgForecast -Pagent=6736850              # offline adaptive sabotage prediction, no strategy changes
 gradlew cgTiming                               # phase timing on two captured large-map replay trajectories
 gradlew cgDisrupt                              # full sabotage valuation vs timed search on captured losses
-gradlew cgBossLossStudy -Pbefore=15 -Ptotal=30   # user-attributed boss cohorts; refuses changed count/existing report
+gradlew cgBossLossStudy -Pbefore=16 -Ptotal=30   # user-attributed boss cohorts; refuses changed count/existing report
 gradlew cgRolloutBossProbe                      # known-state v06 route/model diagnosis from that cohort report
 gradlew replyStudy -Pmode=capture               # fixed 24-game local diagnostic capture (once)
 gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/time audit, no strategy change
@@ -182,10 +182,12 @@ gradlew cgRender "-Ppath=replays/cg/903337834.json"
 # http://127.0.0.1:7799/visualizer/index.html?file=/replays/rendered/cg/arena/903337834.json
 ```
 
-Boss games are detected from agent id `-2` and written under `replays/rendered/cg/bot/` instead.
+Boss games are detected from `arenaboss` metadata or legacy agent id `-2` and written under
+`replays/rendered/cg/bot/` instead. Player slots follow `agents.index`, including positive boss IDs.
 `cgValidate` only validates and never creates files.
-Known limitation: newer boss agents can have a positive id plus an `arenaboss` marker. The general
-parser/renderer still classifies these as arena games; updating that routing is pending in PLAN.
+The rendered 30-game Boss 4 collection is available locally at
+`http://127.0.0.1:7799/replays/rendered/cg/boss-30.html` while the replay server is running.
+It uses the corrected 16 v05 / 14 v06 split; first v06 game: 904146009.
 
 ### Capturing an IDE/boss game
 
@@ -293,3 +295,9 @@ These instrumented EvalBot calls do not profile v06 or reproduce the local timeo
 use them for attribution, and use uninstrumented `procCheck` for process deadline evidence.
 `cgTiming` invokes the generic strategy warmup, not the isolated `MainBot` submission hook;
 its warmup counters do not measure the new submission runtime.
+
+Process-check coverage note: the current runner advances map and player side together.
+For an even-sized map directory, simply doubling `-Pgames` repeats the same map/side combinations.
+Inspect the report's map/player pairs or run each map separately with `-Pgames=2` when both sides
+are required. The quick-income experiment preserves its original samples plus the missing-side
+supplement; see `docs/quick-income-experiment.md`. The strength benchmark is correctly paired.

@@ -58,6 +58,13 @@ class FileMergerTest {
         checkFrozenDecisions(spec, true);
     }
 
+    @Test void quickRouteSubmissionPreservesCandidateParametersAndWarmupDecisions() throws Exception {
+        String spec = "current?USE_ROLLOUT_QUICK_ROUTE=1";
+        assertTrue(FileMerger.merge(spec).contains("USE_ROLLOUT_QUICK_ROUTE=true"));
+        assertFalse(new btk.bot.Params().USE_ROLLOUT_QUICK_ROUTE);
+        checkFrozenDecisions(spec, true);
+    }
+
     @Test void mergedV05WarmupIsIsolatedAndUsesTheFrozenStrategy() throws Exception {
         checkFrozenDecisions("v05?ISOLATED_ROUTE_WARMUP=1", true);
     }
