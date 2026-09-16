@@ -313,3 +313,7 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
 - [x] Resume original quick-income-v1 as the base for further improvements at the user's
       request. Recipe and historical evidence: docs/working-candidate.md. Later flags OFF.
       Control and selected submission remain v06; this is not a new strength experiment.
+
+- [x] Export exact quick-income candidate beside Player as PlayerQuickIncome.java for the
+      requested arena trial. Compilation passes; strict process check has 1/8 timeout games,
+      recorded and disclosed. All 23 original submission files unchanged; no promotion/upload.

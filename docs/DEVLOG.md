@@ -2928,3 +2928,18 @@ Completed outcome (fixed sample, no retuning):
 - Documentation-only development-focus change: no strategy/default change, new game series,
   promotion or upload. Working code is not described as the historical immutable executable.
   Selected Player SHA remains 5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266.
+
+## 2026-09-17 - separate exact quick-income artifact for user's arena trial
+
+- User requested the candidate beside, not instead of, selected Player.java. Exported the
+  exact previously submit-generated archived source as build/submit/PlayerQuickIncome.java.
+  57,404 characters; SHA 8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd.
+- Fresh Java 17 compilation and isolated gradlew procCheck, four individual maps x two sides
+  vs v05, 1000/50-ms strict deadlines, no grace: 1/8 problem games. Map 904146009, P1,
+  turn index 25 timed out. Response not observed; 66.002-ms consumer wait is not child runtime.
+  No retries, discarded failures, code/timing changes, new strength claim or promotion.
+- All 23 pre-existing submission files hash-identical, including selected Player, classes
+  and manifest. Separate candidate metadata supplied. User will perform the arena trial;
+  no upload done. Current strict process check is NOT PASSED, communicated with the artifact.
+- Full artifact identity, preservation hashes and all per-turn reports retained in
+  docs/evidence/quick-income-arena-v1.json; usage/status in docs/working-candidate.md.

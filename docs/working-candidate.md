@@ -30,3 +30,21 @@ The selected v06 defaults and existing `build/submit/Player.java` remain unchang
 concrete new hypothesis and fresh pools before the next experiment; compare the resulting
 candidate against v06 under the existing practical policy. No new games or promotion requested
 as part of this return to the development base.
+
+## Separate arena-trial export (2026-09-17)
+
+At the user's subsequent request, the exact archived candidate is available beside the selected
+file as `build/submit/PlayerQuickIncome.java` (57,404 characters; SHA-256 as above). Its generated
+entry class remains `Player`; paste the complete file into the arena editor. Metadata is in
+`build/submit/PlayerQuickIncome.manifest.json`. This export deliberately uses the historical
+submission itself, not a fresh merge of the later working implementation.
+
+Java 17 recompilation passed. Fixed strict process checks vs v05 covered four maps, both sides,
+eight games, with zero grace. **One timeout:** map 904146009, P1, turn index 25, 50-ms deadline.
+No response was observed before timeout; the recorded 66.002 ms consumer time is not measured
+bot response/search time. The other seven games had no process problems. No retry or timing fix
+was made to this exact historical artifact; do not describe it as passing current process checks.
+
+All 23 pre-existing files under `build/submit`, including Player.java, its manifest and classes,
+retain their original hashes. Candidate compilation/checking used an isolated directory. No arena
+upload or promotion performed. Full evidence: [quick-income-arena-v1.json](evidence/quick-income-arena-v1.json).
