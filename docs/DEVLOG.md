@@ -2440,3 +2440,85 @@ Completed outcome (fixed sample, no retuning):
   Both confirmation-v2/v3 pools are consumed. Register untouched confirmation-v4 seeds
   **92000..92499** for future fixed candidates, still requiring all prior map-hash exclusions.
   Update BOTS/PLAN/policy and pool documentation; commit this completed experiment locally.
+
+### 2026-09-16 — rollout process readiness v1 (predeclared protocol)
+
+- User authorizes investigating timing of the ready submission after the fixed 2x1000 strength
+  pass. Hypothesis: unchanged RolloutBot can complete real stdin/stdout games within strict
+  1000/50-ms deadlines; compare frozen-v05 to distinguish candidate-specific failures from
+  shared runner/host symptoms. Base `3bff099`, no strategy, parameter or clock changes.
+- Fixed readiness sample: **42 games per artifact**, sequentially **candidate then v05**, each
+  vs **frozen v04**, grace **0**, IO diagnostics **off**. Twenty-one maps, exactly three per
+  height 14..20; include 903182120/383/464/662 (earlier process sample), fill each height by
+  descending pair count, descending width, filename, excluding duplicate initialization hashes.
+  This deliberately stresses complexity and is not a random strength sample. The odd-size
+  sorted pool is visited twice: games g and g+21 use the same map and opposite sides.
+  No concurrent benchmarks or other heavy jobs started by the agent. Temporal order remains
+  a limitation: the control is not a simultaneous measure of host conditions.
+- Pool and canonical initialization/replay SHA-256 identities saved under
+  `build/analysis/rollout-process-v1/`; pool.json SHA-256
+  `5f2231e153cb6362fb39821027d8b9d19645ab833f721945d5acc309c84d85f6`.
+  Preserve source, resolved manifest, executable hashes and per-turn reports for both artifacts.
+  Rebuild each through submit; verify candidate/v05 hashes against the tested strength-era
+  artifacts. Final selected/default submission stays v05; this is not promotion or upload.
+- Readiness sample passes only with **zero problem games and zero nominal overruns**. Report
+  first/later response percentiles/maxima, missing responses, input send and consumer timing;
+  assess headroom separately (first <=800 ms, later <=45 ms), not as grace or a changed deadline.
+  Include every attempted game, including startup failures; complete both fixed samples even
+  after a failure, unless the harness cannot continue. No extra games to obtain a green result.
+- If either strict sample fails, run a separate **10-game IO-diagnostic sample per artifact**
+  on the four mandatory maps plus largest selected map 903510176, both sides through the same
+  odd-pool method, candidate then v05, same opponent and deadlines. This is mechanism evidence,
+  not a replacement readiness sample. Existing diagnostics separate host preparation/write/flush
+  and host CPU/GC; they cannot isolate child search/JIT/GC or prove a scheduling cause. Further
+  instrumentation, if the observed failure requires it, must be declared and retained separately.
+- Record all results and limitations, update BOTS/PLAN and commit the completed experiment.
+
+### 2026-09-16 — rollout process readiness v1 (outcome)
+
+- Both fixed samples completed on **21 identical maps, both sides, 42 games per artifact**.
+  External Player, frozen-v04 opponent, strict **1000/50 ms**, **zero grace**, IO diagnostics
+  **off**, one game at a time, candidate then control. No strategy/core/clock edits, tuning,
+  extra strength games or retries. Each submit compile-check passed. Existing source and class
+  identities match the previously tested artifacts; pool hashes and map/side schedules verified.
+- **Candidate PASS: 0/42 problem games, 0 timeouts, 0 nominal overruns, 3190 OK responses**
+  (42 startup + **3148 later**), none missing. First response max **662.5903 ms**, median
+  **601.0143**, p95 **656.5423**. Later median **29.6447 ms**, p95 **38.1741**, p99 **39.0466**,
+  max **47.8570**. Percentiles use nearest rank; startup is never pooled with ordinary turns.
+  Startup input send max **153.0560 ms**, later send max **4.0486 ms**. The sample passes the
+  strict deadline rule, but its separately declared 45-ms headroom target is missed twice:
+  903584040 P0 turn 4 **45.3283 ms** (send 0.1763, consumer 45.4774), and 903188024 P0 turn 8
+  **47.8570 ms** (send 0.0890, consumer 47.9334). Worst observed remaining margin **2.143 ms**.
+  Small send times do not distinguish child work from delayed reader scheduling.
+- **v05 PASS: 0/42 problem games, 0 timeouts, 0 nominal overruns, 3115 OK responses**
+  (42 startup + **3073 later**), none missing. First response max **668.3051 ms**, median
+  **570.3037**, p95 **647.6124**. Later median **6.6631 ms**, p95 **34.1837**, p99 **37.6252**,
+  max **40.0882**. Startup send max **154.1543 ms**, later send max **4.6886**. Both headroom
+  targets met in this control sample. One consumer wake-up is later than 50 ms: 903505433 P1
+  turn 23, response **32.5729 ms**, consumer **66.5841**, send **0.2136**. The already queued
+  answer is correctly accepted by its reader timestamp. This is evidence of a host-side
+  consumption delay on this turn, not an explanation of the historical 515/461-ms outliers.
+- Conditional 10-game IO diagnostics were **not triggered**, since neither fixed sample failed.
+  The old large bench/process stalls did not recur here; their cause is **not established**.
+  Do not claim they were fixed or caused by Java GC/JIT, host scheduling, or either strategy.
+  These are local artifact-readiness measurements; sequential runs and different resulting
+  game states limit causal comparisons, and success does not guarantee the CG host or rare
+  failures. Candidate uses more of the available time and has two narrow-margin observations.
+- Source/class hashes unchanged: candidate source
+  `d7f259ca8ecf70757458e69282f89c2597151e5e895c8d3753490707e1c92c8f`, classes
+  `fcadccc0d2df020b57d026cc1cbf0fb23987dbd3d02d5bf8d7467d74aef279e6`;
+  v05 source `1b7ba04b299e7e31af66c8d2de45654cec2a78b80233dac673402aae825214a3`, classes
+  `41de201baf91ea8ec6c2ead8ff0ac423deb78049cab1e468e9fe49f1de222f83`.
+  Both source/manifest/executable snapshots are in `build/analysis/rollout-process-v1/`.
+- Reports in that directory: `candidate-strict.json` SHA-256
+  `f1ebf5ca1e11cddb633a7c16418e9cb24d6bd7f30082cfac8a0ef516776892d9`;
+  `v05-strict.json` = `4af48ab7d9faf563b504152222c345c4b2b3383f0f0bb14c671faccd75e15a9c`;
+  `summary.json` = `b9140be60c532872d76298c81e3777718148de1ae7b9abfe5747fce92df2e34b`.
+  All raw turns, maps and original reports retained. The 30/42 vs 26/42 wins against v04 are
+  incidental to this selected timing sample, not a new population-strength comparison.
+- **Decision:** fixed local timing check passed for unchanged RolloutBot and v05. Together with
+  the prior 2x1000 strength pass and older-opponent screens, this supplies local evidence for
+  considering a trial on the arena; no promotion/upload requested here. Leave default/current
+  v05 and final `build/submit/Player.java` restored to v05, now with a fresh strict 42-game pass.
+  The separately archived `Player-candidate.java` is the exact submit-generated, tested candidate.
+  No shipping code or parameter changes; update BOTS/PLAN/policy and commit the experiment.

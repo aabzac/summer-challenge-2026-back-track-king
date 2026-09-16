@@ -16,8 +16,15 @@ gate in both runs: **60.5%** (605-395, CI **54.43-66.57%**) and **62.5%** (625-3
 CI **56.43-68.57%**). Predeclared pooled result: **61.5%** (1230-770) on **1000 distinct maps**,
 map-grouped CI **57.21-65.79%**. No bot errors or repeated maps. Run 2 has substantial timing
 outliers for both bots (max **515/461 ms**, slow **307/180**); no games were removed or rerun.
-Default remains v05: only benchmarking was requested, and timing readiness is not established.
+Default remained v05 after this strength experiment; timing was checked separately below.
 See BOTS/DEVLOG and `build/bench/rollout-confirmation-2x1000/` for the retained evidence.
+
+The subsequent strict process sample passed **42/42 games** for this unchanged candidate and
+**42/42** for v05, on 21 real maps with both sides and no grace. Candidate startup max **662.59 ms**,
+later p99 **39.05 ms**, max **47.857 ms**; two turns miss the separate 45-ms headroom target.
+The old large stalls did not recur; their cause remains unknown. This is a local artifact timing
+pass, not an arena guarantee. Default/final Player remains v05; the tested candidate source,
+manifests and both reports are retained in `build/analysis/rollout-process-v1/`.
 
 ## Decision process
 

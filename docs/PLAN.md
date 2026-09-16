@@ -218,7 +218,8 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       (90000..90499). Future confirmation requires map-hash exclusions.
 - [ ] Diagnose renewed instrumented restored-v05 process failure: rollout-v1 sample failed 4/4
       (turns 6,17,0,0); first flush 266..1178 ms, one later flush 158 ms, another later response
-      134.9 ms after only 2.1-ms send. Preserve evidence; no cause claim or readiness pass.
+      134.9 ms after only 2.1-ms send. Historical cause remains open; the later fixed strict
+      rollout-process-v1 samples pass 0/42 problems each, without reproducing this failure.
 
 - [x] Complete user-requested fixed 2x1000 rollout-v1 vs v05 confirmation: **605-395 (60.5%)**
       and **625-375 (62.5%)**, individual gates pass. Pooled **1230-770 (61.5%)**, map-grouped
@@ -226,7 +227,14 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       reserve. Source/configuration unchanged. Current remains v05; no promotion requested.
 - [ ] Investigate confirmation timing outliers before a readiness claim: run 2 max A/B
       **515/461 ms**, slow **307/180** across 36 games, compared with run 1 **61/39 ms**, slow
-      **2/0**. All results retained; no cause established, no process sample or retries here.
+      **2/0**. All results retained; cause remains unknown. Later fixed serial process checks
+      pass, but do not reproduce/explain the old spikes or establish safety on the CG host.
+
+- [x] Complete fixed strict process readiness check of unchanged RolloutBot and v05: **0/42
+      problems each**, 21 maps with both sides, 1000/50-ms deadlines and zero grace. Candidate
+      max first/later **662.59/47.857 ms**, p99 later **39.05 ms**; v05 **668.31/40.09 ms**.
+      Two candidate turns exceed the separate 45-ms headroom target. No conditional diagnostics
+      triggered, no retries or strategy changes. Final Player v05; candidate artifact archived.
 
 ## Someday / maybe
 

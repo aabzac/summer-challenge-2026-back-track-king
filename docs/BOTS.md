@@ -117,6 +117,26 @@ No packaging changes or new process sample. Consumed v2/v3 are no longer reserve
 v4 is registered for future confirmation. Reports: `build/bench/rollout-confirmation-2x1000/`;
 protocol, full outcome, hashes and timing limitations in DEVLOG.
 
+### Fixed strict process check (2026-09-16)
+
+Both unchanged submit-generated artifacts passed **42 games each**, 21 real maps with both
+sides, vs frozen v04, serial games, **1000/50-ms deadlines, zero grace**, no IO instrumentation.
+Candidate and control source/executable hashes match the earlier artifacts.
+
+- **RolloutBot: 0/42 problems**, 3190 responses, no timeouts or nominal overruns. Startup max
+  **662.59 ms**; ordinary-turn p95 **38.17 ms**, p99 **39.05 ms**, max **47.857 ms**.
+  Two turns exceed the separate 45-ms headroom target; worst remaining margin **2.143 ms**.
+- **v05: 0/42 problems**, 3115 responses. Startup max **668.31 ms**; ordinary-turn p95
+  **34.18 ms**, p99 **37.63 ms**, max **40.09 ms**. One timely answer (32.57 ms) was consumed
+  by the host at 66.58 ms; it was correctly accepted using the reader timestamp.
+
+Conditional diagnostics were not triggered. Earlier large delays did not recur; their cause
+remains unknown, not fixed. This is a local timing pass, not a guarantee about CodinGame or
+a new strength comparison. Current/default/final Player remains v05, now freshly process-tested.
+Exact candidate: `build/analysis/rollout-process-v1/Player-candidate.java` (56,008 characters),
+source hash `d7f259ca8ecf70757458e69282f89c2597151e5e895c8d3753490707e1c92c8f`.
+Reports and manifests in the same directory; full protocol, hashes and outcome in DEVLOG.
+
 ## Short own-build planning (2026-09-16, not promoted)
 
 `current?USE_OWN_BUILD_PLAN=1`: up to three old-scored root routes, three actual affordable build
