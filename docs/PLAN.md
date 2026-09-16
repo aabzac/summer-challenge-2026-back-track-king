@@ -307,3 +307,9 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       All three complete: 1900 games / 950 fresh maps, zero errors, 236 tests; retain v06.
 
 See docs/rollout-followups.md for frozen variants, pools and conditional stages.
+
+## Current development focus (2026-09-17)
+
+- [x] Resume original quick-income-v1 as the base for further improvements at the user's
+      request. Recipe and historical evidence: docs/working-candidate.md. Later flags OFF.
+      Control and selected submission remain v06; this is not a new strength experiment.

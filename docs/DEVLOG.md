@@ -2916,3 +2916,15 @@ Completed outcome (fixed sample, no retuning):
   unchanged. Historical selected-v06 strict process timing issue remains open, unaffected.
 - Protocol/results: docs/rollout-followups.md. Durable full evidence: rollout-followup-target-v1
   and target-diagnostic-v1 JSONs under docs/evidence; rollout-followups-final-audit-v1.json.
+
+## 2026-09-17 - resume original quick-income development base
+
+- User requested returning to the first candidate evaluated under the 300/1000 policy.
+  Identified original quick-income-v1: v06 plus <=6-paint income-route retention.
+- Historical 54.3333%/300 then 53.00%/independent 1000 retains its NOT PASSED verdict.
+- Recorded explicit working recipe in docs/working-candidate.md, all six later experiment
+  flags OFF; verified factory resolves the requested configuration. Exact archived candidate
+  source SHA matches the original report, 8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd.
+- Documentation-only development-focus change: no strategy/default change, new game series,
+  promotion or upload. Working code is not described as the historical immutable executable.
+  Selected Player SHA remains 5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266.
