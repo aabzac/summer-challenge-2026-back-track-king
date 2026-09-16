@@ -1,7 +1,7 @@
 # Bot versions
 
-Active strength policy (2026-09-16): **practical-300-1000-v1**. Direct 300 games at >=60%,
-otherwise separate fresh 1000 at >=55%; then matched candidate/control vs a common opponent,
+Active strength policy (2026-09-16): **practical-300-1000-v2**. Direct 300 games: >=60% passes,
+<=52% stops, only >52% and <60% continues to fresh 1000 at >=55%. Then use a common opponent:
 300 each at >=+3 percentage points, otherwise fresh 1000 each at a nonnegative difference.
 CI is diagnostic only; no overall 95% guarantee. Both stages, zero bot errors, engine fidelity
 and exact-artifact process checks are required. See [benchmarking.md](benchmarking.md).

@@ -280,6 +280,10 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       older process coverage before claiming both sides. Quick-income samples were supplemented
       with only the four missing combinations per artifact; strength BenchmarkRunner is already paired.
 
+- [x] Add first-screen continuation floor in practical-300-1000-v2: <=52% stops,
+      >52% and <60% receives fresh 1000, >=60% passes directly. Updated skill, rules,
+      report/checker and boundary tests. Historical quick-income verdict unchanged; no new bench.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

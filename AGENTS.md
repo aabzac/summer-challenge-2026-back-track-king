@@ -13,8 +13,9 @@ finished.
    benches are only trusted while the engine reproduces downloaded CG games. When the local bench
    and the CG arena disagree, run `cgValidate` first, then form hypotheses.
 3. **One change, one version, one bench.** Record every experiment in `docs/BOTS.md`.
-   Practical strength gate: candidate vs selected control, 300 paired games at >=60%; otherwise
-   a separate 1000 fresh games at >=55%. Then candidate AND control vs the same older/style bot
+   Practical strength gate (v2): candidate vs selected control, 300 paired games; >=60% passes,
+   <=52% stops, only >52% and <60% continues to separate 1000 fresh games at >=55%.
+   Then candidate AND control vs the same older/style bot
    on matched fresh maps: 300 games each, candidate advantage >=3 percentage points; otherwise
    separate matched 1000 each, candidate score >= control score (ties pass). Draws count half.
    Fixed complete stages, no tuning/retries/pooling; stop promotion evaluation on direct failure.

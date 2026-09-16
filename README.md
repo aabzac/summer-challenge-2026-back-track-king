@@ -111,8 +111,9 @@ parameters, seeds, map hashes, both games in each pair and timing. `bench`, `run
 use nominal CG search budgets (486 ms first / 36 ms later); `-Ptiming=legacy` restores the old
 1000/50-ms local allowance. The profile is saved in each bench report. Confidence is grouped by
 distinct map; replaying the same map does not manufacture independent evidence. The old
-per-game Wilson interval is retained as a diagnostic. The active practical policy is 300 games
-at >=60%, otherwise a separate fresh 1000 at >=55%, followed by matched candidate/control tests
+per-game Wilson interval is retained as a diagnostic. The active practical policy v2 starts with
+300 games: >=60% passes, <=52% stops, only >52% and <60% triggers fresh 1000 at >=55%.
+Direct success is followed by matched candidate/control tests
 against a common older/style opponent (300 each at +3 points, otherwise fresh 1000 each at >=0).
 Both confidence intervals are now diagnostic only; the historical `promotionGatePassed` JSON
 field is explicitly labelled legacy. See [docs/benchmarking.md](docs/benchmarking.md) for the

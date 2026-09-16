@@ -154,7 +154,10 @@ public final class BenchmarkRunner {
                 return "INVALID_MAP_COVERAGE";
             // Integer half-win units avoid floating-point ambiguity at exact thresholds.
             int halfWins = 2 * winsA + draws;
-            if (games == 300) return halfWins >= 360 ? "PASS_300" : "NEEDS_FRESH_1000";
+            if (games == 300) {
+                if (halfWins >= 360) return "PASS_300";
+                return halfWins > 312 ? "NEEDS_FRESH_1000" : "STOP_SCREEN_300";
+            }
             return halfWins >= 1100 ? "PASS_1000" : "NOT_PASSED";
         }
 
@@ -200,7 +203,7 @@ public final class BenchmarkRunner {
             json.add("confidence95", gson.toJsonTree(confidence95()));
             json.addProperty("promotionGatePassed", promotionGatePassed());
             json.addProperty("promotionGateRole", "historical strict CI diagnostic only; not the active policy");
-            json.addProperty("promotionPolicy", "practical-300-1000-v1");
+            json.addProperty("promotionPolicy", "practical-300-1000-v2");
             json.addProperty("practicalDirectStage", practicalDirectStage());
             Files.writeString(file, gson.toJson(json));
         }

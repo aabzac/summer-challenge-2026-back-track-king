@@ -2787,3 +2787,24 @@ Completed outcome (fixed sample, no retuning):
   durable `docs/evidence/quick-income-practical-v1.json`, SHA `8a42e2b114983372435512f3f1b0ae5f4877c6086090c033bd4288a66d604e11`. Includes both
   screen and continuation per-side results, parameters, all prior map hashes, pre-run protocol,
   source/class identities and exact decision. Commit completed evaluation under AGENTS rule 8.
+
+
+## 2026-09-16 - first-screen continuation floor, practical-300-1000-v2
+
+- User requested an additional lower cutoff before spending 1000 games, asking whether 52%
+  or 53% was preferable. Selected a strict >52% floor to favor retaining borderline improvements:
+  the alternatives differ by only three win-equivalent points in a 300-game screen. This is
+  a practical cost/sensitivity choice, not a statistically calibrated or proven optimal value.
+- New first-screen branches after all 300 games: <=52% stops and preserves the candidate;
+  >52% and <60% continues to separate fresh 1000 at >=55%; >=60% passes the direct stage.
+  Other thresholds, matched opponent stages, no overall 95% claim and process checks unchanged.
+- Updated the installed contest skill reference, active project rules/docs, Java reporting and
+  Python evaluator. Reports now identify v2; preserved all v1 protocols, raw evidence and verdicts.
+  Integer half-win units implement <=312 stop, 313..359 continue, >=360 pass, including draws.
+  The evaluator refuses extra stages after a screen stop instead of silently consuming them.
+- Verification: all seven BenchmarkRunner tests and all seven Python evaluator tests pass;
+  installed skill passes quick_validate. Boundary cases cover 51.833%, exactly 52%, 52.166%,
+  53%, 59.833% and exactly 60%. No strategy/core/runtime change or new strength games.
+- Latest quick-income screen 54.33% still clears this floor; its existing separate 1000-game
+  result 53.00% still fails the unchanged 55% threshold. This clarification leaves the recorded
+  verdict and selected v06 unchanged. Historical reports are not rewritten as v2 evidence.

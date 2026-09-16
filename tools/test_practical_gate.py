@@ -51,6 +51,19 @@ class PracticalGateTest(unittest.TestCase):
         self.assertEqual(result['commonOpponentStage'], 'SKIPPED_DIRECT_FAILURE')
         self.assertEqual(fail['score'], 0.5495)
 
+    def test_screen_floor_stops_at_52_and_continues_immediately_above_it(self):
+        for units in (300, 311, 312):
+            screen = self.report(fixture(300, units))
+            result = assess(screen)
+            self.assertEqual(result['directStage'], 'STOP_SCREEN_300')
+            self.assertEqual(result['strengthStatus'], 'NOT_PASSED')
+            self.assertEqual(result['policy'], 'practical-300-1000-v2')
+            with self.assertRaisesRegex(ValueError, 'at or below 52%'):
+                assess(screen, self.report(fixture(1000, 1200, start=1001)))
+        for units in (313, 318, 359):
+            self.assertEqual(assess(self.report(fixture(300, units)))['strengthStatus'], 'NEEDS_DIRECT_1000')
+        self.assertEqual(assess(self.report(fixture(300, 360)))['directStage'], 'PASS_300')
+
     def test_matched_exact_three_points_then_tie_in_fresh_full_stage(self):
         screen = self.report(fixture(300, 360))
         control = self.report(fixture(300, 360, 'selected', 'older', 1001))

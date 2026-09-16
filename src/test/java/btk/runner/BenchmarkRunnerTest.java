@@ -42,6 +42,12 @@ class BenchmarkRunnerTest {
         assertFalse(stats.promotionGatePassed(), "60% does not pass the historical CI gate");
         stats.draws = 1;
         assertEquals("NEEDS_FRESH_1000", stats.practicalDirectStage());
+        stats.winsA = 155;
+        assertEquals("STOP_SCREEN_300", stats.practicalDirectStage()); // 51.833...%
+        stats.draws = 2;
+        assertEquals("STOP_SCREEN_300", stats.practicalDirectStage()); // exactly 52%
+        stats.draws = 3;
+        assertEquals("NEEDS_FRESH_1000", stats.practicalDirectStage()); // 52.166...%
         stats.games = 1000; stats.winsA = 549; stats.draws = 2;
         for (int i = 150; i < 500; i++) stats.gamesPerMap.put("map" + i, 2);
         assertEquals("PASS_1000", stats.practicalDirectStage());
@@ -110,6 +116,7 @@ class BenchmarkRunnerTest {
         assertEquals("0.1", json.getAsJsonObject("paramsA").get("NOISE").getAsString());
         assertFalse(json.get("promotionGatePassed").getAsBoolean());
         assertEquals(3, json.get("schemaVersion").getAsInt());
+        assertEquals("practical-300-1000-v2", json.get("promotionPolicy").getAsString());
         assertEquals(10, json.getAsJsonObject("byHeight").getAsJsonObject("1").get("games").getAsInt());
     }
 

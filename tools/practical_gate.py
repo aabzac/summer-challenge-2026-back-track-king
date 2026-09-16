@@ -8,7 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 
-POLICY = 'practical-300-1000-v1'
+POLICY = 'practical-300-1000-v2'
 CONDITIONS = ('timingProfile', 'firstSearchBudgetMs', 'turnSearchBudgetMs', 'threads', 'javaVersion')
 
 
@@ -96,6 +96,14 @@ def assess(screen, direct=None, style_candidate=None, style_control=None,
     result = {'policy': POLICY, 'confidenceRole': 'descriptive only; no overall 95% guarantee',
               'processReadiness': 'not assessed', 'screenScore': screen['score']}
     used = set(screen['maps'])
+    if screen['halfWins'] <= 312:
+        require(all(x is None for x in (direct, style_candidate, style_control, full_candidate, full_control)),
+                'Continuation supplied after screen at or below 52%')
+        result['directStage'] = 'STOP_SCREEN_300'
+        result['strengthStatus'] = 'NOT_PASSED'
+        result['commonOpponentStage'] = 'SKIPPED_DIRECT_FAILURE'
+        result['reports'] = [compact(screen)]
+        return result
     if screen['halfWins'] >= 360:
         require(direct is None, 'Direct continuation supplied after fast pass')
         result['directStage'] = 'PASS_300'

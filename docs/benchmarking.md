@@ -104,13 +104,14 @@ to the engine or runtime.
 
 ## Active practical selection policy (2026-09-16)
 
-The user adopted **practical-300-1000-v1**, replacing the strict CI promotion gate. Freeze
+The active policy is **practical-300-1000-v2**, adding a >52% continuation floor to v1. Freeze
 candidate A, selected control B, common older/style opponent C and all settings before play.
 Draws count as half a win. Every map is played with both sides; all stages use distinct fresh
 maps and nominal CG timing. Keep stages separate and complete them regardless of running score.
 
 1. **Direct screen:** A vs B, exactly 300 games / 150 maps. Score >=60% passes this stage.
-2. Otherwise **direct continuation:** separate 1000 games / 500 new maps. Score >=55% in these
+   Score <=52% stops evaluation; retain the candidate and evidence without automatic continuation.
+2. Only for **52% < score <60%**, direct continuation: separate 1000 games / 500 new maps. Score >=55% in these
    1000 alone passes; otherwise stop promotion evaluation. Never pool the first 300 with these.
 3. After direct success, **matched common-opponent screen:** A vs C and B vs C, 300 games each
    on the SAME new 150 maps, seeds and sides, with matching C parameters, timing and workers.
@@ -118,6 +119,12 @@ maps and nominal CG timing. Keep stages separate and complete them regardless of
 4. Otherwise **matched continuation:** A vs C and B vs C, 1000 games each on the SAME separate
    new 500 maps. Candidate score >= control score in this larger sample alone passes; ties pass.
    A loss stops evaluation. Preserve the candidate and all evidence; no automatic retries.
+
+Exactly 52% stops; exactly 60% passes the direct screen. The 52% floor favors sensitivity over
+the more aggressive 53% alternative: their difference is only three win-equivalent points in
+300 games. This is a practical choice to save work, not a proven optimum or proof that a stopped
+candidate lacks benefit. It affects only the first direct screen; the 1000-game threshold and
+common-opponent stages are unchanged. Historical v1 reports and decisions remain as recorded.
 
 Both strength stages are required. The 3-point threshold is a practical cutoff, not an error
 margin. This policy has **no overall 95% statistical guarantee**; confidence intervals remain
@@ -129,7 +136,9 @@ promote or upload. Stage provenance and complete matching must be checked outsid
 Explicitly requested retrospective adoption may reuse an existing 300-game screen only after
 verifying the unchanged strategy and complete parameters. Keep its old verdict and label the
 policy change; subsequent stages must be new. Do not reuse unmatched historical percentages
-for the common-opponent comparison. First application: [quick-income-practical-v1.md](quick-income-practical-v1.md).
+for the common-opponent comparison. The first v1 application remains historical:
+[quick-income-practical-v1.md](quick-income-practical-v1.md). Its 54.33% screen also clears the
+new floor; the 53% result in the subsequent 1000 still fails 55%. No replay or verdict rewrite.
 
 Evaluate saved stages with `python tools/practical_gate.py --screen <300-game-report>`.
 Add `--direct <1000-game-report>` when required; then `--style-candidate` and `--style-control`
