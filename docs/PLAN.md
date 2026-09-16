@@ -246,6 +246,18 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       and report under `build/analysis/v06-promotion/`; distinguish child runtime from host/reader
       scheduling before changing budgets or policy. v06 selected locally, no upload performed.
 
+- [x] Record user-reported v06 arena upload/rank 153/645 (previous v05 rank 270); analyze all
+      30 Boss 4 games with the user-attributed 15/15 split. Outcomes 2-13 vs 5-10; 30/30 exact,
+      no failures/skipped commands. Probe all 1082 new-cohort states using frozen, noise-free v06.
+      Short useful routes can be absent from the six-route portfolio; 21/23 large-damage loss
+      turns already have the correct boss target in the model. 220 tests pass, two compact
+      pre-turn fixtures retained. See boss-v06-loss-analysis.md; selected v06/Player unchanged.
+- [ ] Next isolated strategy experiment: retain one cheap positive-net-income construction
+      candidate within the existing six-route portfolio when current income is zero. Let rollout
+      choose, rather than forcing the route. Default-off Params flag; preserve v06, verify actual
+      clock cost, predeclare a fresh paired screen vs v06 and an older/style check. No widening,
+      depth change or sabotage retuning in the same experiment; do not use boss sample as confirmation.
+
 ## Someday / maybe
 
 - JIT warm-up inside bench threads to remove spurious "slow" counts in the arena

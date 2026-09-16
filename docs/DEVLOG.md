@@ -2596,3 +2596,65 @@ Completed outcome (fixed sample, no retuning):
   readiness explicitly open. Do not claim submission readiness, change the confirmed policy
   without another experiment, or erase the failure by rerunning. No arena upload or push.
   Commit the completed promotion work and its failed check under the standing working agreement.
+
+## 2026-09-16 — user-reported v06 arena gain and 30-game boss loss diagnosis
+
+- **Context:** user uploaded the current bot and reports rank **153/645**, versus **270** for
+  v05 before upload. User assigns the first 15 of 30 saved boss games to v05 and the last 15
+  to current/v06. Record that attribution explicitly; IDE agent -1 does not carry a verified
+  source hash. The arena rank is a user snapshot, not a fetched leaderboard or controlled effect.
+- **Fixed sample:** every canonical JSON directly in `replays/cg/bot`, ordered by game id;
+  v05-labelled 904021106..904125203, v06-labelled 904125321..904148315. All 30 feature aabzac
+  P0 vs Boss 4 P1, positive boss agent 6740207 identified through `arenaboss` and slot index.
+  There are **30 distinct initial maps**, with no paired overlap between cohorts. Raw fallback
+  captures in the nested directory are outside this explicitly counted sample, not failed games
+  discarded from it. **30/30 replays exact; no failures or skipped commands** for either player.
+- **Hypothesis/method:** inspect losses before choosing another feature. Reuse validated
+  `CgPlayerStudy.analyze` for accepted placements, income and one-turn recorded-action
+  counterfactuals. New tools-only `cgBossLossStudy` enforces cohort counts and preserves output;
+  `cgRolloutBossProbe` verifies input hashes and tests all 1082 new-cohort pre-turn observations
+  with fresh frozen v06, NOISE=0 and 60,000-ms allowance. The latter is a completed bounded-work
+  mechanism audit, not reconstruction of CG timing/RNG or a population-strength benchmark.
+  It calls frozen candidate generation/target selection, using actual enemy commands only to
+  assess coverage afterward. Route completion and all scoring/pathing use core.
+- **Descriptive result:** v05 **2-13**, v06 **5-10**. Own accepted cells never subsequently
+  earning: **970/2054 (47.22%)** vs **398/1549 (25.69%)**; boss **205/1432 (14.32%)** vs
+  **230/1576 (14.59%)**. Different maps and the small samples prohibit treating these changes
+  as controlled effect sizes. This supports investigating construction quality, not a new gate.
+- **Primary mechanism:** at 904148181 t0, core exposes a useful route costing 4 paint (+4 own,
+  +4 net income if completed), while all six noise-free retained routes cost >=18 and the chosen
+  one costs 24. Its first command matches the replay. Recorded first income: t16 vs boss t1;
+  pre-turn t16 score 0-392, final 1899-3387. At t5 a 3-paint route is absent while the minimum
+  retained cost is 17. Within the first 20 turns, zero own income plus an omitted cheaper useful
+  <=6-paint route occurs in 48 observations from all 10 losses AND 25 observations from all five
+  wins. Repeated, post-selected observations establish a recurring portfolio restriction, not
+  causation or guaranteed value after opponent interference. Completed-network ranking can
+  exclude cheap routes before affordable rollout; a deeper rollout cannot consider absent roots.
+- **Alternative hypothesis checked:** first-turn sabotage target coverage is **779/917 (84.95%)**.
+  In losses, **21/23** recorded disruption turns with >=30 immediate net-point impact are already
+  covered. Example 904147739 t22: actual/predicted target31, prior instability3, no-enemy-hit
+  one-turn delta +113; exposed bypass still costs4. These oracle deltas reset to actual states
+  and are not additive final-score gains. Simple prior-target persistence matches **576/678**
+  eligible attacks; current two scenarios cover **605/678** on the same slice. Construction
+  exact-set coverage is only **118/673** nonempty boss builds, but different actions can be
+  strategically equivalent. Neither number alone supports widening the search. All 1082 probes
+  complete at least one comparison; own recorded placement sets are covered in 971 states.
+- **Evidence:** `docs/boss-v06-loss-analysis.md` records interpretation, limitations and commands.
+  Full reports under `build/analysis/boss-v06-losses-v1/`: `cohorts.json` SHA-256
+  `7ab85b8bdb849fbcac9985a0a526f557f477c4a8e35dd1194fd86e93722c0876`;
+  `rollout-probe.json` `c2569c38aa14f7a6e2c612f115af7c00cb27a4e8d00012140a84da26120661a4`;
+  `summary.json` `9e131306820080e168badba63916179501dc8a253f5193c4989b59694ec7a020`.
+  Reports retain raw-input, state and probe-class hashes, parameters and observation boundaries.
+  Two compact fixtures (904148181 t0, 904147739 t20) preserve initialization and prior history
+  separately from same-turn diagnostic labels. **220 tests pass**, including three probe tests
+  for exact fixture restoration, terrain costs, net income, both sides and input isolation.
+  Initial new-test compilation needed an explicit checked-exception declaration; corrected,
+  no runtime or policy defect. No core, bot, Params, frozen-version or submission changes.
+- **Decision:** next single-change experiment should reserve one existing route slot for a
+  bounded cheap positive-net-income candidate while own income is zero, leaving selection to
+  the existing rollout. Default-off, no forced defense, no wider/deeper search or sabotage
+  retuning in the same experiment. Require fresh paired screen vs v06 and an older/style check
+  before any confirmation/promotion. The boss sample is development evidence only. v06 stays
+  selected; final Player hash remains `7f4d94e40e5252d09b86df6e1b8c208e92c86d98a521d858eaf182a9178c2c9c`.
+  No new games or upload by the agent. These failure-free boss records do not explain or erase
+  the separate local packaging timeout; keep that investigation open. Commit the diagnostic work.

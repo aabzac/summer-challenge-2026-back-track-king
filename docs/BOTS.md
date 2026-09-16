@@ -22,7 +22,14 @@ and `gradlew botCatalog`. Version ids remain stable; `EvalBotVNN` class names re
 Named experiments are local, not promoted, and verify a pinned engine/configuration snapshot.
 Their historical screen results are not new evidence for the shared catalog snapshot.
 
-Latest user-reported arena snapshot (2026-09-15): **Gold opened; still Silver, 235/622**.
+Latest user-reported arena snapshot (2026-09-16): **v06 uploaded, 153/645**, after **rank 270
+for v05** before upload. Exact deployed source hash is not independently verified. The 30 saved
+Boss 4 games split by the user's first-15/last-15 assignment give **v05 2-13**, **v06 5-10**,
+on 30 distinct unpaired maps; all validate exactly, with no failures or skipped commands.
+See [the loss diagnosis](boss-v06-loss-analysis.md) for route-portfolio evidence and the next
+single-change proposal. No strategy change or new strength confirmation in this analysis.
+
+Previous user-reported arena snapshot (2026-09-15): **Gold opened; still Silver, 235/622**.
 User confirms the arena still runs the previous build, without the new isolated warmup;
 the exact deployed source hash and placement status remain unverified. League changes
 alter the ranking population, so this is not directly comparable to the old rank snapshots.
@@ -253,7 +260,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 | v03 Risk Aware | 2026-09-13 | v02 + state value = income diff − W_VULN × worst single ink the opponent could do (my loss − their loss, / disrupts needed, only regions on active paths with my tracks). Third candidate type: backup route for an active pair avoiding the most threatened region. Closing rule: an ink that leaves no connectable pair is taken only when ahead, never when behind. `HORIZON` param (default 100). `NOISE=0.1` default (deterministic mirrors gave 0-0 games). Opponent model (`USE_OPP_MODEL`, collision surcharge) implemented but off: 47-51% in ablations. | vs v02: 58.5% [51.6-65.1], n=200. Ablations (n=300): no backup 60.2% [54.5-65.5] sig.; W_VULN=0 & no backup 52.7%; USE_CLOSE=0 48% (self-play games rarely close); HORIZON 20/30/50 → 52/53/43%. Process check: first turn ≤ 660 ms, later ≤ 38 ms. | **Silver, around 350/645**; Gold not yet open; usually wins boss games |
 | v04 Network Extension | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability ≥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn ≤745 ms, later ≤43 ms. | Boss **7/7**; awaiting Silver arena result |
 | v05 Disrupt Reserve | 2026-09-14 | v04 + 6-ms reserve for sabotage: cut route/idle search short on the original turn clock; evaluation formulas and CGRunner margin unchanged. | Confirmation vs v04: **57.7%**, W-L-D **575-421-4**, n=1000/500 new paired maps, map-grouped 95% CI **[51.6%, 63.8%]**, avg diff **+879.1**. Common opponents: v03 **69.3% vs v04's 61.3%**; aggressive v02 **70.0% vs v04's 67.7%**, each 300 matched games. Process check: **0/8** problem games, first <=676 ms, later <=34 ms. | Uploaded as agent **6736850**. User: rank 321 at 43%; API snapshot rank 333. First 56 fetched games: **38-18**, no own timeouts; placement ongoing |
-| v06 Simultaneous Rollout | 2026-09-16 | Independent eight-turn simultaneous construction/sabotage rollout; six route proposals, two opponent priorities; exact confirmed policy and full parameter snapshot. Selected by the user. | Fixed confirmation vs v05: **1230-770 (61.5%)**, 2x1000 games / 1000 distinct paired maps, map-grouped 95% CI **57.21-65.79%**; both individual gates pass. Older checks: v03 **68.5%**, pressure-v1 **74.5%**, 200 games each. Earlier process 0/42; final packaged source **FAILED 1/42**, later response 50.462 ms. | Selected locally; not uploaded; timing readiness remains open |
+| v06 Simultaneous Rollout | 2026-09-16 | Independent eight-turn simultaneous construction/sabotage rollout; six route proposals, two opponent priorities; exact confirmed policy and full parameter snapshot. Selected by the user. | Fixed confirmation vs v05: **1230-770 (61.5%)**, 2x1000 games / 1000 distinct paired maps, map-grouped 95% CI **57.21-65.79%**; both individual gates pass. Older checks: v03 **68.5%**, pressure-v1 **74.5%**, 200 games each. Earlier process 0/42; final packaged source **FAILED 1/42**, later response 50.462 ms. | User-reported upload: 153/645, previous v05 rank 270; exact deployed hash unverified; local timing issue remains open |
 
 ## Paired benchmark checkpoint (2026-09-13)
 

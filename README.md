@@ -26,6 +26,8 @@ gradlew cgAnalyze -Pagent=6735801               # validated games of one arena e
 gradlew cgForecast -Pagent=6736850              # offline adaptive sabotage prediction, no strategy changes
 gradlew cgTiming                               # phase timing on two captured large-map replay trajectories
 gradlew cgDisrupt                              # full sabotage valuation vs timed search on captured losses
+gradlew cgBossLossStudy -Pbefore=15 -Ptotal=30   # user-attributed boss cohorts; refuses changed count/existing report
+gradlew cgRolloutBossProbe                      # known-state v06 route/model diagnosis from that cohort report
 gradlew replyStudy -Pmode=capture               # fixed 24-game local diagnostic capture (once)
 gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/time audit, no strategy change
 gradlew jointReplyStudy                        # joint first-build/own-sabotage audit on the SAME saved sample
