@@ -317,3 +317,10 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
 - [x] Export exact quick-income candidate beside Player as PlayerQuickIncome.java for the
       requested arena trial. Compilation passes; strict process check has 1/8 timeout games,
       recorded and disclosed. All 23 original submission files unchanged; no promotion/upload.
+
+
+- [x] Test two independent construction projects on resumed QuickIncome: 53.6667% / 300
+      then 50.60% / fresh 1000 vs v06, NOT PASSED; fixed separate QuickIncome ablation 51.50% / 300.
+      1600 games / 800 new maps, zero errors, 241 Java + seven gate tests; 264 exact replays.
+      Keep USE_ROLLOUT_SPREAD OFF, original QuickIncome base and both arena files unchanged.
+      Mechanism, protocol and evidence: docs/spread-construction-v1.md.

@@ -104,6 +104,8 @@ class FrozenParamsTest {
         expected.put("USE_ROLLOUT_REPLAN", "false");
         expected.put("ROLLOUT_REPLAN_TURN", "4");
         expected.put("USE_ROLLOUT_SECOND_TARGET", "false");
+        expected.put("USE_ROLLOUT_SPREAD", "false");
+        expected.put("ROLLOUT_SPREAD_ROOTS", "2");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         expected.put("ROLLOUT_REPLIES", "2");
         expected.put("ROLLOUT_DEPTH", "8");

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "spread-construction-v1-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 160000,
+  "pairs": 150
+}

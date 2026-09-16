@@ -224,7 +224,8 @@ tasks.register<JavaExec>("rolloutFollowupStudy") {
     mainClass.set("btk.tools.RolloutFollowupStudy")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
-        prop("bot", "current?USE_ROLLOUT_DIVERSE_REPLIES=1"), prop("out", "build/analysis/rollout-followup-study.json"))
+        prop("bot", "current?USE_ROLLOUT_DIVERSE_REPLIES=1"), prop("out", "build/analysis/rollout-followup-study.json"),
+        prop("baseline", "current"))
 }
 
 tasks.register<JavaExec>("quickRouteStudy") {

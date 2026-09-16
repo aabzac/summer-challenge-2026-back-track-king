@@ -43,6 +43,11 @@ public final class RolloutBot implements Bot {
     public int replanCalls, replanChanges;
     public int extraTargetComparisons;
     public boolean selectedExtraTarget;
+    private int[] spreadFirst, spreadSecond, spreadQuota;
+    private int ordinaryRootSize;
+    private boolean packedBoth;
+    public int spreadRoots, spreadComparisons, spreadBuildTurns;
+    public boolean selectedSpread;
 
     public RolloutBot(Params params) {
         p = params.copy();
@@ -54,6 +59,10 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_MAX_ROUTES < 1 || p.ROLLOUT_MAX_ROUTES > 128
                 || p.ROLLOUT_QUICK_MAX_PAINT < 1 || p.ROLLOUT_QUICK_MAX_PAINT > 12
                 || p.ROLLOUT_REPLAN_TURN < 1 || p.ROLLOUT_REPLAN_TURN > 11
+                || p.ROLLOUT_SPREAD_ROOTS < 1 || p.ROLLOUT_SPREAD_ROOTS > 2
+                || p.USE_ROLLOUT_SPREAD && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
+                    || p.USE_ROLLOUT_QUICK_SAFE || p.USE_ROLLOUT_DIVERSE_REPLIES
+                    || p.USE_ROLLOUT_REPLAN || p.USE_ROLLOUT_SECOND_TARGET)
                 || p.ROLLOUT_RESERVE_MS < 0 || p.ROLLOUT_TARGETS < 1 || p.ROLLOUT_TARGETS > 8
                 || !finitePositive(p.ROLLOUT_TARGET_HORIZON) || !finitePositive(p.ROLLOUT_ROUTE_HORIZON)
                 || !finitePositive(p.ROLLOUT_WIN_VALUE)
@@ -77,13 +86,17 @@ public final class RolloutBot implements Bot {
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
-        roots = new int[p.ROLLOUT_WIDTH + 1][GameState.PAINT_PER_TURN];
+        roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_SPREAD ? p.ROLLOUT_SPREAD_ROOTS : 0)][GameState.PAINT_PER_TURN];
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
         if (p.USE_ROLLOUT_DIVERSE_REPLIES) replyRoutes = new int[p.ROLLOUT_REPLIES];
         if (p.USE_ROLLOUT_SECOND_TARGET) rootAlternateTargets = new int[roots.length];
+        if (p.USE_ROLLOUT_SPREAD) {
+            spreadFirst = new int[roots.length]; spreadSecond = new int[roots.length];
+            spreadQuota = new int[roots.length];
+        }
     }
 
     public List<Action> play(GameState s, int me, long budgetMs) {
@@ -91,6 +104,7 @@ public final class RolloutBot implements Bot {
         routeQueries = completedComparisons = simulatedTurns = 0;
         replanCalls = replanChanges = 0;
         extraTargetComparisons = 0; selectedExtraTarget = false;
+        spreadRoots = spreadComparisons = spreadBuildTurns = 0; selectedSpread = false;
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         quickSlot = -1;
@@ -127,6 +141,7 @@ public final class RolloutBot implements Bot {
         }
         if (quickLength > 0) retainQuickRoute(s, me);
         int rootSize = counts[me] + 1; // last choice waits for construction this turn only
+        ordinaryRootSize = rootSize;
         for (int i = 0; i < rootSize; i++) {
             rootCounts[i] = i == counts[me] ? 0 : fillBuild(s, me, i, roots[i]);
             targetBoard.set(s);
@@ -135,6 +150,7 @@ public final class RolloutBot implements Bot {
             rootTargets[i] = timer.up() ? fallbackTarget : chooseTarget(targetBoard.state, me);
             if (p.USE_ROLLOUT_SECOND_TARGET) rootAlternateTargets[i] = secondTarget;
         }
+        if (p.USE_ROLLOUT_SPREAD && !timer.up()) rootSize = addSpreadRoots(s, me, rootSize);
         int bestCount = rootCounts[0];
         System.arraycopy(roots[0], 0, bestCells, 0, bestCount);
         selectedTarget = rootTargets[0];
@@ -146,7 +162,7 @@ public final class RolloutBot implements Bot {
         for (int order = 0; order < rootSize; order++) {
             int root = searchRoot(order);
             boolean duplicate = false;
-            for (int j = 0; j < root; j++) {
+            for (int j = 0; j < root && root < ordinaryRootSize; j++) {
                 if (sameSet(roots[root], rootCounts[root], roots[j], rootCounts[j])) duplicate = true;
             }
             if (duplicate) continue;
@@ -161,10 +177,12 @@ public final class RolloutBot implements Bot {
                     sum += value; worst = Math.min(worst, value);
                 }
                 completedComparisons++;
+                if (root >= ordinaryRootSize) spreadComparisons++;
                 double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
                 if (value > best) {
                     best = value; selectedValue = value;
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
+                    selectedSpread = root >= ordinaryRootSize;
                     bestCount = rootCounts[root];
                     System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
                 }
@@ -354,9 +372,84 @@ public final class RolloutBot implements Bot {
 
     /** Keep the ordinary first comparison/fallback, then evaluate quick income before other roots. */
     private int searchRoot(int order) {
+        if (p.USE_ROLLOUT_SPREAD) {
+            if (order == 0) return 0;
+            return order <= spreadRoots ? ordinaryRootSize + order - 1 : order - spreadRoots;
+        }
         if (!p.USE_ROLLOUT_QUICK_EARLY || quickSlot <= 0) return order;
         if (order == 1) return quickSlot;
         return order > 1 && order <= quickSlot ? order - 1 : order;
+    }
+
+    /** First ranked independent pair with a genuinely split action; at most two extra roots. */
+    private int addSpreadRoots(GameState s, int me, int size) {
+        for (int a = 0; a < counts[me] && !timer.up(); a++) {
+            for (int b = a + 1; b < counts[me] && !timer.up(); b++) {
+                if (sameProject(me, a, b) || !independentRegions(s, me, a, b)) continue;
+                for (int quota = 2; quota >= 1 && spreadRoots < p.ROLLOUT_SPREAD_ROOTS; quota--) {
+                    int n = fillSpread(s, me, a, b, quota, roots[size]);
+                    if (!packedBoth) continue;
+                    boolean duplicate = false;
+                    for (int j = 0; j < size; j++)
+                        if (sameSet(roots[size], n, roots[j], rootCounts[j])) duplicate = true;
+                    if (duplicate) continue;
+                    targetBoard.set(s); placeOwn(targetBoard, me, roots[size], n);
+                    int target = chooseTarget(targetBoard.state, me);
+                    if (timer.up()) return size;
+                    rootCounts[size] = n; rootTargets[size] = target;
+                    spreadFirst[size] = a; spreadSecond[size] = b; spreadQuota[size] = quota;
+                    size++; spreadRoots++;
+                }
+                if (spreadRoots > 0) return size;
+            }
+        }
+        return size;
+    }
+
+    /** A single legal region destruction must not sever both retained projects. */
+    private boolean independentRegions(GameState s, int me, int a, int b) {
+        Arrays.fill(marked, false);
+        for (int i = 0; i < lengths[me][a]; i++) {
+            int region = s.regionId[routes[me][a][i]];
+            if (!s.regionHasTown(region)) marked[region] = true;
+        }
+        for (int i = 0; i < lengths[me][b]; i++)
+            if (marked[s.regionId[routes[me][b][i]]]) return false;
+        return true;
+    }
+
+    private int remainingPaint(GameState s, int me, int route) {
+        int paint = 0;
+        for (int i = 0; i < lengths[me][route]; i++) {
+            int c = routes[me][route][i];
+            if (s.inked[c]) return -1;
+            if (s.canBuild(c)) paint += s.placeCost(c);
+        }
+        return paint;
+    }
+
+    /** Keep the same split throughout a forecast, finish affordable projects, abandon inked ones. */
+    private int fillSpread(GameState s, int me, int a, int b, int quota, int[] out) {
+        packedBoth = false;
+        int needA = remainingPaint(s, me, a), needB = remainingPaint(s, me, b);
+        if (needA <= 0) return fillBuild(s, me, b, out);
+        if (needB <= 0 || needA <= GameState.PAINT_PER_TURN) return fillBuild(s, me, a, out);
+        if (needB <= GameState.PAINT_PER_TURN) return fillBuild(s, me, b, out);
+        int count = pack(s, routes[me][a], lengths[me][a], out, 0, quota);
+        int paint = GameState.PAINT_PER_TURN;
+        for (int i = 0; i < count; i++) paint -= s.placeCost(out[i]);
+        int next = pack(s, routes[me][b], lengths[me][b], out, count, paint);
+        if (count == 0 || next == count) return fillBuild(s, me, a, out);
+        packedBoth = true;
+        for (int i = count; i < next; i++) paint -= s.placeCost(out[i]);
+        count = next;
+        for (int route = 0; route < counts[me] && paint > 0; route++) {
+            if (remainingPaint(s, me, route) <= 0) continue;
+            next = pack(s, routes[me][route], lengths[me][route], out, count, paint);
+            for (int i = count; i < next; i++) paint -= s.placeCost(out[i]);
+            count = next;
+        }
+        return count;
     }
 
     /** Pack real paint costs, including leftovers across projects; never mutate the pre-turn board. */
@@ -421,7 +514,11 @@ public final class RolloutBot implements Bot {
                     targets[player] = ownTarget;
                 } else {
                     int first = player == me ? ownFirst : reply;
-                    moveCounts[player] = fillBuild(s, player, first, moves[player]);
+                    if (p.USE_ROLLOUT_SPREAD && player == me && root >= ordinaryRootSize) {
+                        moveCounts[player] = fillSpread(s, me, spreadFirst[root], spreadSecond[root],
+                                spreadQuota[root], moves[player]);
+                        if (packedBoth) spreadBuildTurns++;
+                    } else moveCounts[player] = fillBuild(s, player, first, moves[player]);
                     targetBoard.set(s);
                     placeOwn(targetBoard, player, moves[player], moveCounts[player]);
                     targets[player] = chooseTarget(targetBoard.state, player);

@@ -2943,3 +2943,31 @@ Completed outcome (fixed sample, no retuning):
   no upload done. Current strict process check is NOT PASSED, communicated with the artifact.
 - Full artifact identity, preservation hashes and all per-turn reports retained in
   docs/evidence/quick-income-arena-v1.json; usage/status in docs/working-candidate.md.
+
+
+## 2026-09-17 - two independent construction projects on QuickIncome
+
+- Hypothesis: distributing paint over independent useful routes limits how much one sabotage
+  campaign can suppress, potentially compensating for slower first income. User requested trial.
+- Implemented default-off USE_ROLLOUT_SPREAD, max two extra first actions from one ranked pair
+  without shared disruptible regions. Actual 2+1 / 1+2 paint; same split in eight-turn forecasts;
+  finish projects affordable this turn, abandon destroyed routes. Ordinary actions still compete.
+  No new paths, core/frozen-opponent changes, tuning between stages or default promotion.
+- Regression tests cover real terrain packing, region independence, delayed income, split
+  continuation, completion, ink abandonment, legal output, input isolation and bounded work.
+  241 Java tests, seven gate tests pass; core reproduces all 264 arena replays exactly.
+- Fixed 133-state boss diagnostic vs QuickIncome: ample-time splits available in 46 states,
+  selected in four, 158 split comparisons; same 13753 route queries. Nominal selected in seven,
+  104 split comparisons; timing changes also change proposal coverage. Diagnostic, not strength.
+- Prospectively fixed 300 vs v06: 160-138-2 = 53.6667%; fresh 1000: 502-490-8 = 50.60%.
+  Direct gate NOT PASSED at 55%; common-opponent stages skipped. Fixed separate 300-game
+  ablation vs identical QuickIncome with only SPREAD switched off: 150-141-9 = 51.50%.
+  Small observed edge does not establish superiority. Historical QuickIncome 53% on different
+  maps is not used as a matched comparison. No pooling, retries or discarded timing outliers.
+- Completed 1600 games / 800 new maps, zero errors. Source/class identities verified throughout;
+  ablation differs in exactly one parameter. All 25 pre-existing submission files unchanged.
+  Retain flag OFF and QuickIncome development base; v06 stays selected. No new process-readiness
+  check after strength failure, and no arena-readiness claim; search outliers retained in evidence.
+- Limits: only existing portfolio routes, strict region independence, eight-turn forecast,
+  extra search cost. This result concerns this bounded implementation, not all possible spreading.
+  Full protocol/results and durable evidence links: docs/spread-construction-v1.md.

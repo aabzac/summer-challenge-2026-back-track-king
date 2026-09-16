@@ -775,3 +775,15 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   no upload done. Current strict process check is NOT PASSED, communicated with the artifact.
 - Full artifact identity, preservation hashes and all per-turn reports retained in
   docs/evidence/quick-income-arena-v1.json; usage/status in docs/working-candidate.md.
+
+
+## 2026-09-17 - spread-construction-v1 (not promoted)
+
+QuickIncome plus default-off USE_ROLLOUT_SPREAD: compare two independent projects with
+2+1 / 1+2 paint, maintain the split inside rollouts, finish affordable routes immediately.
+Screen vs v06: 160-138-2 / 300 = 53.6667%; fresh direct stage: 502-490-8 / 1000 = 50.60%,
+NOT PASSED at 55%. Common-v05 stages skipped. Fixed separate ablation vs QuickIncome:
+150-141-9 / 300 = 51.50%, diagnostic only. Total 1600 games / 800 fresh maps, zero errors.
+241 Java + seven gate tests pass; 264/264 arena replays exact. All 25 existing submission
+files unchanged. Flag OFF, v06 selected, original QuickIncome remains development base.
+Protocol, mechanism limitations and evidence: docs/spread-construction-v1.md.

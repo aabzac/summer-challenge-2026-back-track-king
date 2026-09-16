@@ -13,6 +13,7 @@ public final class RolloutFollowupStudy {
         Path input = Path.of(args[0]), output = Path.of(args[2]);
         if (Files.exists(output)) throw new IllegalArgumentException("Preserve existing report");
         String candidate = args[1] + ",NOISE=0";
+        String baseline = (args.length > 3 ? args[3] : "current") + (args.length > 3 && args[3].contains("?") ? "," : "?") + "NOISE=0";
         var cohort = JsonParser.parseString(Files.readString(input)).getAsJsonObject();
         List<Map<String,Object>> rows = new ArrayList<>();
         for (var item : cohort.getAsJsonArray("games")) {
@@ -35,8 +36,8 @@ public final class RolloutFollowupStudy {
                     row.put("gameId",replay.gameId); row.put("outcome",game.get("outcome").getAsString());
                     row.put("turn",t); row.put("me",me); row.put("stateSha256",before);
                     // Alternate policy order on successive states; no future actions given to either bot.
-                    for (String spec : rows.size()%2 == 0 ? new String[]{"current?NOISE=0",candidate}
-                            : new String[]{candidate,"current?NOISE=0"}) {
+                    for (String spec : rows.size()%2 == 0 ? new String[]{baseline,candidate}
+                            : new String[]{candidate,baseline}) {
                         var result = new LinkedHashMap<String,Object>();
                         result.put("nominal",inspect(s,me,spec,t==0?486:36));
                         result.put("ample",inspect(s,me,spec,60_000));
@@ -51,6 +52,7 @@ public final class RolloutFollowupStudy {
         }
         var report = new LinkedHashMap<String,Object>();
         report.put("spec",candidate); report.put("params",BotFactory.configuration(candidate));
+        report.put("baselineSpec",baseline); report.put("baselineParams",BotFactory.configuration(baseline));
         report.put("inputSha256",ReplyStudy.hash(Files.readAllBytes(input)));
         report.put("classSha256",ReplyStudy.hash(Files.readAllBytes(Path.of("build/classes/java/main/btk/bot/current/RolloutBot.class"))));
         report.put("method","Fixed pre-turn sample 0,5,10,15,20,30,40,50,60,70,80,90 from all 14 v06 boss games. "
@@ -86,7 +88,8 @@ public final class RolloutFollowupStudy {
             result.put("firstReply",Arrays.copyOf(routes[enemy][0],lengths[enemy][0]));
             result.put("secondReply",Arrays.copyOf(routes[enemy][second],lengths[enemy][second]));
         }
-        for (String name : new String[]{"replanCalls","replanChanges","extraTargetComparisons","selectedExtraTarget"}) {
+        for (String name : new String[]{"replanCalls","replanChanges","extraTargetComparisons","selectedExtraTarget",
+                "spreadRoots","spreadComparisons","spreadBuildTurns","selectedSpread"}) {
             try { result.put(name,RolloutBot.class.getField(name).get(bot)); }
             catch (NoSuchFieldException ignored) { /* Added when its independent variant is implemented. */ }
         }

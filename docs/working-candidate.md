@@ -13,7 +13,7 @@ quick-income candidate, rather than plain v06. This selects a research base, not
 Explicit working spec (only add a new experimental change deliberately):
 
 ```text
-current?USE_ROLLOUT_QUICK_ROUTE=1,ROLLOUT_QUICK_MAX_PAINT=6,USE_ROLLOUT_QUICK_EARLY=0,USE_ROLLOUT_QUICK_VALUE=0,USE_ROLLOUT_QUICK_SAFE=0,USE_ROLLOUT_DIVERSE_REPLIES=0,USE_ROLLOUT_REPLAN=0,USE_ROLLOUT_SECOND_TARGET=0
+current?USE_ROLLOUT_QUICK_ROUTE=1,ROLLOUT_QUICK_MAX_PAINT=6,USE_ROLLOUT_QUICK_EARLY=0,USE_ROLLOUT_QUICK_VALUE=0,USE_ROLLOUT_QUICK_SAFE=0,USE_ROLLOUT_DIVERSE_REPLIES=0,USE_ROLLOUT_REPLAN=0,USE_ROLLOUT_SECOND_TARGET=0,USE_ROLLOUT_SPREAD=0
 ```
 
 This is the maintained working implementation with later flags disabled, not a byte-identical
@@ -48,3 +48,10 @@ was made to this exact historical artifact; do not describe it as passing curren
 All 23 pre-existing files under `build/submit`, including Player.java, its manifest and classes,
 retain their original hashes. Candidate compilation/checking used an isolated directory. No arena
 upload or promotion performed. Full evidence: [quick-income-arena-v1.json](evidence/quick-income-arena-v1.json).
+
+## Distributed-construction follow-up (2026-09-17)
+
+The separate default-off `USE_ROLLOUT_SPREAD` experiment on this base completed 1600 games:
+53.6667% / 300 then 50.60% / fresh 1000 against v06, below the required 55%; independent
+300-game ablation against this base scored 51.50%. Retain SPREAD=0 in the working recipe.
+All 25 existing submission files unchanged. [Protocol and results](spread-construction-v1.md).

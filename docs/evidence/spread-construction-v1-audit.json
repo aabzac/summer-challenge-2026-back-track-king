@@ -1,0 +1,119 @@
+{
+  "decision": {
+    "policy": "practical-300-1000-v2",
+    "confidenceRole": "descriptive only; no overall 95% guarantee",
+    "processReadiness": "not assessed",
+    "screenScore": 0.5366666666666666,
+    "directScore": 0.506,
+    "directStage": "NOT_PASSED",
+    "strengthStatus": "NOT_PASSED",
+    "commonOpponentStage": "SKIPPED_DIRECT_FAILURE"
+  },
+  "reports": [
+    {
+      "poolId": "spread-construction-v1-screen",
+      "games": 300,
+      "winsA": 160,
+      "winsB": 138,
+      "draws": 2,
+      "errorsA": 0,
+      "errorsB": 0,
+      "elapsedMs": 501632,
+      "maxMsA": 98,
+      "maxMsB": 53,
+      "slowA": 3,
+      "slowB": 2,
+      "score": 0.5366666666666666
+    },
+    {
+      "poolId": "spread-construction-v1-direct",
+      "games": 1000,
+      "winsA": 502,
+      "winsB": 490,
+      "draws": 8,
+      "errorsA": 0,
+      "errorsB": 0,
+      "elapsedMs": 1620731,
+      "maxMsA": 99,
+      "maxMsB": 51,
+      "slowA": 5,
+      "slowB": 2,
+      "score": 0.506
+    },
+    {
+      "poolId": "spread-construction-v1-ablation",
+      "games": 300,
+      "winsA": 150,
+      "winsB": 141,
+      "draws": 9,
+      "errorsA": 0,
+      "errorsB": 0,
+      "elapsedMs": 499585,
+      "maxMsA": 141,
+      "maxMsB": 63,
+      "slowA": 2,
+      "slowB": 1,
+      "score": 0.515
+    }
+  ],
+  "totalGames": 1600,
+  "distinctMaps": 800,
+  "javaTests": {
+    "tests": 241,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gateTestsPassed": 7,
+  "validatedArenaReplays": 264,
+  "mechanism": {
+    "ample": {
+      "samples": 133,
+      "available": 46,
+      "compared": 46,
+      "selected": 4,
+      "changedActions": 4
+    },
+    "nominal": {
+      "samples": 133,
+      "available": 46,
+      "compared": 36,
+      "selected": 7,
+      "changedActions": 21
+    }
+  },
+  "sourceAndClassHashesUnchanged": true,
+  "previousSubmissionFilesUnchanged": {
+    "build/submit/manifest.json": "8a70090755b28fe4fe8a1977ac9a0dd58138e561b36077e1937cba516608ecab",
+    "build/submit/Player.java": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266",
+    "build/submit/PlayerQuickIncome.java": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+    "build/submit/PlayerQuickIncome.manifest.json": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3",
+    "build/submit/classes/Player$1.class": "59c3cf626cc1e9e1b94b64427405d4ee54bab026fdfe07c24dc4cdc30137a129",
+    "build/submit/classes/Player$Action$Type.class": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+    "build/submit/classes/Player$Action.class": "7a12f780b187c9cb3844054f06ec6e80c85a4774d9bd71181801a7369c30e016",
+    "build/submit/classes/Player$Bot.class": "6d616dd5985d912f62749b77f65046a35128ba4cbaec0633801b709e50ecf5bc",
+    "build/submit/classes/Player$CGRunner.class": "9382253d3c8b59bfe4b757c9b3204d592512ce0bcc6b80de4878a1284d8a9932",
+    "build/submit/classes/Player$EvalBot.class": "f5122d2ed8e9b479f00ea6b4a1b9adc2136840484d191f826539581c45c9043b",
+    "build/submit/classes/Player$GameState.class": "59c04ac9fd5097d24c373fc46a2812c7ffbdd0f1e9fe703b87de959f311be92d",
+    "build/submit/classes/Player$GreedyBot.class": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739",
+    "build/submit/classes/Player$MainBot.class": "c5ba6cae7993c106c8efa4437dd3a676e1c4e3a82b15016add250376a0ca2d28",
+    "build/submit/classes/Player$Params.class": "be62d3b1f475218002dccb78e64b07efad975c40f2cbdf2b01858e095efcd651",
+    "build/submit/classes/Player$Pathing.class": "0bf3eafb7d833676e6a30cf85629c8b037491c9bebf77c7e5d579fd904ece9f3",
+    "build/submit/classes/Player$Protocol$Init.class": "92fdb12fec4b5d4b4f87109cecff2ee94e5f1db752586faed00d55ccbd9f531f",
+    "build/submit/classes/Player$Protocol$TokenReader.class": "64f7146b89071f71e5d4ba15cc68dd8d17ea9e2fc8d62012a41028d39075389b",
+    "build/submit/classes/Player$Protocol$TurnInfo.class": "ea2154b36a93e3727e3478d115103fd459557758e4e9c002c10b71b3180a095a",
+    "build/submit/classes/Player$Protocol.class": "bb4a1e25b01726dcb3e7d137276a5472341b7fc35da49b85197b6c8f6b076ffb",
+    "build/submit/classes/Player$Rules$PlayerMoves.class": "6d1f4fe63ca5bf8e6a6d0b73690d245d7f02d72af517bd6b703d351271f51e3c",
+    "build/submit/classes/Player$Rules$TurnResult.class": "b76f13a2213c33960cfe9c47450670cf34a34ae84851c3fcc169b82d34447a04",
+    "build/submit/classes/Player$Rules.class": "819a77a7dd2e9eb02452879fb2ef93096cf0bf2ff8380121f9f3f2e4e652cf2d",
+    "build/submit/classes/Player$SearchState.class": "c3aca67b17190a6292e23345a2c7293399dc82fcc549d618e7685ecdfaef5cab",
+    "build/submit/classes/Player$Timer.class": "4f5461a390235ce3ba59b0932e0af0e2fef72615e7eb9331485effc5e0aead69",
+    "build/submit/classes/Player.class": "064a44eea5e2c07bf582ea3022e2cc69624cac8ed1fc9c1e5621287c798a390d"
+  },
+  "processReadiness": "not assessed here",
+  "evidenceHashes": {
+    "docs/evidence/spread-construction-v1-ablation.json": "56229ffb59b8611b93b53313fed5501f918d759d21874e56ee53b8b7795dae80",
+    "docs/evidence/spread-construction-v1-diagnostic.json": "ea2f31a55d4e654f623ab30b8ac9c2447da5bc7ef0593d1775b1f81919aefe24",
+    "docs/evidence/spread-construction-v1.json": "75254c037dc4f303b3fba91de1ca27aa8e315022b661134eb5d3a308501d846a"
+  }
+}

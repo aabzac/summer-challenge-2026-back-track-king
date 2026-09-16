@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "spread-construction-v1-ablation",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 164000,
+  "pairs": 150
+}
