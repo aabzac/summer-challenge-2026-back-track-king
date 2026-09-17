@@ -8,6 +8,14 @@ and exact-artifact process checks are required. See [benchmarking.md](benchmarki
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v06**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Research proposal, 2026-09-17: **local network control**, initially single-cell ownership
+rerouting on already active connections. A known-board audit of the existing 133 boss states
+finds 45 states where a cell outside every retained QuickIncome route improves immediate net
+income more than every ordinary construction root. This excludes simultaneous actions and
+future value; it is action-space evidence, not a strength result or a new bot version.
+Proposal, limits and full evidence: [network-control-strategy.md](network-control-strategy.md).
+QuickIncome remains the development base; no default, submission or frozen-policy change.
+
 v06 was selected on 2026-09-16 at the user's request after fixed 2x1000 confirmation:
 **1230-770 (61.5%) vs v05**, map-grouped 95% CI **57.21-65.79%**. Both individual gates pass;
 older-opponent checks are **68.5% vs v03** and **74.5% vs pressure-v1**, 200 games each.

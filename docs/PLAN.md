@@ -324,3 +324,13 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       1600 games / 800 new maps, zero errors, 241 Java + seven gate tests; 264 exact replays.
       Keep USE_ROLLOUT_SPREAD OFF, original QuickIncome base and both arena files unchanged.
       Mechanism, protocol and evidence: docs/spread-construction-v1.md.
+
+- [x] Analyze a distinct network-control strategy: all 133 saved boss states / 14 validated
+      replays, exhaustive 37,172 legal own single-cell actions through core. In 45 states a
+      positive cell outside every retained route beats every ordinary root on immediate
+      known-board net income; 83/94 changed directed-pair paths retain length. No strength
+      games or policy change. Proposal/evidence: docs/network-control-strategy.md.
+- [ ] Proposed next experiment: default-off single-cell network-rerouting generator on the
+      QuickIncome base, with exact whole-network income and unchanged rollout/sabotage.
+      Check coverage and cost before fixed practical-v2 games; do not combine with multi-cell
+      bundles or a new opponent model in the first test. Not implemented or promoted.

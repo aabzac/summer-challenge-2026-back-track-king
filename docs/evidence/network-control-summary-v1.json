@@ -1,0 +1,148 @@
+{
+  "method": "Derived from saved RealChordProbe output only; no new simulation. Compare legal own single-cell placements with every ordinary QuickIncome first placement set, known board, no sabotage/opponent placements. 83/94 and 11/94 count affected directed town pairs for the best missing cell in each of 45 states; they are not 94 independent moves. States recur within games; these are mechanism counts, not win-rate or saved-match-point estimates.",
+  "sampleCount": 133,
+  "validatedReplayCount": 14,
+  "legalSingleCellPlacements": 37172,
+  "statesWithPositiveSingle": 70,
+  "statesPositiveOutsideAllRetainedRoutes": 69,
+  "statesSingleBeatsBestOrdinaryRoot": 45,
+  "statesOutsideAllRetainedRoutesBeatsBestOrdinaryRoot": 45,
+  "affectedGames": [
+    904146009,
+    904146157,
+    904146239,
+    904146307,
+    904146458,
+    904147739,
+    904147809,
+    904147863,
+    904147970,
+    904148031,
+    904148102,
+    904148181,
+    904148249,
+    904148315
+  ],
+  "affectedGameCount": 14,
+  "affectedStatesFromRecordedWins": 13,
+  "affectedStatesFromRecordedLosses": 32,
+  "affectedStatesWithNewPair": 0,
+  "changedDirectedPairs": 94,
+  "changedDirectedPairsSameLength": 83,
+  "changedDirectedPairsShorter": 11,
+  "changedDirectedPairsNew": 0,
+  "baselineIdentity": {
+    "classSha256Matches": true,
+    "classSha256": "1fa57cf05bb6022ee0f290cb8bcec62ff8a8d1517f21e42d1c80046eef3f312f",
+    "parameterDifferences": [],
+    "stateHashMismatches": 0,
+    "ampleActionDifferences": 0
+  },
+  "examples": [
+    {
+      "gameId": 904146157,
+      "turn": 20,
+      "me": 0,
+      "outcome": "win",
+      "stateSha256": "37ef0ca3010b861c4881ab37092316892f86581fe3393742a88bb2cf9dca9347",
+      "cell": 192,
+      "x": 3,
+      "y": 7,
+      "paint": 3,
+      "netIncomeGain": 20,
+      "incomeBefore": [
+        151,
+        94
+      ],
+      "incomeAfter": [
+        159,
+        82
+      ],
+      "bestOrdinaryRootGain": 0,
+      "rootCount": 7,
+      "retainedRouteCount": 6,
+      "directedPairsChanged": 4,
+      "directedPairChanges": [
+        {
+          "pair": "2-1",
+          "beforeNetIncome": 3,
+          "afterNetIncome": 8,
+          "beforeLength": 37,
+          "afterLength": 35
+        },
+        {
+          "pair": "5-1",
+          "beforeNetIncome": 13,
+          "afterNetIncome": 18,
+          "beforeLength": 29,
+          "afterLength": 27
+        },
+        {
+          "pair": "6-1",
+          "beforeNetIncome": 4,
+          "afterNetIncome": 9,
+          "beforeLength": 13,
+          "afterLength": 11
+        },
+        {
+          "pair": "8-1",
+          "beforeNetIncome": 12,
+          "afterNetIncome": 17,
+          "beforeLength": 28,
+          "afterLength": 26
+        }
+      ]
+    },
+    {
+      "gameId": 904147970,
+      "turn": 50,
+      "me": 0,
+      "outcome": "loss",
+      "stateSha256": "ed73f68b41db0e506cc87ed180a71495f8ef99ccc28bcffce81d8b42f29d5ec4",
+      "cell": 363,
+      "x": 12,
+      "y": 13,
+      "paint": 1,
+      "netIncomeGain": 16,
+      "incomeBefore": [
+        28,
+        80
+      ],
+      "incomeAfter": [
+        32,
+        68
+      ],
+      "bestOrdinaryRootGain": 0,
+      "rootCount": 1,
+      "retainedRouteCount": 0,
+      "directedPairsChanged": 2,
+      "directedPairChanges": [
+        {
+          "pair": "5-3",
+          "beforeNetIncome": -15,
+          "afterNetIncome": -7,
+          "beforeLength": 41,
+          "afterLength": 37
+        },
+        {
+          "pair": "5-6",
+          "beforeNetIncome": -20,
+          "afterNetIncome": -12,
+          "beforeLength": 33,
+          "afterLength": 29
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "source": "tmp/network-strategy-analysis/RealChordProbe.java",
+    "sourceSha256": "c033b6586c1fb5eb9b8d7a70a557e53e24449e6ee1e0b0bce37b4da9d8cea945",
+    "report": "tmp/network-strategy-analysis/RealChordProbe-output.json",
+    "reportSha256": "c982d5062ea99d57a10605cf54474bd75f6156efee63420343a94a9e954b50b3",
+    "fixedSample": "docs/evidence/spread-construction-v1-diagnostic.json",
+    "fixedSampleSha256": "ea2f31a55d4e654f623ab30b8ac9c2447da5bc7ef0593d1775b1f81919aefe24",
+    "runtime": "C:/Program Files/Common Files/Oracle/Java/javapath/java.exe",
+    "compiler": "C:/Program Files/Common Files/Oracle/Java/javapath/javac.exe",
+    "gson": "C:/Users/garus/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.11.0/527175ca6d81050b53bdd4c457a6d6e017626b0e/gson-2.11.0.jar"
+  }
+}

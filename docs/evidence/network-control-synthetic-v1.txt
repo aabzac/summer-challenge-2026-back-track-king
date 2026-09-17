@@ -1,0 +1,28 @@
+SYNTHETIC DIAGNOSTIC ONLY: not a replay, benchmark, win forecast or authentic generator sample.
+Toy constraints: 9x7 (official minimum 21x14), two towns (official minimum four), one desired pair, singleton regions; core-valid fixture only.
+T town, E enemy rail, O own rail, ? legal one-paint chord (4,3).
+.........
+.........
+...EEE...
+.TEE?EET.
+.........
+.........
+.........
+positive-case before-income=[0, 7] after-income=[1, 4] signed-income-delta=4 before-path=(1,3) (2,3) (3,3) (3,2) (4,2) (5,2) (5,3) (6,3) (7,3) after-path=(1,3) (2,3) (3,3) (4,3) (5,3) (6,3) (7,3)
+POLICY v06-policy-current-code params=
+ample-budget-ms=60000 queries=5 completed-comparisons=2 threats=[-1, 21] action=DISRUPT 21
+root[0]=
+chord-in-retained-route=false chord-in-affordable-root=false
+POLICY QuickIncome-default-noise params=USE_ROLLOUT_QUICK_ROUTE=true
+ample-budget-ms=60000 queries=5 completed-comparisons=2 threats=[-1, 21] action=DISRUPT 21
+root[0]=
+chord-in-retained-route=false chord-in-affordable-root=false
+variant=0 length=9 paint=0 contains-new-chord=false completed-income=[0, 7] path=(1,3) (2,3) (3,3) (3,2) (4,2) (5,2) (5,3) (6,3) (7,3)
+variant=1 length=9 paint=7 contains-new-chord=false completed-income=[0, 7] path=(1,3) (1,4) (2,4) (3,4) (4,4) (5,4) (6,4) (7,4) (7,3)
+variant=avoid-predicted-threat SKIPPED (no threat)
+POLICY QuickIncome-noise0 params=USE_ROLLOUT_QUICK_ROUTE=true&NOISE=0.0
+ample-budget-ms=60000 queries=5 completed-comparisons=2 threats=[-1, 21] action=DISRUPT 21
+root[0]=
+chord-in-retained-route=false chord-in-affordable-root=false
+negative-control same-geometry-own-rails before-income=[7, 0] after-income=[5, 0] signed-income-delta=-2
+PASS: beneficial mixed-network chord absent from ample-time roots; exact core rejects naive always-shorten objective.

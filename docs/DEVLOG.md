@@ -2971,3 +2971,33 @@ Completed outcome (fixed sample, no retuning):
 - Limits: only existing portfolio routes, strict region independence, eight-turn forecast,
   extra search cost. This result concerns this bounded implementation, not all possible spreading.
   Full protocol/results and durable evidence links: docs/spread-construction-v1.md.
+
+## 2026-09-17 - network-control strategy analysis and single-cell coverage probe
+
+- User requested project analysis and a different strategy, with any CG-data requirements.
+  Hypothesis: cheap local ownership rerouting is missing from town-pair cheapest-paint,
+  all-enemy-avoidance and one-threat-avoidance route families. New objective/action unit:
+  profitable changes to the shared network, including equal-length path switching.
+- Reused ALL 133 previously fixed SPREAD diagnostic states, not a loss-only or opportunity-
+  selected subset. All 14 boss replays validate and state hashes match. Exhaustively scored
+  37,172 legal single placements through core, with no simultaneous enemy build or either
+  sabotage. Compared all ample-time NOISE=0 QuickIncome construction roots, including WAIT.
+- Positive single-cell gain: 70/133 states; positive cell outside every retained route: 69/133;
+  such an absent cell beats every root on immediate net income in 45/133, across all 14 games
+  (13 states from wins, 32 from losses). No newly activated pair in these 45 best missing moves;
+  83/94 changed directed-pair paths retain length, 11 shorten. Repeated observations are not
+  independent match outcomes, additive recovered points or estimates of win-rate improvement.
+- Example 904146157 t20, (3,7), three paint: income 151:94 -> 159:82, net +20, best root +0.
+  Example 904147970 t50, (12,13), one paint: 28:80 -> 32:68, net +16, only ordinary build WAIT.
+  Both exclude sabotage and the opponent's simultaneous move; future investment can favor
+  the old action. This establishes candidate coverage, not a proven better full policy.
+- Probe class hash/full parameters match the earlier QuickIncome baseline; all 133 reproduced
+  ample-time actions match its saved actions. Inputs remain unchanged. A synthetic positive
+  example gives +4 net income and an own-rail negative control gives -2, using the same core.
+- Fresh arena cgValidate: 264/264 exact. No main/test/core/default/frozen/submission source
+  edits, strength games or process-readiness claim. Offline diagnostic sources retained in
+  tools/diagnostics; full evidence and derived summary in docs/evidence/network-control-*.
+- Decision: propose a separate default-off SINGLE-cell candidate-generator experiment first;
+  multi-cell bundles, sabotage changes and multi-region closure planning remain separate.
+  Existing data suffice for a prototype; fresh current-agent and top-player replays would
+  test arena relevance. Analysis and proposed validation: docs/network-control-strategy.md.
