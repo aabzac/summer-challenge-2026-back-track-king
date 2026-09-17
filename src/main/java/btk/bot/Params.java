@@ -13,10 +13,10 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
-    // Selected v06 policy; disable explicitly to use the retained EvalBot experiments.
+    // Selected v07 policy; disable explicitly to use the retained EvalBot experiments.
     public boolean USE_ROLLOUT_POLICY = true;
-    // Experimental single-slot early-income diversity; frozen v06 does not read these fields.
-    public boolean USE_ROLLOUT_QUICK_ROUTE = false;
+    // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
+    public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;
     public boolean USE_ROLLOUT_QUICK_EARLY = false;
     public boolean USE_ROLLOUT_QUICK_VALUE = false;
@@ -28,7 +28,7 @@ public class Params {
     public boolean USE_ROLLOUT_SPREAD = false;
     public int ROLLOUT_SPREAD_ROOTS = 2;
     public boolean USE_ROLLOUT_NETWORK = false;
-    public boolean USE_ROLLOUT_NETWORK_AFTER_BASE = false;
+    public boolean USE_ROLLOUT_NETWORK_AFTER_BASE = true;
     public int ROLLOUT_NETWORK_MAX_CELLS = 24;
     public int ROLLOUT_NETWORK_ROOTS = 2;
     public int ROLLOUT_NETWORK_RESERVE_MS = 12;

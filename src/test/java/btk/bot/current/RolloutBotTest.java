@@ -18,7 +18,7 @@ class RolloutBotTest {
         var m=RolloutBot.class.getDeclaredMethod(name,types); m.setAccessible(true); return m.invoke(b,args);
     }
     private static RolloutBot bot(GameState s,int me,String extra) {
-        var b=new RolloutBot(new Params("USE_ROLLOUT_POLICY=1,NOISE=0"+extra)); b.init(s,me); return b;
+        var b=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_POLICY=1,NOISE=0"+extra)); b.init(s,me); return b;
     }
     private static GameState corridor() {
         return new GameState(6,1,new int[]{0,1,1,1,1,2},new int[6],

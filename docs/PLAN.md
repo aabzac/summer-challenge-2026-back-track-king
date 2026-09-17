@@ -347,3 +347,13 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       diagnostic states. Exact candidate strict process 0/8 problems, max later 44.6592 ms.
       All 25 existing submission files preserved. Mode OFF, v06 selected; no promotion/upload.
       Full results and exact candidate identity: docs/network-after-base-v1.md.
+
+- [x] Record the user's pre-v07 arena snapshot (2026-09-18): QuickIncome currently deployed,
+      rank 111 / 627. User-reported; exact upload hash and placement status unverified.
+      Keep this checkpoint separate from the new local v07 selection and its packaging checks.
+
+- [x] Promote the verified network-after-base-v1 candidate to v07 at the user's request.
+      Freeze unchanged policy and all 98 parameters; select current/main/v07, protect old
+      frozen defaults and pin historical diagnostic recipes. 273 tests, 264 exact CG replays.
+      Main Player is 75,288 characters, strict 0/8 problem games, max later 44.7744 ms.
+      Previous v06 submission archived; no upload/push. Evidence: docs/v07-promotion.md.

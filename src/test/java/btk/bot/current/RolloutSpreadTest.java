@@ -16,7 +16,7 @@ class RolloutSpreadTest {
                 new int[][]{{1},{},{3},{}});
     }
     private static RolloutBot bot(GameState s, int me) throws Exception {
-        var bot = new RolloutBot(new Params("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_SPREAD=1,USE_DISRUPT=0,NOISE=0"));
+        var bot = new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_SPREAD=1,USE_DISRUPT=0,NOISE=0"));
         bot.init(s,me);
         pool(bot,me,new int[]{0,1,2,3,4,5,6,7,8,9},new int[]{20,21,22,23,24,25,26,27,28,29});
         ((Timer)field(bot,"timer")).start(60_000);
@@ -82,7 +82,7 @@ class RolloutSpreadTest {
     @Test void fullSearchEvaluatesBoundedSplitActionsWithoutChangingRouteGeneration() throws Exception {
         for(int me=0;me<2;me++) {
             var s=board(); Rules.updateConnections(s,new Pathing(s.size));
-            var base=new RolloutBot(new Params("USE_ROLLOUT_QUICK_ROUTE=1,USE_DISRUPT=0,NOISE=0")); base.init(s,me);
+            var base=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_DISRUPT=0,NOISE=0")); base.init(s,me);
             base.play(s,me,60_000);
             var b=bot(s,me); var actions=b.play(s,me,60_000);
             assertEquals(base.routeQueries,b.routeQueries);
@@ -97,6 +97,6 @@ class RolloutSpreadTest {
             for(int i=0;i<size;i++)assertEquals(i,order[i]);
         }
         assertFalse(new Params().USE_ROLLOUT_SPREAD);
-        assertThrows(IllegalArgumentException.class,()->new RolloutBot(new Params("USE_ROLLOUT_SPREAD=1,USE_ROLLOUT_REPLAN=1")));
+        assertThrows(IllegalArgumentException.class,()->new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_SPREAD=1,USE_ROLLOUT_REPLAN=1")));
     }
 }

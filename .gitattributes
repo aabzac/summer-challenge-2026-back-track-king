@@ -3,6 +3,8 @@
 /docs/evidence/network-single-cell-*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/evidence/network-after-base-*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /tools/diagnostics/network-after-base-v1/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/evidence/v07-promotion*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tools/diagnostics/v07-promotion/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/evidence/network-control-synthetic-v1.txt -text
 /tools/diagnostics/RealChordProbe.java -text
 /tools/diagnostics/SyntheticChordProbe.java -text

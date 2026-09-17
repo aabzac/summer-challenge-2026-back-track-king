@@ -6,7 +6,18 @@ Active strength policy (2026-09-16): **practical-300-1000-v2**. Direct 300 games
 CI is diagnostic only; no overall 95% guarantee. Both stages, zero bot errors, engine fidelity
 and exact-artifact process checks are required. See [benchmarking.md](benchmarking.md).
 Historical entries retain the policy and verdict in force when those experiments ran.
-`current` = **v06**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+`current` = **v07**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+
+Selected on 2026-09-18: **v07 Network After Base**, the exact network-after-base-v1 candidate.
+Direct v06 screen: **62.50% / 300**. Matched fresh v05 confirmation: **64.90% vs 56.90%**
+for v06 / 1000 each, **+8.00 points**. Full 98-field snapshot; current defaults enable QuickIncome
+and after-base network search. Packaging and main Player identity: [v07-promotion.md](v07-promotion.md).
+Earlier selection/default statements below describe historical checkpoints.
+
+Latest user-reported arena snapshot (2026-09-18), immediately BEFORE the intended v07 upload:
+**QuickIncome deployed, rank 111 / 627**. This supersedes the earlier v06 arena snapshot below.
+The local selected policy is now v07; an actual v07 upload has not been reported or performed.
+Exact deployed QuickIncome source hash and placement status are not independently verified.
 
 Research proposal, 2026-09-17: **local network control**, initially single-cell ownership
 rerouting on already active connections. A known-board audit of the existing 133 boss states
@@ -277,6 +288,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 | v04 Network Extension | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability ≥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn ≤745 ms, later ≤43 ms. | Boss **7/7**; awaiting Silver arena result |
 | v05 Disrupt Reserve | 2026-09-14 | v04 + 6-ms reserve for sabotage: cut route/idle search short on the original turn clock; evaluation formulas and CGRunner margin unchanged. | Confirmation vs v04: **57.7%**, W-L-D **575-421-4**, n=1000/500 new paired maps, map-grouped 95% CI **[51.6%, 63.8%]**, avg diff **+879.1**. Common opponents: v03 **69.3% vs v04's 61.3%**; aggressive v02 **70.0% vs v04's 67.7%**, each 300 matched games. Process check: **0/8** problem games, first <=676 ms, later <=34 ms. | Uploaded as agent **6736850**. User: rank 321 at 43%; API snapshot rank 333. First 56 fetched games: **38-18**, no own timeouts; placement ongoing |
 | v06 Simultaneous Rollout | 2026-09-16 | Independent eight-turn simultaneous construction/sabotage rollout; six route proposals, two opponent priorities; exact confirmed policy and full parameter snapshot. Selected by the user. | Fixed confirmation vs v05: **1230-770 (61.5%)**, 2x1000 games / 1000 distinct paired maps, map-grouped 95% CI **57.21-65.79%**; both individual gates pass. Older checks: v03 **68.5%**, pressure-v1 **74.5%**, 200 games each. Earlier process 0/42; final packaged source **FAILED 1/42**, later response 50.462 ms. | User-reported upload: 153/645, previous v05 rank 270; exact deployed hash unverified; local timing issue remains open |
+| v07 Network After Base | 2026-09-18 | QuickIncome ordinary search first; single-cell network actions only after complete ordinary comparisons. Exact 98-field measured snapshot; selected by the user. | Direct v06: **62.50% / 300**; matched fresh v05: **64.90% vs 56.90% / 1000 each**, +8.00 points, practical-v2 PASS. Independent QuickIncome ablation **59.6667% / 300** (diagnostic). 273 tests, 264 exact replays; final Player strict **0/8**, max later **44.7744 ms**. | Locally selected and packaged; not uploaded by agent. Pre-upload CG checkpoint: user reports QuickIncome **111 / 627**. [Promotion evidence](v07-promotion.md). |
 
 ## Paired benchmark checkpoint (2026-09-13)
 

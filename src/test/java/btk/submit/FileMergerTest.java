@@ -5,6 +5,7 @@ import btk.bot.BotFactory;
 import btk.core.Action;
 import btk.core.GameState;
 import btk.referee.MapGenerator;
+import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -12,6 +13,8 @@ import javax.tools.ToolProvider;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
+import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -59,9 +62,9 @@ class FileMergerTest {
     }
 
     @Test void quickRouteSubmissionPreservesCandidateParametersAndWarmupDecisions() throws Exception {
-        String spec = "current?USE_ROLLOUT_QUICK_ROUTE=1";
+        String spec = "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
         assertTrue(FileMerger.merge(spec).contains("USE_ROLLOUT_QUICK_ROUTE=true"));
-        assertFalse(new btk.bot.Params().USE_ROLLOUT_QUICK_ROUTE);
+        assertTrue(new btk.bot.Params().USE_ROLLOUT_QUICK_ROUTE);
         checkFrozenDecisions(spec, true);
     }
 
@@ -69,13 +72,37 @@ class FileMergerTest {
         checkFrozenDecisions("v05?ISOLATED_ROUTE_WARMUP=1", true);
     }
 
-    @Test void defaultAndFrozenV06SubmissionsMatchIncludingIsolatedWarmup() throws Exception {
-        String source = FileMerger.merge("current");
+    @Test void historicalV06SubmissionPreservesParametersAndIsolatedWarmup() throws Exception {
+        String source = FileMerger.merge("v06");
         assertTrue(source.contains("USE_ROLLOUT_POLICY=true"));
         assertTrue(source.contains("ROLLOUT_DEPTH=8"));
-        assertTrue(FileMerger.merge("v06").contains("private double rollout("));
-        checkFrozenDecisions("current", true);
+        assertTrue(source.contains("USE_ROLLOUT_QUICK_ROUTE=false"));
+        assertTrue(source.contains("USE_ROLLOUT_NETWORK_AFTER_BASE=false"));
+        assertTrue(source.contains("private double rollout("));
         checkFrozenDecisions("v06", true);
+    }
+
+    @Test void defaultAndFrozenV07EmbedTheMeasuredConfigurationAndOnlyRenameThePolicy() throws Exception {
+        var launch = JsonParser.parseString(Files.readString(Path.of("docs/evidence/network-after-base-v1.json")))
+                .getAsJsonObject().getAsJsonObject("launch");
+        Map<String, String> measured = new TreeMap<>();
+        launch.getAsJsonObject("resolvedParameters").getAsJsonObject(launch.get("candidate").getAsString())
+                .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
+        assertEquals(measured, BotFactory.configuration("v07"));
+        assertEquals(measured, BotFactory.configuration("current"));
+        String current = FileMerger.merge("current"), frozen = FileMerger.merge("v07");
+        assertTrue(current.contains("USE_ROLLOUT_QUICK_ROUTE=true"));
+        assertTrue(current.contains("USE_ROLLOUT_NETWORK_AFTER_BASE=true"));
+        assertTrue(current.contains("USE_ROLLOUT_NETWORK=false"));
+        assertTrue(frozen.contains("private void searchNetworkAfterBase("));
+        assertFalse(frozen.contains("RolloutBotV07"));
+        assertEquals(current.replace("return \"current?\" + p.diff();", "return \"v07\";"), frozen);
+        checkFrozenDecisions("current", true);
+        checkFrozenDecisions("v07", true);
+    }
+
+    @Test void frozenV07SubmissionMatchesAnActiveNetworkChoiceIncludingWarmup() throws Exception {
+        checkFrozenDecisions("v07?NOISE=0,USE_DISRUPT=0", true, true);
     }
 
     @Test void heuristicSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {
@@ -90,6 +117,10 @@ class FileMergerTest {
     }
 
     private void checkFrozenDecisions(String spec, boolean warmup) throws Exception {
+        checkFrozenDecisions(spec, warmup, false);
+    }
+
+    private void checkFrozenDecisions(String spec, boolean warmup, boolean networkFixture) throws Exception {
         String source = FileMerger.merge(spec);
         FileMerger.checkSourceSize(source);
         if (!spec.contains("USE_DEFENSE_PRIORITY=1") && !spec.contains("USE_OWN_BUILD_PLAN=1")) {
@@ -97,6 +128,7 @@ class FileMergerTest {
         }
         assertFalse(source.contains("btk.bot.v05"));
         assertFalse(source.contains("btk.bot.v06"));
+        assertFalse(source.contains("btk.bot.v07"));
         assertFalse(source.contains("class PressureBot"));
         assertFalse(source.contains("class BenchPool"));
         assertFalse(source.contains("class BenchmarkSuite"));
@@ -125,6 +157,15 @@ class FileMergerTest {
             var format = actionClass.getMethod("format", java.util.List.class); format.setAccessible(true);
             for (int me = 0; me < 2; me++) {
                 GameState s = MapGenerator.generate(1000);
+                if (networkFixture) {
+                    int[] regions = new int[63];
+                    for (int cell = 0; cell < regions.length; cell++) regions[cell] = cell;
+                    s = new GameState(9, 7, regions, new int[63],
+                            new int[]{1, 7}, new int[]{3, 3}, new int[][]{{1}, {}});
+                    for (int cell : new int[]{29, 30, 21, 22, 23, 32, 33}) s.owner[cell] = 1 - me;
+                    s.turn = 10;
+                    btk.core.Rules.updateConnections(s, new btk.core.Pathing(s.size));
+                }
                 if (spec.contains("USE_HEURISTIC_DETOUR=1")) {
                     int[] regions = new int[15];
                     for (int c = 0; c < regions.length; c++) regions[c] = c;
@@ -141,6 +182,10 @@ class FileMergerTest {
                 }
                 Object generatedState = ctor.newInstance(s.width, s.height, s.regionId, s.terrain,
                         s.townX, s.townY, s.desired);
+                for (String field : new String[]{"turn", "maxTurns"}) {
+                    var generatedField = stateClass.getField(field); generatedField.setAccessible(true);
+                    generatedField.setInt(generatedState, field.equals("turn") ? s.turn : s.maxTurns);
+                }
                 var owners = stateClass.getField("owner"); owners.setAccessible(true);
                 System.arraycopy(s.owner, 0, owners.get(generatedState), 0, s.size);
                 for(String field : new String[]{"instability", "regionInstability"}) {
@@ -153,6 +198,14 @@ class FileMergerTest {
                 var update = loader.loadClass("Player$Rules").getMethod("updateConnections", stateClass, pathClass);
                 update.setAccessible(true); update.invoke(null, generatedState, pathCtor.newInstance(s.size));
                 Object generatedBot = mainCtor.newInstance();
+                var paramsField = mainClass.getDeclaredField("params"); paramsField.setAccessible(true);
+                Object generatedParams = paramsField.get(generatedBot);
+                Map<String, String> embedded = new TreeMap<>();
+                for (var field : generatedParams.getClass().getFields()) {
+                    if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) continue;
+                    field.setAccessible(true); embedded.put(field.getName(), String.valueOf(field.get(generatedParams)));
+                }
+                assertEquals(BotFactory.configuration(spec), embedded, "merged full effective parameters");
                 init.invoke(generatedBot, generatedState, me);
                 if (warmup) {
                     var warm = mainClass.getMethod("warmup", stateClass, int.class, long.class);
@@ -161,7 +214,9 @@ class FileMergerTest {
                     assertTrue(calls.getInt(generatedBot) > 0);
                 }
                 Bot frozen = BotFactory.create(spec); frozen.init(s, me);
-                assertEquals(Action.format(frozen.play(s.copy(), me, 60_000)),
+                String expected = Action.format(frozen.play(s.copy(), me, 60_000));
+                if (networkFixture) assertEquals("PLACE_TRACKS 4 3", expected);
+                assertEquals(expected,
                         format.invoke(null, play.invoke(generatedBot, generatedState, me, 60_000L)));
             }
         }

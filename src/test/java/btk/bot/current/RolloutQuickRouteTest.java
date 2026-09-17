@@ -1,6 +1,5 @@
 package btk.bot.current;
 
-import btk.bot.Params;
 import btk.core.*;
 import btk.tools.CgReplay;
 import com.google.gson.JsonParser;
@@ -19,7 +18,7 @@ class RolloutQuickRouteTest {
             s.owner[2] = me;
             Rules.updateConnections(s, new Pathing(s.size));
             var old = bot(s, me, true); old.play(s, me, 60_000);
-            var p = new Params(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = true; p.USE_ROLLOUT_QUICK_SAFE = true;
+            var p = RolloutTestParams.base(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = true; p.USE_ROLLOUT_QUICK_SAFE = true;
             var safe = new RolloutBot(p); safe.init(s, me); safe.play(s, me, 60_000);
             assertEquals(2, ((int[]) field(safe, "threats"))[me]);
             assertEquals(3, field(old, "quickCost")); assertEquals(6, field(safe, "quickCost"));
@@ -38,7 +37,7 @@ class RolloutQuickRouteTest {
         Rules.updateConnections(s, new Pathing(s.size));
         for (int me = 0; me < 2; me++) {
             var old = bot(s, me, true); old.play(s, me, 60_000);
-            var p = new Params(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = true; p.USE_ROLLOUT_QUICK_VALUE = true;
+            var p = RolloutTestParams.base(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = true; p.USE_ROLLOUT_QUICK_VALUE = true;
             var value = new RolloutBot(p); value.init(s, me); value.play(s, me, 60_000);
             assertEquals(4, field(old, "quickCost")); assertEquals(4, field(old, "quickGain"));
             assertEquals(6, field(value, "quickCost")); assertEquals(6, field(value, "quickGain"));
@@ -65,7 +64,7 @@ class RolloutQuickRouteTest {
     }
     @Test void earlyComparisonVisitsEveryRootOnceAndPreservesFirstFallback() throws Exception {
         for (boolean enabled : new boolean[]{false, true}) for (int slot = -1; slot < 6; slot++) {
-            var p = new Params(); p.USE_ROLLOUT_QUICK_EARLY = enabled;
+            var p = RolloutTestParams.base(); p.USE_ROLLOUT_QUICK_EARLY = enabled;
             var b = new RolloutBot(p);
             var f = RolloutBot.class.getDeclaredField("quickSlot"); f.setAccessible(true); f.set(b, slot);
             var m = RolloutBot.class.getDeclaredMethod("searchRoot", int.class); m.setAccessible(true);
@@ -93,7 +92,7 @@ class RolloutQuickRouteTest {
         return min;
     }
     private static RolloutBot bot(GameState s, int me, boolean on) {
-        var p = new Params(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = on;
+        var p = RolloutTestParams.base(); p.NOISE = 0; p.USE_ROLLOUT_QUICK_ROUTE = on;
         var b = new RolloutBot(p); b.init(s, me); return b;
     }
 

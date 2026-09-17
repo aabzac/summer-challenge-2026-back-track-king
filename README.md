@@ -14,7 +14,8 @@ gradlew benchSuite -Pbot=current               # matched local opponent panel on
 gradlew botCatalog                            # names, categories and experiment status
 gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
-gradlew submit -PsubmitVersion=v06              # selected frozen v06 source + complete snapshot
+gradlew submit -PsubmitVersion=v07              # selected frozen v07 source + complete snapshot
+gradlew submit -PsubmitVersion=v06              # historical v06 reference build
 gradlew submit -PsubmitVersion=v05              # optional historical v05 reference build
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
 gradlew cgFetch -Ptop=20 -Plimit=10            # download top players' replays -> replays/cg/
@@ -54,7 +55,7 @@ mirror each other and every game is a draw.
 ## Reproducible benchmarks
 
 Bots have stable command ids and descriptive labels: `v03 - Risk Aware`, `v04 - Network Extension`,
-`v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout` (selected). Six retained, **not promoted** experiments can also be selected by name:
+`v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout`, `v07 - Network After Base` (selected). Six retained, **not promoted** experiments can also be selected by name:
 `exp-income-guard`, `exp-build-direction`, `exp-early-disrupt`, `exp-reply-rerank`,
 `exp-interruptible-vuln`, `exp-disrupt-delay065`. For example:
 
@@ -68,10 +69,10 @@ default panel or allowed `submitVersion` values. See [the bot catalog](docs/bot_
 historical evidence, limitations and how to retain/revise an experiment.
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
-P0 and P1. Reference bots `v01`–`v06` load fixed parameter snapshots; explicit query overrides
-are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v06
-rollout policy. Its fixed 2x1000 confirmation won **61.5% vs v05**, map-grouped 95% CI
-**57.21–65.79%**. `current?USE_ROLLOUT_POLICY=0` selects the older working EvalBot; add that
+P0 and P1. Reference bots `v01`–`v07` load fixed parameter snapshots; explicit query overrides
+are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v07
+network-after-base policy. It scored **62.5% vs v06** in 300 games and **64.9% vs v05**
+against v06's **56.9%** on matched fresh 1000-game panels. See [v07 promotion](docs/v07-promotion.md). `current?USE_ROLLOUT_POLICY=0` selects the older working EvalBot; add that
 selector when revisiting historical EvalBot or heuristic experiment recipes.
 
 An independent simple-policy candidate is available as `current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1`.
@@ -81,9 +82,14 @@ are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
-`current` and frozen `v06` select an eight-turn rollout strategy: both players
+`current` and frozen `v07` select an eight-turn rollout strategy: both players
 construct affordable routes and disrupt regions inside simultaneous rollouts. It compares earned
 points across two opponent construction priorities and chooses the first build/sabotage action.
+v07 adds the cheap-income route slot and evaluates network single-cell actions only after all
+ordinary roots complete, using the remaining time. Old v06 remains available as a frozen control.
+For a QuickIncome-only ablation use `current?USE_ROLLOUT_NETWORK_AFTER_BASE=0`; to reproduce
+the current implementation with v06 parameters also set `USE_ROLLOUT_QUICK_ROUTE=0`.
+Historical `current?` experiment recipes must explicitly disable the newly selected mode.
 See [rollout-policy.md](docs/rollout-policy.md) for the fixed route
 portfolio, limits, verification and results; `gradlew rolloutCheck` audits saved public positions.
 

@@ -17,13 +17,13 @@ class RolloutNetworkTest {
         s.turn = 10; Rules.updateConnections(s,new Pathing(s.size)); return s;
     }
     private static RolloutBot bot(GameState s,int me,String overrides) {
-        var b = new RolloutBot(new Params("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1,NOISE=0,USE_DISRUPT=0"+overrides));
+        var b = new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1,NOISE=0,USE_DISRUPT=0"+overrides));
         b.init(s,me); return b;
     }
     @Test void findsMissingMixedNetworkChordOnBothSidesAndEmitsOnlyItsActualCell() throws Exception {
         for (int me = 0; me < 2; me++) {
             var s=chord(1-me); var b=bot(s,me,""); int[] owners=s.owner.clone();
-            var off=new RolloutBot(new Params("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0")); off.init(s,me);
+            var off=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0")); off.init(s,me);
             assertEquals("WAIT",Action.format(off.play(s,me,60_000)));
             var actions=b.play(s,me,60_000);
             assertEquals("PLACE_TRACKS 4 3",Action.format(actions));
@@ -85,12 +85,12 @@ class RolloutNetworkTest {
     }
     @Test void flagOffRetainsPriorDecisionsAndRejectsMixedExperiments() throws Exception {
         assertFalse(new Params().USE_ROLLOUT_NETWORK);
-        var s=chord(1);var b=new RolloutBot(new Params("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0"));b.init(s,0);
+        var s=chord(1);var b=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0"));b.init(s,0);
         assertEquals("WAIT",Action.format(b.play(s,0,60_000)));assertNull(field(b,"networkCells"));
         for(String variant:new String[]{"USE_ROLLOUT_SPREAD=1","USE_ROLLOUT_REPLAN=1","USE_ROLLOUT_SECOND_TARGET=1",
                 "USE_ROLLOUT_DIVERSE_REPLIES=1","USE_ROLLOUT_QUICK_EARLY=1","ROLLOUT_NETWORK_MAX_CELLS=0",
                 "ROLLOUT_NETWORK_ROOTS=3","ROLLOUT_NETWORK_RESERVE_MS=-1"})
-            assertThrows(IllegalArgumentException.class,()->new RolloutBot(new Params("USE_ROLLOUT_NETWORK=1,"+variant)));
+            assertThrows(IllegalArgumentException.class,()->new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_NETWORK=1,"+variant)));
     }
     @Test void rootOrderingIsAPermutationAndImmediateInkRemovesTheNewIncome() throws Exception {
         for(int me=0;me<2;me++) {

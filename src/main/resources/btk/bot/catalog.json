@@ -47,8 +47,15 @@
       "id": "v06",
       "title": "Simultaneous Rollout",
       "category": "version",
-      "status": "selected",
+      "status": "historical",
       "description": "Eight-turn construction and sabotage rollouts against two opponent route priorities."
+    },
+    {
+      "id": "v07",
+      "title": "Network After Base",
+      "category": "version",
+      "status": "selected",
+      "description": "Quick income plus single-cell network moves after ordinary rollout comparisons finish."
     },
     {
       "id": "pressure-v1",

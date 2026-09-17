@@ -9,6 +9,7 @@ import btk.bot.v03.EvalBotV03;
 import btk.bot.v04.EvalBotV04;
 import btk.bot.v05.EvalBotV05;
 import btk.bot.v06.RolloutBotV06;
+import btk.bot.v07.RolloutBotV07;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -98,6 +99,7 @@ public final class BotFactory {
             case "v04": return EvalBotV04::new;
             case "v05": return EvalBotV05::new;
             case "v06": return RolloutBotV06::new;
+            case "v07": return RolloutBotV07::new;
             case "pressure-v1": return PressureBot::new;
             default:
                 if (version.startsWith("exp-") && BotCatalog.entry(version).category().equals("experiment")) return EvalBot::new;

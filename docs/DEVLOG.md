@@ -3080,3 +3080,34 @@ Completed outcome (fixed sample, no retuning):
   No additional CG data needed. Protocol/evidence docs/network-after-base-v1.md; exact audit
   and artifact scripts archived under tools/diagnostics/network-after-base-v1. Results appended
   after all frozen checks; commit completed experiment under AGENTS #8.
+
+
+## 2026-09-18 - select v07 Network After Base and record pre-upload arena checkpoint
+
+- User requested making the verified candidate the main strategy; no new hypothesis or tuning.
+  Prior practical-v2 evidence: direct v06 187-112-1 / 300 = 62.5%; matched v05 screen tied,
+  prescribed fresh matched 1000 each 64.9% vs 56.9%, +8.0 points. Fixed ablation 59.6667%.
+- Copy current RolloutBot to v07 with package/class/name changes only. Freeze all 98 measured
+  parameters from network-after-base-v1 launch; register v07 and catalog selection. Enable
+  QUICK_ROUTE and NETWORK_AFTER_BASE defaults only. Core/current policy and old frozen versions
+  unchanged. Historical snapshots explicitly retain OFF for newly selected absent fields;
+  old diagnostic recipes/regression fixtures pin their original construction modes.
+- Completed 273/273 tests, zero failures/errors/skips; 264/264 exact replay validation. Tests
+  cover full configuration, prior frozen versions, current/main/v07 action parity, active late
+  network choice, merged source parity and isolated warmup. No strength games repeated.
+- gradlew submit regenerated main Player: 75,288 characters, SHA-256
+  3c94f8ed5cd0cc16933e45b7fab7e8d48faafb9a1f52c952f601cd3fbcfc42c7.
+  Versus the previously tested candidate, only two default declarations changed false to true;
+  embedded effective candidate configuration stayed identical. All 25 old submit files archived
+  under build/analysis/v07-promotion/previous-submit; QuickIncome export preserved in place.
+- Fixed final artifact panel: maps 903510176, 904146009, 904148181, 904147739, both sides vs v05,
+  1000/50-ms deadlines, zero grace, no retries. 0/8 problem games/timeouts/nominal overruns;
+  max later response 44.7744 ms, first 608.3554 ms, no later response over 45 ms. Source/classes/
+  parameters/maps unchanged throughout; temporary Windows execution-state request released.
+  This is bounded local process evidence, not a CG-host guarantee; old timing failures remain
+  recorded and are not relabelled as passes. Full reports and protocol: docs/v07-promotion.md.
+- User reports the actual CG entry before intended v07 upload is QuickIncome, rank 111 / 627.
+  Record the report separately from local selected v07; exact deployed hash and placement status
+  unverified. No v07 upload performed by the agent or reported at this checkpoint.
+- Decision: v07 selected locally and main Player ready. Commit this completed promotion under
+  AGENTS #8; no push or arena upload.

@@ -14,7 +14,9 @@ import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class V06PromotionTest {
-    @Test void selectedAndFrozenParametersMatchTheConfirmedCandidateRecord() throws Exception {
+    private static final String CURRENT_V06 = "current?USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
+
+    @Test void historicalCurrentAndFrozenParametersMatchTheConfirmedCandidateRecord() throws Exception {
         // Independent evidence captured from rollout-confirmation-2x1000/run-1.json paramsA.
         var record = new Properties();
         try (var in = getClass().getResourceAsStream("/v06-confirmed.properties")) { record.load(in); }
@@ -37,7 +39,7 @@ class V06PromotionTest {
         expected.put("ROLLOUT_NETWORK_ROOTS", "2");
         expected.put("ROLLOUT_NETWORK_RESERVE_MS", "12");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
-        for (var spec : new String[]{"current", "main", "v06"})
+        for (var spec : new String[]{CURRENT_V06, "v06"})
             assertEquals(expected, BotFactory.configuration(spec), spec);
         Params dirty = new Params();
         for (var field : Params.class.getFields()) {
@@ -49,7 +51,9 @@ class V06PromotionTest {
         FrozenParams.applyTo("v06", dirty);
         for (var entry : expected.entrySet()) if (record.containsKey(entry.getKey()))
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
-        assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
+        assertFalse(dirty.USE_ROLLOUT_QUICK_ROUTE);
+        assertFalse(dirty.USE_ROLLOUT_NETWORK_AFTER_BASE);
+        assertInstanceOf(RolloutBot.class, BotFactory.create(CURRENT_V06));
         assertInstanceOf(RolloutBotV06.class, BotFactory.create("v06"));
         assertEquals("v06", BotFactory.create("v06").name());
         assertEquals(4, BotFactory.parameters("v06?ROLLOUT_WIDTH=4").ROLLOUT_WIDTH);
@@ -58,16 +62,15 @@ class V06PromotionTest {
             assertFalse(BotFactory.parameters(old).USE_ROLLOUT_POLICY, old);
     }
 
-    @Test void frozenCurrentAndSubmissionWrapperAgreeAcrossEvolvingBoards() {
+    @Test void frozenAndHistoricalCurrentAgreeAcrossEvolvingBoards() {
         for (int seed : new int[]{310, 1000}) for (int me = 0; me < 2; me++) {
             var state = MapGenerator.generate(seed);
-            Bot current = BotFactory.create("current"), frozen = BotFactory.create("v06"), main = new MainBot();
-            current.init(state.copy(), me); frozen.init(state.copy(), me); main.init(state.copy(), me);
+            Bot current = BotFactory.create(CURRENT_V06), frozen = BotFactory.create("v06");
+            current.init(state.copy(), me); frozen.init(state.copy(), me);
             var pathing = new Pathing(state.size);
             for (int turn = 0; turn < 8 && !Rules.gameOver(state, pathing); turn++) {
                 var a = current.play(state.copy(), me, 60_000);
                 assertEquals(Action.format(a), Action.format(frozen.play(state.copy(), me, 60_000)));
-                assertEquals(Action.format(a), Action.format(main.play(state.copy(), me, 60_000)));
                 var wait = List.of(Action.waitAction());
                 var result = Rules.resolve(state, me == 0 ? a : wait, me == 1 ? a : wait, pathing);
                 assertNull(result.moves[me].error);

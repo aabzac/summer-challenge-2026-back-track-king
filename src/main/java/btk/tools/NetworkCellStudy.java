@@ -26,7 +26,7 @@ public final class NetworkCellStudy {
     private static final int GAME_COUNT = 14;
     private static final int MAX_EVALUATED = 24;
     private static final int MAX_ROOTS = 2;
-    private static final String BASELINE = "current?USE_ROLLOUT_QUICK_ROUTE=1";
+    private static final String BASELINE = "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
     private static final String CANDIDATE = BASELINE + ",USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=1";
     private static final Path OPPORTUNITIES = Path.of("docs/evidence/network-control-single-cell-v1.json");
     private static final Path BOT_CLASS = Path.of("build/classes/java/main/btk/bot/current/RolloutBot.class");
@@ -182,13 +182,12 @@ public final class NetworkCellStudy {
 
     private static void validateConfiguration(Map<String, String> candidate, Map<String, String> baseline,
                                                JsonObject archivedBaseline) {
-        Map<String, String> defaults = BotFactory.configuration("current");
         boolean interleaved = "true".equals(candidate.get("USE_ROLLOUT_NETWORK"));
         boolean afterBase = "true".equals(candidate.get("USE_ROLLOUT_NETWORK_AFTER_BASE"));
         if (interleaved == afterBase) throw new IllegalArgumentException("Enable exactly one independent network mode");
         for (String flag : new String[]{"USE_ROLLOUT_NETWORK", "USE_ROLLOUT_NETWORK_AFTER_BASE"}) {
-            if (!"false".equals(baseline.get(flag)) || !"false".equals(defaults.get(flag))) {
-                throw new IllegalArgumentException("Both network modes must be OFF in baseline and defaults");
+            if (!"false".equals(baseline.get(flag))) {
+                throw new IllegalArgumentException("Both network modes must be OFF in the historical baseline");
             }
         }
         if (!Integer.toString(MAX_EVALUATED).equals(candidate.get("ROLLOUT_NETWORK_MAX_CELLS"))

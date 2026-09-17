@@ -32,7 +32,7 @@ class RolloutNetworkAfterBaseTest {
     }
 
     private static RolloutBot bot(GameState s, int me, boolean afterBase) {
-        RolloutBot b = new RolloutBot(new Params(BASE + (afterBase ? ",USE_ROLLOUT_NETWORK_AFTER_BASE=1" : "")));
+        RolloutBot b = new RolloutBot(RolloutTestParams.base(BASE + (afterBase ? ",USE_ROLLOUT_NETWORK_AFTER_BASE=1" : "")));
         b.init(s, me);
         return b;
     }
@@ -146,15 +146,15 @@ class RolloutNetworkAfterBaseTest {
         assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5}, order);
     }
 
-    @Test void separateFlagDefaultsOffAndRejectsMixedNetworkPolicies() throws Exception {
-        assertFalse(new Params().USE_ROLLOUT_NETWORK_AFTER_BASE);
+    @Test void promotedFlagCanBeDisabledAndRejectsMixedNetworkPolicies() throws Exception {
+        assertTrue(new Params().USE_ROLLOUT_NETWORK_AFTER_BASE);
         RolloutBot off = bot(chord(1), 0, false);
         assertNull(field(off, "networkCells"));
         for (String incompatible : new String[]{"USE_ROLLOUT_NETWORK=1", "USE_ROLLOUT_SPREAD=1",
                 "USE_ROLLOUT_REPLAN=1", "USE_ROLLOUT_SECOND_TARGET=1", "USE_ROLLOUT_DIVERSE_REPLIES=1",
                 "USE_ROLLOUT_QUICK_EARLY=1", "USE_ROLLOUT_QUICK_VALUE=1", "USE_ROLLOUT_QUICK_SAFE=1"}) {
             assertThrows(IllegalArgumentException.class, () -> new RolloutBot(
-                    new Params(BASE + ",USE_ROLLOUT_NETWORK_AFTER_BASE=1," + incompatible)));
+                    RolloutTestParams.base(BASE + ",USE_ROLLOUT_NETWORK_AFTER_BASE=1," + incompatible)));
         }
     }
 

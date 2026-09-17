@@ -1,6 +1,5 @@
 package btk.bot.current;
 
-import btk.bot.Params;
 import btk.bot.Timer;
 import btk.core.*;
 import btk.tools.CgReplay;
@@ -19,7 +18,7 @@ class RolloutSecondTargetTest {
                     new int[][]{{1},{},{3},{}});
             for (int c = 1; c < 6; c++) { s.owner[c] = 1-me; s.owner[c+14] = 1-me; }
             Rules.updateConnections(s,new Pathing(s.size));
-            var b = new RolloutBot(new Params("USE_ROLLOUT_SECOND_TARGET=1,NOISE=0")); b.init(s,me);
+            var b = new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_SECOND_TARGET=1,NOISE=0")); b.init(s,me);
             ((Timer)field(b,"timer")).start(60_000);
             assertEquals(1,call(b,"chooseTarget",new Class<?>[]{GameState.class,int.class},s,me));
             assertEquals(2,field(b,"secondTarget"));
@@ -48,8 +47,8 @@ class RolloutSecondTargetTest {
             }
             int extras = 0;
             for (int me = 0; me < 2; me++) {
-                var off = new RolloutBot(new Params("NOISE=0")); off.init(s,me); var before = off.play(s,me,60_000);
-                var on = new RolloutBot(new Params("NOISE=0,USE_ROLLOUT_SECOND_TARGET=1")); on.init(s,me);
+                var off = new RolloutBot(RolloutTestParams.base("NOISE=0")); off.init(s,me); var before = off.play(s,me,60_000);
+                var on = new RolloutBot(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_SECOND_TARGET=1")); on.init(s,me);
                 int[] owners = s.owner.clone(); var actions = on.play(s,me,60_000);
                 assertEquals(off.routeQueries,on.routeQueries); assertEquals(off.selectedRoute,on.selectedRoute);
                 assertEquals(off.completedComparisons+on.extraTargetComparisons,on.completedComparisons);

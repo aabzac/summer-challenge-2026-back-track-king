@@ -224,9 +224,9 @@ tasks.register<JavaExec>("networkCellStudy") {
     mainClass.set("btk.tools.NetworkCellStudy")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("input", "docs/evidence/spread-construction-v1-diagnostic.json"),
-        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1"),
+        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0"),
         prop("out", "build/analysis/network-single-cell-v1/diagnostic.json"),
-        prop("base", "current?USE_ROLLOUT_QUICK_ROUTE=1"),
+        prop("base", "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0"),
         prop("opportunities", "docs/evidence/network-control-single-cell-v1.json"))
 }
 
@@ -236,8 +236,8 @@ tasks.register<JavaExec>("rolloutFollowupStudy") {
     mainClass.set("btk.tools.RolloutFollowupStudy")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
-        prop("bot", "current?USE_ROLLOUT_DIVERSE_REPLIES=1"), prop("out", "build/analysis/rollout-followup-study.json"),
-        prop("baseline", "current"))
+        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_ROLLOUT_DIVERSE_REPLIES=1"), prop("out", "build/analysis/rollout-followup-study.json"),
+        prop("baseline", "current?USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0"))
 }
 
 tasks.register<JavaExec>("quickRouteStudy") {
@@ -246,7 +246,7 @@ tasks.register<JavaExec>("quickRouteStudy") {
     mainClass.set("btk.tools.QuickRouteStudy")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
-        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1"), prop("out", "build/analysis/quick-route-study.json"))
+        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0"), prop("out", "build/analysis/quick-route-study.json"))
 }
 
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */
