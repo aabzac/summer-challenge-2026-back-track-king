@@ -31,6 +31,10 @@ class V06PromotionTest {
         expected.put("USE_ROLLOUT_SECOND_TARGET", "false");
         expected.put("USE_ROLLOUT_SPREAD", "false");
         expected.put("ROLLOUT_SPREAD_ROOTS", "2");
+        expected.put("USE_ROLLOUT_NETWORK", "false");
+        expected.put("ROLLOUT_NETWORK_MAX_CELLS", "24");
+        expected.put("ROLLOUT_NETWORK_ROOTS", "2");
+        expected.put("ROLLOUT_NETWORK_RESERVE_MS", "12");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         for (var spec : new String[]{"current", "main", "v06"})
             assertEquals(expected, BotFactory.configuration(spec), spec);

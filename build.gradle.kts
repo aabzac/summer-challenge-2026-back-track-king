@@ -218,6 +218,18 @@ tasks.register<JavaExec>("cgRolloutBossProbe") {
         prop("out", "build/analysis/boss-v06-losses-v2/rollout-probe.json"))
 }
 
+tasks.register<JavaExec>("networkCellStudy") {
+    group = "cg"
+    description = "Audit single-cell network roots on the same 133 saved boss states"
+    mainClass.set("btk.tools.NetworkCellStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("input", "docs/evidence/spread-construction-v1-diagnostic.json"),
+        prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1"),
+        prop("out", "build/analysis/network-single-cell-v1/diagnostic.json"),
+        prop("base", "current?USE_ROLLOUT_QUICK_ROUTE=1"),
+        prop("opportunities", "docs/evidence/network-control-single-cell-v1.json"))
+}
+
 tasks.register<JavaExec>("rolloutFollowupStudy") {
     group = "cg"
     description = "Shared-state diagnostics for independent rollout follow-ups (not strength)"

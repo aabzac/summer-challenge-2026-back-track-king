@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "network-single-cell-v1-ablation",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 174000,
+  "pairs": 150
+}

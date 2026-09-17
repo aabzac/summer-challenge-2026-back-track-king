@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "network-single-cell-v1-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 170000,
+  "pairs": 150
+}

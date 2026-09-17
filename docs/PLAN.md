@@ -330,7 +330,11 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       positive cell outside every retained route beats every ordinary root on immediate
       known-board net income; 83/94 changed directed-pair paths retain length. No strength
       games or policy change. Proposal/evidence: docs/network-control-strategy.md.
-- [ ] Proposed next experiment: default-off single-cell network-rerouting generator on the
-      QuickIncome base, with exact whole-network income and unchanged rollout/sabotage.
-      Check coverage and cost before fixed practical-v2 games; do not combine with multi-cell
-      bundles or a new opponent model in the first test. Not implemented or promoted.
+- [x] Test default-off single-cell network rerouting on QuickIncome: 145-155-0 / 300
+      vs v06 = 48.3333%, STOP_SCREEN_300; fixed separate QuickIncome ablation 152-148-0 /
+      300 = 50.6667%. NOT PASSED; no continuation, tuning or promotion.
+      600 games / 300 fresh paired maps, zero errors; 254 Java + seven gate tests,
+      264 exact arena replays. Final identity/pairing audit passes, all 25 existing submission
+      files unchanged. Retain NETWORK OFF and selected v06. docs/network-single-cell-v1.md.
+      Diagnostic cost: ordinary comparisons fall 937 -> 804 at nominal time, unchanged with
+      ample time; single-cell leftover paint and fixed continuation remain possible costs.

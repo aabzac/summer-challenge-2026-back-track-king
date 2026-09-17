@@ -14,7 +14,10 @@ finds 45 states where a cell outside every retained QuickIncome route improves i
 income more than every ordinary construction root. This excludes simultaneous actions and
 future value; it is action-space evidence, not a strength result or a new bot version.
 Proposal, limits and full evidence: [network-control-strategy.md](network-control-strategy.md).
+Completed follow-up: network-single-cell-v1 scores 48.3333% vs v06 (300),
+50.6667% vs QuickIncome (separate 300); NOT PASSED, flag OFF.
 QuickIncome remains the development base; no default, submission or frozen-policy change.
+Protocol and final evidence: [network-single-cell-v1.md](network-single-cell-v1.md).
 
 v06 was selected on 2026-09-16 at the user's request after fixed 2x1000 confirmation:
 **1230-770 (61.5%) vs v05**, map-grouped 95% CI **57.21-65.79%**. Both individual gates pass;
@@ -795,3 +798,19 @@ NOT PASSED at 55%. Common-v05 stages skipped. Fixed separate ablation vs QuickIn
 241 Java + seven gate tests pass; 264/264 arena replays exact. All 25 existing submission
 files unchanged. Flag OFF, v06 selected, original QuickIncome remains development base.
 Protocol, mechanism limitations and evidence: docs/spread-construction-v1.md.
+
+
+## 2026-09-17 - network-single-cell-v1 (not promoted)
+
+QuickIncome plus default-off USE_ROLLOUT_NETWORK: evaluate up to 24 legal single-cell
+network changes, retain two positive net-income roots, unchanged rollout and sabotage.
+Screen vs v06: 145-155-0 / 300 = 48.3333%, STOP_SCREEN_300 under practical-v2.
+No direct 1000 or common-opponent continuation. Fixed independent NETWORK-only ablation
+vs QuickIncome: 152-148-0 / 300 = 50.6667%, diagnostic, no established improvement.
+600 games / 300 distinct fresh paired maps; zero errors, every timing outlier preserved.
+254 Java tests and seven gate tests pass; 264/264 arena replays exact. All 25 existing
+submission files unchanged. No new process-readiness test after strength failure.
+Fixed-state diagnostic: ordinary comparisons 937 -> 804 at nominal time, unchanged 1187
+with ample time; useful known singleton evaluated in 70/70 applicable states.
+Retain flag OFF, original QuickIncome research base and selected v06. No promotion/upload.
+Protocol, limitations, complete paired outcomes and audit: docs/network-single-cell-v1.md.

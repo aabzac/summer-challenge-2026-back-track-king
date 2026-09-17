@@ -3001,3 +3001,39 @@ Completed outcome (fixed sample, no retuning):
   multi-cell bundles, sabotage changes and multi-region closure planning remain separate.
   Existing data suffice for a prototype; fresh current-agent and top-player replays would
   test arena relevance. Analysis and proposed validation: docs/network-control-strategy.md.
+
+
+## 2026-09-17 - single-cell network rerouting on QuickIncome
+
+- Hypothesis: single-cell changes to an active network can redirect income, including on
+  equal-length paths, and offer valuable first actions missing from ordinary route proposals.
+  User authorized the experiment after the exhaustive known-board analysis.
+- Implemented default-off USE_ROLLOUT_NETWORK with bounds 24 exact cells, two new singleton
+  roots and 12-ms reserve; active-path usage orders cells, core computes exact net income.
+  No leftover paint filler, no change to sabotage, opponent policy or later rollout routes.
+  New geometric helpers are isolated in core/NetworkCells; all old core bytecode is preserved.
+- Added seven core-filter and six policy tests; 254 Java tests and seven practical-gate tests
+  pass, 264/264 arena replays exact. Fixed 133-state study reproduces all old baseline ample
+  actions, validates all 14 replays and inputs. Known useful cell evaluated in 70/70 states;
+  nominal roots compared in 68 states, selected in 26; ample compared 70, selected 22.
+- Froze sources/classes/resources, full parameters, protocol, pools and existing artifacts.
+  Fixed 300 vs v06: 145-155-0 = 48.3333%, STOP_SCREEN_300; skip 1000 and common-opponent stages.
+  Predeclared independent 300 ablation vs identical QuickIncome with only NETWORK OFF:
+  152-148-0 = 50.6667%; slight observed edge is not established superiority or promotion support.
+  Both fixed stages completed; no outcome-based tuning, retries, discarded games or pooling.
+- Total 600 games / 300 fresh maps, both sides, zero errors. Independent audit confirms all
+  227 source/class/resource identities, 14 infrastructure identities, 165 prior evidence/pool
+  identities, 25 original submission files, map disjointness and exact one-flag ablation.
+  System/display sleep request acquired and released on the same thread, no global change.
+  Initial preflight cache-lock sandbox failure preceded all games and is preserved separately.
+- Nominal ordinary comparisons fall 937 -> 804 (-14.2%); with ample time 1187 -> 1187.
+  Eight changed nominal actions do not select network; four nominal singleton choices choose
+  ordinary construction with ample time. This proves search-coverage sensitivity, not the
+  cause of match losses. Unspent paint and fixed route-zero continuation remain hypotheses.
+- Preserve timing outliers: screen max A/B 89/58 ms, slow 3/1; ablation 111/90 ms, slow 3/2.
+  These in-process counters are not strict child-process timing evidence. As declared, skip
+  new submit/procCheck after strength failure; prior arena-artifact timing limitations remain.
+- Decision: NOT PASSED, keep NETWORK OFF, original QuickIncome research base and selected v06.
+  No frozen-version edits, promotion or upload. No additional CG data needed for this test.
+  Full protocol, results and durable evidence: docs/network-single-cell-v1.md. Results added
+  only after frozen-input audit; commit the completed negative experiment under AGENTS #8.

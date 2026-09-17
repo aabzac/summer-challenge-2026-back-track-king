@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "experiment": "network-single-cell-v1",
+  "auditedAt": "2026-09-17T19:36:19.316405+00:00",
+  "passed": true,
+  "method": "Independent per-pair outcome recount plus practical-v2 recomputation; exact frozen-input and artifact hashes before result-document edits. No new matches or tests.",
+  "checks": [
+    {
+      "name": "practical gate recomputed exactly",
+      "passed": true,
+      "details": {
+        "directStage": "STOP_SCREEN_300",
+        "strengthStatus": "NOT_PASSED",
+        "screenScore": 0.48333333333333334
+      }
+    },
+    {
+      "name": "screen stop at or below 52 percent",
+      "passed": true
+    },
+    {
+      "name": "no forbidden continuation reports",
+      "passed": true
+    },
+    {
+      "name": "no failure marker",
+      "passed": true
+    },
+    {
+      "name": "history freeze covers 7524 maps",
+      "passed": true
+    },
+    {
+      "name": "screen independent outcomes",
+      "passed": true
+    },
+    {
+      "name": "screen complete paired unique maps",
+      "passed": true
+    },
+    {
+      "name": "screen exact seed interval",
+      "passed": true
+    },
+    {
+      "name": "screen zero errors",
+      "passed": true
+    },
+    {
+      "name": "screen historical maps disjoint",
+      "passed": true
+    },
+    {
+      "name": "screen exact bots",
+      "passed": true
+    },
+    {
+      "name": "screen exact resolved configs",
+      "passed": true
+    },
+    {
+      "name": "screen fixed timing",
+      "passed": true
+    },
+    {
+      "name": "screen pool hash",
+      "passed": true
+    },
+    {
+      "name": "screen exclusions include frozen history",
+      "passed": true
+    },
+    {
+      "name": "screen excluded map disjoint",
+      "passed": true
+    },
+    {
+      "name": "screen report binds actual exclusion bytes",
+      "passed": true
+    },
+    {
+      "name": "ablation independent outcomes",
+      "passed": true
+    },
+    {
+      "name": "ablation complete paired unique maps",
+      "passed": true
+    },
+    {
+      "name": "ablation exact seed interval",
+      "passed": true
+    },
+    {
+      "name": "ablation zero errors",
+      "passed": true
+    },
+    {
+      "name": "ablation historical maps disjoint",
+      "passed": true
+    },
+    {
+      "name": "ablation exact bots",
+      "passed": true
+    },
+    {
+      "name": "ablation exact resolved configs",
+      "passed": true
+    },
+    {
+      "name": "ablation fixed timing",
+      "passed": true
+    },
+    {
+      "name": "ablation pool hash",
+      "passed": true
+    },
+    {
+      "name": "ablation exclusions include frozen history",
+      "passed": true
+    },
+    {
+      "name": "ablation excluded map disjoint",
+      "passed": true
+    },
+    {
+      "name": "ablation report binds actual exclusion bytes",
+      "passed": true
+    },
+    {
+      "name": "screen and ablation disjoint",
+      "passed": true
+    },
+    {
+      "name": "ablation explicitly excluded screen maps",
+      "passed": true
+    },
+    {
+      "name": "ablation exactly one changed parameter",
+      "passed": true,
+      "details": [
+        "USE_ROLLOUT_NETWORK"
+      ]
+    },
+    {
+      "name": "candidate experimental switches",
+      "passed": true
+    },
+    {
+      "name": "candidate numeric bounds",
+      "passed": true
+    },
+    {
+      "name": "entire source class resource inventory unchanged",
+      "passed": true,
+      "details": {
+        "fileCount": 227,
+        "changedOrAdded": [],
+        "removed": []
+      }
+    },
+    {
+      "name": "all frozen infrastructure unchanged",
+      "passed": true,
+      "details": {
+        "fileCount": 14,
+        "changed": []
+      }
+    },
+    {
+      "name": "all 25 submission files unchanged",
+      "passed": true,
+      "details": {
+        "fileCount": 25
+      }
+    },
+    {
+      "name": "all prior evidence and reserved pools unchanged",
+      "passed": true,
+      "details": {
+        "fileCount": 165,
+        "changed": []
+      }
+    },
+    {
+      "name": "started marker binds launch bytes",
+      "passed": true
+    },
+    {
+      "name": "preflight inputs equal launch before config resolution",
+      "passed": true
+    },
+    {
+      "name": "launch preserved protocol text",
+      "passed": true
+    },
+    {
+      "name": "durable strength exactly mirrors launch and decision",
+      "passed": true
+    },
+    {
+      "name": "durable ablation exact report and launch",
+      "passed": true
+    },
+    {
+      "name": "complete marker agrees with results",
+      "passed": true
+    },
+    {
+      "name": "power request and release succeeded",
+      "passed": true
+    },
+    {
+      "name": "power lifetime covers all stages",
+      "passed": true
+    },
+    {
+      "name": "all sequential pair indices independently verified",
+      "passed": true,
+      "details": {
+        "pairsChecked": 300
+      }
+    }
+  ],
+  "results": {
+    "screen": {
+      "games": 300,
+      "wins": 145,
+      "losses": 155,
+      "draws": 0,
+      "halfWins": 290,
+      "score": 0.48333333333333334,
+      "distinctMaps": 150,
+      "seedStart": 170000,
+      "seedEnd": 170149,
+      "reportSha256": "5c77c359f56531b4754049afdd8e5b3a330e36ea0bcf8e699fb54d86fc01ef50",
+      "exclusionsSha256": "5b3b6e294d8f21eb2f351ec8f018524ab49022445c126da85e3b879a68701a56",
+      "maxSearchMs": [
+        89,
+        58
+      ],
+      "slowMoves": [
+        3,
+        1
+      ]
+    },
+    "ablation": {
+      "games": 300,
+      "wins": 152,
+      "losses": 148,
+      "draws": 0,
+      "halfWins": 304,
+      "score": 0.5066666666666667,
+      "distinctMaps": 150,
+      "seedStart": 174000,
+      "seedEnd": 174149,
+      "reportSha256": "0713004cb2bc329682dcde744a1c4a83925ccad80ef4eb9e7688a5ba7c2ab9c1",
+      "exclusionsSha256": "24ad92b7f651cfdc1cfb62e3ce3f91d028db0d780f6d22f8b052926e21668e4d",
+      "maxSearchMs": [
+        111,
+        90
+      ],
+      "slowMoves": [
+        3,
+        2
+      ]
+    }
+  },
+  "totalGames": 600,
+  "totalDistinctMaps": 300,
+  "frozenHistoricalMapCount": 7524,
+  "decision": {
+    "policy": "practical-300-1000-v2",
+    "confidenceRole": "descriptive only; no overall 95% guarantee",
+    "processReadiness": "not assessed",
+    "screenScore": 0.48333333333333334,
+    "directStage": "STOP_SCREEN_300",
+    "strengthStatus": "NOT_PASSED",
+    "commonOpponentStage": "SKIPPED_DIRECT_FAILURE"
+  },
+  "filesSha256": {
+    "build/bench/network-single-cell-v1/launch.json": "92fe433df4fcd6d62853667ae76f5dbe00aba71a0a4261f9c5a2f5fab6dbfbf1",
+    "build/bench/network-single-cell-v1/preflight-inputs.json": "4e77bfc1500f23066e8c85d98425b2d5b041bb25f49f670eba9a5d0f343c3c70",
+    "build/bench/network-single-cell-v1/started.json": "75dfc26839f9a23303ef5ad52a8cf357e6570283128edf7d9b70e7326f51f81d",
+    "build/bench/network-single-cell-v1/decision.json": "9cf5afc2b6f1e826a222e742c362e7ef5a8e5c5e081f339acfaa8d8923caa2dc",
+    "build/bench/network-single-cell-v1/complete.json": "8cdc3cc20dd27b11a2aab631c9627eb79af0bafbdb9f616f14852c181bf7c16e",
+    "build/bench/network-single-cell-v1/power-request.json": "9703844b5b8f73b0053184d412f62ad53c635cca960281ed12fa10610b4b5614",
+    "build/bench/network-single-cell-v1/screen.json": "5c77c359f56531b4754049afdd8e5b3a330e36ea0bcf8e699fb54d86fc01ef50",
+    "build/bench/network-single-cell-v1/ablation.json": "0713004cb2bc329682dcde744a1c4a83925ccad80ef4eb9e7688a5ba7c2ab9c1",
+    "build/bench/network-single-cell-v1/screen-excluded.json": "5b3b6e294d8f21eb2f351ec8f018524ab49022445c126da85e3b879a68701a56",
+    "build/bench/network-single-cell-v1/ablation-excluded.json": "24ad92b7f651cfdc1cfb62e3ce3f91d028db0d780f6d22f8b052926e21668e4d",
+    "docs/evidence/network-single-cell-v1.json": "090236b7bb5210a8ecbc478a6e01041a8106d5ee21688d2cd57369a56a3636d8",
+    "docs/evidence/network-single-cell-v1-ablation.json": "882b3391d6c5032e1867ecc26e55bed8347ca7a00b625fecd9776a99eac3cb6c"
+  },
+  "verifiedCodeFiles": 227,
+  "verifiedInfrastructureFiles": 14,
+  "verifiedSubmissionFiles": {
+    "build/submit/classes/Player$1.class": "59c3cf626cc1e9e1b94b64427405d4ee54bab026fdfe07c24dc4cdc30137a129",
+    "build/submit/classes/Player$Action$Type.class": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+    "build/submit/classes/Player$Action.class": "7a12f780b187c9cb3844054f06ec6e80c85a4774d9bd71181801a7369c30e016",
+    "build/submit/classes/Player$Bot.class": "6d616dd5985d912f62749b77f65046a35128ba4cbaec0633801b709e50ecf5bc",
+    "build/submit/classes/Player$CGRunner.class": "9382253d3c8b59bfe4b757c9b3204d592512ce0bcc6b80de4878a1284d8a9932",
+    "build/submit/classes/Player$EvalBot.class": "f5122d2ed8e9b479f00ea6b4a1b9adc2136840484d191f826539581c45c9043b",
+    "build/submit/classes/Player$GameState.class": "59c04ac9fd5097d24c373fc46a2812c7ffbdd0f1e9fe703b87de959f311be92d",
+    "build/submit/classes/Player$GreedyBot.class": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739",
+    "build/submit/classes/Player$MainBot.class": "c5ba6cae7993c106c8efa4437dd3a676e1c4e3a82b15016add250376a0ca2d28",
+    "build/submit/classes/Player$Params.class": "be62d3b1f475218002dccb78e64b07efad975c40f2cbdf2b01858e095efcd651",
+    "build/submit/classes/Player$Pathing.class": "0bf3eafb7d833676e6a30cf85629c8b037491c9bebf77c7e5d579fd904ece9f3",
+    "build/submit/classes/Player$Protocol$Init.class": "92fdb12fec4b5d4b4f87109cecff2ee94e5f1db752586faed00d55ccbd9f531f",
+    "build/submit/classes/Player$Protocol$TokenReader.class": "64f7146b89071f71e5d4ba15cc68dd8d17ea9e2fc8d62012a41028d39075389b",
+    "build/submit/classes/Player$Protocol$TurnInfo.class": "ea2154b36a93e3727e3478d115103fd459557758e4e9c002c10b71b3180a095a",
+    "build/submit/classes/Player$Protocol.class": "bb4a1e25b01726dcb3e7d137276a5472341b7fc35da49b85197b6c8f6b076ffb",
+    "build/submit/classes/Player$Rules$PlayerMoves.class": "6d1f4fe63ca5bf8e6a6d0b73690d245d7f02d72af517bd6b703d351271f51e3c",
+    "build/submit/classes/Player$Rules$TurnResult.class": "b76f13a2213c33960cfe9c47450670cf34a34ae84851c3fcc169b82d34447a04",
+    "build/submit/classes/Player$Rules.class": "819a77a7dd2e9eb02452879fb2ef93096cf0bf2ff8380121f9f3f2e4e652cf2d",
+    "build/submit/classes/Player$SearchState.class": "c3aca67b17190a6292e23345a2c7293399dc82fcc549d618e7685ecdfaef5cab",
+    "build/submit/classes/Player$Timer.class": "4f5461a390235ce3ba59b0932e0af0e2fef72615e7eb9331485effc5e0aead69",
+    "build/submit/classes/Player.class": "064a44eea5e2c07bf582ea3022e2cc69624cac8ed1fc9c1e5621287c798a390d",
+    "build/submit/manifest.json": "8a70090755b28fe4fe8a1977ac9a0dd58138e561b36077e1937cba516608ecab",
+    "build/submit/Player.java": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266",
+    "build/submit/PlayerQuickIncome.java": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+    "build/submit/PlayerQuickIncome.manifest.json": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3"
+  },
+  "powerRecord": {
+    "platform": "nt",
+    "startedAt": "2026-09-17T19:17:05.617738+00:00",
+    "threadId": 26960,
+    "globalPowerSettingsChanged": false,
+    "reason": "Prior Modern Standby interruption; task-scoped system and display request",
+    "requestFlags": "0x80000003",
+    "releaseFlags": "0x80000000",
+    "requestAt": "2026-09-17T19:17:05.617762+00:00",
+    "requestReturnCode": 2147483648,
+    "requestLastError": 0,
+    "releaseAt": "2026-09-17T19:34:09.920140+00:00",
+    "releaseReturnCode": 2147483651,
+    "releaseLastError": 0,
+    "requestSucceeded": true,
+    "releaseAttempted": true,
+    "status": "released",
+    "runOutcome": "completed",
+    "endedAt": "2026-09-17T19:34:09.920591+00:00"
+  },
+  "completionRecord": {
+    "completedAt": "2026-09-17T19:34:09.902736+00:00",
+    "strengthStatus": "NOT_PASSED",
+    "ablationScore": 0.5066666666666667,
+    "submissionFilesUnchanged": {
+      "build/submit/classes/Player$1.class": "59c3cf626cc1e9e1b94b64427405d4ee54bab026fdfe07c24dc4cdc30137a129",
+      "build/submit/classes/Player$Action$Type.class": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+      "build/submit/classes/Player$Action.class": "7a12f780b187c9cb3844054f06ec6e80c85a4774d9bd71181801a7369c30e016",
+      "build/submit/classes/Player$Bot.class": "6d616dd5985d912f62749b77f65046a35128ba4cbaec0633801b709e50ecf5bc",
+      "build/submit/classes/Player$CGRunner.class": "9382253d3c8b59bfe4b757c9b3204d592512ce0bcc6b80de4878a1284d8a9932",
+      "build/submit/classes/Player$EvalBot.class": "f5122d2ed8e9b479f00ea6b4a1b9adc2136840484d191f826539581c45c9043b",
+      "build/submit/classes/Player$GameState.class": "59c04ac9fd5097d24c373fc46a2812c7ffbdd0f1e9fe703b87de959f311be92d",
+      "build/submit/classes/Player$GreedyBot.class": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739",
+      "build/submit/classes/Player$MainBot.class": "c5ba6cae7993c106c8efa4437dd3a676e1c4e3a82b15016add250376a0ca2d28",
+      "build/submit/classes/Player$Params.class": "be62d3b1f475218002dccb78e64b07efad975c40f2cbdf2b01858e095efcd651",
+      "build/submit/classes/Player$Pathing.class": "0bf3eafb7d833676e6a30cf85629c8b037491c9bebf77c7e5d579fd904ece9f3",
+      "build/submit/classes/Player$Protocol$Init.class": "92fdb12fec4b5d4b4f87109cecff2ee94e5f1db752586faed00d55ccbd9f531f",
+      "build/submit/classes/Player$Protocol$TokenReader.class": "64f7146b89071f71e5d4ba15cc68dd8d17ea9e2fc8d62012a41028d39075389b",
+      "build/submit/classes/Player$Protocol$TurnInfo.class": "ea2154b36a93e3727e3478d115103fd459557758e4e9c002c10b71b3180a095a",
+      "build/submit/classes/Player$Protocol.class": "bb4a1e25b01726dcb3e7d137276a5472341b7fc35da49b85197b6c8f6b076ffb",
+      "build/submit/classes/Player$Rules$PlayerMoves.class": "6d1f4fe63ca5bf8e6a6d0b73690d245d7f02d72af517bd6b703d351271f51e3c",
+      "build/submit/classes/Player$Rules$TurnResult.class": "b76f13a2213c33960cfe9c47450670cf34a34ae84851c3fcc169b82d34447a04",
+      "build/submit/classes/Player$Rules.class": "819a77a7dd2e9eb02452879fb2ef93096cf0bf2ff8380121f9f3f2e4e652cf2d",
+      "build/submit/classes/Player$SearchState.class": "c3aca67b17190a6292e23345a2c7293399dc82fcc549d618e7685ecdfaef5cab",
+      "build/submit/classes/Player$Timer.class": "4f5461a390235ce3ba59b0932e0af0e2fef72615e7eb9331485effc5e0aead69",
+      "build/submit/classes/Player.class": "064a44eea5e2c07bf582ea3022e2cc69624cac8ed1fc9c1e5621287c798a390d",
+      "build/submit/manifest.json": "8a70090755b28fe4fe8a1977ac9a0dd58138e561b36077e1937cba516608ecab",
+      "build/submit/Player.java": "5807068e5d50c7bb3acd395866b74f8c9a972f7c8b19fc323dfda18cff413266",
+      "build/submit/PlayerQuickIncome.java": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+      "build/submit/PlayerQuickIncome.manifest.json": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3"
+    }
+  },
+  "startedRecord": {
+    "startedAt": "2026-09-17T19:17:05.636964+00:00",
+    "launchSha256": "92fe433df4fcd6d62853667ae76f5dbe00aba71a0a4261f9c5a2f5fab6dbfbf1"
+  },
+  "protocolSnapshot": {
+    "path": "docs/network-single-cell-v1.md",
+    "preStrengthSha256": "7242f75dade7baed387f175500e132649e034138cbc5f61f22a654c6b54a2ea8",
+    "matchedAtAudit": true,
+    "archivedTextLocation": "docs/evidence/network-single-cell-v1.json:launch.protocol",
+    "note": "The protocol bytes and frozen launch text matched before this audit. Result documentation may be appended afterward; that expected documentation change does not alter the immutable pre-strength snapshot or recorded gate. All source, class, resource, pool and submission identities must remain unchanged."
+  },
+  "timingInterpretation": "Reported slow counts and maximum search milliseconds are retained in-process diagnostics. They are not strict process deadline failures or a process-readiness check; slow counters may also include the first move."
+}

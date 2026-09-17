@@ -6,6 +6,7 @@ import btk.bot.Timer;
 import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
+import btk.core.NetworkCells;
 import btk.core.Rules;
 import btk.core.SearchState;
 import java.util.ArrayList;
@@ -48,6 +49,11 @@ public final class RolloutBot implements Bot {
     private boolean packedBoth;
     public int spreadRoots, spreadComparisons, spreadBuildTurns;
     public boolean selectedSpread;
+    private int[] networkCells, networkWeights, networkPriority, networkGains, networkBest;
+    private boolean[] networkCompared;
+    public int networkEligible, networkEvaluated, networkRoots, networkComparisons;
+    public boolean selectedNetwork;
+    public int selectedNetworkCell = -1;
 
     public RolloutBot(Params params) {
         p = params.copy();
@@ -60,6 +66,12 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_QUICK_MAX_PAINT < 1 || p.ROLLOUT_QUICK_MAX_PAINT > 12
                 || p.ROLLOUT_REPLAN_TURN < 1 || p.ROLLOUT_REPLAN_TURN > 11
                 || p.ROLLOUT_SPREAD_ROOTS < 1 || p.ROLLOUT_SPREAD_ROOTS > 2
+                || p.ROLLOUT_NETWORK_MAX_CELLS < 1 || p.ROLLOUT_NETWORK_MAX_CELLS > 64
+                || p.ROLLOUT_NETWORK_ROOTS < 1 || p.ROLLOUT_NETWORK_ROOTS > 2
+                || p.ROLLOUT_NETWORK_RESERVE_MS < 0 || p.ROLLOUT_NETWORK_RESERVE_MS > 36
+                || p.USE_ROLLOUT_NETWORK && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
+                    || p.USE_ROLLOUT_QUICK_SAFE || p.USE_ROLLOUT_DIVERSE_REPLIES
+                    || p.USE_ROLLOUT_REPLAN || p.USE_ROLLOUT_SECOND_TARGET || p.USE_ROLLOUT_SPREAD)
                 || p.USE_ROLLOUT_SPREAD && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
                     || p.USE_ROLLOUT_QUICK_SAFE || p.USE_ROLLOUT_DIVERSE_REPLIES
                     || p.USE_ROLLOUT_REPLAN || p.USE_ROLLOUT_SECOND_TARGET)
@@ -86,7 +98,8 @@ public final class RolloutBot implements Bot {
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
-        roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_SPREAD ? p.ROLLOUT_SPREAD_ROOTS : 0)][GameState.PAINT_PER_TURN];
+        roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_SPREAD ? p.ROLLOUT_SPREAD_ROOTS : 0)
+                + (p.USE_ROLLOUT_NETWORK ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
@@ -97,6 +110,11 @@ public final class RolloutBot implements Bot {
             spreadFirst = new int[roots.length]; spreadSecond = new int[roots.length];
             spreadQuota = new int[roots.length];
         }
+        if (p.USE_ROLLOUT_NETWORK) {
+            networkCells = new int[s.size]; networkWeights = new int[s.size];
+            networkPriority = new int[s.size]; networkGains = new int[s.size];
+            networkBest = new int[p.ROLLOUT_NETWORK_ROOTS]; networkCompared = new boolean[roots.length];
+        }
     }
 
     public List<Action> play(GameState s, int me, long budgetMs) {
@@ -105,6 +123,11 @@ public final class RolloutBot implements Bot {
         replanCalls = replanChanges = 0;
         extraTargetComparisons = 0; selectedExtraTarget = false;
         spreadRoots = spreadComparisons = spreadBuildTurns = 0; selectedSpread = false;
+        networkEligible = networkEvaluated = networkRoots = networkComparisons = 0;
+        selectedNetwork = false; selectedNetworkCell = -1;
+        if (p.USE_ROLLOUT_NETWORK) {
+            Arrays.fill(networkCompared, false); Arrays.fill(networkGains, Integer.MIN_VALUE);
+        }
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         quickSlot = -1;
@@ -151,6 +174,8 @@ public final class RolloutBot implements Bot {
             if (p.USE_ROLLOUT_SECOND_TARGET) rootAlternateTargets[i] = secondTarget;
         }
         if (p.USE_ROLLOUT_SPREAD && !timer.up()) rootSize = addSpreadRoots(s, me, rootSize);
+        if (p.USE_ROLLOUT_NETWORK && !timer.up()) rootSize = addNetworkRoots(s, me, rootSize,
+                (int) Math.min(p.ROLLOUT_NETWORK_RESERVE_MS, budgetMs / 3));
         int bestCount = rootCounts[0];
         System.arraycopy(roots[0], 0, bestCells, 0, bestCount);
         selectedTarget = rootTargets[0];
@@ -177,12 +202,17 @@ public final class RolloutBot implements Bot {
                     sum += value; worst = Math.min(worst, value);
                 }
                 completedComparisons++;
-                if (root >= ordinaryRootSize) spreadComparisons++;
+                if (p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize) spreadComparisons++;
+                if (p.USE_ROLLOUT_NETWORK && root >= ordinaryRootSize) {
+                    networkComparisons++; networkCompared[root] = true;
+                }
                 double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
                 if (value > best) {
                     best = value; selectedValue = value;
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
-                    selectedSpread = root >= ordinaryRootSize;
+                    selectedSpread = p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize;
+                    selectedNetwork = p.USE_ROLLOUT_NETWORK && root >= ordinaryRootSize;
+                    selectedNetworkCell = selectedNetwork ? roots[root][0] : -1;
                     bestCount = rootCounts[root];
                     System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
                 }
@@ -372,6 +402,10 @@ public final class RolloutBot implements Bot {
 
     /** Keep the ordinary first comparison/fallback, then evaluate quick income before other roots. */
     private int searchRoot(int order) {
+        if (p.USE_ROLLOUT_NETWORK) {
+            if (order == 0) return 0;
+            return order <= networkRoots ? ordinaryRootSize + order - 1 : order - networkRoots;
+        }
         if (p.USE_ROLLOUT_SPREAD) {
             if (order == 0) return 0;
             return order <= spreadRoots ? ordinaryRootSize + order - 1 : order - spreadRoots;
@@ -379,6 +413,64 @@ public final class RolloutBot implements Bot {
         if (!p.USE_ROLLOUT_QUICK_EARLY || quickSlot <= 0) return order;
         if (order == 1) return quickSlot;
         return order > 1 && order <= quickSlot ? order - 1 : order;
+    }
+
+    /** New first actions only: exact whole-network income, unchanged rollout continuation. */
+    private int addNetworkRoots(GameState s, int me, int size, int reserve) {
+        networkEligible = NetworkCells.collectSingleCellConnections(s, networkCells);
+        Arrays.fill(networkWeights, 0);
+        for (int pair = 0; pair < s.pairCount; pair++)
+            for (int i = 0; i < s.pairPathLen[pair]; i++) networkWeights[s.pairPath[pair][i]]++;
+        for (int i = 0; i < networkEligible; i++) {
+            int cell = networkCells[i];
+            networkPriority[cell] = NetworkCells.adjacentConnectorWeight(s, cell, networkWeights);
+        }
+        Arrays.fill(networkBest, -1);
+        Rules.incomePerTurn(s, income);
+        int before = income[me] - income[1 - me];
+        int limit = Math.min(networkEligible, p.ROLLOUT_NETWORK_MAX_CELLS);
+        for (int i = 0; i < limit && !timer.up(reserve); i++) {
+            // Select only the bounded prefix; avoid allocations and sorting the whole board.
+            int best = i;
+            for (int j = i + 1; j < networkEligible; j++)
+                if (networkPriorityBefore(s, networkCells[j], networkCells[best])) best = j;
+            int cell = networkCells[best]; networkCells[best] = networkCells[i]; networkCells[i] = cell;
+            completion.set(s); completion.state.owner[cell] = me; completion.refresh();
+            Rules.incomePerTurn(completion.state, income);
+            int gain = income[me] - income[1 - me] - before;
+            networkGains[cell] = gain; networkEvaluated++;
+            if (gain <= 0) continue;
+            boolean duplicate = false;
+            for (int root = 0; root < ordinaryRootSize; root++)
+                if (rootCounts[root] == 1 && roots[root][0] == cell) duplicate = true;
+            if (duplicate) continue;
+            for (int slot = 0; slot < networkBest.length; slot++) {
+                int other = networkBest[slot];
+                if (other >= 0 && (gain < networkGains[other]
+                        || gain == networkGains[other] && !networkCheaper(s, cell, other))) continue;
+                for (int j = networkBest.length - 1; j > slot; j--) networkBest[j] = networkBest[j - 1];
+                networkBest[slot] = cell; break;
+            }
+        }
+        for (int cell : networkBest) {
+            if (cell < 0 || timer.up()) break;
+            roots[size][0] = cell;
+            targetBoard.set(s); placeOwn(targetBoard, me, roots[size], 1);
+            int target = chooseTarget(targetBoard.state, me);
+            if (timer.up()) break;
+            rootCounts[size] = 1; rootTargets[size] = target;
+            size++; networkRoots++;
+        }
+        return size;
+    }
+
+    private boolean networkPriorityBefore(GameState s, int a, int b) {
+        return networkPriority[a] > networkPriority[b]
+                || networkPriority[a] == networkPriority[b] && networkCheaper(s, a, b);
+    }
+
+    private static boolean networkCheaper(GameState s, int a, int b) {
+        return s.placeCost(a) < s.placeCost(b) || s.placeCost(a) == s.placeCost(b) && a < b;
     }
 
     /** First ranked independent pair with a genuinely split action; at most two extra roots. */
