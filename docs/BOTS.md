@@ -814,3 +814,19 @@ Fixed-state diagnostic: ordinary comparisons 937 -> 804 at nominal time, unchang
 with ample time; useful known singleton evaluated in 70/70 applicable states.
 Retain flag OFF, original QuickIncome research base and selected v06. No promotion/upload.
 Protocol, limitations, complete paired outcomes and audit: docs/network-single-cell-v1.md.
+
+
+## 2026-09-17 - network-after-base-v1 (verified candidate, not promoted)
+
+Default-off USE_ROLLOUT_NETWORK_AFTER_BASE on original QuickIncome. Complete the ordinary
+search first, then use remaining time for the unchanged singleton network generator (24 cells,
+2 roots, 12 ms reserve). Old NETWORK OFF; full ordinary comparison required before late phase,
+partial replies cannot replace the saved answer. New actions require strictly better rollout value.
+Direct vs v06: 187-112-1 / 300 = 62.50%, PASS_300. Matched 300 each vs v05: both 172-128 = 57.3333%;
+separate matched 1000 each: candidate 649-351 = 64.90%, v06 569-431 = 56.90%, +8.00 points, PASS.
+Independent AFTER_BASE-only ablation vs QuickIncome: 179-121 / 300 = 59.6667%, diagnostic only.
+3200 games / 950 distinct fresh maps, zero errors; 261 Java tests, 264 exact arena replays.
+113 final audit checks pass. Exact 75,290-character candidate: strict process 0/8 problem games,
+max later response 44.6592 ms, no later response over 45 ms. All 25 original submission files unchanged.
+Keep mode OFF and v06 selected; no promotion/upload. Full protocol/results/artifact hashes:
+[network-after-base-v1.md](network-after-base-v1.md).

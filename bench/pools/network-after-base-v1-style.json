@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "network-after-base-v1-style",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 182000,
+  "pairs": 150
+}

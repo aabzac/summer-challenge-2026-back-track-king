@@ -55,3 +55,14 @@ The separate default-off `USE_ROLLOUT_SPREAD` experiment on this base completed 
 53.6667% / 300 then 50.60% / fresh 1000 against v06, below the required 55%; independent
 300-game ablation against this base scored 51.50%. Retain SPREAD=0 in the working recipe.
 All 25 existing submission files unchanged. [Protocol and results](spread-construction-v1.md).
+
+
+## Verified network-after-base candidate (2026-09-17)
+
+The separate default-off USE_ROLLOUT_NETWORK_AFTER_BASE experiment passed the fixed strength
+policy: 62.50% vs v06 / 300; matched v05 confirmation 64.90% vs control 56.90% / 1000 each.
+Its independent 300-game ablation vs this original QuickIncome base scored 59.6667%.
+Exact generated artifact passed strict process checks with 0/8 problem games, max later response 44.6592 ms.
+This is an available verified candidate, not a change of the research base or selected v06.
+Both network flags remain OFF by default; old interleaved NETWORK must stay OFF in this mode.
+Full recipe, limitations, source hash and evidence: [network-after-base-v1.md](network-after-base-v1.md).

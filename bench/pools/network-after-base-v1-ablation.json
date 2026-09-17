@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "network-after-base-v1-ablation",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 184000,
+  "pairs": 150
+}

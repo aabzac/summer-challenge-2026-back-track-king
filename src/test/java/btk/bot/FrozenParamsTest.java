@@ -107,6 +107,7 @@ class FrozenParamsTest {
         expected.put("USE_ROLLOUT_SPREAD", "false");
         expected.put("ROLLOUT_SPREAD_ROOTS", "2");
         expected.put("USE_ROLLOUT_NETWORK", "false"); // Frozen v05 never reads the new generator fields.
+        expected.put("USE_ROLLOUT_NETWORK_AFTER_BASE", "false");
         expected.put("ROLLOUT_NETWORK_MAX_CELLS", "24");
         expected.put("ROLLOUT_NETWORK_ROOTS", "2");
         expected.put("ROLLOUT_NETWORK_RESERVE_MS", "12");

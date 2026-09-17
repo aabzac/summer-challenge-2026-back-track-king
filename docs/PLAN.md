@@ -338,3 +338,12 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       files unchanged. Retain NETWORK OFF and selected v06. docs/network-single-cell-v1.md.
       Diagnostic cost: ordinary comparisons fall 937 -> 804 at nominal time, unchanged with
       ample time; single-cell leftover paint and fixed continuation remain possible costs.
+
+- [x] Test network search only after complete ordinary QuickIncome search. Direct 62.50% / 300
+      vs v06 PASS; common-v05 matched screen both 57.3333% / 300, then separate matched 1000:
+      candidate 64.90%, v06 56.90%, +8.00 points, strength PASS. Fixed independent QuickIncome
+      ablation 59.6667% / 300. Total 3200 games / 950 fresh distinct maps, zero errors.
+      261 tests, 264 exact replays, 113 audit checks; unchanged ample ordinary action in all 133
+      diagnostic states. Exact candidate strict process 0/8 problems, max later 44.6592 ms.
+      All 25 existing submission files preserved. Mode OFF, v06 selected; no promotion/upload.
+      Full results and exact candidate identity: docs/network-after-base-v1.md.

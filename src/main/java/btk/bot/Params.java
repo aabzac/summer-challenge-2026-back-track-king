@@ -28,6 +28,7 @@ public class Params {
     public boolean USE_ROLLOUT_SPREAD = false;
     public int ROLLOUT_SPREAD_ROOTS = 2;
     public boolean USE_ROLLOUT_NETWORK = false;
+    public boolean USE_ROLLOUT_NETWORK_AFTER_BASE = false;
     public int ROLLOUT_NETWORK_MAX_CELLS = 24;
     public int ROLLOUT_NETWORK_ROOTS = 2;
     public int ROLLOUT_NETWORK_RESERVE_MS = 12;

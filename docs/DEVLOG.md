@@ -3037,3 +3037,46 @@ Completed outcome (fixed sample, no retuning):
   No frozen-version edits, promotion or upload. No additional CG data needed for this test.
   Full protocol, results and durable evidence: docs/network-single-cell-v1.md. Results added
   only after frozen-input audit; commit the completed negative experiment under AGENTS #8.
+
+
+## 2026-09-17 - network search after complete ordinary search
+
+- User authorized the first proposed follow-up: preserve ordinary QuickIncome comparisons,
+  then evaluate network singletons only with remaining time. Hypothesis: avoid the earlier
+  interleaved generator's loss of ordinary search coverage without removing useful new actions.
+- Added independent default-off USE_ROLLOUT_NETWORK_AFTER_BASE, old NETWORK OFF; both cannot
+  be enabled together. Unchanged cell ranking/gains, 24 cells / 2 roots / 12 ms reserve, paint usage,
+  sabotage and rollout continuation. Common comparison loop extracted; snapshot ordinary action/value,
+  require full ordinary coverage before late work and full replies before strict improvement.
+- Seven new regression tests cover both sides, baseline parity, order, legal output/input
+  isolation, no available new moves, invalid modes and deterministic deadline/partial behavior.
+  Initial public diagnostic-array reset failure preserved and fixed before any strength game;
+  full rerun 261/261 tests, 264/264 arena replays exact. No core/frozen-policy changes.
+- All 133 saved states / 14 boss games validate. All old baseline ample actions reproduced;
+  candidate ordinary ample action/value/route/target/cells/comparisons/query count match exactly.
+  Nominal ordinary counts 888 baseline / 887 candidate, 69 extra comparisons, 22 states compared,
+  12 network selections. Eight ordinary action differences remain clock-sensitive. All 133
+  ample final actions match the earlier network implementation; no new strategic value formula.
+- Frozen practical-v2: direct 187-112-1 / 300 = 62.5% vs v06, PASS_300. Matched v05 screen both
+  172-128 / 300 = 57.3333%, difference 0; proceed only to the prescribed fresh matched 1000 each.
+  Candidate 649-351 = 64.9%, v06 569-431 = 56.9%, difference +8.0 points, strength PASS.
+  No pooling, tuning, early stopping, retries or additional outcome-selected matches.
+- Independent fixed 300 ablation vs identical QuickIncome with only AFTER_BASE OFF:
+  179-121 = 59.6667%. Descriptive map-grouped CI 48.58-70.76% spans 50%; do not label the ablation
+  a separate statistical guarantee or apply the generic printed bench continuation threshold.
+- Total 3200 games / 950 distinct fresh maps, complete sides and zero bot errors. Shared maps
+  only in declared matched common-opponent pairs. Final independent audit 113 checks pass:
+  227 main source/class/resources, 14 infrastructure identities, prior evidence/pools, 98 parameters
+  per bot and all 25 original submission files exact. Benchmark power request acquired/released.
+  All outliers retained, including four slow moves in full-control and one in ablation candidate.
+- After audit, isolated exact-source gradlew submit produces 75,290-character Player, SHA
+  9bb5d7b49dc3cb09baa2562deb64880634c43a48982a1c6a1c5c44579137230c. Staged main bytecode and
+  full configuration match measured launch. Fixed four individual maps x two sides vs v05,
+  1000/50-ms deadlines, zero grace: 0/8 problems/timeouts/nominal overruns; max later 44.6592 ms,
+  first 633.8189 ms, zero later responses over 45 ms. All reports kept, no retries. Separate power
+  request released and all original submission files preserved. This is a bounded local sample.
+- Decision: strength PASS and exact-artifact process PASS. Retain verified candidate OFF,
+  original QuickIncome research base and selected v06; no freeze/promotion/upload authorized.
+  No additional CG data needed. Protocol/evidence docs/network-after-base-v1.md; exact audit
+  and artifact scripts archived under tools/diagnostics/network-after-base-v1. Results appended
+  after all frozen checks; commit completed experiment under AGENTS #8.

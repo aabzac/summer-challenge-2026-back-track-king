@@ -54,6 +54,12 @@ public final class RolloutBot implements Bot {
     public int networkEligible, networkEvaluated, networkRoots, networkComparisons;
     public boolean selectedNetwork;
     public int selectedNetworkCell = -1;
+    private int bestCount;
+    private double best;
+    public boolean ordinarySearchComplete, networkSearchStarted;
+    public int ordinaryComparisons, ordinarySelectedRoute, ordinarySelectedTarget, ordinarySelectedCount;
+    public double ordinarySelectedValue;
+    public final int[] ordinarySelectedCells = new int[GameState.PAINT_PER_TURN];
 
     public RolloutBot(Params params) {
         p = params.copy();
@@ -69,7 +75,9 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_NETWORK_MAX_CELLS < 1 || p.ROLLOUT_NETWORK_MAX_CELLS > 64
                 || p.ROLLOUT_NETWORK_ROOTS < 1 || p.ROLLOUT_NETWORK_ROOTS > 2
                 || p.ROLLOUT_NETWORK_RESERVE_MS < 0 || p.ROLLOUT_NETWORK_RESERVE_MS > 36
-                || p.USE_ROLLOUT_NETWORK && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
+                || p.USE_ROLLOUT_NETWORK && p.USE_ROLLOUT_NETWORK_AFTER_BASE
+                || (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE)
+                    && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
                     || p.USE_ROLLOUT_QUICK_SAFE || p.USE_ROLLOUT_DIVERSE_REPLIES
                     || p.USE_ROLLOUT_REPLAN || p.USE_ROLLOUT_SECOND_TARGET || p.USE_ROLLOUT_SPREAD)
                 || p.USE_ROLLOUT_SPREAD && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
@@ -99,7 +107,7 @@ public final class RolloutBot implements Bot {
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
         roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_SPREAD ? p.ROLLOUT_SPREAD_ROOTS : 0)
-                + (p.USE_ROLLOUT_NETWORK ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
+                + (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
@@ -110,7 +118,7 @@ public final class RolloutBot implements Bot {
             spreadFirst = new int[roots.length]; spreadSecond = new int[roots.length];
             spreadQuota = new int[roots.length];
         }
-        if (p.USE_ROLLOUT_NETWORK) {
+        if (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE) {
             networkCells = new int[s.size]; networkWeights = new int[s.size];
             networkPriority = new int[s.size]; networkGains = new int[s.size];
             networkBest = new int[p.ROLLOUT_NETWORK_ROOTS]; networkCompared = new boolean[roots.length];
@@ -125,6 +133,11 @@ public final class RolloutBot implements Bot {
         spreadRoots = spreadComparisons = spreadBuildTurns = 0; selectedSpread = false;
         networkEligible = networkEvaluated = networkRoots = networkComparisons = 0;
         selectedNetwork = false; selectedNetworkCell = -1;
+        ordinarySearchComplete = networkSearchStarted = false;
+        ordinaryComparisons = ordinarySelectedCount = 0;
+        ordinarySelectedRoute = ordinarySelectedTarget = -1;
+        ordinarySelectedValue = Double.NaN;
+        Arrays.fill(ordinarySelectedCells, 0);
         if (p.USE_ROLLOUT_NETWORK) {
             Arrays.fill(networkCompared, false); Arrays.fill(networkGains, Integer.MIN_VALUE);
         }
@@ -176,62 +189,30 @@ public final class RolloutBot implements Bot {
         if (p.USE_ROLLOUT_SPREAD && !timer.up()) rootSize = addSpreadRoots(s, me, rootSize);
         if (p.USE_ROLLOUT_NETWORK && !timer.up()) rootSize = addNetworkRoots(s, me, rootSize,
                 (int) Math.min(p.ROLLOUT_NETWORK_RESERVE_MS, budgetMs / 3));
-        int bestCount = rootCounts[0];
+        bestCount = rootCounts[0];
         System.arraycopy(roots[0], 0, bestCells, 0, bestCount);
         selectedTarget = rootTargets[0];
         selectedRoute = counts[me] == 0 ? -1 : 0;
-        double best = -Double.MAX_VALUE;
+        best = -Double.MAX_VALUE;
         int replies = Math.max(1, Math.min(p.ROLLOUT_REPLIES, counts[1 - me]));
         if (p.USE_ROLLOUT_DIVERSE_REPLIES) selectReplyRoutes(1 - me, replies);
-        search:
-        for (int order = 0; order < rootSize; order++) {
-            int root = searchRoot(order);
-            boolean duplicate = false;
-            for (int j = 0; j < root && root < ordinaryRootSize; j++) {
-                if (sameSet(roots[root], rootCounts[root], roots[j], rootCounts[j])) duplicate = true;
-            }
-            if (duplicate) continue;
-            for (int attack = 0; attack < 2; attack++) {
-                int target = attack == 0 ? rootTargets[root] : -1;
-                if (attack == 1 && rootTargets[root] < 0) continue;
-                double sum = 0, worst = Double.MAX_VALUE;
-                for (int reply = 0; reply < replies; reply++) {
-                    double value = rollout(s, me, root, target,
-                            p.USE_ROLLOUT_DIVERSE_REPLIES ? replyRoutes[reply] : reply);
-                    if (!Double.isFinite(value)) break search; // discard ALL partial scenario coverage
-                    sum += value; worst = Math.min(worst, value);
-                }
-                completedComparisons++;
-                if (p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize) spreadComparisons++;
-                if (p.USE_ROLLOUT_NETWORK && root >= ordinaryRootSize) {
-                    networkComparisons++; networkCompared[root] = true;
-                }
-                double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
-                if (value > best) {
-                    best = value; selectedValue = value;
-                    selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
-                    selectedSpread = p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize;
-                    selectedNetwork = p.USE_ROLLOUT_NETWORK && root >= ordinaryRootSize;
-                    selectedNetworkCell = selectedNetwork ? roots[root][0] : -1;
-                    bestCount = rootCounts[root];
-                    System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
-                }
-            }
-        }
+        boolean complete = searchRoots(s, me, 0, rootSize, replies);
+        saveOrdinaryChoice(complete);
+        if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) searchNetworkAfterBase(s, me, replies, budgetMs);
         // Ordinary roots retain their budget priority; only the winning construction gets an extra target.
         if (p.USE_ROLLOUT_SECOND_TARGET && completedComparisons > 0 && !timer.up()) {
             int root = selectedRoute < 0 ? counts[me] : selectedRoute;
             int target = rootAlternateTargets[root];
             if (target >= 0 && target != selectedTarget) {
                 double sum = 0, worst = Double.MAX_VALUE;
-                boolean complete = true;
+                boolean covered = true;
                 for (int reply = 0; reply < replies; reply++) {
                     double value = rollout(s, me, root, target,
                             p.USE_ROLLOUT_DIVERSE_REPLIES ? replyRoutes[reply] : reply);
-                    if (!Double.isFinite(value)) { complete = false; break; }
+                    if (!Double.isFinite(value)) { covered = false; break; }
                     sum += value; worst = Math.min(worst, value);
                 }
-                if (complete) {
+                if (covered) {
                     completedComparisons++; extraTargetComparisons++;
                     double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
                     if (value > best) {
@@ -245,6 +226,66 @@ public final class RolloutBot implements Bot {
         if (selectedTarget >= 0) actions.add(Action.disrupt(selectedTarget));
         if (actions.isEmpty()) actions.add(Action.waitAction());
         return actions;
+    }
+
+    /** Complete comparisons only; preserves the saved answer when a reply cannot finish. */
+    private boolean searchRoots(GameState s, int me, int first, int end, int replies) {
+        for (int order = first; order < end; order++) {
+            int root = searchRoot(order);
+            boolean duplicate = false;
+            for (int j = 0; j < root && root < ordinaryRootSize; j++) {
+                if (sameSet(roots[root], rootCounts[root], roots[j], rootCounts[j])) duplicate = true;
+            }
+            if (duplicate) continue;
+            for (int attack = 0; attack < 2; attack++) {
+                int target = attack == 0 ? rootTargets[root] : -1;
+                if (attack == 1 && rootTargets[root] < 0) continue;
+                double sum = 0, worst = Double.MAX_VALUE;
+                for (int reply = 0; reply < replies; reply++) {
+                    double value = rollout(s, me, root, target,
+                            p.USE_ROLLOUT_DIVERSE_REPLIES ? replyRoutes[reply] : reply);
+                    if (!Double.isFinite(value)) return false; // discard ALL partial scenario coverage
+                    sum += value; worst = Math.min(worst, value);
+                }
+                completedComparisons++;
+                if (p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize) spreadComparisons++;
+                if ((p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE) && root >= ordinaryRootSize) {
+                    networkComparisons++; networkCompared[root] = true;
+                }
+                double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
+                if (value > best) {
+                    best = value; selectedValue = value;
+                    selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
+                    selectedSpread = p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize;
+                    selectedNetwork = (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE)
+                            && root >= ordinaryRootSize;
+                    selectedNetworkCell = selectedNetwork ? roots[root][0] : -1;
+                    bestCount = rootCounts[root];
+                    System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
+                }
+            }
+        }
+        return true;
+    }
+
+    private void saveOrdinaryChoice(boolean complete) {
+        ordinarySearchComplete = complete;
+        ordinaryComparisons = completedComparisons - networkComparisons;
+        ordinarySelectedCount = bestCount;
+        ordinarySelectedRoute = selectedRoute;
+        ordinarySelectedTarget = selectedTarget;
+        ordinarySelectedValue = selectedValue;
+        System.arraycopy(bestCells, 0, ordinarySelectedCells, 0, bestCount);
+    }
+
+    /** No new network work runs until every ordinary root/reply comparison is complete. */
+    private void searchNetworkAfterBase(GameState s, int me, int replies, long budgetMs) {
+        if (!ordinarySearchComplete || timer.up()) return;
+        networkSearchStarted = true;
+        Arrays.fill(networkCompared, false); Arrays.fill(networkGains, Integer.MIN_VALUE);
+        int end = addNetworkRoots(s, me, ordinaryRootSize,
+                (int) Math.min(p.ROLLOUT_NETWORK_RESERVE_MS, budgetMs / 3));
+        searchRoots(s, me, ordinaryRootSize, end, replies);
     }
 
     /** Keep scenario count fixed, preferring another project over its reverse construction. */
