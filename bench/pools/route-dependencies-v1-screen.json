@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "route-dependencies-v1-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 190000,
+  "pairs": 150
+}

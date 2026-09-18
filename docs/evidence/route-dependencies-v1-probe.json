@@ -1,0 +1,1907 @@
+{
+  "fixture": {
+    "inkedRegion": 1,
+    "continuationCells": [
+      3,
+      4,
+      5
+    ],
+    "route": [
+      0,
+      3,
+      4,
+      5,
+      6
+    ],
+    "omittedBridgeCells": [
+      1,
+      2
+    ],
+    "targetPairConnectedAfterCompletion": false
+  },
+  "method": "Fixed last-20 boss cohort captured on 2026-09-18 (904553513..904555504), all successful recorded pre-turn states, canonical validation first. At turns with recorded region ink, propose current ordinary and no-enemy cheapest-path families for our player using current instability surcharge 1. Count positive completed whole-network net-income candidate-family observations before threat weighting, with paid cells, omitted nonadjacent connector jumps, no explicitly stored cell in the inked region, but the target pair becomes unreachable after candidate completion plus that recorded ink. Repeated pairs and route variants are not independent or distinct actions. No policy search, shortlist/root selection, future score forecast, strength test or claim these candidates were selected. Actual ink is diagnostic only.",
+  "states": 1581,
+  "turnsWithInk": 470,
+  "proposedRoutesAtInkTurns": 9183,
+  "positivePaidCompletionRoutes": 4606,
+  "compressedPositiveRoutes": 3829,
+  "hiddenBridgeRoutes": 561,
+  "affectedStates": 127,
+  "games": [
+    {
+      "affectedStates": 3,
+      "sha256": "d86cc80fa10eb3f7b28b5499a8a2779b1fb1280ee68735401642ebe5d5239e95",
+      "hiddenBridgeRoutes": 4,
+      "validated": true,
+      "me": 0,
+      "gameId": 904553513,
+      "file": "replays\\cg\\bot\\904553513.json"
+    },
+    {
+      "affectedStates": 6,
+      "sha256": "557c5ec8b5bbb0ceda64bcf80b1e228d791962c60d5679000d3e90004f690802",
+      "hiddenBridgeRoutes": 31,
+      "validated": true,
+      "me": 0,
+      "gameId": 904553687,
+      "file": "replays\\cg\\bot\\904553687.json"
+    },
+    {
+      "affectedStates": 12,
+      "sha256": "5d3a98a2ce49ce2179100fba571b7d69fa2b027d4db01bedc0e67253084008f7",
+      "hiddenBridgeRoutes": 51,
+      "validated": true,
+      "me": 0,
+      "gameId": 904553769,
+      "file": "replays\\cg\\bot\\904553769.json"
+    },
+    {
+      "affectedStates": 4,
+      "sha256": "de767fec72285e068998086a40651256dc6b96f0654a842938315053f4581dc9",
+      "hiddenBridgeRoutes": 10,
+      "validated": true,
+      "me": 0,
+      "gameId": 904553911,
+      "file": "replays\\cg\\bot\\904553911.json"
+    },
+    {
+      "affectedStates": 7,
+      "sha256": "5de762b79fc4c089d95e105349679cb1844f4293a61509e35aa3d5f2c7143fad",
+      "hiddenBridgeRoutes": 21,
+      "validated": true,
+      "me": 0,
+      "gameId": 904553970,
+      "file": "replays\\cg\\bot\\904553970.json"
+    },
+    {
+      "affectedStates": 1,
+      "sha256": "28f83cbd948e89881605875dffd1856c4b24c8cdd3016ef7e733e7b876ff5466",
+      "hiddenBridgeRoutes": 1,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554072,
+      "file": "replays\\cg\\bot\\904554072.json"
+    },
+    {
+      "affectedStates": 1,
+      "sha256": "82fcf8e0121bc492b3415b4343e0abe26b8b0d49b6e9b142b5e4ad04844b431a",
+      "hiddenBridgeRoutes": 1,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554369,
+      "file": "replays\\cg\\bot\\904554369.json"
+    },
+    {
+      "affectedStates": 2,
+      "sha256": "606b131222426adda097d147b190b8b23ea26d29b29bbd984b17cb7ba151f47a",
+      "hiddenBridgeRoutes": 5,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554429,
+      "file": "replays\\cg\\bot\\904554429.json"
+    },
+    {
+      "affectedStates": 8,
+      "sha256": "1bb7180cd25527260be52137cf566d77c65858afa8aa037172bae8d3926d908f",
+      "hiddenBridgeRoutes": 38,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554475,
+      "file": "replays\\cg\\bot\\904554475.json"
+    },
+    {
+      "affectedStates": 5,
+      "sha256": "dfd948472efabff1fc1a8ba732cd8f8ee0391633752c8ab92814fc4d066de9a6",
+      "hiddenBridgeRoutes": 14,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554568,
+      "file": "replays\\cg\\bot\\904554568.json"
+    },
+    {
+      "affectedStates": 12,
+      "sha256": "bdaa551d6694448ea1d02c2a1bb4ad92107ee6b41e9b7b7cb476d1e0b4bd6dbc",
+      "hiddenBridgeRoutes": 88,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554907,
+      "file": "replays\\cg\\bot\\904554907.json"
+    },
+    {
+      "affectedStates": 11,
+      "sha256": "b2c92b8121a97c17eda8530e7561a24c8e8a815686f25fac632a1ff143170f61",
+      "hiddenBridgeRoutes": 31,
+      "validated": true,
+      "me": 0,
+      "gameId": 904554986,
+      "file": "replays\\cg\\bot\\904554986.json"
+    },
+    {
+      "affectedStates": 16,
+      "sha256": "7a41f5c4440e8e7f823bca56174e047ed26688a81eb90147855e378f7c5a138a",
+      "hiddenBridgeRoutes": 96,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555027,
+      "file": "replays\\cg\\bot\\904555027.json"
+    },
+    {
+      "affectedStates": 13,
+      "sha256": "d0308aa175c8d5a9f40aa107b4c8b0c3368d21a232483eb437b781d5af3126cb",
+      "hiddenBridgeRoutes": 97,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555096,
+      "file": "replays\\cg\\bot\\904555096.json"
+    },
+    {
+      "affectedStates": 3,
+      "sha256": "10bcbc5ea2eecb686fffa2af5530f1b204efaf4073c5539b2f4784961890f400",
+      "hiddenBridgeRoutes": 12,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555166,
+      "file": "replays\\cg\\bot\\904555166.json"
+    },
+    {
+      "affectedStates": 8,
+      "sha256": "6cb52205dede935e152bbb656bca0a87da66b15f169086c2d05a6fda821d6782",
+      "hiddenBridgeRoutes": 19,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555229,
+      "file": "replays\\cg\\bot\\904555229.json"
+    },
+    {
+      "affectedStates": 2,
+      "sha256": "0b6e9730499f3c9c5987772fe94b97e0df44167f0b9a6f7e3abf1ef2e3a61e92",
+      "hiddenBridgeRoutes": 7,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555291,
+      "file": "replays\\cg\\bot\\904555291.json"
+    },
+    {
+      "affectedStates": 3,
+      "sha256": "f63bb8798b5fdfdbd30ff3795d48513f42e2453c9eaa07afc05558055b3de8a8",
+      "hiddenBridgeRoutes": 10,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555363,
+      "file": "replays\\cg\\bot\\904555363.json"
+    },
+    {
+      "affectedStates": 5,
+      "sha256": "795be061ac65fb14335961fa306a2b2b16c79056560d0998511fc2f5ddbc2289",
+      "hiddenBridgeRoutes": 7,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555424,
+      "file": "replays\\cg\\bot\\904555424.json"
+    },
+    {
+      "affectedStates": 5,
+      "sha256": "fcb88235440d9d1cc7d94c4bbd2745d88a987d0f0added6779acb71c42217f37",
+      "hiddenBridgeRoutes": 18,
+      "validated": true,
+      "me": 0,
+      "gameId": 904555504,
+      "file": "replays\\cg\\bot\\904555504.json"
+    }
+  ],
+  "examples": [
+    {
+      "gameId": 904553513,
+      "turn": 3,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        2,
+        4
+      ],
+      "variant": 1,
+      "cost": 7,
+      "fullNetworkCompletionGain": 29,
+      "actualInkedRegions": [
+        11
+      ],
+      "storedPath": [
+        98,
+        95,
+        116,
+        137,
+        158,
+        179,
+        200,
+        199,
+        220
+      ]
+    },
+    {
+      "gameId": 904553513,
+      "turn": 17,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        1
+      ],
+      "variant": 0,
+      "cost": 8,
+      "fullNetworkCompletionGain": 15,
+      "actualInkedRegions": [
+        32
+      ],
+      "storedPath": [
+        186,
+        196,
+        195,
+        194,
+        173,
+        152,
+        131,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ]
+    },
+    {
+      "gameId": 904553513,
+      "turn": 17,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 8,
+      "fullNetworkCompletionGain": 15,
+      "actualInkedRegions": [
+        32
+      ],
+      "storedPath": [
+        186,
+        196,
+        195,
+        194,
+        173,
+        152,
+        131,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        94,
+        95,
+        116,
+        117,
+        118,
+        97,
+        98
+      ]
+    },
+    {
+      "gameId": 904553513,
+      "turn": 19,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        0,
+        3
+      ],
+      "variant": 0,
+      "cost": 7,
+      "fullNetworkCompletionGain": 11,
+      "actualInkedRegions": [
+        4
+      ],
+      "storedPath": [
+        37,
+        152,
+        173,
+        194,
+        195,
+        196,
+        197,
+        263,
+        264,
+        246,
+        225,
+        226,
+        205,
+        184,
+        185,
+        186
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        1,
+        3
+      ],
+      "variant": 1,
+      "cost": 1,
+      "fullNetworkCompletionGain": 2,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        99,
+        219,
+        218
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        1,
+        6
+      ],
+      "variant": 0,
+      "cost": 12,
+      "fullNetworkCompletionGain": 51,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        99,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        329
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        1,
+        6
+      ],
+      "variant": 1,
+      "cost": 13,
+      "fullNetworkCompletionGain": 55,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        99,
+        219,
+        218,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        329
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        0
+      ],
+      "variant": 0,
+      "cost": 5,
+      "fullNetworkCompletionGain": 7,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        218,
+        75,
+        76,
+        77,
+        53,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        0
+      ],
+      "variant": 1,
+      "cost": 12,
+      "fullNetworkCompletionGain": 29,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        218,
+        219,
+        195,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        82,
+        83,
+        59,
+        35,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 17,
+      "fullNetworkCompletionGain": 34,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        218,
+        75,
+        76,
+        77,
+        53,
+        29,
+        30,
+        35,
+        36,
+        37,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        90,
+        114,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 1,
+      "cost": 19,
+      "fullNetworkCompletionGain": 35,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        218,
+        219,
+        195,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        0
+      ],
+      "variant": 0,
+      "cost": 5,
+      "fullNetworkCompletionGain": 7,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        289,
+        100,
+        76,
+        52,
+        53,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 4,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        0
+      ],
+      "variant": 1,
+      "cost": 10,
+      "fullNetworkCompletionGain": 25,
+      "actualInkedRegions": [
+        15
+      ],
+      "storedPath": [
+        289,
+        219,
+        195,
+        100,
+        101,
+        102,
+        103,
+        104,
+        80,
+        81,
+        82,
+        58,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        1,
+        6
+      ],
+      "variant": 0,
+      "cost": 3,
+      "fullNetworkCompletionGain": 42,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        99,
+        301,
+        302,
+        303,
+        304,
+        305,
+        329
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        0
+      ],
+      "variant": 1,
+      "cost": 15,
+      "fullNetworkCompletionGain": 30,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        218,
+        275,
+        251,
+        227,
+        203,
+        179,
+        155,
+        131,
+        107,
+        108,
+        84,
+        60,
+        36,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 13,
+      "fullNetworkCompletionGain": 153,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        218,
+        301,
+        302,
+        303,
+        306,
+        307,
+        283,
+        259,
+        235,
+        211,
+        187,
+        163,
+        139,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 1,
+      "cost": 13,
+      "fullNetworkCompletionGain": 159,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        218,
+        301,
+        302,
+        303,
+        306,
+        307,
+        283,
+        259,
+        235,
+        236,
+        188,
+        164,
+        140,
+        116,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        4,
+        0
+      ],
+      "variant": 0,
+      "cost": 13,
+      "fullNetworkCompletionGain": 96,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        214,
+        235,
+        259,
+        283,
+        307,
+        306,
+        305,
+        302,
+        301,
+        300,
+        100,
+        101,
+        102,
+        103,
+        79,
+        80,
+        81,
+        82,
+        83,
+        59,
+        35,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        0
+      ],
+      "variant": 1,
+      "cost": 15,
+      "fullNetworkCompletionGain": 30,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        289,
+        275,
+        251,
+        227,
+        203,
+        179,
+        155,
+        131,
+        107,
+        108,
+        84,
+        60,
+        36,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        4
+      ],
+      "variant": 0,
+      "cost": 9,
+      "fullNetworkCompletionGain": 93,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        289,
+        301,
+        302,
+        303,
+        306,
+        307,
+        283,
+        259,
+        235,
+        236,
+        212,
+        213,
+        214
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        4
+      ],
+      "variant": 1,
+      "cost": 9,
+      "fullNetworkCompletionGain": 93,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        289,
+        301,
+        302,
+        303,
+        306,
+        307,
+        283,
+        259,
+        235,
+        236,
+        212,
+        213,
+        214
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 8,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        6,
+        0
+      ],
+      "variant": 0,
+      "cost": 7,
+      "fullNetworkCompletionGain": 30,
+      "actualInkedRegions": [
+        14,
+        36
+      ],
+      "storedPath": [
+        329,
+        302,
+        301,
+        300,
+        100,
+        101,
+        102,
+        103,
+        79,
+        80,
+        81,
+        82,
+        83,
+        59,
+        35,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 12,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 8,
+      "fullNetworkCompletionGain": 115,
+      "actualInkedRegions": [
+        39
+      ],
+      "storedPath": [
+        218,
+        307,
+        283,
+        259,
+        235,
+        236,
+        188,
+        164,
+        140,
+        116,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 12,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 1,
+      "cost": 9,
+      "fullNetworkCompletionGain": 115,
+      "actualInkedRegions": [
+        39
+      ],
+      "storedPath": [
+        218,
+        307,
+        283,
+        259,
+        235,
+        236,
+        188,
+        164,
+        140,
+        139,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 12,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        4
+      ],
+      "variant": 0,
+      "cost": 5,
+      "fullNetworkCompletionGain": 59,
+      "actualInkedRegions": [
+        39
+      ],
+      "storedPath": [
+        289,
+        307,
+        283,
+        259,
+        235,
+        236,
+        212,
+        213,
+        214
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 12,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        4
+      ],
+      "variant": 1,
+      "cost": 5,
+      "fullNetworkCompletionGain": 59,
+      "actualInkedRegions": [
+        39
+      ],
+      "storedPath": [
+        289,
+        307,
+        283,
+        259,
+        235,
+        236,
+        212,
+        213,
+        214
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 12,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        6,
+        0
+      ],
+      "variant": 1,
+      "cost": 15,
+      "fullNetworkCompletionGain": 10,
+      "actualInkedRegions": [
+        39
+      ],
+      "storedPath": [
+        329,
+        275,
+        251,
+        227,
+        203,
+        179,
+        155,
+        131,
+        107,
+        108,
+        84,
+        60,
+        36,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 13,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        1,
+        6
+      ],
+      "variant": 0,
+      "cost": 6,
+      "fullNetworkCompletionGain": 52,
+      "actualInkedRegions": [
+        16
+      ],
+      "storedPath": [
+        99,
+        276,
+        277,
+        278,
+        279,
+        280,
+        304,
+        305,
+        329
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 17,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        0
+      ],
+      "variant": 1,
+      "cost": 15,
+      "fullNetworkCompletionGain": 29,
+      "actualInkedRegions": [
+        22,
+        29
+      ],
+      "storedPath": [
+        218,
+        188,
+        164,
+        91,
+        67,
+        43,
+        42,
+        41,
+        40,
+        39,
+        38,
+        37,
+        36,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 17,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 1,
+      "fullNetworkCompletionGain": 41,
+      "actualInkedRegions": [
+        22,
+        29
+      ],
+      "storedPath": [
+        218,
+        188,
+        164,
+        140,
+        116,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 17,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 1,
+      "cost": 1,
+      "fullNetworkCompletionGain": 41,
+      "actualInkedRegions": [
+        22,
+        29
+      ],
+      "storedPath": [
+        218,
+        188,
+        164,
+        140,
+        139,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 17,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        0
+      ],
+      "variant": 1,
+      "cost": 15,
+      "fullNetworkCompletionGain": 16,
+      "actualInkedRegions": [
+        22,
+        29
+      ],
+      "storedPath": [
+        289,
+        188,
+        164,
+        114,
+        90,
+        66,
+        42,
+        41,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 25,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        0
+      ],
+      "variant": 1,
+      "cost": 27,
+      "fullNetworkCompletionGain": 26,
+      "actualInkedRegions": [
+        37
+      ],
+      "storedPath": [
+        218,
+        255,
+        231,
+        207,
+        183,
+        159,
+        135,
+        136,
+        137,
+        138,
+        43,
+        42,
+        41,
+        40,
+        39,
+        38,
+        37,
+        13,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 25,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 1,
+      "cost": 15,
+      "fullNetworkCompletionGain": 26,
+      "actualInkedRegions": [
+        37
+      ],
+      "storedPath": [
+        218,
+        255,
+        231,
+        207,
+        183,
+        159,
+        135,
+        136,
+        137,
+        138,
+        139,
+        115
+      ]
+    },
+    {
+      "gameId": 904553687,
+      "turn": 25,
+      "me": 0,
+      "outcome": "loss",
+      "pair": [
+        5,
+        0
+      ],
+      "variant": 1,
+      "cost": 27,
+      "fullNetworkCompletionGain": 20,
+      "actualInkedRegions": [
+        37
+      ],
+      "storedPath": [
+        289,
+        256,
+        232,
+        208,
+        184,
+        160,
+        136,
+        137,
+        138,
+        43,
+        42,
+        41,
+        40,
+        39,
+        38,
+        37,
+        13,
+        12,
+        11,
+        10,
+        34
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 3,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        0,
+        3
+      ],
+      "variant": 0,
+      "cost": 18,
+      "fullNetworkCompletionGain": 66,
+      "actualInkedRegions": [
+        11
+      ],
+      "storedPath": [
+        41,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270,
+        269,
+        268,
+        267,
+        266,
+        242,
+        218,
+        194,
+        193
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 3,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        6
+      ],
+      "variant": 0,
+      "cost": 13,
+      "fullNetworkCompletionGain": 32,
+      "actualInkedRegions": [
+        11
+      ],
+      "storedPath": [
+        118,
+        91,
+        67,
+        66,
+        65,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 3,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 21,
+      "fullNetworkCompletionGain": 98,
+      "actualInkedRegions": [
+        11
+      ],
+      "storedPath": [
+        193,
+        217,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        66,
+        67,
+        91,
+        115,
+        116,
+        117,
+        118
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 6,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        1
+      ],
+      "variant": 0,
+      "cost": 15,
+      "fullNetworkCompletionGain": 54,
+      "actualInkedRegions": [
+        20
+      ],
+      "storedPath": [
+        118,
+        205,
+        204,
+        203,
+        202,
+        201,
+        200,
+        199,
+        198,
+        174,
+        173,
+        172,
+        148,
+        124,
+        123,
+        99,
+        75,
+        76
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 6,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        6
+      ],
+      "variant": 0,
+      "cost": 10,
+      "fullNetworkCompletionGain": 31,
+      "actualInkedRegions": [
+        20
+      ],
+      "storedPath": [
+        118,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 7,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        0,
+        3
+      ],
+      "variant": 0,
+      "cost": 13,
+      "fullNetworkCompletionGain": 85,
+      "actualInkedRegions": [
+        25
+      ],
+      "storedPath": [
+        41,
+        205,
+        204,
+        203,
+        202,
+        201,
+        200,
+        199,
+        198,
+        197,
+        196,
+        195,
+        219,
+        243,
+        242,
+        241,
+        217,
+        193
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 7,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        1
+      ],
+      "variant": 0,
+      "cost": 16,
+      "fullNetworkCompletionGain": 56,
+      "actualInkedRegions": [
+        25
+      ],
+      "storedPath": [
+        118,
+        93,
+        92,
+        116,
+        205,
+        204,
+        203,
+        202,
+        201,
+        200,
+        199,
+        198,
+        197,
+        196,
+        195,
+        171,
+        147,
+        123,
+        99,
+        75,
+        76
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 7,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        3,
+        2
+      ],
+      "variant": 0,
+      "cost": 17,
+      "fullNetworkCompletionGain": 93,
+      "actualInkedRegions": [
+        25
+      ],
+      "storedPath": [
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        181,
+        92,
+        93,
+        94,
+        118
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 7,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        4,
+        1
+      ],
+      "variant": 0,
+      "cost": 12,
+      "fullNetworkCompletionGain": 44,
+      "actualInkedRegions": [
+        25
+      ],
+      "storedPath": [
+        185,
+        205,
+        204,
+        203,
+        202,
+        201,
+        200,
+        199,
+        198,
+        197,
+        196,
+        195,
+        171,
+        147,
+        123,
+        99,
+        75,
+        76
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 7,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        5,
+        1
+      ],
+      "variant": 0,
+      "cost": 12,
+      "fullNetworkCompletionGain": 44,
+      "actualInkedRegions": [
+        25
+      ],
+      "storedPath": [
+        280,
+        205,
+        204,
+        203,
+        202,
+        201,
+        200,
+        199,
+        198,
+        197,
+        196,
+        195,
+        171,
+        147,
+        123,
+        99,
+        75,
+        76
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 9,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        0,
+        3
+      ],
+      "variant": 0,
+      "cost": 9,
+      "fullNetworkCompletionGain": 198,
+      "actualInkedRegions": [
+        33
+      ],
+      "storedPath": [
+        41,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270,
+        269,
+        268,
+        267,
+        243,
+        242,
+        241,
+        217,
+        193
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 9,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        0,
+        3
+      ],
+      "variant": 1,
+      "cost": 9,
+      "fullNetworkCompletionGain": 198,
+      "actualInkedRegions": [
+        33
+      ],
+      "storedPath": [
+        41,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270,
+        269,
+        268,
+        267,
+        243,
+        242,
+        241,
+        217,
+        193
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 9,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        1
+      ],
+      "variant": 0,
+      "cost": 9,
+      "fullNetworkCompletionGain": 198,
+      "actualInkedRegions": [
+        33
+      ],
+      "storedPath": [
+        118,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270,
+        269,
+        268,
+        267,
+        243,
+        242,
+        241,
+        217,
+        193,
+        194,
+        195,
+        171,
+        147,
+        123,
+        99,
+        75,
+        76
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 9,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        1
+      ],
+      "variant": 1,
+      "cost": 38,
+      "fullNetworkCompletionGain": 198,
+      "actualInkedRegions": [
+        33
+      ],
+      "storedPath": [
+        118,
+        119,
+        95,
+        71,
+        70,
+        69,
+        45,
+        21,
+        20,
+        19,
+        18,
+        17,
+        41,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270,
+        269,
+        268,
+        267,
+        243,
+        242,
+        241,
+        217,
+        193,
+        194,
+        195,
+        171,
+        147,
+        123,
+        99,
+        75,
+        76
+      ]
+    },
+    {
+      "gameId": 904553769,
+      "turn": 9,
+      "me": 0,
+      "outcome": "win",
+      "pair": [
+        2,
+        6
+      ],
+      "variant": 0,
+      "cost": 9,
+      "fullNetworkCompletionGain": 198,
+      "actualInkedRegions": [
+        33
+      ],
+      "storedPath": [
+        118,
+        279,
+        278,
+        277,
+        276,
+        275,
+        274,
+        273,
+        272,
+        271,
+        270
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3670 @@
+{
+  "income": [
+    18,
+    107
+  ],
+  "v07Debug": {
+    "completedComparisons": 2,
+    "extraTargetComparisons": 0,
+    "greedyFirstRollout": -2044.0,
+    "knownStateGreedyTarget": 29,
+    "networkComparisons": 0,
+    "networkEligible": 11,
+    "networkEvaluated": 11,
+    "networkRoots": 0,
+    "networkSearchStarted": true,
+    "noBuildPureGreedyTrajectories": [
+      {
+        "trace": [
+          {
+            "terminal": false,
+            "targets": [
+              29,
+              -1
+            ],
+            "score": [
+              812,
+              2379
+            ],
+            "gained": [
+              18,
+              107
+            ],
+            "turn": 37
+          },
+          {
+            "terminal": false,
+            "targets": [
+              29,
+              -1
+            ],
+            "score": [
+              830,
+              2486
+            ],
+            "gained": [
+              18,
+              107
+            ],
+            "turn": 38
+          },
+          {
+            "terminal": false,
+            "targets": [
+              29,
+              -1
+            ],
+            "score": [
+              831,
+              2487
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 39
+          },
+          {
+            "terminal": false,
+            "targets": [
+              10,
+              -1
+            ],
+            "score": [
+              832,
+              2488
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 40
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              833,
+              2489
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 41
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              834,
+              2490
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 42
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              835,
+              2491
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 43
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              836,
+              2492
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 44
+          }
+        ],
+        "first": 29
+      },
+      {
+        "trace": [
+          {
+            "terminal": false,
+            "targets": [
+              -1,
+              -1
+            ],
+            "score": [
+              812,
+              2379
+            ],
+            "gained": [
+              18,
+              107
+            ],
+            "turn": 37
+          },
+          {
+            "terminal": false,
+            "targets": [
+              29,
+              -1
+            ],
+            "score": [
+              830,
+              2486
+            ],
+            "gained": [
+              18,
+              107
+            ],
+            "turn": 38
+          },
+          {
+            "terminal": false,
+            "targets": [
+              29,
+              -1
+            ],
+            "score": [
+              848,
+              2593
+            ],
+            "gained": [
+              18,
+              107
+            ],
+            "turn": 39
+          },
+          {
+            "terminal": false,
+            "targets": [
+              29,
+              -1
+            ],
+            "score": [
+              849,
+              2594
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 40
+          },
+          {
+            "terminal": false,
+            "targets": [
+              10,
+              -1
+            ],
+            "score": [
+              850,
+              2595
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 41
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              851,
+              2596
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 42
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              852,
+              2597
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 43
+          },
+          {
+            "terminal": false,
+            "targets": [
+              37,
+              -1
+            ],
+            "score": [
+              853,
+              2598
+            ],
+            "gained": [
+              1,
+              1
+            ],
+            "turn": 44
+          }
+        ],
+        "first": -1
+      }
+    ],
+    "ordinaryComparisons": 2,
+    "ordinarySearchComplete": true,
+    "ordinarySelectedCells": [
+      0,
+      0,
+      0
+    ],
+    "ordinarySelectedCount": 0,
+    "ordinarySelectedRoute": -1,
+    "ordinarySelectedTarget": -1,
+    "ordinarySelectedValue": -2012.0,
+    "replanCalls": 0,
+    "replanChanges": 0,
+    "routeQueries": 45,
+    "selectedExtraTarget": false,
+    "selectedNetwork": false,
+    "selectedNetworkCell": -1,
+    "selectedRoute": -1,
+    "selectedSpread": false,
+    "selectedTarget": -1,
+    "selectedValue": -2012.0,
+    "simulatedTurns": 32,
+    "spreadBuildTurns": 0,
+    "spreadComparisons": 0,
+    "spreadRoots": 0,
+    "waitFirstRollout": -2012.0
+  },
+  "singleRegions": [
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 0,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 3,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        2
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ],
+      "region": 4,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        2
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ],
+      "region": 5,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 6,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ],
+      "region": 7,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        1
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 9,
+      "needed": 1
+    },
+    {
+      "ownedTracks": [
+        0,
+        3
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 10,
+      "needed": 1
+    },
+    {
+      "ownedTracks": [
+        3,
+        3
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ],
+      "region": 11,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        1,
+        4
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ],
+      "region": 14,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        1,
+        3
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ],
+      "region": 18,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        1
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ],
+      "region": 21,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        2,
+        2
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 26,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 27,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 28,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        5
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ],
+      "region": 29,
+      "needed": 3
+    },
+    {
+      "ownedTracks": [
+        0,
+        2
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 33,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 34,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 35,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        3
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ],
+      "region": 36,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        6
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ],
+      "region": 37,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        2,
+        3
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ],
+      "region": 38,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 40,
+      "needed": 4
+    },
+    {
+      "ownedTracks": [
+        0,
+        0
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ],
+      "region": 41,
+      "needed": 4
+    }
+  ],
+  "v07AmpleAction": "WAIT",
+  "twoRegions": [
+    {
+      "regions": [
+        0,
+        3
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        4
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        0,
+        5
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        0,
+        6
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        7
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        0,
+        9
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        0,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        0,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        0,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        0,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        0,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        0,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        0,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        0,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        0,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        4
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        3,
+        5
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        3,
+        6
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        7
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        3,
+        9
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        3,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        3,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        3,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        3,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        3,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        3,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        3,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        3,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        3,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        4,
+        5
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        6
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        7
+      ],
+      "terminal": false,
+      "income": [
+        6,
+        20
+      ]
+    },
+    {
+      "regions": [
+        4,
+        9
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        4,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        4,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        4,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        4,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        4,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        4,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        4,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        6
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        7
+      ],
+      "terminal": false,
+      "income": [
+        6,
+        20
+      ]
+    },
+    {
+      "regions": [
+        5,
+        9
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        5,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        5,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        5,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        5,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        5,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        5,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        5,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        6,
+        7
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        6,
+        9
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        6,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        6,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        6,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        6,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        6,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        6,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        6,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        6,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        6,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        7,
+        9
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        6,
+        20
+      ]
+    },
+    {
+      "regions": [
+        7,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        0,
+        0
+      ]
+    },
+    {
+      "regions": [
+        7,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        6,
+        20
+      ]
+    },
+    {
+      "regions": [
+        7,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        0,
+        0
+      ]
+    },
+    {
+      "regions": [
+        7,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        0,
+        0
+      ]
+    },
+    {
+      "regions": [
+        7,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        0,
+        0
+      ]
+    },
+    {
+      "regions": [
+        7,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        0,
+        0
+      ]
+    },
+    {
+      "regions": [
+        7,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        0,
+        0
+      ]
+    },
+    {
+      "regions": [
+        7,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        7,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        11,
+        52
+      ]
+    },
+    {
+      "regions": [
+        9,
+        10
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        9,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        9,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        9,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        9,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        9,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        9,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        9,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        9,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        9,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        11
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        10,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        10,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        10,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        10,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        10,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        10,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        10,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        10,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        10,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        11,
+        14
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        11,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        11,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        11,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        11,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        11,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        11,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        11,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        14,
+        18
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        14,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        18,
+        21
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        18,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        18,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        18,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        18,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        18,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        18,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        8,
+        44
+      ]
+    },
+    {
+      "regions": [
+        21,
+        26
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        21,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        26,
+        27
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        26,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        26,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        26,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        26,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        26,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        26,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        26,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        26,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        26,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        26,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        27,
+        28
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        27,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        27,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        27,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        27,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        27,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        27,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        27,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        27,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        27,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        28,
+        29
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        28,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        28,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        28,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        28,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        28,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        28,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        28,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        28,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        29,
+        33
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        29,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        33,
+        34
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        33,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        33,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        33,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        33,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        33,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        33,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        34,
+        35
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        34,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        34,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        34,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        34,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        34,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        35,
+        36
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        35,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        35,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        35,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        35,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    },
+    {
+      "regions": [
+        36,
+        37
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        36,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        36,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        36,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        37,
+        38
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        37,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        37,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        38,
+        40
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        38,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        1,
+        1
+      ]
+    },
+    {
+      "regions": [
+        40,
+        41
+      ],
+      "terminal": false,
+      "income": [
+        18,
+        107
+      ]
+    }
+  ],
+  "scores": [
+    794,
+    2272
+  ],
+  "turn": 37,
+  "gameId": 904554072
+}

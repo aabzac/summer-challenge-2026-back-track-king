@@ -842,3 +842,50 @@ Independent AFTER_BASE-only ablation vs QuickIncome: 179-121 / 300 = 59.6667%, d
 max later response 44.6592 ms, no later response over 45 ms. All 25 original submission files unchanged.
 Keep mode OFF and v06 selected; no promotion/upload. Full protocol/results/artifact hashes:
 [network-after-base-v1.md](network-after-base-v1.md).
+
+## 2026-09-18 - route-dependencies-v1 (not promoted)
+
+Default-off `current?USE_ROLLOUT_ROUTE_DEPENDENCIES=1`, selected control v07.
+Retain canonical completed-route region dependencies alongside unchanged compressed paint
+recipes, then abandon a simulated project if an omitted bridge region inks. This repairs the
+captured continuation mismatch but conservatively rejects surviving alternate detours.
+
+Fixed direct screen, 150 fresh maps / 300 paired games, seeds 190000..190149:
+**133-160-7, 45.50%**; map-grouped diagnostic CI **34.41-56.59%**, zero bot errors.
+**STOP_SCREEN_300 / NOT_PASSED**. No direct 1000, common-opponent stage, retry or promotion.
+Candidate/control maximum in-process search 151/116 ms, slow counts 1/1; all outliers retained.
+Elapsed 538.091 seconds. No exact-artifact process claim after strength failure.
+
+Mechanism: 561 repeated candidate-family observations in 127/1581 boss states; no claim they
+were selected mistakes. In 146 fixed ample-time public states, dependency correction changes
+30 actions; disabled current agrees with frozen v07 in all 146. 286 Java + seven gate tests
+pass; 292 arena and 50 boss replays exact. Both new flags remain OFF and selected Player stays
+unchanged. Protocol: [route-dependencies-v1.md](route-dependencies-v1.md); complete outcomes,
+parameters and source/class identities: [evidence](evidence/route-dependencies-v1.json).
+
+
+## 2026-09-18 - network-chords-v1 (not promoted)
+
+Default-off `current?USE_ROLLOUT_NETWORK_CHORDS=1`, selected control v07; dependency flag OFF.
+After complete ordinary and singleton network searches, propose affordable connected pairs
+and triples touching existing rails at both ends. Rank a bounded 24-candidate prefix, retain
+two positive whole-network-income roots, and use the unchanged simultaneous rollout.
+Core subset tests reproduce a boss triple whose every proper subset earns zero but whose
+complete group shifts net income by +128 per turn. This is a local mechanism, not a win claim.
+
+Fixed screen: **163-137-0 / 300 = 54.3333%**, requiring fresh direct confirmation.
+Separate fixed confirmation: **544-456-0 / 1000 = 54.40%**, below the required 55%.
+**NOT_PASSED / SKIPPED_DIRECT_FAILURE**. No common-opponent stage, pooled decision, retry,
+parameter adjustment or exact-artifact process stage. Zero bot errors in both complete stages.
+Diagnostic map-grouped CI in confirmation: 48.33-60.47%; mean score difference +125.051.
+Search maxima A/B: screen 122/72 ms (slow 2/3), confirmation 80/83 ms (slow 5/5).
+All outliers retained; elapsed 534.304 + 1764.208 seconds.
+
+Mechanism probe: 15/146 ample-time decisions change, all replacing existing construction;
+the exact three-cell boss example still selects the old singleton under the bounded search.
+Both independent experiments total **1600 games / 800 distinct fresh paired maps**. Final
+audit verifies complete stages, source/class/parameter/pool identities and all 26 original
+submission files. 286 Java + seven gate tests pass; 292 arena and 50 boss replays exact.
+Both new flags remain OFF, v07 selected. No promotion, push, upload or new process-readiness
+claim. [Protocol](network-chords-v1.md), [evidence](evidence/network-chords-v1.json),
+[final audit](evidence/v07-followups-final-audit.json).

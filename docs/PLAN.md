@@ -357,3 +357,32 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       frozen defaults and pin historical diagnostic recipes. 273 tests, 264 exact CG replays.
       Main Player is 75,288 characters, strict 0/8 problem games, max later 44.7744 ms.
       Previous v06 submission archived; no upload/push. Evidence: docs/v07-promotion.md.
+
+## v07 boss and arena follow-ups (2026-09-18)
+
+- [x] Validate and render the latest 20 user-attributed v07 boss games: 6 wins, 14 losses,
+      zero failed/skipped actions. Build filtered gallery with exact multi-cell-steal and
+      stalled-sabotage examples. Full arena corpus now 292 exact games; boss corpus 50 exact.
+      See boss-v07-loss-analysis.md and the linked replay gallery.
+- [x] Verify joined-route synergy already uses whole-network desired-pair income. Diagnose
+      compressed-route bridge dependencies: 561 repeated candidate observations in 127/1581
+      saved states. Add opt-in dependency correction and independent opt-in two/three-cell
+      network chords. 286 Java tests + seven gate tests pass; default current matches frozen
+      v07 on all 146 fixed public-state checks. Neither feature changes selected defaults.
+- [x] Fetch 28 new arena games and record a reproducible opening survey: leaders strongly
+      favor protected ownership near several towns; collisions limit realized town coverage.
+      This is observational evidence for a later cross-route opening experiment, not a strength
+      result. See arena-opening-survey-v1.md.
+- [x] Complete route-dependencies-v1 vs v07: 133-160-7 / 300 = 45.50%, STOP_SCREEN_300.
+      Zero errors; no continuation or promotion. Keep the dependency flag OFF.
+- [x] Complete network-chords-v1 vs v07: 54.3333% / 300 then 54.40% / fresh 1000,
+      NOT_PASSED at required 55%. Zero errors; no common-opponent/process continuation.
+      Both independent experiments: 1600 games / 800 fresh maps; final identity audit passes.
+      Both flags OFF, v07 selected, all 26 original submission files unchanged.
+- [x] Trace the separate postponed-sabotage fixed point in 904554072 t37; the dependency
+      fix does not change its WAIT decision. Do not replace it with an untested unconditional rule.
+
+- [ ] Independently test WAIT without promised future sabotage in no-project states, with
+      multi-turn mechanism traces before strength games. See boss-v07-loss-analysis.md.
+- [ ] Independently test protected opening ownership across multiple town approaches;
+      prospective design and risks in arena-opening-survey-v1.md. Do not combine with chords.

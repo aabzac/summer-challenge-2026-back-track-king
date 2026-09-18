@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "route-dependencies-v1-style",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 192000,
+  "pairs": 150
+}

@@ -7,6 +7,7 @@ import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
 import btk.core.NetworkCells;
+import btk.core.NetworkChords;
 import btk.core.Rules;
 import btk.core.SearchState;
 import java.util.ArrayList;
@@ -39,6 +40,10 @@ public final class RolloutBot implements Bot {
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain, quickSlot;
     private double quickValue;
+    private int[][][] routeDependencies;
+    private int[][] dependencyCounts;
+    private int[] proposalDependencies, quickDependencies;
+    private int proposalDependencyCount, quickDependencyCount;
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
     public int replanCalls, replanChanges;
@@ -54,6 +59,10 @@ public final class RolloutBot implements Bot {
     public int networkEligible, networkEvaluated, networkRoots, networkComparisons;
     public boolean selectedNetwork;
     public int selectedNetworkCell = -1;
+    private int[] chordA, chordB, chordC, chordOrder, chordPriority, chordGains, chordBest;
+    private int chordRootStart = Integer.MAX_VALUE;
+    public int chordEligible, chordEvaluated, chordRoots, chordComparisons;
+    public boolean selectedChord, networkPhaseComplete, chordSearchStarted;
     private int bestCount;
     private double best;
     public boolean ordinarySearchComplete, networkSearchStarted;
@@ -76,6 +85,7 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_NETWORK_ROOTS < 1 || p.ROLLOUT_NETWORK_ROOTS > 2
                 || p.ROLLOUT_NETWORK_RESERVE_MS < 0 || p.ROLLOUT_NETWORK_RESERVE_MS > 36
                 || p.USE_ROLLOUT_NETWORK && p.USE_ROLLOUT_NETWORK_AFTER_BASE
+                || p.USE_ROLLOUT_NETWORK_CHORDS && !p.USE_ROLLOUT_NETWORK_AFTER_BASE
                 || (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE)
                     && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
                     || p.USE_ROLLOUT_QUICK_SAFE || p.USE_ROLLOUT_DIVERSE_REPLIES
@@ -107,11 +117,18 @@ public final class RolloutBot implements Bot {
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
         roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_SPREAD ? p.ROLLOUT_SPREAD_ROOTS : 0)
-                + (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
+                + (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE ? p.ROLLOUT_NETWORK_ROOTS : 0)
+                + (p.USE_ROLLOUT_NETWORK_CHORDS ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
+        if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
+            routeDependencies = new int[2][p.ROLLOUT_WIDTH][s.regionCount];
+            dependencyCounts = new int[2][p.ROLLOUT_WIDTH];
+            proposalDependencies = new int[s.regionCount];
+            if (p.USE_ROLLOUT_QUICK_ROUTE) quickDependencies = new int[s.regionCount];
+        }
         if (p.USE_ROLLOUT_DIVERSE_REPLIES) replyRoutes = new int[p.ROLLOUT_REPLIES];
         if (p.USE_ROLLOUT_SECOND_TARGET) rootAlternateTargets = new int[roots.length];
         if (p.USE_ROLLOUT_SPREAD) {
@@ -123,6 +140,12 @@ public final class RolloutBot implements Bot {
             networkPriority = new int[s.size]; networkGains = new int[s.size];
             networkBest = new int[p.ROLLOUT_NETWORK_ROOTS]; networkCompared = new boolean[roots.length];
         }
+        if (p.USE_ROLLOUT_NETWORK_CHORDS) {
+            int capacity = 8 * s.size;
+            chordA = new int[capacity]; chordB = new int[capacity]; chordC = new int[capacity];
+            chordOrder = new int[capacity]; chordPriority = new int[capacity]; chordGains = new int[capacity];
+            chordBest = new int[p.ROLLOUT_NETWORK_ROOTS];
+        }
     }
 
     public List<Action> play(GameState s, int me, long budgetMs) {
@@ -133,6 +156,9 @@ public final class RolloutBot implements Bot {
         spreadRoots = spreadComparisons = spreadBuildTurns = 0; selectedSpread = false;
         networkEligible = networkEvaluated = networkRoots = networkComparisons = 0;
         selectedNetwork = false; selectedNetworkCell = -1;
+        chordEligible = chordEvaluated = chordRoots = chordComparisons = 0;
+        selectedChord = networkPhaseComplete = chordSearchStarted = false;
+        chordRootStart = Integer.MAX_VALUE;
         ordinarySearchComplete = networkSearchStarted = false;
         ordinaryComparisons = ordinarySelectedCount = 0;
         ordinarySelectedRoute = ordinarySelectedTarget = -1;
@@ -250,7 +276,8 @@ public final class RolloutBot implements Bot {
                 completedComparisons++;
                 if (p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize) spreadComparisons++;
                 if ((p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE) && root >= ordinaryRootSize) {
-                    networkComparisons++; networkCompared[root] = true;
+                    if (root >= chordRootStart) chordComparisons++;
+                    else { networkComparisons++; networkCompared[root] = true; }
                 }
                 double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
                 if (value > best) {
@@ -258,7 +285,8 @@ public final class RolloutBot implements Bot {
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
                     selectedSpread = p.USE_ROLLOUT_SPREAD && root >= ordinaryRootSize;
                     selectedNetwork = (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE)
-                            && root >= ordinaryRootSize;
+                            && root >= ordinaryRootSize && root < chordRootStart;
+                    selectedChord = root >= chordRootStart;
                     selectedNetworkCell = selectedNetwork ? roots[root][0] : -1;
                     bestCount = rootCounts[root];
                     System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
@@ -285,7 +313,19 @@ public final class RolloutBot implements Bot {
         Arrays.fill(networkCompared, false); Arrays.fill(networkGains, Integer.MIN_VALUE);
         int end = addNetworkRoots(s, me, ordinaryRootSize,
                 (int) Math.min(p.ROLLOUT_NETWORK_RESERVE_MS, budgetMs / 3));
-        searchRoots(s, me, ordinaryRootSize, end, replies);
+        networkPhaseComplete = searchRoots(s, me, ordinaryRootSize, end, replies);
+        searchChordsAfterNetwork(s, me, end, replies, budgetMs);
+    }
+
+    /** Every completed singleton comparison keeps priority over these additional packages. */
+    private void searchChordsAfterNetwork(GameState s, int me, int first, int replies, long budgetMs) {
+        if (!p.USE_ROLLOUT_NETWORK_CHORDS || !ordinarySearchComplete || !networkPhaseComplete || timer.up()) return;
+        int reserve = (int) Math.min(p.ROLLOUT_NETWORK_RESERVE_MS, budgetMs / 3);
+        if (timer.up(reserve)) return;
+        chordSearchStarted = true;
+        chordRootStart = first;
+        int end = addChordRoots(s, me, first, reserve);
+        searchRoots(s, me, first, end, replies);
     }
 
     /** Keep scenario count fixed, preferring another project over its reverse construction. */
@@ -346,6 +386,7 @@ public final class RolloutBot implements Bot {
         double earning = Math.min(p.ROLLOUT_ROUTE_HORIZON, s.turnsLeft()) - turns + 1;
         if (earning <= 0) return;
         completion.refresh(); Rules.incomePerTurn(completion.state, income);
+        if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) captureDependencies(completion.state, pair);
         double gain = income[me] - income[1 - me] - baseDiff[me];
         // Reuse the bounded proposal pool: no extra path query or random draw.
         // Current own income is zero, so a positive completed own income is also a gain.
@@ -378,6 +419,7 @@ public final class RolloutBot implements Bot {
             for (int j = i; j + 1 < counts[me]; j++) {
                 System.arraycopy(routes[me][j + 1], 0, routes[me][j], 0, lengths[me][j + 1]);
                 lengths[me][j] = lengths[me][j + 1]; values[me][j] = values[me][j + 1];
+                if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) copyDependencies(me, j + 1, j);
             }
             counts[me]--; break;
         }
@@ -388,9 +430,43 @@ public final class RolloutBot implements Bot {
         for (int i = counts[me] - 1; i > slot; i--) {
             System.arraycopy(routes[me][i - 1], 0, routes[me][i], 0, lengths[me][i - 1]);
             lengths[me][i] = lengths[me][i - 1]; values[me][i] = values[me][i - 1];
+            if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) copyDependencies(me, i - 1, i);
         }
         System.arraycopy(path, 0, routes[me][slot], 0, length);
         lengths[me][slot] = length; values[me][slot] = value;
+        if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
+            System.arraycopy(proposalDependencies, 0, routeDependencies[me][slot], 0, proposalDependencyCount);
+            dependencyCounts[me][slot] = proposalDependencyCount;
+        }
+    }
+
+    /**
+     * cheapestPath can omit existing connector cells inside a rail block. Retain a canonical
+     * completed-path witness separately, leaving the proposed build sequence and cost intact.
+     * This is conservative: an inked witness region abandons the project even if another
+     * detour survives. The next real observation generates a fresh portfolio as usual.
+     */
+    private void captureDependencies(GameState completed, int pair) {
+        proposalDependencyCount = 0;
+        Arrays.fill(marked, false);
+        for (int i = 0; i < completed.pairPathLen[pair]; i++) {
+            int region = completed.regionId[completed.pairPath[pair][i]];
+            if (marked[region] || completed.regionHasTown(region)) continue;
+            marked[region] = true;
+            proposalDependencies[proposalDependencyCount++] = region;
+        }
+    }
+
+    private void copyDependencies(int player, int from, int to) {
+        int n = dependencyCounts[player][from];
+        System.arraycopy(routeDependencies[player][from], 0, routeDependencies[player][to], 0, n);
+        dependencyCounts[player][to] = n;
+    }
+
+    private boolean missingDependency(GameState s, int player, int route) {
+        for (int i = 0; i < dependencyCounts[player][route]; i++)
+            if (s.regionInked[routeDependencies[player][route][i]]) return true;
+        return false;
     }
 
     private void considerQuick(GameState s, int me, int n, int cost, double gain) {
@@ -407,6 +483,10 @@ public final class RolloutBot implements Bot {
         if (quickLength == 0 || better) {
             System.arraycopy(path, 0, quickPath, 0, n);
             quickLength = n; quickCost = cost; quickGain = (int) gain; quickValue = value;
+            if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
+                System.arraycopy(proposalDependencies, 0, quickDependencies, 0, proposalDependencyCount);
+                quickDependencyCount = proposalDependencyCount;
+            }
         }
     }
 
@@ -436,6 +516,10 @@ public final class RolloutBot implements Bot {
         }
         System.arraycopy(quickPath, 0, routes[me][slot], 0, quickLength);
         lengths[me][slot] = quickLength;
+        if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
+            System.arraycopy(quickDependencies, 0, routeDependencies[me][slot], 0, quickDependencyCount);
+            dependencyCounts[me][slot] = quickDependencyCount;
+        }
         quickSlot = slot;
         // Values are only used during proposal insertion, which has finished.
         values[me][slot] = 0;
@@ -514,6 +598,74 @@ public final class RolloutBot implements Bot {
         return s.placeCost(a) < s.placeCost(b) || s.placeCost(a) == s.placeCost(b) && a < b;
     }
 
+    /** Reuse the single-cell phase limits for a separate bounded, later package comparison. */
+    private int addChordRoots(GameState s, int me, int size, int reserve) {
+        chordEligible = NetworkChords.collect(s, chordA, chordB, chordC);
+        for (int i = 0; i < chordEligible; i++) {
+            chordOrder[i] = i;
+            chordPriority[i] = NetworkCells.adjacentConnectorWeight(s, chordA[i], networkWeights)
+                    + NetworkCells.adjacentConnectorWeight(s, chordB[i], networkWeights)
+                    + (chordC[i] < 0 ? 0 : NetworkCells.adjacentConnectorWeight(s, chordC[i], networkWeights));
+        }
+        Arrays.fill(chordBest, -1);
+        Rules.incomePerTurn(s, income);
+        int before = income[me] - income[1 - me];
+        int limit = Math.min(chordEligible, p.ROLLOUT_NETWORK_MAX_CELLS);
+        for (int i = 0; i < limit && !timer.up(reserve); i++) {
+            int best = i;
+            for (int j = i + 1; j < chordEligible; j++) {
+                int a = chordOrder[j], b = chordOrder[best];
+                if (chordPriority[a] > chordPriority[b]
+                        || chordPriority[a] == chordPriority[b] && chordCheaper(s, a, b)) best = j;
+            }
+            int candidate = chordOrder[best]; chordOrder[best] = chordOrder[i]; chordOrder[i] = candidate;
+            completion.set(s);
+            completion.state.owner[chordA[candidate]] = me;
+            completion.state.owner[chordB[candidate]] = me;
+            if (chordC[candidate] >= 0) completion.state.owner[chordC[candidate]] = me;
+            completion.refresh(); Rules.incomePerTurn(completion.state, income);
+            int gain = income[me] - income[1 - me] - before;
+            chordGains[candidate] = gain; chordEvaluated++;
+            if (gain <= 0) continue;
+            int n = chordCells(candidate, prefix);
+            boolean duplicate = false;
+            for (int root = 0; root < size; root++)
+                if (sameSet(prefix, n, roots[root], rootCounts[root])) duplicate = true;
+            if (duplicate) continue;
+            for (int slot = 0; slot < chordBest.length; slot++) {
+                int other = chordBest[slot];
+                if (other >= 0 && (gain < chordGains[other]
+                        || gain == chordGains[other] && !chordCheaper(s, candidate, other))) continue;
+                for (int j = chordBest.length - 1; j > slot; j--) chordBest[j] = chordBest[j - 1];
+                chordBest[slot] = candidate; break;
+            }
+        }
+        for (int candidate : chordBest) {
+            if (candidate < 0 || timer.up()) break;
+            int count = chordCells(candidate, roots[size]);
+            targetBoard.set(s); placeOwn(targetBoard, me, roots[size], count);
+            int target = chooseTarget(targetBoard.state, me);
+            if (timer.up()) break;
+            rootCounts[size] = count; rootTargets[size] = target;
+            size++; chordRoots++;
+        }
+        return size;
+    }
+
+    private int chordCells(int candidate, int[] out) {
+        out[0] = chordA[candidate]; out[1] = chordB[candidate];
+        if (chordC[candidate] < 0) return 2;
+        out[2] = chordC[candidate]; return 3;
+    }
+
+    private boolean chordCheaper(GameState s, int a, int b) {
+        int aCost = s.placeCost(chordA[a]) + s.placeCost(chordB[a]) + (chordC[a] < 0 ? 0 : s.placeCost(chordC[a]));
+        int bCost = s.placeCost(chordA[b]) + s.placeCost(chordB[b]) + (chordC[b] < 0 ? 0 : s.placeCost(chordC[b]));
+        return aCost < bCost || aCost == bCost && (chordA[a] < chordA[b]
+                || chordA[a] == chordA[b] && (chordB[a] < chordB[b]
+                || chordB[a] == chordB[b] && chordC[a] < chordC[b]));
+    }
+
     /** First ranked independent pair with a genuinely split action; at most two extra roots. */
     private int addSpreadRoots(GameState s, int me, int size) {
         for (int a = 0; a < counts[me] && !timer.up(); a++) {
@@ -552,6 +704,7 @@ public final class RolloutBot implements Bot {
     }
 
     private int remainingPaint(GameState s, int me, int route) {
+        if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES && missingDependency(s, me, route)) return -1;
         int paint = 0;
         for (int i = 0; i < lengths[me][route]; i++) {
             int c = routes[me][route][i];
@@ -591,6 +744,7 @@ public final class RolloutBot implements Bot {
         for (int pass = -1; pass < counts[me] && paint > 0; pass++) {
             int route = pass < 0 ? first : pass;
             if (route < 0 || route >= counts[me] || pass == first) continue;
+            if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES && missingDependency(s, me, route)) continue;
             boolean valid = true;
             for (int i = 0; i < lengths[me][route]; i++) if (s.inked[routes[me][route][i]]) { valid = false; break; }
             if (!valid) continue;
@@ -680,6 +834,7 @@ public final class RolloutBot implements Bot {
             if (timer.up()) return -2;
             int route = pass < 0 ? previous : pass;
             if (route < 0 || route >= counts[me] || pass == previous) continue;
+            if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES && missingDependency(s, me, route)) continue;
             int cost = 0;
             boolean valid = true;
             completion.set(s);

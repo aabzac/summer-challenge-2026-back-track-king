@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "network-chords-v1-full",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 203000,
+  "pairs": 500
+}

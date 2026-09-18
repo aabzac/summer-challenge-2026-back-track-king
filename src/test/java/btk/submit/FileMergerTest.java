@@ -82,21 +82,33 @@ class FileMergerTest {
         checkFrozenDecisions("v06", true);
     }
 
-    @Test void defaultAndFrozenV07EmbedTheMeasuredConfigurationAndOnlyRenameThePolicy() throws Exception {
+    @Test void defaultAndFrozenV07KeepMeasuredParametersAndExactFrozenPolicy() throws Exception {
         var launch = JsonParser.parseString(Files.readString(Path.of("docs/evidence/network-after-base-v1.json")))
                 .getAsJsonObject().getAsJsonObject("launch");
         Map<String, String> measured = new TreeMap<>();
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject(launch.get("candidate").getAsString())
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
-        assertEquals(measured, BotFactory.configuration("v07"));
-        assertEquals(measured, BotFactory.configuration("current"));
+        for (String spec : new String[]{"v07", "current"}) {
+            var actual = new TreeMap<>(BotFactory.configuration(spec));
+            assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
+            assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
+            assertEquals(measured, actual);
+        }
         String current = FileMerger.merge("current"), frozen = FileMerger.merge("v07");
         assertTrue(current.contains("USE_ROLLOUT_QUICK_ROUTE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK_AFTER_BASE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK=false"));
         assertTrue(frozen.contains("private void searchNetworkAfterBase("));
         assertFalse(frozen.contains("RolloutBotV07"));
-        assertEquals(current.replace("return \"current?\" + p.diff();", "return \"v07\";"), frozen);
+        // Current deliberately contains new default-off experiments; preserve the historical
+        // frozen policy bytes independently of those additions and of shared Params fields.
+        int policyStart = frozen.indexOf("static final class EvalBot implements Bot {");
+        int policyEnd = frozen.indexOf("static interface Bot {", policyStart);
+        assertTrue(policyStart >= 0 && policyEnd > policyStart);
+        assertEquals("b3765f55b30aa34f2aafdc5444c6fbb273f3f43415c45cf93b88c3ae6558759a",
+                FileMerger.sha256(frozen.substring(policyStart, policyEnd)));
+        assertTrue(current.contains("USE_ROLLOUT_ROUTE_DEPENDENCIES=false"));
+        assertTrue(current.contains("USE_ROLLOUT_NETWORK_CHORDS=false"));
         checkFrozenDecisions("current", true);
         checkFrozenDecisions("v07", true);
     }

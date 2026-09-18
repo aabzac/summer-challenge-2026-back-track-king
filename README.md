@@ -93,6 +93,19 @@ Historical `current?` experiment recipes must explicitly disable the newly selec
 See [rollout-policy.md](docs/rollout-policy.md) for the fixed route
 portfolio, limits, verification and results; `gradlew rolloutCheck` audits saved public positions.
 
+The latest [20-game v07 boss study](docs/boss-v07-loss-analysis.md) includes exact renders,
+multi-cell network steals and a stalled-sabotage case. Open its
+[filtered replay collection](http://127.0.0.1:7799/replays/rendered/cg/boss-v07-20.html)
+with the local replay server running. A separate [fresh arena opening survey](docs/arena-opening-survey-v1.md)
+describes protected ownership claims by leading players.
+
+Two independent default-off follow-ups are available through parameters:
+`current?USE_ROLLOUT_ROUTE_DEPENDENCIES=1` retains omitted rail-bridge dependencies in forecasts;
+`current?USE_ROLLOUT_NETWORK_CHORDS=1` adds affordable two/three-cell network rerouting only
+after ordinary and singleton comparisons finish. Their separate fixed protocols are
+[route-dependencies-v1](docs/route-dependencies-v1.md) and [network-chords-v1](docs/network-chords-v1.md).
+Neither flag is part of selected v07; benchmark verdicts are recorded in BOTS/DEVLOG.
+
 `current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
 cheap bypass of already damaged active income before ordinary construction. It checks at most
 3 regions x 4 directed connections, caps the route at 6 paint, and uses core income plus actual

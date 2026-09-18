@@ -1,0 +1,434 @@
+{
+  "method": "All nonempty subsets of accepted boss placements at exact pre-turn state. No simultaneous opposing construction or either sabotage; immediate core income difference only, not future win value.",
+  "cases": [
+    {
+      "gameId": 904554568,
+      "incomeBefore": [
+        132,
+        126
+      ],
+      "subsets": [
+        {
+          "income": [
+            132,
+            126
+          ],
+          "cells": [
+            [
+              22,
+              6
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 1
+        },
+        {
+          "income": [
+            132,
+            126
+          ],
+          "cells": [
+            [
+              21,
+              6
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 1
+        },
+        {
+          "income": [
+            132,
+            126
+          ],
+          "cells": [
+            [
+              22,
+              6
+            ],
+            [
+              21,
+              6
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 2
+        },
+        {
+          "income": [
+            132,
+            126
+          ],
+          "cells": [
+            [
+              20,
+              6
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 1
+        },
+        {
+          "income": [
+            132,
+            126
+          ],
+          "cells": [
+            [
+              22,
+              6
+            ],
+            [
+              20,
+              6
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 2
+        },
+        {
+          "income": [
+            132,
+            126
+          ],
+          "cells": [
+            [
+              21,
+              6
+            ],
+            [
+              20,
+              6
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 2
+        },
+        {
+          "income": [
+            64,
+            186
+          ],
+          "cells": [
+            [
+              22,
+              6
+            ],
+            [
+              21,
+              6
+            ],
+            [
+              20,
+              6
+            ]
+          ],
+          "bossNetGain": 128,
+          "paint": 3
+        }
+      ],
+      "boss": 1,
+      "turn": 26
+    },
+    {
+      "gameId": 904555027,
+      "incomeBefore": [
+        239,
+        191
+      ],
+      "subsets": [
+        {
+          "income": [
+            166,
+            229
+          ],
+          "cells": [
+            [
+              19,
+              10
+            ]
+          ],
+          "bossNetGain": 111,
+          "paint": 2
+        },
+        {
+          "income": [
+            230,
+            203
+          ],
+          "cells": [
+            [
+              1,
+              11
+            ]
+          ],
+          "bossNetGain": 21,
+          "paint": 1
+        },
+        {
+          "income": [
+            157,
+            241
+          ],
+          "cells": [
+            [
+              19,
+              10
+            ],
+            [
+              1,
+              11
+            ]
+          ],
+          "bossNetGain": 132,
+          "paint": 3
+        }
+      ],
+      "boss": 1,
+      "turn": 40
+    },
+    {
+      "gameId": 904555166,
+      "incomeBefore": [
+        82,
+        26
+      ],
+      "subsets": [
+        {
+          "income": [
+            17,
+            76
+          ],
+          "cells": [
+            [
+              11,
+              9
+            ]
+          ],
+          "bossNetGain": 115,
+          "paint": 2
+        },
+        {
+          "income": [
+            82,
+            26
+          ],
+          "cells": [
+            [
+              17,
+              7
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 1
+        },
+        {
+          "income": [
+            17,
+            76
+          ],
+          "cells": [
+            [
+              11,
+              9
+            ],
+            [
+              17,
+              7
+            ]
+          ],
+          "bossNetGain": 115,
+          "paint": 3
+        }
+      ],
+      "boss": 1,
+      "turn": 32
+    },
+    {
+      "gameId": 904553687,
+      "incomeBefore": [
+        181,
+        79
+      ],
+      "subsets": [
+        {
+          "income": [
+            148,
+            93
+          ],
+          "cells": [
+            [
+              18,
+              2
+            ]
+          ],
+          "bossNetGain": 47,
+          "paint": 1
+        },
+        {
+          "income": [
+            181,
+            79
+          ],
+          "cells": [
+            [
+              18,
+              3
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 1
+        },
+        {
+          "income": [
+            148,
+            93
+          ],
+          "cells": [
+            [
+              18,
+              2
+            ],
+            [
+              18,
+              3
+            ]
+          ],
+          "bossNetGain": 47,
+          "paint": 2
+        },
+        {
+          "income": [
+            177,
+            83
+          ],
+          "cells": [
+            [
+              7,
+              13
+            ]
+          ],
+          "bossNetGain": 8,
+          "paint": 1
+        },
+        {
+          "income": [
+            144,
+            97
+          ],
+          "cells": [
+            [
+              18,
+              2
+            ],
+            [
+              7,
+              13
+            ]
+          ],
+          "bossNetGain": 55,
+          "paint": 2
+        },
+        {
+          "income": [
+            177,
+            83
+          ],
+          "cells": [
+            [
+              18,
+              3
+            ],
+            [
+              7,
+              13
+            ]
+          ],
+          "bossNetGain": 8,
+          "paint": 2
+        },
+        {
+          "income": [
+            144,
+            97
+          ],
+          "cells": [
+            [
+              18,
+              2
+            ],
+            [
+              18,
+              3
+            ],
+            [
+              7,
+              13
+            ]
+          ],
+          "bossNetGain": 55,
+          "paint": 3
+        }
+      ],
+      "boss": 1,
+      "turn": 22
+    },
+    {
+      "gameId": 904555424,
+      "incomeBefore": [
+        169,
+        44
+      ],
+      "subsets": [
+        {
+          "income": [
+            169,
+            44
+          ],
+          "cells": [
+            [
+              18,
+              10
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 2
+        },
+        {
+          "income": [
+            169,
+            44
+          ],
+          "cells": [
+            [
+              18,
+              9
+            ]
+          ],
+          "bossNetGain": 0,
+          "paint": 1
+        },
+        {
+          "income": [
+            125,
+            78
+          ],
+          "cells": [
+            [
+              18,
+              10
+            ],
+            [
+              18,
+              9
+            ]
+          ],
+          "bossNetGain": 78,
+          "paint": 3
+        }
+      ],
+      "boss": 1,
+      "turn": 28
+    }
+  ]
+}

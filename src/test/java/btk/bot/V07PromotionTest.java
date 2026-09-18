@@ -31,8 +31,12 @@ class V07PromotionTest {
     @Test void mainCurrentAndFrozenMatchAllMeasuredCandidateParameters() throws Exception {
         var expected = confirmedParameters();
         assertEquals(98, expected.size());
-        for (String spec : new String[]{"current", "main", "v07"})
-            assertEquals(expected, BotFactory.configuration(spec), spec);
+        for (String spec : new String[]{"current", "main", "v07"}) {
+            var actual = new TreeMap<>(BotFactory.configuration(spec));
+            assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
+            assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
+            assertEquals(expected, actual, spec);
+        }
         assertEquals("true", expected.get("USE_ROLLOUT_QUICK_ROUTE"));
         assertEquals("true", expected.get("USE_ROLLOUT_NETWORK_AFTER_BASE"));
         assertEquals("false", expected.get("USE_ROLLOUT_NETWORK"));
@@ -50,7 +54,7 @@ class V07PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size(), fields, "the frozen snapshot records every effective field");
+        assertEquals(expected.size() + 2, fields, "only the two named inactive post-v07 fields are absent from the record");
         FrozenParams.applyTo("v07", dirty);
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());

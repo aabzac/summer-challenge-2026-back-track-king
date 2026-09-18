@@ -3111,3 +3111,69 @@ Completed outcome (fixed sample, no retuning):
   unverified. No v07 upload performed by the agent or reported at this checkpoint.
 - Decision: v07 selected locally and main Player ready. Commit this completed promotion under
   AGENTS #8; no push or arena upload.
+
+## 2026-09-18 - v07 boss diagnosis and route-dependencies-v1
+
+- User requested latest 20 v07 boss games plus renders, route-synergy audit and new strategy.
+  Exact user-attributed cohort 904553513..904555504: 6 wins, 14 losses, no failed/skipped actions.
+  Rendered all 20 and created replays/rendered/cg/boss-v07-20.html with curated turn jumps.
+- Joined existing routes already contribute through canonical whole-network desired-pair income.
+  Missing generation, rather than an omitted additive score term, limits that idea.
+- Confirmed compressed-route continuation mismatch: existing rail-block bridges can be omitted
+  from the stored paint recipe. Of 1581 states, 127 contain 561 repeated positive candidate
+  observations vulnerable to recorded destruction of a hidden bridge. These are not selected
+  mistakes or independent samples; actual recorded ink is diagnostic only.
+- Hypothesis: retain canonical completed-path region dependencies without changing route order,
+  cost or ranking, preventing disconnected simulated projects. Default-off flag implemented;
+  conservative witness can also abandon a project when another connected detour remains.
+- Fixed 300 vs v07, fresh seeds 190000..190149, paired sides, two workers, CG timing:
+  133-160-7 = 45.50%, diagnostic CI 34.41-56.59%, zero errors, 538.091 seconds.
+  Search maxima A/B 151/116 ms, slow 1/1, all preserved. STOP_SCREEN_300, NOT_PASSED.
+  No continuation, common-opponent stage, tuning/retry or process-readiness claim.
+- Shared-state audit: 30/146 changed dependency decisions; disabled current equals frozen v07
+  on all 146, every action legal, full input state unchanged. 286 Java and seven Python gate
+  tests pass; full 292 arena and 50 boss games reproduce exactly after new core chord helper.
+- Decision: retain dependency correction OFF. It fixes the constructed mechanism but does not
+  establish stronger play. Selected v07 and all original submission files remain unchanged.
+- Separate network-chords experiment uses only its own flag and fresh maps; it must receive
+  its own result. Boss examples have zero-gain subsets but +128/+78 complete-group income gain.
+- Additional observations: 28 new arena replays; protected multi-town opening attempts by
+  leaders, with separate accepted-owned/collision statistics. Stalled 904554072 t37 is an
+  independent opponent/continuation-model problem: dependency correction still chooses WAIT.
+- Evidence and reproducible tools: boss-v07-loss-analysis.md, arena-opening-survey-v1.md,
+  route-dependencies-v1.md and corresponding docs/evidence JSON files. No upload or push.
+
+
+## 2026-09-18 - network-chords-v1, completed independent v07 follow-up
+
+- Hypothesis: bounded connected two/three-cell actions recover network rerouting whose
+  incomplete subsets have zero immediate value. Boss examples 904554568 t26 and 904555424
+  t28 demonstrate +128/+78 net-income changes through the core, excluding simultaneous moves.
+- Implemented as USE_ROLLOUT_NETWORK_CHORDS, default OFF. Canonical allocation-free core
+  generator, paint <=3, both ends touch existing connectors, same-component rerouting allowed.
+  Only after complete ordinary and singleton comparisons; 24 ranked candidates, two positive
+  roots, existing 12-ms reserve, full simultaneous comparisons only. Dependency fix stays OFF.
+- Mechanism checks on 146 fixed public states: 15 changed/chord-selected decisions in 11 games,
+  all replacing construction v07 already selected. Nine extend its former singleton. Legal
+  actions and full input isolation; disabled current matches v07 in all 146. At the exact boss
+  triple, the bounded candidate retains the old singleton; no claim it reproduces every steal.
+- Fixed screen seeds 200000..200149: 163-137-0 / 300 = 54.3333%; separate fresh confirmation
+  seeds 201000..201499: 544-456-0 / 1000 = 54.40%, below 55%. NOT_PASSED. No pooling,
+  tuning/retry, common-opponent stage or exact-artifact process check after direct failure.
+  Both stages zero errors; timing maxima A/B 122/72 and 80/83 ms, slow 2/3 and 5/5, retained.
+  Elapsed 534.304 + 1764.208 seconds. Diagnostic confirmation map CI 48.33-60.47%.
+- Independent final audit passes: 1600 games / 800 fresh distinct maps across both experiments;
+  reports match frozen bots, parameters, exact seed pools, workers and timing. Source/classes,
+  prior evidence and all 26 original submission files unchanged; temporary wake requests
+  released. Audit also recomputes public-state membership and action-change counters.
+- 286 Java tests and seven gate tests pass; 292 arena and 50 boss replays reproduce exactly.
+  Browser QA confirms rendered gallery, six-win filter and exact turn jumps. Raw replay files
+  and regenerable renders remain gitignored; study tools and derived evidence are retained.
+- Decision: keep both new modes OFF and selected v07 unchanged. Chords show a modest observed
+  edge but do not satisfy the predeclared strength gate. No new process-readiness claim,
+  promotion, upload or push. Commit the completed experiments and documentation under AGENTS #8.
+- Separate next hypotheses are documented, not implemented: protected opening ownership across
+  multiple town approaches, and own WAIT without promised future sabotage in no-project states.
+  The latter isolates the recurring postponement in 904554072; replacing an opponent reply with
+  a passive scenario alone is not a demonstrated fix. See boss-v07-loss-analysis.md and
+  arena-opening-survey-v1.md for evidence, reproduction, limits and concrete next designs.

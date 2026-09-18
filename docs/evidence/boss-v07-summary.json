@@ -1,0 +1,799 @@
+{
+  "schemaVersion": 1,
+  "method": "Latest explicitly bounded 20 of 50 local canonical boss replays by numeric gameId. All validated exactly through btk.core, with raw SHA-256; version v07 is user attribution, not source verification. Arrays are P0/P1; me and boss.player identify roles. Turns zero-based. PlayerStudy counterfactuals hold recorded SAME-turn opponent actions fixed and reset to actual state after each turn. Build-only branches apply accepted placements of one player only, no opponent action or disruptions, and measure core income. Defense branches reuse CgBossDefenseStudy: only already threatened ACTIVE pair bypass paint, no inference of intent. All observations are descriptive; not independent trials, projected win rates, additive recoverable points or strength tests.",
+  "games": [
+    {
+      "gameId": 904553513,
+      "rawSha256": "d86cc80fa10eb3f7b28b5499a8a2779b1fb1280ee68735401642ebe5d5239e95",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        949,
+        1233
+      ],
+      "turns": 100,
+      "width": 21,
+      "height": 14,
+      "towns": 5,
+      "firstIncomeMeBoss": [
+        1,
+        1
+      ],
+      "paintMeBoss": [
+        70,
+        89
+      ],
+      "unusedCellsMeBoss": [
+        17,
+        11
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904553513.json"
+    },
+    {
+      "gameId": 904553687,
+      "rawSha256": "557c5ec8b5bbb0ceda64bcf80b1e228d791962c60d5679000d3e90004f690802",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        1958,
+        2159
+      ],
+      "turns": 100,
+      "width": 24,
+      "height": 16,
+      "towns": 7,
+      "firstIncomeMeBoss": [
+        2,
+        2
+      ],
+      "paintMeBoss": [
+        98,
+        130
+      ],
+      "unusedCellsMeBoss": [
+        13,
+        12
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904553687.json"
+    },
+    {
+      "gameId": 904553769,
+      "rawSha256": "5d3a98a2ce49ce2179100fba571b7d69fa2b027d4db01bedc0e67253084008f7",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "win",
+      "scoresMeBoss": [
+        1684,
+        1009
+      ],
+      "turns": 47,
+      "width": 24,
+      "height": 16,
+      "towns": 7,
+      "firstIncomeMeBoss": [
+        2,
+        2
+      ],
+      "paintMeBoss": [
+        110,
+        118
+      ],
+      "unusedCellsMeBoss": [
+        11,
+        18
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904553769.json"
+    },
+    {
+      "gameId": 904553911,
+      "rawSha256": "de767fec72285e068998086a40651256dc6b96f0654a842938315053f4581dc9",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        796,
+        1211
+      ],
+      "turns": 100,
+      "width": 21,
+      "height": 14,
+      "towns": 5,
+      "firstIncomeMeBoss": [
+        1,
+        4
+      ],
+      "paintMeBoss": [
+        81,
+        81
+      ],
+      "unusedCellsMeBoss": [
+        18,
+        11
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904553911.json"
+    },
+    {
+      "gameId": 904553970,
+      "rawSha256": "5de762b79fc4c089d95e105349679cb1844f4293a61509e35aa3d5f2c7143fad",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "win",
+      "scoresMeBoss": [
+        2722,
+        2561
+      ],
+      "turns": 46,
+      "width": 26,
+      "height": 17,
+      "towns": 8,
+      "firstIncomeMeBoss": [
+        1,
+        1
+      ],
+      "paintMeBoss": [
+        121,
+        131
+      ],
+      "unusedCellsMeBoss": [
+        8,
+        4
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904553970.json"
+    },
+    {
+      "gameId": 904554072,
+      "rawSha256": "28f83cbd948e89881605875dffd1856c4b24c8cdd3016ef7e733e7b876ff5466",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        1928,
+        9013
+      ],
+      "turns": 100,
+      "width": 21,
+      "height": 14,
+      "towns": 5,
+      "firstIncomeMeBoss": [
+        0,
+        4
+      ],
+      "paintMeBoss": [
+        50,
+        98
+      ],
+      "unusedCellsMeBoss": [
+        15,
+        16
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554072.json"
+    },
+    {
+      "gameId": 904554369,
+      "rawSha256": "82fcf8e0121bc492b3415b4343e0abe26b8b0d49b6e9b142b5e4ad04844b431a",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "win",
+      "scoresMeBoss": [
+        1023,
+        929
+      ],
+      "turns": 33,
+      "width": 21,
+      "height": 14,
+      "towns": 5,
+      "firstIncomeMeBoss": [
+        2,
+        3
+      ],
+      "paintMeBoss": [
+        75,
+        85
+      ],
+      "unusedCellsMeBoss": [
+        13,
+        15
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554369.json"
+    },
+    {
+      "gameId": 904554429,
+      "rawSha256": "606b131222426adda097d147b190b8b23ea26d29b29bbd984b17cb7ba151f47a",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        690,
+        1528
+      ],
+      "turns": 45,
+      "width": 21,
+      "height": 14,
+      "towns": 5,
+      "firstIncomeMeBoss": [
+        1,
+        3
+      ],
+      "paintMeBoss": [
+        80,
+        90
+      ],
+      "unusedCellsMeBoss": [
+        13,
+        7
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554429.json"
+    },
+    {
+      "gameId": 904554475,
+      "rawSha256": "1bb7180cd25527260be52137cf566d77c65858afa8aa037172bae8d3926d908f",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        1493,
+        2778
+      ],
+      "turns": 100,
+      "width": 24,
+      "height": 16,
+      "towns": 7,
+      "firstIncomeMeBoss": [
+        3,
+        1
+      ],
+      "paintMeBoss": [
+        99,
+        130
+      ],
+      "unusedCellsMeBoss": [
+        16,
+        11
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554475.json"
+    },
+    {
+      "gameId": 904554568,
+      "rawSha256": "dfd948472efabff1fc1a8ba732cd8f8ee0391633752c8ab92814fc4d066de9a6",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        3440,
+        4760
+      ],
+      "turns": 100,
+      "width": 26,
+      "height": 17,
+      "towns": 8,
+      "firstIncomeMeBoss": [
+        0,
+        1
+      ],
+      "paintMeBoss": [
+        107,
+        120
+      ],
+      "unusedCellsMeBoss": [
+        16,
+        18
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554568.json"
+    },
+    {
+      "gameId": 904554907,
+      "rawSha256": "bdaa551d6694448ea1d02c2a1bb4ad92107ee6b41e9b7b7cb476d1e0b4bd6dbc",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        904,
+        4151
+      ],
+      "turns": 100,
+      "width": 30,
+      "height": 20,
+      "towns": 12,
+      "firstIncomeMeBoss": [
+        3,
+        2
+      ],
+      "paintMeBoss": [
+        137,
+        178
+      ],
+      "unusedCellsMeBoss": [
+        50,
+        8
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554907.json"
+    },
+    {
+      "gameId": 904554986,
+      "rawSha256": "b2c92b8121a97c17eda8530e7561a24c8e8a815686f25fac632a1ff143170f61",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "win",
+      "scoresMeBoss": [
+        2830,
+        2058
+      ],
+      "turns": 54,
+      "width": 27,
+      "height": 18,
+      "towns": 9,
+      "firstIncomeMeBoss": [
+        2,
+        2
+      ],
+      "paintMeBoss": [
+        140,
+        156
+      ],
+      "unusedCellsMeBoss": [
+        24,
+        23
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904554986.json"
+    },
+    {
+      "gameId": 904555027,
+      "rawSha256": "7a41f5c4440e8e7f823bca56174e047ed26688a81eb90147855e378f7c5a138a",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        3987,
+        4724
+      ],
+      "turns": 100,
+      "width": 29,
+      "height": 19,
+      "towns": 11,
+      "firstIncomeMeBoss": [
+        5,
+        5
+      ],
+      "paintMeBoss": [
+        175,
+        203
+      ],
+      "unusedCellsMeBoss": [
+        16,
+        15
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555027.json"
+    },
+    {
+      "gameId": 904555096,
+      "rawSha256": "d0308aa175c8d5a9f40aa107b4c8b0c3368d21a232483eb437b781d5af3126cb",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        4723,
+        9064
+      ],
+      "turns": 69,
+      "width": 29,
+      "height": 19,
+      "towns": 11,
+      "firstIncomeMeBoss": [
+        2,
+        3
+      ],
+      "paintMeBoss": [
+        148,
+        187
+      ],
+      "unusedCellsMeBoss": [
+        25,
+        7
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555096.json"
+    },
+    {
+      "gameId": 904555166,
+      "rawSha256": "10bcbc5ea2eecb686fffa2af5530f1b204efaf4073c5539b2f4784961890f400",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        1524,
+        1874
+      ],
+      "turns": 100,
+      "width": 23,
+      "height": 15,
+      "towns": 6,
+      "firstIncomeMeBoss": [
+        1,
+        5
+      ],
+      "paintMeBoss": [
+        94,
+        108
+      ],
+      "unusedCellsMeBoss": [
+        14,
+        11
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555166.json"
+    },
+    {
+      "gameId": 904555229,
+      "rawSha256": "6cb52205dede935e152bbb656bca0a87da66b15f169086c2d05a6fda821d6782",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "win",
+      "scoresMeBoss": [
+        1875,
+        1289
+      ],
+      "turns": 49,
+      "width": 26,
+      "height": 17,
+      "towns": 8,
+      "firstIncomeMeBoss": [
+        1,
+        1
+      ],
+      "paintMeBoss": [
+        123,
+        138
+      ],
+      "unusedCellsMeBoss": [
+        24,
+        15
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555229.json"
+    },
+    {
+      "gameId": 904555291,
+      "rawSha256": "0b6e9730499f3c9c5987772fe94b97e0df44167f0b9a6f7e3abf1ef2e3a61e92",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        1470,
+        2944
+      ],
+      "turns": 100,
+      "width": 23,
+      "height": 15,
+      "towns": 6,
+      "firstIncomeMeBoss": [
+        5,
+        1
+      ],
+      "paintMeBoss": [
+        84,
+        100
+      ],
+      "unusedCellsMeBoss": [
+        10,
+        1
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555291.json"
+    },
+    {
+      "gameId": 904555363,
+      "rawSha256": "f63bb8798b5fdfdbd30ff3795d48513f42e2453c9eaa07afc05558055b3de8a8",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        930,
+        1152
+      ],
+      "turns": 100,
+      "width": 21,
+      "height": 14,
+      "towns": 5,
+      "firstIncomeMeBoss": [
+        4,
+        2
+      ],
+      "paintMeBoss": [
+        73,
+        100
+      ],
+      "unusedCellsMeBoss": [
+        4,
+        6
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555363.json"
+    },
+    {
+      "gameId": 904555424,
+      "rawSha256": "795be061ac65fb14335961fa306a2b2b16c79056560d0998511fc2f5ddbc2289",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "win",
+      "scoresMeBoss": [
+        2934,
+        2299
+      ],
+      "turns": 44,
+      "width": 24,
+      "height": 16,
+      "towns": 7,
+      "firstIncomeMeBoss": [
+        2,
+        2
+      ],
+      "paintMeBoss": [
+        101,
+        108
+      ],
+      "unusedCellsMeBoss": [
+        7,
+        10
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555424.json"
+    },
+    {
+      "gameId": 904555504,
+      "rawSha256": "fcb88235440d9d1cc7d94c4bbd2745d88a987d0f0added6779acb71c42217f37",
+      "version": "v07 (user-reported; source hash unavailable)",
+      "me": 0,
+      "boss": 1,
+      "bossName": "Boss 4",
+      "outcome": "loss",
+      "scoresMeBoss": [
+        2054,
+        2649
+      ],
+      "turns": 94,
+      "width": 24,
+      "height": 16,
+      "towns": 7,
+      "firstIncomeMeBoss": [
+        2,
+        2
+      ],
+      "paintMeBoss": [
+        106,
+        112
+      ],
+      "unusedCellsMeBoss": [
+        20,
+        10
+      ],
+      "failures": [
+        null,
+        null
+      ],
+      "rendered": "/replays/rendered/cg/bot/904555504.json"
+    }
+  ],
+  "cohorts": {
+    "win": {
+      "count": 6,
+      "turns": 273,
+      "scores": [
+        13068,
+        10145
+      ],
+      "paint": [
+        670,
+        736
+      ],
+      "cells": [
+        545,
+        552
+      ],
+      "placementTurns": [
+        230,
+        248
+      ],
+      "disruptTurns": [
+        247,
+        270
+      ],
+      "acceptedCellsNeverEarned": [
+        87,
+        85
+      ],
+      "skippedActions": [
+        0,
+        0
+      ],
+      "first20Paint": [
+        346,
+        360
+      ],
+      "bossMessages": {
+        "build": 192,
+        "fortify": 5,
+        "none": 25,
+        "steal": 51
+      }
+    },
+    "loss": {
+      "count": 14,
+      "turns": 1308,
+      "scores": [
+        26846,
+        49240
+      ],
+      "paint": [
+        1402,
+        1726
+      ],
+      "cells": [
+        1143,
+        1336
+      ],
+      "placementTurns": [
+        495,
+        583
+      ],
+      "disruptTurns": [
+        897,
+        864
+      ],
+      "acceptedCellsNeverEarned": [
+        247,
+        144
+      ],
+      "skippedActions": [
+        0,
+        0
+      ],
+      "first20Paint": [
+        797,
+        835
+      ],
+      "bossMessages": {
+        "build": 479,
+        "fortify": 8,
+        "none": 725,
+        "steal": 95,
+        "block": 1
+      }
+    }
+  },
+  "examples": [
+    {
+      "gameId": 904554568,
+      "turn": 26,
+      "label": "Три клетки меняют три маршрута",
+      "detail": "Каждая клетка и любая пара дают 0. Все три вместе: доход 132:126 → 64:186. +128 к перевесу босса за ход. Без одновременного хода и диверсий."
+    },
+    {
+      "gameId": 904555424,
+      "turn": 28,
+      "label": "Две клетки работают только вместе",
+      "detail": "По отдельности 0; вместе: доход 169:44 → 125:78, +78 к перевесу босса. Наша победа в этой игре: локальная находка не равна победной стратегии."
+    },
+    {
+      "gameId": 904554907,
+      "turn": 21,
+      "label": "Незаконченные проекты",
+      "detail": "За игру 50 из 113 наших принятых клеток ни разу не принесли очков; у босса 8 из 142. В t21 текущий доход 0:134."
+    },
+    {
+      "gameId": 904554072,
+      "turn": 37,
+      "label": "Диверсия постоянно откладывается",
+      "detail": "Доход 18:107; регион 29 можно уничтожить за 3 хода и получить 1:1 без завершения игры. v07 с полным поиском всё равно выбирает WAIT из-за моделируемого продолжения."
+    }
+  ]
+}
