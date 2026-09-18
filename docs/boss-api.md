@@ -10,16 +10,33 @@ source in the website IDE.** The importer preserves the original source before a
 API game; avoid editing that IDE in parallel with a batch. Selected local v07 and
 the existing `build/submit` artifact are separate from these isolated exports.
 
-Verified on 2026-09-18: **26 completed API games**, including six technical games
-and 20 games from the fixed comparison. The comparison is **interrupted at 20/80**:
-request 21 returned HTTP 422 without a recoverable game ID. The original error body
-was not retained. Later read-only authorization checks and a separate technical
-game succeeded; the cause of that earlier response remains unknown. The ten completed
-map pairs contain candidate 3/10 wins and v07 2/10 wins, with no strength verdict.
-See the [independent interruption audit](evidence/chords-boss-v1.interrupted.json).
-The commands below document that frozen plan; rerunning it will stop at unresolved
-slot 21 until its actual game ID can be recovered. Do not delete the intent or start
-a replacement sample as if it were a continuation.
+Verified on 2026-09-19 local: **86 completed API games**, including six technical games
+and all 80 comparison games (40 matched map/seat pairs). Chords won 9/40 (22.5%);
+v07 won 10/40 (25%). Discordant pairs were 5 candidate-only wins versus 6 control-only
+wins; exploratory one-sided exact paired p = 0.7255859375. This series provides no
+evidence of improvement and does not promote the candidate. All 80 comparison replays
+validate and render; no terminal failure summary was found in their canonical results.
+The [independent final audit](evidence/chords-boss-v1.amended.json) retains all 82
+comparison play attempts, including two excluded original requests. Rerunning this
+completed plan performs verification without creating additional games.
+
+The first 20 games were followed by HTTP 422 at slot 21 without a recoverable game ID.
+Its original response body was not retained and its cause remains unknown. The
+[interruption audit](evidence/chords-boss-v1.interrupted.json) is preserved unchanged.
+
+On 2026-09-19 local, the user authorized an explicitly amended completion of the
+same 40+40 schedule, excluding the unknown HTTP 422 attempt and making one new
+attempt for its original map/seat/build. See the separately registered
+[recovery amendment](chords-boss-v1-amendment-1.md). This exception preserves the
+original records and labels the resulting comparison exploratory.
+
+After 50 completed games, slot 51 received another HTTP 422 with explicit API code
+407: the temporary play limit was reached. [Amendment 2](chords-boss-v1-amendment-2.md)
+records a ten-minute pause and twenty-second spacing for the remaining games.
+The exact service window is unknown; the original slot-21 response remains unknown.
+Both separately authorized attempts succeeded, and the remaining schedule completed
+without further refusals. The local version folders contain 44 v07 and 42 current
+replays: 40 comparison games each, plus four and two technical games respectively.
 
 ## One-time connection
 
@@ -145,8 +162,43 @@ contain only the HTTP status, an optional restricted error code, and whether cre
 is uncertain. Do not publish the private response body: it can contain session data.
 An HTTP failure alone does not trigger another play, even when authorization is valid.
 
-For the frozen chords comparison, export a full audit only after all 80 games exist.
-An interruption has its own evidence file and never receives a significance verdict:
+The runner now defaults to a **20-second pause** between games (`--delay`), following
+the observed code-407 rate-limit refusal during faster runs. This is conservative
+pacing, not a verified official quota. When present, `Retry-After` is retained only
+as the parsed numeric `retryAfterSeconds`; no arbitrary header text is exported.
+An explicit rate-limit response calls for waiting, without changing accounts or
+sessions to evade the limit.
+
+For an explicitly authorized protocol amendment only, `authorize-retry` records
+permission for one new attempt after an unresolved HTTP 422. It makes no network
+request itself and refuses known game IDs/outcomes or an already authorized retry.
+The original intent/error remain immutable; the new request has separate evidence
+under the slot's `retry/` directory. A failed second attempt cannot trigger a third.
+
+```powershell
+python tools/boss_batch.py authorize-retry --plan build/cg-boss/chords-v07-boss-40/plan.json --slot 21 --amendment docs/chords-boss-v1-amendment-1.md
+python tools/boss_batch.py run --plan build/cg-boss/chords-v07-boss-40/plan.json --delay 20
+```
+
+Authorization for slots 21 and 51 has already been recorded; do not rerun it for
+this completed sample. For future amendments, run authorization once, before the new
+request; ordinary subsequent `run` commands
+resume known IDs/results. Reports distinguish analyzed games, excluded unknown
+attempts and an exploratory p-value after protocol amendment.
+
+After all 80 amended results exist, use the separate auditor. It also verifies
+that the original twenty results, protocol and interrupted evidence are unchanged:
+
+```powershell
+python tools/diagnostics/boss_batch_amended_audit.py --plan build/cg-boss/chords-v07-boss-40/plan.json
+```
+
+This writes `docs/evidence/chords-boss-v1.amended.json`; the original final-evidence
+path is reserved for an unamended completion and is not used for this run.
+
+The original interrupted audit was exported before resuming and remains archived.
+The first command below documents that historical export; it cannot be rerun against
+the completed amended sample. The gallery command can be rerun at any time:
 
 ```powershell
 python tools/diagnostics/boss_batch_audit.py --plan build/cg-boss/chords-v07-boss-40/plan.json --interrupted

@@ -405,7 +405,7 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
 - [x] Predeclare the separate 40-pair live-boss comparison, exact paired binary test and
       both artifact hashes. Historical 6/20 is not a known 30% population rate. See
       boss-evaluation-protocol.md, boss-api.md and chords-boss-v1.md.
-- [ ] Complete the fixed 80-game live-boss comparison, audit and render every saved result;
+- [x] Complete the fixed 80-game live-boss comparison under explicit amendments 1 and 2, audit and render every saved result;
       report this separate evidence without changing the failed local promotion verdict.
 
 
@@ -418,9 +418,22 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       The earlier response body/game ID is unavailable, so the original cause is unknown.
 - [x] Render and validate all 79 saved boss replays; publish a partial comparison gallery.
       Original build/submit files remain byte-identical, v07 selected, new flags OFF.
-- [ ] Recover the actual created game ID for slot 21, if it exists, before resuming the
+- [x] Superseded by user-authorized amendment 1: recover the actual game ID for slot 21 before resuming the
       same frozen 80-game plan. Never delete its intent, replace it or pool another sample.
       See evidence/chords-boss-v1.interrupted.json and boss-api.md.
 
 - [x] Final verification: 299 Java + 71 Python tests; incomplete canonical lookup recovery
       regression, 79/79 boss renders, exact statistical evidence reproduction.
+
+
+### Amended live-boss completion (2026-09-19)
+
+- [x] Honor the user's explicit exception for failed HTTP requests; complete the same
+      forty-map-pair schedule with separate authorized attempts at slots 21 and 51,
+      respecting the reported rate limit with a cooldown and longer pauses.
+- [x] Independently audit 80 analyzed games / 82 attempts, unchanged first fifty results,
+      original plan/source/configuration/process evidence, boss, maps and seats.
+- [x] Record candidate 9W/31L/0D / 40 = 22.5% outright wins; v07 10W/30L/0D / 40 = 25.0%; exploratory paired p = 0.725585938, with protocol deviation visible.
+- [x] Validate/render all 139 saved boss replays and refresh the eighty-game gallery.
+- [x] Verify 89 Python tests; keep all twenty-six submission files and policy defaults
+      unchanged. Original recovery-ID prerequisite is superseded by explicit amendment 1.

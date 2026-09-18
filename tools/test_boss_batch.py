@@ -106,6 +106,163 @@ class BossBatchTest(unittest.TestCase):
         batch.run(args)
         return raw
 
+    def fail_original_422(self, args):
+        self.transport.side_effect = ApiError('HTTP 422; details redacted', status=422, uncertain=True)
+        with self.assertRaises(ValueError):
+            batch.run(args)
+        self.transport.reset_mock()
+        return args.plan.parent / '0001'
+
+    def retry_args(self, args):
+        amendment = self.project / 'amendment.md'
+        amendment.write_bytes(b'Explicit authorization for one separate attempt.\r\nExploratory only.\r\n')
+        return SimpleNamespace(plan=args.plan, slot=1, amendment=amendment)
+
+    def test_retry_authorization_is_local_hash_bound_and_preserves_originals(self):
+        args, plan, _ = self.plan()
+        folder = self.fail_original_422(args)
+        paths = [args.plan, folder / 'intent.json', folder / 'api-error.json']
+        originals = [path.read_bytes() for path in paths]
+        retry = self.retry_args(args)
+        batch.authorize_retry(retry)
+        self.transport.assert_not_called()
+        authorization = batch.validate_retry_authorization(folder, plan, plan['slots'][0])
+        self.assertEqual(retry.amendment.read_bytes(), (folder / 'retry-amendment.txt').read_bytes())
+        self.assertEqual(batch.digest(retry.amendment.read_bytes()), authorization['amendmentSha256'])
+        self.assertEqual(originals, [path.read_bytes() for path in paths])
+        with self.assertRaises(ValueError):
+            batch.authorize_retry(retry)
+        self.assertFalse((folder / 'retry/intent.json').exists())
+
+    def test_retry_authorization_refuses_any_known_original_outcome_or_previous_retry(self):
+        args, _, _ = self.plan()
+        folder = self.fail_original_422(args)
+        retry = self.retry_args(args)
+        for name in ('play-response.json', 'recovered-game.json', 'canonical.json',
+                     'canonical-rejected-1.txt', 'result.json', 'retry-authorization.json', 'retry-amendment.txt'):
+            path = folder / name
+            path.write_text('{"gameId":1234}', encoding='utf-8')
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                batch.authorize_retry(retry)
+            path.unlink()
+        (folder / 'retry').mkdir()
+        with self.assertRaises(ValueError):
+            batch.authorize_retry(retry)
+        self.transport.assert_not_called()
+
+    def test_retry_authorization_refuses_wrong_error_status_or_known_error_game_id(self):
+        args, _, _ = self.plan()
+        folder = self.fail_original_422(args)
+        retry = self.retry_args(args)
+        path = folder / 'api-error.json'
+        original = batch.read_json(path)
+        for altered in ({**original, 'status': 503}, {**original, 'uncertain': False},
+                        {**original, 'details': {'gameId': 1234}}):
+            path.write_text(json.dumps(altered), encoding='utf-8')
+            with self.subTest(altered=altered), self.assertRaises(ValueError):
+                batch.authorize_retry(retry)
+        self.transport.assert_not_called()
+
+    def test_retry_success_binds_second_response_and_report_is_exploratory(self):
+        args, plan, _ = self.plan(comparison=True, design='matched', purpose='boss-screen')
+        folder = self.fail_original_422(args)
+        original_intent, original_error = (folder / 'intent.json').read_bytes(), (folder / 'api-error.json').read_bytes()
+        batch.authorize_retry(self.retry_args(args))
+        pending = batch.report(args)
+        self.assertEqual('amended exploratory', pending['protocolStatus'])
+        self.assertEqual(1, pending['attemptedRequests'])
+        self.assertEqual(1, pending['authorizedRetries'])
+        self.assertEqual(0, pending['completedRetryGames'])
+        responses = []
+        for index, slot in enumerate(plan['slots']):
+            marker = batch.read_json(Path(plan['builds'][slot['arm']]['directory']) / 'manifest.json')['marker']
+            responses.extend([json.dumps({'gameId': 1234 + index}),
+                              json.dumps(self.replay(slot, marker, 1234 + index, graphics='same paired map'))])
+        self.transport.side_effect = responses
+        batch.run(args)
+        result = batch.report(args)
+        self.assertTrue(result['complete'])
+        self.assertEqual(3, result['attemptedRequests'])
+        self.assertEqual(2, result['completedGames'])
+        self.assertEqual(1, result['completedRetryGames'])
+        self.assertEqual(1, len(result['excludedAttempts']))
+        self.assertNotIn('oneSidedP', result)
+        self.assertEqual(1.0, result['exploratoryOneSidedP'])
+        self.assertEqual('exploratory only; protocol amended', result['bossScreen'])
+        self.assertEqual(2, batch.read_json(folder / 'result.json')['requestAttempt'])
+        self.assertEqual(1234, batch.bound_game_id(folder, 2))
+        self.assertFalse((folder / 'play-response.json').exists())
+        self.assertEqual(original_intent, (folder / 'intent.json').read_bytes())
+        self.assertEqual(original_error, (folder / 'api-error.json').read_bytes())
+        self.transport.reset_mock()
+        batch.run(args)
+        self.transport.assert_not_called()
+
+    def test_uncertain_second_attempt_never_repeats_and_private_body_is_separate(self):
+        args, plan, _ = self.plan()
+        folder = self.fail_original_422(args)
+        retry = self.retry_args(args)
+        batch.authorize_retry(retry)
+        original_error = (folder / 'api-error.json').read_bytes()
+        self.transport.side_effect = ApiError('HTTP 422; redacted', status=422, uncertain=True,
+                                             response_bytes=b'private-second-attempt')
+        with self.assertRaises(ValueError):
+            batch.run(args)
+        self.assertEqual(1, self.transport.call_count)
+        self.assertEqual(original_error, (folder / 'api-error.json').read_bytes())
+        private = self.project / 'build/cg-boss/private/api-errors' / plan['planId'] / '0001-retry.bin'
+        self.assertEqual(b'private-second-attempt', private.read_bytes())
+        self.assertEqual(2, batch.report(args)['attemptedRequests'])
+        self.transport.reset_mock()
+        with self.assertRaises(ValueError):
+            batch.run(args)
+        with self.assertRaises(ValueError):
+            batch.authorize_retry(retry)
+        self.transport.assert_not_called()
+
+    def test_second_attempt_failed_canonical_lookup_resumes_lookup_only(self):
+        args, plan, marker = self.plan()
+        folder = self.fail_original_422(args)
+        batch.authorize_retry(self.retry_args(args))
+        self.transport.side_effect = [json.dumps({'gameId': 1234}), 'null']
+        with self.assertRaises(ValueError):
+            batch.run(args)
+        self.assertEqual(1, len(list((folder / 'retry').glob('canonical-rejected-*'))))
+        self.transport.reset_mock()
+        self.transport.side_effect = [json.dumps(self.replay(plan['slots'][0], marker))]
+        batch.run(args)
+        self.assertEqual(['gameResult/findByGameId'], [c.args[1] for c in self.transport.call_args_list])
+        self.assertTrue(batch.report(args)['complete'])
+
+    def test_retry_recovery_binds_only_the_second_intent(self):
+        args, plan, marker = self.plan()
+        folder = self.fail_original_422(args)
+        batch.authorize_retry(self.retry_args(args))
+        self.transport.side_effect = ApiError('Offline unknown second response', uncertain=True)
+        with self.assertRaises(ValueError):
+            batch.run(args)
+        self.transport.reset_mock()
+        batch.recover(SimpleNamespace(plan=args.plan, slot=1, game_id=1234))
+        self.transport.assert_not_called()
+        self.assertFalse((folder / 'recovered-game.json').exists())
+        self.assertEqual(2, batch.read_json(folder / 'retry/recovered-game.json')['requestAttempt'])
+        self.transport.side_effect = [json.dumps(self.replay(plan['slots'][0], marker))]
+        batch.run(args)
+        self.assertEqual(['gameResult/findByGameId'], [c.args[1] for c in self.transport.call_args_list])
+
+    def test_retry_tampering_blocks_before_network(self):
+        args, _, _ = self.plan()
+        folder = self.fail_original_422(args)
+        batch.authorize_retry(self.retry_args(args))
+        for name in ('intent.json', 'api-error.json', 'retry-amendment.txt', 'retry-authorization.json'):
+            path = folder / name
+            original = path.read_bytes()
+            path.write_bytes(original + b' ')
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                batch.run(args)
+            path.write_bytes(original)
+        self.transport.assert_not_called()
+
     def test_matched_schedule_is_reproducible_balanced_and_complete(self):
         slots = batch.make_schedule(40, 'matched', 42)
         self.assertEqual(slots, batch.make_schedule(40, 'matched', 42))
@@ -124,13 +281,14 @@ class BossBatchTest(unittest.TestCase):
         args, plan, _ = self.plan()
         secret = b'{"id":402,"message":"private diagnostic token example"}'
         self.transport.side_effect = ApiError('HTTP 422; details redacted', status=422,
-                                             uncertain=True, response_bytes=secret)
+                                             uncertain=True, response_bytes=secret, retry_after_seconds=600)
         with self.assertRaises(ValueError):
             batch.run(args)
         private = self.project / 'build/cg-boss/private/api-errors' / plan['planId'] / '0001.bin'
         self.assertEqual(secret, private.read_bytes())
         public = json.loads((args.plan.parent / '0001/api-error.json').read_bytes())
         self.assertEqual(402, public['apiCode'])
+        self.assertEqual(600, public['retryAfterSeconds'])
         self.assertNotIn('private diagnostic token example', json.dumps(public))
         self.assertNotIn('private diagnostic token example', self.output.getvalue())
 

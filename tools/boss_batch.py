@@ -1,7 +1,8 @@
 """Fixed, resumable CodinGame boss batches using an imported local API session.
 
 Only TestSession/play creates games. Its intent is persisted BEFORE sending, and
-an unknown result is never retried. Canonical lookup can safely resume by game ID.
+an unknown result is never automatically retried. One explicit HTTP-422 amendment
+can authorize a separately journaled second attempt. Canonical lookup safely resumes by game ID.
 No arena submissions. Playing saves the supplied code in the website's IDE.
 """
 from __future__ import annotations
@@ -338,9 +339,12 @@ def result_records(directory, plan):
             value = read_json(path)
             if value.get('planId') != plan['planId'] or value.get('slot') != slot:
                 raise ValueError('Result does not belong to this fixed plan')
-            validate_intent(path.parent, plan, slot)
-            if bound_game_id(path.parent) != value['outcome']['gameId']:
-                raise ValueError('Saved result is not the game returned for its original play intent')
+            attempt = value.get('requestAttempt', 1)
+            if (path.parent / 'retry-authorization.json').exists() and attempt != 2:
+                raise ValueError('An amended slot result must identify its second request attempt')
+            validate_intent(path.parent, plan, slot, attempt)
+            if bound_game_id(path.parent, attempt) != value['outcome']['gameId']:
+                raise ValueError('Saved result is not the game returned for its recorded play attempt')
             raw_path = (ROOT / value['capture']['path']).resolve()
             if not raw_path.is_relative_to((ROOT / 'replays/cg/boss').resolve()):
                 raise ValueError('Result capture path escapes the boss replay directory')
@@ -389,14 +393,96 @@ def check_sample(plan, records):
             by_pair[key] = current
 
 
-def validate_intent(folder, plan, slot):
-    previous = read_json(folder / 'intent.json')
+def attempt_folder(folder, request_attempt=1):
+    if type(request_attempt) is not int or request_attempt not in (1, 2):
+        raise ValueError('Only original or explicitly authorized second attempts are supported')
+    return folder if request_attempt == 1 else folder / 'retry'
+
+
+def validate_intent(folder, plan, slot, request_attempt=1):
+    previous = read_json(attempt_folder(folder, request_attempt) / 'intent.json')
     if (previous.get('planId') != plan['planId'] or previous.get('slot') != slot
-            or previous.get('sourceSha256') != plan['builds'][slot['arm']]['sourceSha256']):
+            or previous.get('sourceSha256') != plan['builds'][slot['arm']]['sourceSha256']
+            or type(previous.get('requestAttempt', 1)) is not int
+            or previous.get('requestAttempt', 1) != request_attempt):
         raise ValueError('Saved intent does not match the fixed request')
+    if request_attempt == 2:
+        validate_retry_authorization(folder, plan, slot)
+        if previous.get('retryAuthorizationSha256') != digest((folder / 'retry-authorization.json').read_bytes()):
+            raise ValueError('Retry intent is not bound to its explicit authorization')
 
 
-def bound_game_id(folder):
+def unknown_422_original(folder, plan, slot):
+    """Eligibility is deliberately narrow; any known original response forbids replacement."""
+    validate_intent(folder, plan, slot)
+    error = read_json(folder / 'api-error.json')
+    if (type(error.get('status')) is not int or error['status'] != 422
+            or error.get('uncertain') is not True):
+        raise ValueError('Only an uncertain HTTP 422 original attempt can be explicitly retried')
+    if any((folder / name).exists() for name in
+           ('play-response.json', 'recovered-game.json', 'canonical.json')) or any(folder.glob('canonical-rejected-*')):
+        raise ValueError('Original response or canonical evidence exists; retry is forbidden')
+
+    def has_game_id(value):
+        if isinstance(value, dict):
+            return 'gameId' in value or any(has_game_id(child) for child in value.values())
+        return isinstance(value, list) and any(has_game_id(child) for child in value)
+    if has_game_id(error) or has_game_id(read_json(folder / 'intent.json')):
+        raise ValueError('Original attempt has a recorded game ID; retry is forbidden')
+
+
+def validate_retry_authorization(folder, plan, slot):
+    authorization = read_json(folder / 'retry-authorization.json')
+    if (folder / 'retry-authorization.json').read_bytes() != encoded(authorization).encode('utf-8'):
+        raise ValueError('Retry authorization bytes changed after creation')
+    body = dict(authorization)
+    identity = body.pop('authorizationId', None)
+    if (body.get('schemaVersion') != 1 or body.get('planId') != plan['planId']
+            or body.get('slot') != slot or type(body.get('requestAttempt')) is not int
+            or body['requestAttempt'] != 2 or body.get('reasonCode') != 'EXCLUDE_UNKNOWN_HTTP_422'
+            or body.get('amendmentFile') != 'retry-amendment.txt' or digest(encoded(body)) != identity):
+        raise ValueError('Retry authorization changed or belongs to a different request')
+    unknown_422_original(folder, plan, slot)
+    for filename, key in (('intent.json', 'originalIntentSha256'), ('api-error.json', 'originalErrorSha256'),
+                          ('retry-amendment.txt', 'amendmentSha256')):
+        if digest((folder / filename).read_bytes()) != body.get(key):
+            raise ValueError('Original evidence or amendment changed after retry authorization')
+    return authorization
+
+
+def authorize_retry(args):
+    """Local explicit amendment, never a network operation or an automatic retry policy."""
+    directory, plan = load_plan(args.plan)
+    if type(args.slot) is not int or not 1 <= args.slot <= len(plan['slots']):
+        raise ValueError('Invalid slot')
+    amendment = Path(args.amendment).read_bytes()
+    if not amendment.strip() or len(amendment) > 1024 * 1024:
+        raise ValueError('A nonempty amendment of at most 1 MiB is required')
+    amendment.decode('utf-8')
+    with run_lock(directory):
+        folder = directory / f'{args.slot:04d}'
+        slot = plan['slots'][args.slot - 1]
+        if any((folder / name).exists() for name in
+               ('retry-authorization.json', 'retry-amendment.txt', 'retry', 'result.json')):
+            raise ValueError('A completed slot or previous retry authorization cannot be replaced')
+        unknown_422_original(folder, plan, slot)
+        authorization = {'schemaVersion': 1, 'planId': plan['planId'], 'slot': slot, 'requestAttempt': 2,
+                         'authorizedAt': now(), 'reasonCode': 'EXCLUDE_UNKNOWN_HTTP_422',
+                         'originalIntentSha256': digest((folder / 'intent.json').read_bytes()),
+                         'originalErrorSha256': digest((folder / 'api-error.json').read_bytes()),
+                         'amendmentFile': 'retry-amendment.txt', 'amendmentSha256': digest(amendment)}
+        authorization['authorizationId'] = digest(encoded(authorization))
+        with (folder / 'retry-amendment.txt').open('xb') as stream:
+            stream.write(amendment)
+            stream.flush()
+            import os
+            os.fsync(stream.fileno())
+        write_once(folder / 'retry-authorization.json', authorization)
+    print('One second attempt authorized locally. Original evidence retained; analysis is amended exploratory.')
+
+
+def bound_game_id(folder, request_attempt=1):
+    folder = attempt_folder(folder, request_attempt)
     response, recovered = folder / 'play-response.json', folder / 'recovered-game.json'
     received_id = None
     if response.exists():
@@ -424,6 +510,7 @@ def run(args):
         if artifact(value['directory'], value['processCheck']) != value:
             raise ValueError('Planned artifact or process-check evidence changed')
     with run_lock(directory):
+        retry_metadata(directory, plan)
         records = result_records(directory, plan)
         check_sample(plan, records)
         if any(not value['capture']['expectedBuildMatches'] for value in records):
@@ -434,35 +521,44 @@ def run(args):
                 continue
             folder.mkdir(exist_ok=True)
             build = plan['builds'][slot['arm']]
-            intent = folder / 'intent.json'
-            received = folder / 'play-response.json'
-            recovered = folder / 'recovered-game.json'
+            request_attempt = 2 if (folder / 'retry-authorization.json').exists() else 1
+            if request_attempt == 2:
+                validate_retry_authorization(folder, plan, slot)
+            request_folder = attempt_folder(folder, request_attempt)
+            request_folder.mkdir(exist_ok=True)
+            intent = request_folder / 'intent.json'
+            received = request_folder / 'play-response.json'
             if intent.exists():
-                validate_intent(folder, plan, slot)
+                validate_intent(folder, plan, slot, request_attempt)
             if not intent.exists():
-                if any(folder.iterdir()):
+                if any(request_folder.iterdir()):
                     raise ValueError('Slot evidence exists without its intent; refusing another play')
                 request = play_arguments(session, slot, build, plan['requestBossAgentId'])
-                write_once(intent, {'planId': plan['planId'], 'slot': slot, 'startedAt': now(),
-                                    'sourceSha256': build['sourceSha256']})
-                print(f"Starting {slot['slot']}/{len(plan['slots'])}: {slot['arm']} P{slot['seat']}", flush=True)
+                intent_record = {'planId': plan['planId'], 'slot': slot, 'startedAt': now(),
+                                 'sourceSha256': build['sourceSha256'], 'requestAttempt': request_attempt}
+                if request_attempt == 2:
+                    intent_record['retryAuthorizationSha256'] = digest((folder / 'retry-authorization.json').read_bytes())
+                write_once(intent, intent_record)
+                print(f"Starting {slot['slot']}/{len(plan['slots'])}: {slot['arm']} P{slot['seat']} attempt {request_attempt}", flush=True)
                 try:
                     response = call_service_text(session, 'TestSession/play', request, timeout=args.timeout)
                 except ApiError as error:
                     private_body = getattr(error, 'response_bytes', None)
                     if private_body:
-                        private_error = ROOT / 'build/cg-boss/private/api-errors' / plan['planId'] / f"{slot['slot']:04d}.bin"
+                        suffix = '-retry' if request_attempt == 2 else ''
+                        private_error = ROOT / 'build/cg-boss/private/api-errors' / plan['planId'] / f"{slot['slot']:04d}{suffix}.bin"
                         private_error.parent.mkdir(parents=True, exist_ok=True)
                         with private_error.open('xb') as stream:
                             stream.write(private_body)
-                    write_once(folder / 'api-error.json', {'status': error.status, 'uncertain': error.uncertain,
+                    write_once(request_folder / 'api-error.json', {'status': error.status, 'uncertain': error.uncertain,
                                                          'message': str(error), 'apiCode': getattr(error, 'error_code', None),
-                                                         'at': now()})
+                                                         'retryAfterSeconds': getattr(error, 'retry_after_seconds', None),
+                                                         'at': now(), 'requestAttempt': request_attempt})
                     raise ValueError('Play failed or its outcome is unknown. Intent retained; no automatic replay.') from None
                 with received.open('xb') as stream:
                     stream.write(response.encode('utf-8'))
-            game_id = bound_game_id(folder)
-            canonical = folder / 'canonical.json'
+            game_id = bound_game_id(folder, request_attempt)
+            canonical = request_folder / 'canonical.json'
             if not canonical.exists():
                 response = call_service_text(session, 'gameResult/findByGameId', [game_id, None], timeout=30)
                 try:
@@ -471,7 +567,7 @@ def run(args):
                         raise ValueError('Canonical lookup returned a different game')
                     completed_replay(raw)
                 except (ValueError, TypeError, KeyError):
-                    rejected = folder / f'canonical-rejected-{time.time_ns()}.txt'
+                    rejected = request_folder / f'canonical-rejected-{time.time_ns()}.txt'
                     rejected.write_text(response, encoding='utf-8')
                     raise ValueError('Canonical lookup is not ready/valid. Response retained; resume retries lookup only.') from None
                 with canonical.open('xb') as stream:
@@ -481,7 +577,7 @@ def run(args):
             capture = save_capture({'kind': 'boss', 'content': text, 'expectedBuildId': build['buildId']}, ROOT)
             value = outcome(json.loads(text), game_id, slot, plan['bossAgentId'])
             record = {'planId': plan['planId'], 'slot': slot, 'completedAt': now(),
-                      'capture': capture, 'outcome': value}
+                      'capture': capture, 'outcome': value, 'requestAttempt': request_attempt}
             write_once(folder / 'result.json', record)
             records.append(record)
             if not capture['expectedBuildMatches']:
@@ -499,22 +595,60 @@ def recover(args):
         raise ValueError('Invalid slot or game ID')
     with run_lock(directory):
         folder = directory / f'{args.slot:04d}'
-        if not (folder / 'intent.json').exists() or (folder / 'result.json').exists():
+        request_attempt = 2 if (folder / 'retry-authorization.json').exists() else 1
+        request_folder = attempt_folder(folder, request_attempt)
+        if not (request_folder / 'intent.json').exists() or (folder / 'result.json').exists():
             raise ValueError('Only an unresolved recorded play intent can be recovered')
-        validate_intent(folder, plan, plan['slots'][args.slot - 1])
-        if (folder / 'play-response.json').exists():
+        validate_intent(folder, plan, plan['slots'][args.slot - 1], request_attempt)
+        if (request_folder / 'play-response.json').exists():
             try:
-                received_id = find_game_id(read_json(folder / 'play-response.json'))
+                received_id = find_game_id(read_json(request_folder / 'play-response.json'))
             except ValueError:
                 received_id = None
             if received_id is not None and received_id != args.game_id:
                 raise ValueError('Recovery ID contradicts saved play response')
-        write_once(folder / 'recovered-game.json', {'gameId': args.game_id, 'recordedAt': now()})
+        write_once(request_folder / 'recovered-game.json', {'gameId': args.game_id, 'recordedAt': now(),
+                                                          'requestAttempt': request_attempt})
     print('Game ID recorded. Run resumes canonical lookup only; it will not repeat play.')
+
+
+def retry_metadata(directory, plan):
+    excluded, amendments = [], []
+    attempts, completed_retries = 0, 0
+    for slot in plan['slots']:
+        folder = directory / f"{slot['slot']:04d}"
+        attempts += int((folder / 'intent.json').exists())
+        authorization_path = folder / 'retry-authorization.json'
+        if not authorization_path.exists():
+            if (folder / 'retry').exists() or (folder / 'retry-amendment.txt').exists():
+                raise ValueError('Retry evidence exists without a complete explicit authorization')
+            continue
+        authorization = validate_retry_authorization(folder, plan, slot)
+        if (folder / 'retry/intent.json').exists():
+            validate_intent(folder, plan, slot, 2)
+            attempts += 1
+        elif (folder / 'retry').exists() and any((folder / 'retry').iterdir()):
+            raise ValueError('Retry evidence exists without its separately recorded intent')
+        if (folder / 'result.json').exists():
+            if read_json(folder / 'result.json').get('requestAttempt') != 2:
+                raise ValueError('An amended slot result must identify its second request attempt')
+            completed_retries += 1
+        excluded.append({'slot': slot['slot'], 'requestAttempt': 1, 'status': 422,
+                         'reason': 'unknown outcome; excluded by explicit amendment',
+                         'authorizationId': authorization['authorizationId'],
+                         'originalIntentSha256': authorization['originalIntentSha256'],
+                         'originalErrorSha256': authorization['originalErrorSha256']})
+        amendments.append({'slot': slot['slot'], 'authorizationId': authorization['authorizationId'],
+                           'amendmentSha256': authorization['amendmentSha256']})
+    return {'protocolStatus': 'amended exploratory' if amendments else 'original fixed',
+            'attemptedRequests': attempts, 'authorizedRetries': len(amendments),
+            'completedRetryGames': completed_retries, 'excludedAttempts': excluded,
+            'protocolAmendments': amendments}
 
 
 def report(args):
     directory, plan = load_plan(args.plan)
+    amendment_metadata = retry_metadata(directory, plan)
     records = result_records(directory, plan)
     issues = []
     try:
@@ -533,7 +667,8 @@ def report(args):
                      'halfWinScore': (wins + draws / 2) / count if count else None,
                      'winRateExact95': clopper_pearson(wins, count) if count else None}
     result = {'planId': plan['planId'], 'complete': complete, 'issues': issues, 'arms': arms,
-              'scheduledGames': len(plan['slots']), 'completedGames': len(records), 'promotion': False}
+              'scheduledGames': len(plan['slots']), 'completedGames': len(records), 'promotion': False,
+              **amendment_metadata}
     if complete and 'control' in arms and plan['purpose'] != 'smoke':
         if plan['design'] == 'matched':
             pairs = {}
@@ -545,7 +680,10 @@ def report(args):
             result['discordances'] = {'candidateOnlyWin': b, 'controlOnlyWin': c}
         else:
             p = fisher_p(arms['candidate']['wins'], arms['candidate']['games'], arms['control']['wins'], arms['control']['games'])
-        result.update(oneSidedP=p, bossScreen='evidence of improvement' if p <= plan['alpha'] else 'inconclusive for improvement')
+        if amendment_metadata['authorizedRetries']:
+            result.update(exploratoryOneSidedP=p, bossScreen='exploratory only; protocol amended')
+        else:
+            result.update(oneSidedP=p, bossScreen='evidence of improvement' if p <= plan['alpha'] else 'inconclusive for improvement')
     print(encoded(result), end='')
     return result
 
@@ -570,13 +708,18 @@ def main():
     execute.add_argument('--plan', type=Path, required=True)
     execute.add_argument('--session', type=Path, default=DEFAULT_SESSION_PATH)
     execute.add_argument('--timeout', type=float, default=120)
-    execute.add_argument('--delay', type=float, default=2)
+    execute.add_argument('--delay', type=float, default=20, help='Pause between games in seconds (default: 20)')
     execute.set_defaults(function=run)
     resume = sub.add_parser('recover', help='Attach a known created game ID to an uncertain attempt; no play')
     resume.add_argument('--plan', type=Path, required=True)
     resume.add_argument('--slot', type=int, required=True)
     resume.add_argument('--game-id', type=int, required=True)
     resume.set_defaults(function=recover)
+    retry = sub.add_parser('authorize-retry', help='Authorize one separate attempt after unknown HTTP 422; no HTTP')
+    retry.add_argument('--plan', type=Path, required=True)
+    retry.add_argument('--slot', type=int, required=True)
+    retry.add_argument('--amendment', type=Path, required=True)
+    retry.set_defaults(function=authorize_retry)
     summary = sub.add_parser('report', help='Read saved results; compute a test only for a complete valid sample')
     summary.add_argument('--plan', type=Path, required=True)
     summary.set_defaults(function=report)

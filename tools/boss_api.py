@@ -12,6 +12,8 @@ import argparse
 import base64
 import copy
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import hashlib
 import http.client
 import json
@@ -49,7 +51,8 @@ class SessionError(ValueError):
 
 class ApiError(RuntimeError):
     def __init__(self, message: str, *, status: int | None = None, uncertain: bool = False,
-                 response_bytes: bytes = b"", body_truncated: bool = False):
+                 response_bytes: bytes = b"", body_truncated: bool = False,
+                 retry_after_seconds: int | None = None):
         super().__init__(message)
         self.status = status
         self.uncertain = uncertain
@@ -58,6 +61,8 @@ class ApiError(RuntimeError):
         self._response_bytes = response_bytes[:MAX_ERROR_BYTES]
         self.body_truncated = body_truncated or len(response_bytes) > MAX_ERROR_BYTES
         self.error_code = _safe_error_code(self._response_bytes)
+        self.retry_after_seconds = (retry_after_seconds if type(retry_after_seconds) is int
+                                    and retry_after_seconds >= 0 else None)
 
     @property
     def response_bytes(self) -> bytes:
@@ -77,6 +82,24 @@ def _safe_error_code(raw: bytes) -> int | str | None:
     if isinstance(value, str) and re.fullmatch(r"[A-Z][A-Z0-9_]{0,63}", value):
         return value
     return None
+
+
+def _parse_retry_after(value: Any, *, received_at: datetime | None = None) -> int | None:
+    """Return only a delay, never the raw header; this does not schedule any retry."""
+    if not isinstance(value, str) or len(value) > 128 or any(ord(c) < 32 or ord(c) > 126 for c in value):
+        return None
+    value = value.strip()
+    if re.fullmatch(r"[0-9]{1,10}", value):
+        return int(value)
+    try:
+        deadline = parsedate_to_datetime(value)
+        if deadline.tzinfo is None:
+            # Obsolete HTTP asctime dates also mean UTC.
+            deadline = deadline.replace(tzinfo=timezone.utc)
+        received_at = received_at or datetime.now(timezone.utc)
+        return max(0, math.ceil((deadline - received_at).total_seconds()))
+    except (TypeError, ValueError, OverflowError):
+        return None
 
 
 @dataclass(repr=False)
@@ -376,6 +399,7 @@ def call_service_text(session: Session, service: str, args: list, timeout: float
     except urllib.error.HTTPError as error:
         # Do not include the URL, headers, Location, body, reason, or request data.
         status = int(error.code)
+        retry_after = _parse_retry_after(error.headers.get('Retry-After')) if error.headers is not None else None
         try:
             error_body = error.read(MAX_ERROR_BYTES + 1)
         except (OSError, http.client.HTTPException):
@@ -383,7 +407,8 @@ def call_service_text(session: Session, service: str, args: list, timeout: float
         finally:
             error.close()
         raise ApiError(f"HTTP {status}; response details redacted; request not repeated",
-                       status=status, uncertain=uncertain, response_bytes=error_body) from None
+                       status=status, uncertain=uncertain, response_bytes=error_body,
+                       retry_after_seconds=retry_after) from None
     except (urllib.error.URLError, OSError, http.client.HTTPException, ValueError, UnicodeError):
         raise ApiError("Network or JSON response failure; details redacted; request not repeated",
                        uncertain=uncertain) from None

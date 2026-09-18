@@ -3261,3 +3261,42 @@ Completed outcome (fixed sample, no retuning):
   immutable capture. The original interrupted screen is unaffected.
 - Preserve the byte-hashed protocol/auditor/evidence through Git line-ending conversion
   using explicit attributes; credentials and all private diagnostics remain ignored.
+
+
+## 2026-09-19 - complete the explicitly amended 40-pair boss comparison
+
+- User explicitly requested excluding the failed request and completing the schedule;
+  clarified forty games per strategy (eighty total). Registered separate amendment 1
+  before resuming, preserving the prospective protocol/plan and interrupted audit bytes.
+- Added explicit authorize-retry for an unresolved HTTP 422 only. Original intent and
+  error stay immutable; a second request has separate evidence and authorization hashes.
+  Known outcomes cannot be replaced, and an uncertain second attempt is not retried.
+  The report distinguishes analyzed games, attempted requests and amended interpretation.
+- One new attempt for slot 21 completed as game 904855281. Slots 22 through 50 then ran
+  sequentially with five-second pauses. Slot 51 received HTTP 422/API code 407 and
+  the explicit message that the temporary play limit was reached. The response was
+  retained privately and its safe code/message/hash published in rate-limit evidence.
+- Registered amendment 2 before another game: wait at least ten minutes after the
+  refusal, retry slot 51 once on its original build/map/seat, then slots 52 through 80
+  with twenty-second inter-game pauses. No alternate account/session, map replacement,
+  tuning, outcome-driven stopping or sample extension. Both excluded requests remain
+  recorded; the earlier slot-21 cause is still unknown.
+- Final results: candidate 9W/31L/0D / 40 = 22.5% outright wins; v07 10W/30L/0D / 40 = 25.0%. Candidate-only winning pairs 5, control-only winning pairs
+  6; exploratory exact one-sided p = 0.725585938. inconclusive for improvement.
+  Draws are non-wins for this test; W/L/D and half-win scores remain in the evidence.
+- Independent final audit recomputes canonical outcomes and checks all forty matched
+  maps, same boss/league, original twenty results, artifact/process hashes, amendment,
+  exactly eighty analyzed game IDs and eighty-two intents. It also excludes the separate
+  post-plan diagnostic map and verifies all twenty-six original submission files.
+  Original protocol/interrupted evidence/old auditor and first fifty result bytes remain
+  unchanged; the new auditor
+  exports a separate amended evidence file, never a replacement for the original audit.
+- Verification: 89 Python tests across API/batch/capture/gate/original-audit/amended-audit
+  suites pass (33 batch and seven amended-audit tests). Java code is unchanged from the
+  previously passing 299 tests. All 139 saved boss replays validate and render exactly.
+  Comparison gallery links all eighty analyzed games and marks both excluded HTTP attempts.
+- The version folders now contain 44 v07 and 42 current replays: forty comparison games
+  each plus four/two technical games. Six technical games are excluded from this screen.
+- Decision: record the exploratory result and preserve v07 selection/default-off flags.
+  No promotion, arena submission or push. The earlier local 54.4% confirmation remains
+  below its 55% gate. Both interrupted and amended evidence are retained.

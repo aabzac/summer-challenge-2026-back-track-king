@@ -1,0 +1,20 @@
+{
+  "atUtc": "2026-09-18T21:54:20.423603+00:00",
+  "chosenCooldownSeconds": 600,
+  "errorSha256": "0fe8a75b2aef4b9e74de0d8c2497d9c412678aacd3d2c943500d752c9256e6b5",
+  "httpStatus": 422,
+  "intentSha256": "265f94235e1860b32ef9eb903d7cd1f75802e74a42a8012d14e773704ecadae9",
+  "interpretation": "Explicit server-reported temporary play-rate limit. Exact period is unknown; no game result or ID returned.",
+  "nextInterGamePauseSeconds": 20,
+  "noNewPlayBeforeUtc": "2026-09-18T22:04:21+00:00",
+  "planId": "3d951ec7e4ad1878e4e135d11b9f3a74b4611964074918c0d223cc06e90ee24b",
+  "requestAttempt": 1,
+  "responseBytes": 75,
+  "responseSha256": "d2b88cae2c0bf5ccbd507ae4aef0d80acf708549f9453f9abadd82fe54724dd5",
+  "schemaVersion": 1,
+  "serverResponse": {
+    "id": 407,
+    "message": "You reached the limit of plays for a period of time."
+  },
+  "slot": 51
+}

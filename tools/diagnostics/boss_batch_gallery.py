@@ -104,10 +104,39 @@ def html_gallery(plan, records, summary, rendered_root):
     counts['all'] = len(pairs)
     finished_pairs = len(pairs) - counts['pending']
     complete = summary['complete'] is True
-    progress = f'{len(records)} / {len(plan["slots"])} игр · {finished_pairs} / {len(pairs)} пар'
-    status = 'Выборка завершена' if complete else 'Выборка не завершена'
+    amended = summary.get('protocolStatus', 'original fixed') == 'amended exploratory'
+    excluded = summary.get('excludedAttempts', [])
+    if (summary.get('protocolStatus', 'original fixed') not in ('original fixed', 'amended exploratory')
+            or not isinstance(excluded, list) or bool(excluded) != amended):
+        raise ValueError('Unsupported protocol amendment report')
+    attempts = summary.get('attemptedRequests')
+    if attempts is not None and (type(attempts) is not int or attempts < len(records) + len(excluded)):
+        raise ValueError('Invalid attempted-request count')
+    progress = f'{len(records)} / {len(plan["slots"])} учтённых игр · {finished_pairs} / {len(pairs)} пар'
+    if attempts is not None:
+        progress += f' · попыток: {attempts}'
+    status = ('Выборка завершена по изменённому протоколу' if amended else 'Выборка завершена') if complete else 'Выборка не завершена'
     status_detail = ('Все запланированные результаты сохранены и проверены.' if complete
                      else 'Это промежуточный снимок. Итогового вывода до полной выборки нет; страница не обновляется автоматически.')
+    amendment_notice = ''
+    if amended:
+        excluded_labels = []
+        for attempt in excluded:
+            if (not isinstance(attempt, dict) or type(attempt.get('slot')) is not int
+                    or attempt.get('requestAttempt') != 1 or attempt.get('status') != 422):
+                raise ValueError('Unsupported excluded-attempt evidence')
+            excluded_labels.append(f'слот {attempt["slot"]}, HTTP {attempt["status"]}')
+        retry_count = summary.get('completedRetryGames')
+        authorized = summary.get('authorizedRetries')
+        if (type(retry_count) is not int or type(authorized) is not int
+                or not 0 <= retry_count <= authorized or authorized != len(excluded) or attempts is None):
+            raise ValueError('Invalid authorized-retry counts')
+        amendment_notice = (f'<aside class="amendment"><strong>Протокол изменён после начала серии</strong>'
+                            f'<p>Исключены запросы с неизвестным результатом: '
+                            f'{"; ".join(excluded_labels)}. Для повторного запуска сохранены та же карта, сторона и сборка. '
+                            f'Исходные записи об ошибках сохранены.</p><p>Исключённых попыток: {len(excluded)}. '
+                            f'Разрешено повторов: {authorized}; сохранено результатов повторов: {retry_count}. '
+                            f'Статистика этой серии имеет исследовательский характер.</p></aside>')
     cards = []
     for arm, label in [('candidate', 'Кандидат'), ('control', 'Контроль')]:
         stats = summary['arms'][arm]
@@ -117,7 +146,11 @@ def html_gallery(plan, records, summary, rendered_root):
                      f'<p>{stats["wins"]} побед · {stats["draws"]} ничьих · {stats["losses"]} поражений</p>'
                      f'<small>{escape(build["strategy"])}<br>Сборка {escape(build["buildId"][:12])}</small></article>')
     statistical_note = ''
-    if complete and 'oneSidedP' in summary:
+    if complete and amended and 'exploratoryOneSidedP' in summary:
+        statistical_note = (f'<p>Исследовательский односторонний точный парный тест: '
+                            f'p = {summary["exploratoryOneSidedP"]:.4g}. '
+                            f'Это описательный результат серии с изменённым протоколом.</p>')
+    elif complete and not amended and 'oneSidedP' in summary:
         meaning = ('Есть статистическое свидетельство улучшения.'
                    if summary['bossScreen'] == 'evidence of improvement'
                    else 'Статистического свидетельства улучшения недостаточно.')
@@ -137,6 +170,7 @@ h1{font-size:clamp(26px,4vw,38px);letter-spacing:-.025em;margin:9px 0 12px}h2{fo
 p{line-height:1.6;color:#b2bfce;margin:7px 0}.eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#9db2c9}
 .status{display:inline-block;background:#263e41;color:#8fe3d2;padding:6px 10px;border-radius:6px;font-size:13px}
 .incomplete{background:#453921;color:#f1cf86}.progress{margin-left:10px;color:#c4d2e1;font-size:13px}
+.amendment{margin-top:20px;border:1px solid #665431;border-radius:9px;padding:16px 20px;background:#2b261c}.amendment strong{color:#f1cf86}.amendment p{font-size:13px;color:#d7c9b0}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:25px 0 20px}article{padding:22px;background:#19222d;border:1px solid #2e3d4e;border-radius:12px}
 small{display:block;font-size:12px;line-height:1.55;color:#92a6bd;overflow-wrap:anywhere}article small{margin-top:14px}
 .filters{display:flex;flex-wrap:wrap;gap:7px;margin:26px 0 12px}button{font:inherit;font-size:13px;background:#1a2532;color:#c5d3e3;border:1px solid #35475b;border-radius:7px;padding:9px 12px;cursor:pointer}
@@ -150,8 +184,9 @@ tbody td{width:37%;padding:8px 12px}tbody tr+tr{border-top:1px solid #293646}tbo
 @media(max-width:640px){main{padding:22px 12px}.cards{gap:10px}article{padding:15px}.progress{display:block;margin:10px 0 0}h2{font-size:24px}}
 </style></head><body><main>
 ''' + f'''<header><span class="eyebrow">Back Track King · парные игры с боссом</span>
-<h1>Кандидат против контроля</h1><span class="status{'' if complete else ' incomplete'}">{status}</span>
+<h1>Кандидат против контроля</h1><span class="status{'' if complete and not amended else ' incomplete'}">{status}</span>
 <span class="progress">{progress}</span><p>{status_detail}</p></header>
+{amendment_notice}
 <section class="cards" aria-label="Результаты стратегий">{''.join(cards)}</section>
 {statistical_note}
 <p class="caption">В каждой строке одна карта и одинаковая сторона. Счёт указан как «наш бот : босс».

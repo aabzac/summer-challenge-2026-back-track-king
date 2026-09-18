@@ -908,3 +908,23 @@ verification does not alter network-chords-v1's failed local strength gate.
 [Frozen protocol](chords-boss-v1.md), [independent interruption evidence](evidence/chords-boss-v1.interrupted.json),
 [API runner and recovery](boss-api.md). Both flags remain OFF; selected v07 and all
 26 original submission files are unchanged. No arena submission or push.
+
+
+## Completed amended boss comparison (2026-09-19)
+
+**AMENDED_EXPLORATORY_COMPLETE**: candidate 9W/31L/0D / 40 = 22.5% outright wins; v07 10W/30L/0D / 40 = 25.0%.
+Forty matched map/seat pairs, 80 analyzed games and 82 play attempts. The original
+unknown HTTP 422 at slot 21 is excluded under the user's explicit amendment; its
+one separately recorded new attempt uses the original source/seed/seat/boss.
+Slot 51 was subsequently refused with explicit API rate-limit code 407. A second
+amendment records the cooldown, longer inter-game pause and one new attempt there.
+Discordant pairs: candidate-only wins 5, control-only wins 6; exploratory
+one-sided exact paired p = 0.725585938. Interpretation: inconclusive for improvement.
+
+The protocol change followed the first twenty observed results; the original
+creation outcome remains unknown. This is exploratory evidence, not an unamended
+confirmation or strategy promotion. Original local gate remains NOT_PASSED.
+All original submission artifacts, frozen policy source and default-off flags remain
+unchanged. [Amendment 1](chords-boss-v1-amendment-1.md),
+[rate-limit amendment](chords-boss-v1-amendment-2.md),
+[independent final evidence](evidence/chords-boss-v1.amended.json).

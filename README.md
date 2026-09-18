@@ -236,10 +236,14 @@ full game schedule, then run it without a browser or save server. It preserves c
 replays, verifies build/seed/seat/boss identity and resumes read-only retrieval after a lost
 response without repeating uncertain game creation. See the [fixed sample-size protocol](docs/boss-evaluation-protocol.md)
 and the separate [planned 40-pair chords comparison](docs/chords-boss-v1.md).
-That comparison is **incomplete: 20 of 80 games saved**. Slot 21 returned HTTP 422 with an
-uncertain outcome; it was not replayed. The [partial gallery](http://127.0.0.1:7799/replays/rendered/cg/chords-boss-v1.html)
-contains those 20 games and makes no final comparison claim. The later successful v07 diagnostic
-game `904843581` is separate from this fixed sample and does not resolve the uncertain slot.
+That comparison is **complete under explicit amendments: 80 games, 40 per strategy**.
+Chords won 9/40 (22.5%); v07 won 10/40 (25%). The exploratory paired test provides no
+evidence of improvement. Two failed HTTP requests were excluded and retried separately;
+all 82 attempts remain recorded. See [amendment 1](docs/chords-boss-v1-amendment-1.md),
+[the rate-limit amendment](docs/chords-boss-v1-amendment-2.md), the
+[independent final audit](docs/evidence/chords-boss-v1.amended.json) and the
+[80-game gallery](http://127.0.0.1:7799/replays/rendered/cg/chords-boss-v1.html).
+Six technical games, including diagnostic `904843581`, remain outside the comparison.
 
 `cgBossStudy` diagnoses defensive building on an explicit boss sample, correctly reading either
 the `arenaboss` marker or legacy id `-2`. It validates every game first and records per-turn paint

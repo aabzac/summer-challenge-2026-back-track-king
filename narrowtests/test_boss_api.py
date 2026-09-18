@@ -1,6 +1,7 @@
 """Offline contract/security tests. No browser, network, CodinGame account or matches."""
 
 import copy
+from datetime import datetime, timezone
 import hashlib
 import io
 import json
@@ -271,6 +272,37 @@ class BossApiTest(unittest.TestCase):
         self.assertEqual(api.MAX_ERROR_BYTES, len(raised.exception.response_bytes))
         self.assertTrue(raised.exception.body_truncated)
         self.assertIsNone(raised.exception.error_code)
+
+    def test_retry_after_delta_is_retained_without_retrying_or_logging_header(self):
+        session = self.session()
+        opener = mock.Mock()
+        opener.open.side_effect = urllib.error.HTTPError(
+            api.ORIGIN + '/services/TestSession/play', 422, '', {'Retry-After': ' 600 '},
+            io.BytesIO(b'{"id":407}'))
+        with mock.patch.object(api.urllib.request, 'build_opener', return_value=opener):
+            with self.assertRaises(api.ApiError) as raised:
+                api.call_service_text(session, api.PLAY_SERVICE, self.play_args(session))
+        self.assertEqual(600, raised.exception.retry_after_seconds)
+        self.assertTrue(raised.exception.uncertain)
+        self.assertEqual(1, opener.open.call_count)
+        self.assertNotIn('600', str(raised.exception) + repr(raised.exception))
+        self.assertEqual(0, api._parse_retry_after('0'))
+
+    def test_retry_after_http_dates_use_utc_and_round_up_remaining_seconds(self):
+        received = datetime(2026, 9, 18, 22, 0, 0, 500000, tzinfo=timezone.utc)
+        for value in ('Fri, 18 Sep 2026 22:10:00 GMT', 'Friday, 18-Sep-26 22:10:00 GMT',
+                      'Fri Sep 18 22:10:00 2026'):
+            self.assertEqual(600, api._parse_retry_after(value, received_at=received))
+        self.assertEqual(0, api._parse_retry_after('Fri, 18 Sep 2026 21:59:00 GMT', received_at=received))
+
+    def test_retry_after_invalid_headers_are_not_exposed_as_metadata(self):
+        for value in (None, 600, True, '', '-1', '1.5', 'NaN', '99999999999',
+                      FAKE_COOKIE, '600\r\nSet-Cookie: ' + FAKE_COOKIE, 'x' * 129):
+            with self.subTest(value_type=type(value).__name__):
+                self.assertIsNone(api._parse_retry_after(value))
+        for value in (-1, True, '600'):
+            error = api.ApiError('HTTP error; redacted', retry_after_seconds=value)
+            self.assertIsNone(error.retry_after_seconds)
 
     def test_malformed_json_failure_is_uncertain_and_redacted(self):
         session = self.session()
