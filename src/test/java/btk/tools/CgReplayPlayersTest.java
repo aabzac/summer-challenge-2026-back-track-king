@@ -74,7 +74,7 @@ class CgReplayPlayersTest {
         assertEquals("Boss", replay.nicknames[1]);
         assertTrue(replay.isBossGame());
         replay.gameId = 123;
-        assertEquals(Path.of("rendered", "bot", "123.json"),
+        assertEquals(Path.of("rendered", "boss", "123.json"),
                 CgRender.outputPath(Path.of("rendered"), replay));
     }
 
@@ -98,7 +98,7 @@ class CgReplayPlayersTest {
             assertEquals("aabzac", replay.nicknames[1 - slot]);
             assertTrue(replay.isBossGame());
             replay.gameId = 904146009;
-            assertEquals(Path.of("rendered", "bot", "904146009.json"),
+            assertEquals(Path.of("rendered", "boss", "904146009.json"),
                     CgRender.outputPath(Path.of("rendered"), replay));
         }
     }

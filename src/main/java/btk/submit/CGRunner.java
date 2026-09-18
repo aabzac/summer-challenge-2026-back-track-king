@@ -34,6 +34,8 @@ public class CGRunner {
     public static final boolean LOG_IO_DEFAULT = false;
     /** Warn on stderr when our connection model disagrees with the server. */
     public static final boolean CHECK_CONNECTIONS = true;
+    /** Replaced by FileMerger; empty for ordinary in-process development builds. */
+    public static final String BUILD_MARKER = "";
 
     public static void main(String[] args) {
         try {
@@ -69,7 +71,7 @@ public class CGRunner {
             }
             long usedMs = (System.nanoTime() - t0) / 1_000_000L;
             List<Action> actions = bot.play(s.copy(), myId, Math.max(5, budget - usedMs));
-            String line = Action.format(actions);
+            String line = formatOutput(actions, turn, BUILD_MARKER);
             out.println(line);
             out.flush();
             if (logIo) err.println("[P" + myId + ":OUT] " + line);
@@ -77,6 +79,25 @@ public class CGRunner {
             if (totalMs > budget) err.println("WARN turn " + turn + " took " + totalMs + "ms");
             turn++;
         }
+    }
+
+    /** One viewer MESSAGE carries provenance; gameplay actions and later debug messages stay intact. */
+    static String formatOutput(List<Action> actions, int turn, String marker) {
+        if (turn != 0 || marker.isEmpty()) return Action.format(actions);
+        StringBuilder commands = new StringBuilder(), debug = new StringBuilder();
+        if (actions != null) for (Action action : actions) {
+            if (action.type == Action.Type.MESSAGE) {
+                if (debug.length() > 0) debug.append(' ');
+                debug.append(action.text);
+            } else {
+                if (commands.length() > 0) commands.append(';');
+                commands.append(action.toCommand());
+            }
+        }
+        if (commands.length() == 0) commands.append("WAIT");
+        commands.append(";MESSAGE ").append(marker);
+        if (debug.length() > 0) commands.append(" note=").append(debug);
+        return commands.toString();
     }
 
     /** Compares server-reported active connection membership with our recomputation. */

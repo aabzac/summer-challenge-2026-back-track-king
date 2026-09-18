@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CodinGame — Capture TestSession replay
 // @namespace    https://github.com/local/btk-tools
-// @version      1.2
+// @version      2.0
 // @description  Captures TestSession/play and downloads its canonical gameResult replay.
 // @author       local
 // @match        *://www.codingame.com/ide/*
@@ -81,9 +81,14 @@
             method: 'POST', url: SAVE_SERVER_URL,
             headers: { 'Content-Type': 'application/json' },
             data: JSON.stringify({ kind, filename, content }),
-            onload: response => resolve(response.status >= 200 && response.status < 300),
-            onerror: () => resolve(false),
-            ontimeout: () => resolve(false),
+            timeout: 10000,
+            onload: response => {
+                if (response.status < 200 || response.status >= 300) return resolve(null);
+                try { const data = JSON.parse(response.responseText); resolve(data.ok ? data : null); }
+                catch (_) { resolve(null); }
+            },
+            onerror: () => resolve(null),
+            ontimeout: () => resolve(null),
         }));
     }
 
@@ -93,9 +98,15 @@
             url: 'https://www.codingame.com/services/gameResult/findByGameId',
             headers: { 'Content-Type': 'application/json' },
             data: `[${gameId},null]`,
-            onload: response => resolve(
-                response.status >= 200 && response.status < 300 ? response.responseText : null,
-            ),
+            timeout: 15000,
+            onload: response => {
+                if (response.status < 200 || response.status >= 300) return resolve(null);
+                try {
+                    const raw = JSON.parse(response.responseText);
+                    resolve(String(raw.gameId) === String(gameId) && Array.isArray(raw.frames)
+                        && Array.isArray(raw.agents) ? response.responseText : null);
+                } catch (_) { resolve(null); }
+            },
             onerror: () => resolve(null),
             ontimeout: () => resolve(null),
         }));
@@ -114,9 +125,9 @@
 
         const rawFilename = `testsession_play_${gameId || timestamp()}.json`;
         if (!gameId) {
-            const rawSaved = await postToSaveServer('bot_raw', content, rawFilename);
+            const rawSaved = await postToSaveServer('boss_raw', content, rawFilename);
             if (rawSaved) {
-                showStatus(`Raw boss response saved: bot/raw/${rawFilename}`, false);
+                showStatus(`Raw boss response saved: ${rawSaved.path}`, false);
             } else {
                 download(content, rawFilename);
                 showStatus(`Save server failed; downloaded ${rawFilename}`, true);
@@ -127,10 +138,11 @@
         const canonical = await fetchCanonicalReplay(gameId);
         if (canonical) {
             const filename = `${gameId}.json`;
-            const saved = await postToSaveServer('bot', canonical, filename);
+            const saved = await postToSaveServer('boss', canonical, filename);
             if (saved) {
                 console.info(`[CG-replay] Saved canonical replay ${filename}`);
-                showStatus(`Boss replay saved: bot/${filename}`, false);
+                const known = saved.attribution && saved.attribution.retainedArtifactVerified;
+                showStatus(`Boss replay saved: ${saved.path}${known ? '' : ' (build unknown)'}`, false);
             } else {
                 download(canonical, filename);
                 console.warn(`[CG-replay] Save server rejected ${filename}; used browser download`);
@@ -139,10 +151,10 @@
             return;
         }
 
-        const rawSaved = await postToSaveServer('bot_raw', content, rawFilename);
+        const rawSaved = await postToSaveServer('boss_raw', content, rawFilename);
         console.warn(`[CG-replay] gameResult lookup failed for ${gameId}; kept raw response`);
         if (rawSaved) {
-            showStatus(`Canonical lookup failed; raw saved: bot/raw/${rawFilename}`, true);
+            showStatus(`Canonical lookup failed; raw saved: ${rawSaved.path}`, true);
         } else {
             download(content, rawFilename);
             showStatus(`Both API and save server failed; downloaded ${rawFilename}`, true);

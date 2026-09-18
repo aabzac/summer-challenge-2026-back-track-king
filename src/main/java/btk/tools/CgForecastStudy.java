@@ -62,7 +62,7 @@ public final class CgForecastStudy {
     }
 
     public static void main(String[] args) throws Exception {
-        Path input = Path.of(args.length > 0 ? args[0] : "replays/cg");
+        Path input = ReplayPaths.resolve(Path.of(args.length > 0 ? args[0] : "replays/cg"));
         if (args.length < 2 || args[1].isBlank()) throw new IllegalArgumentException("Requires -Pagent=<arena agent>");
         int observerAgent = Integer.parseInt(args[1]);
         if (observerAgent <= 0) throw new IllegalArgumentException("Positive agent required");

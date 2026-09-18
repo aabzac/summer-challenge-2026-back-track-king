@@ -1,7 +1,8 @@
 """
 Tiny HTTP server that receives POST requests from the Tampermonkey scripts.
-Stderr logs go to logs/, captured boss replays to replays/cg/bot/, and raw
-TestSession/play fallbacks to replays/cg/bot/raw/.
+Stderr logs go to logs/. Boss replays go to replays/cg/boss/<strategy>/<build>/
+only when their first-turn MESSAGE matches a verified local artifact; otherwise
+to boss/unknown/. Raw TestSession responses go to boss/raw/unknown/.
 
 Usage
 -----
@@ -10,7 +11,7 @@ Usage
 Then in a userscript set:
     const SAVE_SERVER_URL = 'http://localhost:7777';
 
-The request may set kind="bot" or kind="bot_raw" to select the boss replay directory.
+Use kind="boss" or "boss_raw"; legacy "bot"/"bot_raw" requests remain supported.
 
 Notes
 -----
@@ -22,17 +23,13 @@ Notes
 import json
 import os
 import socket
-from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from replay_capture import save_capture
 
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-SAVE_DIRS = {
-    'stderr': os.path.join(PROJECT_DIR, 'logs'),
-    'bot': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot'),
-    'bot_raw': os.path.join(PROJECT_DIR, 'replays', 'cg', 'bot', 'raw'),
-}
 PORT     = 7777
+MAX_BODY_BYTES = 8 * 1024 * 1024
 
 
 class ExclusiveHTTPServer(ThreadingHTTPServer):
@@ -49,6 +46,13 @@ class ExclusiveHTTPServer(ThreadingHTTPServer):
 
 class Handler(BaseHTTPRequestHandler):
 
+    def do_GET(self):
+        if self.path == '/health':
+            self._send_json(200, {'ok': True, 'service': 'btk-save-server', 'protocolVersion': 2,
+                                  'bossRoot': 'replays/cg/boss', 'buildMarkers': 'BTK_BUILD_V1'})
+        else:
+            self._send_json(404, {'ok': False, 'error': 'Unknown endpoint'})
+
     def do_OPTIONS(self):
         """Handle CORS pre-flight (browser sends this before the real POST)."""
         self._send_cors(200)
@@ -56,45 +60,42 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             length = int(self.headers.get('Content-Length', 0))
+            if length <= 0 or length > MAX_BODY_BYTES:
+                raise ValueError('Missing or oversized capture body')
             body   = self.rfile.read(length)
             data   = json.loads(body)
-
-            content  = data.get('content', '')
-            kind     = data.get('kind', 'stderr')
-            if kind not in SAVE_DIRS:
-                raise ValueError(f"unsupported save kind: {kind}")
-            filename = data.get('filename') or f"stderr_{datetime.now():%Y-%m-%d_%H-%M-%S}.txt"
-            # Sanitise filename
-            filename = os.path.basename(filename)
-
-            save_dir = SAVE_DIRS[kind]
-            os.makedirs(save_dir, exist_ok=True)
-            path = os.path.join(save_dir, filename)
-            with open(path, 'w', encoding='utf-8') as f:
-                f.write(content)
-
-            self._send_cors(200)
-            lines = content.count('\n')
-            print(f"[save_server] Saved {lines} lines -> {path}")
-
+            result = save_capture(data, PROJECT_DIR)
+            self._send_json(200, result)
+            print(f"[save_server] {'Saved' if result['created'] else 'Already captured'} -> {result['path']}")
+        except (ValueError, TypeError, KeyError):
+            self._send_json(400, {'ok': False, 'error': 'Invalid or conflicting capture; existing files preserved'})
         except Exception as exc:
-            print(f"[save_server] ERROR: {exc}")
-            self._send_cors(500)
+            print(f"[save_server] ERROR: {type(exc).__name__}")
+            self._send_json(500, {'ok': False, 'error': 'Local capture failed; existing files preserved'})
+
+    def _send_json(self, code, data):
+        payload = json.dumps(data).encode('utf-8')
+        self._headers(code)
+        self.send_header('Content-Type', 'application/json; charset=utf-8')
+        self.send_header('Content-Length', str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
 
     def _send_cors(self, code: int):
+        self._headers(code)
+        self.end_headers()
+
+    def _headers(self, code):
         self.send_response(code)
         self.send_header('Access-Control-Allow-Origin',  '*')
-        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-        self.end_headers()
 
     def log_message(self, fmt, *args):
         pass   # suppress default HTTP log noise
 
 
 def main():
-    for save_dir in SAVE_DIRS.values():
-        os.makedirs(save_dir, exist_ok=True)
     try:
         server = ExclusiveHTTPServer(('localhost', PORT), Handler)
     except OSError as exc:
@@ -103,9 +104,9 @@ def main():
         ) from exc
 
     print(f"[save_server] Listening on http://localhost:{PORT}")
-    print(f"[save_server] Stderr logs: {SAVE_DIRS['stderr']}")
-    print(f"[save_server] Boss replays: {SAVE_DIRS['bot']}")
-    print(f"[save_server] Boss raw fallbacks: {SAVE_DIRS['bot_raw']}")
+    print(f"[save_server] Project: {PROJECT_DIR}")
+    print("[save_server] Boss replays: replays/cg/boss/<strategy>/<build> or boss/unknown")
+    print("[save_server] Raw fallbacks: replays/cg/boss/raw/unknown; stderr: logs/")
     print("[save_server] Press Ctrl-C to stop.\n")
     server.serve_forever()
 

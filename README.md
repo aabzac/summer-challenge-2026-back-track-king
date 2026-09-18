@@ -207,7 +207,7 @@ gradlew cgRender "-Ppath=replays/cg/903337834.json"
 ```
 
 Boss games are detected from `arenaboss` metadata or legacy agent id `-2` and written under
-`replays/rendered/cg/bot/` instead. Player slots follow `agents.index`, including positive boss IDs.
+`replays/rendered/cg/boss/` instead. Player slots follow `agents.index`, including positive boss IDs.
 `cgValidate` only validates and never creates files.
 The rendered 30-game Boss 4 collection is available locally at
 `http://127.0.0.1:7799/replays/rendered/cg/boss-30.html` while the replay server is running.
@@ -218,19 +218,35 @@ It uses the corrected 16 v05 / 14 v06 split; first v06 game: 904146009.
 `tools/codingame_replay_export.user.js` intercepts the browser's `TestSession/play` response,
 extracts its `gameId`, and downloads the canonical replay through `gameResult/findByGameId` without
 reconstructing anything from stderr. Start `python tools/save_server.py` before pressing
-**PLAY MY CODE**; the replay is written directly to `replays/cg/bot/<gameId>.json`, keeping it
-separate from arena games. The original response is retained under `replays/cg/bot/raw/` only when
+**PLAY MY CODE**; a first-turn build marker matching a verified local artifact assigns the replay to
+`replays/cg/boss/<strategy>/<buildId>/<gameId>.json`; missing/unverified markers go to
+`replays/cg/boss/unknown/`. Original flat historical games stay under `boss/`.
+This verifies the marker's local source/configuration mapping, not which source CG executed.
+Neither a requested version nor a directory name assigns a build to an unmarked legacy game.
+The original response is retained under `replays/cg/boss/raw/unknown/` only when
 the canonical game-result lookup fails. Without the local server the userscript falls back to a
-browser download. Run `gradlew cgValidate "-Ppath=replays/cg/bot"` to validate the boss corpus, or
-`gradlew cgRender "-Ppath=replays/cg/bot/<gameId>.json"` to validate one game and produce its
-visualizer document under `replays/rendered/cg/bot/`.
+browser download. Run `gradlew cgValidate "-Ppath=replays/cg/boss"` to validate the recursive boss
+corpus, or `gradlew cgRender "-Ppath=replays/cg/boss"` to produce validated visualizer documents
+under `replays/rendered/cg/boss/`. Restart an old save server after updating; `/health` now reports
+`protocolVersion: 2`. Old `bot` capture requests remain compatible.
+
+For unattended sequential games, use the independent [boss API runner](docs/boss-api.md).
+Import a browser session once into an ignored local file, freeze the exact submissions and a
+full game schedule, then run it without a browser or save server. It preserves canonical
+replays, verifies build/seed/seat/boss identity and resumes read-only retrieval after a lost
+response without repeating uncertain game creation. See the [fixed sample-size protocol](docs/boss-evaluation-protocol.md)
+and the separate [planned 40-pair chords comparison](docs/chords-boss-v1.md).
+That comparison is **incomplete: 20 of 80 games saved**. Slot 21 returned HTTP 422 with an
+uncertain outcome; it was not replayed. The [partial gallery](http://127.0.0.1:7799/replays/rendered/cg/chords-boss-v1.html)
+contains those 20 games and makes no final comparison claim. The later successful v07 diagnostic
+game `904843581` is separate from this fixed sample and does not resolve the uncertain slot.
 
 `cgBossStudy` diagnoses defensive building on an explicit boss sample, correctly reading either
 the `arenaboss` marker or legacy id `-2`. It validates every game first and records per-turn paint
 costs for bypassing already threatened regions, using only accepted boss placements in the probe:
 
 ```powershell
-.\gradlew.bat cgBossStudy "-Ppaths=replays/cg/bot/904047070.json,replays/cg/bot/904047111.json,replays/cg/bot/904047151.json,replays/cg/bot/904047204.json,replays/cg/bot/904047262.json"
+.\gradlew.bat cgBossStudy "-Ppaths=replays/cg/boss/904047070.json,replays/cg/boss/904047111.json,replays/cg/boss/904047151.json,replays/cg/boss/904047204.json,replays/cg/boss/904047262.json"
 ```
 
 The default report path is timestamped under `build/analysis/`; `-Pout` must name an unused file.
@@ -243,23 +259,26 @@ the 2026-09-16 boss-defense entry in [DEVLOG](docs/DEVLOG.md).
 The arena source limit is **100,000 characters** (user-confirmed). `submit` checks the UTF-16
 length conservatively before writing, prints UTF-8 bytes separately, and compile-checks the
 result. `build/submit/manifest.json` records the selected strategy, full resolved parameters,
-character count and SHA-256 of the exact generated source.
-The v06 packaging sample on 2026-09-16 failed **1/42** strict process games (50.462 ms on a
-50-ms turn). The source is built and selected locally, but final timing readiness is unresolved;
-see [BOTS](docs/BOTS.md) and [DEVLOG](docs/DEVLOG.md) for the retained evidence.
+character count and SHA-256 of the exact generated source. New builds also retain an immutable
+source/configuration record in `build/submission-registry/<buildId>/` and emit its marker in the
+first-turn `MESSAGE`; the marker identifies a local artifact but is not remote attestation.
+The historical v06 packaging sample on 2026-09-16 failed **1/42** strict process games
+(50.462 ms on a 50-ms turn); that failure remains recorded. Selected v07 subsequently passed
+its exact-artifact check; see [v07 promotion](docs/v07-promotion.md), [BOTS](docs/BOTS.md)
+and [DEVLOG](docs/DEVLOG.md) for the separate evidence.
 The merged artifact removes leading/trailing line indentation while preserving token boundaries
 and ordinary string literals. Java text blocks are rejected by the line-based merger; source
 files themselves retain their formatting.
 
-`submit` defaults to `current`, now v06. To reproduce the selected frozen policy, use
-`gradlew submit -PsubmitVersion=v06`; `-PsubmitVersion=v05` also remains available. The merger
+`submit` defaults to `current`, now v07. To reproduce the selected frozen policy, use
+`gradlew submit -PsubmitVersion=v07`; `v06` and `v05` also remain available. The merger
 includes only the selected strategy as `EvalBot`, embedding its complete resolved parameters
 in `MainBot` for both default and frozen builds. Frozen files and working source stay unchanged.
 This reproduces the strategy, not a byte-for-byte historical artifact (shared core, runtime and
 packaging are current). Other frozen versions are not supported by this option.
-For an explicitly temporary experiment, `submit "-PsubmitVersion=current?ROLLOUT_WIDTH=4"`
-embeds the full resolved candidate parameters and records them in the manifest. This overwrites
-the submission artifact; restore `submit -PsubmitVersion=v06` and rerun `procCheck` afterward.
+For an isolated experiment, `submit "-PsubmitVersion=current?ROLLOUT_WIDTH=4" -PsubmitOut=build/my-candidate`
+embeds the resolved candidate parameters without touching `build/submit`. Pass the same
+`-PsubmitOut=build/my-candidate` to `procCheck`; a missing explicit artifact is an error.
 Always run `procCheck` after building; `-Pbot` selects its OPPONENT, not the submitted strategy.
 Use `-Pmap=replays/cg/<id>.json -Pgames=2` to check both sides of a particular difficult map.
 

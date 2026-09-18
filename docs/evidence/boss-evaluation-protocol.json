@@ -1,0 +1,331 @@
+{
+  "schema": 1,
+  "name": "boss-evaluation-protocol",
+  "date": "2026-09-18",
+  "alpha": 0.05,
+  "alternative": "candidate outright-win probability exceeds control",
+  "draws": "Non-wins for this binary boss-specific test; report draws and half-win score separately.",
+  "historical_6_of_20_cp95": [
+    0.1189315904057277,
+    0.5427891822762891
+  ],
+  "illustration_10_of_20_vs_historical_6_of_20_fisher_p": 0.16660653979897583,
+  "sizes": [
+    {
+      "candidate_n": 20,
+      "known_p0_030": {
+        "min_wins": 10,
+        "p_at_threshold": 0.04796189733134343,
+        "p_one_fewer": 0.1133314628769783,
+        "power_by_candidate_rate": {
+          "0.4": 0.2446627966836068,
+          "0.5": 0.5880985260009766,
+          "0.6": 0.8724787538527833,
+          "0.7": 0.9828551835687416
+        }
+      },
+      "historical_6_of_20": {
+        "min_wins": 13,
+        "p_at_threshold": 0.028080463216121194,
+        "p_one_fewer": 0.0554847685137379,
+        "conditional_power_given_observed_historical_count": {
+          "0.4": 0.021028927477771152,
+          "0.5": 0.13158798217773438,
+          "0.6": 0.41589293755753554,
+          "0.7": 0.7722717974181603
+        }
+      },
+      "fresh_independent_equal_n": {
+        "control_n": 20,
+        "hypothetical_true_control_rate": 0.3,
+        "type1_at_common_rate_030": 0.026523966524250396,
+        "power_by_candidate_rate": {
+          "0.4": 0.09928631168537842,
+          "0.5": 0.2446169710710053,
+          "0.6": 0.46300638581591763,
+          "0.7": 0.7132391390894585
+        },
+        "thresholds_by_observed_control_count": [
+          {
+            "control_wins": 4,
+            "candidate_min_wins": 10,
+            "p_at_threshold": 0.047922783740358826,
+            "p_one_fewer": 0.08799781825365807
+          },
+          {
+            "control_wins": 6,
+            "candidate_min_wins": 13,
+            "p_at_threshold": 0.028080463216121194,
+            "p_one_fewer": 0.0554847685137379
+          },
+          {
+            "control_wins": 8,
+            "candidate_min_wins": 15,
+            "p_at_threshold": 0.026775496297187066,
+            "p_one_fewer": 0.0554847685137379
+          }
+        ]
+      },
+      "matched_pairs_example_060_vs_030": {
+        "pairs": 20,
+        "power_by_both_win_probability": {
+          "0.0": 0.3424111113513127,
+          "0.18": 0.46410774842650615,
+          "0.3": 0.7624922211223989
+        }
+      }
+    },
+    {
+      "candidate_n": 30,
+      "known_p0_030": {
+        "min_wins": 14,
+        "p_at_threshold": 0.040052547682131276,
+        "p_one_fewer": 0.08447006036015106,
+        "power_by_candidate_rate": {
+          "0.4": 0.2854955983778794,
+          "0.5": 0.707667644135654,
+          "0.6": 0.9518882872330511,
+          "0.7": 0.9978753092493456
+        }
+      },
+      "historical_6_of_20": {
+        "min_wins": 18,
+        "p_at_threshold": 0.03589056985981723,
+        "p_one_fewer": 0.05816782250654601,
+        "conditional_power_given_observed_historical_count": {
+          "0.4": 0.021239876109960615,
+          "0.5": 0.1807973040267825,
+          "0.6": 0.5784657285461174,
+          "0.7": 0.9155299396398486
+        }
+      },
+      "fresh_independent_equal_n": {
+        "control_n": 30,
+        "hypothetical_true_control_rate": 0.3,
+        "type1_at_common_rate_030": 0.028008192855502777,
+        "power_by_candidate_rate": {
+          "0.4": 0.1317940128968857,
+          "0.5": 0.36013723016840776,
+          "0.6": 0.665356523610452,
+          "0.7": 0.8961933749798632
+        },
+        "thresholds_by_observed_control_count": [
+          {
+            "control_wins": 6,
+            "candidate_min_wins": 13,
+            "p_at_threshold": 0.04730538993404426,
+            "p_one_fewer": 0.07903102588059881
+          },
+          {
+            "control_wins": 9,
+            "candidate_min_wins": 17,
+            "p_at_threshold": 0.033639254127942116,
+            "p_one_fewer": 0.057685096048664196
+          },
+          {
+            "control_wins": 12,
+            "candidate_min_wins": 20,
+            "p_at_threshold": 0.034602903156158535,
+            "p_one_fewer": 0.06022720686100419
+          }
+        ]
+      },
+      "matched_pairs_example_060_vs_030": {
+        "pairs": 30,
+        "power_by_both_win_probability": {
+          "0.0": 0.470805076458296,
+          "0.18": 0.6801274480285522,
+          "0.3": 0.969845056897911
+        }
+      }
+    },
+    {
+      "candidate_n": 40,
+      "known_p0_030": {
+        "min_wins": 18,
+        "p_at_threshold": 0.0319512636513907,
+        "p_one_fewer": 0.06331287547840544,
+        "power_by_candidate_rate": {
+          "0.4": 0.31148093489865236,
+          "0.5": 0.7852047460783069,
+          "0.6": 0.9810892465404297,
+          "0.7": 0.9997253935730191
+        }
+      },
+      "historical_6_of_20": {
+        "min_wins": 23,
+        "p_at_threshold": 0.04051979425316768,
+        "p_one_fewer": 0.059056689733876504,
+        "conditional_power_given_observed_historical_count": {
+          "0.4": 0.018910753459570284,
+          "0.5": 0.21479525392169307,
+          "0.6": 0.6885190651013476,
+          "0.7": 0.9680487363486092
+        }
+      },
+      "fresh_independent_equal_n": {
+        "control_n": 40,
+        "hypothetical_true_control_rate": 0.3,
+        "type1_at_common_rate_030": 0.030563163836286877,
+        "power_by_candidate_rate": {
+          "0.4": 0.16805053645397833,
+          "0.5": 0.4680498996863975,
+          "0.6": 0.7975782537876984,
+          "0.7": 0.9639998384136987
+        },
+        "thresholds_by_observed_control_count": [
+          {
+            "control_wins": 8,
+            "candidate_min_wins": 16,
+            "p_at_threshold": 0.04329112177046481,
+            "p_one_fewer": 0.06871477745693891
+          },
+          {
+            "control_wins": 12,
+            "candidate_min_wins": 21,
+            "p_at_threshold": 0.034250539243810364,
+            "p_one_fewer": 0.0547542620932728
+          },
+          {
+            "control_wins": 16,
+            "candidate_min_wins": 25,
+            "p_at_threshold": 0.03645290470508294,
+            "p_one_fewer": 0.05850009611689187
+          }
+        ]
+      },
+      "matched_pairs_example_060_vs_030": {
+        "pairs": 40,
+        "power_by_both_win_probability": {
+          "0.0": 0.601731465912817,
+          "0.18": 0.8079227745924868,
+          "0.3": 0.9974391039290922
+        }
+      }
+    },
+    {
+      "candidate_n": 60,
+      "known_p0_030": {
+        "min_wins": 25,
+        "p_at_threshold": 0.03623751946731606,
+        "p_one_fewer": 0.06323812996519815,
+        "power_by_candidate_rate": {
+          "0.4": 0.44422442725026506,
+          "0.5": 0.9224990479983697,
+          "0.6": 0.9986236756383559,
+          "0.7": 0.9999985771613045
+        }
+      },
+      "historical_6_of_20": {
+        "min_wins": 33,
+        "p_at_threshold": 0.045687580024913785,
+        "p_one_fewer": 0.05944686153436409,
+        "conditional_power_given_observed_historical_count": {
+          "0.4": 0.013283536322992315,
+          "0.5": 0.2594790015948259,
+          "0.6": 0.8221382672230731,
+          "0.7": 0.9952273049985989
+        }
+      },
+      "fresh_independent_equal_n": {
+        "control_n": 60,
+        "hypothetical_true_control_rate": 0.3,
+        "type1_at_common_rate_030": 0.031968256035534534,
+        "power_by_candidate_rate": {
+          "0.4": 0.2521891072776148,
+          "0.5": 0.6845351926018194,
+          "0.6": 0.9476640021169339,
+          "0.7": 0.9975373243106536
+        },
+        "thresholds_by_observed_control_count": [
+          {
+            "control_wins": 12,
+            "candidate_min_wins": 22,
+            "p_at_threshold": 0.03370793730173199,
+            "p_one_fewer": 0.05057383199719475
+          },
+          {
+            "control_wins": 18,
+            "candidate_min_wins": 28,
+            "p_at_threshold": 0.045281372630407525,
+            "p_one_fewer": 0.06550596375247231
+          },
+          {
+            "control_wins": 24,
+            "candidate_min_wins": 34,
+            "p_at_threshold": 0.04988377351093873,
+            "p_one_fewer": 0.07166032080614375
+          }
+        ]
+      },
+      "matched_pairs_example_060_vs_030": {
+        "pairs": 60,
+        "power_by_both_win_probability": {
+          "0.0": 0.7648400419611623,
+          "0.18": 0.9381641593429871,
+          "0.3": 0.9999900954301854
+        }
+      }
+    }
+  ],
+  "paired_threshold_examples": {
+    "5": 5,
+    "10": 9,
+    "15": 12,
+    "20": 15,
+    "30": 20,
+    "40": 26,
+    "60": 37
+  },
+  "cp95_examples": {
+    "10/20": [
+      0.27195784956079183,
+      0.7280421504392081
+    ],
+    "12/20": [
+      0.36054258730748967,
+      0.8088099392746928
+    ],
+    "13/20": [
+      0.40781146546717184,
+      0.8460907952154588
+    ],
+    "15/30": [
+      0.31297028586802744,
+      0.6870297141319726
+    ],
+    "18/30": [
+      0.4060349300518187,
+      0.7734423511714064
+    ],
+    "20/40": [
+      0.3380178137372346,
+      0.6619821862627653
+    ],
+    "21/40": [
+      0.361280135264062,
+      0.6848802933650142
+    ],
+    "24/40": [
+      0.43326705219329664,
+      0.7513500134122562
+    ],
+    "30/60": [
+      0.3680620319424368,
+      0.6319379680575632
+    ],
+    "36/60": [
+      0.4654054373114276,
+      0.7243784212644651
+    ]
+  },
+  "limitations": [
+    "All powers are hypothetical model probabilities, not estimated achieved power or guarantees.",
+    "Known p0=.30 is a separate restricted hypothesis; the old 6/20 does not make .30 known.",
+    "Historical conditional power fixes the already observed six wins; it is not fresh two-arm power.",
+    "Independent Fisher calculations require independent maps/sampling units within and between arms.",
+    "Same-map/seat comparisons require the paired test and a joint outcome model for power.",
+    "No sequence of looks, selected runs, retuning, multiplicity correction or promotion is modeled.",
+    "Existing practical-300-1000-v2 strategy promotion gate remains unchanged."
+  ]
+}

@@ -10,6 +10,32 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProcessCheckTest {
+    @Test void submissionDirectoryKeepsTheDefaultAndAcceptsAnExplicitArtifact() {
+        assertEquals(Path.of("build/submit"), ProcessCheck.submissionDirectory(""));
+        assertEquals(Path.of("build/submit"), ProcessCheck.submissionDirectory(null));
+        assertEquals(Path.of("build/tagged-v07"), ProcessCheck.submissionDirectory("build/tagged-v07"));
+    }
+
+    @Test void explicitArtifactRequiresSourceAndCompiledPlayer(@TempDir Path directory) throws Exception {
+        Path artifact = directory.resolve("tagged");
+        assertThrows(IllegalArgumentException.class, () -> ProcessCheck.requireExplicitArtifact(artifact));
+        Files.createDirectories(artifact.resolve("classes"));
+        assertThrows(IllegalArgumentException.class, () -> ProcessCheck.requireExplicitArtifact(artifact));
+        Files.writeString(artifact.resolve("Player.java"), "class Player {}");
+        assertThrows(IllegalArgumentException.class, () -> ProcessCheck.requireExplicitArtifact(artifact));
+        Files.write(artifact.resolve("classes/Player.class"), new byte[]{0});
+        assertDoesNotThrow(() -> ProcessCheck.requireExplicitArtifact(artifact));
+    }
+
+    @Test void missingExplicitArtifactFailsBeforeStartingGamesOrCreatingReport(@TempDir Path directory) {
+        Path report = directory.resolve("report.json"), missing = directory.resolve("missing");
+        var error = assertThrows(IllegalArgumentException.class, () -> ProcessCheck.main(
+                new String[]{"v07", "1", "", "0", report.toString(), "false", missing.toString()}));
+        assertTrue(error.getMessage().contains("submitOut"));
+        assertFalse(Files.exists(report));
+        assertFalse(Files.exists(missing));
+    }
+
     @Test void timeoutSummaryDoesNotInventAResponse() {
         var t = new ProcessBot.TurnTiming(0,1000,0,1112.2,null,1112.3,"TIMEOUT",null);
         String summary = ProcessCheck.timingSummary(List.of(t));

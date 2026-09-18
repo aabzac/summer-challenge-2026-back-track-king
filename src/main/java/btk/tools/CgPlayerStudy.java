@@ -58,7 +58,7 @@ public final class CgPlayerStudy {
     }
 
     public static void main(String[] args) throws Exception {
-        Path input = Path.of(args.length > 0 && !args[0].isBlank() ? args[0] : "replays/cg");
+        Path input = ReplayPaths.resolve(Path.of(args.length > 0 && !args[0].isBlank() ? args[0] : "replays/cg"));
         if (args.length < 2 || args[1].isBlank()) throw new IllegalArgumentException("cgAnalyze requires -Pagent=<agentId>");
         int agent = Integer.parseInt(args[1]);
         if (agent <= 0) throw new IllegalArgumentException("Use a positive arena agent id, not a boss");

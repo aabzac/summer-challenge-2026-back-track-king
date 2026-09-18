@@ -6,14 +6,36 @@ Downloaded by `gradlew cgFetch` into `replays/cg/<gameId>.json`. No login needed
 IDE and boss runs return the same frame document directly from `TestSession/play`, but omit most
 agent information. `tools/codingame_replay_export.user.js` captures its game id and immediately
 re-fetches the canonical document through the public `gameResult/findByGameId` endpoint into
-`replays/cg/bot/`. The raw response is kept in `bot/raw/` only as a fallback. In the canonical boss
-replay the current IDE code has agent id `-1`; the boss has id `-2` and no pseudo.
+`replays/cg/boss/<strategy>/<build-id>/` when its first-turn build marker matches a locally retained
+submission manifest. Unverified captures go to `boss/unknown/`; the raw response is kept in
+`boss/raw/unknown/` as a fallback. Capture metadata lives separately in `boss/_metadata/` so the
+canonical CG bytes are preserved. The marker identifies a self-reported build, not proof of the
+code executed remotely. Existing files moved from `bot/` remain flat in `boss/` and have no new
+build attribution. IDE play requests may use `-1` for current code and `-2` as a boss sentinel;
+canonical replays can identify that boss by a positive id and an `arenaboss` object instead.
+Player positions always come from `agents[].index`, not array order or the sign of an agent id.
+
+Each new capture sidecar is `boss/_metadata/<gameId>.json`. It records the canonical file path
+and SHA-256, player/boss slots, capture time and qualified attribution. `unknown` means no usable
+first-output marker; `unverified-marker` means a marker exists but its source/configuration cannot
+be verified against the local immutable registry. Both use `boss/unknown/` for new captures.
+Only `marker-matches-local-artifact` assigns a new capture to its strategy/build directory;
+`executionIdentityIndependentlyVerified` remains `false`. A requested build label never substitutes
+for this check. Identical retries preserve replay and sidecar bytes, recheck current attribution,
+and reject conflicting evidence; historical paths/metadata are not silently relabelled.
 
 Canonical CG documents are kept as validation evidence and are not opened directly by our
 visualizer. `cgValidate` only compares them with `btk.core`. `cgRender -Ppath=<file-or-directory>`
 performs the same exact validation and writes the reconstructed visualizer schema to
-`replays/rendered/cg/arena/` or `replays/rendered/cg/bot/`; the boss category is detected from
-agent id `-2`. Fully local games continue to use `replays/local/`.
+`replays/rendered/cg/arena/` or `replays/rendered/cg/boss/`; the boss category is detected from
+`arenaboss` or legacy agent id `-2`. Fully local games continue to use `replays/local/`.
+
+Java replay tools accept old `replays/cg/bot/...` and `replays/rendered/cg/bot/...` paths when
+the old location is absent and the corresponding `boss/...` location exists. Historical reports
+keep their recorded paths and hashes. Boss directory discovery is recursive, accepts numeric
+game filenames and excludes `raw/` and `_metadata/`; the default `replays/cg/` arena pool stays
+flat so its map sample does not silently change. Duplicate boss game filenames across folders
+are rejected rather than counting a capture twice or overwriting one rendered game.
 
 Visualizer turns include end-of-turn `regionInstability[]` and `regionInked[]` snapshots. The
 viewer uses them to thicken a region's outline after each of the first three successful DISRUPTs

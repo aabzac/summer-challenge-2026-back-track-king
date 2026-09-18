@@ -1,0 +1,650 @@
+{
+  "aggregate": {
+    "candidate": {
+      "draws": 0,
+      "games": 10,
+      "gamesWithTerminalFailureSummary": 0,
+      "halfWinScore": 0.3,
+      "losses": 7,
+      "winRate": 0.3,
+      "winRateExact95": [
+        0.0667395111777345,
+        0.6524528500599973
+      ],
+      "wins": 3
+    },
+    "control": {
+      "draws": 0,
+      "games": 10,
+      "gamesWithTerminalFailureSummary": 0,
+      "halfWinScore": 0.2,
+      "losses": 8,
+      "winRate": 0.2,
+      "winRateExact95": [
+        0.025210726326833383,
+        0.5560954623076415
+      ],
+      "wins": 2
+    }
+  },
+  "allMapsAbsentFromOriginalExclusionSet": true,
+  "attributionLimit": "Self-reported first-turn markers match locally retained source/configuration; remote executed source is not independently proven.",
+  "auditedAtUtc": "2026-09-18T20:58:45.485651+00:00",
+  "auditorSha256": "51e02937f31acf16d10ee3c114cfe347f594c39a0f2fb0631475b8802a804136",
+  "boss": {
+    "agentId": 6740207,
+    "nickname": "Boss 4"
+  },
+  "builds": {
+    "candidate": {
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "classesSha256": "0430f26c4442b3c9eefb7e8d0e1c0d1655b12ff505a8ad23eb11e5a3b369144a",
+      "configSha256": "81a3ca4f0255ae334253cb6fd1f7f578d9c0ae387f4e1a7f0a4b3eee24ad3215",
+      "flags": {
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "true",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false"
+      },
+      "process": {
+        "games": 4,
+        "maxLaterResponseMs": 40.8225,
+        "nominalOverruns": 0,
+        "problems": 0,
+        "reportSha256": "92f6c76e741fdf85e081eb7afaf024828d5e280b0cef2fcc3cc36ede31247172",
+        "strict": true,
+        "timeouts": 0
+      },
+      "sourceSha256": "b14cc066978e82c4b7e364ca4b9126351f7e18fad9bd3e41b86dd23eb1c66353",
+      "strategy": "current?USE_ROLLOUT_NETWORK_CHORDS=1,USE_ROLLOUT_ROUTE_DEPENDENCIES=0"
+    },
+    "control": {
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "classesSha256": "854c73e03d1bedb138addd42c031c1f719895813716e8d72367c8d7f68a89eff",
+      "configSha256": "1f6ac37447578a79444421ee3109c2f8a2889878adffd58c56071e5c1690ad04",
+      "flags": {
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false"
+      },
+      "process": {
+        "games": 4,
+        "maxLaterResponseMs": 39.2129,
+        "nominalOverruns": 0,
+        "problems": 0,
+        "reportSha256": "723f1982d6fc320c07dcd91840f8f39d800152105181851d910efaa820f7a06d",
+        "strict": true,
+        "timeouts": 0
+      },
+      "sourceSha256": "f8cd5b81217537d1d4c98dcbea1be50d8f81ca9c9f93d4d742b0a19831021015",
+      "strategy": "v07"
+    }
+  },
+  "complete": false,
+  "completedGames": 20,
+  "completedMapPairs": 10,
+  "excludedMapCount": 348,
+  "excludedMapSetSha256": "39f230acbed7c1b15afd96b9e5bace4a5d607c3bdeefff67d1a3a45ecbc1220c",
+  "executionIdentityIndependentlyVerified": false,
+  "games": [
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904839322,
+      "mapHash": "4e2d41f16fa1fb6863344052e48531fece69ff14cd011e363548f7705d23cacb",
+      "pair": 1,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "f53fdbba843b2016bae468efa9fff48fe2946dfb9629c06a69b1bb5ba6bb8389",
+      "result": "W",
+      "scores": [
+        4436,
+        4022
+      ],
+      "seat": 0,
+      "seed": "302177933",
+      "slot": 1,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904839377,
+      "mapHash": "4e2d41f16fa1fb6863344052e48531fece69ff14cd011e363548f7705d23cacb",
+      "pair": 1,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "9472257173e77599271edb5de141019f0164d878ccf6fda7f31927212704670b",
+      "result": "L",
+      "scores": [
+        4663,
+        5199
+      ],
+      "seat": 0,
+      "seed": "302177933",
+      "slot": 2,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904839463,
+      "mapHash": "7e948aa326da4be22acebabb2716ba1acc1ab72f3a8a76f9d4d41a664e738a09",
+      "pair": 2,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "9ebe7a9e9952232b986271a9627b4db433e921ebd9661657495669f5df360fef",
+      "result": "L",
+      "scores": [
+        800,
+        745
+      ],
+      "seat": 1,
+      "seed": "501234585",
+      "slot": 3,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904839535,
+      "mapHash": "7e948aa326da4be22acebabb2716ba1acc1ab72f3a8a76f9d4d41a664e738a09",
+      "pair": 2,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "018613cd4a85a37fb92f064e1a78e17500de29f4de77cb2659ebec63359bff67",
+      "result": "L",
+      "scores": [
+        1046,
+        743
+      ],
+      "seat": 1,
+      "seed": "501234585",
+      "slot": 4,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904839596,
+      "mapHash": "6bded90a907f8fd381fdf7e2506b5e2ba2d2bae17d622b7ab58bae3d48ae215b",
+      "pair": 3,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "5becbd031b00c279f53a70d6999d7a58299cf4477a835f47d1ea353ba6535bed",
+      "result": "L",
+      "scores": [
+        2127,
+        901
+      ],
+      "seat": 1,
+      "seed": "1143519942",
+      "slot": 5,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904839653,
+      "mapHash": "6bded90a907f8fd381fdf7e2506b5e2ba2d2bae17d622b7ab58bae3d48ae215b",
+      "pair": 3,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "9d3c65218861b8826d89ad3a942c59971ee831f478a3dbb035d14bf8d49f64b9",
+      "result": "L",
+      "scores": [
+        2785,
+        1530
+      ],
+      "seat": 1,
+      "seed": "1143519942",
+      "slot": 6,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904839698,
+      "mapHash": "91c4ddae9bf8728ba67ad0e4b2c6fdd1314127a6e9c0dd10647399ab9823f35c",
+      "pair": 4,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "be7d5f6ffcbb98d44a52a257ca010d5a9f120eeb227ff98d34d69f7641877e91",
+      "result": "W",
+      "scores": [
+        4907,
+        5262
+      ],
+      "seat": 1,
+      "seed": "123741653",
+      "slot": 7,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904839749,
+      "mapHash": "91c4ddae9bf8728ba67ad0e4b2c6fdd1314127a6e9c0dd10647399ab9823f35c",
+      "pair": 4,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "a982d13e031d965de600c0d8cdef6620b61360dca480f84056c3702c5913e634",
+      "result": "L",
+      "scores": [
+        5320,
+        2618
+      ],
+      "seat": 1,
+      "seed": "123741653",
+      "slot": 8,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904839887,
+      "mapHash": "49bcf58f553dbaaa101a350c075e0ba7c71d22465b946c1cfcbc55303c2e6b4a",
+      "pair": 5,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "ff76f6373c3befb3afdf0f7d1b9289ebf057127ebdb5ac2c45d47a05bd0bb7a2",
+      "result": "W",
+      "scores": [
+        2931,
+        3168
+      ],
+      "seat": 1,
+      "seed": "321980587",
+      "slot": 9,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904839923,
+      "mapHash": "49bcf58f553dbaaa101a350c075e0ba7c71d22465b946c1cfcbc55303c2e6b4a",
+      "pair": 5,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "244be90b11674a2099c3d592741c68c8ced41ad5e5811e5b2e019bf8a14d7715",
+      "result": "W",
+      "scores": [
+        5871,
+        5930
+      ],
+      "seat": 1,
+      "seed": "321980587",
+      "slot": 10,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904839966,
+      "mapHash": "11c9939dd9dbace9f81a5589ae81d9f186d582bedcf88a41dfa1cdb9a6c3a8bf",
+      "pair": 6,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "31c35593d90a22ec804d081e17a99be0db26a41018d5cb6031dd0300c0a1b38f",
+      "result": "L",
+      "scores": [
+        1904,
+        1235
+      ],
+      "seat": 1,
+      "seed": "372710578",
+      "slot": 11,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904840005,
+      "mapHash": "11c9939dd9dbace9f81a5589ae81d9f186d582bedcf88a41dfa1cdb9a6c3a8bf",
+      "pair": 6,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "7f34207d345c5cc81f38afd1d9f81e392d3f7d0093d168c02f5d8f7f4439a624",
+      "result": "L",
+      "scores": [
+        1963,
+        1227
+      ],
+      "seat": 1,
+      "seed": "372710578",
+      "slot": 12,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904840095,
+      "mapHash": "f6b81b45cae497b88f84eff834aecc5e22545c971680ad273350b4a720ee5226",
+      "pair": 7,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "666ce207bf6107b6b2ace9429c07a2c32e3d94dac74e20a8583c31988028795c",
+      "result": "L",
+      "scores": [
+        1145,
+        2532
+      ],
+      "seat": 0,
+      "seed": "845281438",
+      "slot": 13,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904840166,
+      "mapHash": "f6b81b45cae497b88f84eff834aecc5e22545c971680ad273350b4a720ee5226",
+      "pair": 7,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "95e0904ba1597b2abfe61f774bcc6e25be131e121728a80efc164110702da1a9",
+      "result": "L",
+      "scores": [
+        1071,
+        2812
+      ],
+      "seat": 0,
+      "seed": "845281438",
+      "slot": 14,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904840212,
+      "mapHash": "634d72351705607250632278563abce70649b2c71435d478f0e3d67326c51d81",
+      "pair": 8,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "7d719b32ad1b8a44780bafe9275005870319935be4dfe5e49652b83fe0408780",
+      "result": "W",
+      "scores": [
+        4022,
+        4635
+      ],
+      "seat": 1,
+      "seed": "1525304609",
+      "slot": 15,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904840277,
+      "mapHash": "634d72351705607250632278563abce70649b2c71435d478f0e3d67326c51d81",
+      "pair": 8,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "3d406ebf969c6b508a2722f31636a5bb90e1d49045db5b2ae131e7fd1821981b",
+      "result": "L",
+      "scores": [
+        15878,
+        6715
+      ],
+      "seat": 1,
+      "seed": "1525304609",
+      "slot": 16,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904840332,
+      "mapHash": "995febca8f0f5bb8288d0688d557ec9eaa6f5d2a31cbf0041a34b154b210031a",
+      "pair": 9,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "9f37ed2ce5ee58378ebee4f708ccdbc92dfee61a942755831d79682768ef62a2",
+      "result": "L",
+      "scores": [
+        2158,
+        2493
+      ],
+      "seat": 0,
+      "seed": "1422305714",
+      "slot": 17,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904840419,
+      "mapHash": "995febca8f0f5bb8288d0688d557ec9eaa6f5d2a31cbf0041a34b154b210031a",
+      "pair": 9,
+      "ranks": [
+        1,
+        0
+      ],
+      "rawSha256": "33cdb8c51e513ee48b726eea089fef9b192057a1231250881122c545299ec469",
+      "result": "L",
+      "scores": [
+        1923,
+        3298
+      ],
+      "seat": 0,
+      "seed": "1422305714",
+      "slot": 18,
+      "terminalFailures": []
+    },
+    {
+      "arm": "control",
+      "buildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+      "gameId": 904840493,
+      "mapHash": "8ac316cf5968f556eb60534832abe3418be8bb567e85104e99b54ee859223a50",
+      "pair": 10,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "3b48f40a430256b16880332175dd1c4619fc6e5a78fd85afa9b48a7bfc858e60",
+      "result": "L",
+      "scores": [
+        3316,
+        1948
+      ],
+      "seat": 1,
+      "seed": "2132059232",
+      "slot": 19,
+      "terminalFailures": []
+    },
+    {
+      "arm": "candidate",
+      "buildId": "faa7087da1c02859900cb43afb026be3e18abdbadd84ddb0c74a3830b2169783",
+      "gameId": 904840552,
+      "mapHash": "8ac316cf5968f556eb60534832abe3418be8bb567e85104e99b54ee859223a50",
+      "pair": 10,
+      "ranks": [
+        0,
+        1
+      ],
+      "rawSha256": "335b417ffb82969c14919f5b791506ddd9a6e2d777e9062710caea2473463efe",
+      "result": "L",
+      "scores": [
+        1762,
+        1402
+      ],
+      "seat": 1,
+      "seed": "2132059232",
+      "slot": 20,
+      "terminalFailures": []
+    }
+  ],
+  "incompleteAttempts": [
+    {
+      "apiErrorRecordSha256": "021d7db1a3607a7db17bbe0638e54812a7cbae95ee5fbe8156f9ee908b7644a0",
+      "arm": "candidate",
+      "canonicalRetained": false,
+      "httpStatus": 422,
+      "pair": 11,
+      "playResponseRetained": false,
+      "recoveryIdRetained": false,
+      "seat": 1,
+      "seed": "36225550",
+      "slot": 21,
+      "state": "intent_without_completed_result",
+      "transportReportedUncertain": true
+    }
+  ],
+  "limitation": "Incomplete fixed sample. Counts are descriptive only; no significance test or improvement verdict. The original schedule and all unresolved intents remain preserved.",
+  "localStrengthGate": "NOT_PASSED; unchanged by this exploratory external screen",
+  "mapHashScheme": "cg-global-graphics-utf8-sha256-v1",
+  "method": "Independent canonical rank/map/seat/marker recomputation; fixed 40 matched pairs; draws are non-wins; no replacements or pooling.",
+  "notStartedSlots": 59,
+  "observedUniqueMaps": 10,
+  "originalSubmission": {
+    "fileMapSha256": "9eeff085b55b303ff47f794db62426fcbd7c5bab494690ca19ac097aa1cdd184",
+    "referenceSha256": "1e3f167bcddda2244f0b84ff7c8294f6501487a196bf46a8fd971d90fb3d6384",
+    "verifiedFiles": 26
+  },
+  "pairs": [
+    {
+      "candidate": "W",
+      "candidateGameId": 904839322,
+      "control": "L",
+      "controlGameId": 904839377,
+      "mapHash": "4e2d41f16fa1fb6863344052e48531fece69ff14cd011e363548f7705d23cacb",
+      "pair": 1,
+      "seat": 0,
+      "seed": "302177933"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904839535,
+      "control": "L",
+      "controlGameId": 904839463,
+      "mapHash": "7e948aa326da4be22acebabb2716ba1acc1ab72f3a8a76f9d4d41a664e738a09",
+      "pair": 2,
+      "seat": 1,
+      "seed": "501234585"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904839596,
+      "control": "L",
+      "controlGameId": 904839653,
+      "mapHash": "6bded90a907f8fd381fdf7e2506b5e2ba2d2bae17d622b7ab58bae3d48ae215b",
+      "pair": 3,
+      "seat": 1,
+      "seed": "1143519942"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904839749,
+      "control": "W",
+      "controlGameId": 904839698,
+      "mapHash": "91c4ddae9bf8728ba67ad0e4b2c6fdd1314127a6e9c0dd10647399ab9823f35c",
+      "pair": 4,
+      "seat": 1,
+      "seed": "123741653"
+    },
+    {
+      "candidate": "W",
+      "candidateGameId": 904839923,
+      "control": "W",
+      "controlGameId": 904839887,
+      "mapHash": "49bcf58f553dbaaa101a350c075e0ba7c71d22465b946c1cfcbc55303c2e6b4a",
+      "pair": 5,
+      "seat": 1,
+      "seed": "321980587"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904839966,
+      "control": "L",
+      "controlGameId": 904840005,
+      "mapHash": "11c9939dd9dbace9f81a5589ae81d9f186d582bedcf88a41dfa1cdb9a6c3a8bf",
+      "pair": 6,
+      "seat": 1,
+      "seed": "372710578"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904840095,
+      "control": "L",
+      "controlGameId": 904840166,
+      "mapHash": "f6b81b45cae497b88f84eff834aecc5e22545c971680ad273350b4a720ee5226",
+      "pair": 7,
+      "seat": 0,
+      "seed": "845281438"
+    },
+    {
+      "candidate": "W",
+      "candidateGameId": 904840212,
+      "control": "L",
+      "controlGameId": 904840277,
+      "mapHash": "634d72351705607250632278563abce70649b2c71435d478f0e3d67326c51d81",
+      "pair": 8,
+      "seat": 1,
+      "seed": "1525304609"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904840332,
+      "control": "L",
+      "controlGameId": 904840419,
+      "mapHash": "995febca8f0f5bb8288d0688d557ec9eaa6f5d2a31cbf0041a34b154b210031a",
+      "pair": 9,
+      "seat": 0,
+      "seed": "1422305714"
+    },
+    {
+      "candidate": "L",
+      "candidateGameId": 904840552,
+      "control": "L",
+      "controlGameId": 904840493,
+      "mapHash": "8ac316cf5968f556eb60534832abe3418be8bb567e85104e99b54ee859223a50",
+      "pair": 10,
+      "seat": 1,
+      "seed": "2132059232"
+    }
+  ],
+  "partialPairs": [],
+  "planId": "3d951ec7e4ad1878e4e135d11b9f3a74b4611964074918c0d223cc06e90ee24b",
+  "planSha256": "76daa81abb87f2846674a2707a3bb07451a67aa6b00d3d236a1af8bdff897d66",
+  "promotion": false,
+  "protocol": "docs/chords-boss-v1.md",
+  "protocolSha256": "08dbec1aae56a58b3d82581720e48ba59dbb9c06483be899f086bee541c02b82",
+  "remainingScheduledGames": 60,
+  "scheduledGames": 80,
+  "scheduledMapPairs": 40,
+  "schemaVersion": 1,
+  "status": "INTERRUPTED"
+}

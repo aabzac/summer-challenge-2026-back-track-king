@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.TreeMap;
+import java.nio.file.StandardOpenOption;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -34,7 +36,11 @@ import java.util.stream.Stream;
 public class FileMerger {
 
     private static final Path SRC_ROOT = Path.of("src/main/java/btk");
-    private static final Path OUTPUT = Path.of("build/submit/Player.java");
+    private static final Path DEFAULT_OUTPUT_DIR = Path.of("build/submit");
+    private static final Path REGISTRY = Path.of("build/submission-registry");
+    static final String EMPTY_MARKER_DECLARATION = "public static final String BUILD_MARKER = \"\";";
+    static final Pattern MARKER_DECLARATION = Pattern.compile(
+            "public static final String BUILD_MARKER = \"([^\"\\r\\n]*)\";");
     /** User-confirmed CG arena source limit; conservatively count Java UTF-16 code units. */
     public static final int MAX_SOURCE_CHARS = 100_000;
 
@@ -50,23 +56,49 @@ public class FileMerger {
 
     public static void main(String[] args) throws IOException {
         String version = args.length == 0 ? "current" : args[0];
+        Path outputDir = args.length > 1 && !args[1].isBlank() ? Path.of(args[1]) : DEFAULT_OUTPUT_DIR;
+        Path output = outputDir.resolve("Player.java");
         String source = merge(version);
         checkSourceSize(source);
-        Files.createDirectories(OUTPUT.getParent());
-        Files.writeString(OUTPUT, source, StandardCharsets.UTF_8);
-        compileCheck();
+        Files.createDirectories(outputDir);
+        Files.writeString(output, source, StandardCharsets.UTF_8);
+        compileCheck(output);
+        Map<String, Object> manifest = manifest(version, source);
+        String manifestJson = new GsonBuilder().setPrettyPrinting().create().toJson(manifest);
+        Files.writeString(output.resolveSibling("manifest.json"), manifestJson, StandardCharsets.UTF_8);
+        Map<String, Object> registered = new LinkedHashMap<>(manifest);
+        // Equivalent override spellings can produce the same exact artifact. The registry uses
+        // a canonical strategy id plus the full configuration, while the export retains the request.
+        registered.put("strategy", manifest.get("strategyId"));
+        register(REGISTRY, source, new GsonBuilder().setPrettyPrinting().create().toJson(registered),
+                (String) manifest.get("buildId"));
+        System.out.printf("Submission %s: %d/%d characters, %d UTF-8 bytes, SHA-256 %s%n",
+                version, source.length(), MAX_SOURCE_CHARS,
+                source.getBytes(StandardCharsets.UTF_8).length, manifest.get("sha256"));
+        System.out.println("Build identity: " + manifest.get("buildId") + " -> " + output);
+    }
+
+    static Map<String, Object> manifest(String version, String source) {
         Map<String, Object> manifest = new LinkedHashMap<>();
+        manifest.put("schemaVersion", 2);
         manifest.put("strategy", version);
+        manifest.put("strategyId", version.split("\\?", 2)[0]);
         manifest.put("params", BotFactory.configuration(version));
         manifest.put("charactersUtf16", source.length());
         manifest.put("bytesUtf8", source.getBytes(StandardCharsets.UTF_8).length);
         manifest.put("sourceLimit", MAX_SOURCE_CHARS);
         manifest.put("sha256", sha256(source));
-        Files.writeString(OUTPUT.resolveSibling("manifest.json"),
-                new GsonBuilder().setPrettyPrinting().create().toJson(manifest));
-        System.out.printf("Submission %s: %d/%d characters, %d UTF-8 bytes, SHA-256 %s%n",
-                version, source.length(), MAX_SOURCE_CHARS,
-                source.getBytes(StandardCharsets.UTF_8).length, manifest.get("sha256"));
+        manifest.put("buildId", sha256(normalizeMarker(source)));
+        manifest.put("configSha256", configSha256(version));
+        String marker = marker(version, (String) manifest.get("buildId"));
+        Matcher declaration = MARKER_DECLARATION.matcher(source);
+        if (!declaration.find() || !declaration.group(1).equals(marker))
+            throw new IllegalArgumentException("Source marker does not match requested strategy/configuration");
+        manifest.put("marker", marker);
+        manifest.put("identityScheme", "sha256-source-with-empty-BUILD_MARKER-v1");
+        manifest.put("attribution", "Replay MESSAGE is a self-reported identity. Matching the locally retained "
+                + "artifact verifies the marker mapping, not independently which source the server executed.");
+        return manifest;
     }
 
     static String merge(String version) throws IOException {
@@ -154,13 +186,56 @@ public class FileMerger {
 
         StringBuilder sb = new StringBuilder();
         for (String imp : imports) sb.append("import ").append(imp).append(";\n");
-        sb.append("\nclass Player {\n\n");
+        // Keep the strategy label in the normalized source identity too: identical
+        // policy copies with different names must not collide in the registry.
+        sb.append("\n// BTK strategy: ").append(version).append("\nclass Player {\n\n");
         sb.append(body);
         sb.append("    public static void main(String[] args) {\n");
         sb.append("        CGRunner.main(args);\n");
         sb.append("    }\n}\n");
 
-        return sb.toString();
+        String normalized = sb.toString();
+        if (normalized.indexOf(EMPTY_MARKER_DECLARATION) < 0
+                || normalized.indexOf(EMPTY_MARKER_DECLARATION) != normalized.lastIndexOf(EMPTY_MARKER_DECLARATION)) {
+            throw new IllegalStateException("Expected exactly one empty submission marker declaration");
+        }
+        return normalized.replace(EMPTY_MARKER_DECLARATION,
+                "public static final String BUILD_MARKER = \"" + marker(spec, sha256(normalized)) + "\";");
+    }
+
+    static String normalizeMarker(String source) {
+        Matcher match = MARKER_DECLARATION.matcher(source);
+        if (!match.find()) throw new IllegalArgumentException("Missing build marker declaration");
+        String normalized = match.replaceFirst(Matcher.quoteReplacement(EMPTY_MARKER_DECLARATION));
+        if (MARKER_DECLARATION.matcher(normalized).results().count() != 1)
+            throw new IllegalArgumentException("Ambiguous build marker declaration");
+        return normalized;
+    }
+
+    static String configSha256(String spec) {
+        StringBuilder canonical = new StringBuilder();
+        for (var entry : new TreeMap<>(BotFactory.configuration(spec)).entrySet())
+            canonical.append(entry.getKey()).append('=').append(entry.getValue()).append('\n');
+        return sha256(canonical.toString());
+    }
+
+    private static String marker(String spec, String buildId) {
+        return "BTK_BUILD_V1 strategy=" + spec.split("\\?", 2)[0]
+                + " build=" + buildId + " config=" + configSha256(spec);
+    }
+
+    static void register(Path registry, String source, String manifestJson, String buildId) throws IOException {
+        Path directory = registry.resolve(buildId);
+        Files.createDirectories(directory);
+        immutableWrite(directory.resolve("Player.java"), source);
+        immutableWrite(directory.resolve("manifest.json"), manifestJson);
+    }
+
+    private static void immutableWrite(Path path, String contents) throws IOException {
+        if (Files.exists(path)) {
+            if (!Files.readString(path, StandardCharsets.UTF_8).equals(contents))
+                throw new IOException("Refusing to replace registered artifact: " + path);
+        } else Files.writeString(path, contents, StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW);
     }
 
     private static String paramsExpression(String spec) {
@@ -186,15 +261,15 @@ public class FileMerger {
         }
     }
 
-    private static void compileCheck() throws IOException {
+    private static void compileCheck(Path output) throws IOException {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         if (compiler == null) {
             throw new IOException("A JDK compiler is required to verify the submission");
         }
-        Path outDir = OUTPUT.getParent().resolve("classes");
+        Path outDir = output.getParent().resolve("classes");
         Files.createDirectories(outDir);
         int rc = compiler.run(null, null, null, "-encoding", "UTF-8", "-d", outDir.toString(), "-Xlint:none",
-                OUTPUT.toString());
+                output.toString());
         if (rc != 0) {
             throw new IOException("Player.java does not compile (exit " + rc + ")");
         }

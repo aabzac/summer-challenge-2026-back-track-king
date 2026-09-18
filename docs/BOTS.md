@@ -889,3 +889,22 @@ submission files. 286 Java + seven gate tests pass; 292 arena and 50 boss replay
 Both new flags remain OFF, v07 selected. No promotion, push, upload or new process-readiness
 claim. [Protocol](network-chords-v1.md), [evidence](evidence/network-chords-v1.json),
 [final audit](evidence/v07-followups-final-audit.json).
+
+
+## Live boss screen: chords-boss-v1 (2026-09-18 UTC; recorded 2026-09-19 local)
+
+Separate exploratory comparison of the existing default-off network-chords candidate
+against tagged v07 on Boss 4 (6740207). No new policy/version or promotion.
+Fixed prospective design: 40 fresh matched map pairs, 80 games, balanced seats and
+execution order. **INTERRUPTED: 20/80 games, ten complete pairs**; candidate **3W/7L**,
+control **2W/8L**. These are descriptive partial counts, with no p-value or verdict.
+
+Slot 21 returned HTTP 422; creation outcome/game ID is unknown. It was not retried or
+replaced. Authorization checks and a separate diagnostic smoke succeeded afterward;
+the original error remains unexplained. Six technical games are excluded from the
+screen. Exact isolated artifacts each passed four strict process games. This tooling
+verification does not alter network-chords-v1's failed local strength gate.
+
+[Frozen protocol](chords-boss-v1.md), [independent interruption evidence](evidence/chords-boss-v1.interrupted.json),
+[API runner and recovery](boss-api.md). Both flags remain OFF; selected v07 and all
+26 original submission files are unchanged. No arena submission or push.

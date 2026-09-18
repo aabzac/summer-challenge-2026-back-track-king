@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Replays canonical CodinGame games through {@code btk.core}, verifies exact fidelity, and writes
- * visualizer-format files under {@code replays/rendered/cg/arena} or {@code .../bot}.
+ * visualizer-format files under {@code replays/rendered/cg/arena} or {@code .../boss}.
  *
  * <p>Args: pathToReplayDirOrFile [outputRoot]
  */
@@ -19,7 +19,7 @@ public final class CgRender {
         if (args.length == 0 || args[0].isBlank()) {
             throw new IllegalArgumentException("cgRender requires -Ppath=<CG replay file or directory>");
         }
-        Path path = Path.of(args[0]);
+        Path path = ReplayPaths.resolve(Path.of(args[0]));
         Path outputRoot = Path.of(args.length > 1 && !args[1].isBlank()
                 ? args[1] : "replays/rendered/cg");
         List<Path> files = Files.isDirectory(path) ? CgReplay.listReplays(path) : List.of(path);
@@ -56,7 +56,7 @@ public final class CgRender {
     }
 
     static Path outputPath(Path outputRoot, CgReplay replay) {
-        String category = replay.isBossGame() ? "bot" : "arena";
+        String category = replay.isBossGame() ? "boss" : "arena";
         return outputRoot.resolve(category).resolve(replay.gameId + ".json");
     }
 }

@@ -82,6 +82,7 @@ public final class CgBossDefenseStudy {
     }
 
     static Game analyze(Path file) throws Exception {
+        file = ReplayPaths.resolve(file);
         String json = Files.readString(file); JsonObject raw = JsonParser.parseString(json).getAsJsonObject();
         CgReplay replay = CgReplay.parse(raw);
         CgValidate.Outcome validation = CgValidate.validate(replay, false);

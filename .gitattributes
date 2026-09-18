@@ -8,3 +8,7 @@
 /docs/evidence/network-control-synthetic-v1.txt -text
 /tools/diagnostics/RealChordProbe.java -text
 /tools/diagnostics/SyntheticChordProbe.java -text
+# The live-boss evidence pins the exact protocol and independent auditor bytes.
+/docs/chords-boss-v1.md -text
+/tools/diagnostics/boss_batch_audit.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/evidence/chords-boss-v1*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

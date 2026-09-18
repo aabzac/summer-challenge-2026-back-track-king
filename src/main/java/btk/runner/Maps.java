@@ -3,6 +3,7 @@ package btk.runner;
 import btk.core.GameState;
 import btk.referee.MapGenerator;
 import btk.tools.CgReplay;
+import btk.tools.ReplayPaths;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -18,7 +19,7 @@ public final class Maps {
     /** @param dirOrFile empty = authentic generator; directory of CG replays or a single replay file */
     public Maps(String dirOrFile) throws IOException {
         if (dirOrFile == null || dirOrFile.isEmpty()) return;
-        Path p = Path.of(dirOrFile);
+        Path p = ReplayPaths.resolve(Path.of(dirOrFile));
         List<Path> files = p.toFile().isDirectory() ? CgReplay.listReplays(p) : List.of(p);
         for (Path f : files) {
             try {

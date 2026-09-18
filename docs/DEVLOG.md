@@ -3177,3 +3177,87 @@ Completed outcome (fixed sample, no retuning):
   The latter isolates the recurring postponement in 904554072; replacing an opponent reply with
   a passive scenario alone is not a demonstrated fix. See boss-v07-loss-analysis.md and
   arena-opening-survey-v1.md for evidence, reproduction, limits and concrete next designs.
+
+
+## 2026-09-18 - independent boss API tooling and build provenance
+
+- User direction: postpone recurring sabotage-WAIT work and evaluate existing network chords
+  against the real boss; prefer a reusable independent script over a Tampermonkey play loop.
+- Confirmed actual frontend TestSession/play [handle, answer] format and the captured
+  IDE_CODE/BOSS selector [-1,-2]. Public canonical replay maps this sentinel to live Boss 4
+  agent 6740207. A sanitized HAR contained no authorization; the user's replacement export
+  supplied credentials. Stored only in ignored build/cg-boss/private/session.json. The imported
+  original source backup matches old selected v07 SHA256 3c94f8ed5cd0cc16933e45b7fab7e8d48faafb9a1f52c952f601cd3fbcfc42c7.
+- Added stdlib API transport/HAR import and fixed-plan batch runner. No redirects or retries
+  of play creation; intent is durable before each request. Read-only canonical lookup resumes
+  by returned/recovered game ID. Exact artifact/process/source/config hashes, map/seed/seat,
+  positive boss identity and marker are checked. Matched and independent designs preserve all
+  attempted/completed games; immutable schedules reject changed evidence or replaced games.
+- First-turn MESSAGE carries source/config build identity because canonical replays retain
+  stdout, not stderr. Immutable local registry verifies marker-to-source mapping; it is not
+  independent remote execution attestation. Missing/unregistered markers remain unknown.
+- Migrated 105 raw/rendered files bot -> boss with SHA/size equality. The old running capture
+  server subsequently wrote three new files to bot; safely moved these to boss/unknown,
+  recorded a separate tail audit and restarted the identified server (protocolVersion 2).
+  Canonical replay bytes and historical evidence/runner hashes were not rewritten. Active
+  Java tools accept historical missing paths and discover boss version/build subdirectories.
+- Added isolated -PsubmitOut for submit/procCheck. Both tagged exports are under build/cg-boss/
+  artifacts; all 26 existing build/submit files remain byte-identical. Frozen strategies,
+  Params defaults, core rules and the local strength gate are unchanged.
+- Verification: 299 Java tests; 15 API + 23 batch + 12 capture + seven existing gate Python
+  tests. Windows TemporaryDirectory permission errors required rerunning affected offline
+  suites outside the sandbox; all passed. Exact original corpus: 292 arena + 50 boss.
+  Each tagged artifact passed four strict process games, zero errors/timeouts/nominal overruns.
+  These are new infrastructure checks, not continuation of the failed local chords protocol.
+- Live API smoke: one tagged v07 game and two matched-map pairs, both seats and both builds.
+  All five created/fetched/saved successfully with correct markers and requested seeds.
+  Independent runner needs no browser, Tampermonkey or local save server after session import.
+  API play updates saved IDE code; original source backup is retained. No arena submission.
+- Predeclared separate exploratory screen: 40 matched fresh maps, 80 calls, balanced seats
+  and AB/BA, fixed exact one-sided discordance test, no extending/tuning/replacing games.
+  Old 6/20 remains historical context. Protocol: docs/chords-boss-v1.md; statistics and runner
+  instructions: docs/boss-evaluation-protocol.md and docs/boss-api.md. Results recorded separately.
+
+
+## 2026-09-19 local - live boss screen interrupted; reusable runner verified
+
+- Hypothesis: network chords may improve results against the actual boss even though
+  the completed local confirmation was 54.4%, below its 55% gate. This is separate
+  exploratory evidence, without promotion or reopening the failed local experiment.
+- Froze docs/chords-boss-v1.md and the 40-pair/80-game plan before its first game.
+  Completed ten fresh matched map/seat pairs: chords 3W/7L, v07 2W/8L. Independent
+  canonical audit checks ranks, boss identity, maps, seeds, seats, build markers,
+  local source/configuration/executable/process hashes and all 26 original submission
+  files. Evidence is explicitly INTERRUPTED, with no significance test or verdict.
+- At slot 21, TestSession/play returned HTTP 422 and no recoverable game ID. Original
+  error body was not retained. Never retried that creation request or replaced the
+  scheduled game. Read-only authenticated lookup succeeds; arena history does not
+  contain these IDE games, including the last confirmed ID 904840552. Thus it cannot
+  establish whether slot 21 exists. Current stage cannot safely resume without that ID.
+- Added bounded private HTTP error retention for future diagnosis, keeping ordinary
+  errors/metadata redacted. A distinct one-game technical plan completed as game
+  904843581 with tagged v07; it neither retries slot 21 nor enters the comparison.
+  Six technical games plus 20 comparison games completed through the independent API.
+  The original 422 cause is unknown; a successful later call is not evidence that the
+  earlier request failed before creation. No further play attempts were made.
+- All 79 currently saved boss games validate exactly and are rendered. Partial gallery
+  replays/rendered/cg/chords-boss-v1.html provides 20 working replay links and outcome
+  filters; missing pairs are visible and no final p-value is presented.
+- Reusable workflow, historical-control thresholds and replay attribution are documented
+  in boss-api.md, boss-evaluation-protocol.md and replay_format.md. The browser can close
+  after session import. User-provided HAR, credentials, source backup and error bodies
+  stay in ignored private storage. The live capture server runs protocolVersion 2.
+- Decision: preserve the incomplete fixed sample, leave selected v07 and flags unchanged,
+  and commit the completed infrastructure plus interrupted evidence. Recovery requires
+  the actual missing game ID; do not force another attempt or reinterpret ten pairs as
+  a completed smaller experiment. No arena submission, strategy promotion or push.
+
+- Final verification: 299 Java tests and 71 Python tests (18 API, 25 batch, 12 capture,
+  nine independent-audit, seven existing gate tests), all passing. Exact statistical
+  threshold/power evidence reproduced; all 79 saved boss replays validated/rendered.
+  Final review also fixed premature canonical retention: incomplete replay responses
+  are retained separately until final ranks/endScreen/map/seed exist. Regression
+  verifies one play and five lookups across four incomplete responses, with no early
+  immutable capture. The original interrupted screen is unaffected.
+- Preserve the byte-hashed protocol/auditor/evidence through Git line-ending conversion
+  using explicit attributes; credentials and all private diagnostics remain ignored.

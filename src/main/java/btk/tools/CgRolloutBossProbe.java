@@ -25,7 +25,7 @@ public final class CgRolloutBossProbe {
             var e = entry.getAsJsonObject();
             if (!e.get("userReportedVersion").getAsString().equals("v06")) continue;
             var game = e.getAsJsonObject("game");
-            Path file = Path.of(game.get("file").getAsString());
+            Path file = ReplayPaths.resolve(Path.of(game.get("file").getAsString()));
             if (!ReplyStudy.hash(Files.readAllBytes(file)).equals(e.get("sha256").getAsString()))
                 throw new IllegalStateException("Input changed: " + file);
             var replay = CgReplay.load(file);

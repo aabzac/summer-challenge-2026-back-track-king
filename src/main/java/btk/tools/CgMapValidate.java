@@ -12,7 +12,7 @@ import java.util.List;
 public final class CgMapValidate {
 
     public static void main(String[] args) throws Exception {
-        Path path = Path.of(args.length > 0 && !args[0].isEmpty() ? args[0] : "replays/cg");
+        Path path = ReplayPaths.resolve(Path.of(args.length > 0 && !args[0].isEmpty() ? args[0] : "replays/cg"));
         List<Path> files = Files.isDirectory(path) ? CgReplay.listReplays(path) : List.of(path);
         int ok = 0;
         for (Path file : files) {

@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
  * an in-process bot on real CG maps when available. Fails loudly on timeouts, invalid commands,
  * or process errors. Connection-model warnings are printed on stderr for inspection.
  *
- * <p>Args: opponentSpec games [map file or pool] [graceMs=0] [report path] [ioDiagnostics=false]
+ * <p>Args: opponentSpec games [map file or pool] [graceMs=0] [report path] [ioDiagnostics=false] [submission directory]
  */
 public final class ProcessCheck {
     record GameCheck(int game, int player, String map, long seed, Referee.Result result,
@@ -37,9 +37,12 @@ public final class ProcessCheck {
         Path out = Path.of(args.length > 4 && !args[4].isBlank() ? args[4] : "build/analysis/process-check.json");
         boolean diagnostics = args.length > 5 && parseDiagnostics(args[5]);
         if (diagnostics && Files.exists(out)) throw new IllegalArgumentException("Choose a new diagnostic report: " + out);
-        Path classes = Path.of("build/submit/classes/Player.class");
-        if (!Files.exists(classes)) FileMerger.main(new String[0]);
-        Path source = Path.of("build/submit/Player.java");
+        String configuredOutput = args.length > 6 ? args[6] : "";
+        Path submission = submissionDirectory(configuredOutput);
+        Path classes = submission.resolve("classes/Player.class");
+        if (!configuredOutput.isBlank()) requireExplicitArtifact(submission);
+        else if (!Files.exists(classes)) FileMerger.main(new String[0]);
+        Path source = submission.resolve("Player.java");
         String sourceHash = Files.exists(source) ? HexFormat.of().formatHex(
                 MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(source))) : "missing";
         // Hash actual executable files as well: source alone does not prove classes are fresh.
@@ -54,7 +57,7 @@ public final class ProcessCheck {
         for (int g = 0; g < games; g++) {
             long seed = 7000 + g;
             GameState initial = maps.get(g, seed);
-            ProcessBot pb = ProcessBot.javaPlayer("build/submit/classes");
+            ProcessBot pb = ProcessBot.javaPlayer(classes.getParent().toString());
             if (diagnostics) pb.enableIoDiagnostics();
             pb.graceMs = graceMs;
             Bot other = TimingProfile.CG.cap(BotFactory.create(opp));
@@ -90,6 +93,7 @@ public final class ProcessCheck {
         Files.createDirectories(out.toAbsolutePath().getParent());
         Map<String, Object> report = new LinkedHashMap<>();
         report.put("schemaVersion", 1); report.put("sourceSha256", sourceHash); report.put("classesSha256", classesHash);
+        report.put("submissionDirectory", submission.toAbsolutePath().normalize().toString());
         report.put("javaVersion", System.getProperty("java.version")); report.put("opponent", opp);
         report.put("opponentParams", BotFactory.configuration(opp)); report.put("graceMs", graceMs);
         report.put("strict", graceMs == 0); report.put("problems", problems); report.put("games", checks);
@@ -98,6 +102,19 @@ public final class ProcessCheck {
         System.out.println("Per-turn timing report: " + out);
         System.out.printf("Player.java: %d/%d wins vs %s, %d problem games%n", wins, games, opp, problems);
         if (problems > 0) System.exit(1);
+    }
+
+    static Path submissionDirectory(String configuredOutput) {
+        return Path.of(configuredOutput == null || configuredOutput.isBlank() ? "build/submit" : configuredOutput).normalize();
+    }
+
+    /** An explicitly requested artifact must already exist; never silently compile another policy. */
+    static void requireExplicitArtifact(Path directory) {
+        if (!Files.isDirectory(directory)) throw new IllegalArgumentException("submitOut must be an existing submission directory: " + directory);
+        if (!Files.isRegularFile(directory.resolve("Player.java")))
+            throw new IllegalArgumentException("Missing requested Player.java: " + directory);
+        if (!Files.isRegularFile(directory.resolve("classes/Player.class")))
+            throw new IllegalArgumentException("Missing requested compiled Player.class; run submit with the same submitOut: " + directory);
     }
 
     static boolean parseDiagnostics(String value) {

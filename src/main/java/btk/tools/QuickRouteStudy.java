@@ -19,7 +19,7 @@ public final class QuickRouteStudy {
             var entry = item.getAsJsonObject();
             if (!entry.get("userReportedVersion").getAsString().equals("v06")) continue;
             var game = entry.getAsJsonObject("game");
-            Path file = Path.of(game.get("file").getAsString());
+            Path file = ReplayPaths.resolve(Path.of(game.get("file").getAsString()));
             if (!ReplyStudy.hash(Files.readAllBytes(file)).equals(entry.get("sha256").getAsString()))
                 throw new IllegalStateException("Replay changed");
             var replay = CgReplay.load(file);

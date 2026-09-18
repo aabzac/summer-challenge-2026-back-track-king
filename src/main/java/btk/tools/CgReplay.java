@@ -13,6 +13,7 @@ import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.OptionalLong;
 import java.util.Properties;
@@ -59,7 +60,7 @@ public final class CgReplay {
     }
 
     public static CgReplay load(Path file) throws IOException {
-        return parse(JsonParser.parseString(Files.readString(file)).getAsJsonObject());
+        return parse(JsonParser.parseString(Files.readString(ReplayPaths.resolve(file))).getAsJsonObject());
     }
 
     public static CgReplay parse(JsonObject root) {
@@ -253,12 +254,23 @@ public final class CgReplay {
         }
     }
 
-    /** Loads every *.json replay in a directory (sorted by name). */
+    /** Arena directories remain flat; boss trees include version/build subdirectories, excluding sidecars/raw captures. */
     public static List<Path> listReplays(Path dir) throws IOException {
         List<Path> out = new ArrayList<>();
-        if (!Files.isDirectory(dir)) return out;
-        try (var st = Files.list(dir)) {
-            st.filter(p -> p.toString().endsWith(".json")).sorted().forEach(out::add);
+        Path resolved = ReplayPaths.resolve(dir);
+        if (!Files.isDirectory(resolved)) return out;
+        boolean boss = ReplayPaths.inBossTree(resolved);
+        try (var st = boss ? Files.walk(resolved) : Files.list(resolved)) {
+            st.filter(Files::isRegularFile)
+                    .filter(p -> boss ? ReplayPaths.canonicalBossFile(p) : p.toString().endsWith(".json"))
+                    .sorted().forEach(out::add);
+        }
+        if (boss) {
+            var names = new HashSet<String>();
+            for (Path file : out) {
+                if (!names.add(file.getFileName().toString()))
+                    throw new IOException("Duplicate boss replay filename; choose one canonical capture: " + file.getFileName());
+            }
         }
         return out;
     }

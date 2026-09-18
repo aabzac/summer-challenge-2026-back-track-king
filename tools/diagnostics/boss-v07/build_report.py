@@ -58,7 +58,11 @@ document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.da
 data.examples.forEach(e=>{const b=document.createElement('button');b.className='example';b.textContent=`${e.gameId} · t${e.turn} · ${e.label}`;b.onclick=()=>openGame(e.gameId,e);document.getElementById('examples').append(b);});
 openGame(selected,data.examples[0]);
 </script></html>'''
-page = page.replace('__DATA__', json.dumps({'games': summary['games'], 'examples': summary['examples']}, ensure_ascii=False))
+# Historical evidence keeps its recorded locations. Only the rebuilt local gallery follows
+# the directory rename, so regenerating this page cannot mutate the fixed summary.
+gallery_games = [{**game, 'rendered': game['rendered'].replace('/replays/rendered/cg/bot/', '/replays/rendered/cg/boss/')}
+                 for game in summary['games']]
+page = page.replace('__DATA__', json.dumps({'games': gallery_games, 'examples': summary['examples']}, ensure_ascii=False))
 gallery = ROOT / 'replays/rendered/cg/boss-v07-20.html'
 gallery.parent.mkdir(parents=True, exist_ok=True)
 gallery.write_text(page, encoding='utf-8')

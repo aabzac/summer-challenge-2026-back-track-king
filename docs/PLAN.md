@@ -386,3 +386,41 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       multi-turn mechanism traces before strength games. See boss-v07-loss-analysis.md.
 - [ ] Independently test protected opening ownership across multiple town approaches;
       prospective design and risks in arena-opening-survey-v1.md. Do not combine with chords.
+
+## Independent live-boss evaluation (2026-09-18)
+
+- [x] Defer the recurring postponed-sabotage follow-up at the user's request; focus on
+      testing existing network chords against the real boss. No policy/default changes.
+- [x] Move replay folders bot -> boss with complete byte/hash checks (105 original files,
+      plus three subsequent manual captures from the old server). Add missing-old-path
+      compatibility and recursive version/build discovery without raw/metadata duplicates.
+- [x] Add first-turn build/config MESSAGE, immutable source registry and qualified replay
+      attribution. Canonical stdout identifies builds; missing markers stay unknown.
+- [x] Import the user-provided HAR into an ignored local session file, preserving original
+      IDE source. Independent Python API runner works with the browser closed; no userscript
+      batch fallback needed. Restart local capture server at protocolVersion 2.
+- [x] Verify 299 Java tests, 57 Python tests, 292 arena + 50 original boss exact replays,
+      both isolated tagged artifacts in four strict process games each (zero problems),
+      and five live API technical games including identical-map and both-seat checks.
+- [x] Predeclare the separate 40-pair live-boss comparison, exact paired binary test and
+      both artifact hashes. Historical 6/20 is not a known 30% population rate. See
+      boss-evaluation-protocol.md, boss-api.md and chords-boss-v1.md.
+- [ ] Complete the fixed 80-game live-boss comparison, audit and render every saved result;
+      report this separate evidence without changing the failed local promotion verdict.
+
+
+### Live-boss interruption recorded (2026-09-19 local; run 2026-09-18 UTC)
+
+- [x] Preserve and independently audit all 20/80 completed games (ten complete pairs):
+      chords 3W/7L, v07 2W/8L. No completed-sample test or improvement verdict.
+- [x] Record unresolved slot 21 HTTP 422 without issuing a second play. Read-only
+      authorization succeeds; one separate technical diagnostic game also succeeds.
+      The earlier response body/game ID is unavailable, so the original cause is unknown.
+- [x] Render and validate all 79 saved boss replays; publish a partial comparison gallery.
+      Original build/submit files remain byte-identical, v07 selected, new flags OFF.
+- [ ] Recover the actual created game ID for slot 21, if it exists, before resuming the
+      same frozen 80-game plan. Never delete its intent, replace it or pool another sample.
+      See evidence/chords-boss-v1.interrupted.json and boss-api.md.
+
+- [x] Final verification: 299 Java + 71 Python tests; incomplete canonical lookup recovery
+      regression, 79/79 boss renders, exact statistical evidence reproduction.

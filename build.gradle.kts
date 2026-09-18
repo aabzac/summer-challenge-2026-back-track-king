@@ -73,7 +73,7 @@ tasks.register<JavaExec>("submit") {
     description = "Merge bot classes into a single Player.java for CodinGame"
     mainClass.set("btk.submit.FileMerger")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("submitVersion", "current"))
+    args = listOf(prop("submitVersion", "current"), prop("submitOut", "build/submit"))
 }
 
 /** Download CG replays. -Ptop=N | -Pagent=ID | -Pplayer=pseudo | -Pgame=ID ; -Plimit=games per agent */
@@ -98,7 +98,7 @@ tasks.register<JavaExec>("cgValidate") {
 /** Validate and convert canonical CG replay(s) to the visualizer schema. Requires -Ppath. */
 tasks.register<JavaExec>("cgRender") {
     group = "cg"
-    description = "Validate and render CG replays into replays/rendered/cg/{arena,bot}/"
+    description = "Validate and render CG replays into replays/rendered/cg/{arena,boss}/"
     mainClass.set("btk.tools.CgRender")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("path", ""), prop("out", "replays/rendered/cg"))
@@ -205,7 +205,7 @@ tasks.register<JavaExec>("cgBossLossStudy") {
     description = "Validated descriptive comparison of explicitly counted chronological boss cohorts"
     mainClass.set("btk.tools.CgBossLossStudy")
     classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg/bot"), prop("before", "16"), prop("total", "30"),
+    args = listOf(prop("path", "replays/cg/boss"), prop("before", "16"), prop("total", "30"),
         prop("out", "build/analysis/boss-v06-losses-v2/cohorts.json"))
 }
 
@@ -256,5 +256,5 @@ tasks.register<JavaExec>("procCheck") {
     mainClass.set("btk.runner.ProcessCheck")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("bot", "v01"), prop("games", "3"), prop("map", ""), prop("graceMs", "0"), prop("out", ""),
-        prop("processDiagnostics", "false"))
+        prop("processDiagnostics", "false"), prop("submitOut", ""))
 }

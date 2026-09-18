@@ -82,7 +82,7 @@ public final class NetworkCellStudy {
         List<Map<String, Object>> rows = new ArrayList<>(), games = new ArrayList<>();
         for (var entry : byGame.entrySet()) {
             JsonObject savedGame = replayEvidence.get(entry.getKey());
-            Path file = Path.of(savedGame.get("file").getAsString().replace('\\', '/'));
+            Path file = ReplayPaths.resolve(Path.of(savedGame.get("file").getAsString().replace('\\', '/')));
             String replayHash = ReplyStudy.hash(Files.readAllBytes(file));
             if (!replayHash.equals(savedGame.get("sha256").getAsString())) {
                 throw new IllegalStateException("Replay changed: " + file);

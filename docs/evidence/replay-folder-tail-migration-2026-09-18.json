@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-18T20:38:11.415837+00:00",
+  "method": "Tail captures from the previously running legacy capture server. Parent confirmed the old writer stopped and protocol-v2 server became healthy before moves. Verified normalized absolute source/destination paths within workspace, rejected reparse points and per-file game/destination collisions, verified source size/SHA immediately before each native Move-Item and destination immediately after. Removed only the empty bot directory. save_capture registered sidecars from the exact already-moved canonical bytes; all three remain unknown attribution. Original 105-file migration audit preserved unchanged.",
+  "previousMigrationAudit": "docs/evidence/replay-folder-migration-2026-09-18.json",
+  "previousMigrationAuditSha256": "4ad61c6ba0b5bc16e73f6d0bc075a8067e9be634e60a45c2e380a127acd04cf9",
+  "fileCount": 3,
+  "files": [
+    {
+      "from": "replays/cg/bot/904834767.json",
+      "to": "replays/cg/boss/unknown/904834767.json",
+      "sourceAbsolute": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\replays\\cg\\bot\\904834767.json",
+      "targetAbsolute": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\replays\\cg\\boss\\unknown\\904834767.json",
+      "bytes": 77897,
+      "sha256": "16ecbbf27e980f1fd5f5cba1d8026a28c03de0ef8d93195419c3c8f26fcf5546",
+      "verified": true,
+      "metadata": "replays/cg/boss/_metadata/904834767.json",
+      "metadataSha256": "7872abe2eb18e0be05b58ea77d4b9dd4eb9ecc794d1bd02874886bc167409b9c",
+      "attributionStatus": "unknown"
+    },
+    {
+      "from": "replays/cg/bot/904837671.json",
+      "to": "replays/cg/boss/unknown/904837671.json",
+      "sourceAbsolute": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\replays\\cg\\bot\\904837671.json",
+      "targetAbsolute": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\replays\\cg\\boss\\unknown\\904837671.json",
+      "bytes": 69838,
+      "sha256": "4ff95b40fa2c776fdc5bb270257d9b7520fa0ff366be2127b54fefdfed384695",
+      "verified": true,
+      "metadata": "replays/cg/boss/_metadata/904837671.json",
+      "metadataSha256": "86a419ea1eb8dea621622b5ea75df60539431ed987074cfc65edf45c67d4bd80",
+      "attributionStatus": "unknown"
+    },
+    {
+      "from": "replays/cg/bot/904837913.json",
+      "to": "replays/cg/boss/unknown/904837913.json",
+      "sourceAbsolute": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\replays\\cg\\bot\\904837913.json",
+      "targetAbsolute": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\replays\\cg\\boss\\unknown\\904837913.json",
+      "bytes": 97197,
+      "sha256": "7cddbf7c6e13c3faabf598107f91a78487303ed557008d7e3a70b9ba497db94a",
+      "verified": true,
+      "metadata": "replays/cg/boss/_metadata/904837913.json",
+      "metadataSha256": "cf27e2e32aa3c772c25d6390be670c6d17468122f1f5ef937157c7ae2e37ff09",
+      "attributionStatus": "unknown"
+    }
+  ],
+  "verified": true
+}
