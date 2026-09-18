@@ -102,9 +102,43 @@ Core rules and shared utilities remain shared. A parameter snapshot is not an ar
 the whole executable; retain the code revision along with reports when comparing across changes
 to the engine or runtime.
 
-## Active practical selection policy (2026-09-16)
+## Active practical selection policy (2026-09-19)
 
-The active policy is **practical-300-1000-v2**, adding a >52% continuation floor to v1. Freeze
+The active policy is **practical-300-1000-boss-cache-v3**. Its full specification and
+initial accepted v07 cache are in [boss-cache-policy-v3.md](boss-cache-policy-v3.md).
+
+- Direct candidate versus selected control: 300 games / 150 fresh paired maps;
+  >=60% passes, <=52% stops. Only >52% and <60% continues to a separate fresh
+  1000 games / 500 maps, passing at >=55% in that continuation alone.
+- Boss: **40 new candidate games** on the cached control's exact 40 maps/seeds/seats,
+  20 P0 and 20 P1. Reuse the individual verified control outcomes. Candidate total
+  >= control total passes; equality passes. Wins=1, draws=0.5 in both domains.
+- This replaces the required older/style-opponent 300/1000 stages. Boss API calls
+  stay sequential, but may overlap the required local 1000 after a qualifying screen.
+  Complete both started stages; direct failure cannot be rescued by boss results.
+- Cache reuse is a practical regression check, not fresh independent confirmation
+  or proof of noninferiority. Refresh for boss/league changes and after development
+  cycles guided by this pool; retain exact control build, dates and map evidence.
+- No tuning, extending or retrying completed stages until they pass. Engine fidelity,
+  zero errors and strict exact-artifact process checks remain mandatory. Run process
+  timing checks before heavy local concurrent work. Neither strength nor process checks
+  authorize promotion/upload. No overall 95% statistical guarantee is claimed.
+
+Use `python tools/boss_practical_gate.py --screen <300-report>` and, when required,
+`--direct <1000-report>`, plus `--boss-plan <cached-candidate-plan>` for the full gate.
+An incomplete local or boss stage cannot pass. The checker validates local pairing,
+freshness between direct stages, settings and full parameters, plus verified cached
+boss outcomes. Exact local source/class provenance and exclusions from older experiments
+still require a prospective experiment manifest. Local protocol hashes and boss graphics
+hashes have different definitions and must not be treated as directly comparable.
+
+Adoption is prospective. Previously completed experiments, including network chords,
+keep their recorded policy and verdict. The old tool and protocols below remain
+available for historical reproduction; new evaluations use v3.
+
+## Historical practical selection policy (2026-09-16, superseded by v3)
+
+Policy **practical-300-1000-v2** added a >52% continuation floor to v1. Freeze
 candidate A, selected control B, common older/style opponent C and all settings before play.
 Draws count as half a win. Every map is played with both sides; all stages use distinct fresh
 maps and nominal CG timing. Keep stages separate and complete them regardless of running score.
@@ -140,7 +174,7 @@ for the common-opponent comparison. The first v1 application remains historical:
 [quick-income-practical-v1.md](quick-income-practical-v1.md). Its 54.33% screen also clears the
 new floor; the 53% result in the subsequent 1000 still fails 55%. No replay or verdict rewrite.
 
-Evaluate saved stages with `python tools/practical_gate.py --screen <300-game-report>`.
+Evaluate historical v2 stages with `python tools/practical_gate.py --screen <300-game-report>`.
 Add `--direct <1000-game-report>` when required; then `--style-candidate` and `--style-control`
 for the matched 300-game reports, and `--full-candidate` / `--full-control` for the conditional
 matched 1000-game reports. `--out <new-file.json>` writes compact evidence without overwriting.
@@ -179,7 +213,7 @@ The historical `promotionGatePassed` field is retained for report compatibility:
 OLD >=200 games, score >=55%, CI lower bound >50%, zero-error rule. It is explicitly marked
 diagnostic-only by `promotionGateRole` and the console. The active policy id is `promotionPolicy`.
 `practicalDirectStage` checks only the 300/1000 direct-size threshold, complete distinct map pairs,
-CG timing and errors; it cannot validate prior-stage provenance or a common-opponent comparison.
+CG timing and errors; it cannot validate prior-stage provenance or the required cached boss check.
 Never treat either single-report field as a full promotion decision. The benchmark saves its
 report and exits unsuccessfully on bot errors; a failed strength threshold is a successful
 measurement, not a command failure.
@@ -191,9 +225,10 @@ rate is therefore above 61.1%, not merely 55%. Lowering only the 55% threshold w
 a 54.3% result with a [43.2%, 65.4%] interval. An inconclusive result is not proof of no benefit.
 The bound is deliberately conservative and does not use the observed map-level variance.
 
-A comparison through a common opponent must rerun both candidates with the same maps, sides,
-opponent parameters and timing profile. Compare matched map results, not unrelated historical
-percentages. Doing better against v03 does not imply winning head-to-head against v04 or doing
+A fresh local comparison through a common opponent must rerun both candidates with the same
+maps, sides, opponent parameters and timing profile. V3 explicitly allows the documented boss
+cache exception: reuse individual pinned matched outcomes, with its time-drift and known-map
+limitations, not an unrelated historical percentage. Doing better against v03 does not imply winning head-to-head against v04 or doing
 better against the arena population. Choose the policy before fresh evaluation. An explicit
 user-directed policy change does not retroactively turn an old failure into independent proof.
 

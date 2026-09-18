@@ -437,3 +437,19 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
 - [x] Validate/render all 139 saved boss replays and refresh the eighty-game gallery.
 - [x] Verify 89 Python tests; keep all twenty-six submission files and policy defaults
       unchanged. Original recovery-ID prerequisite is superseded by explicit amendment 1.
+
+
+## Cached-control boss selection v3 (2026-09-19)
+
+- [x] Adopt the user-approved cached boss criterion: 40 NEW candidate games, same 40
+      maps/seeds/seats, score >= verified control, wins 1 / draws 0.5, equality passing.
+- [x] Preserve direct 300 / conditional 1000 thresholds; replace mandatory older/style stages.
+      Permit sequential boss games alongside required local 1000, without rescuing local failures.
+- [x] Implement immutable control reuse, generic candidate/control source arms, ancestry,
+      no automatic replay of uncertain requests, canonical/league/build/technical checks.
+- [x] Add the combined v3 checker and meaningful threshold, pairing, corruption, recovery,
+      cached ancestry and concurrent-stage tests; retain the historical v2 tools and verdicts.
+- [x] Verify the actual initial v07 cache: 40 maps / 20+20 seats / 10 points, and document cache
+      refresh, collection dates, hidden boss drift and known-map statistical limitations.
+- [x] Update project instructions, active policy docs and benchmark reporting. No new games
+      or strategy selection changes. Full rule and commands: boss-cache-policy-v3.md.

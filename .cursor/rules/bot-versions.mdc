@@ -11,8 +11,11 @@ alwaysApply: false
   (default = what ships); expose feature switches as boolean params so ablations run as
   `gradlew bench -Pbot1="current?FLAG=0" -Pbot2=current`.
 - Record a paired 300-game screen and a row in `docs/BOTS.md` (win rate with CI, avg score diff).
-  Use the practical 300/1000 direct AND matched common-opponent policy in `AGENTS.md` and
-  `docs/benchmarking.md`; the CI is diagnostic only. Passing checks does not itself authorize
+  Use the practical v3 300/conditional-1000 direct stage AND 40 new candidate boss games
+  against cached control outcomes in `AGENTS.md` and `docs/boss-cache-policy-v3.md`.
+  Boss score must be >= control (draws half); cache matches map/seed/seat/build/boss/league.
+  Sequential boss calls may overlap the required local 1000. Preserve historical v2 verdicts.
+  The CI is diagnostic only. Passing checks does not itself authorize
   changing the selected submission. When promotion is authorized, copy `bot/current` to `bot/vNN`,
   rename the class with a `VNN` suffix, change `name()` to `"vNN"`, register it in `BotFactory`.
 - Record failed experiments in `docs/DEVLOG.md` too (hypothesis, numbers, why rejected).

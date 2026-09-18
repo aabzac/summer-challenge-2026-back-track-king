@@ -1,5 +1,9 @@
 # Fixed small boss screen: network chords versus v07
 
+Historical design note for the 2026-09-18 fresh comparison. Its statistical calculations
+and original decision remain unchanged. New promotion evaluations use the
+[v3 cached-control policy](boss-cache-policy-v3.md), adopted on 2026-09-19.
+
 Date: 2026-09-18. This protocol proposes a separate boss-specific screen; no games
 were run for this document. The active [practical-300-1000-v2 promotion
 gate](benchmarking.md) is unchanged. A boss result does not replace its direct and

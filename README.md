@@ -130,10 +130,14 @@ parameters, seeds, map hashes, both games in each pair and timing. `bench`, `run
 use nominal CG search budgets (486 ms first / 36 ms later); `-Ptiming=legacy` restores the old
 1000/50-ms local allowance. The profile is saved in each bench report. Confidence is grouped by
 distinct map; replaying the same map does not manufacture independent evidence. The old
-per-game Wilson interval is retained as a diagnostic. The active practical policy v2 starts with
+per-game Wilson interval is retained as a diagnostic. The active practical policy v3 starts with
 300 games: >=60% passes, <=52% stops, only >52% and <60% triggers fresh 1000 at >=55%.
-Direct success is followed by matched candidate/control tests
-against a common older/style opponent (300 each at +3 points, otherwise fresh 1000 each at >=0).
+It also requires 40 new candidate games against the live boss on the saved control's exact
+40 maps/seeds/seats, scoring at least as much as that control (wins=1, draws=0.5; ties pass).
+This replaces the mandatory older/style-opponent stages. Sequential boss games can run
+alongside the required local 1000 after a qualifying screen. The cached boss pool is a
+reusable regression check, not fresh confirmation. See [the v3 rule](docs/boss-cache-policy-v3.md)
+for cache identities, refresh, commands and the initially accepted v07 control (10/40).
 Both confidence intervals are now diagnostic only; the historical `promotionGatePassed` JSON
 field is explicitly labelled legacy. See [docs/benchmarking.md](docs/benchmarking.md) for the
 complete policy, stopping conditions and version-freezing procedure.
@@ -234,7 +238,9 @@ For unattended sequential games, use the independent [boss API runner](docs/boss
 Import a browser session once into an ignored local file, freeze the exact submissions and a
 full game schedule, then run it without a browser or save server. It preserves canonical
 replays, verifies build/seed/seat/boss identity and resumes read-only retrieval after a lost
-response without repeating uncertain game creation. See the [fixed sample-size protocol](docs/boss-evaluation-protocol.md)
+response without repeating uncertain game creation. New evaluations use the
+[cached-control v3 rule](docs/boss-cache-policy-v3.md). See also the historical
+[fresh-comparison protocol](docs/boss-evaluation-protocol.md)
 and the separate [planned 40-pair chords comparison](docs/chords-boss-v1.md).
 That comparison is **complete under explicit amendments: 80 games, 40 per strategy**.
 Chords won 9/40 (22.5%); v07 won 10/40 (25%). The exploratory paired test provides no

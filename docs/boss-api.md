@@ -5,6 +5,13 @@ sequence directly against CodinGame. Python standard library only. After import,
 the browser, Tampermonkey and `save_server.py` are not required for this runner.
 The website's private API can change or expire the session; failures are explicit.
 
+For new promotion evaluations, use the adopted
+[v3 cached-control rule](boss-cache-policy-v3.md): `tools/boss_cached.py` runs only
+40 new candidate games on a pinned control pool; `tools/boss_practical_gate.py`
+combines that check with the unchanged direct 300/conditional-1000 thresholds.
+The two-build `boss_batch.py` recipes below remain available for fresh comparisons
+and document the completed historical chords series. They are not the default v3 path.
+
 This uses IDE test games, not arena submissions. **TestSession/play saves the supplied
 source in the website IDE.** The importer preserves the original source before any
 API game; avoid editing that IDE in parallel with a batch. Selected local v07 and

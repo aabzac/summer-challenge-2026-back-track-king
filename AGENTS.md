@@ -13,14 +13,20 @@ finished.
    benches are only trusted while the engine reproduces downloaded CG games. When the local bench
    and the CG arena disagree, run `cgValidate` first, then form hypotheses.
 3. **One change, one version, one bench.** Record every experiment in `docs/BOTS.md`.
-   Practical strength gate (v2): candidate vs selected control, 300 paired games; >=60% passes,
+   Practical strength gate (v3): candidate vs selected control, 300 paired games; >=60% passes,
    <=52% stops, only >52% and <60% continues to separate 1000 fresh games at >=55%.
-   Then candidate AND control vs the same older/style bot
-   on matched fresh maps: 300 games each, candidate advantage >=3 percentage points; otherwise
-   separate matched 1000 each, candidate score >= control score (ties pass). Draws count half.
+   Also play exactly 40 NEW candidate games against the live boss on the saved control's
+   40 seeds/maps/seats; reuse its individually verified replay outcomes, not a historical rate.
+   Candidate score >= cached control score passes (ties pass); wins=1, draws=0.5, losses=0.
+   This replaces the mandatory older/style-opponent 300/1000 stages. Boss calls stay sequential;
+   after a qualifying 300 screen, the boss batch may run alongside the required local 1000.
+   Complete both started stages; a local failure cannot be rescued by boss results.
    Fixed complete stages, no tuning/retries/pooling; stop promotion evaluation on direct failure.
    Confidence intervals are diagnostics, not a gate or an overall 95% guarantee. Follow
-   `docs/benchmarking.md`; engine, errors and exact-artifact process checks remain mandatory.
+   `docs/benchmarking.md` and `docs/boss-cache-policy-v3.md`; engine, errors and exact-artifact
+   process checks remain mandatory. Reused boss maps are a practical regression pool, not fresh
+   confirmation; check cache validity and refresh after outcome-guided development cycles.
+   Apply v3 prospectively; preserve historical policies/verdicts and frozen v2 tools.
 4. **Parameters, not file copies.** All weights/flags are fields of `btk.bot.Params`; ablations are
    run as `current?KEY=value` bot specs. Never edit `btk.bot.vNN` packages — they are frozen
    reference opponents. New version = copy `bot/current` to `bot/vNN`, rename classes, register in

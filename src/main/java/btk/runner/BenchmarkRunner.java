@@ -145,7 +145,7 @@ public final class BenchmarkRunner {
                     && rateA() >= 0.55 && confidence95()[0] > 0.5;
         }
 
-        /** Direct-stage threshold only. Protocol provenance, common opponent and process checks are separate. */
+        /** Direct-stage threshold only. Protocol provenance, cached boss and process checks are separate. */
         public String practicalDirectStage() {
             if (errorsA != 0 || errorsB != 0) return "INVALID_ERRORS";
             if (games != 300 && games != 1000) return "NOT_APPLICABLE";
@@ -183,7 +183,7 @@ public final class BenchmarkRunner {
             for (String note : notes) sb.append("  ").append(note).append('\n');
             sb.append("  historical strict CI gate (diagnostic only): ").append(promotionGatePassed() ? "PASS" : "NOT PASSED").append('\n');
             sb.append("  practical direct-size threshold: ").append(practicalDirectStage()).append('\n');
-            sb.append("  This single report is not a promotion decision: fixed-stage provenance, matched common-opponent and process checks are separate.\n");
+            sb.append("  This single report is not a promotion decision: fixed-stage provenance, the 40-game cached boss check and process checks are separate.\n");
             sb.append(String.format("  accepted disrupt A/B: %.1f%% / %.1f%%; early closures %d/%d%n",
                     100 * behavior.disruptRate[0], 100 * behavior.disruptRate[1], behavior.closedEarly, games));
             sb.append("  Height slices (exploratory pointwise intervals; no per-slice promotion):\n");
@@ -203,7 +203,7 @@ public final class BenchmarkRunner {
             json.add("confidence95", gson.toJsonTree(confidence95()));
             json.addProperty("promotionGatePassed", promotionGatePassed());
             json.addProperty("promotionGateRole", "historical strict CI diagnostic only; not the active policy");
-            json.addProperty("promotionPolicy", "practical-300-1000-v2");
+            json.addProperty("promotionPolicy", "practical-300-1000-boss-cache-v3");
             json.addProperty("practicalDirectStage", practicalDirectStage());
             Files.writeString(file, gson.toJson(json));
         }

@@ -1,10 +1,13 @@
 # Bot versions
 
-Active strength policy (2026-09-16): **practical-300-1000-v2**. Direct 300 games: >=60% passes,
-<=52% stops, only >52% and <60% continues to fresh 1000 at >=55%. Then use a common opponent:
-300 each at >=+3 percentage points, otherwise fresh 1000 each at a nonnegative difference.
-CI is diagnostic only; no overall 95% guarantee. Both stages, zero bot errors, engine fidelity
-and exact-artifact process checks are required. See [benchmarking.md](benchmarking.md).
+Active strength policy (2026-09-19): **practical-300-1000-boss-cache-v3**. Direct 300:
+>=60% passes, <=52% stops, otherwise fresh 1000 at >=55%. Also require exactly 40 NEW
+candidate games against the live boss on the saved control's maps/seeds/seats, scoring
+at least as much as the cached control (draws half, ties pass). This replaces mandatory
+older/style-opponent stages. Sequential boss calls may run alongside the required local
+1000; direct failure cannot be rescued. Reused boss maps are a practical regression pool,
+not fresh confirmation. Engine, errors and exact-artifact process checks still apply.
+See [the v3 rule](boss-cache-policy-v3.md) and [benchmarking.md](benchmarking.md).
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v07**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
@@ -928,3 +931,15 @@ All original submission artifacts, frozen policy source and default-off flags re
 unchanged. [Amendment 1](chords-boss-v1-amendment-1.md),
 [rate-limit amendment](chords-boss-v1-amendment-2.md),
 [independent final evidence](evidence/chords-boss-v1.amended.json).
+
+
+## Adopt cached-boss practical selection v3 (2026-09-19)
+
+The user adopted **practical-300-1000-boss-cache-v3** prospectively. Direct 300/conditional
+1000 thresholds remain unchanged; 40 new candidate boss games against individually pinned
+cached control results replace the mandatory older/style-opponent stages. Draws count half,
+and equality with the cache passes. Sequential boss calls may overlap the required local
+1000, but a direct failure cannot be rescued. The initial accepted v07 cache is 10W/30L,
+40 unique maps, 20 seats each; its ten points are not an asserted true 25% win probability.
+No strategy version/default change, new experiment or reinterpretation of historical failures.
+See [the complete rule](boss-cache-policy-v3.md).

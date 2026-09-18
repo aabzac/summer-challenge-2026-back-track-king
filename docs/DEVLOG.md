@@ -3300,3 +3300,40 @@ Completed outcome (fixed sample, no retuning):
 - Decision: record the exploratory result and preserve v07 selection/default-off flags.
   No promotion, arena submission or push. The earlier local 54.4% confirmation remains
   below its 55% gate. Both interrupted and amended evidence are retained.
+
+
+## 2026-09-19 - adopt v3 with a reusable boss control
+
+- User approved retaining the saved control instead of rerunning it for each candidate:
+  exactly forty NEW candidate games on identical cached maps, seeds and seats; compare
+  total win-equivalent points, candidate >= control, draws half and equality passing.
+- Direct thresholds remain <=52% stop / >=60% pass after 300; otherwise separate fresh
+  1000 at >=55%. Boss replaces required older/style 300+300 / conditional 1000+1000.
+  After a qualifying screen the required local 1000 and sequential boss batch may overlap;
+  both started stages complete absent an integrity/transport/readiness interruption.
+  Local failure retains concurrent boss evidence without permitting promotion.
+- Updated AGENTS, the existing bot rule, README, active benchmarking/version guidance and
+  BenchmarkRunner report policy/wording. Added boss-cache-policy-v3.md with refresh and
+  hidden-boss-drift limits. Historical v2 checker/runners/audits and result evidence remain
+  unchanged; new tooling uses a separate policy ID rather than reinterpreting old results.
+- Added candidate-only boss_cached plan/run/report/recover: immutable cache/canonical/build
+  pins, complete 40 control maps and 20/20 seats, exact candidate pairing, boss and required
+  league division metadata, retained technical failures, uncertain-request no-replay.
+  Generic complete candidate/control arms are supported, including verified cached ancestry.
+  Reports retain collection dates, original amendments and reused-pool inference limits.
+- Added boss_practical_gate combining canonical boss assessment with validated direct
+  reports. It checks full parameter/spec identity, relative half-win thresholds, completeness,
+  local-stage freshness, and concurrent failure branches. It cannot attest local executable
+  identity or compare incompatible local protocol versus boss graphics map hashes; these
+  remain explicit experiment-provenance checks, not fabricated freshness assurances.
+- Read-only actual control validation: forty unique maps,20 P0 / 20 P1, 10W/30L, exact v07 build,
+  boss 6740207 and league divisions 6/3/0; source series remains amended exploratory with both
+  excluded requests retained. No API requests, new candidate plans or matches in this adoption.
+- Verification: 299 Java tests passed; final BenchmarkRunnerTest passed after report wording
+  correction. All 113 Python tests pass (92 tool tests plus 21 API tests), including 13 new
+  cached-runner and 11 combined-gate tests. Independent
+  review caught stale report wording and missing required league fields; both were fixed.
+- Decision: v3 applies to future evaluations only. Selected v07 and both experimental flags
+  stay unchanged; no promotion, arena upload or push. Refresh the pool after development
+  cycles guided by its outcomes and when the boss/league changes; no arbitrary expiry count
+  was invented. Existing chords 54.4% local failure and 9/40 boss result retain their decisions.

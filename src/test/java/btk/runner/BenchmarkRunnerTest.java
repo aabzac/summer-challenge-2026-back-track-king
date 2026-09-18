@@ -116,7 +116,7 @@ class BenchmarkRunnerTest {
         assertEquals("0.1", json.getAsJsonObject("paramsA").get("NOISE").getAsString());
         assertFalse(json.get("promotionGatePassed").getAsBoolean());
         assertEquals(3, json.get("schemaVersion").getAsInt());
-        assertEquals("practical-300-1000-v2", json.get("promotionPolicy").getAsString());
+        assertEquals("practical-300-1000-boss-cache-v3", json.get("promotionPolicy").getAsString());
         assertEquals(10, json.getAsJsonObject("byHeight").getAsJsonObject("1").get("games").getAsInt());
     }
 
