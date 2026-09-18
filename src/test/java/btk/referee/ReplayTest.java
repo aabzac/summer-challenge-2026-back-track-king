@@ -4,6 +4,7 @@ import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
 import btk.core.Rules;
+import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,6 +12,19 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReplayTest {
+
+    @Test void localSeedsRetainZeroAndExactSignedLongText() {
+        var state = new GameState(1, 1, new int[]{0}, new int[]{0},
+                new int[0], new int[0], new int[0][]);
+        for (long seed : new long[]{0, 9_007_199_254_740_993L, Long.MIN_VALUE, Long.MAX_VALUE}) {
+            var replay = new Replay(state, seed, "p0", "p1");
+            var meta = JsonParser.parseString(replay.toJson()).getAsJsonObject().getAsJsonObject("meta");
+            assertTrue(meta.getAsJsonPrimitive("seed").isNumber());
+            assertEquals(seed, meta.get("seed").getAsLong());
+            assertTrue(meta.getAsJsonPrimitive("seedText").isString());
+            assertEquals(Long.toString(seed), meta.get("seedText").getAsString());
+        }
+    }
 
     @Test void recordsExplicitLocalLabelsButNeverRelabelsCgPlayers() {
         var state = btk.referee.MapGenerator.generate(321);

@@ -453,3 +453,12 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
       refresh, collection dates, hidden boss drift and known-map statistical limitations.
 - [x] Update project instructions, active policy docs and benchmark reporting. No new games
       or strategy selection changes. Full rule and commands: boss-cache-policy-v3.md.
+
+
+## Replay viewer usability (2026-09-19)
+
+- [x] Export the real CG seed with exact decimal text; preserve unknown seeds and valid local zero.
+- [x] Group colored player names, scores and turn income; label connection ownership and final results.
+- [x] Fix cell hover scope/stale-turn data, playback reset, empty-viewer shortcuts and stale replay caching.
+- [x] Regenerate the existing 139 boss and 7 arena renders; verify canonical bytes remain unchanged.
+- [x] Check seed edge cases, the full Java suite, existing bot-label checks and browser interactions.

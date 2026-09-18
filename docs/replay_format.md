@@ -30,6 +30,13 @@ performs the same exact validation and writes the reconstructed visualizer schem
 `replays/rendered/cg/arena/` or `replays/rendered/cg/boss/`; the boss category is detected from
 `arenaboss` or legacy agent id `-2`. Fully local games continue to use `replays/local/`.
 
+Rendered metadata carries the actual CG `refereeInput` seed as both `meta.seed` (compatibility
+number) and `meta.seedText` (exact signed 64-bit decimal string). JavaScript viewers must prefer
+the string to avoid rounding large seeds. Missing CG seeds omit both fields; malformed seeds
+fail export. Old CG exports used a placeholder `seed:0`: re-render them to recover the real seed.
+The viewer shows unknown for that legacy placeholder or an unsafe number without `seedText`;
+a genuine local zero remains valid. Canonical input files are never rewritten by this update.
+
 Java replay tools accept old `replays/cg/bot/...` and `replays/rendered/cg/bot/...` paths when
 the old location is absent and the corresponding `boss/...` location exists. Historical reports
 keep their recorded paths and hashes. Boss directory discovery is recursive, accepts numeric

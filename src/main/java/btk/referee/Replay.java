@@ -12,13 +12,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalLong;
 
 /**
  * Replay document consumed by {@code visualizer/index.html}. Same shape is produced for local
  * games and for CG games run through the local engine ({@code btk.tools.CgRender}).
  *
  * <pre>
- * { meta:{source,seed,bots[],gameId?,winner,score[],errors[]},
+ * { meta:{source,seed?,seedText?,bots[],gameId?,winner,score[],errors[]},
  *   map:{width,height,region[],terrain[],towns:[{id,x,y,desired[]}],pairs:[[from,to],...]},
  *   turns:[{actions:[s0,s1], placed:[[cell,owner],...], score:[a,b], gained:[a,b],
  *           regionInstability:[], regionInked:[], paths:[[pairIdx,[cells...]],...],
@@ -29,7 +30,10 @@ public final class Replay {
 
     public static final class Meta {
         public String source = "local";
-        public long seed;
+        /** Compatibility number; absent when a CG export did not provide its seed. */
+        public Long seed;
+        /** Exact signed 64-bit decimal text for consumers whose JSON numbers lose long precision. */
+        public String seedText;
         public String[] bots;
         /** Optional explicit local identities. CG player nicknames must never be resolved via our catalog. */
         public BotCatalog.Identity[] botDetails;
@@ -69,7 +73,13 @@ public final class Replay {
     private transient int[] prevOwner;
 
     public Replay(GameState s, long seed, String bot0, String bot1) {
-        meta.seed = seed;
+        this(s, OptionalLong.of(seed), bot0, bot1);
+    }
+
+    /** Preserve an unknown external seed without assigning a synthetic zero. */
+    public Replay(GameState s, OptionalLong seed, String bot0, String bot1) {
+        meta.seed = seed.isPresent() ? seed.getAsLong() : null;
+        meta.seedText = seed.isPresent() ? Long.toString(seed.getAsLong()) : null;
         meta.bots = new String[]{bot0, bot1};
         meta.maxTurns = s.maxTurns;
         map.width = s.width;

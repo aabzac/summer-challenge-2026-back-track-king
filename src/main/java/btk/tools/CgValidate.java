@@ -73,7 +73,7 @@ public final class CgValidate {
         s.maxTurns = Math.max(s.maxTurns, r.turns());
         Pathing pathing = new Pathing(s.size);
         Rules.updateConnections(s, pathing);
-        Replay replay = new Replay(s, 0, r.nicknames[0], r.nicknames[1]);
+        Replay replay = new Replay(s, r.mapSeed(), r.nicknames[0], r.nicknames[1]);
         replay.meta.source = "cg";
         replay.meta.gameId = String.valueOf(r.gameId);
         String[] serverFailures = new String[2];

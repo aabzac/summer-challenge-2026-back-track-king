@@ -3337,3 +3337,30 @@ Completed outcome (fixed sample, no retuning):
   stay unchanged; no promotion, arena upload or push. Refresh the pool after development
   cycles guided by its outcomes and when the boss/league changes; no arbitrary expiry count
   was invented. Existing chords 54.4% local failure and 9/40 boss result retain their decisions.
+
+
+## 2026-09-19 - repair replay seeds and improve viewer readability
+
+- User reported seed 0 and requested clearer associations between nicknames, colors and scores.
+  Cause: CgValidate constructed the derived Replay with a hardcoded zero. Pass the canonical
+  refereeInput seed instead; retain numeric meta.seed and add exact decimal meta.seedText to
+  prevent JavaScript rounding signed 64-bit values. Missing CG seeds stay absent, invalid seeds
+  fail export, and real local zero remains valid. No core rules or strategy changes.
+- Group player name, P0/P1 color, current score and earned points in one panel per player. Label
+  initial/current/final scores, the final winner, connection ownership columns and active count.
+  Add seed copy, control titles/accessibility labels and a stacked layout for narrow windows.
+- Fixed the cell-hover ReferenceError (region state was scoped only inside draw), refresh hovered
+  data on turn changes, clear playback on replay load, pause on manual seek, restart Play at end,
+  guard empty-viewer keyboard actions and avoid double drop handlers. Fetch replay JSON without
+  cache so re-rendered metadata appears after refresh. Player labels remain plain text.
+- Verification: all 302 Java tests pass, including three new seed/export regressions; nine existing
+  bot-label checks pass, JavaScript parses. Rendered exactly 139 boss and seven existing arena
+  games through the canonical validator. All 146 source replay byte hashes remain identical;
+  all boss render data except seed metadata is identical. Two older arena exports also refresh
+  earlier renderer output under the current validator; canonical evidence is unchanged.
+- Browser checks: initial/late/final positions, P0/P1 winner mapping including a timeout loss,
+  19-digit seed display, copy-button success, old local zero versus old CG placeholder, empty
+  viewer shortcuts, hover updated by keyboard seek, navigation after button focus, and a 620px
+  layout. Fresh verification tab reports no JavaScript errors. Snapshot checks are in ignored
+  tmp/visualizer-review; derived replay files remain ignored. No match-strength bench is needed
+  for this presentation/metadata fix. Record and commit the completed maintenance change.

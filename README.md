@@ -213,6 +213,10 @@ gradlew cgRender "-Ppath=replays/cg/903337834.json"
 Boss games are detected from `arenaboss` metadata or legacy agent id `-2` and written under
 `replays/rendered/cg/boss/` instead. Player slots follow `agents.index`, including positive boss IDs.
 `cgValidate` only validates and never creates files.
+The viewer groups each player's colored nickname, score and turn income, labels track ownership
+in the connection table, and shows the current cell's sabotage state while stepping through turns.
+CG seeds come from the original referee input and can be copied without 64-bit rounding.
+Re-render older files whose seed was exported as zero; refresh an already open viewer after updates.
 The rendered 30-game Boss 4 collection is available locally at
 `http://127.0.0.1:7799/replays/rendered/cg/boss-30.html` while the replay server is running.
 It uses the corrected 16 v05 / 14 v06 split; first v06 game: 904146009.
