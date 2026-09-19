@@ -88,6 +88,18 @@ class FrozenParamsTest {
                 "explicit query overrides remain later than snapshot fallback");
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"v01", "v02", "v03", "v04", "v05", "v06", "v07", "pressure-v1"})
+    void olderSnapshotsDoNotInheritProtectedOpeningDefault(String version) {
+        Params defaults = new Params();
+        assertTrue(defaults.USE_PROTECTED_OPENING);
+        FrozenParams.applyTo(version, defaults);
+        assertFalse(defaults.USE_PROTECTED_OPENING);
+        assertFalse(BotFactory.parameters(version).USE_PROTECTED_OPENING);
+        assertTrue(BotFactory.parameters(version + "?USE_PROTECTED_OPENING=1").USE_PROTECTED_OPENING,
+                "explicit overrides remain later than the historical missing-field fallback");
+    }
+
     @Test
     void v05SnapshotPreservesEveryConfirmedParameterAndFactoryWiring() throws Exception {
         Map<String, String> expected = baseline();
@@ -167,7 +179,7 @@ class FrozenParamsTest {
         expected.put("PRESSURE_STICKINESS", "0.25");
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
-        assertEquals(expected, BotFactory.configuration("current?USE_ROLLOUT_POLICY=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0"));
+        assertEquals(expected, BotFactory.configuration("current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_POLICY=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0"));
         Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
         FrozenParams.applyTo("v05", changed);
         for (var entry : expected.entrySet()) {

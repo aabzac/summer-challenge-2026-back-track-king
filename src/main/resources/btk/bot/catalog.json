@@ -54,8 +54,15 @@
       "id": "v07",
       "title": "Network After Base",
       "category": "version",
-      "status": "selected",
+      "status": "historical",
       "description": "Quick income plus single-cell network moves after ordinary rollout comparisons finish."
+    },
+    {
+      "id": "v08",
+      "title": "Protected Opening",
+      "category": "version",
+      "status": "selected",
+      "description": "Claims protected town approaches over the first three turns, then uses Network After Base."
     },
     {
       "id": "pressure-v1",

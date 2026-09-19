@@ -27,7 +27,7 @@ class RolloutRheaTest {
     }
 
     private static RolloutBot bot(GameState s, int me, String extra) {
-        var b = new RolloutBot(new Params("USE_ROLLOUT_RHEA=1,NOISE=0,USE_DISRUPT=0,ROLLOUT_DEPTH=2" + extra));
+        var b = new RolloutBot(new Params("USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1,NOISE=0,USE_DISRUPT=0,ROLLOUT_DEPTH=2" + extra));
         b.init(s,me); return b;
     }
 
@@ -125,10 +125,10 @@ class RolloutRheaTest {
     @Test void fullPlayPreservesBaseCoverageIsReproducibleLegalAndLeavesInputUntouched() {
         for(int me=0;me<2;me++) {
             var s=MapGenerator.generate(310); var before=s.copy();
-            var base=new RolloutBot(new Params("NOISE=0")); base.init(s,me); base.play(s,me,60_000);
-            var on=new RolloutBot(new Params("USE_ROLLOUT_RHEA=1,NOISE=0")); on.init(s,me);
+            var base=new RolloutBot(new Params("USE_PROTECTED_OPENING=0,NOISE=0")); base.init(s,me); base.play(s,me,60_000);
+            var on=new RolloutBot(new Params("USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1,NOISE=0")); on.init(s,me);
             var actions=on.play(s,me,60_000);
-            var repeat=new RolloutBot(new Params("USE_ROLLOUT_RHEA=1,NOISE=0")); repeat.init(s,me);
+            var repeat=new RolloutBot(new Params("USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1,NOISE=0")); repeat.init(s,me);
             assertEquals(Action.format(actions),Action.format(repeat.play(s,me,60_000)));
             assertEquals(base.routeQueries,on.routeQueries);
             assertEquals(base.ordinaryComparisons,on.ordinaryComparisons);
@@ -149,7 +149,7 @@ class RolloutRheaTest {
         assertFalse(new Params().USE_ROLLOUT_RHEA);
         for(int me=0;me<2;me++) {
             var s=MapGenerator.generate(311);
-            var off=new RolloutBot(new Params("USE_ROLLOUT_RHEA=0,ROLLOUT_RHEA_MUTATIONS=64,ROLLOUT_RHEA_ELITES=4"));
+            var off=new RolloutBot(new Params("USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=0,ROLLOUT_RHEA_MUTATIONS=64,ROLLOUT_RHEA_ELITES=4"));
             off.init(s,me); var frozen=BotFactory.create("v07"); frozen.init(s,me);
             assertEquals(Action.format(frozen.play(s,me,60_000)),Action.format(off.play(s,me,60_000)));
             assertNull(field(off,"rheaElitePlans")); assertEquals(0,off.rheaAttempts);
@@ -158,6 +158,6 @@ class RolloutRheaTest {
                 "ROLLOUT_RHEA_ELITES=0","ROLLOUT_RHEA_ELITES=5","USE_PROTECTED_OPENING=1",
                 "USE_ROLLOUT_NETWORK_AFTER_BASE=0","USE_ROLLOUT_QUICK_ROUTE=0",
                 "USE_ROLLOUT_REPLAN=1","USE_ROLLOUT_NETWORK_CHORDS=1","USE_ROLLOUT_ROUTE_DEPENDENCIES=1"})
-            assertThrows(IllegalArgumentException.class,()->new RolloutBot(new Params("USE_ROLLOUT_RHEA=1,"+invalid)));
+            assertThrows(IllegalArgumentException.class,()->new RolloutBot(new Params("USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1,"+invalid)));
     }
 }

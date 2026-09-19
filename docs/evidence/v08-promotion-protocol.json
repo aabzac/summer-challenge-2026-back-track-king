@@ -1,0 +1,95 @@
+{
+  "before": {
+    "capturedAt": "2026-09-19T12:00:07.930725+00:00",
+    "sourceCommit": "49df9225ce5ceb5dec2949f267292ad2f1fa589c",
+    "previousSubmission": {
+      "build/submit/classes/Player$1.class": "59c3cf626cc1e9e1b94b64427405d4ee54bab026fdfe07c24dc4cdc30137a129",
+      "build/submit/classes/Player$Action$Type.class": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+      "build/submit/classes/Player$Action.class": "7a12f780b187c9cb3844054f06ec6e80c85a4774d9bd71181801a7369c30e016",
+      "build/submit/classes/Player$Bot.class": "276321f4f2d2692b053c62577ea73d15ff45659a663ab8a986aa103c677735a7",
+      "build/submit/classes/Player$CGRunner.class": "3b9d5d3a6ee3b045253c4d31f22d47cb21070efc78de45ef26bd71e4aef7b8d0",
+      "build/submit/classes/Player$EvalBot.class": "df8d716bda8fe2bf2d9178403cd4997170614112138fab86bd47d059bbfa8253",
+      "build/submit/classes/Player$GameState.class": "59c04ac9fd5097d24c373fc46a2812c7ffbdd0f1e9fe703b87de959f311be92d",
+      "build/submit/classes/Player$GreedyBot.class": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739",
+      "build/submit/classes/Player$MainBot.class": "77cd38e7c9fb311389136a5a7b676f2b6873df022bb52655f2db58f1b22afc7f",
+      "build/submit/classes/Player$NetworkCells.class": "3bbff6fc5c38581eb0d24cd91241945406a5884d735d56ecd737e28b16f98f0c",
+      "build/submit/classes/Player$Params.class": "63fcf00349e87447f936f59e46ce9b435212370c0ff5f30f6ee18f67391b954e",
+      "build/submit/classes/Player$Pathing.class": "ae055f04041e88141d6a6d9f5394ea060493c3fb9ba5db8f557356cec5ac44b1",
+      "build/submit/classes/Player$Protocol$Init.class": "54333d664b6adde644d5184b567e205ff13bc7c15ee76ad2bcf8f25189798400",
+      "build/submit/classes/Player$Protocol$TokenReader.class": "8b7179664004bf33ad3ae18dead453cc13783ef166f13aede6e9b5fb8a5d71c9",
+      "build/submit/classes/Player$Protocol$TurnInfo.class": "883680f135c44707e159658b2786a50081b463645e4ae01a0ee7be754b8b2fc6",
+      "build/submit/classes/Player$Protocol.class": "09db926ffbc8bb6ef0473789de700948d787341376e680c70790d2ea09c3a823",
+      "build/submit/classes/Player$Rules$PlayerMoves.class": "6889af6f0a0bfe0eff890bd5dd5aa4df5b72fa93505c1760044a13124c1ae4f7",
+      "build/submit/classes/Player$Rules$TurnResult.class": "315de3e8f52e3c15632e67a7fb27370fdbaa60617c25dafe302641c31d7b8676",
+      "build/submit/classes/Player$Rules.class": "846b6ddba19e2199010135fe1cceac07b747531e65866d57617d76ccf27b07ad",
+      "build/submit/classes/Player$SearchState.class": "c0e6969835d91565d4fc88f8b24283dcb5e969a41aaf831ffbbf789437c9c804",
+      "build/submit/classes/Player$Timer.class": "98dd90694061505b34e284b8a0b626367d0fe20cba86f0fb9ee6703fa72da4a0",
+      "build/submit/classes/Player.class": "a529e72b27fc5f1953135771bb8a3749ee7d33c0a5a079a0b331473dea82b0a4",
+      "build/submit/manifest.json": "21f864951d4ff139fe06156f9d5107fa37fa0497a9df886c964237e9cffdff63",
+      "build/submit/Player.java": "3c94f8ed5cd0cc16933e45b7fab7e8d48faafb9a1f52c952f601cd3fbcfc42c7",
+      "build/submit/PlayerQuickIncome.java": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+      "build/submit/PlayerQuickIncome.manifest.json": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3"
+    },
+    "oldFrozenFiles": {
+      "src/main/java/btk/bot/v00/AutoplaceBot.java": "a5604bf9996db03d0cfc48614713ef3c9b4c42f48ba6299e5f64310814ac26e9",
+      "src/main/java/btk/bot/v01/GreedyBotV01.java": "4aba45f93963d1f75759ccbc2a3d56b1611e0bb3f0d8925a1004723566f9f67d",
+      "src/main/resources/btk/bot/versions/v01.properties": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "src/main/java/btk/bot/v02/EvalBotV02.java": "4b7f316c1f23ccc29ae5fa2500ad9a16cf19a08a58b4f701f9dfd274c40aadc7",
+      "src/main/resources/btk/bot/versions/v02.properties": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "src/main/java/btk/bot/v03/EvalBotV03.java": "fa9f71f7f943aaf4849d5020aa8da70f04ecbd6cd2308edb6a3349d0d5ced0b6",
+      "src/main/resources/btk/bot/versions/v03.properties": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "src/main/java/btk/bot/v04/EvalBotV04.java": "8359b8e4f4c9045ca51d5d8336d2236ecf81231e7a9d7dc1bfb152fb744f61df",
+      "src/main/resources/btk/bot/versions/v04.properties": "06ddf3ae46849e334a627b74d9b5b9c868957459d89418300226386197918414",
+      "src/main/java/btk/bot/v05/EvalBotV05.java": "ab63ab08f7574919594cad51bce89a9eb05cc46e6d637d042bf214347ec8ab38",
+      "src/main/resources/btk/bot/versions/v05.properties": "1f0869e4c1d4e76b249b496eb173d2cafa3930dd21864738d662d6a6aa3b739c",
+      "src/main/java/btk/bot/v06/RolloutBotV06.java": "c917311ebda80a013eab1fadfc6a45853eda926bd738bba05ee16098dd9b148c",
+      "src/main/resources/btk/bot/versions/v06.properties": "5ae783d32083178d0b43c4b0472d7580135d0aad5fa3f7e7e453948906f430eb",
+      "src/main/java/btk/bot/v07/RolloutBotV07.java": "eed64af714e5a1ec68211c749b0801c29a5cad15604bc3a3f9215578b2a6250c",
+      "src/main/resources/btk/bot/versions/v07.properties": "8ac645d621537d1de419ed9398fef411446dbce4f8d89062fef4f6cd53f97e11"
+    },
+    "priorEvidence": {
+      "docs/evidence/strategy-search-opening-v1-screen.json": "30f423e555d5fce64aea9a6bd736881d396cbbdc2eccc86d1a316e5d3eeb7eff",
+      "docs/evidence/strategy-search-opening-v1.json": "59e948791feac06dfbedee495437f755ce542c81fc601cca34bdeee21bd64ef5",
+      "docs/evidence/strategy-search-rhea-v1-screen.json": "ed8deabb7101029b5780660ad5e5bd07636f7b084f53789834a2a45a71f88243",
+      "docs/evidence/strategy-search-rhea-v1.json": "0a23726d87c29dc71d2c9b803abeb0b0cbcd4a6570dd0b949119f053f282f321",
+      "docs/evidence/strategy-search-v1-artifacts.zip": "f466b1b75533a66dab731cd070476563ef38150bb2ada1228cb4e04797c4ef12",
+      "docs/evidence/strategy-search-v1-final-audit.json": "49ae4bde55405572eb99b875797507af4f1fc2f26b3706768789680f64caec50",
+      "docs/evidence/strategy-search-v1-local-audit.json": "9aada4cd0e49da3facc2cea49d9250f5eb83d7b42201565a8190caab35791a72",
+      "docs/evidence/strategy-search-v1-readiness.json": "049dc8399786ca0caf80e2d88ae2776dfdb76276e2867d4b80dd5215b9fa2102"
+    },
+    "fixedProcessPanel": [
+      {
+        "path": "replays/cg/903510176.json",
+        "sha256": "e0739d017d8040e14af442b6f0cdf6f7721a37261d9fd06778098d7547666946",
+        "games": 2,
+        "opponent": "v07"
+      },
+      {
+        "path": "replays/cg/boss/904146009.json",
+        "sha256": "a794676ed2474015aa6fc5f5236155e00cec11a8085fcc3ab63e8dc0de814207",
+        "games": 2,
+        "opponent": "v07"
+      },
+      {
+        "path": "replays/cg/boss/904148181.json",
+        "sha256": "e2e2bc079a260c78f59af17c28766876246350dc82dbf39197dc9e0e500263fc",
+        "games": 2,
+        "opponent": "v07"
+      },
+      {
+        "path": "replays/cg/boss/904147739.json",
+        "sha256": "0beaae50b4129c44126ca3d3a31b62b0ab97e04148387ea9e20337655cf914e7",
+        "games": 2,
+        "opponent": "v07"
+      }
+    ],
+    "firstDeadlineMs": 1000,
+    "laterDeadlineMs": 50,
+    "graceMs": 0,
+    "retries": 0
+  },
+  "protocolText": "# v08 promotion - Protected Opening\n\nThe user selected the verified protected-opening candidate on 2026-09-19.\nThis promotes the measured policy from commit 49df922; it does not retune the\nstrategy or repeat its completed strength experiment.\n\n## Selected policy\n\nUse every one of the 107 effective parameters recorded for\n`current?USE_PROTECTED_OPENING=1` in the frozen\n[experiment evidence](evidence/strategy-search-opening-v1.json).\nEnable only that default; RHEA and other rejected experiments remain off.\nFreeze RolloutBot and its ProtectedOpening helper in v08, changing only package,\nclass/constructor/helper names and the bot label. Preserve v00-v07 source and\nparameter snapshots. Old snapshots must not inherit the new opening default.\n\nFor turns 0-2, claim affordable protected cells adjacent to towns using potential\ntraffic from existing canonical route queries. Spread the claims with a one-cell\nquota per adjacent town per turn; discount cells in the predicted opponent build\nprefix by 0.25. Reuse normal sabotage selection. If no eligible claim exists, or\nfrom turn 3 onward, use the ordinary v07 construction policy.\n\nCompleted practical-v3 evidence: 186W/114L/0D over 300 fresh paired games versus\nv07 (62%), then 13W/27L/0D over 40 new boss games versus the cached control's\n10W/30L/0D on the same maps and sides. Both stages pass; no 1000-game continuation\nis required. This reused boss pool is a practical regression check, not fresh\nstatistical confirmation. The prior candidate also passed four strict process games.\n\n## Prospective packaging verification\n\nBefore replacing build/submit, copy every existing file into\nbuild/analysis/v08-promotion/previous-submit and record byte hashes in before.json.\nPin all older frozen sources/snapshots and the completed experiment evidence.\n\nVerify the full effective configuration of current/main/v08 against the measured\ncandidate, normalized frozen source equality for both classes, and ample-time\naction parity in opening and later states. Run the full unit suite and replay\nvalidation. Explain every difference between the measured exported source and\nthe promoted default source. Check the 100,000-character limit.\n\nBuild the actual default build/submit/Player.java with gradlew submit. Compile a\nseparate v08 export as well. After source/class hashes are fixed, run exactly four\nstrict procCheck invocations against frozen v07, two games each for both sides, on\nthese existing regression maps in this order:\n\n1. replays/cg/903510176.json\n2. replays/cg/boss/904146009.json\n3. replays/cg/boss/904148181.json\n4. replays/cg/boss/904147739.json\n\nUse 1000/50-ms deadlines, zero grace, no optional instrumentation and no concurrent\nCPU-heavy checks. No retries, discarded outliers or replacement maps. Finish all\neight games if reports remain valid, even after a timing failure. Retain every\nreport and check that source/classes/configuration remain fixed. Hold a temporary\nWindows execution-state request during the panel and release it in finally.\n\nA failed exact-artifact panel leaves timing readiness open; the earlier candidate\nsample cannot clear a new failure. These games check packaging/timing, not fresh\nstrength. Record results and commit locally. Arena submission and push are outside\nthis promotion request.\n\n## Result\n\nPending completion of the declared verification.\n",
+  "protocolTextSha256": "e6c9637ab68a1819c7f87273d2419ffdd72a9fe6bd1c345b5435dbf94806b0a1",
+  "runnerSha256": "21e055741d3867da1acf0cefd1d0bfad9d74003982ed14428ea9999f149d1f84",
+  "helperSha256": "ed015e2512b558ae0604b792c5aaf4cbdf62c491db434247e7b7ad7896a5b9d6"
+}

@@ -14,7 +14,8 @@ gradlew benchSuite -Pbot=current               # matched local opponent panel on
 gradlew botCatalog                            # names, categories and experiment status
 gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
-gradlew submit -PsubmitVersion=v07              # selected frozen v07 source + complete snapshot
+gradlew submit -PsubmitVersion=v08              # selected frozen v08 source + complete snapshot
+gradlew submit -PsubmitVersion=v07              # historical v07 reference build
 gradlew submit -PsubmitVersion=v06              # historical v06 reference build
 gradlew submit -PsubmitVersion=v05              # optional historical v05 reference build
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
@@ -55,7 +56,8 @@ mirror each other and every game is a draw.
 ## Reproducible benchmarks
 
 Bots have stable command ids and descriptive labels: `v03 - Risk Aware`, `v04 - Network Extension`,
-`v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout`, `v07 - Network After Base` (selected). Six retained, **not promoted** experiments can also be selected by name:
+`v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout`, `v07 - Network After Base`,
+`v08 - Protected Opening` (selected). Six retained, **not promoted** experiments can also be selected by name:
 `exp-income-guard`, `exp-build-direction`, `exp-early-disrupt`, `exp-reply-rerank`,
 `exp-interruptible-vuln`, `exp-disrupt-delay065`. For example:
 
@@ -69,10 +71,11 @@ default panel or allowed `submitVersion` values. See [the bot catalog](docs/bot_
 historical evidence, limitations and how to retain/revise an experiment.
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
-P0 and P1. Reference bots `v01`–`v07` load fixed parameter snapshots; explicit query overrides
-are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v07
-network-after-base policy. It scored **62.5% vs v06** in 300 games and **64.9% vs v05**
-against v06's **56.9%** on matched fresh 1000-game panels. See [v07 promotion](docs/v07-promotion.md). `current?USE_ROLLOUT_POLICY=0` selects the older working EvalBot; add that
+P0 and P1. Reference bots `v01`–`v08` load fixed parameter snapshots; explicit query overrides
+are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v08
+protected-opening policy. It scored **62% vs v07** in 300 games and **13/40 boss wins**
+versus the cached v07's **10/40** on the same maps and sides. See [v08 promotion](docs/v08-promotion.md).
+`current?USE_ROLLOUT_POLICY=0` selects the older working EvalBot; add that
 selector when revisiting historical EvalBot or heuristic experiment recipes.
 
 An independent simple-policy candidate is available as `current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1`.
@@ -82,22 +85,23 @@ are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
-Two independent search experiments are available as `current?USE_ROLLOUT_RHEA=1` and
-`current?USE_PROTECTED_OPENING=1`. The first evolves construction priorities within the existing
-eight-turn rollouts after ordinary and singleton search finishes; the second claims protected
-town approaches during the first three turns using potential route traffic. Both flags are off
-by default and cannot be combined. [Fixed evaluation design](docs/strategy-search-v1.md).
+The selected protected opening claims town approaches during the first three turns using
+potential route traffic, then returns to the existing rollout policy. Disable it with
+`current?USE_PROTECTED_OPENING=0` for a v07-policy ablation. The independent rejected RHEA
+experiment is available as `current?USE_ROLLOUT_RHEA=1,USE_PROTECTED_OPENING=0`; it evolves
+construction priorities after ordinary and singleton search finishes. RHEA remains off and
+cannot be combined with the opening. [Original fixed evaluation design](docs/strategy-search-v1.md).
 Completed results: [RHEA](docs/evidence/strategy-search-rhea-v1.json) scored 44.83% over 300
 games and failed; [protected opening](docs/evidence/strategy-search-opening-v1.json) scored
 62% over 300 games and 13/40 against the boss versus the cached v07's 10/40, passing practical
-v3. Neither result changes the selected strategy automatically; v07 remains selected.
+v3. The user subsequently selected that exact opening candidate as v08, without retuning.
 
-`current` and frozen `v07` select an eight-turn rollout strategy: both players
+After its opening, `current`/v08 uses the eight-turn rollout strategy from frozen `v07`: both players
 construct affordable routes and disrupt regions inside simultaneous rollouts. It compares earned
 points across two opponent construction priorities and chooses the first build/sabotage action.
 v07 adds the cheap-income route slot and evaluates network single-cell actions only after all
 ordinary roots complete, using the remaining time. Old v06 remains available as a frozen control.
-For a QuickIncome-only ablation use `current?USE_ROLLOUT_NETWORK_AFTER_BASE=0`; to reproduce
+For a QuickIncome-only ablation use `current?USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_PROTECTED_OPENING=0`; to reproduce
 the current implementation with v06 parameters also set `USE_ROLLOUT_QUICK_ROUTE=0`.
 Historical `current?` experiment recipes must explicitly disable the newly selected mode.
 See [rollout-policy.md](docs/rollout-policy.md) for the fixed route
@@ -110,11 +114,11 @@ with the local replay server running. A separate [fresh arena opening survey](do
 describes protected ownership claims by leading players.
 
 Two independent default-off follow-ups are available through parameters:
-`current?USE_ROLLOUT_ROUTE_DEPENDENCIES=1` retains omitted rail-bridge dependencies in forecasts;
-`current?USE_ROLLOUT_NETWORK_CHORDS=1` adds affordable two/three-cell network rerouting only
+`current?USE_ROLLOUT_ROUTE_DEPENDENCIES=1,USE_PROTECTED_OPENING=0` retains omitted rail-bridge dependencies in forecasts;
+`current?USE_ROLLOUT_NETWORK_CHORDS=1,USE_PROTECTED_OPENING=0` adds affordable two/three-cell network rerouting only
 after ordinary and singleton comparisons finish. Their separate fixed protocols are
 [route-dependencies-v1](docs/route-dependencies-v1.md) and [network-chords-v1](docs/network-chords-v1.md).
-Neither flag is part of selected v07; benchmark verdicts are recorded in BOTS/DEVLOG.
+Neither flag is part of selected v08; benchmark verdicts are recorded in BOTS/DEVLOG.
 
 `current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
 cheap bypass of already damaged active income before ordinary construction. It checks at most
@@ -287,15 +291,19 @@ character count and SHA-256 of the exact generated source. New builds also retai
 source/configuration record in `build/submission-registry/<buildId>/` and emit its marker in the
 first-turn `MESSAGE`; the marker identifies a local artifact but is not remote attestation.
 The historical v06 packaging sample on 2026-09-16 failed **1/42** strict process games
-(50.462 ms on a 50-ms turn); that failure remains recorded. Selected v07 subsequently passed
+(50.462 ms on a 50-ms turn); that failure remains recorded. Historical v07 subsequently passed
 its exact-artifact check; see [v07 promotion](docs/v07-promotion.md), [BOTS](docs/BOTS.md)
-and [DEVLOG](docs/DEVLOG.md) for the separate evidence.
+and [DEVLOG](docs/DEVLOG.md) for the separate evidence. The newly selected artifact's checks
+are recorded in [v08 promotion](docs/v08-promotion.md).
+The v08 main artifact's fixed strict panel recorded **1/8 problem games**: map 903510176,
+P1 turn 29, **67.5805 ms** against a 50-ms deadline. v08 is selected locally; its arena
+submission timing readiness remains open. The earlier candidate sample does not clear this failure.
 The merged artifact removes leading/trailing line indentation while preserving token boundaries
 and ordinary string literals. Java text blocks are rejected by the line-based merger; source
 files themselves retain their formatting.
 
-`submit` defaults to `current`, now v07. To reproduce the selected frozen policy, use
-`gradlew submit -PsubmitVersion=v07`; `v06` and `v05` also remain available. The merger
+`submit` defaults to `current`, now v08. To reproduce the selected frozen policy, use
+`gradlew submit -PsubmitVersion=v08`; `v07`, `v06` and `v05` also remain available. The merger
 includes only the selected strategy as `EvalBot`, embedding its complete resolved parameters
 in `MainBot` for both default and frozen builds. Frozen files and working source stay unchanged.
 This reproduces the strategy, not a byte-for-byte historical artifact (shared core, runtime and

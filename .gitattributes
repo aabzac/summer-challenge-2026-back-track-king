@@ -19,3 +19,6 @@
 /docs/evidence/strategy-search-*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /tools/run_strategy_search_experiments.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /tools/diagnostics/strategy_control_compatibility.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve exact promotion protocol/process evidence and runner hashes.
+/docs/evidence/v08-promotion*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tools/diagnostics/v08-promotion/check_artifact.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

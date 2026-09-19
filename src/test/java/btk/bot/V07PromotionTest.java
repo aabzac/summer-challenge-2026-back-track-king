@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class V07PromotionTest {
+    private static final String CURRENT_V07 = "current?USE_PROTECTED_OPENING=0";
     private static TreeMap<String, String> confirmedParameters() throws Exception {
         Properties record = new Properties();
         // Independent copy of launch.json resolvedParameters; never read the production snapshot.
@@ -28,10 +29,10 @@ class V07PromotionTest {
         return result;
     }
 
-    @Test void mainCurrentAndFrozenMatchAllMeasuredCandidateParameters() throws Exception {
+    @Test void historicalCurrentAndFrozenMatchAllMeasuredV07Parameters() throws Exception {
         var expected = confirmedParameters();
         assertEquals(98, expected.size());
-        for (String spec : new String[]{"current", "main", "v07"}) {
+        for (String spec : new String[]{CURRENT_V07, "v07"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
@@ -41,8 +42,7 @@ class V07PromotionTest {
         assertEquals("true", expected.get("USE_ROLLOUT_QUICK_ROUTE"));
         assertEquals("true", expected.get("USE_ROLLOUT_NETWORK_AFTER_BASE"));
         assertEquals("false", expected.get("USE_ROLLOUT_NETWORK"));
-        assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
-        assertInstanceOf(MainBot.class, BotFactory.create("main"));
+        assertInstanceOf(RolloutBot.class, BotFactory.create(CURRENT_V07));
         assertInstanceOf(RolloutBotV07.class, BotFactory.create("v07"));
         assertEquals("v07", BotFactory.create("v07").name());
 
@@ -68,12 +68,12 @@ class V07PromotionTest {
         assertEquals(2, BotFactory.parameters("v07").ROLLOUT_NETWORK_ROOTS);
     }
 
-    @Test void mainCurrentAndFrozenAgreeAcrossEvolvingBoardsOnBothSides() {
+    @Test void historicalMainCurrentAndFrozenAgreeAcrossEvolvingBoardsOnBothSides() {
         for (int seed : new int[]{310, 1000}) for (int me = 0; me < 2; me++) {
             GameState state = MapGenerator.generate(seed);
-            Bot current = BotFactory.create("current");
+            Bot current = BotFactory.create(CURRENT_V07);
             Bot frozen = BotFactory.create("v07");
-            Bot main = BotFactory.create("main");
+            Bot main = new MainBot(BotFactory.parameters("v07"));
             current.init(state.copy(), me);
             frozen.init(state.copy(), me);
             main.init(state.copy(), me);
@@ -101,7 +101,7 @@ class V07PromotionTest {
             for (int cell : new int[]{29, 30, 21, 22, 23, 32, 33}) state.owner[cell] = 1 - me;
             state.turn = 10;
             Rules.updateConnections(state, new Pathing(state.size));
-            String query = "?USE_DISRUPT=0,NOISE=0";
+            String query = "?USE_PROTECTED_OPENING=0,USE_DISRUPT=0,NOISE=0";
             Bot current = BotFactory.create("current" + query);
             Bot frozen = BotFactory.create("v07" + query);
             Bot main = new MainBot(BotFactory.parameters("v07" + query));

@@ -11,7 +11,12 @@ See [the v3 rule](boss-cache-policy-v3.md) and [benchmarking.md](benchmarking.md
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v07**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-Selected on 2026-09-18: **v07 Network After Base**, the exact network-after-base-v1 candidate.
+Selected on 2026-09-19: **v08 Protected Opening**, the exact approved opening candidate.
+Direct vs v07: **62% / 300**; boss: **13/40 vs cached v07 10/40**, practical-v3 PASS.
+All 107 effective parameters are frozen. Promotion and exact-artifact readiness:
+[v08-promotion.md](v08-promotion.md).
+
+Previously selected on 2026-09-18: **v07 Network After Base**, the exact network-after-base-v1 candidate.
 Direct v06 screen: **62.50% / 300**. Matched fresh v05 confirmation: **64.90% vs 56.90%**
 for v06 / 1000 each, **+8.00 points**. Full 98-field snapshot; current defaults enable QuickIncome
 and after-base network search. Packaging and main Player identity: [v07-promotion.md](v07-promotion.md).
@@ -19,7 +24,7 @@ Earlier selection/default statements below describe historical checkpoints.
 
 Latest user-reported arena snapshot (2026-09-18), immediately BEFORE the intended v07 upload:
 **QuickIncome deployed, rank 111 / 627**. This supersedes the earlier v06 arena snapshot below.
-The local selected policy is now v07; an actual v07 upload has not been reported or performed.
+At that checkpoint v07 was selected locally; an actual v07 upload had not been reported or performed.
 Exact deployed QuickIncome source hash and placement status are not independently verified.
 
 Research proposal, 2026-09-17: **local network control**, initially single-cell ownership
@@ -1007,3 +1012,36 @@ no promotion, new frozen version, arena submission or push.
 [opening final evidence](evidence/strategy-search-opening-v1.json),
 [independent final audit](evidence/strategy-search-v1-final-audit.json),
 [exact artifacts and supporting records](evidence/strategy-search-v1-artifacts.zip).
+
+
+## 2026-09-19 - v08 Protected Opening (selected locally; timing readiness OPEN)
+
+The user authorized selecting the exact protected-opening candidate. `current`, `main`
+and frozen `v08` resolve all **107** measured parameters unchanged. The opening default
+is now ON; RHEA remains OFF. `RolloutBotV08` and `ProtectedOpeningV08` differ from the
+measured classes only in identity. The first-three-turn opening and its ordinary-policy
+fallback are unchanged. v00-v07 sources and parameter snapshots remain frozen.
+
+Selection uses the completed **186W/114L/0D / 300 = 62%** local screen and **13/40**
+boss wins versus **10/40** individually cached v07 wins. No new strength evaluation,
+retuning or reinterpretation of that practical reused-pool result was performed.
+Promotion checks pass **338 Java tests**, **292/292 arena + 179/179 boss** exact replays,
+all-parameter/source verification, and **280 ample-time decisions on 70 states** across
+measured/current/main/v08, including both seats, the opening, fallback and later policy.
+
+The newly exported default artifact is **96,207 characters**, source SHA-256
+`079ffa5859b2c7bed2fe6026fa50ab2080604f4a21fd2043f05509f1f385718d`, build ID
+`74d41b1ff096e2972e9e740096f5ff1224ed7e293cd855c3ab650e1e5046b8c3`.
+Its complete fixed process panel is **NOT_PASSED: 1/8 problem games**. On map
+903510176 as P1, zero-based turn 29, response **67.5805 ms** exceeds the **50-ms,
+zero-grace** deadline (send **11.0924 ms**, consumer **71.537699 ms**). The other seven
+games pass. All eight were completed on unchanged source/classes; no retries or
+replacement maps. The earlier candidate's four-game pass cannot clear this failure.
+Frozen v08 export has compilation/configuration/source checks only; these eight games
+check the actual default export. **Selected locally does not mean ready to upload.**
+
+Keep the user's v08 selection; leave timing readiness **OPEN**. The previous submission's
+26 files are retained with byte hashes. No grace change, tuning, arena upload or push.
+[Promotion protocol](v08-promotion.md), [full process evidence](evidence/v08-promotion.json),
+[independent verification](evidence/v08-promotion-verification.json),
+[artifacts and supporting records](evidence/v08-promotion-artifacts.zip).

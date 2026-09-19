@@ -475,3 +475,18 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
 Completed: RHEA 44.8333% / 300, NOT_PASSED; protected opening 62% / 300 and
 13/40 vs cached v07 10/40, PASS. No direct 1000 was required. Both flags remain OFF;
 v07 remains selected. Results, readiness and replay evidence are recorded in BOTS/DEVLOG.
+
+## Promote Protected Opening to v08 (2026-09-19)
+
+- [x] Select the exact approved 107-parameter candidate and freeze both v08 classes.
+- [x] Preserve historical versions and archive the previous selected submission.
+- [x] Verify configuration/source/action parity, full tests and replay fidelity.
+- [x] Build default and frozen v08 exports, complete the fixed eight-game strict process panel.
+- [x] Record exact artifact identities and outcomes; commit the authorized local promotion.
+
+Verification complete: 338 tests and 292 + 179 replays pass. Fixed main-artifact panel
+completed 8 games with 1 timeout (903510176, P1, turn 29, 67.5805 ms / 50 ms).
+v08 is selected locally; timing readiness remains OPEN. No retries or arena upload.
+
+- [ ] Investigate the retained v08 timing failure in a separate prospective follow-up;
+      keep the complete 1/8 failed panel and do not retry it as promotion evidence.

@@ -19,6 +19,8 @@ final class FrozenParams {
             // Pre-v07 snapshots must not inherit the newly selected construction policies.
             if (!snapshot.containsKey("USE_ROLLOUT_QUICK_ROUTE")) params.USE_ROLLOUT_QUICK_ROUTE = false;
             if (!snapshot.containsKey("USE_ROLLOUT_NETWORK_AFTER_BASE")) params.USE_ROLLOUT_NETWORK_AFTER_BASE = false;
+            // Pre-v08 snapshots retain the original opening instead of inheriting current's selection.
+            if (!snapshot.containsKey("USE_PROTECTED_OPENING")) params.USE_PROTECTED_OPENING = false;
             for (String key : snapshot.stringPropertyNames()) params.set(key, snapshot.getProperty(key));
             return params;
         } catch (IOException e) {

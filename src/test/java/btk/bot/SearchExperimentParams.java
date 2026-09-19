@@ -3,7 +3,7 @@ package btk.bot;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** Explicit later inactive fields; immutable historical parameter records stay unchanged. */
+/** Explicit later fields as resolved for historical versions; their records stay unchanged. */
 public final class SearchExperimentParams {
     public static final Map<String, String> DEFAULTS = Map.of(
             "USE_ROLLOUT_RHEA", "false", "ROLLOUT_RHEA_MUTATIONS", "12",

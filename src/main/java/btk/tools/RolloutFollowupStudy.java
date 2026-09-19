@@ -14,7 +14,7 @@ public final class RolloutFollowupStudy {
         if (Files.exists(output)) throw new IllegalArgumentException("Preserve existing report");
         String candidate = args[1] + ",NOISE=0";
         String baselineSpec = args.length > 3 ? args[3]
-                : "current?USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
+                : "current?USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_PROTECTED_OPENING=0";
         String baseline = baselineSpec + (baselineSpec.contains("?") ? "," : "?") + "NOISE=0";
         var cohort = JsonParser.parseString(Files.readString(input)).getAsJsonObject();
         List<Map<String,Object>> rows = new ArrayList<>();

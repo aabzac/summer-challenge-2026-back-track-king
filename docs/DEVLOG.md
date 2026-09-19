@@ -3489,3 +3489,70 @@ Completed outcome (fixed sample, no retuning):
   `c514bb6a89eedbe2702ef15e4cb00c3a9b770cb713a1ef79259f081c99e2db86`.
   Local screen SHA-256 `31febc468afa1467e2874e77471f8537559b45cf4e25cffcd2781f0549989cc0`;
   durable final JSON SHA-256 `59e948791feac06dfbedee495437f755ce542c81fc601cca34bdeee21bd64ef5`.
+
+
+## 2026-09-19 - select exact protected-opening v08; new timing panel not passed
+
+- **Authorized change and hypothesis:** the user selected the already measured protected
+  opening as v08. This is a version/default change, not a new strategic experiment.
+  Freeze `RolloutBotV08` and `ProtectedOpeningV08`; enable `USE_PROTECTED_OPENING` by
+  default and retain every one of the candidate's **107** effective parameters. RHEA
+  remains OFF. The first three turns claim affordable protected town approaches using
+  accumulated directed-pair traffic, the existing cost/collision weighting and city
+  quota. An empty opening falls back to ordinary v07 construction, as do all later
+  turns. Sabotage selection and all strategy source bytes remain unchanged.
+- **Strength basis:** reuse the completed practical-v3 opening result, **186W/114L/0D
+  over 300 fresh local games (62%)** and **13W/27L/0D over 40 new boss games** against
+  individually cached v07 **10W/30L/0D** on the same maps/seats. No 1000 stage was
+  required. Promotion runs no new strength games, tuning or outcome-guided changes.
+  The known boss pool remains a practical regression test, not fresh statistical proof.
+- **Identity and historical compatibility:** all 107 measured parameters equal current,
+  main and v08; both frozen classes match measured sources after identity-only renames.
+  Tests pin all **15** v00-v07 source/snapshot files. Older snapshots explicitly resolve
+  the absent opening flag to false, with query overrides applied afterward. Existing
+  historical fixtures explicitly disable the new default where they represent old
+  policy. **280** ample-time decisions over **70** states agree across the measured
+  recipe/current/main/v08, with legal actions and untouched observations. The 64
+  evolving positions include 24 early positions (22 opening selections, two valid
+  fallbacks), 40 later positions, both seats and every opening turn; six additional
+  decisions use saved boss positions.
+- **Tests and engine:** the first full 338-test run found two fixture assumptions:
+  the current-as-v05 recipe needed an explicit opening OFF, and a new coverage assertion
+  wrongly required all 24 early positions to select opening even when no claim exists.
+  Fix only those test assumptions: retain per-state action/selection parity, require
+  opening coverage at every early turn on both seats, and zero opening count for the
+  ordinary fallback. No strategy change. The final **338/338 Java tests pass**, with
+  zero failures/errors/skips; **292/292 arena and 179/179 boss replays reproduce exactly**.
+- **Packaging:** preserve the previous submission's **26** files and byte identities in
+  `build/analysis/v08-promotion/previous-submit`. Export and compile the actual default
+  `build/submit/Player.java`: **96,207 characters**, below 100,000. Its source differs
+  from the measured candidate export only in the default opening flag and recomputed
+  build marker. Source SHA-256
+  `079ffa5859b2c7bed2fe6026fa50ab2080604f4a21fd2043f05509f1f385718d`, build ID
+  `74d41b1ff096e2972e9e740096f5ff1224ed7e293cd855c3ab650e1e5046b8c3`;
+  classes SHA-256 `e89b571f078ce5c345f6d719b6357e57f8d14775057fd1cfdc1ef6479d76a3e3`.
+  A separate frozen-v08 export is compiled and verified for source/configuration; it
+  is not the artifact exercised in the following process panel.
+- **Prospective exact-artifact process result:** complete the declared four regression
+  maps, both seats each, sequentially against v07, **eight games total**, 1000/50-ms
+  deadlines and zero grace. **NOT_PASSED: one problem game, seven pass.** Map
+  `903510176.json`, P1, zero-based **turn 29** records **TIMEOUT**: response
+  **67.5805 ms**, send **11.0924 ms**, consumer **71.537699 ms**, deadline **50 ms**.
+  This is an observed process failure; the report does not establish its cause.
+  All remaining declared games were completed, with no retries, discarded outliers,
+  replacement maps, grace changes or instrumentation changes. Source/classes and
+  every frozen input remained unchanged. Temporary Windows execution-state request
+  was released; global power settings were unchanged.
+- **Decision:** v08 remains **selected locally** as the user requested, but submission
+  timing readiness is **OPEN / NOT_PASSED**. Do not describe this export as ready.
+  The earlier candidate's four successful strict process games remain valid historical
+  evidence and cannot override the new exact-artifact failure. Preserve every result
+  and the old submission backup; no further tuning or process retries in this promotion,
+  no new strength bench, arena upload or push. Record this completed selection and its
+  failed readiness check without erasing either outcome.
+- **Evidence:** [prospective promotion protocol](v08-promotion.md),
+  [full timing reports, parameters and exact identities](evidence/v08-promotion.json),
+  [independent verification](evidence/v08-promotion-verification.json),
+  [archived promotion artifacts](evidence/v08-promotion-artifacts.zip).
+  Final test/arena log: `build/analysis/v08-promotion/tests-and-arena-final.log`;
+  boss validation/export log: `build/analysis/v08-promotion/boss-and-main-export.log`.

@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-19T12:16:45.589936+00:00",
+  "verificationPassed": true,
+  "version": "v08",
+  "selectedLocally": true,
+  "mainProcessReadiness": "NOT_PASSED",
+  "frozenV08ProcessReadiness": "NOT_ASSESSED",
+  "scope": "Independent read-only audit; no new tests, builds, timing games or retries",
+  "pins": {
+    "promotionEvidence": {
+      "path": "docs/evidence/v08-promotion.json",
+      "sha256": "a5ace3d7210ceca1a7ac9667754a576834f19628c0680feae640c945b9cfac39"
+    },
+    "prospectiveProtocol": {
+      "path": "docs/evidence/v08-promotion-protocol.json",
+      "sha256": "b43d4c96aa335fe3a98595f6c6a2de757c6fd01d43e72e897f2d002eeb7ba013"
+    },
+    "before": {
+      "path": "build/analysis/v08-promotion/before.json",
+      "sha256": "7ac2c22e95a7ea7f99ce9abf4a596fbbafc4f080baea3a077a08920c53ab54df"
+    },
+    "approvedCandidate": {
+      "path": "build/cg-boss/artifacts/strategy-search-opening-v1/Player.java",
+      "sha256": "eac9ed574d1f54bcca04f911ee6d782011ca11d279c553be86bd86f482501362"
+    },
+    "frozenParams": {
+      "path": "src/main/resources/btk/bot/versions/v08.properties",
+      "sha256": "03168c7c0c09a7d43dd0f7b3bb82773448a726617ebeaa4b94504a6be1fe90ed"
+    },
+    "durableArchive": {
+      "path": "docs/evidence/v08-promotion-artifacts.zip",
+      "sha256": "c2b435ae1eac20766bac3d8909196682dbaa32a59f7ea7179c274c980246c487",
+      "bytes": 358129,
+      "payloadFiles": 99,
+      "zipEntries": 100,
+      "manifestSha256": "5a749dac52c77e912e0b24ea6542f396ae78b1f22d3a0bac652118174595c030",
+      "allEntryHashesIndependentlyVerified": true,
+      "allPayloadBytesMatchOriginalFiles": true,
+      "uniqueEntryNames": true,
+      "zipIntegrityPassed": true
+    }
+  },
+  "exports": {
+    "main": {
+      "spec": "current",
+      "source": {
+        "path": "build/submit/Player.java",
+        "sha256": "079ffa5859b2c7bed2fe6026fa50ab2080604f4a21fd2043f05509f1f385718d"
+      },
+      "manifest": {
+        "path": "build/submit/manifest.json",
+        "sha256": "b9916bc0e1cdc7f88025493700f739d7285d60518bc9b3d1fe8f39cd3fc172a1"
+      },
+      "charactersUtf16": 96207,
+      "bytesUtf8": 96207,
+      "parameters": 107,
+      "buildId": "74d41b1ff096e2972e9e740096f5ff1224ed7e293cd855c3ab650e1e5046b8c3",
+      "configSha256": "c449cb4cb7e61f6f962d70a7b316c31ef1f77d1e292f453d37e7bc654445f3e0",
+      "classesSha256": "e89b571f078ce5c345f6d719b6357e57f8d14775057fd1cfdc1ef6479d76a3e3",
+      "markerVerified": true,
+      "fullEmbeddedParametersVerified": true
+    },
+    "frozen": {
+      "spec": "v08",
+      "source": {
+        "path": "build/analysis/v08-promotion/frozen-v08/Player.java",
+        "sha256": "5bdbe6e5dd9e53f605788fe1a4dfd11bba12f154a76ce59022ac8479bcbfea51"
+      },
+      "manifest": {
+        "path": "build/analysis/v08-promotion/frozen-v08/manifest.json",
+        "sha256": "b42ad4f9066884301b3969a4c96e1cb2d1f51c45a40ca50d837f583acc7e5747"
+      },
+      "charactersUtf16": 96183,
+      "bytesUtf8": 96183,
+      "parameters": 107,
+      "buildId": "17592f6ab9828672632628bb02141ecd9d8eaa7205dac8725d0f36e20cdd4688",
+      "configSha256": "c449cb4cb7e61f6f962d70a7b316c31ef1f77d1e292f453d37e7bc654445f3e0",
+      "classesSha256": "85e8e80cefd38a344b01d77a0dd6998b640b32c185b1b4aff8dbca9e8a005977",
+      "markerVerified": true,
+      "fullEmbeddedParametersVerified": true
+    }
+  },
+  "approvedSourceOnlyDifferences": [
+    "USE_PROTECTED_OPENING default false to true",
+    "exactly recomputed build marker"
+  ],
+  "frozenSourceRenameChecks": {
+    "RolloutBot.java": {
+      "current": {
+        "path": "src/main/java/btk/bot/current/RolloutBot.java",
+        "sha256": "70678ada9c55e5897dd9832fa6246b3af7b05568aadb7c215f9ea5b4be527ebc"
+      },
+      "frozen": {
+        "path": "src/main/java/btk/bot/v08/RolloutBotV08.java",
+        "sha256": "381df6f7c86ad11bba408e27342d5fd4abb41c70d80a1f9cc0e452e55bb5b9d3"
+      },
+      "normalizedRenameOnly": true
+    },
+    "ProtectedOpening.java": {
+      "current": {
+        "path": "src/main/java/btk/bot/current/ProtectedOpening.java",
+        "sha256": "96c2de3a843439a57e2d12e63c5e83d3b5fc0b6278d875e36b4587d2424613d3"
+      },
+      "frozen": {
+        "path": "src/main/java/btk/bot/v08/ProtectedOpeningV08.java",
+        "sha256": "b25add5c88c37dc382ea7f1a9382c5c5ecc59a3bef5c1d5baf57997ecf028009"
+      },
+      "normalizedRenameOnly": true
+    }
+  },
+  "historicalPreservation": {
+    "oldFrozenFiles": 15,
+    "priorEvidenceFiles": 8,
+    "archivedOriginalSubmissionFiles": 26,
+    "allHashesUnchanged": true
+  },
+  "sourceAndClassIdentity": {
+    "allInputPinsUnchanged": true,
+    "inputFiles": 251,
+    "allMainArtifactFilesUnchanged": true,
+    "mainArtifactFiles": 28,
+    "all8ReportsUseExactCurrentMainSourceAndClasses": true
+  },
+  "process": {
+    "games": 8,
+    "problemGames": 1,
+    "passingGames": 7,
+    "timeouts": 1,
+    "nominalOverruns": 1,
+    "timingRows": 635,
+    "statusCounts": {
+      "OK": 634,
+      "TIMEOUT": 1
+    },
+    "nullResponseRows": [],
+    "lateResponseRows": [
+      {
+        "map": "903510176.json",
+        "player": 1,
+        "turn": 29,
+        "budgetMs": 50,
+        "graceMs": 0,
+        "sendMs": 11.0924,
+        "responseMs": 67.5805,
+        "consumerMs": 71.537699,
+        "status": "TIMEOUT",
+        "io": null
+      }
+    ],
+    "problemGamesDetails": [
+      {
+        "map": "903510176.json",
+        "player": 1,
+        "errors": [
+          null,
+          "exception: java.lang.IllegalStateException: TIMEOUT turn 29 (deadline 50 ms)"
+        ],
+        "timeouts": 1,
+        "nominalOverruns": 1
+      }
+    ],
+    "maxFirstResponseMs": 790.2484,
+    "maxLaterResponseMs": 67.5805,
+    "laterResponsesOver45Ms": 1,
+    "gamesInDeclaredOrder": [
+      {
+        "map": "903510176.json",
+        "player": 0,
+        "problem": false,
+        "timings": 66,
+        "firstResponseMs": 755.7187,
+        "maxLaterResponseMs": 42.221701
+      },
+      {
+        "map": "903510176.json",
+        "player": 1,
+        "problem": true,
+        "timings": 30,
+        "firstResponseMs": 739.058599,
+        "maxLaterResponseMs": 67.5805
+      },
+      {
+        "map": "904146009.json",
+        "player": 0,
+        "problem": false,
+        "timings": 94,
+        "firstResponseMs": 790.2484,
+        "maxLaterResponseMs": 42.161901
+      },
+      {
+        "map": "904146009.json",
+        "player": 1,
+        "problem": false,
+        "timings": 73,
+        "firstResponseMs": 705.184799,
+        "maxLaterResponseMs": 38.934601
+      },
+      {
+        "map": "904148181.json",
+        "player": 0,
+        "problem": false,
+        "timings": 72,
+        "firstResponseMs": 671.9044,
+        "maxLaterResponseMs": 40.8889
+      },
+      {
+        "map": "904148181.json",
+        "player": 1,
+        "problem": false,
+        "timings": 100,
+        "firstResponseMs": 611.2184,
+        "maxLaterResponseMs": 38.737199
+      },
+      {
+        "map": "904147739.json",
+        "player": 0,
+        "problem": false,
+        "timings": 100,
+        "firstResponseMs": 699.1158,
+        "maxLaterResponseMs": 42.8782
+      },
+      {
+        "map": "904147739.json",
+        "player": 1,
+        "problem": false,
+        "timings": 100,
+        "firstResponseMs": 628.158,
+        "maxLaterResponseMs": 37.772599
+      }
+    ],
+    "sequentialCommands": 4,
+    "retryGames": 0,
+    "strict": true,
+    "graceMs": 0,
+    "deadlinesMs": {
+      "first": 1000,
+      "later": 50
+    },
+    "powerReleased": true
+  },
+  "validation": {
+    "junit": {
+      "tests": 338,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "junitXmlFiles": 64,
+    "junitXmlPins": {
+      "build/test-results/test/TEST-btk.bot.BotCatalogTest.xml": "b54b461b068175bbaf8fb0845b55241890c30b2b9f10759a3e0d24dd42e3290c",
+      "build/test-results/test/TEST-btk.bot.current.BuildDirectionTest.xml": "60c21c93154032ac5eabf255f29fc5e9aec957e9e573465987b284576151be97",
+      "build/test-results/test/TEST-btk.bot.current.BuildIncomeGuardTest.xml": "3d666ad1c366d589921d5e28d9c6f8f2e6a5cca0db6308b9fb0139eba39a7eef",
+      "build/test-results/test/TEST-btk.bot.current.DefensePriorityTest.xml": "4bdebd963b3b798cbde0719b288ed0204a81ad98204d3543f47fd15776e3dccb",
+      "build/test-results/test/TEST-btk.bot.current.EarlyDisruptFallbackTest.xml": "dce3b38cb818095ef862855c63b246257a0a043d575bc93585990daf10debf09",
+      "build/test-results/test/TEST-btk.bot.current.EvalBotTest.xml": "d0cbcaafb40865029adfc198c0136df185b1f5acc0277a1a13919b8f3e4b518c",
+      "build/test-results/test/TEST-btk.bot.current.HeuristicBaselineTest.xml": "1e0bbb56007feef02e2df2119700cacbaaf6ee6fc13453c1d8405600084cfd20",
+      "build/test-results/test/TEST-btk.bot.current.HeuristicBotTest.xml": "8b764a2dd6278d69967175188ef8e9492f387323cc3cea7718cfa504d8b3b1bd",
+      "build/test-results/test/TEST-btk.bot.current.HeuristicDetourTest.xml": "b564c3905ada4da8554850c88ed4aa2b361f39a3427bf360f629b6eca5fb3e01",
+      "build/test-results/test/TEST-btk.bot.current.InterruptedEvalTest.xml": "29532d46d2f49fbdcef86a9c1c8cf8522b5f046ff728388b9e7139fe638e00b5",
+      "build/test-results/test/TEST-btk.bot.current.OwnBuildPlanTest.xml": "56e626491190fb923619afe7977e1a5ab5b6210ea32f42116839b20d2b5545be",
+      "build/test-results/test/TEST-btk.bot.current.ProtectedOpeningTest.xml": "3a2cd640948dc5f7a53fa6b846d60f0d12a2894d64713556c59210abec8a3fb1",
+      "build/test-results/test/TEST-btk.bot.current.ReplyRerankTest.xml": "ba7a94fc3c69aab01a40a5ea042ca7dc59172159fe25e32b35399b8888916839",
+      "build/test-results/test/TEST-btk.bot.current.RolloutBotTest.xml": "90b9ccfe4c60a319dea5f965e5576536536412e518650b695869e14d29ee906d",
+      "build/test-results/test/TEST-btk.bot.current.RolloutDiverseRepliesTest.xml": "d43719f34c3bd8b33c76de3f6ae4cae5b120f2e0ed315429936beed15fe8323f",
+      "build/test-results/test/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml": "2e9d964897c19ad76cd7d14892915ea76bebae8b3113efc40a445f29246afef9",
+      "build/test-results/test/TEST-btk.bot.current.RolloutNetworkChordsTest.xml": "44744f71f20bb319aa7311c9444f70e4e0024d56d44dabe6c5ee4da83c6310fe",
+      "build/test-results/test/TEST-btk.bot.current.RolloutNetworkTest.xml": "6878be1f31d1891ff8e8c85eed821374fe02957f39d511a79c45a7345403165a",
+      "build/test-results/test/TEST-btk.bot.current.RolloutOpeningIntegrationTest.xml": "2b611242b616f1d202770ec453920011d4d5a97506e726722a1610ee651b947f",
+      "build/test-results/test/TEST-btk.bot.current.RolloutQuickRouteTest.xml": "a1d35e6693a2a925963939e274cbec24d466e10f865d69c40997d1ba0ce13554",
+      "build/test-results/test/TEST-btk.bot.current.RolloutReplanTest.xml": "fe31dcb63977e1470d294779c254eb586cb300e75eb052e77f79c32307477579",
+      "build/test-results/test/TEST-btk.bot.current.RolloutRheaTest.xml": "c6ae3f64b716b5a12e96152932db93ffa703fe6e2a31ec3fc465712f1c4b1fab",
+      "build/test-results/test/TEST-btk.bot.current.RolloutRouteDependenciesTest.xml": "81e0647775595b2cafde53ede466957b3f0b1662b0976b2e74d3d63156b2d601",
+      "build/test-results/test/TEST-btk.bot.current.RolloutSecondTargetTest.xml": "31fa0726c692208404ee7e57690b951d17b1a584b629c204859740322ad647df",
+      "build/test-results/test/TEST-btk.bot.current.RolloutSpreadTest.xml": "5ddf37ac7513e552fb721e6dc85b6c5abc79f075df01610b14261984f2054973",
+      "build/test-results/test/TEST-btk.bot.current.SabotageRegressionTest.xml": "6207ee8be226c88115421e0acd8548240b1cf24e6bad33b706101f3f6b74971d",
+      "build/test-results/test/TEST-btk.bot.FrozenParamsTest.xml": "4e2358794517353fa204c8b8e989f39bf7cb86c893c25753536b05d6d530bd75",
+      "build/test-results/test/TEST-btk.bot.PressureBotTest.xml": "655d8ab85b10df1cf5156f4a4568bacad6f6f9aa219b0f306a48136e168f8cb5",
+      "build/test-results/test/TEST-btk.bot.RouteWarmupTest.xml": "ef2d49c0d444e94395b1856e89d652e3c7071dd8a0e61547d8b64c3c7aaa9106",
+      "build/test-results/test/TEST-btk.bot.TimerTest.xml": "017638221541970d0082b06342fa88c1c50570f4bbb43b18d8739ac95c23e07c",
+      "build/test-results/test/TEST-btk.bot.V06PromotionTest.xml": "382f238fff5c330ea0cea7256bebe8bd43989472a0abde80550ca06dec56db74",
+      "build/test-results/test/TEST-btk.bot.V07PromotionTest.xml": "bf4073d867cdc6ceef524dbd8edde806554b4c2c7ba5513d8eb36aba83089cb5",
+      "build/test-results/test/TEST-btk.bot.V08PromotionTest.xml": "5d755ea5f09dd097c77d8f15021b49cc4451113a6a16a35a1e89b79fd900b6f4",
+      "build/test-results/test/TEST-btk.core.InkTest.xml": "6856a857f7d9a6ddba9107fdb0d696f926299dad4f0e1d7655e6d9b1cd7b6b4f",
+      "build/test-results/test/TEST-btk.core.NetworkChordsTest.xml": "de844f29702b869533768d91d472b5865aad06002ee42cbfd62b17c530f03365",
+      "build/test-results/test/TEST-btk.core.PathingTest.xml": "a6bb2f49fa685e4dad037562ddd5d043124535182bc34e30e60cb6341cbe9bfb",
+      "build/test-results/test/TEST-btk.core.ProtocolTest.xml": "2dab0c05a55c4a5d1f718d51f41cb8836b02e1e3fa126f54f55028deab779fe0",
+      "build/test-results/test/TEST-btk.core.RulesTest.xml": "1ff4e1bebe8b69e30af3cc6eabc1f65af7d1f7b2541f1a0c372693cb0f615570",
+      "build/test-results/test/TEST-btk.core.SearchStateTest.xml": "3d5ac805ad720c2bfaddfbb2277adb65a4bc1525197b0b16c3c4b4d37efa2681",
+      "build/test-results/test/TEST-btk.core.SingleCellConnectionsTest.xml": "92ec14aa0386f0b734500c045c37fa0cdda075e721da3c7b889a56660419971a",
+      "build/test-results/test/TEST-btk.referee.MapGeneratorTest.xml": "3bf9d5b4a517cc6ba8e68c73c91cbe967ff579caa40109d58f52c1d9e51ab6ff",
+      "build/test-results/test/TEST-btk.referee.ReplayTest.xml": "9e51d13c9f47d897ca10d233b65b414f734d0c6b744c7dcf67234fd0662f72fb",
+      "build/test-results/test/TEST-btk.runner.BehaviorMetricsTest.xml": "b0cc8f3b8082afd07e9137bebd6ea41515099ae4c916366aa1f9ae2a71a3959b",
+      "build/test-results/test/TEST-btk.runner.BenchmarkRunnerTest.xml": "9d2f63a01e64259c4b664f3ad76b28703591143759ddf4f41dd6384c160c4de4",
+      "build/test-results/test/TEST-btk.runner.BenchmarkSuiteTest.xml": "d33b54cb4e8e7edfd91bb4c0d0023bda20dc81b9e5dbb4802b95bd07969decfd",
+      "build/test-results/test/TEST-btk.runner.BenchPoolTest.xml": "a754dae00249b10f94a699e1b8719143956eb52ae2f584d775029b9a5dc07f14",
+      "build/test-results/test/TEST-btk.runner.ProcessBotTest.xml": "480484a8b4473d261ecf887c49972be766461fbbe8da492252b8961229618978",
+      "build/test-results/test/TEST-btk.runner.ProcessCheckTest.xml": "dc4d840454bee4fc58f4ad6e7fa9773153aa09d7e0805f263b3f5694d49576b7",
+      "build/test-results/test/TEST-btk.runner.TimingProfileTest.xml": "11f49a23226fe51d79f3076a2f4b00f7ae7f2617a475cbd5830e2d8180527b5b",
+      "build/test-results/test/TEST-btk.submit.BuildProvenanceTest.xml": "652a3da59ac7bbcfaa92688370ffbbb5c1f7b64e0e6f5559da9c7d428b747539",
+      "build/test-results/test/TEST-btk.submit.FileMergerTest.xml": "ba9535e4894eb1af672dfce344efa6957e27e5ef24cba71cac3d0252ad131068",
+      "build/test-results/test/TEST-btk.tools.CgBossDefenseStudyTest.xml": "26e80aa08ba0992387adae2d02408c149961cd5016a2b0a07905fe0a4be3848b",
+      "build/test-results/test/TEST-btk.tools.CgDisruptStudyTest.xml": "fa55b96815223b5d304b357e821905237b4c0c896a9716f040735c96e41a8c6e",
+      "build/test-results/test/TEST-btk.tools.CgPlayerStudyTest.xml": "a809ac173487b348f1555a6c93baed4f98f10324c2fadee19875b8e339021b5f",
+      "build/test-results/test/TEST-btk.tools.CgRenderSeedTest.xml": "e0a6f4bde182b46d4366dc7d37a892d4152e134cf790d45dcf43165c42b35a42",
+      "build/test-results/test/TEST-btk.tools.CgReplayPlayersTest.xml": "0ba08e0295fea9f567f5c5ab605bf90f4bc3d800c984593dfec1650d6d5bbe92",
+      "build/test-results/test/TEST-btk.tools.CgReplaySeedTest.xml": "3048b9215509b3c6adb46f9b1318d87c794917313086e3d52e03b7788e6fc145",
+      "build/test-results/test/TEST-btk.tools.CgRolloutBossProbeTest.xml": "26f0b349a59fdc348dbf96721e4184afb3215255dc639c6c0c99a459d901980a",
+      "build/test-results/test/TEST-btk.tools.CgValidateTest.xml": "80271ef19c9941069c83d48efdd6e45a6f02993f95b0b7b6533df019c54c930c",
+      "build/test-results/test/TEST-btk.tools.JointActionTest.xml": "97c7f0d42bd71491f7e39dede0bd418ff6412b0bfedb0452c7137179e2b54654",
+      "build/test-results/test/TEST-btk.tools.JointReplyStudyTest.xml": "0370d3e17d5d3c3c70f1501509374efe714da3ee42609998ce83cfb42fc5a6b2",
+      "build/test-results/test/TEST-btk.tools.ReplayPathsTest.xml": "d50804a9763619e1594879a9556e699116b1724ec4dbc35489bda0ec76e70702",
+      "build/test-results/test/TEST-btk.tools.ReplyStudyTest.xml": "b422ad1f904fe0c33f145bae44074648b9e4ecb8b31278d47869b4130e77478a",
+      "build/test-results/test/TEST-btk.tools.SabotageForecastTest.xml": "1019961d26b690ae973e7ddec39eeccb3d3e6f95dba37da1dac677db82ae2947"
+    },
+    "arenaReplays": {
+      "exact": 292,
+      "total": 292
+    },
+    "bossReplays": {
+      "exact": 179,
+      "total": 179
+    },
+    "logs": {
+      "tests-and-arena-final.log": {
+        "path": "build/analysis/v08-promotion/tests-and-arena-final.log",
+        "sha256": "e6529cf8d7f8bfe4a3ac21f827d74d8725b0c91885c0f90c22ba1ffe2b6a3f46"
+      },
+      "boss-and-main-export.log": {
+        "path": "build/analysis/v08-promotion/boss-and-main-export.log",
+        "sha256": "0a72ecc93316c180c9b0ce1103c280f284618d124eccece1a861c75dc5cda9dc"
+      },
+      "frozen-export.log": {
+        "path": "build/analysis/v08-promotion/frozen-export.log",
+        "sha256": "7004819547143dce40dba7323c1205ec740456aa4d2a6b745645f98844bf82e3"
+      },
+      "main-verified.log": {
+        "path": "build/analysis/v08-promotion/main-verified.log",
+        "sha256": "12116e0fff55d722e48229115f8d63391369761635beafcb6d1c81f68b4606b8"
+      }
+    }
+  },
+  "method": "Source/class/file hashes, full107 embedded and frozen parameters, normalized source equality, first-turn marker/config hashes, all8 timing rows/counters/compact summaries, fixed panel order and XML suite counts were recomputed directly in this audit without reusing the promotion runner or its summary helper. Existing Java validation and export compilation are evidenced by their pinned successful logs; they were not rerun.",
+  "limitations": [
+    "Only the actual default main artifact received this eight-game process panel. The separate frozen v08 export was compiled and source/manifest-verified, not process-certified.",
+    "One retained deadline failure keeps main timing readiness open. No earlier candidate sample supersedes it and no retry was performed.",
+    "Wall-clock response/send/consumer measurements do not isolate child search, GC or host scheduling causes."
+  ]
+}

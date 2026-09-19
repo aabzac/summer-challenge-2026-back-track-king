@@ -26,7 +26,7 @@ class RolloutNetworkChordsTest {
     }
 
     private static RolloutBot bot(GameState s, int me, boolean on) {
-        var p = new Params("NOISE=0,USE_DISRUPT=0");
+        var p = new Params("USE_PROTECTED_OPENING=0,NOISE=0,USE_DISRUPT=0");
         p.USE_ROLLOUT_NETWORK_CHORDS = on;
         var b = new RolloutBot(p); b.init(s, me); return b;
     }
@@ -74,7 +74,7 @@ class RolloutNetworkChordsTest {
         for (String name : new String[]{"chordA", "chordB", "chordC", "chordOrder", "chordPriority", "chordGains", "chordBest"})
             assertNull(field(off, name));
         assertThrows(IllegalArgumentException.class, () -> new RolloutBot(new Params(
-                "USE_ROLLOUT_NETWORK_CHORDS=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0")));
+                "USE_PROTECTED_OPENING=0,USE_ROLLOUT_NETWORK_CHORDS=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0")));
     }
 
     @Test void incompleteEarlierPhaseAndExpiredComparisonKeepExistingWinner() throws Exception {

@@ -13,7 +13,7 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
-    // Selected v07 policy; disable explicitly to use the retained EvalBot experiments.
+    // Selected v08 policy; disable explicitly to use the retained EvalBot experiments.
     public boolean USE_ROLLOUT_POLICY = true;
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
@@ -37,8 +37,8 @@ public class Params {
     public boolean USE_ROLLOUT_RHEA = false;
     public int ROLLOUT_RHEA_MUTATIONS = 12;
     public int ROLLOUT_RHEA_ELITES = 2;
-    /** Independent first-three-turn protected approach ownership experiment. */
-    public boolean USE_PROTECTED_OPENING = false;
+    /** Selected first-three-turn protected approach ownership policy. */
+    public boolean USE_PROTECTED_OPENING = true;
     public int OPENING_TURNS = 3;
     public int OPENING_CITY_QUOTA = 1;
     public double OPENING_COLLISION_FACTOR = 0.25;

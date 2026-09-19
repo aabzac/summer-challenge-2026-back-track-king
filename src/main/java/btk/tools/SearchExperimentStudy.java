@@ -10,8 +10,8 @@ import java.util.*;
 
 /** Fixed public-state mechanism/cost diagnostics and core-derived cached-boss map exclusions. */
 public final class SearchExperimentStudy {
-    private static final String[] SPECS = {"v07?NOISE=0", "current?NOISE=0",
-            "current?NOISE=0,USE_ROLLOUT_RHEA=1", "current?NOISE=0,USE_PROTECTED_OPENING=1"};
+    private static final String[] SPECS = {"v07?NOISE=0", "current?NOISE=0,USE_PROTECTED_OPENING=0",
+            "current?NOISE=0,USE_ROLLOUT_RHEA=1,USE_PROTECTED_OPENING=0", "current?NOISE=0,USE_PROTECTED_OPENING=1"};
     private static final String[] FIELDS = {"routeQueries", "completedComparisons", "simulatedTurns",
             "ordinarySearchComplete", "ordinaryComparisons", "networkPhaseComplete",
             "rheaAttempts", "rheaComparisons", "rheaImprovements", "rheaDistinctRoots", "rheaSearchStarted", "selectedRhea",

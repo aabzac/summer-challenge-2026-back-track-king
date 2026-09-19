@@ -13,8 +13,10 @@ import javax.tools.ToolProvider;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.zip.ZipFile;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -62,7 +64,7 @@ class FileMergerTest {
     }
 
     @Test void quickRouteSubmissionPreservesCandidateParametersAndWarmupDecisions() throws Exception {
-        String spec = "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
+        String spec = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
         assertTrue(FileMerger.merge(spec).contains("USE_ROLLOUT_QUICK_ROUTE=true"));
         assertTrue(new btk.bot.Params().USE_ROLLOUT_QUICK_ROUTE);
         checkFrozenDecisions(spec, true);
@@ -82,26 +84,26 @@ class FileMergerTest {
         checkFrozenDecisions("v06", true);
     }
 
-    @Test void defaultAndFrozenV07KeepMeasuredParametersAndExactFrozenPolicy() throws Exception {
+    @Test void frozenV07AndExplicitOpeningDisabledKeepMeasuredParametersAndExactFrozenPolicy() throws Exception {
         var launch = JsonParser.parseString(Files.readString(Path.of("docs/evidence/network-after-base-v1.json")))
                 .getAsJsonObject().getAsJsonObject("launch");
         Map<String, String> measured = new TreeMap<>();
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject(launch.get("candidate").getAsString())
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
-        for (String spec : new String[]{"v07", "current"}) {
+        for (String spec : new String[]{"v07", "current?USE_PROTECTED_OPENING=0"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
             btk.bot.SearchExperimentParams.removeAndCheck(actual);
             assertEquals(measured, actual);
         }
-        String current = FileMerger.merge("current"), frozen = FileMerger.merge("v07");
+        String current = FileMerger.merge("current?USE_PROTECTED_OPENING=0"), frozen = FileMerger.merge("v07");
         assertTrue(current.contains("USE_ROLLOUT_QUICK_ROUTE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK_AFTER_BASE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK=false"));
         assertTrue(frozen.contains("private void searchNetworkAfterBase("));
         assertFalse(frozen.contains("RolloutBotV07"));
-        // Current deliberately contains new default-off experiments; preserve the historical
+        // Current deliberately contains later experiments; preserve the historical
         // frozen policy bytes independently of those additions and of shared Params fields.
         int policyStart = frozen.indexOf("static final class EvalBot implements Bot {");
         int policyEnd = frozen.indexOf("static interface Bot {", policyStart);
@@ -110,8 +112,54 @@ class FileMergerTest {
                 FileMerger.sha256(frozen.substring(policyStart, policyEnd)));
         assertTrue(current.contains("USE_ROLLOUT_ROUTE_DEPENDENCIES=false"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK_CHORDS=false"));
-        checkFrozenDecisions("current", true);
+        checkFrozenDecisions("current?USE_PROTECTED_OPENING=0", true);
         checkFrozenDecisions("v07", true);
+    }
+
+    @Test void selectedAndFrozenV08KeepExactApprovedOpeningConfigurationAndPolicy() throws Exception {
+        var launch = JsonParser.parseString(Files.readString(Path.of("docs/evidence/strategy-search-opening-v1.json")))
+                .getAsJsonObject().getAsJsonObject("launch");
+        Map<String, String> measured = new TreeMap<>();
+        launch.getAsJsonObject("resolvedParameters").getAsJsonObject("current?USE_PROTECTED_OPENING=1")
+                .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
+        for (String spec : new String[]{"current", "v08"}) {
+            assertEquals(measured, BotFactory.configuration(spec), "selected complete measured configuration");
+        }
+        String current = FileMerger.merge("current");
+        assertEquals(current, FileMerger.merge("current?USE_PROTECTED_OPENING=1"));
+        assertTrue(current.contains("USE_PROTECTED_OPENING=true"));
+        assertTrue(current.contains("USE_ROLLOUT_RHEA=false"));
+        String frozen = FileMerger.merge("v08");
+        FileMerger.checkSourceSize(frozen);
+        assertTrue(frozen.contains("static final class ProtectedOpening"));
+        assertFalse(frozen.contains("RolloutBotV08"));
+        assertFalse(frozen.contains("ProtectedOpeningV08"));
+        String normalizedFrozen = FileMerger.normalizeMarker(frozen)
+                .replace("// BTK strategy: v08", "// BTK strategy: current")
+                .replace("public String name() { return \"v08\"; }",
+                        "public String name() { return \"current?\" + p.diff(); }");
+        assertEquals(FileMerger.normalizeMarker(current), normalizedFrozen,
+                "frozen v08 must package the exact selected policy and helper, apart from their version label");
+        checkFrozenDecisions("v08", true, false, true);
+        checkFrozenDecisions("current", true, false, true);
+    }
+
+    @Test void selectedSourcePreservesApprovedArtifactExceptTheDefaultFlagAndBuildMarker() throws Exception {
+        String approved;
+        try (var archive = new ZipFile("docs/evidence/strategy-search-v1-artifacts.zip")) {
+            var entry = archive.getEntry("build/cg-boss/artifacts/strategy-search-opening-v1/Player.java");
+            assertNotNull(entry, "approved source must remain in durable evidence");
+            try (var input = archive.getInputStream(entry)) {
+                approved = new String(input.readAllBytes(), StandardCharsets.UTF_8);
+            }
+        }
+        String previousDefault = "public boolean USE_PROTECTED_OPENING = false;\n";
+        assertEquals(approved.indexOf(previousDefault), approved.lastIndexOf(previousDefault));
+        assertTrue(approved.contains(previousDefault));
+        String expected = FileMerger.normalizeMarker(approved).replace(previousDefault,
+                "public boolean USE_PROTECTED_OPENING = true;\n");
+        assertEquals(expected, FileMerger.normalizeMarker(FileMerger.merge("current")),
+                "promotion must not change any other approved shipped source byte");
     }
 
     @Test void frozenV07SubmissionMatchesAnActiveNetworkChoiceIncludingWarmup() throws Exception {
@@ -119,7 +167,7 @@ class FileMergerTest {
     }
 
     @Test void independentSearchCandidatesCompileAndKeepTheirExactConfiguration() throws Exception {
-        for (String spec : new String[]{"current?USE_ROLLOUT_RHEA=1", "current?USE_PROTECTED_OPENING=1"}) {
+        for (String spec : new String[]{"current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1", "current?USE_PROTECTED_OPENING=1"}) {
             String source = FileMerger.merge(spec);
             assertTrue(source.contains("static final class ProtectedOpening"));
             checkFrozenDecisions(spec, true);
@@ -128,7 +176,7 @@ class FileMergerTest {
     }
 
     @Test void artifactAuditRejectsSameConfigurationWithDifferentSource() throws Exception {
-        String spec = "current?USE_ROLLOUT_RHEA=1", source = FileMerger.merge(spec);
+        String spec = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1", source = FileMerger.merge(spec);
         Files.writeString(temp.resolve("Player.java"), source);
         Files.writeString(temp.resolve("manifest.json"),
                 new com.google.gson.Gson().toJson(FileMerger.manifest(spec, source)));
@@ -153,6 +201,11 @@ class FileMergerTest {
     }
 
     private void checkFrozenDecisions(String spec, boolean warmup, boolean networkFixture) throws Exception {
+        checkFrozenDecisions(spec, warmup, networkFixture, false);
+    }
+
+    private void checkFrozenDecisions(String spec, boolean warmup, boolean networkFixture,
+                                      boolean openingFixture) throws Exception {
         String source = FileMerger.merge(spec);
         FileMerger.checkSourceSize(source);
         if (!spec.contains("USE_DEFENSE_PRIORITY=1") && !spec.contains("USE_OWN_BUILD_PLAN=1")) {
@@ -161,6 +214,7 @@ class FileMergerTest {
         assertFalse(source.contains("btk.bot.v05"));
         assertFalse(source.contains("btk.bot.v06"));
         assertFalse(source.contains("btk.bot.v07"));
+        assertFalse(source.contains("btk.bot.v08"));
         assertFalse(source.contains("class PressureBot"));
         assertFalse(source.contains("class BenchPool"));
         assertFalse(source.contains("class BenchmarkSuite"));
@@ -189,6 +243,10 @@ class FileMergerTest {
             var format = actionClass.getMethod("format", java.util.List.class); format.setAccessible(true);
             for (int me = 0; me < 2; me++) {
                 GameState s = MapGenerator.generate(1000);
+                if (openingFixture) {
+                    s = new GameState(9, 1, new int[]{0, 0, 1, 2, 2, 2, 3, 4, 4}, new int[9],
+                            new int[]{0, 4, 8}, new int[3], new int[][]{{1, 2}, {2}, {}});
+                }
                 if (networkFixture) {
                     int[] regions = new int[63];
                     for (int cell = 0; cell < regions.length; cell++) regions[cell] = cell;
@@ -246,7 +304,15 @@ class FileMergerTest {
                     assertTrue(calls.getInt(generatedBot) > 0);
                 }
                 Bot frozen = BotFactory.create(spec); frozen.init(s, me);
-                String expected = Action.format(frozen.play(s.copy(), me, 60_000));
+                var expectedActions = frozen.play(s.copy(), me, 60_000);
+                String expected = Action.format(expectedActions);
+                if (openingFixture) {
+                    assertEquals(3, expectedActions.stream().filter(a -> a.type == Action.Type.PLACE).count());
+                    for (var action : expectedActions) if (action.type == Action.Type.PLACE)
+                        assertTrue(s.regionHasTown(s.regionId[s.cell(action.x, action.y)]));
+                    assertTrue(frozen.getClass().getField("selectedOpening").getBoolean(frozen),
+                            "fixture must exercise the protected opening in the packaged policy");
+                }
                 if (networkFixture) assertEquals("PLACE_TRACKS 4 3", expected);
                 assertEquals(expected,
                         format.invoke(null, play.invoke(generatedBot, generatedState, me, 60_000L)));

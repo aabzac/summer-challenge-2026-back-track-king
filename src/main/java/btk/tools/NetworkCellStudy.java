@@ -26,7 +26,7 @@ public final class NetworkCellStudy {
     private static final int GAME_COUNT = 14;
     private static final int MAX_EVALUATED = 24;
     private static final int MAX_ROOTS = 2;
-    private static final String BASELINE = "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
+    private static final String BASELINE = "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_PROTECTED_OPENING=0";
     private static final String CANDIDATE = BASELINE + ",USE_ROLLOUT_NETWORK=0,USE_ROLLOUT_NETWORK_AFTER_BASE=1";
     private static final Path OPPORTUNITIES = Path.of("docs/evidence/network-control-single-cell-v1.json");
     private static final Path BOT_CLASS = Path.of("build/classes/java/main/btk/bot/current/RolloutBot.class");

@@ -31,10 +31,12 @@ class BotCatalogTest {
         assertEquals("v05 - Disrupt Reserve", BotCatalog.displayName("v05"));
         assertEquals("v06 - Simultaneous Rollout", BotCatalog.displayName("v06"));
         assertEquals("v07 - Network After Base", BotCatalog.displayName("v07"));
-        assertEquals("selected", BotCatalog.describe("v07").status());
+        assertEquals("v08 - Protected Opening", BotCatalog.displayName("v08"));
+        assertEquals("selected", BotCatalog.describe("v08").status());
+        assertEquals("historical", BotCatalog.describe("v07").status());
         assertEquals("historical", BotCatalog.describe("v06").status());
         assertEquals("historical", BotCatalog.describe("v05").status());
-        assertEquals(java.util.List.of("v07"), BotCatalog.entries().stream()
+        assertEquals(java.util.List.of("v08"), BotCatalog.entries().stream()
                 .filter(entry -> entry.status().equals("selected")).map(BotCatalog.Entry::id).toList());
         assertEquals("v04 - Network Extension [NOISE=0.2]", BotCatalog.displayName("v04?NOISE=0.2"));
         assertEquals("external player", BotCatalog.displayName("external player"));
