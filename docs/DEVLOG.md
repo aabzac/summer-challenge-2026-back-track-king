@@ -3364,3 +3364,128 @@ Completed outcome (fixed sample, no retuning):
   layout. Fresh verification tab reports no JavaScript errors. Snapshot checks are in ignored
   tmp/visualizer-review; derived replay files remain ignored. No match-strength bench is needed
   for this presentation/metadata fix. Record and commit the completed maintenance change.
+
+
+## 2026-09-19 - strategy-search-rhea-v1, fixed screen completed and rejected
+
+- **Hypothesis:** the same first construction/sabotage action can have better later
+  route priorities than v07's fixed continuation. Independent default-off
+  `current?USE_ROLLOUT_RHEA=1` seeds two elites from completed baseline comparisons and
+  makes at most twelve later-priority or suffix mutations. Keep the retained routes,
+  eight-turn horizon, two opponent scenarios, sabotage chooser, evaluator and deadline.
+  Ordinary and singleton network comparisons retain priority; incomplete candidate
+  scenario sets cannot replace the saved answer. No crossover or cross-turn raw-route
+  persistence. The independent opening candidate is not combined with this policy.
+- **Prospective controls:** `strategy-search-v1.md` and the shared immutable preflight
+  freeze sources, classes, full parameters, pools and exact exported artifacts. Only
+  the RHEA flag differs from frozen v07. Core-derived boss exclusions and prior local
+  reports are excluded from the fresh local pool; no outcomes guide tuning or retries.
+  Read-only merger verification binds exported source/configuration to the local
+  snapshot, and exact-source reconstruction certifies only the seven unused new
+  control metadata fields. All original reports and selected submission files remain.
+- **Mechanism/readiness before strength:** 323 Java tests and 114 Python tests pass;
+  292/292 arena and 139/139 boss replays reproduce exactly. All 158 saved-state ample
+  decisions match frozen v07 with the flag OFF; 1106 measured decisions pass legality
+  and input-isolation checks. RHEA changes 17/158 ample actions; nominally it starts in
+  50 states, completes 410/435 attempted extra comparisons and selects its continuation
+  in 12 states. A selection can keep the same emitted first action. These are mechanism
+  observations, not independent match-strength evidence.
+- **Fixed strength result:** all 300 games / 150 fresh paired maps, seeds 500000..500149,
+  CG 486/36-ms search, two workers: **134 wins, 165 losses, one draw = 44.8333%**.
+  Map-grouped descriptive Hoeffding 95% interval **33.7444808918-55.9221857749%**;
+  total score difference -46329, mean **-154.43**, zero errors, elapsed **591.907 s**.
+  Under practical-300-1000-boss-cache-v3 this is **STOP_SCREEN_300 / NOT_PASSED**.
+  No direct 1000 or live-boss games are started for this candidate; no pooling,
+  intermediate stopping, changed parameters, discarded games or retry.
+- **Timing limits:** local benchmark maxima A/B **199/44 ms**, slow counters **14/0**.
+  Both fields include first moves, whose search allowance is 486 ms; slow means an
+  in-process call exceeding 50 ms regardless of turn. The report does not retain slow
+  turn numbers, so 199 ms cannot be identified as an ordinary-turn maximum and all
+  fourteen calls cannot be labelled ordinary. Seed 500001 with candidate as P0 has
+  two slow calls, establishing at least one later call above 50 ms. Preserve this
+  concern without claiming its cause or a CodinGame process timeout.
+- **Separate exact-artifact process sample:** four games, both seats represented,
+  1000/50-ms deadlines, zero grace, **0/4 problems**, 400 timestamped responses.
+  First maximum **753.534999 ms**; later p95 **38.5061**, p99 **42.736401**, maximum
+  **45.4681 ms**. Two later responses exceed the separate 45-ms headroom target.
+  This small successful sample does not establish full-benchmark or CG-host safety.
+  Export size 96,208 characters; source SHA-256
+  `505ad8ab0894f865e8d3f7e01ab16749331262e7b9d6554392ad23f001192683`, build ID
+  `9e21c8e91d7b92f23e7c0457890e190b4dc10201e047542ed1137b66bdaba4de`.
+- **Decision:** retain the tested candidate OFF, with frozen v07 selected. This exact
+  evolutionary continuation experiment fails its strength gate; it does not establish
+  that every RHEA design fails. No further tuning, promotion, version freeze or upload.
+  Record the completed rejected experiment and commit it under AGENTS #8.
+- **Evidence:** [prospective protocol](strategy-search-v1.md),
+  [readiness, source/class hashes and diagnostic aggregates](evidence/strategy-search-v1-readiness.json),
+  [complete final outcome and frozen launch](evidence/strategy-search-rhea-v1.json).
+  Raw report `build/bench/strategy-search-v1/rhea/screen.json` SHA-256
+  `4e4748173500fe9c90d8d6cfa55d932ee406bff752a9042935bb19200eb505b7`;
+  durable final JSON SHA-256
+  `0a23726d87c29dc71d2c9b803abeb0b0cbcd4a6570dd0b949119f053f282f321`.
+
+
+## 2026-09-19 - strategy-search-opening-v1 passed; both independent experiments complete
+
+- **Hypothesis:** acquire future scoring ownership at protected town approaches before
+  the opponent occupies them, even while immediate income is zero. Independent
+  `current?USE_PROTECTED_OPENING=1` can change construction only during the first three
+  turns. Reuse canonical ordinary route observations before shortlist truncation;
+  sum distinct directed-pair demand weighted by remaining paint, divide by the cell's
+  actual paint cost, apply a one-cell-per-adjacent-town quota and 0.25 collision
+  discount. Existing sabotage chooser sees the selected construction; subsequent
+  policy remains v07. RHEA and the other rejected experiment flags stay OFF.
+- **Fixed local stage:** full 300 games / 150 new paired maps, seeds 510000..510149,
+  authentic generator, CG 486/36-ms search, two workers: **186 wins, 114 losses,
+  zero draws = 62.00%**. Zero errors; total score difference +123206, mean
+  **+410.6866667**; elapsed **526.188 s**. Diagnostic map-grouped Hoeffding 95%
+  interval **50.9111475585-73.0888524415%**. Practical v3 **PASS_300**; the separate
+  1000-game stage was not required and was not started. No pooling, tuning or retries.
+- **Exact cached-boss stage:** forty new sequential candidate games, all forty pinned
+  control maps in identical seeds and seats (20 P0 / 20 P1), against Boss 4 agent
+  6740207. Candidate **13W/27L/0D**, cached frozen v07 **10W/30L/0D**: 13 versus 10
+  win-equivalent points, observed difference +7.5 percentage points. All forty
+  individual results verified, no issues, request retries or replacement games.
+  Candidate completion times span 2026-09-19 11:29:11 through 11:50:07 UTC. The combined
+  final decision is **PASS**, with `ASSESSED_AFTER_DIRECT_PASS`. The known pool is a
+  practical regression check, not fresh confirmation or a statistical superiority
+  guarantee. Cached historical results are reused individually, not replaced by a rate.
+- **Mechanism and correctness:** the frozen pre-strength audit covers 158 states and
+  1106 legal, input-isolated decisions; disabled current equals frozen v07 in all
+  158 ample decisions. The opening changes all 36 eligible states, uses 96 paint in
+  those bundles, and matches current in all 122 ample post-window states. All
+  **323 Java and 114 Python tests** pass. Earlier **292/292 arena** validation remains;
+  after collecting the forty new boss games the final check reproduces **179/179 boss
+  replays exactly** and renders **179/179**. Log:
+  `build/analysis/strategy-search-v1/final-boss-validation.log`.
+- **Separate timing evidence:** exact exported opening artifact passed four strict
+  process games with both seats represented, 1000/50-ms deadlines and zero grace:
+  **0/4 problems**, 367 timestamped responses, startup maximum **701.8207 ms**;
+  later p95 **38.181499**, p99 **38.6317**, maximum **38.693099 ms**. No response crosses
+  the separate 45-ms later / 800-ms startup headroom targets. Local strength bench
+  maxima A/B **75/156 ms**, slow counters **2/2**, include first moves with the 486-ms
+  search allowance. Slow-turn indices are absent; do not call these ordinary-turn
+  maxima or infer a CG process failure. All timing outliers remain in the reports;
+  the four-game process pass is a bounded sample, not a full-run or arena guarantee.
+- **Exact artifact:** 96,208 characters; source SHA-256
+  `eac9ed574d1f54bcca04f911ee6d782011ca11d279c553be86bd86f482501362`, build ID
+  `c6b4deae785d05d8fca5822393e8f805353541bc16345f9a0e4b89bf0871fb6b`.
+  Read-only merger checks bind the exported source/configuration to the frozen local
+  code. The cached control compatibility certificate removes only seven proven unused
+  metadata fields from the checker view; original full reports and artifacts remain.
+- **Combined decision:** complete both separately frozen experiments, **640 new strength
+  evaluation games** (300 RHEA local + 300 opening local + 40 opening boss), in addition
+  to separate readiness process samples. RHEA remains rejected at its 44.8333% screen;
+  the protected opening passes the current practical rule and is retained as a verified
+  default-off candidate. Keep selected v07, both new defaults OFF and the original
+  `build/submit` tree unchanged. No new frozen strategy, promotion, arena submission
+  or push. Record and commit the completed experiments under AGENTS #8.
+- **Evidence:** [prospective protocol](strategy-search-v1.md),
+  [shared readiness and exact identities](evidence/strategy-search-v1-readiness.json),
+  [opening final outcome and frozen launch](evidence/strategy-search-opening-v1.json),
+  [independent final audit](evidence/strategy-search-v1-final-audit.json),
+  [archived exact artifacts and supporting records](evidence/strategy-search-v1-artifacts.zip).
+  Boss plan: `build/cg-boss/strategy-search-opening-v1/plan.json`, ID
+  `c514bb6a89eedbe2702ef15e4cb00c3a9b770cb713a1ef79259f081c99e2db86`.
+  Local screen SHA-256 `31febc468afa1467e2874e77471f8537559b45cf4e25cffcd2781f0549989cc0`;
+  durable final JSON SHA-256 `59e948791feac06dfbedee495437f755ce542c81fc601cca34bdeee21bd64ef5`.

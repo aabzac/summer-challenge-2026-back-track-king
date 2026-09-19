@@ -1,0 +1,985 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-19T11:54:16.822519+00:00",
+  "policy": "practical-300-1000-boss-cache-v3",
+  "passed": true,
+  "promotion": false,
+  "pins": {
+    "launch": {
+      "path": "build/bench/strategy-search-v1/launch.json",
+      "sha256": "32fd761499a43b81d950a8b73dbb5ded07b509e0094db15d07bb9ec3d6caa33b"
+    },
+    "bossPlan": {
+      "path": "build/cg-boss/strategy-search-opening-v1/plan.json",
+      "sha256": "1f160f202b2c2cce80ee7ac8814479db02c5405a8b5fb7137adc93deb0bf800c"
+    },
+    "originalSelectedSnapshot": {
+      "path": "build/analysis/strategy-search-v1/before.json",
+      "sha256": "a43b578daa5a78721c357db57da8bdad6d02aefb474874b840d1da1404601536"
+    },
+    "finalBossValidationLog": {
+      "path": "build/analysis/strategy-search-v1/final-boss-validation.log",
+      "sha256": "4bfbcff95fb9d378ff99050fd1666228eb553cdb02b5e2028183867017022ac9"
+    }
+  },
+  "localStages": {
+    "rhea": {
+      "wins": 134,
+      "losses": 165,
+      "draws": 1,
+      "halfWinUnits": 269,
+      "games": 300,
+      "maps": 150,
+      "score": 0.4483333333333333,
+      "directStage": "STOP_SCREEN_300",
+      "finalStrengthStatus": "NOT_PASSED",
+      "report": {
+        "path": "build/bench/strategy-search-v1/rhea/screen.json",
+        "sha256": "4e4748173500fe9c90d8d6cfa55d932ee406bff752a9042935bb19200eb505b7"
+      },
+      "finalDecision": {
+        "path": "build/bench/strategy-search-v1/rhea/decision.json",
+        "sha256": "234ecb42de3f25d4bf6a3a1239c987b23b94ba779e01ee652dc4a4be3da24f51"
+      },
+      "durableEvidence": {
+        "path": "docs/evidence/strategy-search-rhea-v1.json",
+        "sha256": "0a23726d87c29dc71d2c9b803abeb0b0cbcd4a6570dd0b949119f053f282f321"
+      },
+      "errors": [
+        0,
+        0
+      ],
+      "fullParametersMatchLaunch": true,
+      "extraDirectFiles": 0
+    },
+    "opening": {
+      "wins": 186,
+      "losses": 114,
+      "draws": 0,
+      "halfWinUnits": 372,
+      "games": 300,
+      "maps": 150,
+      "score": 0.62,
+      "directStage": "PASS_300",
+      "finalStrengthStatus": "PASS",
+      "report": {
+        "path": "build/bench/strategy-search-v1/opening/screen.json",
+        "sha256": "31febc468afa1467e2874e77471f8537559b45cf4e25cffcd2781f0549989cc0"
+      },
+      "finalDecision": {
+        "path": "build/bench/strategy-search-v1/opening/decision.json",
+        "sha256": "0e9bc946dcdef76486dc0f588e9921f80a72e4c5b80b155daa04081d5d20bec4"
+      },
+      "durableEvidence": {
+        "path": "docs/evidence/strategy-search-opening-v1.json",
+        "sha256": "59e948791feac06dfbedee495437f755ce542c81fc601cca34bdeee21bd64ef5"
+      },
+      "errors": [
+        0,
+        0
+      ],
+      "fullParametersMatchLaunch": true,
+      "extraDirectFiles": 0
+    }
+  },
+  "boss": {
+    "newCandidateGames": 40,
+    "cachedControlGames": 40,
+    "distinctMaps": 40,
+    "seats": {
+      "0": 20,
+      "1": 20
+    },
+    "candidate": {
+      "wins": 13,
+      "losses": 27,
+      "draws": 0,
+      "halfWinUnits": 26,
+      "points": 13.0
+    },
+    "control": {
+      "wins": 10,
+      "losses": 30,
+      "draws": 0,
+      "halfWinUnits": 20,
+      "points": 10.0
+    },
+    "exactGraphicsMatchedAll40": true,
+    "sourceMarkersAndIntentBindingsMatchedAll40": true,
+    "bossAndLeague": {
+      "agentId": 6740207,
+      "arenaBoss": {
+        "league": {
+          "divisionCount": 6,
+          "divisionIndex": 3,
+          "divisionOffset": 0
+        },
+        "nickname": "Boss 4"
+      }
+    },
+    "intents": 40,
+    "results": 40,
+    "canonicals": 40,
+    "errorOrRetryFiles": [],
+    "candidateControlGameIdOverlap": 0,
+    "rheaBossBatchesStarted": 0,
+    "openingBossBatchesStarted": 1,
+    "pairs": [
+      {
+        "slot": 1,
+        "seed": "302177933",
+        "seat": 0,
+        "mapHash": "4e2d41f16fa1fb6863344052e48531fece69ff14cd011e363548f7705d23cacb",
+        "candidateGameId": 904975236,
+        "controlGameId": 904839377,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "1c8b91cfda5c16cad5bf046a23ed1f770291455f8c60c4620bcbaab43b5ad675",
+        "controlRawSha256": "9472257173e77599271edb5de141019f0164d878ccf6fda7f31927212704670b",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0001/result.json",
+          "sha256": "667a71a4302d78817072cdd8e6c3fbef8ae0ac24e90e19d32892a922731f8d12"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0001/intent.json",
+          "sha256": "c42b5a4b3165016af136ae8b3c7c69706be1c4d9d0e1d4eb39f0acfaee34a903"
+        }
+      },
+      {
+        "slot": 2,
+        "seed": "501234585",
+        "seat": 1,
+        "mapHash": "7e948aa326da4be22acebabb2716ba1acc1ab72f3a8a76f9d4d41a664e738a09",
+        "candidateGameId": 904975340,
+        "controlGameId": 904839463,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "651afe0104fa27fd12a4bc1c2eca0ed006735298fc0c5d9a22a559e38f09c5b8",
+        "controlRawSha256": "9ebe7a9e9952232b986271a9627b4db433e921ebd9661657495669f5df360fef",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0002/result.json",
+          "sha256": "6be82917164d6f1b5258c418086776ff25bf468e0c6f57906bb6f0c7c662d0f5"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0002/intent.json",
+          "sha256": "4fe4fc07660a691601bfffe2d92374fb3a6c4d8d59b6f86db4399397d07c81cc"
+        }
+      },
+      {
+        "slot": 3,
+        "seed": "1143519942",
+        "seat": 1,
+        "mapHash": "6bded90a907f8fd381fdf7e2506b5e2ba2d2bae17d622b7ab58bae3d48ae215b",
+        "candidateGameId": 904975412,
+        "controlGameId": 904839653,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "369813b0432f41170e09b06e2f9357c9e2a0d225a7d1d9a76f42b2d334669441",
+        "controlRawSha256": "9d3c65218861b8826d89ad3a942c59971ee831f478a3dbb035d14bf8d49f64b9",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0003/result.json",
+          "sha256": "5c072be3bc3c3a9f0d873c64097a6bf8e37b1fee68a1cd8486529a0c5c22f00e"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0003/intent.json",
+          "sha256": "c71c316bfae24fe11e2c3ef15156845aab34fa273f750fb792eb89bc02c08dfe"
+        }
+      },
+      {
+        "slot": 4,
+        "seed": "123741653",
+        "seat": 1,
+        "mapHash": "91c4ddae9bf8728ba67ad0e4b2c6fdd1314127a6e9c0dd10647399ab9823f35c",
+        "candidateGameId": 904975484,
+        "controlGameId": 904839698,
+        "candidateResult": "W",
+        "controlResult": "W",
+        "candidateRawSha256": "2f9554261bf2586e18024322e9063899ae27601bda0884b5d68d5073d90f00a1",
+        "controlRawSha256": "be7d5f6ffcbb98d44a52a257ca010d5a9f120eeb227ff98d34d69f7641877e91",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0004/result.json",
+          "sha256": "0487883f064fc4f49e9ec561a610e9654a9c6ba921f85f8192488f0d187cca85"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0004/intent.json",
+          "sha256": "7027dcbc7974f25f604c50d2163fbedeeccb8e9fa8075fa49200daff8a982a37"
+        }
+      },
+      {
+        "slot": 5,
+        "seed": "321980587",
+        "seat": 1,
+        "mapHash": "49bcf58f553dbaaa101a350c075e0ba7c71d22465b946c1cfcbc55303c2e6b4a",
+        "candidateGameId": 904975609,
+        "controlGameId": 904839887,
+        "candidateResult": "L",
+        "controlResult": "W",
+        "candidateRawSha256": "e5382338cbfd00a8417675dd1c51e3505135879c5a03ac46730c60ee40ab33a5",
+        "controlRawSha256": "ff76f6373c3befb3afdf0f7d1b9289ebf057127ebdb5ac2c45d47a05bd0bb7a2",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0005/result.json",
+          "sha256": "53a9c7e93323857e7b80144f892c46dd8b1e7ae0991049437913d5c40ac43a63"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0005/intent.json",
+          "sha256": "a46c45dde099c5497b20818fb430bb14fcbe0d0a35529b03e825950c9c82af3a"
+        }
+      },
+      {
+        "slot": 6,
+        "seed": "372710578",
+        "seat": 1,
+        "mapHash": "11c9939dd9dbace9f81a5589ae81d9f186d582bedcf88a41dfa1cdb9a6c3a8bf",
+        "candidateGameId": 904975730,
+        "controlGameId": 904840005,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "78f881d812c6fe9dbd77a27e6f895f1b76144a43a89b1b2e3e45f00e4933b113",
+        "controlRawSha256": "7f34207d345c5cc81f38afd1d9f81e392d3f7d0093d168c02f5d8f7f4439a624",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0006/result.json",
+          "sha256": "e4f6c21d57363e4a5f015689fb3a0e740454e9bb331003292bf880205924e995"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0006/intent.json",
+          "sha256": "da1450608c401e994386265a8cebd5191910e7aa2679f5203cbf2d22c8533b26"
+        }
+      },
+      {
+        "slot": 7,
+        "seed": "845281438",
+        "seat": 0,
+        "mapHash": "f6b81b45cae497b88f84eff834aecc5e22545c971680ad273350b4a720ee5226",
+        "candidateGameId": 904975814,
+        "controlGameId": 904840166,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "0911030fbbaae79bd721aaa793a8e528fd5defdfbb797dc0f3e3fa765d5b59c1",
+        "controlRawSha256": "95e0904ba1597b2abfe61f774bcc6e25be131e121728a80efc164110702da1a9",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0007/result.json",
+          "sha256": "07de5e792da84ec90cb16d62678a9aee5d5f448771d3a7c898bf1c92a495be0f"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0007/intent.json",
+          "sha256": "36704145358d8b9e29b7d922c019f9395603be520166ced77210182cf015d3dd"
+        }
+      },
+      {
+        "slot": 8,
+        "seed": "1525304609",
+        "seat": 1,
+        "mapHash": "634d72351705607250632278563abce70649b2c71435d478f0e3d67326c51d81",
+        "candidateGameId": 904975949,
+        "controlGameId": 904840277,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "6766aa17f66e1521158e911ca2416a3ea405255c29ffb3eaddbf58e6a85afae7",
+        "controlRawSha256": "3d406ebf969c6b508a2722f31636a5bb90e1d49045db5b2ae131e7fd1821981b",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0008/result.json",
+          "sha256": "45a1ac06c0ec3bbb2d8b4f0ac2d67a94f269f77faaf3b34f46a1192335acb51e"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0008/intent.json",
+          "sha256": "961fe2a95a635a14dea5f68e3b255170e105781cb5b9b5a82b90194a044aad48"
+        }
+      },
+      {
+        "slot": 9,
+        "seed": "1422305714",
+        "seat": 0,
+        "mapHash": "995febca8f0f5bb8288d0688d557ec9eaa6f5d2a31cbf0041a34b154b210031a",
+        "candidateGameId": 904976050,
+        "controlGameId": 904840419,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "aa6c93d26cbb243ae2cb8ee47e7dedfd7a00b3379b764363f07ef41c5b314be0",
+        "controlRawSha256": "33cdb8c51e513ee48b726eea089fef9b192057a1231250881122c545299ec469",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0009/result.json",
+          "sha256": "3bba2798ca9587ce36a4698e975553be348d405b34839d78dec86072d446cd29"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0009/intent.json",
+          "sha256": "5f71ba4d518227cb2f5cc96371f35cf53720be44f4893fafaa2bad0e2e670f6b"
+        }
+      },
+      {
+        "slot": 10,
+        "seed": "2132059232",
+        "seat": 1,
+        "mapHash": "8ac316cf5968f556eb60534832abe3418be8bb567e85104e99b54ee859223a50",
+        "candidateGameId": 904976141,
+        "controlGameId": 904840493,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "493316672617441d2f3773e269d242f69250f611dae71f05fb5da27114f200ab",
+        "controlRawSha256": "3b48f40a430256b16880332175dd1c4619fc6e5a78fd85afa9b48a7bfc858e60",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0010/result.json",
+          "sha256": "9b4398d09cd84ff77ec125d2df86bec63a04195fef5a2c8e764e537edd2e16a8"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0010/intent.json",
+          "sha256": "844f1f5326dba71e3a6cbe0b833b47ac9d55266af1819cc07107a091da5c8ab3"
+        }
+      },
+      {
+        "slot": 11,
+        "seed": "36225550",
+        "seat": 1,
+        "mapHash": "29a83682bffd8aae091a88edc8c1611d1a1fa14e792dd41ecc54dce736e52c07",
+        "candidateGameId": 904976250,
+        "controlGameId": 904855328,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "562d916b5fd693661e6663e036be458c18dd2ee09f648181b5d6c10a8496d568",
+        "controlRawSha256": "df2264c83c1597020d490c62677463a9f306379229572a6c8eedeb0ce3a1970c",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0011/result.json",
+          "sha256": "326cdf64b3e5ee093f18c86a103a800e834af1a16e9d059dfda80f79d81c3a33"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0011/intent.json",
+          "sha256": "3f58ba25a48eda73e8b9d3a404533eacd31710ef3e4a74675e3080655a9c117f"
+        }
+      },
+      {
+        "slot": 12,
+        "seed": "1189477448",
+        "seat": 0,
+        "mapHash": "7751403fe1c096bafd7ada2d3d804464478914b762529547c7bd525def33b824",
+        "candidateGameId": 904976339,
+        "controlGameId": 904855393,
+        "candidateResult": "W",
+        "controlResult": "W",
+        "candidateRawSha256": "5bae5af8ed8f6350bb64ad75438349ad7a2beaeb49539c5a56ec2f777ceb2b93",
+        "controlRawSha256": "1c0d83245de9b302a05ea3070563437044a87bf74d4329a223a0db1ebc3c1acf",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0012/result.json",
+          "sha256": "72058e67b281cb60264cb0af0cf7adb835df30305cf7141c33bc521d17dce397"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0012/intent.json",
+          "sha256": "6122e17f17029d3be107c02e1cd00fc4c28266779bbc59d3e46fe998016dd0a9"
+        }
+      },
+      {
+        "slot": 13,
+        "seed": "940538462",
+        "seat": 1,
+        "mapHash": "1eef26911e64f0c4994e3a778fc56fdd76e6ea62becc9d885f898f59b31da4c7",
+        "candidateGameId": 904976414,
+        "controlGameId": 904855611,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "7731e8b47314af2c875b7dac097b05ef2b0d43002a37c38eb0f01bfaab9c59b9",
+        "controlRawSha256": "bceb02f877e78d753a8e55f0a13a976744e1d596b32b327e9c1811f2c06c8e75",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0013/result.json",
+          "sha256": "6efba33b08be07400da0e215b34e1a52b9949c462e2164f134883bf0bc1c8a37"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0013/intent.json",
+          "sha256": "4914fa7029c8885a7190a9cc9d5904a65567d64f7d0373b5bf71a6b06311d0dd"
+        }
+      },
+      {
+        "slot": 14,
+        "seed": "1605416054",
+        "seat": 1,
+        "mapHash": "529a7257fd55ee3a4b139b42096e0d58a3d2fe57ed6b821e281b5fec099e639a",
+        "candidateGameId": 904976507,
+        "controlGameId": 904855763,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "6c800e377a14d2384cfbde24a407b4ffb13a9f7e48924f3daeb265161a245664",
+        "controlRawSha256": "fd9074adca75bb0304550b86b7b609778cb0b24e21b696b82092f0b52ede335d",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0014/result.json",
+          "sha256": "b57988f8d6f1456aabc980852a60d354d5a1fbac3e53d8c0cf0b9d5223e4c3c7"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0014/intent.json",
+          "sha256": "04f6fdc51323a9938ba8aa5400b03d54b79ce9b78c4fd01d9607b2ac209f4057"
+        }
+      },
+      {
+        "slot": 15,
+        "seed": "472465776",
+        "seat": 0,
+        "mapHash": "c1271417afb2470a00ebe506814c1fff66bddade7ec7cbfe0efdf8d086c6d55c",
+        "candidateGameId": 904976639,
+        "controlGameId": 904855886,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "34ecb4a838d466cbf4446ca2fd4dcf0b99a374b172e8357af576b1b6199cfff3",
+        "controlRawSha256": "729ea8afd44fd93486921f6a6474eabf927d06fdce5b8c9324254af300650acf",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0015/result.json",
+          "sha256": "3730ada6fdc3e06e4b26498df02b87a58c8d80497d53d0a31a963e4ef24e4d94"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0015/intent.json",
+          "sha256": "e52c1ba40a813703374263ab05d1847f940c8077bf0e5e26171c9a3c85d2d688"
+        }
+      },
+      {
+        "slot": 16,
+        "seed": "766462685",
+        "seat": 0,
+        "mapHash": "a4f495f5611c430140245f1c2483e2275f9b81c5afe9612bd3bd62164ca4c041",
+        "candidateGameId": 904976746,
+        "controlGameId": 904855930,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "aa22a94d3aaa2649ed0448986abe3a82a9d771b207870789b8a26d85f3a5e523",
+        "controlRawSha256": "40603501df83187771eac8c4db51d556cc845f03a8d30ea1cb1c1a688a0c9d24",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0016/result.json",
+          "sha256": "d55db42a568ec406b9842aebfea423601917c4ec2779ff27fd2645d0f52a7cba"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0016/intent.json",
+          "sha256": "4833c08aa4f7c74b0066f6b0b5bff6e73e671711774030660e236dcd4f8dbf73"
+        }
+      },
+      {
+        "slot": 17,
+        "seed": "200405262",
+        "seat": 0,
+        "mapHash": "6fc0a5efcc9d1dee325cbe33377778346d8eea98762d89b1474a6ad113dda515",
+        "candidateGameId": 904976878,
+        "controlGameId": 904856032,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "eeb54ce4cc89c598379aa7f9aa48550eea8f0187ab3df22a915feabd6bf16ec9",
+        "controlRawSha256": "9b20cfa3e080d55a58a642085ac41832bea46a9a71d9eb629f6dcff2f6bbe3ba",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0017/result.json",
+          "sha256": "87883268ea4030867a0d88aa9d48cc4178e579f26a286dbdc40aedbea30e3618"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0017/intent.json",
+          "sha256": "219eba466c5318be92aeaa1b8a5f4a4935291a9bf60bbbfa756d1fc2f98fa324"
+        }
+      },
+      {
+        "slot": 18,
+        "seed": "2029096477",
+        "seat": 0,
+        "mapHash": "4aaacea5cc5bb4b114b4d849e659006c79c64abde337239c7875e977c1d4e9cd",
+        "candidateGameId": 904977001,
+        "controlGameId": 904856142,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "278ca8d4b9065e6d4bba81471e5064ad5bda19ac2d113ba8702bd0986d0588a3",
+        "controlRawSha256": "9b539a83e05496a39428d76f7d52282b4142b2dcba9d3552b94e7da77f23df0d",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0018/result.json",
+          "sha256": "f914f0f2b0381bef7b4db3d4e5f56a48518dd593930d53601f92e49f137f090b"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0018/intent.json",
+          "sha256": "d08c6ac363c9177fe9642133e0af41d3d3c2976a208fcba879516173db3d4295"
+        }
+      },
+      {
+        "slot": 19,
+        "seed": "641226407",
+        "seat": 0,
+        "mapHash": "290d7e6c9e23d9f00b0f262375a8cc3df9903baf92a97fddae2388187bc33cf5",
+        "candidateGameId": 904977117,
+        "controlGameId": 904856275,
+        "candidateResult": "W",
+        "controlResult": "W",
+        "candidateRawSha256": "aac95a13a157d6341285ce9aa9e3bef35e2f868681470cd2e323c2e3597049e5",
+        "controlRawSha256": "d50b9956dbf5a11d64e54cc2488e24b3eca7da6f854f5724a9d11e3f01fabb68",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0019/result.json",
+          "sha256": "0ca383437d09fd0b67c173fbc378d9fd7fd6eda52cc9550b299850b1fbeb8683"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0019/intent.json",
+          "sha256": "eb07cc392c6e3e919cf01722547df1edaccf8df15cf3a400982c9a722cc856db"
+        }
+      },
+      {
+        "slot": 20,
+        "seed": "1254502281",
+        "seat": 1,
+        "mapHash": "2fcfc59881c04fc35a6a162a15a372db83ee91af445ad03729ae034283e9911a",
+        "candidateGameId": 904977235,
+        "controlGameId": 904856324,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "58d57cbca2456fd34d47f783024cd23484d53c2bdcad677cd50308e8b22799bd",
+        "controlRawSha256": "5d5720c694de815c3848506872188e0ecc6d2bf596c60b915ae901b67fc59012",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0020/result.json",
+          "sha256": "3062f39013954adcf243b33d7273119028aedec795fb75ff33b770a40c83c5d9"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0020/intent.json",
+          "sha256": "0be4dafe2f7960c7b26fcd72650e194bfbe4148ed68c6d80720189e8a0ba02fc"
+        }
+      },
+      {
+        "slot": 21,
+        "seed": "1023604924",
+        "seat": 0,
+        "mapHash": "fed4d5d5f7a3ce8f749c3021a0acef5c723cb1c6587a18abe9e9bc51e7c1a465",
+        "candidateGameId": 904977330,
+        "controlGameId": 904856442,
+        "candidateResult": "L",
+        "controlResult": "W",
+        "candidateRawSha256": "698dd88a1d32f977ae991844478d2689317f0d745eb1b86dbd3f4c1847dff315",
+        "controlRawSha256": "0401a4ad723a16312dbedfe8e5494720ed19e4405bf6b9c297f32a1e7ea60fd6",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0021/result.json",
+          "sha256": "d6f4777f6cfc69de52297a179fa567c6cd1a7b847dde317d6e7c8cfecdb7f8eb"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0021/intent.json",
+          "sha256": "ed492ad672d651cb1b74b318c2fddff85c3fae1a91689524e2117e8111224688"
+        }
+      },
+      {
+        "slot": 22,
+        "seed": "660454587",
+        "seat": 1,
+        "mapHash": "c15aa60850b046348c9458b2b73e4417e9c4cbf5a72ebbdb5279bfe9f4feb32d",
+        "candidateGameId": 904977431,
+        "controlGameId": 904856492,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "53f0972e019378b893b77922f251893053af025fd1d241071c1fcc63b2e66d50",
+        "controlRawSha256": "20009469cf229c5dbc3ff98c44164decabab0a94b43164ea5e5677b6f1857538",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0022/result.json",
+          "sha256": "a0c44961b1a1fd0572417a30b30522b8a1438685820f04d288339e91c0b6f63d"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0022/intent.json",
+          "sha256": "5efc53eb119ed817a10e408ebd1f3ab2bae163d34968b4dc441aa6ccff47f790"
+        }
+      },
+      {
+        "slot": 23,
+        "seed": "305825346",
+        "seat": 0,
+        "mapHash": "aec9b426968514df521fa06a23cbe302d768050527c0ebe38a415df6fb5e7290",
+        "candidateGameId": 904977548,
+        "controlGameId": 904856607,
+        "candidateResult": "W",
+        "controlResult": "W",
+        "candidateRawSha256": "496b2aac759d019f4372f1bdf25cd5bda0813d5f49602a2e55bc6a4de6bdcd91",
+        "controlRawSha256": "e6fda0858d529ae1604de59abd0b3c1ecea7267a6c01bea701a875969048cdd3",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0023/result.json",
+          "sha256": "78e3586746cff52fb0bea49264189b0eb718d780c4207e8e954d5ad3124523a4"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0023/intent.json",
+          "sha256": "ebc3c021864426df060daaeca1d5b1b74462757b9b343977bdb1ab9caf41fb97"
+        }
+      },
+      {
+        "slot": 24,
+        "seed": "721355214",
+        "seat": 1,
+        "mapHash": "fee913655f2f0f6b41d7e06e1d25b3eecdd125124a7f1b265f13539ecb337b59",
+        "candidateGameId": 904977633,
+        "controlGameId": 904856808,
+        "candidateResult": "L",
+        "controlResult": "W",
+        "candidateRawSha256": "ed2b4409f84600158c4b9c0bcbab61b196e43779ccedbdf2e54d6d4acc4466a0",
+        "controlRawSha256": "61b2593e2ee465708bd2c0eb758af57d5fde78459bff37d78e0092d03b387d0b",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0024/result.json",
+          "sha256": "165e10525b06b80b758d562599237dc94c3c0d9e4af3af902cd3e51505aa8192"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0024/intent.json",
+          "sha256": "712e9434cb723b0ce547b721501473348aec6a20de74670567c6899c9e7fe620"
+        }
+      },
+      {
+        "slot": 25,
+        "seed": "1181291156",
+        "seat": 0,
+        "mapHash": "8e111f94d18da245f7e304231b4a004209adb2cac2d8641826ad6da411994b52",
+        "candidateGameId": 904977736,
+        "controlGameId": 904856877,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "097fcdf99dc49706aa1cf79579a6c043594fe8fcde44f8198125ba2458a09545",
+        "controlRawSha256": "734e341eb4d86b2a6c97a05581cfa959ba699df6b3d71265eaf72732ced349f7",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0025/result.json",
+          "sha256": "b1de0793fe11d0d3b40874f21e1d380f895f060a7a0f52e2320b403bcc57c07f"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0025/intent.json",
+          "sha256": "d6b273a4ff63110e0e5f20b40e4017028909a8589dfe4af283f8419236a2c006"
+        }
+      },
+      {
+        "slot": 26,
+        "seed": "1888720045",
+        "seat": 1,
+        "mapHash": "5834c40ded811bd1449d6580ba7aab48a3164fc3f0fa2c9d2bf7de96f7668c13",
+        "candidateGameId": 904977850,
+        "controlGameId": 904859220,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "364262177053fe8fc63d7efe7f8e4382aa2089136940c0494817956d33e753b1",
+        "controlRawSha256": "54cdb0810102ed220b6162bb95fe1ead64d3f6ae7b280f12297670e33b6856fc",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0026/result.json",
+          "sha256": "dd81525242a0823979ae3516c1a7c77bdcd9b710253fad6d285cc35a7bb65304"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0026/intent.json",
+          "sha256": "e302b3cb9fc6c2fc23174d295ae673715f18d35cf84304ccc4f300a69dfb1382"
+        }
+      },
+      {
+        "slot": 27,
+        "seed": "1723142022",
+        "seat": 1,
+        "mapHash": "a9b3cc6e4c69aaf96985663aa541cf9c48f878a7147b7e95ba2270e12cad8e9b",
+        "candidateGameId": 904977948,
+        "controlGameId": 904859406,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "5a02219c5aace4ce9c50edfbdd7485ad5be0d3ed48af993c870bef70472181cb",
+        "controlRawSha256": "93c9415691e4e9e89300052ee0dafee34367b495997e511ef076011d3e18b22a",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0027/result.json",
+          "sha256": "65fe3243f20434738b7e478c2372f2d64529aa4eb975ba9d9b866e97411add21"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0027/intent.json",
+          "sha256": "a2cc75ed2e1497ec8f501f2b80d8434682654bcdc9b23a76c7e43996b3b087f2"
+        }
+      },
+      {
+        "slot": 28,
+        "seed": "939151662",
+        "seat": 1,
+        "mapHash": "48d0d7c107c0f28bb51368a9ba86c78fe3ca9e3478582eb78621b8a51ba5b9ab",
+        "candidateGameId": 904978037,
+        "controlGameId": 904859511,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "c5f56a4e432a750f2b4ac1582c36e598b4bec6928c668b8cf60ad9a0549ae875",
+        "controlRawSha256": "e6de41f40f90e8865d8d12389fe47dfd9622d5f225fa4b4eff224b43cd355252",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0028/result.json",
+          "sha256": "8e096ea119f5c0c18f2bd47795065329fc551d2457efe3f31e3323468428ec69"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0028/intent.json",
+          "sha256": "83f5616d26725cc87afbb358ee50787f469ec9897049d501fec92a491a04d27a"
+        }
+      },
+      {
+        "slot": 29,
+        "seed": "1202402499",
+        "seat": 1,
+        "mapHash": "274e07abdee549179a65a33740674dbfa65945a561be3b57abd7e4e61c8b0512",
+        "candidateGameId": 904978141,
+        "controlGameId": 904859819,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "bd90898f211b00e28257a0faaeab3c8cc08659cdf8316de41bdfc80f6b1a0ede",
+        "controlRawSha256": "ae6033a49db31bb10383b76e15621895ee810e1c50010ceb460eec78358bd333",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0029/result.json",
+          "sha256": "dd19c51958f46a0c2f904eaea1ccbfb34e8f27734ac3114c4738acd4ebdcb952"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0029/intent.json",
+          "sha256": "d81097b191f0fc32ce00998dbf13f0a7ee7e09dfc4f5d09c51dc5a3d9f46edb6"
+        }
+      },
+      {
+        "slot": 30,
+        "seed": "1410873123",
+        "seat": 0,
+        "mapHash": "5d0475b0c16f8172e0e32279c85b562dd554bdebb690ac0d47537272491b75d8",
+        "candidateGameId": 904978241,
+        "controlGameId": 904859917,
+        "candidateResult": "L",
+        "controlResult": "W",
+        "candidateRawSha256": "65fc2f53ed22dcbb3490e47efadb8343a165987e37c8c3e93ede54c73d7404a0",
+        "controlRawSha256": "75913445e69a3565c7eba376a485070d467f1664443ee0690f05495aaa01eda5",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0030/result.json",
+          "sha256": "92c899dbb7f4e7465e01e0c1c0a8269e870b928cbeeb5eb80a233eea09bbef7d"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0030/intent.json",
+          "sha256": "1741b315e99fbd5dda89d57a0d6b8e3653f4a068df586aad6be89c3332cd9196"
+        }
+      },
+      {
+        "slot": 31,
+        "seed": "2073013146",
+        "seat": 1,
+        "mapHash": "d60366aa4df8aecdfbe1c96c9d05e6a0d605843b3aa68ff47294c98fe6a34d98",
+        "candidateGameId": 904978355,
+        "controlGameId": 904860120,
+        "candidateResult": "L",
+        "controlResult": "W",
+        "candidateRawSha256": "938e93d69cb7f290c6f9e072a538f25d3811b66a3b188930482cc11656dc0390",
+        "controlRawSha256": "5f0c9a7111996dc87875a92b1ad450e98f2c35c429b341d5f1c315374bef6791",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0031/result.json",
+          "sha256": "9c4edb38f340332c61e980908ef70f14fd300bd5e3035ea54acb35a71638e1d6"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0031/intent.json",
+          "sha256": "82d36a2c9b49ecf12b7940ee2a552760fcd6bfb60a7ea917972d6e29bb0e1c62"
+        }
+      },
+      {
+        "slot": 32,
+        "seed": "410549187",
+        "seat": 1,
+        "mapHash": "8b52a2a8b1692b02472f423676e4fea2b2ec024e9f16eeb168d78252495cc9f6",
+        "candidateGameId": 904978489,
+        "controlGameId": 904860403,
+        "candidateResult": "W",
+        "controlResult": "L",
+        "candidateRawSha256": "48b5b10b1d8eaaa7e944e0e844854920c315d27fcca326f121a536f57a688ee5",
+        "controlRawSha256": "4de680fd5c981c5c42f97584c89f715b96b941cdbc7dbf91a970397069827c95",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0032/result.json",
+          "sha256": "653351d9324de97e45b1fc0592d381acebf0662110072c15e2c26f330f4c2608"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0032/intent.json",
+          "sha256": "f7159913de524983db718e237c3de638f3a53e8a6b02bff1fd430e4f87ad3a32"
+        }
+      },
+      {
+        "slot": 33,
+        "seed": "561751329",
+        "seat": 0,
+        "mapHash": "828db90e759a34a34c536370282897106067d94b28b027c6135ff4d5e8db0eb2",
+        "candidateGameId": 904978577,
+        "controlGameId": 904860505,
+        "candidateResult": "L",
+        "controlResult": "W",
+        "candidateRawSha256": "6a09c339a6a6e43021f15d547b45cece48aba363fd4b7eb5616ca4f901208e50",
+        "controlRawSha256": "b0ac26ac482f53826485dc08154ce329e404a163dda392b3f257e50c689f5a60",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0033/result.json",
+          "sha256": "67074fe5a9f57039b00aad1a299f55b1296be30dfad871f854e2af823240ebc3"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0033/intent.json",
+          "sha256": "6ae4a6370ecbef505ce6cb1043c3e6658f1b78c72c69480cd2975bc9f3b237f1"
+        }
+      },
+      {
+        "slot": 34,
+        "seed": "485368054",
+        "seat": 0,
+        "mapHash": "c6b7b6f3eecb35fd9494fcd56bd38fb1f25d644726023d917e55bb6825134ca5",
+        "candidateGameId": 904978706,
+        "controlGameId": 904860699,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "45c2c7a683b002738ec807242b7fefaaf69c56c10327005427c9e1ffc87fcfaa",
+        "controlRawSha256": "5a3102060cedd355ca8c31560523ba250bf34c08d0ec8f6ff92db3e13f84040d",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0034/result.json",
+          "sha256": "8f1534ddb432bab0abfb14ab97723185443b314bd79fd56ddbdb3d2fbd5a84b8"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0034/intent.json",
+          "sha256": "f4f3739dd6ee8caa3fe49bd53cb52e98b0a9a5e798553a00c0b8ea66eada7864"
+        }
+      },
+      {
+        "slot": 35,
+        "seed": "467888496",
+        "seat": 0,
+        "mapHash": "e7479343a17b0752dd48cfaefba3f1fbdfc0521004b2804235356b943679fa13",
+        "candidateGameId": 904978826,
+        "controlGameId": 904860908,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "c1657ac03358ad66e5c042f4978edfa0ae5340535e298c7180cf9aaf740232f3",
+        "controlRawSha256": "29f928941f7dc83fb8be280d588867410f89d9a2352805dd9ac273f9bcb3430a",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0035/result.json",
+          "sha256": "7ac558c778efa3335012d3c4c6ef95128f3061e0a17178eab879062a51208ac1"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0035/intent.json",
+          "sha256": "8a22e171d4e590cab3775ac90296a1b6f8dedcf79ac3d05b6554bf4b1e37dc70"
+        }
+      },
+      {
+        "slot": 36,
+        "seed": "1593446756",
+        "seat": 0,
+        "mapHash": "39f7b216505b7f8308b9424d9d222f1aa2c19d72e9d8146a35a99ab28fae561f",
+        "candidateGameId": 904978945,
+        "controlGameId": 904861147,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "92d342d26966ee8fe65e7ac49a408e91e6ba6e55d97fbba4c81dea50f1e9ab2d",
+        "controlRawSha256": "0c38cabb56a8ee6e0e801d3a0624863f92974c0941fcf6a32790aa35e0e4492f",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0036/result.json",
+          "sha256": "b3d81005175d56ca2a22a43f23007be2333cc247f62c85f189f126c0ff6331ba"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0036/intent.json",
+          "sha256": "ab8f17e09dfbc4e2b997c0ae638c64e578ed8404337bbe449c126a4306e6c5f5"
+        }
+      },
+      {
+        "slot": 37,
+        "seed": "1012845339",
+        "seat": 0,
+        "mapHash": "a9bc109e342ca210491c8fb1eba9e1c615356280906750186e7a5ae693f39deb",
+        "candidateGameId": 904979038,
+        "controlGameId": 904861466,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "18e87057d781a14763da581ce6b8f064e83cd0f2b2e6ec6656cf87d8804d6dff",
+        "controlRawSha256": "bec0b2108a01ecfa7c5630ca94b84c18ce05696eadf8ec964ae9ee9741a4d2c5",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0037/result.json",
+          "sha256": "539788a474c3f6d173c3ba9ab0c9aa2bb0bc04499c8e311bf6e60cc6782a466f"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0037/intent.json",
+          "sha256": "84e7a19cffa4c2a2cc5486f351c9a194cc5e5e24d49043898f0f3b61362a744d"
+        }
+      },
+      {
+        "slot": 38,
+        "seed": "2146708695",
+        "seat": 1,
+        "mapHash": "04aa472acab04e0632b351041de9912acf3e7909d18d6c80745e8f9488ca3724",
+        "candidateGameId": 904979135,
+        "controlGameId": 904861562,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "c257d1da434bcd26f8bb834273643469d5759c51b7e6d4db39e3f4ce21acf708",
+        "controlRawSha256": "e381f63f31e061bd4527243cd98153d581e8382138b2727819256135a0d8849e",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0038/result.json",
+          "sha256": "80ca82490a16ff4731e93616a20ba2fa85449952c62f8bb3f568c3b0120aee59"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0038/intent.json",
+          "sha256": "370d96783c5456e279cd3276365c2f623e856cf9e496fbc802a379888dd3a00d"
+        }
+      },
+      {
+        "slot": 39,
+        "seed": "445026402",
+        "seat": 0,
+        "mapHash": "f5237eeee9a94505f89beef4ddaab886d66d8271373505ca695f454671c1cd7d",
+        "candidateGameId": 904979243,
+        "controlGameId": 904861865,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "6ae0a9db46bb846b1ed1385017aa1312e5691a1782adfc51dd2c6960db164133",
+        "controlRawSha256": "f5d9e5381babdd1b6365f6b4043f9a2ca23744412f059fe7ba180c45879f4ab3",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0039/result.json",
+          "sha256": "44725d0e864c23b1e54e36716ccf23bd0a4a38672b93351346207a77d3e9378e"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0039/intent.json",
+          "sha256": "615cbbb1397e6d31e6b83276ca4f73644ec2cffb9f1a4b409be1d47eb4f82cbb"
+        }
+      },
+      {
+        "slot": 40,
+        "seed": "1344971913",
+        "seat": 0,
+        "mapHash": "6b9b5202f480ae42ee7d78ddbb5cc4c121de1fb7280316fdeed5b3e3f92e9fb0",
+        "candidateGameId": 904979336,
+        "controlGameId": 904862046,
+        "candidateResult": "L",
+        "controlResult": "L",
+        "candidateRawSha256": "7af6c52e29c4825429e934e5f4389f661889ae29a3e5cf349faf7f07bb90c895",
+        "controlRawSha256": "e82897e6eeed3429671390aa43cc1d9ba83f47a56f5af036439cce7916ccb9a0",
+        "resultPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0040/result.json",
+          "sha256": "340302e630e4c5b1ad2e8dd206bd0c961fa1007fbe0c8ba2adf470f66fc28377"
+        },
+        "intentPin": {
+          "path": "build/cg-boss/strategy-search-opening-v1/0040/intent.json",
+          "sha256": "a5697fae0513b0a21e1479d655ffa60c9d00c0382fa8919c8fe260c46e437490"
+        }
+      }
+    ]
+  },
+  "freshness": {
+    "distinctLocalMaps": 300,
+    "localVsPriorOverlap": 0,
+    "localVsCoreBossOverlap": 0,
+    "crossCandidateOverlap": 0
+  },
+  "frozenIdentity": {
+    "assertUnchangedPassed": true,
+    "codeSourceClassResourceFiles": 241,
+    "infrastructureFiles": 22,
+    "rehashPriorReports": 215,
+    "originalSelectedSubmissionFiles": 26,
+    "originalSelectedSnapshotMatches": true
+  },
+  "finalValidation": {
+    "exactReplays": 179,
+    "totalReplays": 179,
+    "rendered": 179,
+    "totalRenderInputs": 179,
+    "all40NewCandidateIdsIncluded": true,
+    "gradleLogBuildSuccessful": true,
+    "scope": "The supplied final log covers the boss replay directory; this audit does not rerun the Java validator."
+  },
+  "method": {
+    "helpersReused": [
+      "runner.load_manifest/assert_unchanged for all frozen sources/classes/resources/infrastructure, historical report pins, cached-control provenance, exact artifacts and compatibility certificate",
+      "runner.complete_report for report/pool/parameter/exclusion completeness",
+      "boss_cached.load_cached/assess_cached for strict cache and plan consistency",
+      "diagnostics.boss_batch_audit.bound_id for captured play-response binding",
+      "runner.assess_with_compatibility for comparison with the saved strict v3 decision"
+    ],
+    "independentlyRecomputed": [
+      "Every new and cached canonical game: authoritative seats, raw ranks, W/L/D, terminal scores, seed, exact graphics equality, map SHA-256, game IDs, boss/league, unique first-turn artifact marker and technical-failure signals",
+      "Exactly forty candidate intents/results/canonicals, no retries/API error files, unique fresh candidate IDs and twenty seats each",
+      "Both local W/L/D totals from all 600 individual outcomes and exact integer v3 thresholds",
+      "Original selected26 snapshot after path normalization, all stage freshness intersections, absence of any direct1000 or RHEA boss batch",
+      "Final validation/render log counts, all179 output files and inclusion of all40 new candidate game IDs"
+    ]
+  },
+  "limits": [
+    "Remote executed source is not independently observable; attribution is a first-turn self-reported build marker matched to the pinned local source, plus the recorded request source hash.",
+    "The cached boss maps are reused regression evidence, not fresh statistical confirmation; unchanged public boss/league IDs do not prove unchanged hidden implementation.",
+    "The exact-source compatibility certificate removes only seven unused control Params fields for checker metadata; current and cached control binary artifacts are not claimed identical."
+  ],
+  "artifactArchive": {
+    "path": "docs/evidence/strategy-search-v1-artifacts.zip",
+    "sha256": "f466b1b75533a66dab731cd070476563ef38150bb2ada1228cb4e04797c4ef12",
+    "bytes": 2596283,
+    "payloadFiles": 282,
+    "totalZipEntries": 283,
+    "allEntryHashesRecomputed": true,
+    "allOriginalFileHashesRecomputed": true,
+    "noDuplicateEntries": true,
+    "binaryReproducibility": "Source and original compiled hashes retained; recompilation is not claimed byte-identical."
+  }
+}

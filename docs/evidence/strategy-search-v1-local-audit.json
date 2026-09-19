@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-19T11:30:26.338474+00:00",
+  "policy": "practical-300-1000-boss-cache-v3",
+  "scope": "Independent read-only final audit of the two completed local screens; live boss evidence is deliberately not sampled",
+  "passed": true,
+  "pins": {
+    "launch": {
+      "path": "build/bench/strategy-search-v1/launch.json",
+      "sha256": "32fd761499a43b81d950a8b73dbb5ded07b509e0094db15d07bb9ec3d6caa33b"
+    },
+    "originalSelectedSnapshot": {
+      "path": "build/analysis/strategy-search-v1/before.json",
+      "sha256": "a43b578daa5a78721c357db57da8bdad6d02aefb474874b840d1da1404601536"
+    },
+    "bossLocalMaps": {
+      "path": "build/analysis/strategy-search-v1/boss-local-maps.json",
+      "sha256": "7544584a984e07523a93a80b1f9683a0f38b007b834c57ed23eb8880ac94ef9d"
+    }
+  },
+  "code": {
+    "expectedFiles": 241,
+    "actualFiles": 241,
+    "missing": [],
+    "added": [],
+    "changed": [],
+    "matches": true,
+    "inventorySha256": "e35026585814f47dafd185ea96b7518af9136f9168cf019e178745729c5be9f3"
+  },
+  "selectedSubmission": {
+    "expectedFiles": 26,
+    "actualFiles": 26,
+    "missing": [],
+    "added": [],
+    "changed": [],
+    "matches": true,
+    "inventorySha256": "5c6cc904d3eb2e21a9b703e53f414961d1cadcd96843d69b3302d3954ae4a91e",
+    "originalSnapshotMatchesLaunch": true
+  },
+  "infrastructure": {
+    "checkedFiles": 22,
+    "changed": []
+  },
+  "fixedParametersChecked": true,
+  "priorMapCount": 9655,
+  "coreDerivedBossMapCount": 40,
+  "allLocalDistinctMaps": 300,
+  "crossCandidateOverlap": 0,
+  "stages": {
+    "rhea": {
+      "spec": "current?USE_ROLLOUT_RHEA=1",
+      "control": "v07",
+      "games": 300,
+      "mapCount": 150,
+      "seedFirst": 500000,
+      "seedLast": 500149,
+      "aAsP0": 150,
+      "aAsP1": 150,
+      "wins": 134,
+      "losses": 165,
+      "draws": 1,
+      "halfWinUnits": 269,
+      "score": 0.4483333333333333,
+      "errorsA": 0,
+      "errorsB": 0,
+      "threads": 2,
+      "firstSearchBudgetMs": 486,
+      "turnSearchBudgetMs": 36,
+      "fullCandidateParameterCount": 107,
+      "fullControlParameterCount": 107,
+      "candidateParamsSha256": "c62fc0ed1bb8410c1d12d5c87693677b974c29a79f92d8311e09d0c9ec3b65fc",
+      "controlParamsSha256": "c90aa8b58f06a27fb2ea14288e8dfeb821fa1025857d2700e8fcd9d6834af3b7",
+      "fullParamsMatchFrozen": true,
+      "mapSetSha256": "4a4673c7b04c7a07624d0d1350e334c1f3bb81e9966c364b3e10ada5662d6e2c",
+      "overlapPriorMaps": 0,
+      "overlapBossMaps": 0,
+      "directStage": "STOP_SCREEN_300",
+      "strengthStatus": "NOT_PASSED",
+      "directFiles": [],
+      "pins": {
+        "screen.json": {
+          "path": "build/bench/strategy-search-v1/rhea/screen.json",
+          "sha256": "4e4748173500fe9c90d8d6cfa55d932ee406bff752a9042935bb19200eb505b7"
+        },
+        "screen-excluded.json": {
+          "path": "build/bench/strategy-search-v1/rhea/screen-excluded.json",
+          "sha256": "97a209077d63011ef8cc9e2c32346b66cc926dce6591304eafb13d1a2aada1cb"
+        },
+        "screen-started.json": {
+          "path": "build/bench/strategy-search-v1/rhea/screen-started.json",
+          "sha256": "9e2ea0e36886cedfe1b0c94f59b2ddc0dfa48b5baf0642201d2fad6f63ebcbdc"
+        },
+        "screen-complete.json": {
+          "path": "build/bench/strategy-search-v1/rhea/screen-complete.json",
+          "sha256": "78208a9ee5f7f9c4d21f4f6b322c602efcd5ba84003947e96ef354ef4f4a951d"
+        },
+        "screen-decision.json": {
+          "path": "build/bench/strategy-search-v1/rhea/screen-decision.json",
+          "sha256": "234ecb42de3f25d4bf6a3a1239c987b23b94ba779e01ee652dc4a4be3da24f51"
+        }
+      },
+      "finalDecisionPin": {
+        "path": "build/bench/strategy-search-v1/rhea/decision.json",
+        "sha256": "234ecb42de3f25d4bf6a3a1239c987b23b94ba779e01ee652dc4a4be3da24f51"
+      },
+      "bossStage": "NOT_STARTED_AFTER_DIRECT_SCREEN_FAILURE"
+    },
+    "opening": {
+      "spec": "current?USE_PROTECTED_OPENING=1",
+      "control": "v07",
+      "games": 300,
+      "mapCount": 150,
+      "seedFirst": 510000,
+      "seedLast": 510149,
+      "aAsP0": 150,
+      "aAsP1": 150,
+      "wins": 186,
+      "losses": 114,
+      "draws": 0,
+      "halfWinUnits": 372,
+      "score": 0.62,
+      "errorsA": 0,
+      "errorsB": 0,
+      "threads": 2,
+      "firstSearchBudgetMs": 486,
+      "turnSearchBudgetMs": 36,
+      "fullCandidateParameterCount": 107,
+      "fullControlParameterCount": 107,
+      "candidateParamsSha256": "c36a9d702197dbd3d01901ea35061c1de9e7a8d4a832026478d2c702a5cfad47",
+      "controlParamsSha256": "c90aa8b58f06a27fb2ea14288e8dfeb821fa1025857d2700e8fcd9d6834af3b7",
+      "fullParamsMatchFrozen": true,
+      "mapSetSha256": "78f7c8451a5a4707640e0ce3e0e46d267f7945b213f0f50c84e0e5b99c324445",
+      "overlapPriorMaps": 0,
+      "overlapBossMaps": 0,
+      "directStage": "PASS_300",
+      "strengthStatus": "NEEDS_BOSS_CACHED_40",
+      "directFiles": [],
+      "pins": {
+        "screen.json": {
+          "path": "build/bench/strategy-search-v1/opening/screen.json",
+          "sha256": "31febc468afa1467e2874e77471f8537559b45cf4e25cffcd2781f0549989cc0"
+        },
+        "screen-excluded.json": {
+          "path": "build/bench/strategy-search-v1/opening/screen-excluded.json",
+          "sha256": "69852e189fc4002fc3eea44ad95dec10187f8430779c39971962447f4b7c2c37"
+        },
+        "screen-started.json": {
+          "path": "build/bench/strategy-search-v1/opening/screen-started.json",
+          "sha256": "0432036dcd72f00e8724a8de7feb7cbf87357ec5a720cccad9235a6d2eed5d6c"
+        },
+        "screen-complete.json": {
+          "path": "build/bench/strategy-search-v1/opening/screen-complete.json",
+          "sha256": "853b5f4a3939b7c7719dfee67e09d02f6aa4b385d2007bf9c90311f5b7535cfd"
+        },
+        "screen-decision.json": {
+          "path": "build/bench/strategy-search-v1/opening/screen-decision.json",
+          "sha256": "62699c978306e101370a245d6c8df96e44febc0e5c8814aa79a347e011085254"
+        }
+      },
+      "bossStage": "PENDING_SEPARATE_FIXED_40_STAGE"
+    }
+  },
+  "bossStatus": "OPENING_PENDING; no mutable candidate boss counts read or recorded",
+  "promotion": false,
+  "limits": [
+    "This local audit does not replace completion and validation of the required opening boss stage.",
+    "The 215 historical report files are pinned in launch but were not rehashed by this lightweight audit.",
+    "Timing and confidence intervals are diagnostics; neither local score is an arena-rank guarantee."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "strategy-search-rhea-v1-direct",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 501000,
+  "pairs": 500
+}

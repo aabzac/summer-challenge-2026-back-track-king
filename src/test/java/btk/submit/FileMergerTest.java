@@ -92,6 +92,7 @@ class FileMergerTest {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
+            btk.bot.SearchExperimentParams.removeAndCheck(actual);
             assertEquals(measured, actual);
         }
         String current = FileMerger.merge("current"), frozen = FileMerger.merge("v07");
@@ -115,6 +116,25 @@ class FileMergerTest {
 
     @Test void frozenV07SubmissionMatchesAnActiveNetworkChoiceIncludingWarmup() throws Exception {
         checkFrozenDecisions("v07?NOISE=0,USE_DISRUPT=0", true, true);
+    }
+
+    @Test void independentSearchCandidatesCompileAndKeepTheirExactConfiguration() throws Exception {
+        for (String spec : new String[]{"current?USE_ROLLOUT_RHEA=1", "current?USE_PROTECTED_OPENING=1"}) {
+            String source = FileMerger.merge(spec);
+            assertTrue(source.contains("static final class ProtectedOpening"));
+            checkFrozenDecisions(spec, true);
+        }
+        assertFalse(FileMerger.merge("v07").contains("class ProtectedOpening"));
+    }
+
+    @Test void artifactAuditRejectsSameConfigurationWithDifferentSource() throws Exception {
+        String spec = "current?USE_ROLLOUT_RHEA=1", source = FileMerger.merge(spec);
+        Files.writeString(temp.resolve("Player.java"), source);
+        Files.writeString(temp.resolve("manifest.json"),
+                new com.google.gson.Gson().toJson(FileMerger.manifest(spec, source)));
+        assertDoesNotThrow(() -> ArtifactCheck.main(new String[]{spec, temp.toString()}));
+        Files.writeString(temp.resolve("Player.java"), source + "\n// changed source\n");
+        assertThrows(IllegalStateException.class, () -> ArtifactCheck.main(new String[]{spec, temp.toString()}));
     }
 
     @Test void heuristicSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {

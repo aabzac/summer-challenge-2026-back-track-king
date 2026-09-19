@@ -86,6 +86,14 @@ tasks.register<JavaExec>("cgFetch") {
         prop("game", ""))
 }
 
+tasks.register<JavaExec>("verifySubmission") {
+    group = "game"
+    description = "Read-only exact comparison of an exported submission with current local source/configuration"
+    mainClass.set("btk.submit.ArtifactCheck")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("submitVersion", "current"), prop("submitOut", "build/submit"))
+}
+
 /** Replay both players' stdout from CG replays through the local referee and diff scores/events. */
 tasks.register<JavaExec>("cgValidate") {
     group = "cg"
@@ -181,6 +189,15 @@ tasks.register<JavaExec>("rolloutCheck") {
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("path", "build/analysis/reply-study-v1/capture"),
         prop("out", "build/analysis/rollout-v1/cost.json"))
+}
+
+tasks.register<JavaExec>("searchExperimentStudy") {
+    group = "game"
+    description = "Fixed search-experiment mechanism/cost study or core-derived cached boss exclusions"
+    mainClass.set("btk.tools.SearchExperimentStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("mode", "study"), prop("input", "build/analysis/reply-study-v1/capture"),
+        prop("out", "build/analysis/strategy-search-v1/diagnostic.json"))
 }
 
 tasks.register<JavaExec>("cgTiming") {

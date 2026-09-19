@@ -14,3 +14,8 @@
 /tools/diagnostics/boss_batch_audit.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /tools/diagnostics/boss_batch_amended_audit.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/evidence/chords-boss-v1*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Prospective search experiment protocol, runner and compact audit identities.
+/docs/strategy-search-v1.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/evidence/strategy-search-*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tools/run_strategy_search_experiments.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tools/diagnostics/strategy_control_compatibility.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

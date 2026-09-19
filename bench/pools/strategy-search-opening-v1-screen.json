@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "strategy-search-opening-v1-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 510000,
+  "pairs": 150
+}

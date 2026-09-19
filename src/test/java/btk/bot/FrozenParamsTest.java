@@ -123,6 +123,7 @@ class FrozenParamsTest {
         expected.put("USE_ROLLOUT_NETWORK_AFTER_BASE", "false");
         expected.put("USE_ROLLOUT_ROUTE_DEPENDENCIES", "false"); // Later opt-in fields ignored by frozen policies.
         expected.put("USE_ROLLOUT_NETWORK_CHORDS", "false");
+        expected.putAll(SearchExperimentParams.DEFAULTS);
         expected.put("ROLLOUT_NETWORK_MAX_CELLS", "24");
         expected.put("ROLLOUT_NETWORK_ROOTS", "2");
         expected.put("ROLLOUT_NETWORK_RESERVE_MS", "12");

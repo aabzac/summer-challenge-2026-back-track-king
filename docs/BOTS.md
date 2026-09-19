@@ -943,3 +943,67 @@ and equality with the cache passes. Sequential boss calls may overlap the requir
 40 unique maps, 20 seats each; its ten points are not an asserted true 25% win probability.
 No strategy version/default change, new experiment or reinterpretation of historical failures.
 See [the complete rule](boss-cache-policy-v3.md).
+
+
+## 2026-09-19 - strategy-search-rhea-v1 (not promoted)
+
+Independent default-off `current?USE_ROLLOUT_RHEA=1`, control frozen v07. Test whether
+optimizing later construction priorities improves the first move: two elites, twelve
+mutation attempts, unchanged eight-turn simultaneous rollout, opponent scenarios,
+sabotage and evaluator. Evolution starts after ordinary and singleton network search;
+only fully compared continuations can replace the saved move. No new routes or tuning.
+
+Fixed practical-v3 screen: **134-165-1 / 300 = 44.8333%**, 150 fresh paired maps,
+seeds 500000..500149, CG 486/36-ms search and two workers. Map-grouped descriptive
+Hoeffding 95% interval **33.74-55.92%**; mean score difference **-154.43**, zero bot
+errors. **STOP_SCREEN_300 / NOT_PASSED**: no direct 1000 or boss stage, pooling or retry.
+Keep the flag OFF and v07 selected; no frozen version, strategy promotion or upload.
+
+Readiness: **323 Java + 114 Python tests**, **292/292 arena + 139/139 boss replays exact**,
+**158/158** disabled-current/frozen-v07 ample-action parity. RHEA changed 17 ample-time
+actions and completed 410 extra nominal comparisons in the mechanism sample. The
+separate exact-artifact strict process sample passed **0/4 problem games**; maximum
+later response **45.4681 ms** (two above the separate 45-ms headroom target), first
+maximum **753.534999 ms**. This bounded sample does not guarantee full-benchmark timing.
+The in-process bench reports maxima **199/44 ms**, slow counters **14/0**; these include
+first moves with a 486-ms allowance and do not identify the slow turn numbers. At least
+one later call exceeds 50 ms; all observations remain retained. See the DEVLOG entry.
+
+[Protocol](strategy-search-v1.md), [readiness and exact artifact identities](evidence/strategy-search-v1-readiness.json),
+[complete final evidence](evidence/strategy-search-rhea-v1.json).
+
+
+## 2026-09-19 - strategy-search-opening-v1 (verified, not promoted)
+
+Independent default-off `current?USE_PROTECTED_OPENING=1`, control frozen v07. For the
+first three turns, claim affordable protected cells next to towns using potential
+traffic from ordinary canonical route queries, a one-cell-per-town quota and a 0.25
+predicted-collision discount. Then use the v07 policy. Sabotage uses the existing
+chooser on the chosen construction. No RHEA combination or outcome-guided tuning.
+
+Fixed practical-v3 local screen: **186-114-0 / 300 = 62.00%**, 150 fresh paired maps,
+seeds 510000..510149, CG 486/36-ms search, two workers, zero errors. Diagnostic
+map-grouped Hoeffding 95% interval **50.91-73.09%**; mean score difference **+410.687**.
+**PASS_300**: no direct 1000 required. Exactly **40 new sequential boss games** on the
+pinned control's maps/seeds/seats: candidate **13W/27L/0D**, cached v07 **10W/30L/0D**;
+13 >= 10 points, no issues, retries or replacement games. Final **PASS**. This is the
+practical filter on a reused regression pool, not fresh statistical confirmation.
+
+Mechanism: all **36** eligible diagnostic opening states select the new policy;
+all **122** post-window ample actions match current v07. **323 Java + 114 Python**
+tests pass; 292 arena replays exact. Final expanded boss corpus: **179/179 exact and
+179/179 rendered**. Exact-artifact process sample: **0/4 problem games**, 367 responses,
+first maximum **701.8207 ms**, later maximum **38.693099 ms**, zero grace. Local bench
+maxima **75/156 ms**, slow counters **2/2**, include first moves; the process sample
+does not guarantee all in-process or CG-host timings.
+
+**Both independent experiments are complete:** RHEA fails at 44.8333%; protected
+opening passes at 62% locally and 13 versus 10 cached boss points. Strength evaluation
+used **640 new games: 600 local + 40 live boss**, with readiness games counted separately.
+Retain opening as a verified default-off candidate. Selected current remains **v07**;
+no promotion, new frozen version, arena submission or push.
+
+[Protocol](strategy-search-v1.md), [readiness](evidence/strategy-search-v1-readiness.json),
+[opening final evidence](evidence/strategy-search-opening-v1.json),
+[independent final audit](evidence/strategy-search-v1-final-audit.json),
+[exact artifacts and supporting records](evidence/strategy-search-v1-artifacts.zip).

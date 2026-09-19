@@ -124,6 +124,8 @@ public class FileMerger {
             }
         }
         files.add(SRC_ROOT.resolve(policy));
+        if (version.equals("current") && rollout)
+            files.add(SRC_ROOT.resolve("bot/current/ProtectedOpening.java"));
         for (String f : SUBMIT_FILES) files.add(SRC_ROOT.resolve(f));
 
         Set<String> imports = new TreeSet<>();

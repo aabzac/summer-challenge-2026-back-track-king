@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "experiment": "strategy-search-v1",
+  "evidenceKind": "pre-strength-readiness-and-mechanism",
+  "assembledAtUtc": "2026-09-19T11:12:05.791544+00:00",
+  "scope": "Only already completed correctness, replay fidelity, mechanism and exact-artifact timing checks; no strength outcomes or promotion verdict.",
+  "frozenLaunch": {
+    "path": "build/bench/strategy-search-v1/launch.json",
+    "sha256": "32fd761499a43b81d950a8b73dbb5ded07b509e0094db15d07bb9ec3d6caa33b"
+  },
+  "correctness": {
+    "java": {
+      "tests": 323,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "testSuites": 63,
+      "log": {
+        "path": "build/analysis/strategy-search-v1/final-tests.log",
+        "sha256": "4d3205112e83d064ab11068dd3406551a17284bfd0ab2f8acd0698b49dc53585"
+      },
+      "junitXmlAggregateSha256": "a45990c13a646c2fe0738c24e7b05f2d9156020818ba75dc4e75e241b39a030b",
+      "junitXmlAggregateHashMethod": "Sorted XML filenames, NUL byte, then original XML bytes concatenated into SHA256"
+    },
+    "python": {
+      "tests": 114,
+      "failures": 0,
+      "errors": 0,
+      "log": {
+        "path": "build/analysis/strategy-search-v1/python-tests.log",
+        "sha256": "2cfe0749b280671c9725f648ef592c51e028ac42041a6c0eb13ad523fdf1b54a"
+      },
+      "note": "Printed sample RHEA verdict in this log is mocked unit-test fixture output, not a real strength result."
+    },
+    "arenaReplayValidation": {
+      "exact": 292,
+      "total": 292,
+      "log": {
+        "path": "build/analysis/strategy-search-v1/test-and-validation.log",
+        "sha256": "0bd3b858b327f0271cab7908ac99d3e13cdc182a4052e1883023d6fe77826d4a"
+      }
+    },
+    "bossReplayValidation": {
+      "exact": 139,
+      "total": 139,
+      "log": {
+        "path": "build/analysis/strategy-search-v1/packaging-and-boss-validation.log",
+        "sha256": "f70369027836627eb608b2b1ad34e0d1057b42e917389f49768691cb792517fa"
+      }
+    }
+  },
+  "diagnostic": {
+    "report": {
+      "path": "build/analysis/strategy-search-v1/diagnostic.json",
+      "sha256": "a50348cf1bd7c3e00f1d8056796daacbc667bfad0d09e87443a8265b294f2b4a"
+    },
+    "stateCount": 158,
+    "disabledCurrentEqualsFrozenV07": 158,
+    "checkedDecisionCalls": 1106,
+    "legalityAndInputIsolation": "Every saved measured call passed core expansion/no-skipped-action and exact before/after state-hash checks.",
+    "method": "All 110 saved reply-study positions plus t0,1,2,3 both seats from first six historical boss-v07 study games; fresh bots, NOISE=0, exact legality and input isolation. Ample 60000ms for frozen/default parity and bounded mechanism; nominal486/36ms rotating order after eight-state warmup. No future actions supplied. This is mechanism/host-cost evidence, not strength or process deadlines.",
+    "openingEligibleStates": 36,
+    "openingPostWindowAmpleActionParityStates": 122,
+    "variants": {
+      "current?NOISE=0": {
+        "summary": {
+          "maxNominalMs": 36.7747,
+          "nominalExperimentalSelections": 0,
+          "meanNominalMs": 27.320863253164543,
+          "states": 158,
+          "ampleActionChangesVsCurrent": 0,
+          "nominalSearchOverruns": 79
+        },
+        "coverage": {
+          "ample": {
+            "ordinaryCompletedStates": 158,
+            "ordinaryComparisons": 1587,
+            "allCompletedComparisons": 1986,
+            "networkCompletedStates": 158,
+            "rheaStartedStates": 0,
+            "rheaAttemptCount": 0,
+            "rheaCompleteComparisonCount": 0,
+            "rheaSelectedStates": 0,
+            "openingSelectedStates": 0,
+            "openingPaintSelected": 0
+          },
+          "nominal": {
+            "ordinaryCompletedStates": 79,
+            "ordinaryComparisons": 877,
+            "allCompletedComparisons": 952,
+            "networkCompletedStates": 79,
+            "rheaStartedStates": 0,
+            "rheaAttemptCount": 0,
+            "rheaCompleteComparisonCount": 0,
+            "rheaSelectedStates": 0,
+            "openingSelectedStates": 0,
+            "openingPaintSelected": 0
+          }
+        }
+      },
+      "current?NOISE=0,USE_ROLLOUT_RHEA=1": {
+        "summary": {
+          "maxNominalMs": 39.2004,
+          "nominalExperimentalSelections": 12,
+          "meanNominalMs": 30.99056199999999,
+          "states": 158,
+          "ampleActionChangesVsCurrent": 17,
+          "nominalSearchOverruns": 107
+        },
+        "coverage": {
+          "ample": {
+            "ordinaryCompletedStates": 158,
+            "ordinaryComparisons": 1587,
+            "allCompletedComparisons": 3534,
+            "networkCompletedStates": 158,
+            "rheaStartedStates": 129,
+            "rheaAttemptCount": 1548,
+            "rheaCompleteComparisonCount": 1548,
+            "rheaSelectedStates": 43,
+            "openingSelectedStates": 0,
+            "openingPaintSelected": 0
+          },
+          "nominal": {
+            "ordinaryCompletedStates": 78,
+            "ordinaryComparisons": 884,
+            "allCompletedComparisons": 1372,
+            "networkCompletedStates": 77,
+            "rheaStartedStates": 50,
+            "rheaAttemptCount": 435,
+            "rheaCompleteComparisonCount": 410,
+            "rheaSelectedStates": 12,
+            "openingSelectedStates": 0,
+            "openingPaintSelected": 0
+          }
+        }
+      },
+      "current?NOISE=0,USE_PROTECTED_OPENING=1": {
+        "summary": {
+          "maxNominalMs": 36.4529,
+          "nominalExperimentalSelections": 36,
+          "meanNominalMs": 23.66837721518987,
+          "states": 158,
+          "ampleActionChangesVsCurrent": 36,
+          "nominalSearchOverruns": 80
+        },
+        "coverage": {
+          "ample": {
+            "ordinaryCompletedStates": 122,
+            "ordinaryComparisons": 1179,
+            "allCompletedComparisons": 1552,
+            "networkCompletedStates": 122,
+            "rheaStartedStates": 0,
+            "rheaAttemptCount": 0,
+            "rheaCompleteComparisonCount": 0,
+            "rheaSelectedStates": 0,
+            "openingSelectedStates": 36,
+            "openingPaintSelected": 96
+          },
+          "nominal": {
+            "ordinaryCompletedStates": 44,
+            "ordinaryComparisons": 482,
+            "allCompletedComparisons": 541,
+            "networkCompletedStates": 42,
+            "rheaStartedStates": 0,
+            "rheaAttemptCount": 0,
+            "rheaCompleteComparisonCount": 0,
+            "rheaSelectedStates": 0,
+            "openingSelectedStates": 36,
+            "openingPaintSelected": 96
+          }
+        }
+      }
+    }
+  },
+  "exactArtifactProcessChecks": {
+    "rhea": {
+      "spec": "current?USE_ROLLOUT_RHEA=1",
+      "buildId": "9e21c8e91d7b92f23e7c0457890e190b4dc10201e047542ed1137b66bdaba4de",
+      "sourceSha256": "505ad8ab0894f865e8d3f7e01ab16749331262e7b9d6554392ad23f001192683",
+      "classesSha256": "249a9f966606ab1d2c4cb48aa312803f2f71d8a65c24cccc06e2da07a9688434",
+      "configSha256": "2b3cb61890119eeaf662323f2a1bfdee57293edaf1fa311bef60e99d4c19e440",
+      "sourceCharactersUtf16": 96208,
+      "sourceLimitCharacters": 100000,
+      "manifest": {
+        "path": "build/cg-boss/artifacts/strategy-search-rhea-v1/manifest.json",
+        "sha256": "cf3a48dc81082f4a6eb02b34d4c8338b378430c9ec907dcf9ae02f54b1445e52"
+      },
+      "processReport": {
+        "path": "build/cg-boss/artifacts/strategy-search-rhea-v1/process-check.json",
+        "sha256": "62e158e3564718069ad775563269a4550f26aff0ec1beecb03a76dca145cccea"
+      },
+      "sourceVerification": {
+        "spec": "current?USE_ROLLOUT_RHEA=1",
+        "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\strategy-search-rhea-v1",
+        "sourceSha256": "505ad8ab0894f865e8d3f7e01ab16749331262e7b9d6554392ad23f001192683",
+        "log": {
+          "path": "build/analysis/strategy-search-v1/preflight-verify-rhea.log",
+          "sha256": "344a0e26a6c1afb5d51e066f409cba61d4f0718b02b862cf37ece7dc3b9e335b"
+        },
+        "method": "FileMerger.merge exact bytes and structural manifest equality"
+      },
+      "strict": true,
+      "graceMs": 0,
+      "javaVersion": "17.0.12",
+      "opponent": "v07",
+      "gameCount": 4,
+      "problemGames": 0,
+      "seatCounts": {
+        "0": 2,
+        "1": 2
+      },
+      "timeouts": 0,
+      "nominalOverruns": 0,
+      "recordedResponses": 400,
+      "firstResponseDeadlineMs": 1000,
+      "laterResponseDeadlineMs": 50,
+      "firstResponses": {
+        "count": 4,
+        "minMs": 713.448901,
+        "meanMs": 734.3444999999999,
+        "p95Ms": 753.534999,
+        "p99Ms": 753.534999,
+        "maxMs": 753.534999
+      },
+      "laterResponses": {
+        "count": 396,
+        "minMs": 2.7103,
+        "meanMs": 25.05143991414141,
+        "p95Ms": 38.5061,
+        "p99Ms": 42.736401,
+        "maxMs": 45.4681
+      },
+      "laterResponsesAbove45Ms": 2,
+      "firstResponsesAbove800Ms": 0,
+      "perGame": [
+        {
+          "gameIndex": 0,
+          "playerSeat": 0,
+          "replayFilename": "904021106.json",
+          "responseCount": 100,
+          "firstResponseMs": 753.534999,
+          "maximumLaterResponseMs": 44.0998
+        },
+        {
+          "gameIndex": 1,
+          "playerSeat": 1,
+          "replayFilename": "904023654.json",
+          "responseCount": 100,
+          "firstResponseMs": 728.948,
+          "maximumLaterResponseMs": 45.337201
+        },
+        {
+          "gameIndex": 2,
+          "playerSeat": 0,
+          "replayFilename": "904023785.json",
+          "responseCount": 100,
+          "firstResponseMs": 741.4461,
+          "maximumLaterResponseMs": 45.4681
+        },
+        {
+          "gameIndex": 3,
+          "playerSeat": 1,
+          "replayFilename": "904024943.json",
+          "responseCount": 100,
+          "firstResponseMs": 713.448901,
+          "maximumLaterResponseMs": 41.2865
+        }
+      ]
+    },
+    "opening": {
+      "spec": "current?USE_PROTECTED_OPENING=1",
+      "buildId": "c6b4deae785d05d8fca5822393e8f805353541bc16345f9a0e4b89bf0871fb6b",
+      "sourceSha256": "eac9ed574d1f54bcca04f911ee6d782011ca11d279c553be86bd86f482501362",
+      "classesSha256": "5a46a69880208095ebb050f01b0b4443476177ba0db9fd733e78e5614da3a133",
+      "configSha256": "c449cb4cb7e61f6f962d70a7b316c31ef1f77d1e292f453d37e7bc654445f3e0",
+      "sourceCharactersUtf16": 96208,
+      "sourceLimitCharacters": 100000,
+      "manifest": {
+        "path": "build/cg-boss/artifacts/strategy-search-opening-v1/manifest.json",
+        "sha256": "1ce7118487dd325c3e76d3114fdba96506c9ce5f42c5369c85d9e90309000e0d"
+      },
+      "processReport": {
+        "path": "build/cg-boss/artifacts/strategy-search-opening-v1/process-check.json",
+        "sha256": "f3ba63c11b1b9f152ff9a5a396b69ec5929909f629d0e8134a2ae9b5eab95c26"
+      },
+      "sourceVerification": {
+        "spec": "current?USE_PROTECTED_OPENING=1",
+        "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\strategy-search-opening-v1",
+        "sourceSha256": "eac9ed574d1f54bcca04f911ee6d782011ca11d279c553be86bd86f482501362",
+        "log": {
+          "path": "build/analysis/strategy-search-v1/preflight-verify-opening.log",
+          "sha256": "46d15585a17f41e54f2e374cca8ef03c4f921e2536ad263ee2beb601d9ac548f"
+        },
+        "method": "FileMerger.merge exact bytes and structural manifest equality"
+      },
+      "strict": true,
+      "graceMs": 0,
+      "javaVersion": "17.0.12",
+      "opponent": "v07",
+      "gameCount": 4,
+      "problemGames": 0,
+      "seatCounts": {
+        "0": 2,
+        "1": 2
+      },
+      "timeouts": 0,
+      "nominalOverruns": 0,
+      "recordedResponses": 367,
+      "firstResponseDeadlineMs": 1000,
+      "laterResponseDeadlineMs": 50,
+      "firstResponses": {
+        "count": 4,
+        "minMs": 660.742399,
+        "meanMs": 687.93542475,
+        "p95Ms": 701.8207,
+        "p99Ms": 701.8207,
+        "maxMs": 701.8207
+      },
+      "laterResponses": {
+        "count": 363,
+        "minMs": 1.6513,
+        "meanMs": 21.432118702479336,
+        "p95Ms": 38.181499,
+        "p99Ms": 38.6317,
+        "maxMs": 38.693099
+      },
+      "laterResponsesAbove45Ms": 0,
+      "firstResponsesAbove800Ms": 0,
+      "perGame": [
+        {
+          "gameIndex": 0,
+          "playerSeat": 0,
+          "replayFilename": "904021106.json",
+          "responseCount": 100,
+          "firstResponseMs": 693.826401,
+          "maximumLaterResponseMs": 38.693099
+        },
+        {
+          "gameIndex": 1,
+          "playerSeat": 1,
+          "replayFilename": "904023654.json",
+          "responseCount": 100,
+          "firstResponseMs": 701.8207,
+          "maximumLaterResponseMs": 38.2312
+        },
+        {
+          "gameIndex": 2,
+          "playerSeat": 0,
+          "replayFilename": "904023785.json",
+          "responseCount": 67,
+          "firstResponseMs": 695.352199,
+          "maximumLaterResponseMs": 38.3235
+        },
+        {
+          "gameIndex": 3,
+          "playerSeat": 1,
+          "replayFilename": "904024943.json",
+          "responseCount": 100,
+          "firstResponseMs": 660.742399,
+          "maximumLaterResponseMs": 37.896499
+        }
+      ]
+    }
+  },
+  "controlCompatibility": {
+    "certificate": {
+      "path": "build/analysis/strategy-search-v1/control-equivalence.json",
+      "sha256": "60ecb9ada566500621c6eb4662cf9c3cd4ea1e728e7d3068f26045dcad8360ca"
+    },
+    "method": "exact-source-removal-of-seven-unused-params-v1",
+    "currentBuildId": "5a8e81b9f950d59d9d6a6b8fc8461b522278da40c143ee1fbe09e3eaf8a9797d",
+    "cachedBuildId": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+    "currentSourceSha256": "6e32e932ee7e96ea67f45f6b07a9fc837e2685d0dc4153774940f98709a2dcb9",
+    "cachedSourceSha256": "f8cd5b81217537d1d4c98dcbea1be50d8f81ca9c9f93d4d742b0a19831021015",
+    "reconstructedNormalizedSha256": "66c56c429c80a7861b199597f2fbeb5f1f1830b525977cacd8304f2d892ddb28",
+    "removedUnusedFields": {
+      "USE_ROLLOUT_RHEA": "false",
+      "ROLLOUT_RHEA_MUTATIONS": "12",
+      "ROLLOUT_RHEA_ELITES": "2",
+      "USE_PROTECTED_OPENING": "false",
+      "OPENING_TURNS": "3",
+      "OPENING_CITY_QUOTA": "1",
+      "OPENING_COLLISION_FACTOR": "0.25"
+    },
+    "limitation": "Different artifact bytes and reflective Params-copy work; this proves identical remaining shipped source and historical parameter values, not identical host timing or a new process pass. Original reports and cached artifacts remain unchanged.",
+    "currentSourceVerification": {
+      "spec": "v07",
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\strategy-search-control-v1",
+      "sourceSha256": "6e32e932ee7e96ea67f45f6b07a9fc837e2685d0dc4153774940f98709a2dcb9",
+      "log": {
+        "path": "build/analysis/strategy-search-v1/preflight-verify-control.log",
+        "sha256": "58a370fa8c997051ca480471dd676ebf55b636aa67d6814b2a019e73dc710084"
+      },
+      "method": "FileMerger.merge exact bytes and structural manifest equality"
+    }
+  },
+  "limitations": [
+    "Diagnostic positions are retrospective development evidence and are correlated, not independent match samples.",
+    "RHEA selected-value improvements can keep the same emitted first action; selection counts and action-change counts differ.",
+    "Nominal diagnostic search overruns compare elapsed in-process calls with the 486/36-ms search allowance, not the 1000/50-ms process response deadline.",
+    "Four strict process games per artifact are bounded local readiness checks, not a CodinGame host guarantee or strength comparison.",
+    "The two candidates remain independent; no defaults, selected submission, arena upload or promotion were changed by this evidence summary."
+  ],
+  "freshnessScannerCheck": {
+    "mapHashesAdded": 0,
+    "seedsAdded": 0,
+    "note": "Source, build, state and file hashes are not labeled as initial-map identities; referenced reports retain their original evidence."
+  }
+}

@@ -462,3 +462,16 @@ See docs/rollout-followups.md for frozen variants, pools and conditional stages.
 - [x] Fix cell hover scope/stale-turn data, playback reset, empty-viewer shortcuts and stale replay caching.
 - [x] Regenerate the existing 139 boss and 7 arena renders; verify canonical bytes remain unchanged.
 - [x] Check seed edge cases, the full Java suite, existing bot-label checks and browser interactions.
+
+## Independent search and opening experiments (2026-09-19)
+
+- [x] Implement default-off RHEA construction continuations after complete v07 base/network search.
+- [x] Implement independent protected opening claims for turns 0-2, returning to v07 afterward.
+- [x] Verify mechanisms, default-off parity, core replay fidelity, submission packaging and strict timing.
+- [x] Freeze both candidates and separate fresh pools; run each fixed v3 300-game screen against v07.
+- [x] Complete every required fresh 1000 and cached-control 40-game boss stage after a qualifying screen.
+- [x] Record both outcomes and commit; strategy selection remains a separate decision.
+
+Completed: RHEA 44.8333% / 300, NOT_PASSED; protected opening 62% / 300 and
+13/40 vs cached v07 10/40, PASS. No direct 1000 was required. Both flags remain OFF;
+v07 remains selected. Results, readiness and replay evidence are recorded in BOTS/DEVLOG.

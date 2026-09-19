@@ -82,6 +82,16 @@ are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
+Two independent search experiments are available as `current?USE_ROLLOUT_RHEA=1` and
+`current?USE_PROTECTED_OPENING=1`. The first evolves construction priorities within the existing
+eight-turn rollouts after ordinary and singleton search finishes; the second claims protected
+town approaches during the first three turns using potential route traffic. Both flags are off
+by default and cannot be combined. [Fixed evaluation design](docs/strategy-search-v1.md).
+Completed results: [RHEA](docs/evidence/strategy-search-rhea-v1.json) scored 44.83% over 300
+games and failed; [protected opening](docs/evidence/strategy-search-opening-v1.json) scored
+62% over 300 games and 13/40 against the boss versus the cached v07's 10/40, passing practical
+v3. Neither result changes the selected strategy automatically; v07 remains selected.
+
 `current` and frozen `v07` select an eight-turn rollout strategy: both players
 construct affordable routes and disrupt regions inside simultaneous rollouts. It compares earned
 points across two opponent construction priorities and chooses the first build/sabotage action.

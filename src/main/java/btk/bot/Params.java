@@ -33,6 +33,15 @@ public class Params {
     public boolean USE_ROLLOUT_ROUTE_DEPENDENCIES = false;
     /** Affordable two/three-cell network roots, after ordinary and single-cell comparisons. */
     public boolean USE_ROLLOUT_NETWORK_CHORDS = false;
+    /** Independent evolution of construction continuations after the selected v07 search. */
+    public boolean USE_ROLLOUT_RHEA = false;
+    public int ROLLOUT_RHEA_MUTATIONS = 12;
+    public int ROLLOUT_RHEA_ELITES = 2;
+    /** Independent first-three-turn protected approach ownership experiment. */
+    public boolean USE_PROTECTED_OPENING = false;
+    public int OPENING_TURNS = 3;
+    public int OPENING_CITY_QUOTA = 1;
+    public double OPENING_COLLISION_FACTOR = 0.25;
     public int ROLLOUT_NETWORK_MAX_CELLS = 24;
     public int ROLLOUT_NETWORK_ROOTS = 2;
     public int ROLLOUT_NETWORK_RESERVE_MS = 12;
