@@ -37,6 +37,7 @@ class V07PromotionTest {
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
             SearchExperimentParams.removeAndCheck(actual);
+            LiveTargetExperimentParams.removeAndCheck(actual);
             assertEquals(expected, actual, spec);
         }
         assertEquals("true", expected.get("USE_ROLLOUT_QUICK_ROUTE"));
@@ -55,7 +56,8 @@ class V07PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 2 + SearchExperimentParams.DEFAULTS.size(), fields,
+        assertEquals(expected.size() + 2 + SearchExperimentParams.DEFAULTS.size()
+                + LiveTargetExperimentParams.DEFAULTS.size(), fields,
                 "only explicitly named inactive post-v07 fields are absent from the record");
         FrozenParams.applyTo("v07", dirty);
         for (var entry : expected.entrySet())

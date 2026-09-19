@@ -3556,3 +3556,52 @@ Completed outcome (fixed sample, no retuning):
   [archived promotion artifacts](evidence/v08-promotion-artifacts.zip).
   Final test/arena log: `build/analysis/v08-promotion/tests-and-arena-final.log`;
   boss validation/export log: `build/analysis/v08-promotion/boss-and-main-export.log`.
+
+
+## 2026-09-19 - boss-winners study; live-target-v1 and always-disrupt-v1 rejected locally
+
+- **Question:** what must change to leave Silver, and what do players who beat Boss 4 do
+  differently from v07/v08? Public API snapshots: the boss carries rating **29.69**, top of
+  Silver 29.08, our v08 entry **24.91** (rank 316 global / 42 in Silver). Over the boss's last
+  500 battles it wins 49.2%; players now in Gold beat it **55.7%** (368 games) and the fast
+  promotions 70-95%. v08 scores 13/40 on the cached pool: the boss win rate must roughly double.
+- **New corpus and tool:** `tools/diagnostics/boss_winners_study.py fetch` saves the boss's
+  battles against now-Gold players as canonical `gameResult` files (368 games, gitignored);
+  `study` computes phase income split (own/stolen), active/exclusive/contested connections,
+  boss project completion from its `build a>b` MESSAGE, hit classes with a live-project flag,
+  build and disruption rates. Reconstructed income matches recorded scoring on all 35,501 turns.
+- **Findings:** against us the boss keeps about one more own-majority active connection than
+  against Gold players in every phase and outcome (5.62 vs 4.53 when it wins, 3.93 vs 2.94
+  when it loses), worth ~15 income/turn; its stolen income is identical. Its projects complete
+  70.0% against us versus 58.0% against Gold winners, and are abandoned after an ink in 7.6% vs
+  15.2%. Sabotage rate, hit classes, hit instability, destruction timing, path geometry and
+  protected share are all similar. The one large sabotage difference: Gold winners' hits land
+  in a region where the boss placed within the last two turns **31.7%** of the time (42.6% of
+  construction-class hits); ours **17.2% / 13.9%** in losses. Empty-region pre-emption is 1-2%
+  for everyone. Self-play v08 mirrors accept disruption on only 64% of turns and last 91 turns
+  against 53-57 versus the boss. Full report: `boss-winners-study-v1.md`,
+  evidence `evidence/boss-winners-study-v1.json`.
+- **Implementation:** two independent default-off `Params` flags on the v08 policy.
+  `USE_ROLLOUT_LIVE_TARGET` (weight 12 per opponent cell placed in the last 2 observed turns,
+  applied to shortlist priority and exact target value, static inside rollouts) and
+  `ROLLOUT_ALWAYS_DISRUPT` (least-harmful shortlisted target instead of WAIT; losing closure
+  still refused). Construction search, evaluator, budgets and core unchanged. Disabled current
+  keeps v08 parity; the frozen v08 policy section of the merged submission is pinned by hash;
+  `RolloutLiveTargetTest` covers live-over-stale, window expiry, forced-target legality and the
+  refused closure. **340 Java tests pass.** Merged current is 97,896 characters.
+- **Fixed stages vs frozen v08, CG 486/36 ms, two workers, fresh paired maps with all prior
+  hashes excluded:** live-target screen seeds 520000..520149 **153-137-10 = 52.6667%**,
+  NEEDS_FRESH_1000; direct seeds 522000..522499 **492-463-45 = 51.45%**, **NOT_PASSED**.
+  Always-disrupt screen seeds 521000..521149 **147-152-1 = 49.1667%**, **STOP_SCREEN_300**;
+  its accepted disruption rate rose from 63.5% to 78.9% with no strength gain. 1600 games, zero
+  errors, in-process maxima <= 103 ms with at most one slow call per side. No boss stage was
+  started, no pooling, tuning or retries. `evidence/live-target-v1.json` holds full parameters,
+  map hashes and report SHA-256 (screen 7bdd513d..., direct 445d79ef..., always 239b2bb4...).
+- **Decision:** both flags remain OFF, v08 remains selected; nothing rebuilt or uploaded.
+  The self-play bench does not reproduce the boss situation the mechanism targets; whether
+  hitting the boss's live project lowers its 70% completion rate is untested because policy v3
+  requires the local direct stage first. Proposed for the user: a boss-directed screen order for
+  mechanisms motivated by boss replays (fixed 40-game cached comparison before the self-play
+  1000, local 300 as non-regression). Details and limits: `live-target-v1.md`.
+- Also: the contest skill was synchronized from the ChatGPT-agent copy into the Cursor copy
+  (benchmarking.md added; Cursor browser constraints kept as an example in cg-api.md).

@@ -490,3 +490,18 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 
 - [ ] Investigate the retained v08 timing failure in a separate prospective follow-up;
       keep the complete 1/8 failed panel and do not retry it as promotion evidence.
+
+## Boss-winners study and sabotage target experiments (2026-09-19)
+
+- [x] Calibrate the promotion target from the public API: boss rating 29.69, ours 24.91;
+      now-Gold players beat the boss 55.7%, fast promotions 70-95%; v08 is at 13/40.
+- [x] Build the winners corpus (368 boss games vs now-Gold players) and the reproducible study
+      tool `tools/diagnostics/boss_winners_study.py`; record findings in boss-winners-study-v1.md.
+- [x] Test live-project sabotage targeting (`USE_ROLLOUT_LIVE_TARGET`): 52.67% / 300, then
+      51.45% / fresh 1000 vs v08, NOT_PASSED. Flag OFF.
+- [x] Test never-idle disruption (`ROLLOUT_ALWAYS_DISRUPT`): 49.17% / 300, STOP_SCREEN_300. Flag OFF.
+- [ ] User decision: allow a boss-directed screen order (fixed 40-game cached comparison before
+      the self-play 1000) for mechanisms whose evidence comes from boss replays; if adopted, run
+      the retained live-target candidate through it before any further local tuning.
+- [ ] Explain what Gold players buy with their late "dead" construction (36% of cells placed in
+      turns 31-45 never score) before proposing a construction-side change.

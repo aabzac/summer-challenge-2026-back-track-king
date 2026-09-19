@@ -1,0 +1,685 @@
+{
+ "schemaVersion": 1,
+ "bossAgent": 6740207,
+ "liveTurns": 2,
+ "phases": [
+  [
+   1,
+   10
+  ],
+  [
+   11,
+   20
+  ],
+  [
+   21,
+   30
+  ],
+  [
+   31,
+   45
+  ],
+  [
+   46,
+   200
+  ]
+ ],
+ "corpora": {
+  "winners": {
+   "files": 368,
+   "analyzed": 368,
+   "bossMessageTags": {
+    "build": 13281,
+    "steal": 2510,
+    "fortify": 145,
+    "block": 55
+   },
+   "byOutcome": {
+    "playerWon": {
+     "games": 205,
+     "lengthMean": 54.27,
+     "lengthMedian": 52,
+     "player": {
+      "1-10": {
+       "turns": 2050,
+       "incomePerTurn": 12.9,
+       "incomeOwnMajorityPerTurn": 10.0,
+       "incomeStolenPerTurn": 2.38,
+       "ownMajorityConnsPerTurn": 1.446,
+       "exclusiveConnsPerTurn": 0.755,
+       "buildTurnShare": 0.9995,
+       "paintPerTurn": 2.767,
+       "disruptTurnShare": 0.9483,
+       "protectedCellShare": 0.3363
+      },
+      "11-20": {
+       "turns": 2050,
+       "incomePerTurn": 56.38,
+       "incomeOwnMajorityPerTurn": 44.46,
+       "incomeStolenPerTurn": 10.23,
+       "ownMajorityConnsPerTurn": 4.246,
+       "exclusiveConnsPerTurn": 1.237,
+       "buildTurnShare": 0.999,
+       "paintPerTurn": 2.787,
+       "disruptTurnShare": 0.998,
+       "protectedCellShare": 0.2143
+      },
+      "21-30": {
+       "turns": 2043,
+       "incomePerTurn": 72.69,
+       "incomeOwnMajorityPerTurn": 56.82,
+       "incomeStolenPerTurn": 13.47,
+       "ownMajorityConnsPerTurn": 4.704,
+       "exclusiveConnsPerTurn": 0.913,
+       "buildTurnShare": 0.9897,
+       "paintPerTurn": 2.728,
+       "disruptTurnShare": 0.9941,
+       "protectedCellShare": 0.1728
+      },
+      "31-45": {
+       "turns": 2780,
+       "incomePerTurn": 58.78,
+       "incomeOwnMajorityPerTurn": 44.95,
+       "incomeStolenPerTurn": 11.96,
+       "ownMajorityConnsPerTurn": 3.468,
+       "exclusiveConnsPerTurn": 0.469,
+       "buildTurnShare": 0.9209,
+       "paintPerTurn": 2.499,
+       "disruptTurnShare": 0.9727,
+       "protectedCellShare": 0.1683
+      },
+      "46-200": {
+       "turns": 2202,
+       "incomePerTurn": 19.19,
+       "incomeOwnMajorityPerTurn": 14.0,
+       "incomeStolenPerTurn": 4.26,
+       "ownMajorityConnsPerTurn": 1.322,
+       "exclusiveConnsPerTurn": 0.136,
+       "buildTurnShare": 0.6603,
+       "paintPerTurn": 1.827,
+       "disruptTurnShare": 0.7598,
+       "protectedCellShare": 0.2181
+      },
+      "game": {
+       "hitsPerGame": 50.72,
+       "hitClassShare": {
+        "none": 0.0323,
+        "construction": 0.344,
+        "active": 0.6237
+       },
+       "hitLiveShare": 0.3174,
+       "constructionHitLiveShare": 0.4258,
+       "firstTurnDisruptShare": 0.522,
+       "cellsPerGame": 111.22,
+       "tracksLostPerGame": 52.19
+      }
+     },
+     "boss": {
+      "1-10": {
+       "turns": 2050,
+       "incomePerTurn": 12.69,
+       "incomeOwnMajorityPerTurn": 9.9,
+       "incomeStolenPerTurn": 2.27,
+       "ownMajorityConnsPerTurn": 1.345,
+       "exclusiveConnsPerTurn": 0.554,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.771,
+       "disruptTurnShare": 0.8615,
+       "protectedCellShare": 0.1897
+      },
+      "11-20": {
+       "turns": 2050,
+       "incomePerTurn": 44.95,
+       "incomeOwnMajorityPerTurn": 29.93,
+       "incomeStolenPerTurn": 13.33,
+       "ownMajorityConnsPerTurn": 2.939,
+       "exclusiveConnsPerTurn": 0.685,
+       "buildTurnShare": 0.9971,
+       "paintPerTurn": 2.78,
+       "disruptTurnShare": 0.9971,
+       "protectedCellShare": 0.1831
+      },
+      "21-30": {
+       "turns": 2043,
+       "incomePerTurn": 54.46,
+       "incomeOwnMajorityPerTurn": 32.13,
+       "incomeStolenPerTurn": 19.93,
+       "ownMajorityConnsPerTurn": 2.827,
+       "exclusiveConnsPerTurn": 0.392,
+       "buildTurnShare": 0.9608,
+       "paintPerTurn": 2.644,
+       "disruptTurnShare": 1.0,
+       "protectedCellShare": 0.1347
+      },
+      "31-45": {
+       "turns": 2780,
+       "incomePerTurn": 44.45,
+       "incomeOwnMajorityPerTurn": 25.08,
+       "incomeStolenPerTurn": 17.5,
+       "ownMajorityConnsPerTurn": 2.088,
+       "exclusiveConnsPerTurn": 0.183,
+       "buildTurnShare": 0.7471,
+       "paintPerTurn": 1.971,
+       "disruptTurnShare": 0.996,
+       "protectedCellShare": 0.1353
+      },
+      "46-200": {
+       "turns": 2202,
+       "incomePerTurn": 16.18,
+       "incomeOwnMajorityPerTurn": 9.27,
+       "incomeStolenPerTurn": 5.99,
+       "ownMajorityConnsPerTurn": 1.041,
+       "exclusiveConnsPerTurn": 0.134,
+       "buildTurnShare": 0.3143,
+       "paintPerTurn": 0.804,
+       "disruptTurnShare": 0.9233,
+       "protectedCellShare": 0.1415
+      },
+      "game": {
+       "hitsPerGame": 51.98,
+       "hitClassShare": {
+        "none": 0.0279,
+        "construction": 0.2405,
+        "active": 0.7316
+       },
+       "hitLiveShare": 0.2396,
+       "constructionHitLiveShare": 0.3036,
+       "firstTurnDisruptShare": 0.7756,
+       "cellsPerGame": 91.64,
+       "tracksLostPerGame": 50.57,
+       "projectsPerGame": 18.11,
+       "projectCompletedShare": 0.5795,
+       "projectAbandonedAfterInkShare": 0.1517
+      }
+     }
+    },
+    "bossWon": {
+     "games": 163,
+     "lengthMean": 64.14,
+     "lengthMedian": 57,
+     "player": {
+      "1-10": {
+       "turns": 1630,
+       "incomePerTurn": 13.73,
+       "incomeOwnMajorityPerTurn": 9.61,
+       "incomeStolenPerTurn": 3.43,
+       "ownMajorityConnsPerTurn": 1.424,
+       "exclusiveConnsPerTurn": 0.672,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.743,
+       "disruptTurnShare": 0.9399,
+       "protectedCellShare": 0.3367
+      },
+      "11-20": {
+       "turns": 1630,
+       "incomePerTurn": 48.94,
+       "incomeOwnMajorityPerTurn": 30.77,
+       "incomeStolenPerTurn": 16.19,
+       "ownMajorityConnsPerTurn": 3.251,
+       "exclusiveConnsPerTurn": 0.853,
+       "buildTurnShare": 0.9957,
+       "paintPerTurn": 2.771,
+       "disruptTurnShare": 0.9988,
+       "protectedCellShare": 0.2271
+      },
+      "21-30": {
+       "turns": 1624,
+       "incomePerTurn": 66.36,
+       "incomeOwnMajorityPerTurn": 37.13,
+       "incomeStolenPerTurn": 25.84,
+       "ownMajorityConnsPerTurn": 3.39,
+       "exclusiveConnsPerTurn": 0.569,
+       "buildTurnShare": 0.9846,
+       "paintPerTurn": 2.674,
+       "disruptTurnShare": 0.9982,
+       "protectedCellShare": 0.1883
+      },
+      "31-45": {
+       "turns": 2260,
+       "incomePerTurn": 54.86,
+       "incomeOwnMajorityPerTurn": 29.2,
+       "incomeStolenPerTurn": 22.86,
+       "ownMajorityConnsPerTurn": 2.472,
+       "exclusiveConnsPerTurn": 0.338,
+       "buildTurnShare": 0.8403,
+       "paintPerTurn": 2.216,
+       "disruptTurnShare": 0.9659,
+       "protectedCellShare": 0.1905
+      },
+      "46-200": {
+       "turns": 3311,
+       "incomePerTurn": 13.63,
+       "incomeOwnMajorityPerTurn": 5.93,
+       "incomeStolenPerTurn": 6.87,
+       "ownMajorityConnsPerTurn": 0.583,
+       "exclusiveConnsPerTurn": 0.045,
+       "buildTurnShare": 0.4195,
+       "paintPerTurn": 1.144,
+       "disruptTurnShare": 0.6195,
+       "protectedCellShare": 0.2563
+      },
+      "game": {
+       "hitsPerGame": 55.31,
+       "hitClassShare": {
+        "none": 0.0434,
+        "construction": 0.2794,
+        "active": 0.6772
+       },
+       "hitLiveShare": 0.2534,
+       "constructionHitLiveShare": 0.3664,
+       "firstTurnDisruptShare": 0.4724,
+       "cellsPerGame": 110.61,
+       "tracksLostPerGame": 59.34
+      }
+     },
+     "boss": {
+      "1-10": {
+       "turns": 1630,
+       "incomePerTurn": 16.43,
+       "incomeOwnMajorityPerTurn": 13.27,
+       "incomeStolenPerTurn": 2.47,
+       "ownMajorityConnsPerTurn": 1.756,
+       "exclusiveConnsPerTurn": 0.673,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.746,
+       "disruptTurnShare": 0.8699,
+       "protectedCellShare": 0.2037
+      },
+      "11-20": {
+       "turns": 1630,
+       "incomePerTurn": 60.86,
+       "incomeOwnMajorityPerTurn": 47.79,
+       "incomeStolenPerTurn": 11.09,
+       "ownMajorityConnsPerTurn": 4.534,
+       "exclusiveConnsPerTurn": 0.833,
+       "buildTurnShare": 0.9951,
+       "paintPerTurn": 2.773,
+       "disruptTurnShare": 0.9896,
+       "protectedCellShare": 0.1698
+      },
+      "21-30": {
+       "turns": 1624,
+       "incomePerTurn": 83.77,
+       "incomeOwnMajorityPerTurn": 64.93,
+       "incomeStolenPerTurn": 15.46,
+       "ownMajorityConnsPerTurn": 5.221,
+       "exclusiveConnsPerTurn": 0.595,
+       "buildTurnShare": 0.955,
+       "paintPerTurn": 2.594,
+       "disruptTurnShare": 0.9938,
+       "protectedCellShare": 0.1577
+      },
+      "31-45": {
+       "turns": 2260,
+       "incomePerTurn": 70.18,
+       "incomeOwnMajorityPerTurn": 54.05,
+       "incomeStolenPerTurn": 13.33,
+       "ownMajorityConnsPerTurn": 4.132,
+       "exclusiveConnsPerTurn": 0.381,
+       "buildTurnShare": 0.7619,
+       "paintPerTurn": 1.976,
+       "disruptTurnShare": 0.9929,
+       "protectedCellShare": 0.1348
+      },
+      "46-200": {
+       "turns": 3311,
+       "incomePerTurn": 22.7,
+       "incomeOwnMajorityPerTurn": 18.95,
+       "incomeStolenPerTurn": 2.92,
+       "ownMajorityConnsPerTurn": 1.687,
+       "exclusiveConnsPerTurn": 0.175,
+       "buildTurnShare": 0.1933,
+       "paintPerTurn": 0.471,
+       "disruptTurnShare": 0.7016,
+       "protectedCellShare": 0.1435
+      },
+      "game": {
+       "hitsPerGame": 56.52,
+       "hitClassShare": {
+        "none": 0.0246,
+        "construction": 0.3803,
+        "active": 0.5951
+       },
+       "hitLiveShare": 0.2487,
+       "constructionHitLiveShare": 0.2489,
+       "firstTurnDisruptShare": 0.8221,
+       "cellsPerGame": 94.1,
+       "tracksLostPerGame": 53.79,
+       "projectsPerGame": 19.33,
+       "projectCompletedShare": 0.6471,
+       "projectAbandonedAfterInkShare": 0.1047
+      }
+     }
+    }
+   }
+  },
+  "ours": {
+   "files": 179,
+   "analyzed": 179,
+   "bossMessageTags": {
+    "build": 6369,
+    "steal": 1610,
+    "fortify": 122,
+    "block": 32
+   },
+   "byOutcome": {
+    "playerWon": {
+     "games": 48,
+     "lengthMean": 57.56,
+     "lengthMedian": 53.0,
+     "player": {
+      "1-10": {
+       "turns": 480,
+       "incomePerTurn": 13.73,
+       "incomeOwnMajorityPerTurn": 10.74,
+       "incomeStolenPerTurn": 2.65,
+       "ownMajorityConnsPerTurn": 1.49,
+       "exclusiveConnsPerTurn": 0.796,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.831,
+       "disruptTurnShare": 0.7646,
+       "protectedCellShare": 0.3265
+      },
+      "11-20": {
+       "turns": 480,
+       "incomePerTurn": 77.62,
+       "incomeOwnMajorityPerTurn": 62.48,
+       "incomeStolenPerTurn": 13.4,
+       "ownMajorityConnsPerTurn": 5.406,
+       "exclusiveConnsPerTurn": 1.971,
+       "buildTurnShare": 0.9917,
+       "paintPerTurn": 2.888,
+       "disruptTurnShare": 0.925,
+       "protectedCellShare": 0.2158
+      },
+      "21-30": {
+       "turns": 480,
+       "incomePerTurn": 99.89,
+       "incomeOwnMajorityPerTurn": 79.4,
+       "incomeStolenPerTurn": 18.18,
+       "ownMajorityConnsPerTurn": 6.035,
+       "exclusiveConnsPerTurn": 1.506,
+       "buildTurnShare": 0.9396,
+       "paintPerTurn": 2.635,
+       "disruptTurnShare": 0.9229,
+       "protectedCellShare": 0.1852
+      },
+      "31-45": {
+       "turns": 662,
+       "incomePerTurn": 93.45,
+       "incomeOwnMajorityPerTurn": 68.16,
+       "incomeStolenPerTurn": 21.77,
+       "ownMajorityConnsPerTurn": 4.953,
+       "exclusiveConnsPerTurn": 0.728,
+       "buildTurnShare": 0.7825,
+       "paintPerTurn": 2.071,
+       "disruptTurnShare": 0.932,
+       "protectedCellShare": 0.1774
+      },
+      "46-200": {
+       "turns": 661,
+       "incomePerTurn": 34.7,
+       "incomeOwnMajorityPerTurn": 25.21,
+       "incomeStolenPerTurn": 7.79,
+       "ownMajorityConnsPerTurn": 1.891,
+       "exclusiveConnsPerTurn": 0.192,
+       "buildTurnShare": 0.2829,
+       "paintPerTurn": 0.672,
+       "disruptTurnShare": 0.8275,
+       "protectedCellShare": 0.1678
+      },
+      "game": {
+       "hitsPerGame": 50.38,
+       "hitClassShare": {
+        "none": 0.007,
+        "construction": 0.3093,
+        "active": 0.6836
+       },
+       "hitLiveShare": 0.2457,
+       "constructionHitLiveShare": 0.2687,
+       "firstTurnDisruptShare": 0.0,
+       "cellsPerGame": 98.69,
+       "tracksLostPerGame": 52.02
+      }
+     },
+     "boss": {
+      "1-10": {
+       "turns": 480,
+       "incomePerTurn": 14.6,
+       "incomeOwnMajorityPerTurn": 11.78,
+       "incomeStolenPerTurn": 2.48,
+       "ownMajorityConnsPerTurn": 1.504,
+       "exclusiveConnsPerTurn": 0.698,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.848,
+       "disruptTurnShare": 0.8583,
+       "protectedCellShare": 0.2366
+      },
+      "11-20": {
+       "turns": 480,
+       "incomePerTurn": 63.45,
+       "incomeOwnMajorityPerTurn": 44.62,
+       "incomeStolenPerTurn": 17.09,
+       "ownMajorityConnsPerTurn": 3.933,
+       "exclusiveConnsPerTurn": 1.004,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.923,
+       "disruptTurnShare": 1.0,
+       "protectedCellShare": 0.1922
+      },
+      "21-30": {
+       "turns": 480,
+       "incomePerTurn": 76.03,
+       "incomeOwnMajorityPerTurn": 48.86,
+       "incomeStolenPerTurn": 24.87,
+       "ownMajorityConnsPerTurn": 4.046,
+       "exclusiveConnsPerTurn": 0.577,
+       "buildTurnShare": 0.9896,
+       "paintPerTurn": 2.823,
+       "disruptTurnShare": 1.0,
+       "protectedCellShare": 0.1596
+      },
+      "31-45": {
+       "turns": 662,
+       "incomePerTurn": 77.48,
+       "incomeOwnMajorityPerTurn": 46.6,
+       "incomeStolenPerTurn": 27.37,
+       "ownMajorityConnsPerTurn": 3.967,
+       "exclusiveConnsPerTurn": 0.341,
+       "buildTurnShare": 0.8565,
+       "paintPerTurn": 2.411,
+       "disruptTurnShare": 1.0,
+       "protectedCellShare": 0.176
+      },
+      "46-200": {
+       "turns": 661,
+       "incomePerTurn": 28.9,
+       "incomeOwnMajorityPerTurn": 16.12,
+       "incomeStolenPerTurn": 11.09,
+       "ownMajorityConnsPerTurn": 1.723,
+       "exclusiveConnsPerTurn": 0.124,
+       "buildTurnShare": 0.3994,
+       "paintPerTurn": 1.077,
+       "disruptTurnShare": 0.8533,
+       "protectedCellShare": 0.1645
+      },
+      "game": {
+       "hitsPerGame": 54.12,
+       "hitClassShare": {
+        "none": 0.0254,
+        "construction": 0.2202,
+        "active": 0.7544
+       },
+       "hitLiveShare": 0.1809,
+       "constructionHitLiveShare": 0.2325,
+       "firstTurnDisruptShare": 0.8333,
+       "cellsPerGame": 102.88,
+       "tracksLostPerGame": 57.98,
+       "projectsPerGame": 17.96,
+       "projectCompletedShare": 0.652,
+       "projectAbandonedAfterInkShare": 0.1206
+      }
+     }
+    },
+    "bossWon": {
+     "games": 131,
+     "lengthMean": 85.18,
+     "lengthMedian": 100,
+     "player": {
+      "1-10": {
+       "turns": 1310,
+       "incomePerTurn": 12.69,
+       "incomeOwnMajorityPerTurn": 9.04,
+       "incomeStolenPerTurn": 3.17,
+       "ownMajorityConnsPerTurn": 1.26,
+       "exclusiveConnsPerTurn": 0.579,
+       "buildTurnShare": 0.9931,
+       "paintPerTurn": 2.8,
+       "disruptTurnShare": 0.7618,
+       "protectedCellShare": 0.2753
+      },
+      "11-20": {
+       "turns": 1310,
+       "incomePerTurn": 52.82,
+       "incomeOwnMajorityPerTurn": 33.54,
+       "incomeStolenPerTurn": 17.77,
+       "ownMajorityConnsPerTurn": 3.193,
+       "exclusiveConnsPerTurn": 0.925,
+       "buildTurnShare": 0.9702,
+       "paintPerTurn": 2.776,
+       "disruptTurnShare": 0.9206,
+       "protectedCellShare": 0.2064
+      },
+      "21-30": {
+       "turns": 1310,
+       "incomePerTurn": 66.31,
+       "incomeOwnMajorityPerTurn": 37.82,
+       "incomeStolenPerTurn": 26.11,
+       "ownMajorityConnsPerTurn": 3.169,
+       "exclusiveConnsPerTurn": 0.586,
+       "buildTurnShare": 0.8649,
+       "paintPerTurn": 2.389,
+       "disruptTurnShare": 0.9328,
+       "protectedCellShare": 0.1741
+      },
+      "31-45": {
+       "turns": 1933,
+       "incomePerTurn": 50.25,
+       "incomeOwnMajorityPerTurn": 26.68,
+       "incomeStolenPerTurn": 21.7,
+       "ownMajorityConnsPerTurn": 2.104,
+       "exclusiveConnsPerTurn": 0.216,
+       "buildTurnShare": 0.6073,
+       "paintPerTurn": 1.577,
+       "disruptTurnShare": 0.8981,
+       "protectedCellShare": 0.1635
+      },
+      "46-200": {
+       "turns": 5295,
+       "incomePerTurn": 7.98,
+       "incomeOwnMajorityPerTurn": 2.83,
+       "incomeStolenPerTurn": 4.88,
+       "ownMajorityConnsPerTurn": 0.291,
+       "exclusiveConnsPerTurn": 0.014,
+       "buildTurnShare": 0.1207,
+       "paintPerTurn": 0.31,
+       "disruptTurnShare": 0.5237,
+       "protectedCellShare": 0.1821
+      },
+      "game": {
+       "hitsPerGame": 60.57,
+       "hitClassShare": {
+        "none": 0.0087,
+        "construction": 0.3202,
+        "active": 0.6711
+       },
+       "hitLiveShare": 0.1721,
+       "constructionHitLiveShare": 0.1389,
+       "firstTurnDisruptShare": 0.0,
+       "cellsPerGame": 95.26,
+       "tracksLostPerGame": 61.47
+      }
+     },
+     "boss": {
+      "1-10": {
+       "turns": 1310,
+       "incomePerTurn": 18.11,
+       "incomeOwnMajorityPerTurn": 15.26,
+       "incomeStolenPerTurn": 2.36,
+       "ownMajorityConnsPerTurn": 2.032,
+       "exclusiveConnsPerTurn": 0.971,
+       "buildTurnShare": 1.0,
+       "paintPerTurn": 2.844,
+       "disruptTurnShare": 0.887,
+       "protectedCellShare": 0.2175
+      },
+      "11-20": {
+       "turns": 1310,
+       "incomePerTurn": 76.91,
+       "incomeOwnMajorityPerTurn": 64.56,
+       "incomeStolenPerTurn": 10.83,
+       "ownMajorityConnsPerTurn": 5.621,
+       "exclusiveConnsPerTurn": 1.397,
+       "buildTurnShare": 0.9985,
+       "paintPerTurn": 2.898,
+       "disruptTurnShare": 0.9969,
+       "protectedCellShare": 0.185
+      },
+      "21-30": {
+       "turns": 1310,
+       "incomePerTurn": 97.64,
+       "incomeOwnMajorityPerTurn": 80.48,
+       "incomeStolenPerTurn": 14.78,
+       "ownMajorityConnsPerTurn": 6.026,
+       "exclusiveConnsPerTurn": 1.036,
+       "buildTurnShare": 0.9641,
+       "paintPerTurn": 2.76,
+       "disruptTurnShare": 0.9916,
+       "protectedCellShare": 0.1472
+      },
+      "31-45": {
+       "turns": 1933,
+       "incomePerTurn": 75.93,
+       "incomeOwnMajorityPerTurn": 61.74,
+       "incomeStolenPerTurn": 12.32,
+       "ownMajorityConnsPerTurn": 4.341,
+       "exclusiveConnsPerTurn": 0.495,
+       "buildTurnShare": 0.6948,
+       "paintPerTurn": 1.944,
+       "disruptTurnShare": 0.969,
+       "protectedCellShare": 0.1461
+      },
+      "46-200": {
+       "turns": 5295,
+       "incomePerTurn": 16.26,
+       "incomeOwnMajorityPerTurn": 14.55,
+       "incomeStolenPerTurn": 1.43,
+       "ownMajorityConnsPerTurn": 1.263,
+       "exclusiveConnsPerTurn": 0.112,
+       "buildTurnShare": 0.1214,
+       "paintPerTurn": 0.331,
+       "disruptTurnShare": 0.4729,
+       "protectedCellShare": 0.1696
+      },
+      "game": {
+       "hitsPerGame": 62.17,
+       "hitClassShare": {
+        "none": 0.0173,
+        "construction": 0.4924,
+        "active": 0.4903
+       },
+       "hitLiveShare": 0.1906,
+       "constructionHitLiveShare": 0.1733,
+       "firstTurnDisruptShare": 0.7252,
+       "cellsPerGame": 100.85,
+       "tracksLostPerGame": 60.56,
+       "projectsPerGame": 18.89,
+       "projectCompletedShare": 0.7001,
+       "projectAbandonedAfterInkShare": 0.0756
+      }
+     }
+    }
+   }
+  }
+ }
+}

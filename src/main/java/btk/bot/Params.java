@@ -58,6 +58,15 @@ public class Params {
     public double ROLLOUT_ROUTE_HORIZON = 16.0;
     public double ROLLOUT_THREAT_WEIGHT = 0.5;
     public double ROLLOUT_WIN_VALUE = 1000000.0;
+    /**
+     * Sabotage the opponent's live project: regions where it placed tracks within the last
+     * ROLLOUT_LIVE_TURNS observed turns gain ROLLOUT_LIVE_WEIGHT per such cell (income x turns).
+     */
+    public boolean USE_ROLLOUT_LIVE_TARGET = false;
+    public double ROLLOUT_LIVE_WEIGHT = 12.0;
+    public int ROLLOUT_LIVE_TURNS = 2;
+    /** Spend the disruption point on the least harmful legal target when no region has positive value. */
+    public boolean ROLLOUT_ALWAYS_DISRUPT = false;
 
     // Independent simple policy; off in the selected v06 strategy.
     public boolean USE_HEURISTIC_POLICY = false;

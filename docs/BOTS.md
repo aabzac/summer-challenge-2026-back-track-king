@@ -1045,3 +1045,23 @@ Keep the user's v08 selection; leave timing readiness **OPEN**. The previous sub
 [Promotion protocol](v08-promotion.md), [full process evidence](evidence/v08-promotion.json),
 [independent verification](evidence/v08-promotion-verification.json),
 [artifacts and supporting records](evidence/v08-promotion-artifacts.zip).
+
+
+## 2026-09-19 - live-target-v1 / always-disrupt-v1 (not promoted); boss-winners study
+
+Motivating study: Boss 4 rating 29.69 vs our 24.91; now-Gold players beat it 55.7% (368 games),
+v08 13/40. Against us the boss keeps ~1 more active connection than against Gold players and
+completes 70% of its projects (58% vs Gold winners); Gold winners hit its live project (region
+with a boss placement in the last 2 turns) on 31.7% of hits, we on 17.2% in losses. Other
+sabotage aggregates are the same. See [boss-winners-study-v1.md](boss-winners-study-v1.md).
+
+Two default-off flags on v08, control frozen v08, practical-v3, fresh paired maps, zero errors:
+
+- `current?USE_ROLLOUT_LIVE_TARGET=1`: screen **153-137-10 / 300 = 52.67%**, then fresh direct
+  **492-463-45 / 1000 = 51.45%**, **NOT_PASSED** at 55%. No boss stage.
+- `current?ROLLOUT_ALWAYS_DISRUPT=1`: screen **147-152-1 / 300 = 49.17%**, **STOP_SCREEN_300**.
+
+Both flags OFF, v08 selected; 340 Java tests pass; merged current 97,896 characters. Self-play
+v08 mirrors accept disruption on 64-67% of turns and last ~90 turns, unlike the 53-57-turn boss
+games, so the local bench does not exercise the targeted situation. [Protocol and limits](live-target-v1.md),
+[evidence](evidence/live-target-v1.json).

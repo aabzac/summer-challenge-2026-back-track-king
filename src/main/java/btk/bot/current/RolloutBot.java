@@ -31,6 +31,9 @@ public final class RolloutBot implements Bot {
     private int[] path, extra, trackBalance, shortlist, bestCells, prefix;
     private boolean[] blocked, marked;
     private double[] priority;
+    private int[] placedTurn, lastOwner;
+    private int[][] live;
+    public int liveTargets, forcedTargets;
     private int[][] roots;
     private int[] rootCounts, rootTargets;
     private int[] replyRoutes;
@@ -127,7 +130,9 @@ public final class RolloutBot implements Bot {
                 || !finitePositive(p.ROLLOUT_WIN_VALUE)
                 || !unit(p.ROLLOUT_ROBUSTNESS) || !unit(p.ROLLOUT_THREAT_WEIGHT)
                 || !Double.isFinite(p.ROLLOUT_TAIL) || p.ROLLOUT_TAIL < 0
-                || !Double.isFinite(p.ROLLOUT_TRACK_WEIGHT) || p.ROLLOUT_TRACK_WEIGHT < 0) {
+                || !Double.isFinite(p.ROLLOUT_TRACK_WEIGHT) || p.ROLLOUT_TRACK_WEIGHT < 0
+                || !Double.isFinite(p.ROLLOUT_LIVE_WEIGHT) || p.ROLLOUT_LIVE_WEIGHT < 0
+                || p.ROLLOUT_LIVE_TURNS < 1 || p.ROLLOUT_LIVE_TURNS > 10) {
             throw new IllegalArgumentException("Rollout requires an independent policy and bounded valid parameters");
         }
     }
@@ -145,6 +150,11 @@ public final class RolloutBot implements Bot {
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
+        if (p.USE_ROLLOUT_LIVE_TARGET) {
+            placedTurn = new int[s.size]; lastOwner = s.owner.clone(); live = new int[2][s.regionCount];
+            // Tracks already present at the first observation have no known age.
+            Arrays.fill(placedTurn, Integer.MIN_VALUE / 2);
+        }
         roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_SPREAD ? p.ROLLOUT_SPREAD_ROOTS : 0)
                 + (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE ? p.ROLLOUT_NETWORK_ROOTS : 0)
                 + (p.USE_ROLLOUT_NETWORK_CHORDS ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
@@ -219,6 +229,8 @@ public final class RolloutBot implements Bot {
             Arrays.fill(networkCompared, false); Arrays.fill(networkGains, Integer.MIN_VALUE);
         }
         selectedRoute = selectedTarget = -1; selectedValue = Double.NaN;
+        liveTargets = forcedTargets = 0;
+        if (p.USE_ROLLOUT_LIVE_TARGET) observeLive(s);
         quickPlayer = -1; quickLength = quickCost = quickGain = 0;
         quickSlot = -1;
         quickValue = 0;
@@ -1026,11 +1038,13 @@ public final class RolloutBot implements Bot {
                 if (!marked[r]) { priority[r] += exposure; marked[r] = true; }
             }
         }
+        int[] recent = p.USE_ROLLOUT_LIVE_TARGET ? live[1 - me] : null;
         Arrays.fill(shortlist, -1);
         for (int r = 0; r < s.regionCount; r++) {
             if (s.regionInked[r] || s.regionHasTown(r)) continue;
-            priority[r] = (priority[r] * p.ROLLOUT_TARGET_HORIZON
-                    + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT) / (GameState.INK_THRESHOLD - s.regionInstability[r]);
+            priority[r] = (priority[r] * p.ROLLOUT_TARGET_HORIZON + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT
+                    + (recent == null ? 0 : recent[r] * p.ROLLOUT_LIVE_WEIGHT))
+                    / (GameState.INK_THRESHOLD - s.regionInstability[r]);
             for (int i = 0; i < shortlist.length; i++) {
                 if (shortlist[i] < 0 || priority[r] > priority[shortlist[i]]) {
                     for (int j = shortlist.length - 1; j > i; j--) shortlist[j] = shortlist[j - 1];
@@ -1039,8 +1053,8 @@ public final class RolloutBot implements Bot {
             }
         }
         Rules.incomePerTurn(s, income);
-        int before = income[me] - income[1 - me], bestTarget = -1;
-        double best = 0, second = 0;
+        int before = income[me] - income[1 - me], bestTarget = -1, forcedTarget = -1;
+        double best = 0, second = 0, forced = -Double.MAX_VALUE;
         for (int i = 0; i < shortlist.length && !timer.up(); i++) {
             int r = shortlist[i]; if (r < 0) break;
             int needed = GameState.INK_THRESHOLD - s.regionInstability[r];
@@ -1055,7 +1069,12 @@ public final class RolloutBot implements Bot {
                 continue;
             }
             double value = ((after - before) * Math.max(0, Math.min(p.ROLLOUT_TARGET_HORIZON, s.turnsLeft()) - needed + 1)
-                    + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT) / needed;
+                    + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT
+                    + (recent == null ? 0 : recent[r] * p.ROLLOUT_LIVE_WEIGHT)) / needed;
+            // A wasted disruption point never returns; prefer a harmless hit over WAIT.
+            if (p.ROLLOUT_ALWAYS_DISRUPT && after >= before && trackBalance[r] >= 0 && value > forced) {
+                forced = value; forcedTarget = r;
+            }
             if (value > best) {
                 if (p.USE_ROLLOUT_SECOND_TARGET) { second = best; secondTarget = bestTarget; }
                 best = value; bestTarget = r;
@@ -1064,6 +1083,26 @@ public final class RolloutBot implements Bot {
             }
         }
         if (p.USE_ROLLOUT_SECOND_TARGET && timer.up()) secondTarget = -1;
+        if (bestTarget < 0 && forcedTarget >= 0 && !timer.up()) { forcedTargets++; return forcedTarget; }
+        if (bestTarget >= 0 && recent != null && recent[bestTarget] > 0) liveTargets++;
         return bestTarget;
+    }
+
+    /**
+     * Observed placements since the previous real turn reveal each player's live project. Only
+     * changes between observations count; the rollout reuses these counts unchanged.
+     */
+    private void observeLive(GameState s) {
+        for (int c = 0; c < s.size; c++) {
+            if (s.owner[c] != lastOwner[c]) {
+                if (s.owner[c] >= 0) placedTurn[c] = s.turn;
+                lastOwner[c] = s.owner[c];
+            }
+        }
+        Arrays.fill(live[0], 0); Arrays.fill(live[1], 0);
+        for (int c = 0; c < s.size; c++) {
+            int o = s.owner[c];
+            if ((o == 0 || o == 1) && placedTurn[c] > s.turn - p.ROLLOUT_LIVE_TURNS) live[o][s.regionId[c]]++;
+        }
     }
 }

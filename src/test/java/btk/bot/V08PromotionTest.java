@@ -49,8 +49,11 @@ class V08PromotionTest {
     @Test void currentMainAndFrozenMatchEveryMeasuredParameterWithoutRetuning() throws Exception {
         var expected = record("/v08-confirmed.properties");
         assertEquals(107, expected.size());
-        for (String spec : new String[]{"current", "main", "v08", "current?USE_PROTECTED_OPENING=1"})
-            assertEquals(expected, BotFactory.configuration(spec), spec);
+        for (String spec : new String[]{"current", "main", "v08", "current?USE_PROTECTED_OPENING=1"}) {
+            var actual = new TreeMap<>(BotFactory.configuration(spec));
+            LiveTargetExperimentParams.removeAndCheck(actual);
+            assertEquals(expected, actual, spec);
+        }
         assertTrue(new Params().USE_PROTECTED_OPENING);
         assertFalse(new Params().USE_ROLLOUT_RHEA);
         assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
@@ -67,7 +70,8 @@ class V08PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size(), fields, "the candidate record covers every parameter");
+        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size(), fields,
+                "only explicitly named inactive post-v08 fields are absent from the record");
         FrozenParams.applyTo("v08", dirty);
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
@@ -87,17 +91,17 @@ class V08PromotionTest {
                 .digest(text.getBytes(StandardCharsets.UTF_8)));
     }
 
+    /** The frozen copies, with only their identity changes undone, must hash to the measured sources. */
     @Test void bothFrozenClassesAreTheMeasuredAlgorithmWithOnlyIdentityChanges() throws Exception {
         for (String[] item : new String[][]{
                 {"RolloutBot", "70678ada9c55e5897dd9832fa6246b3af7b05568aadb7c215f9ea5b4be527ebc"},
                 {"ProtectedOpening", "96c2de3a843439a57e2d12e63c5e83d3b5fc0b6278d875e36b4587d2424613d3"}}) {
-            String current = normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"));
-            assertEquals(item[1], sha(current), "measured source " + item[0]);
-            String expected = current.replace("package btk.bot.current;", "package btk.bot.v08;")
-                    .replace("RolloutBot", "RolloutBotV08")
-                    .replace("ProtectedOpening", "ProtectedOpeningV08")
-                    .replace("return \"current?\" + p.diff();", "return \"v08\";");
-            assertEquals(expected, normalizedSource(Path.of("src/main/java/btk/bot/v08/" + item[0] + "V08.java")));
+            String frozen = normalizedSource(Path.of("src/main/java/btk/bot/v08/" + item[0] + "V08.java"));
+            String measured = frozen.replace("package btk.bot.v08;", "package btk.bot.current;")
+                    .replace("RolloutBotV08", "RolloutBot")
+                    .replace("ProtectedOpeningV08", "ProtectedOpening")
+                    .replace("return \"v08\";", "return \"current?\" + p.diff();");
+            assertEquals(item[1], sha(measured), "measured source " + item[0]);
         }
     }
 

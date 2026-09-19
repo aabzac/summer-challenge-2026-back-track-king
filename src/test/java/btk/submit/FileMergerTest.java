@@ -95,6 +95,7 @@ class FileMergerTest {
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
             btk.bot.SearchExperimentParams.removeAndCheck(actual);
+            btk.bot.LiveTargetExperimentParams.removeAndCheck(actual);
             assertEquals(measured, actual);
         }
         String current = FileMerger.merge("current?USE_PROTECTED_OPENING=0"), frozen = FileMerger.merge("v07");
@@ -123,25 +124,36 @@ class FileMergerTest {
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject("current?USE_PROTECTED_OPENING=1")
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
         for (String spec : new String[]{"current", "v08"}) {
-            assertEquals(measured, BotFactory.configuration(spec), "selected complete measured configuration");
+            var actual = new TreeMap<>(BotFactory.configuration(spec));
+            btk.bot.LiveTargetExperimentParams.removeAndCheck(actual);
+            assertEquals(measured, actual, "selected complete measured configuration");
         }
         String current = FileMerger.merge("current");
         assertEquals(current, FileMerger.merge("current?USE_PROTECTED_OPENING=1"));
         assertTrue(current.contains("USE_PROTECTED_OPENING=true"));
         assertTrue(current.contains("USE_ROLLOUT_RHEA=false"));
+        assertTrue(current.contains("USE_ROLLOUT_LIVE_TARGET=false"));
+        assertTrue(current.contains("ROLLOUT_ALWAYS_DISRUPT=false"));
+        FileMerger.checkSourceSize(current);
         String frozen = FileMerger.merge("v08");
         FileMerger.checkSourceSize(frozen);
         assertTrue(frozen.contains("static final class ProtectedOpening"));
         assertFalse(frozen.contains("RolloutBotV08"));
         assertFalse(frozen.contains("ProtectedOpeningV08"));
-        String normalizedFrozen = FileMerger.normalizeMarker(frozen)
-                .replace("// BTK strategy: v08", "// BTK strategy: current")
-                .replace("public String name() { return \"v08\"; }",
-                        "public String name() { return \"current?\" + p.diff(); }");
-        assertEquals(FileMerger.normalizeMarker(current), normalizedFrozen,
-                "frozen v08 must package the exact selected policy and helper, apart from their version label");
+        // Current deliberately contains later default-off experiments; preserve the selected
+        // frozen policy bytes independently of those additions and of shared Params fields.
+        assertEquals("7f2fe8385f91a264ba3592620841045964dce334638cfa2e4df40670596661ef",
+                FileMerger.sha256(policySection(frozen)));
         checkFrozenDecisions("v08", true, false, true);
         checkFrozenDecisions("current", true, false, true);
+    }
+
+    /** Shipped strategy classes between the first policy class and the shared Bot interface. */
+    private static String policySection(String merged) {
+        int start = merged.indexOf("static final class EvalBot implements Bot {");
+        int end = merged.indexOf("static interface Bot {", start);
+        assertTrue(start >= 0 && end > start);
+        return merged.substring(start, end);
     }
 
     @Test void selectedSourcePreservesApprovedArtifactExceptTheDefaultFlagAndBuildMarker() throws Exception {
@@ -156,10 +168,14 @@ class FileMergerTest {
         String previousDefault = "public boolean USE_PROTECTED_OPENING = false;\n";
         assertEquals(approved.indexOf(previousDefault), approved.lastIndexOf(previousDefault));
         assertTrue(approved.contains(previousDefault));
-        String expected = FileMerger.normalizeMarker(approved).replace(previousDefault,
-                "public boolean USE_PROTECTED_OPENING = true;\n");
-        assertEquals(expected, FileMerger.normalizeMarker(FileMerger.merge("current")),
-                "promotion must not change any other approved shipped source byte");
+        assertTrue(FileMerger.merge("current").contains("public boolean USE_PROTECTED_OPENING = true;\n"));
+        // Later default-off Params fields changed the shipped source outside the policy classes;
+        // the frozen v08 policy itself must still be the approved bytes apart from its label.
+        String frozen = FileMerger.normalizeMarker(FileMerger.merge("v08"))
+                .replace("public String name() { return \"v08\"; }",
+                        "public String name() { return \"current?\" + p.diff(); }");
+        assertEquals(policySection(FileMerger.normalizeMarker(approved)), policySection(frozen),
+                "frozen v08 must ship the approved policy bytes");
     }
 
     @Test void frozenV07SubmissionMatchesAnActiveNetworkChoiceIncludingWarmup() throws Exception {
