@@ -3,32 +3,32 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
-## Phase 1 — infrastructure (done 2026-09-13)
+## Phase 1 â€” infrastructure (done 2026-09-13)
 
 - [x] Gradle/Java 17 skeleton, package layout, `AGENTS.md`, Cursor rules
 - [x] `btk.core` rules engine shared by bot, referee and tools; JUnit tests
-- [x] CG replay download (`cgFetch`) and engine validation against them (`cgValidate`) — 108/108
-- [x] Full rules inferred from Silver replays (ink at 4 disrupts, game end) — `docs/rules/inferred_silver.md`
+- [x] CG replay download (`cgFetch`) and engine validation against them (`cgValidate`) â€” 108/108
+- [x] Full rules inferred from Silver replays (ink at 4 disrupts, game end) â€” `docs/rules/inferred_silver.md`
 - [x] Referee, procedural + real maps, parallel benchmark with Wilson CI, side swap
 - [x] Process-level submission check (`procCheck`): protocol, first-turn warm-up, 50 ms turns
-- [x] Single-file merger (`submit`) → `build/submit/Player.java`
+- [x] Single-file merger (`submit`) â†’ `build/submit/Player.java`
 - [x] Enforce the 100,000-character submission limit; explicitly restore frozen v05 with
       `submit -PsubmitVersion=v05`, recording resolved configuration and source hash.
 - [x] Replay visualizer for local and CG-derived replays
 - [x] Study tool for what top players do (`cgStudy`)
 - [x] Bots v00 (autoplace), v01 (greedy), v02 (eval + DISRUPT), v03 (vulnerability eval, backups)
 
-## Phase 2 — leagues (open)
+## Phase 2 â€” leagues (open)
 
-- [x] Paste `Player.java` (v03) into the CG IDE and advance — Wood 2 → Wood 1 → Bronze → Silver;
+- [x] Paste `Player.java` (v03) into the CG IDE and advance â€” Wood 2 â†’ Wood 1 â†’ Bronze â†’ Silver;
       initially around rank 350/645, with Gold not yet open at that historical checkpoint
 - [x] Record user snapshot, 2026-09-15: Gold opened today; our entry remains in Silver,
       rank 235/622. User-reported, not an API verification or proof of warmup/strategy improvement.
 - [x] Capture the Bronze statement verbatim into `docs/rules/bronze.md`; reconcile with
-      `inferred_silver.md` — all inferred rules confirmed; Bronze is the final rule set
+      `inferred_silver.md` â€” all inferred rules confirmed; Bronze is the final rule set
 - [x] Referee source found (linked from the statement) and cloned to `tmp/referee-src`
-      (gitignored): impossible actions are skipped, not fatal → `Rules.expand` aligned + tests
-- [x] Port `GridMaker` 1:1 (CG supplies `SecureRandom` SHA1PRNG through `java.util.Random`) →
+      (gitignored): impossible actions are skipped, not fatal â†’ `Rules.expand` aligned + tests
+- [x] Port `GridMaker` 1:1 (CG supplies `SecureRandom` SHA1PRNG through `java.util.Random`) â†’
       authentic maps by `refereeInput` seed; `cgMapValidate` 107/107, seven checked-in map fixtures
       covering all heights. Seed 0 is non-reproducible in CG and rejected; see `map_generator.md`.
 - [ ] Re-fetch replays of the current top 20 every few days (`cgFetch`), keep `cgValidate` green
@@ -41,9 +41,9 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       All 30 boss games rendered under `replays/rendered/cg/bot/`; collection `boss-30.html`
       separates corrected 16 v05 / 14 v06 groups. Browser checked at initial and terminal turns.
 
-## Phase 3 — strength (open; one feature per version, bench-gated)
+## Phase 3 â€” strength (open; one feature per version, bench-gated)
 
-Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
+Gaps measured in `BOTS.md` â†’ "What top Silver players do". Candidate order:
 
 - [x] Add an independent sabotage-first reference and matched opponent panel: pressure-v1,
       v05, v03, aggressive v02. Pressure baseline: 99.9% disruption, 61.3-turn games; v05 wins
@@ -51,7 +51,7 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
 - [ ] Calibrate/extend reference styles against fresh arena behavior; pressure-v1 builds on only
       56.7% of turns, so it does not cover every strong opponent. Preserve recorded reference ids.
 - [x] No idle turns: v04 spends otherwise idle paint extending its network through stable nearby
-      cells, preferring town regions — 64.7% vs v03 over 300 paired games
+      cells, preferring town regions â€” 64.7% vs v03 over 300 paired games
 - [ ] Disrupt every turn: pre-emptive targets on the opponent's likely corridors; closing the map
       when ahead / keeping it open when behind
 - [ ] Short lookahead: 2-3 turn plan search over (placements, disrupt) with the engine
@@ -256,7 +256,7 @@ Gaps measured in `BOTS.md` → "What top Silver players do". Candidate order:
       pre-turn fixtures retained. See boss-v06-loss-analysis.md; selected v06/Player unchanged.
 - [x] Test one cheap positive-net-income slot inside the existing six-route portfolio when
       own income is zero. Fixed screen vs v06: **160-134-6, 54.33%**, 300 games / 150 maps,
-      CI **43.24�65.42%**, gate not passed. Older v05 check: **124-76, 62.0%**, 200 games.
+      CI **43.24–65.42%**, gate not passed. Older v05 check: **124-76, 62.0%**, 200 games.
       Default-off flag retained, no promotion/tuning/confirmation, core and frozen bots unchanged.
       225 tests pass; candidate/restored-default process samples both 0/12 problems,
       original 8 plus 4 missing-side checks; all four maps on both sides covered.
@@ -500,8 +500,9 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [x] Test live-project sabotage targeting (`USE_ROLLOUT_LIVE_TARGET`): 52.67% / 300, then
       51.45% / fresh 1000 vs v08, NOT_PASSED. Flag OFF.
 - [x] Test never-idle disruption (`ROLLOUT_ALWAYS_DISRUPT`): 49.17% / 300, STOP_SCREEN_300. Flag OFF.
-- [ ] User decision: allow a boss-directed screen order (fixed 40-game cached comparison before
-      the self-play 1000) for mechanisms whose evidence comes from boss replays; if adopted, run
-      the retained live-target candidate through it before any further local tuning.
+- [x] User authorized the boss stage for live-target as a diagnostic after the local failure:
+      strict process 0/8, then 8/40 vs cached v08 13/40, NOT_PASSED; 40/40 replays exact.
+- [ ] Separate the live-target boost for our real choice from its use inside the simulated
+      opponent before concluding that live-project targeting itself is useless.
 - [ ] Explain what Gold players buy with their late "dead" construction (36% of cells placed in
       turns 31-45 never score) before proposing a construction-side change.

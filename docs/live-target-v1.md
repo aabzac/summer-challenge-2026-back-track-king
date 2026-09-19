@@ -44,7 +44,32 @@ with at most one slow call per side; these include first moves and are not proce
 No boss stage was started: the direct stage decides first and a local failure cannot be rescued.
 No pooling, tuning, retries or discarded games.
 
-## Reading the result
+## Boss stage (user-authorized diagnostic after the local failure)
+
+Policy v3 permits the 40-game cached-control comparison to run concurrently with the local
+1000 once the screen exceeds 52%; it was launched afterwards instead, on the user's request,
+knowing that the completed local failure already blocks promotion. Prerequisites first:
+isolated artifact `build/cg-boss/artifacts/live-target-v1` (97,895 characters, source SHA-256
+`53b53ac2…`, build `f514e6d7…`), strict process check **0/8 problem games** vs v08 on boss maps
+(first max 680.6 ms, later max 41.3 ms, zero grace; report SHA-256 `3e4408d6…`). Control is the
+exact measured v08 build `c6b4deae…` from the opening series (its 40 games, **13 W / 27 L**),
+pinned by `tools/boss_cached.py plan --control-arm candidate`; plan ID `ad668655…`.
+
+Forty sequential candidate games on the same 40 maps, seeds and seats, 2026-09-19 18:22-18:45
+UTC, no failed or uncertain requests: **8 W / 32 L / 0 D = 20%** against the cached **13/40**,
+**NOT_PASSED**. Per map/seat: candidate-only wins 5, control-only wins 10, both 3, neither 22.
+All 40 canonical replays reproduce exactly through `btk.core`
+(`replays/cg/boss/current/f514e6d7…/`). The boss's own rating in these games was 30.99-31.19,
+up from 29.69 in the morning snapshots. Full report: [evidence/live-target-v1-boss.json](evidence/live-target-v1-boss.json).
+
+So the mechanism does not help against the boss either, at least at weight 12 / window 2 and
+with the boost applied inside the rollout for both players. One caveat this run cannot
+separate: the same counts also make the *simulated boss* target our live project, which makes
+our own fresh construction look more dangerous in the rollout and can suppress it; the
+observed drop (8 vs 13) may come from that construction side effect rather than from our
+target choice. Testing the boost for our real choice only would be a new experiment.
+
+## Reading the local result
 
 The self-play bench does not reproduce the situation the mechanism targets. Against the boss our
 games last 53-57 turns when we win and the boss disrupts every turn; in these v08-vs-v08 games
@@ -55,9 +80,8 @@ finding is specific to the boss (it reveals its project through its placements a
 of projects against us); whether hitting its live project actually lowers that completion rate
 was not tested here, because policy v3 requires the local direct stage first.
 
-Suggested next step for the user's decision, not taken: allow a *boss-directed* screen order for
-mechanisms whose evidence comes from boss replays, i.e. run the fixed 40-game cached-control
-boss comparison before or instead of the self-play 1000 for such candidates, keeping the local
-300 as a non-regression check. The candidate, its tests and its exact configuration are retained
-for that purpose. Raw reports: `build/bench/live-target-v1/{screen,direct}.json`,
-`build/bench/always-disrupt-v1/screen.json` (hashes in the evidence file).
+The user then authorized the boss stage above as a diagnostic; it failed as well, so the
+boss-directed screen order question is moot for this candidate. The candidate, its tests and
+its exact configuration are retained OFF. Raw reports: `build/bench/live-target-v1/{screen,direct}.json`,
+`build/bench/always-disrupt-v1/screen.json`, `build/cg-boss/live-target-v1-boss-40/` (hashes in
+the evidence files).

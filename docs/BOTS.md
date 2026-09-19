@@ -1065,3 +1065,6 @@ Both flags OFF, v08 selected; 340 Java tests pass; merged current 97,896 charact
 v08 mirrors accept disruption on 64-67% of turns and last ~90 turns, unlike the 53-57-turn boss
 games, so the local bench does not exercise the targeted situation. [Protocol and limits](live-target-v1.md),
 [evidence](evidence/live-target-v1.json).
+Boss stage for live-target (user-authorized after the local failure, diagnostic only): exact
+isolated artifact, strict process 0/8, **8/40 vs cached v08 13/40**, NOT_PASSED; 40/40 replays
+exact. Boss rating observed 30.99-31.19 during the run. [Details](live-target-v1.md).

@@ -3605,3 +3605,12 @@ Completed outcome (fixed sample, no retuning):
   1000, local 300 as non-regression). Details and limits: `live-target-v1.md`.
 - Also: the contest skill was synchronized from the ChatGPT-agent copy into the Cursor copy
   (benchmarking.md added; Cursor browser constraints kept as an example in cg-api.md).
+- **Boss stage (user-authorized diagnostic, same day):** isolated artifact for
+  `current?USE_ROLLOUT_LIVE_TARGET=1` (97,895 chars, source `53b53ac2...`, build
+  `f514e6d7...`) passed a strict 0/8 process check (later max 41.3 ms). Forty sequential
+  candidate games on the cached v08 pool (control = exact measured opening build
+  `c6b4deae...`, 13/40): **8 W / 32 L = 20%**, NOT_PASSED; candidate-only wins 5,
+  control-only 10. 40/40 replays exact; boss rating observed 30.99-31.19 (29.69 in the
+  morning). The rollout applies the same live counts to the simulated boss, so the drop
+  may be a construction side effect (our fresh construction looks more threatened) rather
+  than a worse target choice; not separated here. Evidence `evidence/live-target-v1-boss.json`.
