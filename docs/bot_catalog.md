@@ -20,7 +20,12 @@ accept the original ids; the labels do not rename frozen Java classes or change 
   of the exact arena upload or process-timing readiness. Historical versions remain reference
   opponents; their numbers are a development history, not an ordering against every possible bot.
 - **Local references**: pressure-v1 Sabotage First is an independent strategy intended to broaden
-  behavioral coverage, not an arena promotion.
+  behavioral coverage, not an arena promotion. leader-v1 Leader Style is a fast heuristic
+  calibrated on the arena leader (Indrill; see [indrill-study-v1.md](indrill-study-v1.md)): full
+  paint every turn, a sticky DISRUPT on the opponent's unfinished construction, and a protected
+  opening. Its constants are frozen and never retuned. It reproduces the leader's relentless
+  sabotage meta (100% accepted disruption vs v08's ~62%), not the leader's arena strength, so it
+  is a screening opponent, not a strength benchmark or a claim to reproduce the player.
 - **Experiments**: named, reproducible configurations of the shared experimental engine. A failed
   promotion gate does not make them useless as opponents. Their status is `not_promoted`.
 

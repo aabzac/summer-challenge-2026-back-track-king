@@ -3716,3 +3716,34 @@ Completed outcome (fixed sample, no retuning):
   reproducible. The general contest skill is deliberately not changed (project-specific policy).
 - **Not yet run:** no games under v4 yet. First live use will be re-screening the retained
   track-value-v1 self candidate (its v3 verdict was NOT_PASSED at 50.85%/1000).
+
+## 2026-09-20 - leader-v1 reference opponent (Indrill-style)
+
+- **Why:** the v08 self-play mirror does not reproduce the meta our sabotage flags target
+  (mirrors: 92 turns, 56% placement, 64% disruption), so live-target, always-disrupt and
+  track-value all failed the bench for the same structural reason. Added a non-mirror reference
+  that plays like the arena leader Indrill, so sabotage-heavy candidates can be screened against
+  the meta they are meant for.
+- **What:** tk.bot.reference.LeaderBot, registered as the local-only leader-v1 exactly like
+  pressure-v1 (BotFactory case + FrozenParams + leader-v1.properties + catalog entry). It is a
+  fast heuristic: DISRUPT every turn on the opponent's *unfinished* construction using the study's
+  fitted valuation (opponent track 5, own track -6, +8 per instability level reached,
+  previous-target stickiness x1.7, own income loss weighted half, empty-corridor pre-emption on
+  town approaches), full paint every turn on the most valuable affordable route, and a protected
+  town-approach opening for the first three turns. It refuses a losing one-hit closure. The
+  behavioral constants are frozen inside the class and never retuned; only NOISE/SEED/UNSTABLE_COST
+  come from Params, so no new Params field was added and the frozen v06-v08 records are untouched.
+- **Verification:** LeaderBotTest (6 tests): frozen-parameter loading, full paint spent + DISRUPT
+  every turn + determinism at NOISE=0 without mutating input, inking unfinished opponent
+  construction over stale/own-track regions, refusing a losing close while taking a winning one,
+  a protected-town opening, and a legal WAIT at zero budget. **349 Java tests pass** (+6);
+  tk.core and every frozen strategy are unchanged. A 40-game smoke vs v08 (seeds 770000,
+  CG timing) shows the intended signature: **100% accepted disruption vs v08's 62%**, leader-v1
+  losing ~15% on strength. uild/analysis/leader-v1-smoke.json.
+- **Honest limits:** leader-v1 reproduces the leader's relentless-sabotage behavior, not the
+  leader's arena strength. It builds only cheapest routes and lacks Indrill's ~48% off-route
+  network construction (his routing model was not identified), so it loses to v08 and is a
+  screening opponent, not a strength benchmark or a claim to reproduce the player. A reference
+  result is not a promotion gate and stays separate from the practical-v4 stages.
+- **Next (not run):** re-screen the retained sabotage flags (track-value self, live-target,
+  always-disrupt) against leader-v1 as behavioral coverage.

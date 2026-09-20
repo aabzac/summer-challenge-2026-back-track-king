@@ -518,9 +518,15 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       merged candidate 98,886 / 100,000 characters (a corridor fallback was removed for size).
 - [x] Fixed practical-v3 stages vs v08: both-chooser 49.50% / 300 STOP; self-only 54.17% / 300
       then 50.85% / 1000, NOT_PASSED. Zero errors, 1600 games. Flags OFF, v08 selected.
-- [ ] Build a leader-like local reference opponent (full paint every turn, fitted Indrill target
-      valuation) so sabotage mechanisms are screened against the meta they target; v08 mirrors
-      (92 turns, 56% placement, 64% disruption) have now rejected three such flags.
+- [x] Build a leader-like local reference opponent `leader-v1` (`LeaderBot`, frozen): full paint
+      every turn, sticky DISRUPT on unfinished opponent construction (fitted Indrill valuation),
+      protected opening. Registered like pressure-v1 (BotFactory + `leader-v1.properties` +
+      catalog entry), reusing only existing Params fields so frozen v06-v08 records are untouched.
+      `LeaderBotTest` (6 tests) + full Java suite pass. 40-game smoke vs v08: 100% accepted
+      disruption vs 62%, loses on strength (~15%) - a screening opponent, not a strength bench.
+- [ ] Re-screen the retained sabotage flags (track-value self, live-target, always-disrupt)
+      against `leader-v1` as a behavioral coverage check; a reference result is not a promotion
+      gate, so keep it separate from the practical-v4 stages.
 - [ ] Identify Indrill's routing cost model behind its 48.7% off-cheapest-route cells (54% in
       regions shared with the opponent, 60% adjacent to own rails) before a never-idle rule.
 - [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest

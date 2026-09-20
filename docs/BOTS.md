@@ -90,6 +90,17 @@ Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-va
 
 ## Local reference panel (not submission versions)
 
+`leader-v1` (added 2026-09-20) is a fast heuristic calibrated on the arena leader Indrill
+(Legend #1, Python3; see [indrill-study-v1.md](indrill-study-v1.md)): full paint every turn, a
+sticky DISRUPT on the opponent's unfinished construction (opponent track worth 5, own track -6,
++8 per instability level reached, previous-target stickiness, own income loss weighted half), and
+a protected town-approach opening. Its constants are frozen inside `LeaderBot` and never retuned;
+only NOISE/SEED/UNSTABLE_COST come from `leader-v1.properties`. A 40-game smoke vs v08 (generated
+seeds, CG timing) shows the intended signature: **100% accepted disruption vs v08's 62%**, with
+leader-v1 losing on strength (~15% here). It reproduces the relentless-sabotage meta the v08
+mirror does not, so sabotage-heavy candidates can be screened against it; it is not a strength
+benchmark and not a claim to reproduce the player. Select with `-Pbot2=leader-v1`.
+
 `pressure-v1` is a separate sabotage-first, sticky-target, short-horizon policy. Its fixed consumed
 parameters live in `btk/bot/versions/pressure-v1.properties`; the policy stays outside the merged
 submission. Do not retune this reference id after recording its baseline. Use `benchSuite` to
@@ -275,7 +286,7 @@ pre-benchmark mirror correction, artifact hashes and limits are in DEVLOG/heuris
 
 ## Frozen submission versions
 
-`BotFactory` loads fixed defaults for v01âv05 from `src/main/resources/btk/bot/versions/`, then
+`BotFactory` loads fixed defaults for v01Ã¢ÂÂv05 from `src/main/resources/btk/bot/versions/`, then
 applies explicit overrides. Early snapshots preserve the effective defaults at `8364ad5`,
 while later versions record their promoted configuration; they do not retrospectively
 reconstruct the original defaults used by every historical bench.
@@ -288,12 +299,12 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
-| v00 Autoplace | 2026-09-13 | `AUTOPLACE` towards the first inactive desired pair. Wood 2 exit. | â | not submitted |
+| v00 Autoplace | 2026-09-13 | `AUTOPLACE` towards the first inactive desired pair. Wood 2 exit. | Ã¢ÂÂ | not submitted |
 | v01 Greedy Routes | 2026-09-13 | Dijkstra cheapest path per inactive pair; rank by `(free + own - opp) * turnsEarning / (turnsToFinish+1)`; spend 3 paint along the best path, leftover to next pair. Idles (`WAIT`) once every pair is connected. No DISRUPT. | vs v00: 66% [56-75], n=100, CG maps (Wood rules) | not submitted separately |
-| v02 Route Evaluation | 2026-09-13 | Simulation-evaluated candidates: per pair, cheapest route (any tracks) + own route avoiding opponent tracks (steal); value = income delta after completion (mine â opp) Ã turns earning Ã instability risk / (turnsToFinish+1). Free DISRUPT chosen by simulating ink of each region (opp income lost â 1.2 Ã own loss, + not-yet-earning tracks) / disrupts needed. Routing surcharge for unstable regions. `NOISE` param to break self-play mirrors. | vs v01: 100% (300-0), +29k pts. Ablations (both sides NOISE=0.2, n=300): no DISRUPT 97.3%, no STEAL 87.5%, no instability avoidance 54.8% [49-60]. | not submitted separately |
+| v02 Route Evaluation | 2026-09-13 | Simulation-evaluated candidates: per pair, cheapest route (any tracks) + own route avoiding opponent tracks (steal); value = income delta after completion (mine Ã¢ÂÂ opp) ÃÂ turns earning ÃÂ instability risk / (turnsToFinish+1). Free DISRUPT chosen by simulating ink of each region (opp income lost Ã¢ÂÂ 1.2 ÃÂ own loss, + not-yet-earning tracks) / disrupts needed. Routing surcharge for unstable regions. `NOISE` param to break self-play mirrors. | vs v01: 100% (300-0), +29k pts. Ablations (both sides NOISE=0.2, n=300): no DISRUPT 97.3%, no STEAL 87.5%, no instability avoidance 54.8% [49-60]. | not submitted separately |
 
-| v03 Risk Aware | 2026-09-13 | v02 + state value = income diff â W_VULN Ã worst single ink the opponent could do (my loss â their loss, / disrupts needed, only regions on active paths with my tracks). Third candidate type: backup route for an active pair avoiding the most threatened region. Closing rule: an ink that leaves no connectable pair is taken only when ahead, never when behind. `HORIZON` param (default 100). `NOISE=0.1` default (deterministic mirrors gave 0-0 games). Opponent model (`USE_OPP_MODEL`, collision surcharge) implemented but off: 47-51% in ablations. | vs v02: 58.5% [51.6-65.1], n=200. Ablations (n=300): no backup 60.2% [54.5-65.5] sig.; W_VULN=0 & no backup 52.7%; USE_CLOSE=0 48% (self-play games rarely close); HORIZON 20/30/50 â 52/53/43%. Process check: first turn â¤ 660 ms, later â¤ 38 ms. | **Silver, around 350/645**; Gold not yet open; usually wins boss games |
-| v04 Network Extension | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability â¥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn â¤745 ms, later â¤43 ms. | Boss **7/7**; awaiting Silver arena result |
+| v03 Risk Aware | 2026-09-13 | v02 + state value = income diff Ã¢ÂÂ W_VULN ÃÂ worst single ink the opponent could do (my loss Ã¢ÂÂ their loss, / disrupts needed, only regions on active paths with my tracks). Third candidate type: backup route for an active pair avoiding the most threatened region. Closing rule: an ink that leaves no connectable pair is taken only when ahead, never when behind. `HORIZON` param (default 100). `NOISE=0.1` default (deterministic mirrors gave 0-0 games). Opponent model (`USE_OPP_MODEL`, collision surcharge) implemented but off: 47-51% in ablations. | vs v02: 58.5% [51.6-65.1], n=200. Ablations (n=300): no backup 60.2% [54.5-65.5] sig.; W_VULN=0 & no backup 52.7%; USE_CLOSE=0 48% (self-play games rarely close); HORIZON 20/30/50 Ã¢ÂÂ 52/53/43%. Process check: first turn Ã¢ÂÂ¤ 660 ms, later Ã¢ÂÂ¤ 38 ms. | **Silver, around 350/645**; Gold not yet open; usually wins boss games |
+| v04 Network Extension | 2026-09-14 | v03 + idle extension: when no complete route improves evaluation, spend remaining paint next to own rails/towns; prefer uninkable town regions and avoid non-town regions at instability Ã¢ÂÂ¥2. | vs v03: **64.7%**, W-L-D 194-106-0, n=300/150 paired maps, map-grouped 95% CI **[53.6%, 75.8%]**, avg score diff +405. Control vs v02: 54%, identical to v03 on the same 50 maps. Process check: 0/8 problem games, first turn Ã¢ÂÂ¤745 ms, later Ã¢ÂÂ¤43 ms. | Boss **7/7**; awaiting Silver arena result |
 | v05 Disrupt Reserve | 2026-09-14 | v04 + 6-ms reserve for sabotage: cut route/idle search short on the original turn clock; evaluation formulas and CGRunner margin unchanged. | Confirmation vs v04: **57.7%**, W-L-D **575-421-4**, n=1000/500 new paired maps, map-grouped 95% CI **[51.6%, 63.8%]**, avg diff **+879.1**. Common opponents: v03 **69.3% vs v04's 61.3%**; aggressive v02 **70.0% vs v04's 67.7%**, each 300 matched games. Process check: **0/8** problem games, first <=676 ms, later <=34 ms. | Uploaded as agent **6736850**. User: rank 321 at 43%; API snapshot rank 333. First 56 fetched games: **38-18**, no own timeouts; placement ongoing |
 | v06 Simultaneous Rollout | 2026-09-16 | Independent eight-turn simultaneous construction/sabotage rollout; six route proposals, two opponent priorities; exact confirmed policy and full parameter snapshot. Selected by the user. | Fixed confirmation vs v05: **1230-770 (61.5%)**, 2x1000 games / 1000 distinct paired maps, map-grouped 95% CI **57.21-65.79%**; both individual gates pass. Older checks: v03 **68.5%**, pressure-v1 **74.5%**, 200 games each. Earlier process 0/42; final packaged source **FAILED 1/42**, later response 50.462 ms. | User-reported upload: 153/645, previous v05 rank 270; exact deployed hash unverified; local timing issue remains open |
 | v07 Network After Base | 2026-09-18 | QuickIncome ordinary search first; single-cell network actions only after complete ordinary comparisons. Exact 98-field measured snapshot; selected by the user. | Direct v06: **62.50% / 300**; matched fresh v05: **64.90% vs 56.90% / 1000 each**, +8.00 points, practical-v2 PASS. Independent QuickIncome ablation **59.6667% / 300** (diagnostic). 273 tests, 264 exact replays; final Player strict **0/8**, max later **44.7744 ms**. | Locally selected and packaged; not uploaded by agent. Pre-upload CG checkpoint: user reports QuickIncome **111 / 627**. [Promotion evidence](v07-promotion.md). |
@@ -317,7 +328,7 @@ Full commands, timing limitations and validation results are recorded in `DEVLOG
 - 97/107 games close early (no connectable pair), average ~50 turns. Disrupt on 92% of turns,
   first disrupt at turn 0-1 in 86% of games, targets mostly regions with opponent-only tracks.
 - Place on 88% of turns, 2.15 cells/turn (baseline current/v03 study: 73%, 1.76; v04 idle
-  extension: 100%, 2.44 â it now overbuilds rather than idles).
+  extension: 100%, 2.44 Ã¢ÂÂ it now overbuilds rather than idles).
   29% of their cells go to regions shared with the opponent (hostage effect), 20% to town regions
   (uninkable), 51% adjacent to own tracks.
 - v04 agrees on 15.8% of winner placement cells; its 53% adjacency to own rails closely matches
@@ -632,9 +643,9 @@ reusing the joint-screen development pool. Two workers, CG 486/36 ms, NOISE=0.1;
   unchanged depth, opponent model, sabotage, budgets and other parameters. Default-off.
 - Fixed direct screen vs **v06**: **160-134-6**, **54.33%** with half credit for draws;
   **300 games / 150 distinct paired maps**, seeds 40000..40149, CG 486/36-ms budget, two workers.
-  Map-grouped 95% CI **43.2465.42%**, zero errors. **Gate not passed**.
+  Map-grouped 95% CI **43.24Â65.42%**, zero errors. **Gate not passed**.
 - Separate older-opponent check vs **v05**: **124-76-0 (62.0%)**, **200 games / 100 paired maps**,
-  seeds 41000..41099, CI **48.4275.58%**, zero errors. No matched v06 control in this panel;
+  seeds 41000..41099, CI **48.42Â75.58%**, zero errors. No matched v06 control in this panel;
   the historical v06/v05 percentage is not a baseline for estimating a new improvement.
 - No promotion, tuning or confirmation: selected **v06**, flag **false**, no v07 or upload.
   The mechanism works on the captured opening (4-paint candidate retained), but population

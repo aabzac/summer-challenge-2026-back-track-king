@@ -185,7 +185,13 @@ For the named development pool and a behaviorally different reference:
 .\gradlew.bat benchSuite "-Pbot=v05" "-Pout=build/bench/my-v05-panel"
 ```
 
-`pressure-v1` is a local-only sabotage-first reference, not a promoted submission. The suite plays
+`pressure-v1` and `leader-v1` are local-only references, not promoted submissions. `leader-v1`
+is a fast heuristic calibrated on the arena leader (Indrill): full paint every turn, a sticky
+DISRUPT on the opponent's unfinished construction, and a protected opening. It reproduces the
+leader's relentless-sabotage meta (100% accepted disruption vs v08's ~62%), not the leader's
+arena strength, so it is a screening opponent for sabotage-heavy candidates, not a strength
+benchmark. Select it with `-Pbot2=leader-v1`. See [docs/indrill-study-v1.md](docs/indrill-study-v1.md).
+The suite plays
 the same paired maps against v05, pressure-v1, v03 and aggressive v02, skipping an exact self-spec.
 Each opponent has its own report; no combined win rate is treated as a promotion decision.
 Reports include height slices, accepted action frequencies and early closures; the default is

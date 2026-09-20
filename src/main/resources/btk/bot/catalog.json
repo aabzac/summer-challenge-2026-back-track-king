@@ -72,6 +72,13 @@
       "description": "Independent sticky-target sabotage with short-horizon route construction."
     },
     {
+      "id": "leader-v1",
+      "title": "Leader Style",
+      "category": "reference",
+      "status": "local_only",
+      "description": "Fast heuristic calibrated on the arena leader (Indrill): full paint every turn, a sticky DISRUPT on unfinished opponent construction, protected opening. Frozen; never retuned."
+    },
+    {
       "id": "current",
       "title": "Working Copy",
       "category": "working",
