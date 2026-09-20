@@ -26,6 +26,12 @@ accept the original ids; the labels do not rename frozen Java classes or change 
   opening. Its constants are frozen and never retuned. It reproduces the leader's relentless
   sabotage meta (100% accepted disruption vs v08's ~62%), not the leader's arena strength, so it
   is a screening opponent, not a strength benchmark or a claim to reproduce the player.
+- **Candidates**: neural-v1 Neural Imitation is an independent strategy with its own shipped
+  package (`btk.bot.neural`, `submit -PsubmitVersion=neural-v1`): two small conditional-logit
+  networks trained on the arena leader's replays choose the DISRUPT region and each placement
+  cell; only the closing-ink guard is hand-written. Its weights are a generated file
+  (`NeuralWeights`), so a retrained model is a new candidate, not a parameter override. See
+  [neural-policy-v1.md](neural-policy-v1.md).
 - **Experiments**: named, reproducible configurations of the shared experimental engine. A failed
   promotion gate does not make them useless as opponents. Their status is `not_promoted`.
 

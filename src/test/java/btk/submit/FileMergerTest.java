@@ -358,6 +358,22 @@ class FileMergerTest {
         }
     }
 
+    @Test void neuralSubmissionShipsOnlyTheImitationPolicyAndMatchesDecisions() throws Exception {
+        String source = FileMerger.merge("neural-v1");
+        assertTrue(source.contains("static final class NeuralFeatures"));
+        assertTrue(source.contains("static final class NeuralNet"));
+        assertTrue(source.contains("static final class NeuralWeights"));
+        assertFalse(source.contains("NeuralBot"));
+        assertFalse(source.contains("private double rollout("));
+        assertFalse(source.contains("class RolloutBot"));
+        assertFalse(source.contains("class HeuristicBot"));
+        assertFalse(source.contains("class ProtectedOpening"));
+        assertTrue(source.contains("NOISE=0.1"));
+        checkFrozenDecisions("neural-v1", true);
+        assertFalse(FileMerger.merge("current").contains("NeuralFeatures"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v2"));
+    }
+
     @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
         checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
     }

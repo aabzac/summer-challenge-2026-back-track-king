@@ -574,3 +574,27 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [x] Update AGENTS.md #3, README, docs/benchmarking.md (active section; v3 marked superseded).
 - [ ] Re-run the retained track-value-v1 `self` candidate under v4 as the first live use of the
       new runner (optional; its v3 verdict was already NOT_PASSED at 50.85%/1000).
+
+## neural-v1: imitation policy learned from the leader (2026-09-20)
+
+- [x] Assess neural approaches for the 50-ms / 100k-character constraints; choose behaviour cloning
+      of Indrill with conditional-logit MLPs over engine-grounded candidates (docs/neural-policy-v1.md).
+- [x] `btk.bot.neural`: shared `NeuralFeatures` (sabotage 29 / build 42 features, board-only memory,
+      feature-side Dijkstra with cost asserted equal to `Pathing.cheapestPath`), `NeuralNet` (int16
+      blobs + explicit standardisation), generated `NeuralWeights`, `NeuralBot` (target first, then
+      sequential placements; closing-ink guard; 6-ms placement reserve).
+- [x] `cgNeuralExport` (candidate datasets through the core, sampled negatives, 40 holdout games) and
+      `tools/neural/train_neural.py` (numpy, 40 epochs, linear baseline, quantisation check, Java export).
+- [x] Register `neural-v1` (BotFactory, `neural-v1.properties`, catalog, FileMerger `submitVersion`).
+      Seven `NeuralBotTest` tests + merged-artifact parity test; 362 Java tests pass.
+- [x] Train: sabotage 55.5% / build 23.4% held-out top-1 (uniform 3.1% / 1.1%, linear 50.2% / 20.4%).
+- [x] Timing: exporter 4.9 ms/turn features; strict 8-game process check 0/8, later <= 30.6 ms
+      (after replacing the referee-exact path search in features: 49.1 ms before).
+- [x] Practical-v4 vs v09: 558/1000 = **55.80% PASS_1000**; leader-v1 style check 84%.
+- [ ] Cached-boss 40-game stage (`tools/boss_cached.py`, needs the user's authorisation and the
+      pinned v09 control cache), then `practical_gate_v4.py --boss-plan` for the combined verdict.
+- [ ] If passed and selected: freeze as v10 (copy `bot/neural` weights/source, register), rebuild
+      `build/submit`, strict panel, record the exact deployed hash.
+- [ ] Follow-ups: fine-tune the same net on local outcomes (ES / policy gradient with `bench` as
+      fitness, imitation as prior); add other Legend players' replays (`-Ppath`/`-Pplayer` lists);
+      value head for the closure margin.

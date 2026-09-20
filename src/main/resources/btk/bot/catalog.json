@@ -93,6 +93,13 @@
       "description": "leader-v1 sabotage with construction rebuilt from the per-cell replay study: most valuable completion route over a 24-turn horizon (shared or enemy-avoiding), cheapest remaining completion as fallback, leftover paint next to own earning rails. Frozen; never retuned."
     },
     {
+      "id": "neural-v1",
+      "title": "Neural Imitation",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Behaviour-cloned policy: two small conditional-logit MLPs (sabotage region, sequential placement cell) over engine-grounded candidate features, trained on the arena leader's replays. Hard rules only for closing inks. Weights in btk.bot.neural.NeuralWeights."
+    },
+    {
       "id": "current",
       "title": "Working Copy",
       "category": "working",

@@ -137,6 +137,16 @@ tasks.register<JavaExec>("cgLeaderStudy") {
     args = listOf(prop("path", "replays/cg-indrill"), prop("player", "Indrill"), prop("out", "build/analysis/leader-study"))
 }
 
+/** Candidate-set datasets for the neural imitation policy. -Ppath/-Pplayer comma lists, -Pholdout, -Pnegatives */
+tasks.register<JavaExec>("cgNeuralExport") {
+    group = "cg"
+    description = "Export DISRUPT/PLACE decisions of named players as NeuralFeatures candidate rows (training data)"
+    mainClass.set("btk.tools.CgNeuralExport")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg-indrill"), prop("player", "Indrill"), prop("out", "build/analysis/neural-data"),
+        prop("holdout", "40"), prop("negatives", "40"), prop("seed", "20260920"))
+}
+
 tasks.register<JavaExec>("cgCellStudy") {
     group = "cg"
     description = "Per-cell construction study of one named player: routes at placement time and what each track did later"

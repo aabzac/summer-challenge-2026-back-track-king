@@ -201,6 +201,14 @@ loses ~80% to v08. `gradlew cgCellStudy "-Ppath=<replays>" "-Pplayer=<nick>"` fo
 placed track of a named player through its life (route slack at placement, first earning turn,
 pairs served, lifetime points); `python tools/diagnostics/cell_study.py <cells.csv>` aggregates
 it. See [docs/indrill-construction-v1.md](docs/indrill-construction-v1.md).
+
+`neural-v1` is an independent **imitation policy**: two small conditional-logit MLPs
+(`btk.bot.neural`) pick the DISRUPT region and the placement cells from engine-grounded candidate
+features, trained by behaviour cloning on the leader's 282 replays. Pipeline:
+`gradlew cgNeuralExport` (candidate datasets through the core) -> `python tools/neural/train_neural.py`
+(numpy, writes `NeuralWeights.java` + `docs/evidence/neural-v1-training.json`) -> `gradlew submit
+-PsubmitVersion=neural-v1`. Only the closing-ink guard is a hard rule. See
+[docs/neural-policy-v1.md](docs/neural-policy-v1.md).
 The suite plays
 the same paired maps against v05, pressure-v1, v03 and aggressive v02, skipping an exact self-spec.
 Each opponent has its own report; no combined win rate is treated as a promotion decision.

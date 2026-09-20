@@ -1,0 +1,859 @@
+{
+  "schemaVersion": 1,
+  "trainedAt": "2026-09-20T20:55Z",
+  "data": "build/analysis/neural-data",
+  "dataMeta": {
+    "schemaVersion": 1,
+    "sabotageFeatures": [
+      "instab",
+      "ready",
+      "oppCells",
+      "ownCells",
+      "neutralCells",
+      "oppActive",
+      "ownActive",
+      "dOpp",
+      "dOwn",
+      "oppPlacedPrev",
+      "oppPlacedPrev2",
+      "ownPlacedPrev",
+      "routesAny",
+      "minCostAny",
+      "routesOppOwn",
+      "oppTraffic",
+      "routesMeOwn",
+      "freeShare",
+      "regionSize",
+      "adjTownRegion",
+      "hitPrevByMe",
+      "hitPrevByOpp",
+      "closes",
+      "turn",
+      "scoreDiff",
+      "incomeMe",
+      "incomeOpp",
+      "turnsLeft",
+      "inactivePairs"
+    ],
+    "buildFeatures": [
+      "cost",
+      "usesAllPaint",
+      "regionInstab",
+      "regionTown",
+      "isTarget",
+      "regionOpp",
+      "regionOwn",
+      "regionOppActive",
+      "regionFreeShare",
+      "nOwn4",
+      "nOpp4",
+      "nNeutral4",
+      "nTown4",
+      "adjPassable",
+      "own8",
+      "routeAny",
+      "routeOwn",
+      "routeOppOwn",
+      "minCostAny",
+      "onNoRoute",
+      "bestRatioAny",
+      "bestGainOwn",
+      "bypass",
+      "bypassIncome",
+      "takeover",
+      "takeoverGain",
+      "dIncMe",
+      "dIncOpp",
+      "completes",
+      "adjOwnRecent",
+      "adjOppActive",
+      "townDist",
+      "regionHitPrevByOpp",
+      "regionOppPlacedPrev",
+      "placementIndex",
+      "paintLeft",
+      "turn",
+      "scoreDiff",
+      "incomeMe",
+      "incomeOpp",
+      "inactivePairs",
+      "adjPlacedThisTurn"
+    ],
+    "idxFields": [
+      "game",
+      "turn",
+      "k",
+      "rowStart",
+      "rowCount",
+      "labelOffset",
+      "holdout"
+    ],
+    "holdoutGames": 40,
+    "negatives": 40,
+    "seed": 20260920,
+    "games": 282,
+    "sabotageDecisions": 14423,
+    "sabotageSkippedNoTarget": 0,
+    "sabotageCandidatesMean": 34.05373361991264,
+    "buildDecisions": 31594,
+    "buildLabelOutsideCandidates": 1330,
+    "buildCandidatesMean": 120.20019623979236,
+    "turns": 14423,
+    "msPerTurnFeatures": 4.906417666227553,
+    "msPerTurnPrepare": 4.073220162240865,
+    "msPerTurnSabotageCandidates": 0.18899830132427373,
+    "msPerTurnBuildCandidates": 0.5792075851071206
+  },
+  "players": [
+    "Indrill"
+  ],
+  "args": {
+    "epochs": 40,
+    "batch": 512,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "seed": 20260920,
+    "heads": "sabotage,build",
+    "no_java": false
+  },
+  "heads": {
+    "sabotage": {
+      "sizes": [
+        29,
+        32,
+        16,
+        1
+      ],
+      "parameters": 1505,
+      "trainDecisions": 12563,
+      "holdout": {
+        "decisions": 1860,
+        "top1": 0.5553763440860215,
+        "top3": 0.771505376344086,
+        "nll": 1.6010899543762207,
+        "uniformTop1": 0.0312050647469022,
+        "candidatesMean": 34.6247311827957
+      },
+      "holdoutLinearBaseline": {
+        "decisions": 1860,
+        "top1": 0.5021505376344086,
+        "top3": 0.7198924731182795,
+        "nll": 1.9210995435714722,
+        "uniformTop1": 0.0312050647469022,
+        "candidatesMean": 34.6247311827957
+      },
+      "holdoutQuantizedFolded": {
+        "decisions": 1860,
+        "top1": 0.5553763440860215,
+        "top3": 0.771505376344086,
+        "nll": 1.6010890007019043,
+        "uniformTop1": 0.0312050647469022,
+        "candidatesMean": 34.6247311827957
+      },
+      "trainSampledTop1": 0.5523362254238637,
+      "history": [
+        {
+          "epoch": 1,
+          "trainNll": 2.961996555328369,
+          "trainTop1": 0.27525272625965136,
+          "holdoutNll": 2.1838595867156982,
+          "holdoutTop1": 0.4752688172043011
+        },
+        {
+          "epoch": 2,
+          "trainNll": 2.006727457046509,
+          "trainTop1": 0.4869855926132293,
+          "holdoutNll": 1.8367137908935547,
+          "holdoutTop1": 0.5290322580645161
+        },
+        {
+          "epoch": 3,
+          "trainNll": 1.8524738550186157,
+          "trainTop1": 0.5144471861816445,
+          "holdoutNll": 1.756881833076477,
+          "holdoutTop1": 0.543010752688172
+        },
+        {
+          "epoch": 4,
+          "trainNll": 1.795825481414795,
+          "trainTop1": 0.5239990448141367,
+          "holdoutNll": 1.7161084413528442,
+          "holdoutTop1": 0.5435483870967742
+        },
+        {
+          "epoch": 5,
+          "trainNll": 1.762669563293457,
+          "trainTop1": 0.5287749741303829,
+          "holdoutNll": 1.6912338733673096,
+          "holdoutTop1": 0.539247311827957
+        },
+        {
+          "epoch": 6,
+          "trainNll": 1.74152672290802,
+          "trainTop1": 0.5337101010905039,
+          "holdoutNll": 1.672008991241455,
+          "holdoutTop1": 0.539247311827957
+        },
+        {
+          "epoch": 7,
+          "trainNll": 1.7244515419006348,
+          "trainTop1": 0.5352224787073151,
+          "holdoutNll": 1.661330223083496,
+          "holdoutTop1": 0.539247311827957
+        },
+        {
+          "epoch": 8,
+          "trainNll": 1.710673213005066,
+          "trainTop1": 0.5378492398312505,
+          "holdoutNll": 1.6508527994155884,
+          "holdoutTop1": 0.5424731182795699
+        },
+        {
+          "epoch": 9,
+          "trainNll": 1.7009177207946777,
+          "trainTop1": 0.5403964021332485,
+          "holdoutNll": 1.644334316253662,
+          "holdoutTop1": 0.5413978494623656
+        },
+        {
+          "epoch": 10,
+          "trainNll": 1.6919724941253662,
+          "trainTop1": 0.5409535938868105,
+          "holdoutNll": 1.638281226158142,
+          "holdoutTop1": 0.5413978494623656
+        },
+        {
+          "epoch": 11,
+          "trainNll": 1.6840764284133911,
+          "trainTop1": 0.542863965613309,
+          "holdoutNll": 1.6305347681045532,
+          "holdoutTop1": 0.543010752688172
+        },
+        {
+          "epoch": 12,
+          "trainNll": 1.6766916513442993,
+          "trainTop1": 0.5429435644352464,
+          "holdoutNll": 1.6275372505187988,
+          "holdoutTop1": 0.5467741935483871
+        },
+        {
+          "epoch": 13,
+          "trainNll": 1.671255111694336,
+          "trainTop1": 0.5442171455862453,
+          "holdoutNll": 1.6239867210388184,
+          "holdoutTop1": 0.5483870967741935
+        },
+        {
+          "epoch": 14,
+          "trainNll": 1.6657963991165161,
+          "trainTop1": 0.5452519302714319,
+          "holdoutNll": 1.6214194297790527,
+          "holdoutTop1": 0.5489247311827957
+        },
+        {
+          "epoch": 15,
+          "trainNll": 1.6603269577026367,
+          "trainTop1": 0.5462071161346812,
+          "holdoutNll": 1.6196383237838745,
+          "holdoutTop1": 0.55
+        },
+        {
+          "epoch": 16,
+          "trainNll": 1.6556035280227661,
+          "trainTop1": 0.5474010984637427,
+          "holdoutNll": 1.61952543258667,
+          "holdoutTop1": 0.5478494623655914
+        },
+        {
+          "epoch": 17,
+          "trainNll": 1.6522308588027954,
+          "trainTop1": 0.5473214996418053,
+          "holdoutNll": 1.6149348020553589,
+          "holdoutTop1": 0.5489247311827957
+        },
+        {
+          "epoch": 18,
+          "trainNll": 1.6482436656951904,
+          "trainTop1": 0.5466847090663058,
+          "holdoutNll": 1.6164594888687134,
+          "holdoutTop1": 0.5505376344086022
+        },
+        {
+          "epoch": 19,
+          "trainNll": 1.6456531286239624,
+          "trainTop1": 0.5473214996418053,
+          "holdoutNll": 1.6106817722320557,
+          "holdoutTop1": 0.5516129032258065
+        },
+        {
+          "epoch": 20,
+          "trainNll": 1.642436146736145,
+          "trainTop1": 0.548913476080554,
+          "holdoutNll": 1.6132450103759766,
+          "holdoutTop1": 0.5526881720430108
+        },
+        {
+          "epoch": 21,
+          "trainNll": 1.6396416425704956,
+          "trainTop1": 0.5495502666560534,
+          "holdoutNll": 1.6083130836486816,
+          "holdoutTop1": 0.5510752688172043
+        },
+        {
+          "epoch": 22,
+          "trainNll": 1.6370811462402344,
+          "trainTop1": 0.5497890631218658,
+          "holdoutNll": 1.608250617980957,
+          "holdoutTop1": 0.5543010752688172
+        },
+        {
+          "epoch": 23,
+          "trainNll": 1.635231852531433,
+          "trainTop1": 0.5504258536973653,
+          "holdoutNll": 1.6072580814361572,
+          "holdoutTop1": 0.5505376344086022
+        },
+        {
+          "epoch": 24,
+          "trainNll": 1.6330288648605347,
+          "trainTop1": 0.5506646501631776,
+          "holdoutNll": 1.6062242984771729,
+          "holdoutTop1": 0.55
+        },
+        {
+          "epoch": 25,
+          "trainNll": 1.6314477920532227,
+          "trainTop1": 0.5505850513412401,
+          "holdoutNll": 1.605221152305603,
+          "holdoutTop1": 0.5526881720430108
+        },
+        {
+          "epoch": 26,
+          "trainNll": 1.6299136877059937,
+          "trainTop1": 0.5513810395606145,
+          "holdoutNll": 1.6050840616226196,
+          "holdoutTop1": 0.5521505376344086
+        },
+        {
+          "epoch": 27,
+          "trainNll": 1.6282284259796143,
+          "trainTop1": 0.5516198360264268,
+          "holdoutNll": 1.6047636270523071,
+          "holdoutTop1": 0.5521505376344086
+        },
+        {
+          "epoch": 28,
+          "trainNll": 1.6275200843811035,
+          "trainTop1": 0.5522566266019263,
+          "holdoutNll": 1.6027086973190308,
+          "holdoutTop1": 0.5532258064516129
+        },
+        {
+          "epoch": 29,
+          "trainNll": 1.6261042356491089,
+          "trainTop1": 0.5520974289580515,
+          "holdoutNll": 1.6025583744049072,
+          "holdoutTop1": 0.553763440860215
+        },
+        {
+          "epoch": 30,
+          "trainNll": 1.6255974769592285,
+          "trainTop1": 0.5521770277799889,
+          "holdoutNll": 1.6023105382919312,
+          "holdoutTop1": 0.5548387096774193
+        },
+        {
+          "epoch": 31,
+          "trainNll": 1.6248021125793457,
+          "trainTop1": 0.5523362254238637,
+          "holdoutNll": 1.6016424894332886,
+          "holdoutTop1": 0.5543010752688172
+        },
+        {
+          "epoch": 32,
+          "trainNll": 1.6240185499191284,
+          "trainTop1": 0.5518586324922391,
+          "holdoutNll": 1.6016056537628174,
+          "holdoutTop1": 0.5553763440860215
+        },
+        {
+          "epoch": 33,
+          "trainNll": 1.6235431432724,
+          "trainTop1": 0.5520974289580515,
+          "holdoutNll": 1.6014646291732788,
+          "holdoutTop1": 0.5559139784946237
+        },
+        {
+          "epoch": 34,
+          "trainNll": 1.6230249404907227,
+          "trainTop1": 0.5519382313141765,
+          "holdoutNll": 1.6012606620788574,
+          "holdoutTop1": 0.5553763440860215
+        },
+        {
+          "epoch": 35,
+          "trainNll": 1.6228275299072266,
+          "trainTop1": 0.552575021889676,
+          "holdoutNll": 1.6014646291732788,
+          "holdoutTop1": 0.5559139784946237
+        },
+        {
+          "epoch": 36,
+          "trainNll": 1.6225507259368896,
+          "trainTop1": 0.5528138183554884,
+          "holdoutNll": 1.6012637615203857,
+          "holdoutTop1": 0.5553763440860215
+        },
+        {
+          "epoch": 37,
+          "trainNll": 1.6223602294921875,
+          "trainTop1": 0.5524954230677386,
+          "holdoutNll": 1.6010289192199707,
+          "holdoutTop1": 0.5553763440860215
+        },
+        {
+          "epoch": 38,
+          "trainNll": 1.6222587823867798,
+          "trainTop1": 0.5523362254238637,
+          "holdoutNll": 1.6010639667510986,
+          "holdoutTop1": 0.5553763440860215
+        },
+        {
+          "epoch": 39,
+          "trainNll": 1.6222023963928223,
+          "trainTop1": 0.5524158242458012,
+          "holdoutNll": 1.6010932922363281,
+          "holdoutTop1": 0.5553763440860215
+        },
+        {
+          "epoch": 40,
+          "trainNll": 1.622175693511963,
+          "trainTop1": 0.5523362254238637,
+          "holdoutNll": 1.6010899543762207,
+          "holdoutTop1": 0.5553763440860215
+        }
+      ],
+      "blobBytes": 3254,
+      "features": [
+        "instab",
+        "ready",
+        "oppCells",
+        "ownCells",
+        "neutralCells",
+        "oppActive",
+        "ownActive",
+        "dOpp",
+        "dOwn",
+        "oppPlacedPrev",
+        "oppPlacedPrev2",
+        "ownPlacedPrev",
+        "routesAny",
+        "minCostAny",
+        "routesOppOwn",
+        "oppTraffic",
+        "routesMeOwn",
+        "freeShare",
+        "regionSize",
+        "adjTownRegion",
+        "hitPrevByMe",
+        "hitPrevByOpp",
+        "closes",
+        "turn",
+        "scoreDiff",
+        "incomeMe",
+        "incomeOpp",
+        "turnsLeft",
+        "inactivePairs"
+      ]
+    },
+    "build": {
+      "sizes": [
+        42,
+        48,
+        24,
+        1
+      ],
+      "parameters": 3265,
+      "trainDecisions": 27393,
+      "holdout": {
+        "decisions": 4201,
+        "top1": 0.2337538681266365,
+        "top3": 0.4246607950487979,
+        "nll": 3.2578940391540527,
+        "uniformTop1": 0.011176760436004728,
+        "candidatesMean": 113.98381337776719
+      },
+      "holdoutLinearBaseline": {
+        "decisions": 4201,
+        "top1": 0.20447512497024517,
+        "top3": 0.3784813139728636,
+        "nll": 3.543917417526245,
+        "uniformTop1": 0.011176760436004728,
+        "candidatesMean": 113.98381337776719
+      },
+      "holdoutQuantizedFolded": {
+        "decisions": 4201,
+        "top1": 0.2339919066888836,
+        "top3": 0.4246607950487979,
+        "nll": 3.25789737701416,
+        "uniformTop1": 0.011176760436004728,
+        "candidatesMean": 113.98381337776719
+      },
+      "trainSampledTop1": 0.37852736100463624,
+      "history": [
+        {
+          "epoch": 1,
+          "trainNll": 3.140707492828369,
+          "trainTop1": 0.2093600554886285,
+          "holdoutNll": 3.5791773796081543,
+          "holdoutTop1": 0.1773387288740776
+        },
+        {
+          "epoch": 2,
+          "trainNll": 2.601459503173828,
+          "trainTop1": 0.31792793779432704,
+          "holdoutNll": 3.435330390930176,
+          "holdoutTop1": 0.206855510592716
+        },
+        {
+          "epoch": 3,
+          "trainNll": 2.50589656829834,
+          "trainTop1": 0.3332968276567006,
+          "holdoutNll": 3.3733749389648438,
+          "holdoutTop1": 0.21566293739585812
+        },
+        {
+          "epoch": 4,
+          "trainNll": 2.462355852127075,
+          "trainTop1": 0.34318986602416673,
+          "holdoutNll": 3.3452823162078857,
+          "holdoutTop1": 0.21732920733158773
+        },
+        {
+          "epoch": 5,
+          "trainNll": 2.433847427368164,
+          "trainTop1": 0.34848318913591064,
+          "holdoutNll": 3.3297650814056396,
+          "holdoutTop1": 0.21804332301832896
+        },
+        {
+          "epoch": 6,
+          "trainNll": 2.4132118225097656,
+          "trainTop1": 0.35169568867958967,
+          "holdoutNll": 3.3138301372528076,
+          "holdoutTop1": 0.21947155439181149
+        },
+        {
+          "epoch": 7,
+          "trainNll": 2.3976311683654785,
+          "trainTop1": 0.3555652904026576,
+          "holdoutNll": 3.3054771423339844,
+          "holdoutTop1": 0.22256605570102356
+        },
+        {
+          "epoch": 8,
+          "trainNll": 2.3835842609405518,
+          "trainTop1": 0.3586682729164385,
+          "holdoutNll": 3.296200752258301,
+          "holdoutTop1": 0.22161390145203522
+        },
+        {
+          "epoch": 9,
+          "trainNll": 2.373270034790039,
+          "trainTop1": 0.3606395794546052,
+          "holdoutNll": 3.287538766860962,
+          "holdoutTop1": 0.2249464413234944
+        },
+        {
+          "epoch": 10,
+          "trainNll": 2.365391731262207,
+          "trainTop1": 0.36257438031613914,
+          "holdoutNll": 3.281653881072998,
+          "holdoutTop1": 0.2249464413234944
+        },
+        {
+          "epoch": 11,
+          "trainNll": 2.3553614616394043,
+          "trainTop1": 0.36374256196838606,
+          "holdoutNll": 3.2838871479034424,
+          "holdoutTop1": 0.2261366341347298
+        },
+        {
+          "epoch": 12,
+          "trainNll": 2.348205327987671,
+          "trainTop1": 0.3657868798598182,
+          "holdoutNll": 3.271021842956543,
+          "holdoutTop1": 0.22685074982147108
+        },
+        {
+          "epoch": 13,
+          "trainNll": 2.3429226875305176,
+          "trainTop1": 0.366845544482167,
+          "holdoutNll": 3.2746753692626953,
+          "holdoutTop1": 0.2280409426327065
+        },
+        {
+          "epoch": 14,
+          "trainNll": 2.3371105194091797,
+          "trainTop1": 0.3680137261344139,
+          "holdoutNll": 3.272874116897583,
+          "holdoutTop1": 0.22851701975720068
+        },
+        {
+          "epoch": 15,
+          "trainNll": 2.3323280811309814,
+          "trainTop1": 0.36863432263717005,
+          "holdoutNll": 3.273627758026123,
+          "holdoutTop1": 0.22875505831944776
+        },
+        {
+          "epoch": 16,
+          "trainNll": 2.3265693187713623,
+          "trainTop1": 0.3717738108275837,
+          "holdoutNll": 3.265390396118164,
+          "holdoutTop1": 0.23042132825517733
+        },
+        {
+          "epoch": 17,
+          "trainNll": 2.322932243347168,
+          "trainTop1": 0.3709341802650312,
+          "holdoutNll": 3.272524833679199,
+          "holdoutTop1": 0.22708878838371815
+        },
+        {
+          "epoch": 18,
+          "trainNll": 2.31901216506958,
+          "trainTop1": 0.37188332785748185,
+          "holdoutNll": 3.2666702270507812,
+          "holdoutTop1": 0.22994525113068318
+        },
+        {
+          "epoch": 19,
+          "trainNll": 2.315281867980957,
+          "trainTop1": 0.37323403789289233,
+          "holdoutNll": 3.2677111625671387,
+          "holdoutTop1": 0.23042132825517733
+        },
+        {
+          "epoch": 20,
+          "trainNll": 2.312154531478882,
+          "trainTop1": 0.3737816230423831,
+          "holdoutNll": 3.263474941253662,
+          "holdoutTop1": 0.23327779100214235
+        },
+        {
+          "epoch": 21,
+          "trainNll": 2.308502435684204,
+          "trainTop1": 0.3733800605994232,
+          "holdoutNll": 3.2666664123535156,
+          "holdoutTop1": 0.23446798381337777
+        },
+        {
+          "epoch": 22,
+          "trainNll": 2.3063578605651855,
+          "trainTop1": 0.37454824225167016,
+          "holdoutNll": 3.264164924621582,
+          "holdoutTop1": 0.2339919066888836
+        },
+        {
+          "epoch": 23,
+          "trainNll": 2.304250955581665,
+          "trainTop1": 0.3754973898441208,
+          "holdoutNll": 3.2613778114318848,
+          "holdoutTop1": 0.23327779100214235
+        },
+        {
+          "epoch": 24,
+          "trainNll": 2.301264524459839,
+          "trainTop1": 0.375460884167488,
+          "holdoutNll": 3.25750470161438,
+          "holdoutTop1": 0.23303975243989528
+        },
+        {
+          "epoch": 25,
+          "trainNll": 2.2991960048675537,
+          "trainTop1": 0.3751323330777936,
+          "holdoutNll": 3.2554750442504883,
+          "holdoutTop1": 0.23780052368483695
+        },
+        {
+          "epoch": 26,
+          "trainNll": 2.297180414199829,
+          "trainTop1": 0.3760084693169788,
+          "holdoutNll": 3.2566909790039062,
+          "holdoutTop1": 0.2354201380623661
+        },
+        {
+          "epoch": 27,
+          "trainNll": 2.2957544326782227,
+          "trainTop1": 0.3771036396159603,
+          "holdoutNll": 3.2585363388061523,
+          "holdoutTop1": 0.2339919066888836
+        },
+        {
+          "epoch": 28,
+          "trainNll": 2.2940239906311035,
+          "trainTop1": 0.37699412258606213,
+          "holdoutNll": 3.2625207901000977,
+          "holdoutTop1": 0.23470602237562485
+        },
+        {
+          "epoch": 29,
+          "trainNll": 2.292365312576294,
+          "trainTop1": 0.37619099770014236,
+          "holdoutNll": 3.2576935291290283,
+          "holdoutTop1": 0.23589621518686027
+        },
+        {
+          "epoch": 30,
+          "trainNll": 2.291090965270996,
+          "trainTop1": 0.3777972474719819,
+          "holdoutNll": 3.2614974975585938,
+          "holdoutTop1": 0.23303975243989528
+        },
+        {
+          "epoch": 31,
+          "trainNll": 2.290161609649658,
+          "trainTop1": 0.3779797758551455,
+          "holdoutNll": 3.2606189250946045,
+          "holdoutTop1": 0.2339919066888836
+        },
+        {
+          "epoch": 32,
+          "trainNll": 2.2892560958862305,
+          "trainTop1": 0.37816230423830904,
+          "holdoutNll": 3.2597427368164062,
+          "holdoutTop1": 0.23351582956438943
+        },
+        {
+          "epoch": 33,
+          "trainNll": 2.2882626056671143,
+          "trainTop1": 0.37841784397473804,
+          "holdoutNll": 3.257774591445923,
+          "holdoutTop1": 0.2342299452511307
+        },
+        {
+          "epoch": 34,
+          "trainNll": 2.2875897884368896,
+          "trainTop1": 0.3780162815317782,
+          "holdoutNll": 3.256854295730591,
+          "holdoutTop1": 0.2339919066888836
+        },
+        {
+          "epoch": 35,
+          "trainNll": 2.287181854248047,
+          "trainTop1": 0.3783083269448399,
+          "holdoutNll": 3.2579314708709717,
+          "holdoutTop1": 0.2339919066888836
+        },
+        {
+          "epoch": 36,
+          "trainNll": 2.286677598953247,
+          "trainTop1": 0.37841784397473804,
+          "holdoutNll": 3.25740909576416,
+          "holdoutTop1": 0.2337538681266365
+        },
+        {
+          "epoch": 37,
+          "trainNll": 2.2863028049468994,
+          "trainTop1": 0.3782353155915745,
+          "holdoutNll": 3.2575459480285645,
+          "holdoutTop1": 0.23327779100214235
+        },
+        {
+          "epoch": 38,
+          "trainNll": 2.286083698272705,
+          "trainTop1": 0.37852736100463624,
+          "holdoutNll": 3.257883310317993,
+          "holdoutTop1": 0.2337538681266365
+        },
+        {
+          "epoch": 39,
+          "trainNll": 2.2859256267547607,
+          "trainTop1": 0.37849085532800353,
+          "holdoutNll": 3.2578325271606445,
+          "holdoutTop1": 0.23351582956438943
+        },
+        {
+          "epoch": 40,
+          "trainNll": 2.2858526706695557,
+          "trainTop1": 0.37852736100463624,
+          "holdoutNll": 3.2578940391540527,
+          "holdoutTop1": 0.2337538681266365
+        }
+      ],
+      "blobBytes": 6878,
+      "holdoutPerPlacementIndex": {
+        "0": {
+          "decisions": 1734,
+          "top1": 0.22664359861591696,
+          "top3": 0.40945790080738176,
+          "nll": 3.3277459144592285,
+          "uniformTop1": 0.009885418736630566,
+          "candidatesMean": 124.15455594002307
+        },
+        "1": {
+          "decisions": 1477,
+          "top1": 0.2559241706161137,
+          "top3": 0.44888287068381855,
+          "nll": 3.1430511474609375,
+          "uniformTop1": 0.011193300710055759,
+          "candidatesMean": 113.05484089370346
+        },
+        "2": {
+          "decisions": 990,
+          "top1": 0.21515151515151515,
+          "top3": 0.41515151515151516,
+          "nll": 3.3068997859954834,
+          "uniformTop1": 0.013413888235945562,
+          "candidatesMean": 97.55555555555556
+        }
+      },
+      "features": [
+        "cost",
+        "usesAllPaint",
+        "regionInstab",
+        "regionTown",
+        "isTarget",
+        "regionOpp",
+        "regionOwn",
+        "regionOppActive",
+        "regionFreeShare",
+        "nOwn4",
+        "nOpp4",
+        "nNeutral4",
+        "nTown4",
+        "adjPassable",
+        "own8",
+        "routeAny",
+        "routeOwn",
+        "routeOppOwn",
+        "minCostAny",
+        "onNoRoute",
+        "bestRatioAny",
+        "bestGainOwn",
+        "bypass",
+        "bypassIncome",
+        "takeover",
+        "takeoverGain",
+        "dIncMe",
+        "dIncOpp",
+        "completes",
+        "adjOwnRecent",
+        "adjOppActive",
+        "townDist",
+        "regionHitPrevByOpp",
+        "regionOppPlacedPrev",
+        "placementIndex",
+        "paintLeft",
+        "turn",
+        "scoreDiff",
+        "incomeMe",
+        "incomeOpp",
+        "inactivePairs",
+        "adjPlacedThisTurn"
+      ]
+    }
+  },
+  "summary": "trained 2026-09-20T20:55Z on 282 games of Indrill (40 holdout); sabotage holdout top1 0.555; build holdout top1 0.234"
+}

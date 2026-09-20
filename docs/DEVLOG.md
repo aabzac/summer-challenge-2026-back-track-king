@@ -3928,3 +3928,54 @@ Completed outcome (fixed sample, no retuning):
   `evidence/v09-promotion.json`). The v08 artifact's 1/8 record stays as is.
 - **State:** v09 selected; `current` = v09; `build/submit/Player.java` is the v09 default
   artifact ready for the user's upload. Nothing pushed or uploaded by the agent.
+
+## 2026-09-20 - neural-v1: behaviour-cloned policy from the leader's replays (local PASS_1000)
+
+- **Ask:** a new strategy built on a neural-network method, with main logic unlike the existing
+  EvalBot/RolloutBot line, learning from the Indrill corpus. **Assessment** (docs/neural-policy-v1.md
+  section 1): behaviour cloning with conditional-logit MLPs over engine-grounded candidate rows is
+  the only approach that fits the data (14,423 exactly reproduced turns), the 50-ms turn and the
+  100k-character source limit; AlphaZero-style self-play, a neural evaluator inside RolloutBot and a
+  raw-grid CNN were rejected for v1 (reasons recorded there).
+- **Implementation:** `btk.bot.neural.{NeuralFeatures, NeuralNet, NeuralWeights, NeuralBot}`,
+  `btk.tools.CgNeuralExport` (`gradlew cgNeuralExport`), `tools/neural/train_neural.py` (numpy;
+  torch is not installed). Registered as `neural-v1` (BotFactory, `versions/neural-v1.properties`
+  with NOISE/SEED/USE_CLOSE/USE_DISRUPT only, catalog category `candidate`, FileMerger
+  `-PsubmitVersion=neural-v1` renaming `NeuralBot` to `EvalBot` like the frozen builds). No Params
+  field, `current`, frozen version or default changed; `FileMergerTest` asserts `current` builds
+  contain no neural code.
+- **Data:** 282 games, 14,423 sabotage decisions (34.1 legal regions each, 0 without a target),
+  31,594 placements in stdout order on the intermediate board (120 affordable candidates each;
+  1,330 = 4.2% of the leader's cells fall outside the candidate filter and are skipped). Training
+  games keep the chosen row + 40 sampled negatives; the 40 latest games are the holdout with full
+  candidate sets.
+- **Training (40 epochs, Adam, cosine decay, seed 20260920):** sabotage 29->32->16->1 holdout top-1
+  **55.5%** (top-3 77.2%, uniform 3.1%, linear conditional logit 50.2%); build 42->48->24->1 top-1
+  **23.4%** (top-3 42.5%, uniform 1.1%, linear 20.4%; per placement index 22.7 / 25.6 / 21.5%).
+  int16 quantisation reproduces the float numbers once standardisation is shipped explicitly:
+  folding it into layer 0 lost 15 points in the smoke run (recorded in the doc). 13,512 base64
+  characters of weights.
+- **Timing work:** first strict process check reached **49.1 ms** later response (0/8 problems but
+  no margin). Profile: ~20 inactive pairs per turn, 76 us per referee-exact `Pathing.cheapestPath`
+  (its AutobuildAStar block flood-fill), three route recomputations per turn. Fixes: skip the
+  income simulation for cells with fewer than two passable neighbours (provably zero), reuse the
+  shared route when the own-only / opponent-own-only variant cannot differ, recompute the
+  opponent's routes only once per turn, skip pairs separated by ink via a component labelling, and
+  a feature-side plain Dijkstra (`NeuralFeatures.cheapestCostPath`, optimal cost asserted equal to
+  the core's on evolving boards in `NeuralBotTest`). Features 12.3 -> 4.9 ms/turn; final exact
+  artifact (87,815 chars, source `19ca607a...`, build `73f774fb...`) strict check **0/8**, first
+  <= 751 ms, later **<= 30.6 ms** (`build/analysis/neural-v1/process-check.json`).
+- **Strength (practical-v4, control v09, `run_practical_v4.py --seed 900000`):** 160-140 (53.33%),
+  119-81 (59.50%), 279-221 (55.80%) -> pooled **558/1000 = 55.80% PASS_1000**, zero errors, all
+  12,245 prior maps excluded. Accepted disruption 99.6% vs 74.7%, placement turns 87% vs 84%,
+  2.60 vs 2.49 paint/turn, 66% early closures, 72-75 turns; 2.8-3.1 ms mean move vs 17.5-18.8.
+  Style check 200 games vs leader-v1 (seeds 910000): **168-32 (84%)**. Smoke 40 games vs v09 with
+  the first weights: 20-20.
+- **Tests:** 7 new `NeuralBotTest` (weights/feature consistency, legality and near-100% disruption
+  over 40-turn games on both seats vs v09, closing-ink guard on a corridor fixture, board-only
+  memory attribution, path-cost equality, deterministic rows and sequential placement), one merged
+  `neural-v1` parity/warmup test in `FileMergerTest`; **362 Java tests pass**. Core unchanged.
+- **Not done / next:** the 40-game cached-boss stage (live CG games, user authorisation) and any
+  selection; v09 stays selected and `build/submit/Player.java` is untouched (the neural artifact is
+  in `build/submit-neural/`). Evidence: `docs/evidence/neural-v1-training.json`,
+  `docs/evidence/neural-v1-v4.json`, `build/bench/neural-v1/`.

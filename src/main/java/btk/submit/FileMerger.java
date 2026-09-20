@@ -105,9 +105,10 @@ public class FileMerger {
         String spec = version;
         int queryAt = version.indexOf('?');
         if (queryAt >= 0) version = version.substring(0, queryAt);
+        boolean neural = version.equals("neural-v1");
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
-                && !version.equals("v07") && !version.equals("v08") && !version.equals("v09")) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08 or v09");
+                && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural) {
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09 or neural-v1");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
@@ -119,6 +120,7 @@ public class FileMerger {
                 : version.equals("v07") ? "bot/v07/RolloutBotV07.java"
                 : version.equals("v08") ? "bot/v08/RolloutBotV08.java"
                 : version.equals("v09") ? "bot/v09/RolloutBotV09.java"
+                : neural ? "bot/neural/NeuralBot.java"
                 : rollout ? "bot/current/RolloutBot.java"
                 : heuristic ? "bot/current/HeuristicBot.java" : "bot/current/EvalBot.java";
         for (String dir : SUBMIT_DIRS) {
@@ -127,6 +129,11 @@ public class FileMerger {
             }
         }
         files.add(SRC_ROOT.resolve(policy));
+        if (neural) {
+            files.add(SRC_ROOT.resolve("bot/neural/NeuralFeatures.java"));
+            files.add(SRC_ROOT.resolve("bot/neural/NeuralNet.java"));
+            files.add(SRC_ROOT.resolve("bot/neural/NeuralWeights.java"));
+        }
         if (version.equals("current") && rollout)
             files.add(SRC_ROOT.resolve("bot/current/ProtectedOpening.java"));
         if (version.equals("v08"))
@@ -162,6 +169,9 @@ public class FileMerger {
                         || file.endsWith("ProtectedOpeningV09.java"))) {
                     line = line.replaceAll("\\bRolloutBotV09\\b", "EvalBot")
                             .replaceAll("\\bProtectedOpeningV09\\b", "ProtectedOpening");
+                }
+                if (neural && file.endsWith("NeuralBot.java")) {
+                    line = line.replaceAll("\\bNeuralBot\\b", "EvalBot");
                 }
                 if (file.endsWith("MainBot.java")) {
                     line = line.replace("new Params()", paramsExpression(spec));
