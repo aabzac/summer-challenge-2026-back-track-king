@@ -76,7 +76,14 @@
       "title": "Leader Style",
       "category": "reference",
       "status": "local_only",
-      "description": "Fast heuristic calibrated on the arena leader (Indrill): full paint every turn, a sticky DISRUPT on unfinished opponent construction, protected opening. Frozen; never retuned."
+      "description": "Fast heuristic calibrated on the arena leader (Indrill): a sticky DISRUPT every turn on unfinished opponent construction, greedy cheapest-route construction (places on ~42% of turns), protected opening. Frozen; never retuned."
+    },
+    {
+      "id": "leader-v2",
+      "title": "Leader Style, Never Idle",
+      "category": "reference",
+      "status": "local_only",
+      "description": "leader-v1 sabotage with construction rebuilt from the per-cell replay study: most valuable completion route over a 24-turn horizon (shared or enemy-avoiding), cheapest remaining completion as fallback, leftover paint next to own earning rails. Frozen; never retuned."
     },
     {
       "id": "current",

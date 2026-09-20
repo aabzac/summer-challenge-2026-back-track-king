@@ -1,0 +1,297 @@
+{
+ "source": "build/analysis/boss-cell-study/cells.csv",
+ "namedPlayer": "Boss 4",
+ "games": 40,
+ "turns": 3138,
+ "meanGameLength": 78.5,
+ "named": {
+  "cells": 4466,
+  "cellsPerTurn": 1.423,
+  "paintPerTurn": 1.802,
+  "placementRate": 0.606,
+  "everEarned": 0.878,
+  "lostBeforeEarning": 0.089,
+  "neutralised": 0.044,
+  "pointsPerPaint": 27.22,
+  "pointsPerEarnedCell": 39.3,
+  "meanMaxPairsEarned": 5.02,
+  "meanLifetimeEarned": 31.7,
+  "pointsShareFromCellsOn3PlusPairs": 0.893,
+  "townRegion": 0.17,
+  "adjOwn": 0.517,
+  "meanCost": 1.27,
+  "oppInRegion": 0.392,
+  "unstableRegion": 0.05,
+  "onSingleCheapestRoute": 0.488,
+  "onSomeOptimalRoute": 0.373,
+  "withinOnePaint": 0.602,
+  "noInactivePairReachable": 0.251,
+  "takeOverPath": 0.311,
+  "bypassPath": 0.441,
+  "explained": 0.937,
+  "explainedThrough45": 0.953,
+  "firstEarnPairClasses": {
+   "pairsInactiveAtT": 0.523,
+   "pairsStolen": 0.197,
+   "pairsBypassed": 0.264,
+   "pairsOther": 0.015
+  },
+  "earnedBySlackAny": {
+   "-1": 0.838,
+   "0": 0.881,
+   "1": 0.896,
+   "2": 0.876,
+   "3": 0.936,
+   "4": 0.909,
+   "5": 0.914,
+   "6": 0.909
+  },
+  "pointsPerPaintBySlackAny": {
+   "-1": 17.88,
+   "0": 31.44,
+   "1": 33.39,
+   "2": 26.33,
+   "3": 23.05,
+   "4": 27.53,
+   "5": 42.62,
+   "6": 37.07
+  },
+  "byPhase": {
+   "0-2": {
+    "cells": 348,
+    "earned": 0.802,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.963,
+    "explained": 0.997,
+    "townRegion": 0.187
+   },
+   "3-10": {
+    "cells": 878,
+    "earned": 0.938,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.568,
+    "explained": 0.995,
+    "townRegion": 0.194
+   },
+   "11-20": {
+    "cells": 980,
+    "earned": 0.907,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.299,
+    "explained": 0.986,
+    "townRegion": 0.174
+   },
+   "21-30": {
+    "cells": 890,
+    "earned": 0.904,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.252,
+    "explained": 0.942,
+    "townRegion": 0.136
+   },
+   "31-45": {
+    "cells": 934,
+    "earned": 0.845,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.226,
+    "explained": 0.872,
+    "townRegion": 0.169
+   },
+   "46+": {
+    "cells": 436,
+    "earned": 0.771,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.239,
+    "explained": 0.794,
+    "townRegion": 0.167
+   }
+  }
+ },
+ "opponents": {
+  "cells": 4012,
+  "cellsPerTurn": 1.279,
+  "paintPerTurn": 1.554,
+  "placementRate": 0.543,
+  "everEarned": 0.822,
+  "lostBeforeEarning": 0.132,
+  "neutralised": 0.049,
+  "pointsPerPaint": 26.98,
+  "pointsPerEarnedCell": 39.9,
+  "meanMaxPairsEarned": 5.56,
+  "meanLifetimeEarned": 34.3,
+  "pointsShareFromCellsOn3PlusPairs": 0.935,
+  "townRegion": 0.242,
+  "adjOwn": 0.447,
+  "meanCost": 1.22,
+  "oppInRegion": 0.307,
+  "unstableRegion": 0.043,
+  "onSingleCheapestRoute": 0.681,
+  "onSomeOptimalRoute": 0.507,
+  "withinOnePaint": 0.687,
+  "noInactivePairReachable": 0.2,
+  "takeOverPath": 0.353,
+  "bypassPath": 0.325,
+  "explained": 0.948,
+  "explainedThrough45": 0.958,
+  "firstEarnPairClasses": {
+   "pairsInactiveAtT": 0.664,
+   "pairsStolen": 0.159,
+   "pairsBypassed": 0.161,
+   "pairsOther": 0.016
+  },
+  "earnedBySlackAny": {
+   "-1": 0.758,
+   "0": 0.864,
+   "1": 0.79,
+   "2": 0.86,
+   "3": 0.783,
+   "4": 0.8,
+   "5": 0.736,
+   "6": 0.75
+  },
+  "pointsPerPaintBySlackAny": {
+   "-1": 11.07,
+   "0": 34.4,
+   "1": 29.99,
+   "2": 24.8,
+   "3": 19.16,
+   "4": 30.32,
+   "5": 27.75,
+   "6": 12.25
+  },
+  "byPhase": {
+   "0-2": {
+    "cells": 305,
+    "earned": 0.889,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.984,
+    "explained": 1.0,
+    "townRegion": 0.928
+   },
+   "3-10": {
+    "cells": 872,
+    "earned": 0.896,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.718,
+    "explained": 1.0,
+    "townRegion": 0.226
+   },
+   "11-20": {
+    "cells": 963,
+    "earned": 0.845,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.447,
+    "explained": 0.987,
+    "townRegion": 0.197
+   },
+   "21-30": {
+    "cells": 799,
+    "earned": 0.787,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.437,
+    "explained": 0.952,
+    "townRegion": 0.154
+   },
+   "31-45": {
+    "cells": 793,
+    "earned": 0.765,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.31,
+    "explained": 0.865,
+    "townRegion": 0.158
+   },
+   "46+": {
+    "cells": 280,
+    "earned": 0.7,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.293,
+    "explained": 0.814,
+    "townRegion": 0.182
+   }
+  }
+ },
+ "paintByPhase": {
+  "0-2": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 2.77,
+    "placementRate": 1.0,
+    "fullPaint": 0.842
+   }
+  },
+  "3-10": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 2.96,
+    "placementRate": 0.988,
+    "fullPaint": 0.984
+   }
+  },
+  "11-20": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 0.995
+   },
+   "opponents": {
+    "paintPerTurn": 2.92,
+    "placementRate": 0.983,
+    "fullPaint": 0.963
+   }
+  },
+  "21-30": {
+   "named": {
+    "paintPerTurn": 2.94,
+    "placementRate": 0.988,
+    "fullPaint": 0.963
+   },
+   "opponents": {
+    "paintPerTurn": 2.44,
+    "placementRate": 0.848,
+    "fullPaint": 0.782
+   }
+  },
+  "31-45": {
+   "named": {
+    "paintPerTurn": 2.19,
+    "placementRate": 0.735,
+    "fullPaint": 0.718
+   },
+   "opponents": {
+    "paintPerTurn": 1.75,
+    "placementRate": 0.637,
+    "fullPaint": 0.528
+   }
+  },
+  "46+": {
+   "named": {
+    "paintPerTurn": 0.5,
+    "placementRate": 0.173,
+    "fullPaint": 0.16
+   },
+   "opponents": {
+    "paintPerTurn": 0.31,
+    "placementRate": 0.119,
+    "fullPaint": 0.09
+   }
+  },
+  "overall": {
+   "named": {
+    "paintPerTurn": 1.8,
+    "placementRate": 0.606
+   },
+   "opponents": {
+    "paintPerTurn": 1.55,
+    "placementRate": 0.543
+   }
+  }
+ }
+}

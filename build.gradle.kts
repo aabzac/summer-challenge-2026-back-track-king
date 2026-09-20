@@ -137,6 +137,14 @@ tasks.register<JavaExec>("cgLeaderStudy") {
     args = listOf(prop("path", "replays/cg-indrill"), prop("player", "Indrill"), prop("out", "build/analysis/leader-study"))
 }
 
+tasks.register<JavaExec>("cgCellStudy") {
+    group = "cg"
+    description = "Per-cell construction study of one named player: routes at placement time and what each track did later"
+    mainClass.set("btk.tools.CgCellStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg-indrill"), prop("player", "Indrill"), prop("out", "build/analysis/leader-study"))
+}
+
 tasks.register<JavaExec>("cgAnalyze") {
     group = "cg"
     description = "Analyze validated arena games for one agent, including same-turn counterfactual diagnostics"

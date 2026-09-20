@@ -530,9 +530,21 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       83.00%, per-map deltas within one SE of zero; construction unchanged (1.31-1.32 cells/turn).
       Not a gate; all flags stay OFF. Found that leader-v1 places on only 41.5% of turns (1.18/3
       paint) - it covers the leader's sabotage meta, not its construction meta; docs corrected.
-- [ ] Identify Indrill's routing cost model behind its 48.7% off-cheapest-route cells (54% in
-      regions shared with the opponent, 60% adjacent to own rails) before a never-idle rule; the
-      same model is the prerequisite for a `leader-v2` reference with the 97%-placement signature.
+- [x] Identify Indrill's routing model behind the 48.7% "off-route" cells: there is none. Per-cell
+      study (`cgCellStudy`, `indrill-construction-v1.md`): 86.8% of his cells through turn 45 are
+      within +1 paint of some optimal completion or on take-over / bypass paths; the rest is late
+      filler. The edge is 60% vs 47% of cells earning and full paint on 97% of turns.
+- [x] `leader-v2` reference (never-idle construction, leader-v1 sabotage): 90% placement on his
+      states, 20% vs v08; behavioural opponent only.
+- [x] Silver boss cell study (40 cached v08 games): equal points/paint, boss spends 1.80 vs our
+      1.55 paint/turn, gap in turns 21-45. RolloutBot has no leftover-paint rule.
+- [x] fill-v1: `USE_ROLLOUT_FILL` default-off, practical-v4 **569/1000 = 56.90% PASS_1000** vs v08,
+      zero errors. NEEDS_BOSS_CACHED_40.
+- [ ] **Decision needed:** the merged `current?USE_ROLLOUT_FILL=1` artifact is 100,646 / 100,000
+      characters. Remove one rejected rollout experiment from `bot/current` (RHEA ~3.5k, chords
+      ~2.7k, spread ~2k; frozen v06-v08 untouched), rebuild the isolated artifact, run `procCheck`,
+      then the 40-game cached-boss stage (`tools/boss_cached.py`). Fill code is uncommitted until
+      the artifact fits.
 - [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest
       route, not the max-traffic one) before re-adding a corridor fallback; mind artifact size.
 

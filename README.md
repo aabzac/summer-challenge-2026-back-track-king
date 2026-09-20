@@ -193,6 +193,11 @@ not its never-idle construction (it places on ~42% of turns vs the leader's 97%)
 arena strength (v08 wins ~82%), so it is a behavioral screening opponent for sabotage
 mechanisms, not a strength benchmark. Select it with `-Pbot2=leader-v1`; the matched four-arm
 check is `python tools/run_leader_coverage.py`. See [docs/indrill-study-v1.md](docs/indrill-study-v1.md).
+`leader-v2` keeps that sabotage and never idles (places on ~90% of the leader's states) but still
+loses ~80% to v08. `gradlew cgCellStudy "-Ppath=<replays>" "-Pplayer=<nick>"` follows every
+placed track of a named player through its life (route slack at placement, first earning turn,
+pairs served, lifetime points); `python tools/diagnostics/cell_study.py <cells.csv>` aggregates
+it. See [docs/indrill-construction-v1.md](docs/indrill-construction-v1.md).
 The suite plays
 the same paired maps against v05, pressure-v1, v03 and aggressive v02, skipping an exact self-spec.
 Each opponent has its own report; no combined win rate is treated as a promotion decision.

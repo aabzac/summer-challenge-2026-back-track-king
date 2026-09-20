@@ -23,3 +23,8 @@
 - `leader-coverage-v1.json` (540000..540149): consumed on 2026-09-20 by the four-arm matched
   panel against the `leader-v1` reference (v08 and the three retained sabotage flags, 300 games
   each on the same maps; no effect, not a gate). Not fresh confirmation. See DEVLOG.
+
+- `fill-v1-block1.json` (560000..560149), `fill-v1-block2.json` (660000..660099),
+  `fill-v1-block3.json` (760000..760249): consumed on 2026-09-20 by the practical-v4 run of
+  `current?USE_ROLLOUT_FILL=1` vs v08 (58.67 / 54.50 / 56.80%, pooled 56.90%, PASS_1000). Not
+  fresh confirmation. See docs/indrill-construction-v1.md.

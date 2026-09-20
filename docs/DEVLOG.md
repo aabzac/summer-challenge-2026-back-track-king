@@ -3794,3 +3794,63 @@ Completed outcome (fixed sample, no retuning):
   mechanism, not a new opponent. The open gap is now construction-side: a `leader-v2` reference
   can only reproduce the 97%-placement meta once Indrill's off-route routing model (48.7% of its
   cells) is identified, which is also the prerequisite for our own never-idle rule.
+
+## 2026-09-20 - Per-cell construction study: no hidden routing model; the gap is unused paint
+
+- **Question (user):** the goal is a candidate that plays like the leader and gets us past the
+  Silver boss. What does Indrill's construction actually do with the 48.7% "off-route" cells?
+- **Tool:** `gradlew cgCellStudy` (`btk.tools.CgCellStudy`): one row per placed track for both
+  players; at placement time the paint slack of the best route THROUGH the cell over the optimal
+  completion of every inactive pair (two Dijkstra runs per pair, so every equal-cost alternative
+  counts), the own-only and unstable-avoiding variants, cell-count slack of an own-only path
+  against an active pair's current connection (take-over) and of an unstable-avoiding path
+  (bypass); then the cell's life: first earning turn, the pairs it served and their class at
+  placement time, peak simultaneous pairs, lifetime points, loss turn. `tools/diagnostics/
+  cell_study.py` aggregates. Report `indrill-construction-v1.md`; evidence
+  `evidence/indrill-cell-study-v1.json`, `evidence/boss4-cell-study-v08-40.json`.
+- **Findings, Indrill corpus (282 games):** 40.1% of his cells lie on *some* paint-optimal
+  completion route (single tie-broken path: 36.5%), 61.0% within +1 paint, **77.6% explained**
+  by near-optimal completion / take-over / bypass, **86.8% through turn 45**; the rest is late
+  filler when no inactive pair is reachable (87% of the unexplained cells). His opponents:
+  38.1 / 59.1 / 73.7 / 82.8%. Same places, different outcomes: 59.7% of his cells ever earn
+  (opponents 46.9%), 11.7 vs 8.1 points per paint, 3.6% vs 9.4% abandoned near-optimal
+  projects; his earning probability stays 70-77% at any slack, the opponents' falls to 25-51%
+  beyond +2. Off-route earning cells: completion 35 / bypass 35 / take-over 27% (opponents
+  35 / 15 / 49%). 89% of all points on both sides come from cells on >= 3 connections at
+  their peak. Conclusion: the construction side of the leader is near-optimal completion,
+  full paint every turn, commitment, relocation around threatened regions and filler; there is
+  no hidden routing model to copy.
+- **Findings, Silver boss (40 cached v08 games, 13-27, 78.5 turns):** equal points per paint
+  (27.0 vs 27.2), equal route classes, but paint per turn **1.55 (v08) vs 1.80 (boss)**,
+  placement 54% vs 61%, and the gap sits in turns 21-45 (2.44 / 1.75 vs 2.94 / 2.19). RolloutBot
+  has no leftover-paint rule: when the "wait" root wins or the remaining proposals do not fit,
+  the paint is lost (`USE_IDLE_EXTEND` is read only by EvalBot/HeuristicBot).
+- **leader-v2 reference** (`LeaderBot2`, local-only, leader-v1 sabotage + never-idle
+  construction: 24-turn horizon, shared/enemy-avoiding variants, cheapest-completion fallback,
+  filler next to own earning rails; `LeaderBot2Test`, 4 tests): places on 90% of Indrill's
+  states (2.15 cells/turn; leader-v1 71% / 1.64), cell agreement 11.4%, target agreement 25.7%
+  (leader-v1 25.5%, v08 26.5%; the fitted valuation is no closer to his choices than v08's own
+  chooser). Against v08: **8-32 (20%)**, seeds 771000, `build/analysis/leader-v2-smoke-v08.json`.
+  Stays a behavioural opponent, not a candidate; it showed the gap is unused paint, not routes.
+  The leader-v1 catalog description ("full paint every turn") was corrected.
+- **Experiment fill-v1: `USE_ROLLOUT_FILL`** (default off, `ROLLOUT_FILL_MAX_INSTABILITY=0`):
+  after the v08 search, leftover paint goes to free cells outside the target region in town
+  regions or regions at instability 0, adjacent to an own track; +4 on a proposed route, +3 next
+  to an own earning track (else +1), +2 town region, minus terrain cost. Search, routes,
+  evaluator, target unchanged; `RolloutFillTest` (3 tests). Smoke 40 games vs v08: 25-15,
+  placement 89.5% vs 50%, paint 2.62 vs 1.39. **Practical-v4** (first live use of the v4 runner):
+  block 1 **176-124 (58.67%)**, block 2 **109-91 (54.50%)**, block 3 **284-216 (56.80%)**,
+  pooled **569/1000 = 56.90%, PASS_1000**; zero errors; candidate places on 90-91% of turns
+  (v08 53-56%), 2.65 vs 1.5 paint/turn. Block 1 has 12 slow in-process calls per side (max
+  133 / 120 ms) because a study export and the test suite ran concurrently during that block
+  (my mistake; blocks 2-3 clean at 0 / 3 slow, max 47-93 ms); symmetric, not a process deadline.
+  Verdict `NEEDS_BOSS_CACHED_40`. Evidence `evidence/fill-v1.json`; reports `build/bench/fill-v1/`.
+- **Blocker:** the isolated artifact `submit -PsubmitVersion="current?USE_ROLLOUT_FILL=1"` is
+  **100,646 / 100,000 characters** after compacting the filler to ~1.5k. `current` already ships
+  every rejected default-off rollout experiment (RHEA ~3.5k, network chords ~2.7k, spread ~2k,
+  route dependencies, replan, second target, diverse replies, quick variants, live-target,
+  always-disrupt, track-value); the merger already strips comments. `FileMergerTest` fails on
+  `current` builds while the fill code is present, so the fill code (RolloutBot, Params, its
+  test, `LiveTargetExperimentParams`) is left **uncommitted** pending the user's decision which
+  rejected experiment to delete from `bot/current` (frozen v06-v08 untouched). No boss games,
+  no upload, v08 stays selected.

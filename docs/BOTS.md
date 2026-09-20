@@ -1119,3 +1119,18 @@ construction (1.31-1.32 cells/turn everywhere). leader-v1 itself places on only 
 (1.18/3 paint), so games still last 82-84 turns; it covers the leader's sabotage meta, not its
 construction meta. All flags stay OFF, v08 selected. Runner `tools/run_leader_coverage.py`;
 [evidence](evidence/leader-coverage-v1.json).
+
+## 2026-09-20 - Per-cell construction study; leader-v2; fill-v1 local PASS_1000 (artifact too large)
+
+[indrill-construction-v1.md](indrill-construction-v1.md). Following every placed track through its
+life: 86.8% of Indrill's cells through turn 45 are within one paint of an optimal completion
+route or on a take-over / bypass path; no hidden routing model. His edge is that 60% of his
+cells earn (opponents 47%), 11.7 vs 8.1 points per paint, with full paint on 97% of turns. In
+the 40 cached Silver-boss games v08 and the boss earn the same 27 points per paint, but the boss
+spends **1.80 paint/turn vs our 1.55** (turns 21-45: 2.94 / 2.19 vs 2.44 / 1.75); RolloutBot has
+no leftover-paint rule. `leader-v2` (local reference, never-idle construction) places on 90% of
+Indrill's states but loses 20% to v08. Candidate `current?USE_ROLLOUT_FILL=1` (leftover paint on
+stable/protected cells next to own rails): practical-v4 **176-124 / 109-91 / 284-216 = 569/1000
+(56.90%) PASS_1000**, zero errors, placement 90% vs 54%; verdict NEEDS_BOSS_CACHED_40. Isolated
+artifact **100,646 / 100,000 characters**: a rejected rollout experiment must leave `current`
+before any boss game; fill code uncommitted until then. [Evidence](evidence/fill-v1.json).

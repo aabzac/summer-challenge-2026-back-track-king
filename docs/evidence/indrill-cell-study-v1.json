@@ -1,0 +1,297 @@
+{
+ "source": "build/analysis/leader-study/cells.csv",
+ "namedPlayer": "Indrill",
+ "games": 282,
+ "turns": 14423,
+ "meanGameLength": 51.1,
+ "named": {
+  "cells": 32924,
+  "cellsPerTurn": 2.283,
+  "paintPerTurn": 2.911,
+  "placementRate": 0.97,
+  "everEarned": 0.597,
+  "lostBeforeEarning": 0.225,
+  "neutralised": 0.135,
+  "pointsPerPaint": 11.68,
+  "pointsPerEarnedCell": 24.9,
+  "meanMaxPairsEarned": 4.43,
+  "meanLifetimeEarned": 24.5,
+  "pointsShareFromCellsOn3PlusPairs": 0.892,
+  "townRegion": 0.205,
+  "adjOwn": 0.527,
+  "meanCost": 1.28,
+  "oppInRegion": 0.402,
+  "unstableRegion": 0.182,
+  "onSingleCheapestRoute": 0.525,
+  "onSomeOptimalRoute": 0.401,
+  "withinOnePaint": 0.61,
+  "noInactivePairReachable": 0.239,
+  "takeOverPath": 0.159,
+  "bypassPath": 0.168,
+  "explained": 0.776,
+  "explainedThrough45": 0.868,
+  "firstEarnPairClasses": {
+   "pairsInactiveAtT": 0.734,
+   "pairsStolen": 0.079,
+   "pairsBypassed": 0.174,
+   "pairsOther": 0.012
+  },
+  "earnedBySlackAny": {
+   "-1": 0.211,
+   "0": 0.704,
+   "1": 0.725,
+   "2": 0.774,
+   "3": 0.741,
+   "4": 0.741,
+   "5": 0.714,
+   "6": 0.707
+  },
+  "pointsPerPaintBySlackAny": {
+   "-1": 2.24,
+   "0": 15.4,
+   "1": 17.88,
+   "2": 11.58,
+   "3": 10.85,
+   "4": 14.13,
+   "5": 12.68,
+   "6": 9.9
+  },
+  "byPhase": {
+   "0-2": {
+    "cells": 2507,
+    "earned": 0.548,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.925,
+    "explained": 0.998,
+    "townRegion": 0.685
+   },
+   "3-10": {
+    "cells": 6207,
+    "earned": 0.734,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.575,
+    "explained": 0.993,
+    "townRegion": 0.214
+   },
+   "11-20": {
+    "cells": 6894,
+    "earned": 0.8,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.405,
+    "explained": 0.965,
+    "townRegion": 0.13
+   },
+   "21-30": {
+    "cells": 6193,
+    "earned": 0.688,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.355,
+    "explained": 0.85,
+    "townRegion": 0.135
+   },
+   "31-45": {
+    "cells": 6648,
+    "earned": 0.485,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.286,
+    "explained": 0.618,
+    "townRegion": 0.155
+   },
+   "46+": {
+    "cells": 4475,
+    "earned": 0.16,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.098,
+    "explained": 0.194,
+    "townRegion": 0.213
+   }
+  }
+ },
+ "opponents": {
+  "cells": 34563,
+  "cellsPerTurn": 2.396,
+  "paintPerTurn": 2.883,
+  "placementRate": 0.964,
+  "everEarned": 0.469,
+  "lostBeforeEarning": 0.259,
+  "neutralised": 0.129,
+  "pointsPerPaint": 8.05,
+  "pointsPerEarnedCell": 20.7,
+  "meanMaxPairsEarned": 4.06,
+  "meanLifetimeEarned": 25.9,
+  "pointsShareFromCellsOn3PlusPairs": 0.887,
+  "townRegion": 0.199,
+  "adjOwn": 0.473,
+  "meanCost": 1.2,
+  "oppInRegion": 0.379,
+  "unstableRegion": 0.163,
+  "onSingleCheapestRoute": 0.493,
+  "onSomeOptimalRoute": 0.381,
+  "withinOnePaint": 0.591,
+  "noInactivePairReachable": 0.248,
+  "takeOverPath": 0.15,
+  "bypassPath": 0.147,
+  "explained": 0.737,
+  "explainedThrough45": 0.828,
+  "firstEarnPairClasses": {
+   "pairsInactiveAtT": 0.722,
+   "pairsStolen": 0.173,
+   "pairsBypassed": 0.099,
+   "pairsOther": 0.005
+  },
+  "earnedBySlackAny": {
+   "-1": 0.125,
+   "0": 0.608,
+   "1": 0.6,
+   "2": 0.675,
+   "3": 0.51,
+   "4": 0.397,
+   "5": 0.401,
+   "6": 0.249
+  },
+  "pointsPerPaintBySlackAny": {
+   "-1": 1.17,
+   "0": 11.65,
+   "1": 12.03,
+   "2": 8.62,
+   "3": 6.49,
+   "4": 6.86,
+   "5": 5.73,
+   "6": 2.99
+  },
+  "byPhase": {
+   "0-2": {
+    "cells": 2526,
+    "earned": 0.527,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.953,
+    "explained": 1.0,
+    "townRegion": 0.636
+   },
+   "3-10": {
+    "cells": 6321,
+    "earned": 0.706,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.659,
+    "explained": 0.993,
+    "townRegion": 0.199
+   },
+   "11-20": {
+    "cells": 7107,
+    "earned": 0.699,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.384,
+    "explained": 0.958,
+    "townRegion": 0.149
+   },
+   "21-30": {
+    "cells": 6624,
+    "earned": 0.503,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.306,
+    "explained": 0.818,
+    "townRegion": 0.135
+   },
+   "31-45": {
+    "cells": 7332,
+    "earned": 0.248,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.216,
+    "explained": 0.51,
+    "townRegion": 0.146
+   },
+   "46+": {
+    "cells": 4653,
+    "earned": 0.063,
+    "paintPerTurn": null,
+    "onSomeOptimalRoute": 0.056,
+    "explained": 0.148,
+    "townRegion": 0.215
+   }
+  }
+ },
+ "paintByPhase": {
+  "0-2": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   }
+  },
+  "3-10": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   }
+  },
+  "11-20": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   }
+  },
+  "21-30": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 0.998
+   }
+  },
+  "31-45": {
+   "named": {
+    "paintPerTurn": 3.0,
+    "placementRate": 1.0,
+    "fullPaint": 1.0
+   },
+   "opponents": {
+    "paintPerTurn": 2.99,
+    "placementRate": 0.999,
+    "fullPaint": 0.995
+   }
+  },
+  "46+": {
+   "named": {
+    "paintPerTurn": 2.51,
+    "placementRate": 0.836,
+    "fullPaint": 0.836
+   },
+   "opponents": {
+    "paintPerTurn": 2.37,
+    "placementRate": 0.804,
+    "fullPaint": 0.777
+   }
+  },
+  "overall": {
+   "named": {
+    "paintPerTurn": 2.91,
+    "placementRate": 0.97
+   },
+   "opponents": {
+    "paintPerTurn": 2.88,
+    "placementRate": 0.964
+   }
+  }
+ }
+}
