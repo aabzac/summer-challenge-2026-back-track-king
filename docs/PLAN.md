@@ -525,3 +525,19 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       regions shared with the opponent, 60% adjacent to own rails) before a never-idle rule.
 - [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest
       route, not the max-traffic one) before re-adding a corridor fallback; mind artifact size.
+
+## Adopt practical-1000-futility-boss-cache-v4 (2026-09-20)
+
+- [x] Adopt the user-approved policy: one pooled 1000-game local comparison (blocks 300/+200/+500)
+      with futility-only interim looks (<50% at cumulative 300 or 500 stops), final gate >=55% over
+      all 1000; no early pass. The 40-game cached-boss check is unchanged from v3 and may run
+      concurrently once the 500-game look clears; a local failure cannot be rescued.
+- [x] Implement `tools/practical_gate_v4.py` (pooled assessor + futility + boss combine, reusing
+      the v3 cached-boss checker) and `tools/run_practical_v4.py` (three-block runner that stops
+      automatically on a futility look, excludes all prior benchmark maps, write-once reports).
+- [x] Add `tools/test_practical_gate_v4.py` (thresholds, both futility looks, rejection-only,
+      freshness, changed-conditions, boss integration, block sizes, CLI write-once): 11 tests /
+      8 subtests. Full suite 125 Python tests pass; v2/v3 checkers and verdicts unchanged.
+- [x] Update AGENTS.md #3, README, docs/benchmarking.md (active section; v3 marked superseded).
+- [ ] Re-run the retained track-value-v1 `self` candidate under v4 as the first live use of the
+      new runner (optional; its v3 verdict was already NOT_PASSED at 50.85%/1000).

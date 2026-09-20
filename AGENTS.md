@@ -13,20 +13,22 @@ finished.
    benches are only trusted while the engine reproduces downloaded CG games. When the local bench
    and the CG arena disagree, run `cgValidate` first, then form hypotheses.
 3. **One change, one version, one bench.** Record every experiment in `docs/BOTS.md`.
-   Practical strength gate (v3): candidate vs selected control, 300 paired games; >=60% passes,
-   <=52% stops, only >52% and <60% continues to separate 1000 fresh games at >=55%.
-   Also play exactly 40 NEW candidate games against the live boss on the saved control's
-   40 seeds/maps/seats; reuse its individually verified replay outcomes, not a historical rate.
-   Candidate score >= cached control score passes (ties pass); wins=1, draws=0.5, losses=0.
-   This replaces the mandatory older/style-opponent 300/1000 stages. Boss calls stay sequential;
-   after a qualifying 300 screen, the boss batch may run alongside the required local 1000.
-   Complete both started stages; a local failure cannot be rescued by boss results.
-   Fixed complete stages, no tuning/retries/pooling; stop promotion evaluation on direct failure.
-   Confidence intervals are diagnostics, not a gate or an overall 95% guarantee. Follow
-   `docs/benchmarking.md` and `docs/boss-cache-policy-v3.md`; engine, errors and exact-artifact
-   process checks remain mandatory. Reused boss maps are a practical regression pool, not fresh
-   confirmation; check cache validity and refresh after outcome-guided development cycles.
-   Apply v3 prospectively; preserve historical policies/verdicts and frozen v2 tools.
+   Practical strength gate (v4): candidate vs selected control, one pooled **1000 paired games**
+   on fresh disjoint maps, played in three blocks (300 / +200 / +500) with two **futility-only**
+   interim looks — stop when the pooled score is strictly below 50% at cumulative 300 or 500
+   games. Survivors play the full 1000; promotion is decided once, at >=55% over all 1000. No
+   early pass. Also play exactly 40 NEW candidate games against the live boss on the saved
+   control's 40 seeds/maps/seats; reuse its individually verified replay outcomes, not a
+   historical rate. Candidate score >= cached control score passes (ties pass); wins=1,
+   draws=0.5, losses=0. The boss batch may run alongside block 3 once the 500-game look clears;
+   a local failure can never be rescued by boss results. Fixed complete stages, no
+   tuning/retries; a futility stop ends evaluation. Confidence intervals are diagnostics, not a
+   gate or an overall 95% guarantee. Keep the timed strength bench at two workers. Follow
+   `docs/benchmarking.md`; the cached-boss mechanism and pool are unchanged from
+   `docs/boss-cache-policy-v3.md`. Engine, errors and exact-artifact process checks remain
+   mandatory. Reused boss maps are a practical regression pool, not fresh confirmation; check
+   cache validity and refresh after outcome-guided development cycles. Apply v4 prospectively;
+   preserve historical policies/verdicts and the frozen v2/v3 tools.
 4. **Parameters, not file copies.** All weights/flags are fields of `btk.bot.Params`; ablations are
    run as `current?KEY=value` bot specs. Never edit `btk.bot.vNN` packages — they are frozen
    reference opponents. New version = copy `bot/current` to `bot/vNN`, rename classes, register in

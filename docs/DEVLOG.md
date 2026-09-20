@@ -3683,3 +3683,36 @@ Completed outcome (fixed sample, no retuning):
   sabotage mechanisms are screened against the meta they target; (b) a user-authorized 40-game
   cached-boss diagnostic of the self-only variant as done for live-target; (c) the never-idle
   construction gap (1.1 unused paint/turn on Indrill's states) once its routing model is known.
+
+## 2026-09-20 - Adopt practical-1000-futility-boss-cache-v4
+
+- **User decision:** change the candidate criterion to a single 1000-game run with an early
+  stop, instead of the v3 300-screen then conditional fresh 1000. Assessed the proposal and
+  refined it: keep interim looks strictly *futility-only* (reject, never promote early), add a
+  cheaper look at 300 as well as the user's 500, and gate boss on the 500-look clearing so the
+  rate-limited boss quota is never spent on a candidate the local run then aborts.
+- **Policy v4:** one pooled 1000-game local comparison vs the selected control on fresh disjoint
+  maps, three registered blocks (300 / +200 / +500). Two pre-specified futility looks stop when
+  the pooled score is strictly below 50% at cumulative 300 or 500 games; survivors always play
+  the full 1000 and are gated once at >=55%. No early pass (an early accept would bias the
+  promotion direction; futility only ever stops a losing run and cannot inflate false promotion).
+  At n=500 a true-55% candidate falls under 50% ~1% of the time, so a genuine passer is almost
+  never aborted. The 40-game cached-boss check is unchanged from v3 and may run concurrently
+  once the 500-look clears; a local failure can never be rescued by boss. Two workers stay the
+  rule for the timed bench (more threads starve the 486/36-ms search and can bias A vs B).
+- **Why not the user's exact shape:** going straight to 1000 for everyone is slower than v3 on
+  the common failing candidate (which v3 kills at 300). The 300+500 futility looks fold the old
+  screen into the single 1000 so clearly-losing candidates still die at 300, borderline at 500,
+  and only survivors reach 1000 - and we never play a throwaway screen on separate maps.
+- **Implementation:** 	ools/practical_gate_v4.py (pooled assessor + futility + boss combine,
+  reusing v3's checked_boss/oss_cached), 	ools/run_practical_v4.py (three-block runner,
+  stops automatically on a futility look, excludes every prior benchmark map hash, write-once
+  reports and per-block decisions). 	ools/test_practical_gate_v4.py: 11 tests / 8 subtests
+  covering both futility boundaries (strict <50%, exact-50% survives), the 55% final gate with
+  draw half-credit, rejection-only interims, cross-block freshness, changed conditions/params/
+  bots, block sizes, boss-cannot-rescue and CLI write-once. The v2 and v3 modules, tests and all
+  historical verdicts are untouched. **125 Python tests pass** (was 89/114); Java unaffected.
+- **Docs:** AGENTS.md #3, README and docs/benchmarking.md updated; v3 kept as superseded but
+  reproducible. The general contest skill is deliberately not changed (project-specific policy).
+- **Not yet run:** no games under v4 yet. First live use will be re-screening the retained
+  track-value-v1 self candidate (its v3 verdict was NOT_PASSED at 50.85%/1000).

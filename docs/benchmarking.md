@@ -102,10 +102,45 @@ Core rules and shared utilities remain shared. A parameter snapshot is not an ar
 the whole executable; retain the code revision along with reports when comparing across changes
 to the engine or runtime.
 
-## Active practical selection policy (2026-09-19)
+## Active practical selection policy (2026-09-20)
 
-The active policy is **practical-300-1000-boss-cache-v3**. Its full specification and
-initial accepted v07 cache are in [boss-cache-policy-v3.md](boss-cache-policy-v3.md).
+The active policy is **practical-1000-futility-boss-cache-v4**. It replaces the v3
+screen/conditional-direct shape with one pooled 1000-game local comparison plus the unchanged
+40-game cached boss. Adoption is prospective; the v2 and v3 checkers and every historical
+verdict stay exactly as recorded.
+
+- Local strength: a single fixed **1000-game** comparison of candidate versus the selected
+  control on fresh disjoint maps, played in three registered blocks and pooled into one score:
+  block 1 = 300 games / 150 maps, block 2 = 200 / 100 (cumulative 500), block 3 = 500 / 250
+  (cumulative 1000).
+- Two pre-specified interim looks are **futility only** — they can reject the candidate but
+  never promote it early: stop when the pooled score is strictly below **50%** at cumulative
+  300 or at 500 games. A candidate that survives both looks always plays the full 1000, and the
+  promotion decision is made once, at **>=55%** over all 1000 games. There is no early pass.
+- Boss: **40 new candidate games** on the cached control's exact 40 maps/seeds/seats, scored
+  relative to the pinned control (wins=1, draws=0.5; candidate total >= control passes; ties
+  pass). Unchanged from v3. By policy the boss batch may run concurrently once the 500-game look
+  clears; a local failure can never be rescued by boss results.
+- Rationale: at n=500 a candidate whose true rate is 55% falls under 50% about 1% of the time,
+  so a genuine passer is almost never aborted; a futility look only ever stops a losing run, so
+  it cannot inflate the false-promotion rate. Pooling one 1000-game sample is cleaner than a
+  separate 300 screen plus a fresh 1000 on other maps, and it never plays a throwaway screen:
+  clearly-losing candidates die at 300, borderline ones at 500, only survivors reach 1000.
+- No tuning, extending or retrying stages until they pass. Engine fidelity, zero errors and
+  strict exact-artifact process checks remain mandatory. No overall 95% guarantee is claimed;
+  confidence intervals stay diagnostic. Keep the timed strength bench at two worker threads:
+  more threads speed up wall-clock but starve the timed 486/36-ms search and can bias A vs B.
+
+Run `python tools/run_practical_v4.py --spec <candidate> --name <id> --seed <base>` for the
+local blocks (it stops automatically on a futility look), then combine with
+`python tools/practical_gate_v4.py --block1 <r1> --block2 <r2> --block3 <r3> --boss-plan <cached>`.
+The cached boss batch itself is unchanged: `tools/boss_cached.py`.
+
+### Superseded (still available for reproduction): practical-300-1000-boss-cache-v3 (2026-09-19)
+
+The v3 specification and initial accepted v07 cache are in
+[boss-cache-policy-v3.md](boss-cache-policy-v3.md); its checker is `tools/boss_practical_gate.py`.
+Experiments completed under v3 keep their recorded policy and verdict.
 
 - Direct candidate versus selected control: 300 games / 150 fresh paired maps;
   >=60% passes, <=52% stops. Only >52% and <60% continues to a separate fresh

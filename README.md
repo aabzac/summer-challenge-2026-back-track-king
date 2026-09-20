@@ -165,6 +165,16 @@ Both confidence intervals are now diagnostic only; the historical `promotionGate
 field is explicitly labelled legacy. See [docs/benchmarking.md](docs/benchmarking.md) for the
 complete policy, stopping conditions and version-freezing procedure.
 
+The active policy since 2026-09-20 is **practical-1000-futility-boss-cache-v4**: one pooled
+1000-game local comparison (blocks 300 / +200 / +500) with **futility-only** interim looks that
+stop when the pooled score is strictly below 50% at cumulative 300 or 500 games. Survivors play
+the full 1000 and are gated once at >=55%; there is no early pass. The 40-game cached-boss check
+is unchanged from v3 and may run concurrently once the 500-game look clears; a local failure is
+never rescued by boss results. Run `python tools/run_practical_v4.py --spec <candidate> --name
+<id> --seed <base>` (stops automatically on a futility look), then combine domains with
+`python tools/practical_gate_v4.py --block1 <r1> --block2 <r2> --block3 <r3> --boss-plan <cached>`.
+The superseded v3 tooling (`boss_practical_gate.py`) and its verdicts remain for reproduction.
+
 Explicit empty or malformed replay pools fail instead of silently switching to generated maps.
 `cgValidate` also exits with an error for divergences, malformed input or an empty replay corpus.
 
