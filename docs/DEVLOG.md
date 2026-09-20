@@ -3979,3 +3979,29 @@ Completed outcome (fixed sample, no retuning):
   selection; v09 stays selected and `build/submit/Player.java` is untouched (the neural artifact is
   in `build/submit-neural/`). Evidence: `docs/evidence/neural-v1-training.json`,
   `docs/evidence/neural-v1-v4.json`, `build/bench/neural-v1/`.
+
+## 2026-09-20 - neural-v1 cached-boss stage (user-authorised): NOT_PASSED
+
+- **User decision:** run the 40-game cached-boss stage for neural-v1 after its local PASS_1000.
+- **Artifact:** `submit -PsubmitVersion=neural-v1 -PsubmitOut=build/cg-boss/artifacts/neural-v1`
+  (87,815 chars, source `19ca607a...`, build `73f774fb...`, identical to the earlier merge); strict
+  `procCheck -Pbot=v09 -Pgames=8 -Pmap=replays/cg/boss`: **0/8 problem games**, 3/8 wins, first
+  <= 613 ms, later <= 27.2 ms.
+- **Plan:** `boss_cached.py plan --control-plan build/cg-boss/fill-v1-boss-40b/plan.json
+  --control-arm candidate` -> `build/cg-boss/neural-v1-boss-40` (plan `c334c9c9...`), control =
+  the boss-tested v09/fill-v1 build `4cda8b1b...` with its 17 W / 23 L on 40 maps / 20+20 seats.
+  Forty sequential candidate games 21:20-21:43 UTC against Boss 4 `6740207` (rating 30.25-30.31),
+  no failed, refused or uncertain requests, no retries.
+- **Result:** candidate **12 W / 28 L / 0 D** (24 half-points) vs cached **17 / 23** (34):
+  `bossStage NOT_PASSED`. Candidate P0 7/20, P1 5/20; per map/seat both 4, candidate-only 8,
+  control-only 13, neither 15. `cgValidate` on `replays/cg/boss/neural-v1/73f774fb.../`: **40/40
+  exact**. `practical_gate_v4.py --block1..3 --boss-plan`: local PASS_1000 + boss NOT_PASSED ->
+  **strengthStatus NOT_PASSED, promotion false** (`build/bench/neural-v1/decision.json`).
+- **Reading:** the imitation reproduces the Legend meta and beats our own search bot in the
+  mirror bench, but the Silver boss plays a longer construction game on which pure imitation
+  without lookahead scores 30% vs v09's 42.5%; measured covariate shift, as anticipated in
+  neural-policy-v1.md section 1. No tuning or second attempt; the retained candidate is
+  unchanged and v09 stays selected. Follow-ups recorded in PLAN (outcome fine-tuning, boss-state
+  domain bridge, hybrid move generator for the rollout).
+- **Evidence:** `docs/evidence/neural-v1-boss.json` (pairs with both results),
+  `docs/evidence/neural-v1-decision.json`, `build/cg-boss/neural-v1-boss-40/report.json`.

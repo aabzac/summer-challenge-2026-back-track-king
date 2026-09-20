@@ -122,9 +122,34 @@ Style check, 200 games / 100 paired maps (seeds 910000): **168-32 (84.0%)** vs `
 (v08 scored 82% on its own panel), 100% accepted disruption on both sides, games 52.9 turns,
 196/200 early closures.
 
-Local verdict: `directStage PASS_1000`, `strengthStatus NEEDS_BOSS_CACHED_40`. The 40-game
-cached-boss stage needs live CG API games and the user's authorisation; it was not run.
+Local verdict: `directStage PASS_1000`, `strengthStatus NEEDS_BOSS_CACHED_40`.
 Evidence: [neural-v1-v4.json](evidence/neural-v1-v4.json), reports `build/bench/neural-v1/`.
+
+### Cached-boss stage (user-authorised, 2026-09-20 21:20-21:43 UTC): NOT_PASSED
+
+Isolated artifact `build/cg-boss/artifacts/neural-v1` (same source `19ca607a...`, build
+`73f774fb...`; strict process check 0/8 problem games, later <= 27.2 ms). Plan
+`build/cg-boss/neural-v1-boss-40` (`c334c9c9...`) reuses the pinned v09 control (the fill-v1
+boss-tested build `4cda8b1b...`, 17 W / 23 L) on its 40 maps, seeds and seats; Boss 4 `6740207`,
+rating 30.25-30.31 during the run, no failed or uncertain requests.
+
+**Candidate 12 W / 28 L / 0 D (24 half-points) vs cached v09 17 / 23 (34): bossStage NOT_PASSED.**
+Per map/seat: both win 4, candidate-only 8, control-only 13, neither 15; candidate P0 7/20,
+P1 5/20. All 40 canonical replays reproduce exactly through `btk.core`
+(`replays/cg/boss/neural-v1/73f774fb.../`).
+
+Combined v4 verdict (`practical_gate_v4.py --block1..3 --boss-plan`): local PASS_1000 + boss
+NOT_PASSED = **strengthStatus NOT_PASSED, promotion false**. v09 remains selected.
+Evidence: [neural-v1-boss.json](evidence/neural-v1-boss.json),
+[neural-v1-decision.json](evidence/neural-v1-decision.json).
+
+Reading: the imitation beats our own search bot in the mirror bench, where its arena-like meta
+(100% sabotage, early closures) is exactly what v09 never faced, but against the Silver boss it
+wins 30% where v09 wins 42.5%. The boss is a very different opponent from Indrill's Legend
+opponents: it plays a longer, construction-heavy game on which 23% placement top-1 imitation
+without any lookahead leaves paint value on the table. This is the covariate-shift failure mode
+listed in section 1, now measured. The practical rule makes the boss check decisive, so the
+candidate stays a local candidate.
 
 ## 6. Reproduction
 
@@ -162,6 +187,10 @@ turn budget unused for a later search-on-top.
   mixes styles; a per-player embedding or a filter on won games would be the clean way.
 - Natural continuations, in order: (1) fine-tune the same small net on local arena outcome
   (evolution strategies / policy gradient with `bench` as fitness, keeping the imitation as the
-  prior); (2) DAgger-style relabelling is impossible without the teacher, but training on our own
-  *won* games against strong references is a cheap self-distillation; (3) a value head for the
-  closure margin instead of the fixed constant.
+  prior) and, given the boss result, on the 40 pinned boss maps' *states* (the v09 boss replays
+  are exact, so v09-vs-boss positions can be mixed into the training set as a domain bridge);
+  (2) DAgger-style relabelling is impossible without the teacher, but training on our own *won*
+  games against strong references is a cheap self-distillation; (3) a value head for the
+  closure margin instead of the fixed constant; (4) a hybrid: the imitation as a move generator
+  for the rollout's portfolio (its candidates instead of hand-built routes), which keeps v09's
+  lookahead where the boss punishes its absence.

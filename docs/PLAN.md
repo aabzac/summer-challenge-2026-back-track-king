@@ -591,10 +591,9 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [x] Timing: exporter 4.9 ms/turn features; strict 8-game process check 0/8, later <= 30.6 ms
       (after replacing the referee-exact path search in features: 49.1 ms before).
 - [x] Practical-v4 vs v09: 558/1000 = **55.80% PASS_1000**; leader-v1 style check 84%.
-- [ ] Cached-boss 40-game stage (`tools/boss_cached.py`, needs the user's authorisation and the
-      pinned v09 control cache), then `practical_gate_v4.py --boss-plan` for the combined verdict.
-- [ ] If passed and selected: freeze as v10 (copy `bot/neural` weights/source, register), rebuild
-      `build/submit`, strict panel, record the exact deployed hash.
+- [x] Cached-boss 40-game stage (user-authorised): isolated artifact 0/8 strict; **12 W / 28 L vs
+      cached v09 17 / 23**, NOT_PASSED; 40/40 replays exact. Combined v4: **NOT_PASSED**, v09 stays.
 - [ ] Follow-ups: fine-tune the same net on local outcomes (ES / policy gradient with `bench` as
-      fitness, imitation as prior); add other Legend players' replays (`-Ppath`/`-Pplayer` lists);
-      value head for the closure margin.
+      fitness, imitation as prior) and bridge the boss domain with v09-vs-boss states; add other
+      Legend players' replays (`-Ppath`/`-Pplayer` lists); value head for the closure margin;
+      hybrid = imitation candidates as the rollout's move generator.
