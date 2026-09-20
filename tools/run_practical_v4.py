@@ -106,7 +106,7 @@ def run_block(name, spec, control, block, games, pairs, seed_start):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--spec', required=True, help='candidate bot spec, e.g. current?USE_ROLLOUT_TRACK_VALUE=1')
-    parser.add_argument('--control', default='v08')
+    parser.add_argument('--control', default='v09')
     parser.add_argument('--name', required=True, help='experiment id; used for the report folder and pools')
     parser.add_argument('--seed', type=int, required=True, help='base seed for block 1; blocks are 100k apart')
     args = parser.parse_args()

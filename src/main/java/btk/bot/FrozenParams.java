@@ -21,6 +21,8 @@ final class FrozenParams {
             if (!snapshot.containsKey("USE_ROLLOUT_NETWORK_AFTER_BASE")) params.USE_ROLLOUT_NETWORK_AFTER_BASE = false;
             // Pre-v08 snapshots retain the original opening instead of inheriting current's selection.
             if (!snapshot.containsKey("USE_PROTECTED_OPENING")) params.USE_PROTECTED_OPENING = false;
+            // Pre-v09 snapshots keep leaving leftover paint unused instead of inheriting the fill default.
+            if (!snapshot.containsKey("USE_ROLLOUT_FILL")) params.USE_ROLLOUT_FILL = false;
             for (String key : snapshot.stringPropertyNames()) params.set(key, snapshot.getProperty(key));
             return params;
         } catch (IOException e) {

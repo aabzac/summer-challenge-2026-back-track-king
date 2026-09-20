@@ -41,6 +41,8 @@ FUTILITY_PERCENT = 50
 FROZEN_CONTROL_ALIASES = {
     'v08': {'spec': 'current?USE_PROTECTED_OPENING=1',
             'buildId': 'c6b4deae785d05d8fca5822393e8f805353541bc16345f9a0e4b89bf0871fb6b'},
+    'v09': {'spec': 'current?USE_ROLLOUT_FILL=1',
+            'buildId': '4cda8b1b50de4f94009b658d6aa56d13f3ff9577168ae4395e85718668e55407'},
 }
 LATER_DEFAULT_OFF_FIELDS = {
     'USE_ROLLOUT_LIVE_TARGET': 'false', 'ROLLOUT_LIVE_WEIGHT': '12.0', 'ROLLOUT_LIVE_TURNS': '2',

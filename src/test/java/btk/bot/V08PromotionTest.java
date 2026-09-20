@@ -27,6 +27,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class V08PromotionTest {
     private static final Gson JSON = new Gson();
+    /** Historical v08 as reproduced by current: only the later selected fill default is disabled. */
+    private static final String CURRENT_V08 = "current?USE_ROLLOUT_FILL=0";
 
     private static TreeMap<String, String> record(String resource) throws Exception {
         Properties properties = new Properties();
@@ -43,21 +45,21 @@ class V08PromotionTest {
         Params params = new Params();
         for (var entry : record("/v08-confirmed.properties").entrySet())
             params.apply(entry.getKey() + "=" + entry.getValue());
+        params.USE_ROLLOUT_FILL = false; // later selected default, absent from the v08 record
         return params;
     }
 
-    @Test void currentMainAndFrozenMatchEveryMeasuredParameterWithoutRetuning() throws Exception {
+    @Test void historicalCurrentAndFrozenMatchEveryMeasuredParameterWithoutRetuning() throws Exception {
         var expected = record("/v08-confirmed.properties");
         assertEquals(107, expected.size());
-        for (String spec : new String[]{"current", "main", "v08", "current?USE_PROTECTED_OPENING=1"}) {
+        for (String spec : new String[]{CURRENT_V08, "v08", "current?USE_PROTECTED_OPENING=1,USE_ROLLOUT_FILL=0"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             LiveTargetExperimentParams.removeAndCheck(actual);
             assertEquals(expected, actual, spec);
         }
         assertTrue(new Params().USE_PROTECTED_OPENING);
         assertFalse(new Params().USE_ROLLOUT_RHEA);
-        assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
-        assertInstanceOf(MainBot.class, BotFactory.create("main"));
+        assertInstanceOf(RolloutBot.class, BotFactory.create(CURRENT_V08));
         assertInstanceOf(RolloutBotV08.class, BotFactory.create("v08"));
         assertEquals("v08", BotFactory.create("v08").name());
 
@@ -116,8 +118,8 @@ class V08PromotionTest {
     }
 
     private static Bot[] candidates(GameState state, int me) throws Exception {
-        Bot[] bots = {new RolloutBot(measuredParameters()), BotFactory.create("current"),
-                BotFactory.create("main"), BotFactory.create("v08")};
+        Bot[] bots = {new RolloutBot(measuredParameters()), BotFactory.create(CURRENT_V08),
+                new MainBot(BotFactory.parameters("v08")), BotFactory.create("v08")};
         for (Bot bot : bots) bot.init(state.copy(), me);
         return bots;
     }
@@ -150,7 +152,7 @@ class V08PromotionTest {
         return expected;
     }
 
-    @Test void measuredCurrentMainAndFrozenAgreeOnBothSeatsAcrossEarlyAndEvolvingBoards() throws Exception {
+    @Test void measuredHistoricalCurrentMainAndFrozenAgreeOnBothSeatsAcrossEarlyAndEvolvingBoards() throws Exception {
         int early = 0, selected = 0, late = 0;
         boolean[][] openingCovered = new boolean[2][3];
         for (int seed : new int[]{310, 311, 1000, 1001}) for (int me = 0; me < 2; me++) {
@@ -188,7 +190,7 @@ class V08PromotionTest {
         }
     }
 
-    @Test void measuredCurrentMainAndFrozenAgreeOnSavedBossPositions() throws Exception {
+    @Test void measuredHistoricalCurrentMainAndFrozenAgreeOnSavedBossPositions() throws Exception {
         var positions = fixture("/btk/bot/rollout-boss-positions.json").getAsJsonArray("positions");
         assertEquals(2, positions.size());
         int later = 0;

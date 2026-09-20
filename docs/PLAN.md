@@ -547,9 +547,15 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       replays exact. Combined v4 verdict **PASS, promotion true** (`evidence/fill-v1-decision.json`).
       The v4 gate gained the explicit `v08` control alias (build `c6b4deae…`, later default-off
       fields at defaults); 126 Python tests pass.
-- [ ] **Decision needed:** promote fill-v1 as v09 (copy `current` -> `bot/v09`, default
-      `USE_ROLLOUT_FILL=true`, freeze source + parameters, `submit` + `procCheck` on the default
-      artifact, record in BOTS/v09-promotion.md) and upload. Until then v08 stays selected.
+- [x] User decision: **v09 Never Idle** promoted (`bot/v09` frozen, 117-field snapshot,
+      `USE_ROLLOUT_FILL=true` default, v01-v08 pinned to false). Default artifact 95,278 chars,
+      strict 8-game panel 0/8, 355 Java + 126 Python tests, 292/292 + 259/259 replays exact.
+      `v09-promotion.md`, `evidence/v09-promotion.json`.
+- [ ] Upload `build/submit/Player.java` (v09, source `1df7c131…`) to the arena; record the
+      arena snapshot and the exact deployed hash in BOTS.md.
+- [ ] After outcome-guided development on the boss pool, refresh the cached-boss control before
+      the next candidate (`tools/boss_cached.py` on v09; the v4 alias `v09` = build `4cda8b1b…`
+      already points at the boss-tested artifact).
 - [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest
       route, not the max-traffic one) before re-adding a corridor fallback; mind artifact size.
 

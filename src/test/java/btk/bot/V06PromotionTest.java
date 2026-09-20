@@ -14,7 +14,7 @@ import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class V06PromotionTest {
-    private static final String CURRENT_V06 = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
+    private static final String CURRENT_V06 = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_ROLLOUT_FILL=0";
 
     @Test void historicalCurrentAndFrozenParametersMatchTheConfirmedCandidateRecord() throws Exception {
         // Independent evidence captured from rollout-confirmation-2x1000/run-1.json paramsA.

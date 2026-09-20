@@ -9,9 +9,16 @@ older/style-opponent stages. Sequential boss calls may run alongside the require
 not fresh confirmation. Engine, errors and exact-artifact process checks still apply.
 See [the v3 rule](boss-cache-policy-v3.md) and [benchmarking.md](benchmarking.md).
 Historical entries retain the policy and verdict in force when those experiments ran.
-`current` = **v07**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+`current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-Selected on 2026-09-19: **v08 Protected Opening**, the exact approved opening candidate.
+Selected on 2026-09-20: **v09 Never Idle**, the exact fill-v1 candidate
+(`current?USE_ROLLOUT_FILL=1`): v08 plus leftover paint spent on stable/protected cells next to
+own rails; RHEA code removed from the shipped source. Practical-v4 vs v08: **569/1000 (56.90%)**
+PASS_1000; boss: **17/40 vs cached v08 13/40**, PASS. All 117 effective parameters are frozen.
+Default artifact 95,278 characters, strict 8-game process panel **0/8** problem games.
+Promotion record: [v09-promotion.md](v09-promotion.md).
+
+Previously selected on 2026-09-19: **v08 Protected Opening**, the exact approved opening candidate.
 Direct vs v07: **62% / 300**; boss: **13/40 vs cached v07 10/40**, practical-v3 PASS.
 All 107 effective parameters are frozen. Promotion and exact-artifact readiness:
 [v08-promotion.md](v08-promotion.md).
@@ -311,6 +318,8 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 | v05 Disrupt Reserve | 2026-09-14 | v04 + 6-ms reserve for sabotage: cut route/idle search short on the original turn clock; evaluation formulas and CGRunner margin unchanged. | Confirmation vs v04: **57.7%**, W-L-D **575-421-4**, n=1000/500 new paired maps, map-grouped 95% CI **[51.6%, 63.8%]**, avg diff **+879.1**. Common opponents: v03 **69.3% vs v04's 61.3%**; aggressive v02 **70.0% vs v04's 67.7%**, each 300 matched games. Process check: **0/8** problem games, first <=676 ms, later <=34 ms. | Uploaded as agent **6736850**. User: rank 321 at 43%; API snapshot rank 333. First 56 fetched games: **38-18**, no own timeouts; placement ongoing |
 | v06 Simultaneous Rollout | 2026-09-16 | Independent eight-turn simultaneous construction/sabotage rollout; six route proposals, two opponent priorities; exact confirmed policy and full parameter snapshot. Selected by the user. | Fixed confirmation vs v05: **1230-770 (61.5%)**, 2x1000 games / 1000 distinct paired maps, map-grouped 95% CI **57.21-65.79%**; both individual gates pass. Older checks: v03 **68.5%**, pressure-v1 **74.5%**, 200 games each. Earlier process 0/42; final packaged source **FAILED 1/42**, later response 50.462 ms. | User-reported upload: 153/645, previous v05 rank 270; exact deployed hash unverified; local timing issue remains open |
 | v07 Network After Base | 2026-09-18 | QuickIncome ordinary search first; single-cell network actions only after complete ordinary comparisons. Exact 98-field measured snapshot; selected by the user. | Direct v06: **62.50% / 300**; matched fresh v05: **64.90% vs 56.90% / 1000 each**, +8.00 points, practical-v2 PASS. Independent QuickIncome ablation **59.6667% / 300** (diagnostic). 273 tests, 264 exact replays; final Player strict **0/8**, max later **44.7744 ms**. | Locally selected and packaged; not uploaded by agent. Pre-upload CG checkpoint: user reports QuickIncome **111 / 627**. [Promotion evidence](v07-promotion.md). |
+| v08 Protected Opening | 2026-09-19 | v07 plus first-three-turn claims of protected town approaches (one cell per adjacent town per turn, opponent prefix discounted 0.25). Exact 107-field measured snapshot; selected by the user. | Direct v07: **62% / 300**; boss **13/40 vs cached v07 10/40**, practical-v3 PASS. 338 tests; default artifact 96,207 chars, strict panel **1/8** problem games (67.6 ms). | Selected locally 2026-09-19; timing readiness left open. [Promotion evidence](v08-promotion.md). |
+| v09 Never Idle | 2026-09-20 | v08 plus leftover paint spent after the search on stable/protected free cells next to own rails (proposed-route and earning-rail preference); RHEA code removed from the shipped source. Exact 117-field measured snapshot; selected by the user. | Practical-v4 vs v08: **176-124 / 109-91 / 284-216 = 569/1000 (56.90%)** PASS_1000; boss **17/40 vs cached v08 13/40**, PASS. 355 tests, 292+259 exact replays; default artifact 95,278 chars, strict panel **0/8**, later <= 47.2 ms. | Selected locally and packaged 2026-09-20; upload is the user's action. [Promotion evidence](v09-promotion.md). |
 
 ## Paired benchmark checkpoint (2026-09-13)
 

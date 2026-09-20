@@ -61,8 +61,15 @@
       "id": "v08",
       "title": "Protected Opening",
       "category": "version",
-      "status": "selected",
+      "status": "historical",
       "description": "Claims protected town approaches over the first three turns, then uses Network After Base."
+    },
+    {
+      "id": "v09",
+      "title": "Never Idle",
+      "category": "version",
+      "status": "selected",
+      "description": "Protected Opening plus leftover paint spent on stable or protected cells next to own rails after the rollout search; RHEA code removed."
     },
     {
       "id": "pressure-v1",

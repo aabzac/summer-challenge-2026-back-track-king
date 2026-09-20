@@ -14,7 +14,8 @@ gradlew benchSuite -Pbot=current               # matched local opponent panel on
 gradlew botCatalog                            # names, categories and experiment status
 gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
-gradlew submit -PsubmitVersion=v08              # selected frozen v08 source + complete snapshot
+gradlew submit -PsubmitVersion=v09              # selected frozen v09 source + complete snapshot
+gradlew submit -PsubmitVersion=v08              # historical v08 reference build
 gradlew submit -PsubmitVersion=v07              # historical v07 reference build
 gradlew submit -PsubmitVersion=v06              # historical v06 reference build
 gradlew submit -PsubmitVersion=v05              # optional historical v05 reference build
@@ -57,7 +58,7 @@ mirror each other and every game is a draw.
 
 Bots have stable command ids and descriptive labels: `v03 - Risk Aware`, `v04 - Network Extension`,
 `v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout`, `v07 - Network After Base`,
-`v08 - Protected Opening` (selected). Six retained, **not promoted** experiments can also be selected by name:
+`v08 - Protected Opening`, `v09 - Never Idle` (selected). Six retained, **not promoted** experiments can also be selected by name:
 `exp-income-guard`, `exp-build-direction`, `exp-early-disrupt`, `exp-reply-rerank`,
 `exp-interruptible-vuln`, `exp-disrupt-delay065`. For example:
 
@@ -71,10 +72,12 @@ default panel or allowed `submitVersion` values. See [the bot catalog](docs/bot_
 historical evidence, limitations and how to retain/revise an experiment.
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
-P0 and P1. Reference bots `v01`–`v08` load fixed parameter snapshots; explicit query overrides
-are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v08
-protected-opening policy. It scored **62% vs v07** in 300 games and **13/40 boss wins**
-versus the cached v07's **10/40** on the same maps and sides. See [v08 promotion](docs/v08-promotion.md).
+P0 and P1. Reference bots `v01`–`v09` load fixed parameter snapshots; explicit query overrides
+are applied afterward. `current` uses the live `Params` defaults, currently the confirmed v09
+never-idle policy (v08 plus leftover paint spent next to own rails). It scored **56.90% vs v08**
+over 1000 games and **17/40 boss wins** versus the cached v08's **13/40** on the same maps and
+sides. See [v09 promotion](docs/v09-promotion.md); v08's own record is in
+[v08 promotion](docs/v08-promotion.md).
 `current?USE_ROLLOUT_POLICY=0` selects the older working EvalBot; add that
 selector when revisiting historical EvalBot or heuristic experiment recipes.
 
@@ -328,14 +331,15 @@ its exact-artifact check; see [v07 promotion](docs/v07-promotion.md), [BOTS](doc
 and [DEVLOG](docs/DEVLOG.md) for the separate evidence. The newly selected artifact's checks
 are recorded in [v08 promotion](docs/v08-promotion.md).
 The v08 main artifact's fixed strict panel recorded **1/8 problem games**: map 903510176,
-P1 turn 29, **67.5805 ms** against a 50-ms deadline. v08 is selected locally; its arena
-submission timing readiness remains open. The earlier candidate sample does not clear this failure.
+P1 turn 29, **67.5805 ms** against a 50-ms deadline; that record stays. The v09 main artifact's
+identical eight-game panel passed **0/8** (first response <= 736 ms, later <= 47.2 ms), see
+[v09 promotion](docs/v09-promotion.md).
 The merged artifact removes leading/trailing line indentation while preserving token boundaries
 and ordinary string literals. Java text blocks are rejected by the line-based merger; source
 files themselves retain their formatting.
 
-`submit` defaults to `current`, now v08. To reproduce the selected frozen policy, use
-`gradlew submit -PsubmitVersion=v08`; `v07`, `v06` and `v05` also remain available. The merger
+`submit` defaults to `current`, now v09. To reproduce the selected frozen policy, use
+`gradlew submit -PsubmitVersion=v09`; `v08`, `v07`, `v06` and `v05` also remain available. The merger
 includes only the selected strategy as `EvalBot`, embedding its complete resolved parameters
 in `MainBot` for both default and frozen builds. Frozen files and working source stay unchanged.
 This reproduces the strategy, not a byte-for-byte historical artifact (shared core, runtime and

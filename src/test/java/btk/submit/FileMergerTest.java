@@ -90,7 +90,7 @@ class FileMergerTest {
         Map<String, String> measured = new TreeMap<>();
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject(launch.get("candidate").getAsString())
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
-        for (String spec : new String[]{"v07", "current?USE_PROTECTED_OPENING=0"}) {
+        for (String spec : new String[]{"v07", "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_FILL=0"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
@@ -123,13 +123,14 @@ class FileMergerTest {
         Map<String, String> measured = new TreeMap<>();
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject("current?USE_PROTECTED_OPENING=1")
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
-        for (String spec : new String[]{"current", "v08"}) {
+        for (String spec : new String[]{"current?USE_ROLLOUT_FILL=0", "v08"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             btk.bot.LiveTargetExperimentParams.removeAndCheck(actual);
-            assertEquals(measured, actual, "selected complete measured configuration");
+            assertEquals(measured, actual, "historical v08 measured configuration");
         }
         String current = FileMerger.merge("current");
         assertEquals(current, FileMerger.merge("current?USE_PROTECTED_OPENING=1"));
+        assertEquals(current, FileMerger.merge("current?USE_ROLLOUT_FILL=1"));
         assertTrue(current.contains("USE_PROTECTED_OPENING=true"));
         assertTrue(current.contains("USE_ROLLOUT_RHEA=false"));
         assertTrue(current.contains("USE_ROLLOUT_LIVE_TARGET=false"));
@@ -176,6 +177,26 @@ class FileMergerTest {
                         "public String name() { return \"current?\" + p.diff(); }");
         assertEquals(policySection(FileMerger.normalizeMarker(approved)), policySection(frozen),
                 "frozen v08 must ship the approved policy bytes");
+    }
+
+    @Test void selectedAndFrozenV09ShipTheSameNeverIdlePolicyAndFullConfiguration() throws Exception {
+        String current = FileMerger.merge("current"), frozen = FileMerger.merge("v09");
+        FileMerger.checkSourceSize(current);
+        FileMerger.checkSourceSize(frozen);
+        assertTrue(current.contains("USE_ROLLOUT_FILL=true"));
+        assertTrue(frozen.contains("USE_ROLLOUT_FILL=true"));
+        assertTrue(frozen.contains("private void fill("));
+        assertFalse(frozen.contains("searchRhea"));
+        assertFalse(frozen.contains("RolloutBotV09"));
+        assertFalse(frozen.contains("ProtectedOpeningV09"));
+        String normalized = FileMerger.normalizeMarker(frozen)
+                .replace("public String name() { return \"v09\"; }",
+                        "public String name() { return \"current?\" + p.diff(); }");
+        assertEquals(policySection(FileMerger.normalizeMarker(current)), policySection(normalized),
+                "frozen v09 must ship the selected policy bytes");
+        assertEquals(BotFactory.configuration("current"), BotFactory.configuration("v09"));
+        checkFrozenDecisions("v09", true, false, true);
+        checkFrozenDecisions("current", true, false, true);
     }
 
     @Test void frozenV07SubmissionMatchesAnActiveNetworkChoiceIncludingWarmup() throws Exception {
@@ -231,6 +252,7 @@ class FileMergerTest {
         assertFalse(source.contains("btk.bot.v06"));
         assertFalse(source.contains("btk.bot.v07"));
         assertFalse(source.contains("btk.bot.v08"));
+        assertFalse(source.contains("btk.bot.v09"));
         assertFalse(source.contains("class PressureBot"));
         assertFalse(source.contains("class BenchPool"));
         assertFalse(source.contains("class BenchmarkSuite"));

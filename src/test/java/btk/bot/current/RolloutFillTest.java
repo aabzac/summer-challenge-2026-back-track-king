@@ -39,9 +39,10 @@ class RolloutFillTest {
         assertTrue(result.moves[me].skipped.isEmpty(), "skipped: " + result.moves[me].skipped);
     }
 
-    @Test void defaultsStayOffAndFlagOffLeavesPaintUnusedWhenNothingCompletes() {
-        assertFalse(new Params().USE_ROLLOUT_FILL);
+    @Test void selectedDefaultIsOnAndFlagOffLeavesPaintUnusedWhenNothingCompletes() {
+        assertTrue(new Params().USE_ROLLOUT_FILL, "selected v09 default");
         assertEquals(0, new Params().ROLLOUT_FILL_MAX_INSTABILITY);
+        assertFalse(RolloutTestParams.base().USE_ROLLOUT_FILL, "historical fixtures opt out");
         for (int me = 0; me < 2; me++) {
             var s = board();
             for (int c = 1; c <= 5; c++) s.owner[c] = me; // the only pair is already ours

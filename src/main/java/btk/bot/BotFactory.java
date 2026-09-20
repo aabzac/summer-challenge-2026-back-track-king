@@ -13,6 +13,7 @@ import btk.bot.v05.EvalBotV05;
 import btk.bot.v06.RolloutBotV06;
 import btk.bot.v07.RolloutBotV07;
 import btk.bot.v08.RolloutBotV08;
+import btk.bot.v09.RolloutBotV09;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -104,6 +105,7 @@ public final class BotFactory {
             case "v06": return RolloutBotV06::new;
             case "v07": return RolloutBotV07::new;
             case "v08": return RolloutBotV08::new;
+            case "v09": return RolloutBotV09::new;
             case "pressure-v1": return PressureBot::new;
             case "leader-v1": return LeaderBot::new;
             case "leader-v2": return LeaderBot2::new;

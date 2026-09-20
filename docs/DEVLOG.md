@@ -3897,3 +3897,34 @@ Completed outcome (fixed sample, no retuning):
   unchanged; 12 v4 tests (+1), 126 Python tests pass.
 - **Not done:** promotion (copy `current` to `bot/v09`, default `USE_ROLLOUT_FILL=true`, freeze,
   rebuild `build/submit`, upload) needs the user's decision. Selected remains v08.
+
+## 2026-09-20 - v09 Never Idle selected and packaged
+
+- **User decision:** promote fill-v1. Protocol as for v08 ([v09-promotion.md](v09-promotion.md)).
+- **Freeze:** `bot/v09/RolloutBotV09` + `ProtectedOpeningV09` are byte copies of `current` with
+  only package, class names and label changed (verified by hash with the identity changes undone);
+  `v09.properties` = the 117 measured values (identical in the three local blocks and the boss
+  artifact manifest). `Params.USE_ROLLOUT_FILL` default -> true; `FrozenParams` pins
+  `USE_ROLLOUT_FILL=false` for every snapshot that predates the field, so v01-v08 keep leaving
+  paint unused (asserted). BotFactory / FileMerger / catalog know v09; v08 is `historical`.
+  `run_practical_v4.py` defaults its control to v09 and the v4 gate has the alias
+  `v09` = build `4cda8b1b…` (the boss-tested fill-v1 artifact) for future cached-boss stages.
+- **Tests:** V08PromotionTest became historical (`current?USE_ROLLOUT_FILL=0` reproduces v08, as
+  V07's did at the v08 promotion); rollout fixtures opt out of the fill default; new
+  `V09PromotionTest` (5 tests: exact 117-field record for current/main/v09, frozen-source
+  identity, 18 historical pins, decision parity on 96 evolving positions with the filler
+  exercised and on saved boss positions, RHEA refused); `FileMergerTest` checks that frozen v09
+  and current ship identical policy bytes and configurations. **355 Java + 126 Python tests
+  pass**; `cgValidate` 292/292 arena, 259/259 boss.
+- **Artifacts:** previous `build/submit` (28 files) backed up with hashes and intact afterwards.
+  Default `gradlew submit`: **95,278 chars**, source `1df7c131…`, build `c56c83b8…`; differs from
+  the boss-tested `4cda8b1b…` only in the fill default declaration and the marker (same config
+  hash `aed03344…`). Frozen export `-PsubmitVersion=v09`: 95,254 chars, build `b755f9b4…`,
+  0/4 strict games.
+- **Strict 8-game panel (default artifact, v08 protocol: same four maps and order, both seats,
+  vs frozen v08, zero grace, no concurrent load): 0/8 problem games**, first responses 544-736
+  ms, later <= 47.2 ms, no timeouts or nominal overruns
+  (`build/analysis/v09-promotion/process-check-1..4.json`, hashes in
+  `evidence/v09-promotion.json`). The v08 artifact's 1/8 record stays as is.
+- **State:** v09 selected; `current` = v09; `build/submit/Player.java` is the v09 default
+  artifact ready for the user's upload. Nothing pushed or uploaded by the agent.

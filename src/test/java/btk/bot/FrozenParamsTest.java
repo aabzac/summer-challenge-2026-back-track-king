@@ -180,7 +180,7 @@ class FrozenParamsTest {
         expected.put("PRESSURE_STICKINESS", "0.25");
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
-        assertEquals(expected, BotFactory.configuration("current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_POLICY=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0"));
+        assertEquals(expected, BotFactory.configuration("current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_POLICY=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_ROLLOUT_FILL=0"));
         Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
         FrozenParams.applyTo("v05", changed);
         for (var entry : expected.entrySet()) {

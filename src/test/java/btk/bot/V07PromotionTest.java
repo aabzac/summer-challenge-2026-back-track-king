@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class V07PromotionTest {
-    private static final String CURRENT_V07 = "current?USE_PROTECTED_OPENING=0";
+    private static final String CURRENT_V07 = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_FILL=0";
     private static TreeMap<String, String> confirmedParameters() throws Exception {
         Properties record = new Properties();
         // Independent copy of launch.json resolvedParameters; never read the production snapshot.
@@ -103,7 +103,7 @@ class V07PromotionTest {
             for (int cell : new int[]{29, 30, 21, 22, 23, 32, 33}) state.owner[cell] = 1 - me;
             state.turn = 10;
             Rules.updateConnections(state, new Pathing(state.size));
-            String query = "?USE_PROTECTED_OPENING=0,USE_DISRUPT=0,NOISE=0";
+            String query = "?USE_PROTECTED_OPENING=0,USE_ROLLOUT_FILL=0,USE_DISRUPT=0,NOISE=0";
             Bot current = BotFactory.create("current" + query);
             Bot frozen = BotFactory.create("v07" + query);
             Bot main = new MainBot(BotFactory.parameters("v07" + query));
