@@ -91,15 +91,18 @@ Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-va
 ## Local reference panel (not submission versions)
 
 `leader-v1` (added 2026-09-20) is a fast heuristic calibrated on the arena leader Indrill
-(Legend #1, Python3; see [indrill-study-v1.md](indrill-study-v1.md)): full paint every turn, a
-sticky DISRUPT on the opponent's unfinished construction (opponent track worth 5, own track -6,
-+8 per instability level reached, previous-target stickiness, own income loss weighted half), and
-a protected town-approach opening. Its constants are frozen inside `LeaderBot` and never retuned;
-only NOISE/SEED/UNSTABLE_COST come from `leader-v1.properties`. A 40-game smoke vs v08 (generated
-seeds, CG timing) shows the intended signature: **100% accepted disruption vs v08's 62%**, with
-leader-v1 losing on strength (~15% here). It reproduces the relentless-sabotage meta the v08
-mirror does not, so sabotage-heavy candidates can be screened against it; it is not a strength
-benchmark and not a claim to reproduce the player. Select with `-Pbot2=leader-v1`.
+(Legend #1, Python3; see [indrill-study-v1.md](indrill-study-v1.md)): a sticky DISRUPT every
+turn on the opponent's unfinished construction (opponent track worth 5, own track -6, +8 per
+instability level reached, previous-target stickiness, own income loss weighted half), greedy
+cheapest-route construction and a protected town-approach opening. Its constants are frozen
+inside `LeaderBot` and never retuned; only NOISE/SEED/UNSTABLE_COST come from
+`leader-v1.properties`. Measured vs v08 (300 games, leader-coverage-v1): **99.9% accepted
+disruption vs v08's 56%**, but it places on only **41.5% of turns (0.95 cells, 1.18/3 paint)**
+against the leader's 97% / 2.29 / 2.91, and v08 wins **82%**. It reproduces the leader's
+sabotage signature, not its never-idle construction and not its strength; games last 84 turns,
+not the leader's 47. Use it to check that a sabotage mechanism behaves as intended against a
+relentless disruptor; it is not a strength benchmark and not a claim to reproduce the player.
+Select with `-Pbot2=leader-v1`.
 
 `pressure-v1` is a separate sabotage-first, sticky-target, short-horizon policy. Its fixed consumed
 parameters live in `btk/bot/versions/pressure-v1.properties`; the policy stays outside the merged
@@ -1104,3 +1107,15 @@ Accepted disruption stayed at 64-66% for both sides: in v08 mirrors the opponent
 town regions or in regions we share, and the bench games last 92 turns with placement on 56% of
 turns, against Indrill's 47-turn, 97%-build, 100%-disrupt arena games. Both flags OFF, v08
 selected; merged candidate 98,886 characters. [Evidence](evidence/track-value-v1.json).
+
+## 2026-09-20 - leader-coverage-v1: sabotage flags vs leader-v1 (no effect, not a gate)
+
+Matched panel against the local `leader-v1` reference (99.9% accepted disruption), same fresh
+150 paired maps for all arms, seeds 540000..540149, CG timing, 300 games each, zero errors:
+v08 **247-53 (82.33%)**; track-value self **250-50 (83.33%)**, mean per-map delta +0.010 (SE
+0.026); live-target **247-53 (82.33%)**, 0.000 (0.030); always-disrupt **249-51 (83.00%)**,
++0.007 (0.029), our accepted disruption 56% -> 78%. No flag changes the result or our
+construction (1.31-1.32 cells/turn everywhere). leader-v1 itself places on only 41.5% of turns
+(1.18/3 paint), so games still last 82-84 turns; it covers the leader's sabotage meta, not its
+construction meta. All flags stay OFF, v08 selected. Runner `tools/run_leader_coverage.py`;
+[evidence](evidence/leader-coverage-v1.json).

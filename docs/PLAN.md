@@ -524,11 +524,15 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       catalog entry), reusing only existing Params fields so frozen v06-v08 records are untouched.
       `LeaderBotTest` (6 tests) + full Java suite pass. 40-game smoke vs v08: 100% accepted
       disruption vs 62%, loses on strength (~15%) - a screening opponent, not a strength bench.
-- [ ] Re-screen the retained sabotage flags (track-value self, live-target, always-disrupt)
-      against `leader-v1` as a behavioral coverage check; a reference result is not a promotion
-      gate, so keep it separate from the practical-v4 stages.
+- [x] Re-screen the retained sabotage flags (track-value self, live-target, always-disrupt)
+      against `leader-v1` as a behavioral coverage check (`tools/run_leader_coverage.py`, matched
+      panel, 4 x 300 games, seeds 540000..540149, zero errors): v08 82.33%, flags 83.33 / 82.33 /
+      83.00%, per-map deltas within one SE of zero; construction unchanged (1.31-1.32 cells/turn).
+      Not a gate; all flags stay OFF. Found that leader-v1 places on only 41.5% of turns (1.18/3
+      paint) - it covers the leader's sabotage meta, not its construction meta; docs corrected.
 - [ ] Identify Indrill's routing cost model behind its 48.7% off-cheapest-route cells (54% in
-      regions shared with the opponent, 60% adjacent to own rails) before a never-idle rule.
+      regions shared with the opponent, 60% adjacent to own rails) before a never-idle rule; the
+      same model is the prerequisite for a `leader-v2` reference with the 97%-placement signature.
 - [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest
       route, not the max-traffic one) before re-adding a corridor fallback; mind artifact size.
 

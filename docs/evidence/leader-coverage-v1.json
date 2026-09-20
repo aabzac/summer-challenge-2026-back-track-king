@@ -1,0 +1,277 @@
+{
+ "name": "leader-coverage-v1",
+ "role": "behavioral coverage check against a local reference; not a promotion gate",
+ "opponent": "leader-v1",
+ "pool": "bench/pools/leader-coverage-v1.json",
+ "poolSha256": "b0979add614c4a056b5310913e4411808987f4d263662041b7597e586459d872",
+ "poolManifest": {
+  "schemaVersion": 1,
+  "id": "leader-coverage-v1",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 540000,
+  "pairs": 150
+ },
+ "excludedIndex": "build/bench/leader-coverage-v1/excluded.json",
+ "writtenAt": "2026-09-20T11:58:19.093820+00:00",
+ "runnerSha256": "8a9475adf945864997fabe4ff3609502c13bf555ec65232fe7ff57c39facdf3f",
+ "conditions": {
+  "timingProfile": "CG",
+  "firstSearchBudgetMs": 486,
+  "turnSearchBudgetMs": 36,
+  "threads": 2,
+  "javaVersion": "17.0.12"
+ },
+ "arms": {
+  "control": {
+   "arm": "control",
+   "spec": "v08",
+   "opponent": "leader-v1",
+   "path": "C:/Disk_D/Programming/cursor/summer-challenge-2026-back-track-king/build/bench/leader-coverage-v1/control.json",
+   "sha256": "c9f55b2d631c98dadff50b3cb1a1a65c2ca2fa776fae72a9b8a34924b5db66de",
+   "games": 300,
+   "wins": 247,
+   "losses": 53,
+   "draws": 0,
+   "score": 0.8233333333333334,
+   "confidence95": [
+    0.7124448089178357,
+    0.934221857748831
+   ],
+   "winsAsP0": 125,
+   "winsAsP1": 122,
+   "avgDiff": 1425.67,
+   "avgTurns": 83.61666666666666,
+   "closedEarly": 123,
+   "placementRate": [
+    0.5763603747259318,
+    0.4148295794299382
+   ],
+   "disruptRate": [
+    0.5589794698026709,
+    0.9993223041658361
+   ],
+   "cellsPerTurn": [
+    1.3167630057803468,
+    0.9478572852302173
+   ],
+   "paintPerTurn": [
+    1.6324895355790312,
+    1.1775961730117601
+   ],
+   "maxMs": [
+    55,
+    39
+   ],
+   "slow": [
+    1,
+    0
+   ],
+   "errors": [
+    0,
+    0
+   ],
+   "elapsedMs": 288614
+  },
+  "track-value-self": {
+   "arm": "track-value-self",
+   "spec": "current?USE_ROLLOUT_TRACK_VALUE=1,ROLLOUT_TRACK_VALUE_SELF_ONLY=1",
+   "opponent": "leader-v1",
+   "path": "C:/Disk_D/Programming/cursor/summer-challenge-2026-back-track-king/build/bench/leader-coverage-v1/track-value-self.json",
+   "sha256": "eac5bafbab5cd2103eb02e8d7cd198ec52972105e21ead97dc7808ba16444726",
+   "games": 300,
+   "wins": 250,
+   "losses": 50,
+   "draws": 0,
+   "score": 0.8333333333333334,
+   "confidence95": [
+    0.7224448089178357,
+    0.944221857748831
+   ],
+   "winsAsP0": 124,
+   "winsAsP1": 126,
+   "avgDiff": 1451.6733333333334,
+   "avgTurns": 82.94,
+   "closedEarly": 128,
+   "placementRate": [
+    0.5745920745920746,
+    0.4161642954746403
+   ],
+   "disruptRate": [
+    0.5650671167912548,
+    0.9993167751788441
+   ],
+   "cellsPerTurn": [
+    1.3098223615464994,
+    0.9513704686118479
+   ],
+   "paintPerTurn": [
+    1.630375371754682,
+    1.1815770436460091
+   ],
+   "maxMs": [
+    87,
+    39
+   ],
+   "slow": [
+    3,
+    0
+   ],
+   "errors": [
+    0,
+    0
+   ],
+   "elapsedMs": 271870
+  },
+  "live-target": {
+   "arm": "live-target",
+   "spec": "current?USE_ROLLOUT_LIVE_TARGET=1",
+   "opponent": "leader-v1",
+   "path": "C:/Disk_D/Programming/cursor/summer-challenge-2026-back-track-king/build/bench/leader-coverage-v1/live-target.json",
+   "sha256": "89f5531fa05f49c6b07d0b3c780df83e6461a5aab440d553c9b22327eda56ec9",
+   "games": 300,
+   "wins": 247,
+   "losses": 53,
+   "draws": 0,
+   "score": 0.8233333333333334,
+   "confidence95": [
+    0.7124448089178357,
+    0.934221857748831
+   ],
+   "winsAsP0": 127,
+   "winsAsP1": 120,
+   "avgDiff": 1306.18,
+   "avgTurns": 82.03666666666666,
+   "closedEarly": 125,
+   "placementRate": [
+    0.5665352890983707,
+    0.4146519848848076
+   ],
+   "disruptRate": [
+    0.58006582422494,
+    0.9987810328714802
+   ],
+   "cellsPerTurn": [
+    1.307382877575068,
+    0.9522571207996424
+   ],
+   "paintPerTurn": [
+    1.6198447848523019,
+    1.175815692170168
+   ],
+   "maxMs": [
+    43,
+    42
+   ],
+   "slow": [
+    0,
+    0
+   ],
+   "errors": [
+    0,
+    0
+   ],
+   "elapsedMs": 301442
+  },
+  "always-disrupt": {
+   "arm": "always-disrupt",
+   "spec": "current?ROLLOUT_ALWAYS_DISRUPT=1",
+   "opponent": "leader-v1",
+   "path": "C:/Disk_D/Programming/cursor/summer-challenge-2026-back-track-king/build/bench/leader-coverage-v1/always-disrupt.json",
+   "sha256": "651681578d41640792bf6422501f05a0f61e35f9151e1b50011faf78ae92c04e",
+   "games": 300,
+   "wins": 249,
+   "losses": 51,
+   "draws": 0,
+   "score": 0.83,
+   "confidence95": [
+    0.7191114755845023,
+    0.9408885244154976
+   ],
+   "winsAsP0": 122,
+   "winsAsP1": 127,
+   "avgDiff": 1473.7433333333333,
+   "avgTurns": 81.49666666666667,
+   "closedEarly": 137,
+   "placementRate": [
+    0.5685713117100903,
+    0.41506810094482394
+   ],
+   "disruptRate": [
+    0.7797455928667839,
+    0.9758681336659986
+   ],
+   "cellsPerTurn": [
+    1.306147490694916,
+    0.9513681541167328
+   ],
+   "paintPerTurn": [
+    1.6167532414413677,
+    1.1767352447952881
+   ],
+   "maxMs": [
+    299,
+    108
+   ],
+   "slow": [
+    8,
+    3
+   ],
+   "errors": [
+    0,
+    0
+   ],
+   "elapsedMs": 278758
+  }
+ },
+ "matchedVsControl": {
+  "track-value-self": {
+   "maps": 150,
+   "meanMapScoreDelta": 0.01,
+   "standardError": 0.026108532723696672,
+   "approx95": [
+    -0.04117272413844548,
+    0.06117272413844548
+   ],
+   "halfWinUnits": 6,
+   "gamesCandidateOnlyWon": 31,
+   "gamesControlOnlyWon": 28,
+   "gamesBothWon": 219,
+   "mapsBetter": 30,
+   "mapsWorse": 25,
+   "mapsEqual": 95
+  },
+  "live-target": {
+   "maps": 150,
+   "meanMapScoreDelta": 0.0,
+   "standardError": 0.0295378269592824,
+   "approx95": [
+    -0.0578941408401935,
+    0.0578941408401935
+   ],
+   "halfWinUnits": 0,
+   "gamesCandidateOnlyWon": 35,
+   "gamesControlOnlyWon": 35,
+   "gamesBothWon": 212,
+   "mapsBetter": 32,
+   "mapsWorse": 31,
+   "mapsEqual": 87
+  },
+  "always-disrupt": {
+   "maps": 150,
+   "meanMapScoreDelta": 0.006666666666666667,
+   "standardError": 0.028765295188959546,
+   "approx95": [
+    -0.04971331190369404,
+    0.06304664523702737
+   ],
+   "halfWinUnits": 4,
+   "gamesCandidateOnlyWon": 39,
+   "gamesControlOnlyWon": 37,
+   "gamesBothWon": 210,
+   "mapsBetter": 32,
+   "mapsWorse": 30,
+   "mapsEqual": 88
+  }
+ }
+}

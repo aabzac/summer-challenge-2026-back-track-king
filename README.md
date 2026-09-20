@@ -186,11 +186,13 @@ For the named development pool and a behaviorally different reference:
 ```
 
 `pressure-v1` and `leader-v1` are local-only references, not promoted submissions. `leader-v1`
-is a fast heuristic calibrated on the arena leader (Indrill): full paint every turn, a sticky
-DISRUPT on the opponent's unfinished construction, and a protected opening. It reproduces the
-leader's relentless-sabotage meta (100% accepted disruption vs v08's ~62%), not the leader's
-arena strength, so it is a screening opponent for sabotage-heavy candidates, not a strength
-benchmark. Select it with `-Pbot2=leader-v1`. See [docs/indrill-study-v1.md](docs/indrill-study-v1.md).
+is a fast heuristic calibrated on the arena leader (Indrill): a sticky DISRUPT every turn on the
+opponent's unfinished construction, greedy cheapest-route construction and a protected opening.
+It reproduces the leader's relentless-sabotage meta (99.9% accepted disruption vs v08's ~56%),
+not its never-idle construction (it places on ~42% of turns vs the leader's 97%) and not its
+arena strength (v08 wins ~82%), so it is a behavioral screening opponent for sabotage
+mechanisms, not a strength benchmark. Select it with `-Pbot2=leader-v1`; the matched four-arm
+check is `python tools/run_leader_coverage.py`. See [docs/indrill-study-v1.md](docs/indrill-study-v1.md).
 The suite plays
 the same paired maps against v05, pressure-v1, v03 and aggressive v02, skipping an exact self-spec.
 Each opponent has its own report; no combined win rate is treated as a promotion decision.

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "leader-coverage-v1",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 540000,
+  "pairs": 150
+}

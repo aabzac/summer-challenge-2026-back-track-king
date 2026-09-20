@@ -3747,3 +3747,50 @@ Completed outcome (fixed sample, no retuning):
   result is not a promotion gate and stays separate from the practical-v4 stages.
 - **Next (not run):** re-screen the retained sabotage flags (track-value self, live-target,
   always-disrupt) against leader-v1 as behavioral coverage.
+
+## 2026-09-20 - leader-coverage-v1: retained sabotage flags vs leader-v1 (no effect; reference gap found)
+
+- **Question:** the three sabotage flags (track-value self, live-target, always-disrupt) failed
+  the practical bench for one structural reason: the v08 mirror never produces the leader's
+  relentless-sabotage meta. Against `leader-v1`, which disrupts on every turn, do they change our
+  result or behavior at all, and in which direction? Descriptive coverage check, not a gate.
+- **Design (predeclared in `tools/run_leader_coverage.py`):** four arms vs `leader-v1` on the
+  SAME fresh 150 paired maps (matched panel), new pool `bench/pools/leader-coverage-v1.json`
+  (seeds 540000..540149), CG 486/36-ms search, two workers, 300 games per arm, sequential. The
+  11,575 map identities from every prior report under `build/bench`, `build/analysis` and
+  `docs/evidence` (130 files) were excluded before the first game. Reports, logs and the summary
+  are write-once under `build/bench/leader-coverage-v1/`; summary copied to
+  `docs/evidence/leader-coverage-v1.json`. Zero bot errors in 1,200 games; ~4.5-5 min per arm.
+- **Results (candidate first; "dMap" = mean per-map score delta vs control, 150 maps):**
+
+  | arm | W-L-D | score | diff | turns | closures | our place / disrupt | leader disrupt | dMap (SE) |
+  |---|---|---|---|---|---|---|---|---|
+  | control v08 | 247-53-0 | 82.33% | +1426 | 83.6 | 123 | 57.6% / 55.9% | 99.9% | - |
+  | track-value self | 250-50-0 | 83.33% | +1452 | 82.9 | 128 | 57.5% / 56.5% | 99.9% | +0.010 (0.026) |
+  | live-target | 247-53-0 | 82.33% | +1306 | 82.0 | 125 | 56.7% / 58.0% | 99.9% | 0.000 (0.030) |
+  | always-disrupt | 249-51-0 | 83.00% | +1474 | 81.5 | 137 | 56.9% / 78.0% | 97.6% | +0.007 (0.029) |
+
+  Per game: candidate-only / control-only wins 31/28, 35/35, 39/37; 87-95 of 150 maps tied
+  exactly. Map-grouped Hoeffding intervals of the arm scores 71-94%. In-process maxima 55/87/43/299
+  ms with 1/3/0/8 slow calls on our side (first moves included; the 299 ms belongs to
+  always-disrupt and is worth a look before any reuse of that flag, not a process deadline).
+- **Reading:** (1) None of the flags moves the result against a 100%-disruption opponent either;
+  the deltas are within one standard error of zero. The "wrong meta" explanation therefore does
+  not rescue them: even where the opponent behaves like the leader on sabotage, valuing its
+  unfinished tracks (track-value), its live project (live-target) or hitting every turn
+  (always-disrupt, 56% -> 78% accepted disruption) changes neither our win rate nor our
+  construction (1.31-1.32 cells/turn in all four arms). (2) v08's own accepted disruption is
+  *lower* against leader-v1 (56%) than in mirrors (64%), and games still last 82-84 turns against
+  Indrill's 47: leader-v1 does not create the short, destructive games either. (3) The reason is
+  visible in the reference's construction, which the leader-v1 entry above overstated: LeaderBot
+  builds only when some cheapest route has positive projected income within HORIZON=8, so it
+  places on **41.5% of turns, 0.95 cells and 1.18 of 3 paint per turn**, against Indrill's 97%,
+  2.29 cells, 2.91 paint. It reproduces the leader's *sabotage* signature (99.9% accepted
+  disruption), not the *never-idle construction* signature; v08 out-builds it 1.32 to 0.95
+  cells/turn and wins 82%. The docs are corrected accordingly (BOTS.md, README).
+- **Decision:** all three flags stay OFF and retained; v08 stays selected; nothing rebuilt or
+  uploaded. leader-v1 stays as registered (frozen constants; a changed reference would be a new
+  id). The behavioral-coverage idea is exhausted for these three flags: they would need a new
+  mechanism, not a new opponent. The open gap is now construction-side: a `leader-v2` reference
+  can only reproduce the 97%-placement meta once Indrill's off-route routing model (48.7% of its
+  cells) is identified, which is also the prerequisite for our own never-idle rule.

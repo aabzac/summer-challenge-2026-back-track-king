@@ -19,3 +19,7 @@
   (531000..531149) and `track-value-v1-self-direct.json` (533000..533499): consumed by the
   track-value-v1 stages against v08 on 2026-09-20 (49.50%, 54.17%, 50.85%; not promoted).
   These maps are not fresh confirmation. See docs/indrill-study-v1.md.
+
+- `leader-coverage-v1.json` (540000..540149): consumed on 2026-09-20 by the four-arm matched
+  panel against the `leader-v1` reference (v08 and the three retained sabotage flags, 300 games
+  each on the same maps; no effect, not a gate). Not fresh confirmation. See DEVLOG.

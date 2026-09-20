@@ -186,6 +186,18 @@ Suggested next steps (not started): a leader-like local reference opponent built
 40-game cached-boss diagnostic of the `self` variant as was done for live-target; and the
 never-idle construction gap once Indrill's routing model is identified.
 
+### Follow-up: leader-v1 reference and the coverage check (2026-09-20)
+
+`leader-v1` (`btk.bot.reference.LeaderBot`, frozen constants from the fitted valuation above) was
+added as a local-only opponent and the three retained sabotage flags were re-run against it on
+one matched panel (`tools/run_leader_coverage.py`, 4 x 300 games, seeds 540000..540149;
+[evidence](evidence/leader-coverage-v1.json)). v08 82.33%, track-value self 83.33%, live-target
+82.33%, always-disrupt 83.00%; per-map deltas within one SE of zero, construction unchanged. The
+reference reproduces the sabotage signature (99.9% accepted disruption) but places on only 41.5%
+of turns (1.18/3 paint), so games still last 82-84 turns: the never-idle construction of section
+4 remains the unreproduced half of the meta, and the flags do not gain from a relentless
+disruptor alone. Details in DEVLOG.
+
 ## Reproduction
 
 ```powershell
