@@ -67,6 +67,17 @@ public class Params {
     public int ROLLOUT_LIVE_TURNS = 2;
     /** Spend the disruption point on the least harmful legal target when no region has positive value. */
     public boolean ROLLOUT_ALWAYS_DISRUPT = false;
+    /**
+     * Leader-calibrated track valuation (Indrill study, 2026-09-20): every opponent track in a region
+     * is worth ROLLOUT_OPP_TRACK_VALUE and every own track costs ROLLOUT_OWN_TRACK_VALUE, in the same
+     * income-times-turns units as the exact ink delta. Replaces the single trackBalance weight so
+     * unfinished opponent projects are inked before they earn. Off: v08 valuation unchanged.
+     */
+    public boolean USE_ROLLOUT_TRACK_VALUE = false;
+    public double ROLLOUT_OPP_TRACK_VALUE = 5.0;
+    public double ROLLOUT_OWN_TRACK_VALUE = 6.0;
+    /** Apply the track valuation only to our own chooser; the simulated opponent keeps the v08 term. */
+    public boolean ROLLOUT_TRACK_VALUE_SELF_ONLY = false;
 
     // Independent simple policy; off in the selected v06 strategy.
     public boolean USE_HEURISTIC_POLICY = false;

@@ -120,6 +120,15 @@ after ordinary and singleton comparisons finish. Their separate fixed protocols 
 [route-dependencies-v1](docs/route-dependencies-v1.md) and [network-chords-v1](docs/network-chords-v1.md).
 Neither flag is part of selected v08; benchmark verdicts are recorded in BOTS/DEVLOG.
 
+`current?USE_ROLLOUT_TRACK_VALUE=1` is the leader-calibrated sabotage valuation from the
+[Indrill study](docs/indrill-study-v1.md): every opponent track in a region is worth
+`ROLLOUT_OPP_TRACK_VALUE` (5) and every own track costs `ROLLOUT_OWN_TRACK_VALUE` (6) in the
+target valuation, instead of the single 0.4 track-balance weight, so unfinished opponent projects
+are inked before they earn. Add `ROLLOUT_TRACK_VALUE_SELF_ONLY=1` to keep the v08 term for the
+simulated opponent inside rollouts. Both are default-off; screen results are in BOTS/DEVLOG.
+Fetch and study the leader's replays with `python tools/diagnostics/indrill_study.py fetch|study`
+and export per-decision feature tables through the core with `gradlew cgLeaderStudy`.
+
 `current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1` tests a different feature in the regular EvalBot: prioritize a
 cheap bypass of already damaged active income before ordinary construction. It checks at most
 3 regions x 4 directed connections, caps the route at 6 paint, and uses core income plus actual

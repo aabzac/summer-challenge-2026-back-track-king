@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public final class LiveTargetExperimentParams {
     public static final Map<String, String> DEFAULTS = Map.of(
             "USE_ROLLOUT_LIVE_TARGET", "false", "ROLLOUT_LIVE_WEIGHT", "12.0",
-            "ROLLOUT_LIVE_TURNS", "2", "ROLLOUT_ALWAYS_DISRUPT", "false");
+            "ROLLOUT_LIVE_TURNS", "2", "ROLLOUT_ALWAYS_DISRUPT", "false",
+            "USE_ROLLOUT_TRACK_VALUE", "false", "ROLLOUT_OPP_TRACK_VALUE", "5.0",
+            "ROLLOUT_OWN_TRACK_VALUE", "6.0", "ROLLOUT_TRACK_VALUE_SELF_ONLY", "false");
 
     public static void removeAndCheck(Map<String, String> values) {
         for (var entry : DEFAULTS.entrySet())

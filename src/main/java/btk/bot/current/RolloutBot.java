@@ -29,6 +29,8 @@ public final class RolloutBot implements Bot {
     private final int[][] moves = new int[2][GameState.PAINT_PER_TURN];
     private final int[] moveCounts = new int[2], targets = new int[2];
     private int[] path, extra, trackBalance, shortlist, bestCells, prefix;
+    private int[] oppTracks, ownTracks;
+    private int realPlayer;
     private boolean[] blocked, marked;
     private double[] priority;
     private int[] placedTurn, lastOwner;
@@ -132,7 +134,9 @@ public final class RolloutBot implements Bot {
                 || !Double.isFinite(p.ROLLOUT_TAIL) || p.ROLLOUT_TAIL < 0
                 || !Double.isFinite(p.ROLLOUT_TRACK_WEIGHT) || p.ROLLOUT_TRACK_WEIGHT < 0
                 || !Double.isFinite(p.ROLLOUT_LIVE_WEIGHT) || p.ROLLOUT_LIVE_WEIGHT < 0
-                || p.ROLLOUT_LIVE_TURNS < 1 || p.ROLLOUT_LIVE_TURNS > 10) {
+                || p.ROLLOUT_LIVE_TURNS < 1 || p.ROLLOUT_LIVE_TURNS > 10
+                || !Double.isFinite(p.ROLLOUT_OPP_TRACK_VALUE) || p.ROLLOUT_OPP_TRACK_VALUE < 0
+                || !Double.isFinite(p.ROLLOUT_OWN_TRACK_VALUE) || p.ROLLOUT_OWN_TRACK_VALUE < 0) {
             throw new IllegalArgumentException("Rollout requires an independent policy and bounded valid parameters");
         }
     }
@@ -149,6 +153,7 @@ public final class RolloutBot implements Bot {
         lengths = new int[2][p.ROLLOUT_WIDTH]; values = new double[2][p.ROLLOUT_WIDTH];
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
+        oppTracks = new int[s.regionCount]; ownTracks = new int[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
         if (p.USE_ROLLOUT_LIVE_TARGET) {
             placedTurn = new int[s.size]; lastOwner = s.owner.clone(); live = new int[2][s.regionCount];
@@ -161,6 +166,7 @@ public final class RolloutBot implements Bot {
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
+        realPlayer = me;
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
         if (p.USE_ROLLOUT_RHEA) {
             rheaRandom = new Random(0);
@@ -1025,9 +1031,10 @@ public final class RolloutBot implements Bot {
         if (p.USE_ROLLOUT_SECOND_TARGET) secondTarget = -1;
         if (!p.USE_DISRUPT) return -1;
         Arrays.fill(trackBalance, 0); Arrays.fill(priority, 0);
+        Arrays.fill(oppTracks, 0); Arrays.fill(ownTracks, 0);
         for (int c = 0; c < s.size; c++) {
-            if (s.owner[c] == 1 - me) trackBalance[s.regionId[c]]++;
-            else if (s.owner[c] == me) trackBalance[s.regionId[c]]--;
+            if (s.owner[c] == 1 - me) { trackBalance[s.regionId[c]]++; oppTracks[s.regionId[c]]++; }
+            else if (s.owner[c] == me) { trackBalance[s.regionId[c]]--; ownTracks[s.regionId[c]]++; }
         }
         for (int pair = 0; pair < s.pairCount; pair++) {
             int exposure = -SearchState.connectionIncomeDifference(s, pair, me);
@@ -1042,7 +1049,7 @@ public final class RolloutBot implements Bot {
         Arrays.fill(shortlist, -1);
         for (int r = 0; r < s.regionCount; r++) {
             if (s.regionInked[r] || s.regionHasTown(r)) continue;
-            priority[r] = (priority[r] * p.ROLLOUT_TARGET_HORIZON + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT
+            priority[r] = (priority[r] * p.ROLLOUT_TARGET_HORIZON + trackValue(r, me)
                     + (recent == null ? 0 : recent[r] * p.ROLLOUT_LIVE_WEIGHT))
                     / (GameState.INK_THRESHOLD - s.regionInstability[r]);
             for (int i = 0; i < shortlist.length; i++) {
@@ -1069,7 +1076,7 @@ public final class RolloutBot implements Bot {
                 continue;
             }
             double value = ((after - before) * Math.max(0, Math.min(p.ROLLOUT_TARGET_HORIZON, s.turnsLeft()) - needed + 1)
-                    + trackBalance[r] * p.ROLLOUT_TRACK_WEIGHT
+                    + trackValue(r, me)
                     + (recent == null ? 0 : recent[r] * p.ROLLOUT_LIVE_WEIGHT)) / needed;
             // A wasted disruption point never returns; prefer a harmless hit over WAIT.
             if (p.ROLLOUT_ALWAYS_DISRUPT && after >= before && trackBalance[r] >= 0 && value > forced) {
@@ -1086,6 +1093,13 @@ public final class RolloutBot implements Bot {
         if (bestTarget < 0 && forcedTarget >= 0 && !timer.up()) { forcedTargets++; return forcedTarget; }
         if (bestTarget >= 0 && recent != null && recent[bestTarget] > 0) liveTargets++;
         return bestTarget;
+    }
+
+    /** Per-region track term of the target valuation; the flag-off branch is the v08 expression. */
+    private double trackValue(int region, int chooser) {
+        return p.USE_ROLLOUT_TRACK_VALUE && (!p.ROLLOUT_TRACK_VALUE_SELF_ONLY || chooser == realPlayer)
+                ? oppTracks[region] * p.ROLLOUT_OPP_TRACK_VALUE - ownTracks[region] * p.ROLLOUT_OWN_TRACK_VALUE
+                : trackBalance[region] * p.ROLLOUT_TRACK_WEIGHT;
     }
 
     /**

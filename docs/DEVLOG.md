@@ -3614,3 +3614,72 @@ Completed outcome (fixed sample, no retuning):
   morning). The rollout applies the same live counts to the simulated boss, so the drop
   may be a construction side effect (our fresh construction looks more threatened) rather
   than a worse target choice; not separated here. Evidence `evidence/live-target-v1-boss.json`.
+## 2026-09-20 - Indrill (Legend #1, Python3) replay study; track-value-v1 rejected locally
+
+- **Question (user):** the arena leader Indrill is written in Python3 and leads Legend by six
+  rating points (36.34 vs 30.43); what does it do, and can our candidate do the same?
+- **Corpus and tools:** all 282 completed battles of agent 6752275 (265-17, 94%), fetched by
+  the new `tools/diagnostics/indrill_study.py fetch` into gitignored `replays/cg-indrill/`;
+  `cgValidate` reproduces **282/282** exactly. `indrill_study.py study` (viewer events,
+  income cross-checked on every turn) and the new core-based `gradlew cgLeaderStudy`
+  (`btk.tools.CgLeaderStudy`: per-candidate-region sabotage table with exact ink deltas,
+  construction rows against cheapest completion routes, hit/ink sequences, game facts) wrote
+  the datasets under `build/analysis/leader-study/`. Evidence `evidence/indrill-study-v1.json`.
+- **Key findings** (full report `indrill-study-v1.md`): (1) Indrill is a **sub-millisecond
+  heuristic**, not a search: referee `executionTimeMs` median 10 ms per whole game (0.2 ms/turn)
+  against ~20 ms/turn for its C++ opponents. (2) It disrupts on **100.0%** of turns from turn 1,
+  builds on 97% with 2.91/3 paint, never issues WAIT/AUTOPLACE/MESSAGE, uses `DISRUPT x y`.
+  (3) **93.6%** of its hits end in an ink (2,706 of 4,016 inked regions took four own hits);
+  48% of hits are on opponent *construction* (opponents 35%) and the class stays construction
+  through instability 0..3 (1946/1991/1736/1270) whereas opponents' targets complete before the
+  ink: Indrill wastes the opponent's paint before it earns. (4) At turn 10 it is slightly behind
+  (income 13.3 vs 14.2); at turn 20 it has 56 vs 41 income and 4.4 vs 2.4 own-majority
+  connections with the *same* track count on the board. (5) A conditional logit over 14,423
+  target decisions (test top-1 38% vs 4% uniform) values an unfinished opponent track at ~0.86
+  opponent-income points, an own track at -1.25, +4 per instability level reached, and weights
+  own income loss at half of the opponent's; in v08's `chooseTarget` a track is worth 0.4
+  against 5-8 per income point, about 17x less. (6) 48.7% of its cells are on no cheapest
+  completion route (89% after turn 45): full-paint network work in regions shared with the
+  opponent; its routing cost model was not identified. (7) Its 17 losses are all early
+  closures while behind, ten delivered by its own ink; v08 already refuses a losing closure.
+  (8) v08 on Indrill's states (`cgStudy`): 11.8% placement-cell agreement, 26.5% same target,
+  disrupts on 78% and places on 77% of those states (1.81 cells/turn).
+- **Implementation:** default-off `USE_ROLLOUT_TRACK_VALUE` replaces the single
+  `trackBalance x ROLLOUT_TRACK_WEIGHT` term in shortlist priority and exact target value by
+  `oppTracks x ROLLOUT_OPP_TRACK_VALUE (5.0) - ownTracks x ROLLOUT_OWN_TRACK_VALUE (6.0)`;
+  `ROLLOUT_TRACK_VALUE_SELF_ONLY` restricts it to our own chooser so the simulated opponent
+  keeps the v08 term (the live-target caveat). Flag-off expression is byte-identical to v08.
+  A corridor-denial fallback prototype (turn-0 empty-region hit) was removed: the merged
+  artifact exceeded the 100,000-character limit (100,125) and Indrill's turn-0 rule was not
+  identified (95% on a cheapest route, 92% town-adjacent, but not the max-traffic region).
+  Merged candidate is **98,886** characters. `RolloutTrackValueTest` (3 tests): construction
+  region outranks a one-income active region only with the flag, own tracks flip it back,
+  SELF_ONLY leaves the opponent model unchanged, legal actions, parameter validation.
+  **343 Java tests pass**; `btk.core` unchanged; new fields registered in
+  `LiveTargetExperimentParams` so frozen v06-v08 records stay untouched.
+- **Fixed stages vs frozen v08** (CG 486/36 ms, two workers, fresh authentic pools registered
+  under `bench/pools/track-value-v1-*.json`, 10,455-10,755 prior map hashes excluded before
+  play, `tools/run_track_value_experiment.py`, reports write-once in `build/bench/track-value-v1/`):
+  - both choosers, seeds 530000..530149: **144-147-9 = 49.50%**, **STOP_SCREEN_300**;
+    accepted disruption 64.6% vs 64.0%, mean diff +22, 92 turns/game.
+  - self only, seeds 531000..531149: **158-133-9 = 54.17%**, NEEDS_DIRECT_1000; then seeds
+    533000..533499: **494-477-29 = 50.85%**, **NOT_PASSED** (< 55%), CI 44.8-56.9%,
+    disruption 65.7% vs 66.5%, P0/P1 246/248 of 500 each, 276/1000 early closures.
+  Zero bot errors in all 1600 games; in-process maxima 73/62, 58/50, 107/100 ms with at most
+  four slow calls per side (first moves included; not process deadlines). No boss stage (a
+  local direct failure cannot be rescued), no pooling, tuning or retries.
+  Evidence `evidence/track-value-v1.json`.
+- **Reading:** the candidate's accepted-disruption rate did not rise in self-play (64-66% both
+  sides): after the shared protected opening both v08 copies build along the same cheapest
+  routes, so most opponent tracks sit in town regions or in regions where we hold at least as
+  many tracks, and 5 vs 6 per track keeps those unhittable. The bench games last 92 turns with
+  placement on 56% of turns, against 47-turn games with 97% placement and 100% disruption in
+  Indrill's arena; the local mirror bench does not create the situations the valuation is for.
+  This is the third sabotage-valuation flag (after live-target and always-disrupt) to fail the
+  same bench for the same structural reason.
+- **Decision:** both flags OFF, v08 selected, nothing rebuilt in `build/submit` or uploaded.
+  Proposed next steps for the user: (a) a behaviourally calibrated leader-like local reference
+  opponent (full paint every turn, Indrill's fitted target valuation) in the panel, so that
+  sabotage mechanisms are screened against the meta they target; (b) a user-authorized 40-game
+  cached-boss diagnostic of the self-only variant as done for live-target; (c) the never-idle
+  construction gap (1.1 unused paint/turn on Indrill's states) once its routing model is known.

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "track-value-v1-self-direct",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 533000,
+  "pairs": 500
+}

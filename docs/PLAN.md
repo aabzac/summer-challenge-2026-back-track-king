@@ -506,3 +506,22 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       opponent before concluding that live-project targeting itself is useless.
 - [ ] Explain what Gold players buy with their late "dead" construction (36% of cells placed in
       turns 31-45 never score) before proposing a construction-side change.
+
+## Indrill (Legend #1) study and track-value experiment (2026-09-20)
+
+- [x] Fetch all 282 battles of the leader Indrill (Python3, 36.34), validate 282/282 exactly,
+      and study them with `indrill_study.py` and the core-based `cgLeaderStudy` feature export:
+      sub-millisecond heuristic, 100% disruption, 97% full-paint construction, 93.6% of hits end
+      in inks, 48% construction-class hits inked before they earn. See indrill-study-v1.md.
+- [x] Calibrate its target valuation (conditional logit over 14,423 decisions) and implement
+      the default-off `USE_ROLLOUT_TRACK_VALUE` (+ `SELF_ONLY`) in RolloutBot; 343 tests pass;
+      merged candidate 98,886 / 100,000 characters (a corridor fallback was removed for size).
+- [x] Fixed practical-v3 stages vs v08: both-chooser 49.50% / 300 STOP; self-only 54.17% / 300
+      then 50.85% / 1000, NOT_PASSED. Zero errors, 1600 games. Flags OFF, v08 selected.
+- [ ] Build a leader-like local reference opponent (full paint every turn, fitted Indrill target
+      valuation) so sabotage mechanisms are screened against the meta they target; v08 mirrors
+      (92 turns, 56% placement, 64% disruption) have now rejected three such flags.
+- [ ] Identify Indrill's routing cost model behind its 48.7% off-cheapest-route cells (54% in
+      regions shared with the opponent, 60% adjacent to own rails) before a never-idle rule.
+- [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest
+      route, not the max-traffic one) before re-adding a corridor fallback; mind artifact size.

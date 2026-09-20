@@ -14,3 +14,8 @@
 - `quick-income-v1.json` and `quick-income-style-v1.json`: consumed development pools,
   seeds 40000..40149 (300 paired games vs v06) and 41000..41099 (200 vs v05), respectively.
   The quick-income screen did not pass promotion; these maps are not fresh confirmation.
+
+- `track-value-v1-both-screen.json` (530000..530149), `track-value-v1-self-screen.json`
+  (531000..531149) and `track-value-v1-self-direct.json` (533000..533499): consumed by the
+  track-value-v1 stages against v08 on 2026-09-20 (49.50%, 54.17%, 50.85%; not promoted).
+  These maps are not fresh confirmation. See docs/indrill-study-v1.md.

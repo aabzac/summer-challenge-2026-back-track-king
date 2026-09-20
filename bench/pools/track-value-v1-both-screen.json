@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "track-value-v1-both-screen",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 530000,
+  "pairs": 150
+}
