@@ -540,11 +540,16 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       1.55 paint/turn, gap in turns 21-45. RolloutBot has no leftover-paint rule.
 - [x] fill-v1: `USE_ROLLOUT_FILL` default-off, practical-v4 **569/1000 = 56.90% PASS_1000** vs v08,
       zero errors. NEEDS_BOSS_CACHED_40.
-- [ ] **Decision needed:** the merged `current?USE_ROLLOUT_FILL=1` artifact is 100,646 / 100,000
-      characters. Remove one rejected rollout experiment from `bot/current` (RHEA ~3.5k, chords
-      ~2.7k, spread ~2k; frozen v06-v08 untouched), rebuild the isolated artifact, run `procCheck`,
-      then the 40-game cached-boss stage (`tools/boss_cached.py`). Fill code is uncommitted until
-      the artifact fits.
+- [x] User decision: RHEA removed from `bot/current` (frozen v08 keeps it). Isolated artifact
+      95,279 / 100,000 characters; strict `procCheck` 0/8 problem games (first <= 711 ms, later
+      <= 42.4 ms).
+- [x] Cached-boss stage (user-authorized): **17 W / 23 L vs cached v08 13 / 27**, PASS; 40/40
+      replays exact. Combined v4 verdict **PASS, promotion true** (`evidence/fill-v1-decision.json`).
+      The v4 gate gained the explicit `v08` control alias (build `c6b4deae…`, later default-off
+      fields at defaults); 126 Python tests pass.
+- [ ] **Decision needed:** promote fill-v1 as v09 (copy `current` -> `bot/v09`, default
+      `USE_ROLLOUT_FILL=true`, freeze source + parameters, `submit` + `procCheck` on the default
+      artifact, record in BOTS/v09-promotion.md) and upload. Until then v08 stays selected.
 - [ ] Identify Indrill's turn-0 pre-emptive target rule (town-adjacent region on a cheapest
       route, not the max-traffic one) before re-adding a corridor fallback; mind artifact size.
 

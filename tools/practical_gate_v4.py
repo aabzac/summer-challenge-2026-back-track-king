@@ -33,6 +33,43 @@ PASS_GAMES = 1000
 PASS_PERCENT = 55
 FUTILITY_PERCENT = 50
 
+# A frozen version id used as the local control is the same bot as the measured `current`
+# artifact whose 40 boss games are cached (docs/vNN-promotion.md pins both); the cached record
+# carries the build-time spec and parameter list, the local report the frozen id and every later
+# default-off field. The alias is accepted only for this exact spec/build pair, and every field
+# missing from the cached snapshot must be a later default-off field at its default value.
+FROZEN_CONTROL_ALIASES = {
+    'v08': {'spec': 'current?USE_PROTECTED_OPENING=1',
+            'buildId': 'c6b4deae785d05d8fca5822393e8f805353541bc16345f9a0e4b89bf0871fb6b'},
+}
+LATER_DEFAULT_OFF_FIELDS = {
+    'USE_ROLLOUT_LIVE_TARGET': 'false', 'ROLLOUT_LIVE_WEIGHT': '12.0', 'ROLLOUT_LIVE_TURNS': '2',
+    'ROLLOUT_ALWAYS_DISRUPT': 'false', 'USE_ROLLOUT_TRACK_VALUE': 'false',
+    'ROLLOUT_OPP_TRACK_VALUE': '5.0', 'ROLLOUT_OWN_TRACK_VALUE': '6.0',
+    'ROLLOUT_TRACK_VALUE_SELF_ONLY': 'false', 'USE_ROLLOUT_FILL': 'false',
+    'ROLLOUT_FILL_MAX_INSTABILITY': '0',
+}
+
+
+def aliased_control(boss, block1):
+    """Return the cached boss record with its control arm relabelled to the local frozen control
+    when the documented alias applies; otherwise the record unchanged (checked_boss decides)."""
+    local_spec = block1['data']['b']
+    alias = FROZEN_CONTROL_ALIASES.get(local_spec)
+    control = boss.get('control') if isinstance(boss, dict) else None
+    if alias is None or not isinstance(control, dict) or control.get('spec') != alias['spec'] \
+            or control.get('buildId') != alias['buildId']:
+        return boss, None
+    cached, local = control.get('params'), block1['data']['paramsB']
+    require(isinstance(cached, dict) and cached and isinstance(local, dict), 'Missing control parameters for the alias')
+    for key, value in cached.items():
+        require(local.get(key) == value, f'Aliased control parameter differs: {key}')
+    for key in local.keys() - cached.keys():
+        require(LATER_DEFAULT_OFF_FIELDS.get(key) == local[key], f'Aliased control has a non-default later field: {key}')
+    relabelled = dict(boss, control=dict(control, spec=local_spec, params=dict(local)))
+    return relabelled, {'localControl': local_spec, 'cachedSpec': alias['spec'], 'buildId': alias['buildId'],
+                        'laterDefaultFields': sorted(local.keys() - cached.keys())}
+
 
 def _pool(reports):
     half = sum(report['halfWins'] for report in reports)
@@ -142,7 +179,10 @@ def _attach_boss(result, boss, block1, pending):
         if pending:
             result['bossUsage'] = 'NOT_STARTED'
         return
+    boss, alias = aliased_control(boss, block1)
     result['boss'] = checked_boss(boss, block1)
+    if alias is not None:
+        result['bossControlAlias'] = alias
     result['bossStage'] = boss['bossStage']
     if boss['complete']:
         result['bossScoreDifference'] = (boss['candidate']['halfWins'] - boss['control']['halfWins']) / (2 * BOSS_GAMES)

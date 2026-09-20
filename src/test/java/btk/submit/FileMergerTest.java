@@ -183,7 +183,7 @@ class FileMergerTest {
     }
 
     @Test void independentSearchCandidatesCompileAndKeepTheirExactConfiguration() throws Exception {
-        for (String spec : new String[]{"current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1", "current?USE_PROTECTED_OPENING=1"}) {
+        for (String spec : new String[]{"current?USE_PROTECTED_OPENING=0", "current?USE_PROTECTED_OPENING=1"}) {
             String source = FileMerger.merge(spec);
             assertTrue(source.contains("static final class ProtectedOpening"));
             checkFrozenDecisions(spec, true);
@@ -192,7 +192,7 @@ class FileMergerTest {
     }
 
     @Test void artifactAuditRejectsSameConfigurationWithDifferentSource() throws Exception {
-        String spec = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_RHEA=1", source = FileMerger.merge(spec);
+        String spec = "current?USE_PROTECTED_OPENING=0", source = FileMerger.merge(spec);
         Files.writeString(temp.resolve("Player.java"), source);
         Files.writeString(temp.resolve("manifest.json"),
                 new com.google.gson.Gson().toJson(FileMerger.manifest(spec, source)));

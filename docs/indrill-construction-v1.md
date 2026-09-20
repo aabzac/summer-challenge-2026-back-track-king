@@ -118,18 +118,33 @@ slow in-process calls on each side with maxima 133 / 120 ms because a study expo
 suite ran concurrently on the same machine during that block (blocks 2-3: 0 / 3 slow calls,
 maxima 47-93 ms); it affects both sides symmetrically and is not a process deadline.
 
-Verdict under v4: `directStage PASS_1000`, `strengthStatus NEEDS_BOSS_CACHED_40`. The 40-game
-cached-boss stage (`tools/boss_cached.py`, arena submissions) is the user's call.
+Local verdict under v4: `directStage PASS_1000`, `strengthStatus NEEDS_BOSS_CACHED_40`.
 
-**Blocker before any boss game: the merged artifact does not fit.** `submit
--PsubmitVersion="current?USE_ROLLOUT_FILL=1" -PsubmitOut=build/cg-boss/artifacts/fill-v1`
-stops at **100,646 / 100,000 characters** (the flag adds ~1.7k; `current` was already at
-~98.9k because every rejected default-off rollout experiment still ships in it: RHEA ~3.5k,
-network chords ~2.7k, spread ~2k, route dependencies, replan, second target, diverse replies,
-quick-route variants, live-target, always-disrupt, track-value). The merger already strips
-comments and indentation, so only code removal helps: deleting any one of RHEA / chords / spread
-from `bot/current` (frozen v06-v08 copies are untouched) frees enough. `FileMergerTest` fails
-on `current` builds until that decision is made, so the fill code stays uncommitted.
+### Artifact and process check
+
+The first merge of `current?USE_ROLLOUT_FILL=1` was **100,646 / 100,000 characters**: `current`
+still shipped every rejected default-off rollout experiment. With the user's decision, RHEA
+(strategy-search-rhea-v1, rejected) was removed from `bot/current` (frozen v08 keeps it; the
+`Params` fields stay for the frozen copy and `current` rejects the flag). Isolated artifact
+`build/cg-boss/artifacts/fill-v1`: **95,279 characters**, source `7d55b4fb…`, build `4cda8b1b…`;
+strict process check vs v08 on boss maps: **0/8 problem games**, first response <= 711 ms,
+later <= 42.4 ms.
+
+### Cached-boss stage: PASS (17/40 vs 13/40)
+
+Forty new candidate games on the pinned v08 control's maps, seeds and seats (Boss 4 `6740207`,
+plan `95596d9c…`, `build/cg-boss/fill-v1-boss-40b`): **17 W / 23 L** against the cached v08
+**13 / 27**. Candidate-only wins 11, control-only 7, both 6, neither 16; P0 8/20, P1 9/20. All
+40 canonical replays reproduce exactly through `btk.core`. A first plan (`fill-v1-boss-40`)
+stopped before its first game with HTTP 422 / API code 73 ("only one executor running at the
+same time for a test session"); no game was created and the folder is retained.
+
+**Combined verdict (`practical_gate_v4.py`): local PASS_1000 + boss PASS = PASS, promotion
+true** ([decision](evidence/fill-v1-decision.json), [boss report](evidence/fill-v1-boss.json),
+[summary](evidence/fill-v1.json)). The gate needed one explicit alias (`v08` = the measured
+`current?USE_PROTECTED_OPENING=1` build `c6b4deae…`, later default-off fields at defaults), see
+DEVLOG. Promotion to a frozen v09 and the upload are the user's decision; v08 stays selected
+until then.
 
 ## Reproduction
 

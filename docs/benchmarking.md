@@ -134,7 +134,12 @@ verdict stay exactly as recorded.
 Run `python tools/run_practical_v4.py --spec <candidate> --name <id> --seed <base>` for the
 local blocks (it stops automatically on a futility look), then combine with
 `python tools/practical_gate_v4.py --block1 <r1> --block2 <r2> --block3 <r3> --boss-plan <cached>`.
-The cached boss batch itself is unchanged: `tools/boss_cached.py`.
+The cached boss batch itself is unchanged: `tools/boss_cached.py`. When the local control is a
+frozen id whose cached boss games were played as the measured `current?...` artifact (today
+`v08` = build `c6b4deae…`), the v4 checker accepts that documented pair through
+`FROZEN_CONTROL_ALIASES`, provided every parameter present in the cached snapshot matches and
+every later field is a known default-off field at its default; the relabelling is recorded as
+`bossControlAlias` in the verdict. Any other spec/build mismatch is still rejected.
 
 ### Superseded (still available for reproduction): practical-300-1000-boss-cache-v3 (2026-09-19)
 

@@ -48493,6 +48493,30 @@
  },
  "artifact": {
   "isolatedBuild": "submit -PsubmitVersion=current?USE_ROLLOUT_FILL=1 -PsubmitOut=build/cg-boss/artifacts/fill-v1",
-  "result": "FAILED: Submission exceeds 100000 characters: 100646"
- }
+  "characters": 95279,
+  "sourceSha256": "7d55b4fb9ec2968d34fcf4270bc17a9b63cc92d69371115c9dbd05f5cee653a2",
+  "buildId": "4cda8b1b50de4f94009b658d6aa56d13f3ff9577168ae4395e85718668e55407",
+  "processCheck": "0/8 problem games vs v08 on boss maps, zero grace, first <= 711 ms, later <= 42.4 ms",
+  "note": "RHEA removed from bot/current to fit the 100,000-character limit (was 100,646)"
+ },
+ "bossStage": {
+  "plan": "build/cg-boss/fill-v1-boss-40b/plan.json",
+  "planId": "95596d9c5a94c0ee5657def1b654a09969d72cf6d1e1c5e9fdcc47644f8791f9",
+  "candidate": "17 W / 23 L / 0 D",
+  "control": "13 W / 27 L / 0 D (v08 build c6b4deae, cached)",
+  "perMap": {
+   "candidateOnlyWon": 11,
+   "controlOnlyWon": 7,
+   "bothWon": 6,
+   "neitherWon": 16
+  },
+  "bySeat": {
+   "P0": "8/20",
+   "P1": "9/20"
+  },
+  "report": "docs/evidence/fill-v1-boss.json",
+  "replays": "replays/cg/boss/current/4cda8b1b50de4f94009b658d6aa56d13f3ff9577168ae4395e85718668e55407 (40/40 exact)",
+  "abortedFirstPlan": "build/cg-boss/fill-v1-boss-40 (plan 1288b07b; HTTP 422 api code 73, no game created)"
+ },
+ "combinedDecision": "docs/evidence/fill-v1-decision.json (practical_gate_v4: PASS_1000 + boss PASS -> promotion true)"
 }

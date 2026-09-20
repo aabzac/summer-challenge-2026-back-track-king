@@ -3854,3 +3854,46 @@ Completed outcome (fixed sample, no retuning):
   test, `LiveTargetExperimentParams`) is left **uncommitted** pending the user's decision which
   rejected experiment to delete from `bot/current` (frozen v06-v08 untouched). No boss games,
   no upload, v08 stays selected.
+
+## 2026-09-20 - RHEA removed from current; fill-v1 artifact, process check, cached-boss stage
+
+- **User decision:** drop RHEA (strategy-search-rhea-v1, rejected 2026-09-19) from `bot/current`
+  to make room for the fill candidate. Removed from `RolloutBot`: the elite/seed population,
+  `seedRhea` / `retainRhea` / `searchRhea` / `compareRhea`, the `activePlan` hook in the rollout
+  and the RHEA branches of the constructor guard, `init` and `play` (about 4.5k source
+  characters). The three `Params` fields stay because frozen `RolloutBotV08` reads them;
+  `current` now rejects `USE_ROLLOUT_RHEA=1` with an explicit error. `RolloutRheaTest` deleted;
+  `FileMergerTest` uses `current?USE_PROTECTED_OPENING=0` as its independent candidate. The
+  frozen v08 policy bytes are unchanged (pinned hash test still passes). `SearchExperimentStudy`
+  and `tools/run_strategy_search_experiments.py` remain as historical tooling; their RHEA specs
+  can no longer be instantiated on `current`.
+- **Artifact:** `submit -PsubmitVersion="current?USE_ROLLOUT_FILL=1" -PsubmitOut=build/cg-boss/
+  artifacts/fill-v1` -> **95,279 / 100,000 characters**, source SHA-256 `7d55b4fb…`, build
+  `4cda8b1b…`. Strict process check (`procCheck -PsubmitOut=... -Pbot=v08 -Pgames=8
+  -Pmap=replays/cg/boss`, zero grace): **0/8 problem games**, 5/8 wins, first response
+  <= 711 ms, later responses <= 42.4 ms, no timeouts or nominal overruns
+  (`build/cg-boss/artifacts/fill-v1/process-check.json`). **349 Java tests pass** (7 RHEA tests
+  removed, 3 fill tests and 4 leader-v2 tests added).
+- **Cached-boss stage (user-authorized):** control = the measured v08 build `c6b4deae…` (40 games,
+  13 W / 27 L, candidate arm of `build/cg-boss/strategy-search-opening-v1/plan.json`), Boss 4
+  `6740207`. First plan `build/cg-boss/fill-v1-boss-40` (plan `1288b07b…`) stopped at slot 1
+  with HTTP 422 / API code 73 "Only 1 executor running at the same time for a test session":
+  no game was created; cached mode forbids replacement attempts, so the folder is retained as
+  evidence and a fresh plan `build/cg-boss/fill-v1-boss-40b` was registered two minutes later.
+  Forty sequential candidate games (plan `95596d9c…`, 2026-09-20 14:01-14:23 UTC, no failed or
+  uncertain requests): **17 W / 23 L / 0 D** against the cached **13 / 27**; `bossStage PASS`.
+  Per map/seat: candidate-only wins 11, control-only 7, both 6, neither 16; P0 8/20, P1 9/20.
+  All 40 canonical replays reproduce exactly (`cgValidate`, `replays/cg/boss/current/4cda8b1b…`).
+  Reports: `build/cg-boss/fill-v1-boss-40b/report.json` -> `evidence/fill-v1-boss.json`.
+- **Combined v4 verdict:** `practical_gate_v4.py --block1..3 --boss-plan` -> `PASS_1000` + boss
+  `PASS` -> **strengthStatus PASS, promotion true** (`evidence/fill-v1-decision.json`). The v3
+  cached-boss checker compares bot spec strings and full parameter maps, which cannot match when
+  the local control is the frozen id `v08` while the cached control was built as
+  `current?USE_PROTECTED_OPENING=1` before the later default-off fields existed. Added an
+  explicit alias to the active v4 gate only: `FROZEN_CONTROL_ALIASES['v08']` accepts exactly the
+  documented build `c6b4deae…` (the v08 promotion pins it as the measured artifact) and requires
+  every field missing from the cached snapshot to be a known later default-off field at its
+  default value; the relabelling is recorded in the verdict (`bossControlAlias`). v2/v3 checkers
+  unchanged; 12 v4 tests (+1), 126 Python tests pass.
+- **Not done:** promotion (copy `current` to `bot/v09`, default `USE_ROLLOUT_FILL=true`, freeze,
+  rebuild `build/submit`, upload) needs the user's decision. Selected remains v08.

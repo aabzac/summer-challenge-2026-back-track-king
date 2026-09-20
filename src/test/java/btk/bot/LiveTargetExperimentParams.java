@@ -9,7 +9,8 @@ public final class LiveTargetExperimentParams {
             "USE_ROLLOUT_LIVE_TARGET", "false", "ROLLOUT_LIVE_WEIGHT", "12.0",
             "ROLLOUT_LIVE_TURNS", "2", "ROLLOUT_ALWAYS_DISRUPT", "false",
             "USE_ROLLOUT_TRACK_VALUE", "false", "ROLLOUT_OPP_TRACK_VALUE", "5.0",
-            "ROLLOUT_OWN_TRACK_VALUE", "6.0", "ROLLOUT_TRACK_VALUE_SELF_ONLY", "false");
+            "ROLLOUT_OWN_TRACK_VALUE", "6.0", "ROLLOUT_TRACK_VALUE_SELF_ONLY", "false",
+            "USE_ROLLOUT_FILL", "false", "ROLLOUT_FILL_MAX_INSTABILITY", "0");
 
     public static void removeAndCheck(Map<String, String> values) {
         for (var entry : DEFAULTS.entrySet())

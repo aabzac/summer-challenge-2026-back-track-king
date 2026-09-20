@@ -1131,6 +1131,9 @@ spends **1.80 paint/turn vs our 1.55** (turns 21-45: 2.94 / 2.19 vs 2.44 / 1.75)
 no leftover-paint rule. `leader-v2` (local reference, never-idle construction) places on 90% of
 Indrill's states but loses 20% to v08. Candidate `current?USE_ROLLOUT_FILL=1` (leftover paint on
 stable/protected cells next to own rails): practical-v4 **176-124 / 109-91 / 284-216 = 569/1000
-(56.90%) PASS_1000**, zero errors, placement 90% vs 54%; verdict NEEDS_BOSS_CACHED_40. Isolated
-artifact **100,646 / 100,000 characters**: a rejected rollout experiment must leave `current`
-before any boss game; fill code uncommitted until then. [Evidence](evidence/fill-v1.json).
+(56.90%) PASS_1000**, zero errors, placement 90% vs 54%. The first artifact was 100,646 /
+100,000 characters; RHEA (rejected) was removed from `current` on the user's decision ->
+**95,279** characters, strict process check **0/8** problem games. Cached-boss stage on the pinned
+v08 maps: **17 W / 23 L vs 13 / 27**, PASS; 40/40 replays exact. Combined v4 verdict **PASS,
+promotion true**; promotion to v09 awaits the user. [Evidence](evidence/fill-v1.json),
+[decision](evidence/fill-v1-decision.json), [boss](evidence/fill-v1-boss.json).

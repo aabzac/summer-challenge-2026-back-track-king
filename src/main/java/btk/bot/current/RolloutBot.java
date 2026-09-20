@@ -78,21 +78,10 @@ public final class RolloutBot implements Bot {
     private int openingPlayer;
     public boolean selectedOpening;
     public int openingCount, openingPairs, openingEligible, openingPaint;
-    private Random rheaRandom;
-    private int[][] rheaElitePlans;
-    private int[] rheaEliteRoots, rheaEliteTargets, rheaSeedRoots, rheaSeedTargets, rheaCandidate, activePlan;
-    private double[] rheaEliteValues;
-    private int rheaEliteCount, rheaSeedCount;
-    public int rheaAttempts, rheaComparisons, rheaImprovements, rheaDistinctRoots;
-    public boolean rheaSearchStarted, selectedRhea;
-    public double rheaBaselineValue;
-    public int rheaBaselineRoute, rheaBaselineTarget, rheaBaselineCount;
-    public final int[] rheaBaselineCells = new int[GameState.PAINT_PER_TURN];
-    public int[] selectedRheaPlan;
-    private boolean[] rheaVisitedRoots;
-
     public RolloutBot(Params params) {
         p = params.copy();
+        // RHEA (strategy-search-rhea-v1, rejected) was removed from current for artifact size; frozen v08 keeps it.
+        if (p.USE_ROLLOUT_RHEA) throw new IllegalArgumentException("USE_ROLLOUT_RHEA is no longer available in current");
         if (p.USE_HEURISTIC_POLICY || p.USE_OWN_BUILD_PLAN || p.USE_REPLY_RERANK || p.USE_JOINT_ACTION
                 || p.USE_DEFENSE_PRIORITY || p.USE_OPP_MODEL || p.GUARD_BUILD_INCOME
                 || p.CHOOSE_BUILD_DIRECTION || p.EARLY_DISRUPT_FALLBACK || p.INTERRUPT_VULN_EVAL
@@ -105,13 +94,10 @@ public final class RolloutBot implements Bot {
                 || p.ROLLOUT_NETWORK_MAX_CELLS < 1 || p.ROLLOUT_NETWORK_MAX_CELLS > 64
                 || p.ROLLOUT_NETWORK_ROOTS < 1 || p.ROLLOUT_NETWORK_ROOTS > 2
                 || p.ROLLOUT_NETWORK_RESERVE_MS < 0 || p.ROLLOUT_NETWORK_RESERVE_MS > 36
-                || p.ROLLOUT_RHEA_MUTATIONS < 1 || p.ROLLOUT_RHEA_MUTATIONS > 64
-                || p.ROLLOUT_RHEA_ELITES < 1 || p.ROLLOUT_RHEA_ELITES > 4
                 || p.OPENING_TURNS < 1 || p.OPENING_TURNS > 3
                 || p.OPENING_CITY_QUOTA < 1 || p.OPENING_CITY_QUOTA > 3
                 || !unit(p.OPENING_COLLISION_FACTOR)
-                || p.USE_ROLLOUT_RHEA && p.USE_PROTECTED_OPENING
-                || (p.USE_ROLLOUT_RHEA || p.USE_PROTECTED_OPENING)
+                || p.USE_PROTECTED_OPENING
                     && (!p.USE_ROLLOUT_NETWORK_AFTER_BASE || !p.USE_ROLLOUT_QUICK_ROUTE
                     || p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_CHORDS
                     || p.USE_ROLLOUT_ROUTE_DEPENDENCIES || p.USE_ROLLOUT_REPLAN
@@ -168,16 +154,6 @@ public final class RolloutBot implements Bot {
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         realPlayer = me;
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
-        if (p.USE_ROLLOUT_RHEA) {
-            rheaRandom = new Random(0);
-            rheaElitePlans = new int[p.ROLLOUT_RHEA_ELITES][p.ROLLOUT_DEPTH];
-            rheaEliteRoots = new int[p.ROLLOUT_RHEA_ELITES];
-            rheaEliteTargets = new int[p.ROLLOUT_RHEA_ELITES];
-            rheaEliteValues = new double[p.ROLLOUT_RHEA_ELITES];
-            rheaSeedRoots = new int[2 * roots.length]; rheaSeedTargets = new int[2 * roots.length];
-            rheaCandidate = new int[p.ROLLOUT_DEPTH]; selectedRheaPlan = new int[p.ROLLOUT_DEPTH];
-            rheaVisitedRoots = new boolean[roots.length];
-        }
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
         if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
             routeDependencies = new int[2][p.ROLLOUT_WIDTH][s.regionCount];
@@ -221,15 +197,6 @@ public final class RolloutBot implements Bot {
         ordinarySelectedValue = Double.NaN;
         Arrays.fill(ordinarySelectedCells, 0);
         selectedOpening = false; openingCount = openingPairs = openingEligible = openingPaint = 0;
-        rheaAttempts = rheaComparisons = rheaImprovements = rheaDistinctRoots = 0;
-        rheaEliteCount = rheaSeedCount = 0; activePlan = null;
-        rheaSearchStarted = selectedRhea = false; rheaBaselineValue = Double.NaN;
-        rheaBaselineRoute = rheaBaselineTarget = -1; rheaBaselineCount = 0;
-        Arrays.fill(rheaBaselineCells, 0);
-        if (p.USE_ROLLOUT_RHEA) {
-            Arrays.fill(rheaVisitedRoots, false); Arrays.fill(selectedRheaPlan, -1);
-            rheaRandom.setSeed(p.SEED * 1_000_033L + me * 8191L + s.turn * 104729L);
-        }
         if (opening != null) opening.reset(s, me);
         if (p.USE_ROLLOUT_NETWORK) {
             Arrays.fill(networkCompared, false); Arrays.fill(networkGains, Integer.MIN_VALUE);
@@ -307,7 +274,6 @@ public final class RolloutBot implements Bot {
         boolean complete = searchRoots(s, me, 0, rootSize, replies);
         saveOrdinaryChoice(complete);
         if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) searchNetworkAfterBase(s, me, replies, budgetMs);
-        if (p.USE_ROLLOUT_RHEA) searchRhea(s, me, replies);
         // Ordinary roots retain their budget priority; only the winning construction gets an extra target.
         if (p.USE_ROLLOUT_SECOND_TARGET && completedComparisons > 0 && !timer.up()) {
             int root = selectedRoute < 0 ? counts[me] : selectedRoute;
@@ -334,11 +300,46 @@ public final class RolloutBot implements Bot {
     }
 
     private List<Action> actions(GameState s) {
+        if (p.USE_ROLLOUT_FILL) fill(s, realPlayer);
         List<Action> result = new ArrayList<>(4);
         for (int i = 0; i < bestCount; i++) result.add(Action.place(s.x(bestCells[i]), s.y(bestCells[i])));
         if (selectedTarget >= 0) result.add(Action.disrupt(selectedTarget));
         if (result.isEmpty()) result.add(Action.waitAction());
         return result;
+    }
+
+    public int fillCells;
+
+    /** USE_ROLLOUT_FILL: leftover paint on stable/protected free cells next to own rails; search and target untouched. */
+    private void fill(GameState s, int me) {
+        fillCells = 0;
+        int paint = GameState.PAINT_PER_TURN, n = s.size;
+        for (int i = 0; i < bestCount; i++) paint -= s.placeCost(bestCells[i]);
+        if (paint <= 0) return;
+        byte[] m = new byte[n]; // 1 own track, 3 own earning track, 4 proposed-route cell; once per turn
+        for (int c = 0; c < n; c++) if (s.owner[c] == me) m[c] = 1;
+        for (int q = 0; q < s.pairCount; q++)
+            for (int i = 0; s.pairPath[q] != null && i < s.pairPathLen[q]; i++) if (m[s.pairPath[q][i]] == 1) m[s.pairPath[q][i]] = 3;
+        for (int r = 0; r < counts[me]; r++)
+            for (int i = 0; i < lengths[me][r]; i++) if (m[routes[me][r][i]] == 0) m[routes[me][r][i]] = 4;
+        for (int i = 0; i < bestCount; i++) m[bestCells[i]] = 1;
+        while (paint > 0 && bestCount < GameState.PAINT_PER_TURN && !timer.up()) {
+            int bestCell = -1, bestScore = 0;
+            for (int c = 0; c < n; c++) {
+                int g = s.regionId[c], adj = 0;
+                if ((m[c] & 1) != 0 || !s.canBuild(c) || s.placeCost(c) > paint || g == selectedTarget
+                        || !s.regionHasTown(g) && s.regionInstability[g] > p.ROLLOUT_FILL_MAX_INSTABILITY) continue;
+                for (int d = 0; d < 4; d++) {
+                    int x = s.x(c) + GameState.DX[d], y = s.y(c) + GameState.DY[d];
+                    if (s.inBounds(x, y) && (m[s.cell(x, y)] & 1) != 0) adj = Math.max(adj, m[s.cell(x, y)]);
+                }
+                if (adj == 0) continue;
+                int score = (adj + (m[c] == 4 ? 4 : 0) + (s.regionHasTown(g) ? 2 : 0)) * 4 - s.placeCost(c);
+                if (score > bestScore) { bestScore = score; bestCell = c; }
+            }
+            if (bestCell < 0) break;
+            bestCells[bestCount++] = bestCell; paint -= s.placeCost(bestCell); fillCells++; m[bestCell] = 1;
+        }
     }
 
     /** Complete comparisons only; preserves the saved answer when a reply cannot finish. */
@@ -367,7 +368,6 @@ public final class RolloutBot implements Bot {
                     else { networkComparisons++; networkCompared[root] = true; }
                 }
                 double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
-                if (p.USE_ROLLOUT_RHEA) seedRhea(me, root, target, value);
                 if (value > best) {
                     best = value; selectedValue = value;
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
@@ -392,84 +392,6 @@ public final class RolloutBot implements Bot {
         ordinarySelectedTarget = selectedTarget;
         ordinarySelectedValue = selectedValue;
         System.arraycopy(bestCells, 0, ordinarySelectedCells, 0, bestCount);
-    }
-
-    private void seedRhea(int me, int root, int target, double value) {
-        rheaSeedRoots[rheaSeedCount] = root; rheaSeedTargets[rheaSeedCount++] = target;
-        Arrays.fill(rheaCandidate, root < counts[me] ? root : 0);
-        retainRhea(root, target, value);
-    }
-
-    /** Small elite population; a genome keeps its actual first action and future route priorities. */
-    private void retainRhea(int root, int target, double value) {
-        int slot = rheaEliteCount;
-        for (int i = 0; i < rheaEliteCount; i++) {
-            if (rheaEliteRoots[i] == root && rheaEliteTargets[i] == target
-                    && Arrays.equals(rheaElitePlans[i], rheaCandidate)) return;
-            if (slot == rheaEliteCount && value > rheaEliteValues[i]) slot = i;
-        }
-        if (slot >= rheaElitePlans.length) return;
-        rheaEliteCount = Math.min(rheaElitePlans.length, rheaEliteCount + 1);
-        for (int i = rheaEliteCount - 1; i > slot; i--) {
-            rheaEliteRoots[i] = rheaEliteRoots[i - 1]; rheaEliteTargets[i] = rheaEliteTargets[i - 1];
-            rheaEliteValues[i] = rheaEliteValues[i - 1];
-            System.arraycopy(rheaElitePlans[i - 1], 0, rheaElitePlans[i], 0, p.ROLLOUT_DEPTH);
-        }
-        rheaEliteRoots[slot] = root; rheaEliteTargets[slot] = target; rheaEliteValues[slot] = value;
-        System.arraycopy(rheaCandidate, 0, rheaElitePlans[slot], 0, p.ROLLOUT_DEPTH);
-    }
-
-    /** Mutations receive only time left after every ordinary and singleton comparison. */
-    private void searchRhea(GameState s, int me, int replies) {
-        rheaBaselineValue = best; rheaBaselineRoute = selectedRoute; rheaBaselineTarget = selectedTarget;
-        rheaBaselineCount = bestCount;
-        System.arraycopy(bestCells, 0, rheaBaselineCells, 0, bestCount);
-        int depth = Math.min(p.ROLLOUT_DEPTH, s.turnsLeft());
-        if (!ordinarySearchComplete || !networkPhaseComplete || timer.up()
-                || counts[me] < 2 || depth < 2 || rheaSeedCount == 0) return;
-        rheaSearchStarted = true;
-        int seed = rheaRandom.nextInt(rheaSeedCount);
-        for (int i = 0; i < p.ROLLOUT_RHEA_MUTATIONS && !timer.up(); i++) {
-            int root, target;
-            if ((i & 1) == 0) {
-                root = rheaSeedRoots[seed]; target = rheaSeedTargets[seed];
-                seed = (seed + 1) % rheaSeedCount;
-                Arrays.fill(rheaCandidate, root < counts[me] ? root : 0);
-            } else {
-                int elite = rheaRandom.nextInt(rheaEliteCount);
-                root = rheaEliteRoots[elite]; target = rheaEliteTargets[elite];
-                System.arraycopy(rheaElitePlans[elite], 0, rheaCandidate, 0, p.ROLLOUT_DEPTH);
-            }
-            int turn = 1 + rheaRandom.nextInt(depth - 1);
-            int route = rheaRandom.nextInt(counts[me] - 1);
-            if (route >= rheaCandidate[turn]) route++;
-            int end = rheaRandom.nextBoolean() ? depth : turn + 1;
-            for (int j = turn; j < end; j++) rheaCandidate[j] = route;
-            rheaAttempts++;
-            double value = compareRhea(s, me, root, target, replies);
-            if (!Double.isFinite(value)) return;
-            rheaComparisons++; completedComparisons++;
-            if (!rheaVisitedRoots[root]) { rheaVisitedRoots[root] = true; rheaDistinctRoots++; }
-            retainRhea(root, target, value);
-            if (value <= best) continue;
-            rheaImprovements++; selectedRhea = true; best = value; selectedValue = value;
-            selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
-            selectedNetwork = root >= ordinaryRootSize; selectedNetworkCell = selectedNetwork ? roots[root][0] : -1;
-            bestCount = rootCounts[root]; System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
-            System.arraycopy(rheaCandidate, 0, selectedRheaPlan, 0, p.ROLLOUT_DEPTH);
-        }
-    }
-
-    private double compareRhea(GameState s, int me, int root, int target, int replies) {
-        double sum = 0, worst = Double.MAX_VALUE;
-        activePlan = rheaCandidate;
-        for (int reply = 0; reply < replies; reply++) {
-            double value = rollout(s, me, root, target, reply);
-            if (!Double.isFinite(value)) { activePlan = null; return Double.NaN; }
-            sum += value; worst = Math.min(worst, value);
-        }
-        activePlan = null;
-        return (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
     }
 
     /** No new network work runs until every ordinary root/reply comparison is complete. */
@@ -968,7 +890,7 @@ public final class RolloutBot implements Bot {
                     System.arraycopy(roots[root], 0, moves[player], 0, rootCounts[root]);
                     targets[player] = ownTarget;
                 } else {
-                    int first = player == me ? activePlan == null ? ownFirst : activePlan[turn] : reply;
+                    int first = player == me ? ownFirst : reply;
                     if (p.USE_ROLLOUT_SPREAD && player == me && root >= ordinaryRootSize) {
                         moveCounts[player] = fillSpread(s, me, spreadFirst[root], spreadSecond[root],
                                 spreadQuota[root], moves[player]);

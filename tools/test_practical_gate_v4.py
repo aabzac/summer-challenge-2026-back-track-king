@@ -147,6 +147,38 @@ class PracticalGateV4Test(unittest.TestCase):
         self.assertEqual('NEEDS_LOCAL_1000', pending['strengthStatus'])
         self.assertEqual('RETAINED_PENDING_LOCAL_1000', pending['bossUsage'])
 
+    def test_frozen_control_alias_accepts_only_the_pinned_build_and_default_later_fields(self):
+        alias = gate.FROZEN_CONTROL_ALIASES['v08']
+        later = {'USE_ROLLOUT_FILL': 'false', 'ROLLOUT_FILL_MAX_INSTABILITY': '0'}
+
+        def blocks(extra):
+            reports = []
+            for n, half, start in ((300, 330, S1), (200, 210, S2), (500, 560, S3)):
+                data = local_fixture(n, half, start=start)
+                data['paramsB'] = {'FEATURE': 'false', 'NOISE': '0.1', **extra}
+                reports.append(self.report(data))
+            return reports
+
+        def boss(spec=alias['spec'], build=alias['buildId']):
+            value = cached_fixture(30, 26)
+            value['control'].update(spec=spec, buildId=build)
+            return value
+
+        passed = gate.assess(*blocks(later), boss=boss())
+        self.assertEqual('PASS', passed['strengthStatus'])
+        self.assertEqual(['ROLLOUT_FILL_MAX_INSTABILITY', 'USE_ROLLOUT_FILL'], passed['bossControlAlias']['laterDefaultFields'])
+        self.assertEqual('v08', passed['bossControlAlias']['localControl'])
+        with self.assertRaisesRegex(ValueError, 'specification changed'):
+            gate.assess(*blocks(later), boss=boss(build='f' * 64))
+        with self.assertRaisesRegex(ValueError, 'specification changed'):
+            gate.assess(*blocks(later), boss=boss(spec='current?USE_PROTECTED_OPENING=0'))
+        with self.assertRaisesRegex(ValueError, 'non-default later field'):
+            gate.assess(*blocks({'USE_ROLLOUT_FILL': 'true'}), boss=boss())
+        with self.assertRaisesRegex(ValueError, 'non-default later field'):
+            gate.assess(*blocks({'UNKNOWN_FIELD': 'false'}), boss=boss())
+        with self.assertRaisesRegex(ValueError, 'parameter differs'):
+            gate.assess(*blocks({**later, 'NOISE': '0.2'}), boss=boss())
+
     def test_reused_maps_across_blocks_are_rejected(self):
         with self.assertRaisesRegex(ValueError, 'reuses'):
             gate.assess(self.b1(320), self.report(local_fixture(200, 120, start=S1)))

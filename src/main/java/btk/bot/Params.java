@@ -33,10 +33,13 @@ public class Params {
     public boolean USE_ROLLOUT_ROUTE_DEPENDENCIES = false;
     /** Affordable two/three-cell network roots, after ordinary and single-cell comparisons. */
     public boolean USE_ROLLOUT_NETWORK_CHORDS = false;
-    /** Independent evolution of construction continuations after the selected v07 search. */
+    /** RHEA continuations: read by frozen v08 only; current rejects the flag (code removed 2026-09-20 for artifact size). */
     public boolean USE_ROLLOUT_RHEA = false;
     public int ROLLOUT_RHEA_MUTATIONS = 12;
     public int ROLLOUT_RHEA_ELITES = 2;
+    /** Spend leftover paint on stable/protected cells next to own rails (boss/leader cell study). */
+    public boolean USE_ROLLOUT_FILL = false;
+    public int ROLLOUT_FILL_MAX_INSTABILITY = 0;
     /** Selected first-three-turn protected approach ownership policy. */
     public boolean USE_PROTECTED_OPENING = true;
     public int OPENING_TURNS = 3;
