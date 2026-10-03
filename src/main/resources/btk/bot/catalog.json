@@ -107,6 +107,13 @@
       "description": "Compact prototype inspired by Indrill's forum post: risk-aware connection observations, a neural Q model trained from score and terminal outcomes, additive whole-quota construction and region ink decisions. Rejected locally (0/300 vs v09). Generated weights in btk.bot.current.IndrillWeights."
     },
     {
+      "id": "indrill-q-v2",
+      "title": "Learned Position Value",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Q-learning follow-up: learned board-value baseline and WAIT plus additive construction/ink advantages. Fixed 960-game/14,000-update training; rejected locally (0/300 vs v09), not promoted. docs/indrill-q-v2.md."
+    },
+    {
       "id": "current",
       "title": "Working Copy",
       "category": "working",

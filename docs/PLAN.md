@@ -612,5 +612,17 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [x] Run practical-v4 vs v09 on 150 fresh paired maps, excluding training/probe maps:
       0/300 score, zero errors, STOP_FUTILITY_300. Evaluation complete; boss skipped,
       no promotion or retries. Record complete evidence and retain rejected candidate.
-- [ ] Separate future RL version: learn a state-value baseline including WAIT, represent
-      interactions among placements/ink, then predeclare a larger training schedule.
+- [x] Separate indrill-q-v2: learned state-value baseline including WAIT, larger fixed
+      random-start schedule (960 games, 14,000 updates), balanced frozen-control seats,
+      retained optimizer/target/replay identities; preserve v1 and selected v09.
+- [x] Download bounded top-player refresh (86 new unique public games); preserve old
+      replay bytes and verify 86/86 with the core. Keep this corpus separate from RL data.
+- [x] Independent actual-dataset/checkpoint/map-exclusion audit; 386 Java + 29 related
+      Python tests, 292/292 old arena replays, complete 18-position parity, exact isolated
+      artifact and strict process 0/8. Exclude all 960 training + 3 probe maps before play.
+- [x] indrill-q-v2 practical-v4 vs v09: 0/300, zero errors, STOP_FUTILITY_300; fixed full
+      first block complete, continuations/boss skipped, no promotion/tuning/retries.
+      Record score diagnostics and full evidence in BOTS/DEVLOG/indrill-q-v2.md.
+- [ ] Separate future versions: placement/ink interaction model, learning-objective
+      change or teacher-policy prior. Predeclare one experiment and evaluation per version;
+      additional games alone did not make v2 competitive.

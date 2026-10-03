@@ -1,0 +1,2148 @@
+{
+  "method": "Canonical response metadata only; no scoring/pathing implementation or new games",
+  "fixedFetch": "top 10 public leaderboard agents, latest 10 finished battle slots each",
+  "newCanonicalGames": 86,
+  "publicReadRequests": 97,
+  "duplicateSlotsWithinBatch": 14,
+  "publicErrors": [],
+  "newBytes": 5257524,
+  "playerAppearances": {
+    "Pduhard-": 26,
+    "Indrill": 11,
+    "zasmu": 31,
+    "ziemekb": 20,
+    "gaha": 10,
+    "delineate": 9,
+    "Saelyos": 10,
+    "Waffle3z": 10,
+    "RamzaBeoulve": 10,
+    "R1FA": 10,
+    "_H3R0_": 10,
+    "sZoom": 10,
+    "FlyingChoucroute": 5
+  },
+  "freshIndrill": {
+    "agentId": 6755459,
+    "pseudo": "Indrill",
+    "rank": 1,
+    "score": 39.17,
+    "league": {
+      "divisionIndex": 5,
+      "divisionCount": 6,
+      "divisionAgentsCount": 28,
+      "openingLeaguesCount": 0,
+      "divisionOffset": 0
+    },
+    "appearances": 11,
+    "canonicalRanks": {
+      "0": 9,
+      "1": 2
+    }
+  },
+  "oldIndrillGames": 282,
+  "oldIndrillPreserved": true,
+  "stdoutAvailable": 86,
+  "invalidAgents": 0,
+  "explicitErrorFrames": 0,
+  "engineFidelity": "86/86 reproduced exactly by shared-core cgValidate on 2026-10-03 before v2 strength evaluation",
+  "trainingUse": "archived for engine/feature diagnostics and future teacher-corpus work; current v2 local RL training unchanged",
+  "games": [
+    {
+      "gameId": 905455435,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455435.json",
+      "sha256": "fc0720caa07903e4653f0dbb83352e39ae34c14e61afdbaf2f46d3d1ab0f6e6a",
+      "bytes": 63413,
+      "frameCount": 89,
+      "keyframes": 45,
+      "stdoutFrames": 88,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "Indrill"
+      ],
+      "canonicalScores": [
+        1202.0,
+        1437.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ],
+      "indrillSeat": 1,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 1437.0
+    },
+    {
+      "gameId": 905455393,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455393.json",
+      "sha256": "acff4ea4f4310fd48d82592990478add576eea03af52cacce6cf547d42561608",
+      "bytes": 36462,
+      "frameCount": 71,
+      "keyframes": 36,
+      "stdoutFrames": 70,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "Indrill"
+      ],
+      "canonicalScores": [
+        357.0,
+        247.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ],
+      "indrillSeat": 1,
+      "indrillCanonicalRank": 1,
+      "indrillCanonicalScore": 247.0
+    },
+    {
+      "gameId": 905455347,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455347.json",
+      "sha256": "95773c9b69ff09e6492a66afd98ff1d3b59d156888e669008f5b909b0c802b43",
+      "bytes": 52025,
+      "frameCount": 83,
+      "keyframes": 42,
+      "stdoutFrames": 82,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Indrill",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        913.0,
+        730.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ],
+      "indrillSeat": 0,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 913.0
+    },
+    {
+      "gameId": 905455346,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455346.json",
+      "sha256": "352fc3703997e276afa7fca23b62a58a23deaa67aa9612aedf42cbac86db6b52",
+      "bytes": 107910,
+      "frameCount": 179,
+      "keyframes": 90,
+      "stdoutFrames": 178,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Indrill",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        3294.0,
+        2712.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ],
+      "indrillSeat": 0,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 3294.0
+    },
+    {
+      "gameId": 905455155,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455155.json",
+      "sha256": "689f48630a5d0645afd14c527c54d9d5fe28c8a904465e307e31d4f27f132a0f",
+      "bytes": 52745,
+      "frameCount": 79,
+      "keyframes": 40,
+      "stdoutFrames": 78,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Indrill",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        1299.0,
+        1183.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ],
+      "indrillSeat": 0,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 1299.0
+    },
+    {
+      "gameId": 905455111,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455111.json",
+      "sha256": "8c9cddbbcd691f76190d5bf3429c0c96a90f7cb447597261ee936a2d3d40121a",
+      "bytes": 81389,
+      "frameCount": 181,
+      "keyframes": 91,
+      "stdoutFrames": 180,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Indrill",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        1355.0,
+        1007.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ],
+      "indrillSeat": 0,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 1355.0
+    },
+    {
+      "gameId": 905455102,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905455102.json",
+      "sha256": "a195537c34689682efdf1b74920a6b11d94129091926844f29e7f3f5a250e6dd",
+      "bytes": 45641,
+      "frameCount": 79,
+      "keyframes": 40,
+      "stdoutFrames": 78,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "Indrill"
+      ],
+      "canonicalScores": [
+        523.0,
+        758.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ],
+      "indrillSeat": 1,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 758.0
+    },
+    {
+      "gameId": 905454402,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905454402.json",
+      "sha256": "25b4b4c4d8d30d5c2a6c2c345626098f60a7938c9add3b186a3f51722cb2f0a7",
+      "bytes": 71386,
+      "frameCount": 123,
+      "keyframes": 62,
+      "stdoutFrames": 122,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Indrill",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1027.0,
+        1029.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ],
+      "indrillSeat": 0,
+      "indrillCanonicalRank": 1,
+      "indrillCanonicalScore": 1027.0
+    },
+    {
+      "gameId": 905454189,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905454189.json",
+      "sha256": "27d7f5a134c421f3a211739881f75593d39ec3a1b52a4aa366a411a00ce45615",
+      "bytes": 72709,
+      "frameCount": 105,
+      "keyframes": 53,
+      "stdoutFrames": 104,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "Indrill"
+      ],
+      "canonicalScores": [
+        1474.0,
+        1705.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ],
+      "indrillSeat": 1,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 1705.0
+    },
+    {
+      "gameId": 905453964,
+      "agentId": 6755459,
+      "path": "replays/cg-top10-v2/905453964.json",
+      "sha256": "34fe78aeea7ad0aeeac53ffb88dd9591d7b42cc7ab1ed9449c9eea8cd3c2dfbe",
+      "bytes": 85965,
+      "frameCount": 193,
+      "keyframes": 97,
+      "stdoutFrames": 192,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "Indrill"
+      ],
+      "canonicalScores": [
+        1252.0,
+        1982.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ],
+      "indrillSeat": 1,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 1982.0
+    },
+    {
+      "gameId": 905455467,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905455467.json",
+      "sha256": "4632d481c33a0549289d937263ac46db2ab35b9d7853720f71f34eb075f74d79",
+      "bytes": 51305,
+      "frameCount": 95,
+      "keyframes": 48,
+      "stdoutFrames": 94,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "gaha",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        898.0,
+        755.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455051,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905455051.json",
+      "sha256": "a57e2191d55422683aa7269d9d5279dcfe332202a444a377d3158aaaabebcca7",
+      "bytes": 72308,
+      "frameCount": 201,
+      "keyframes": 101,
+      "stdoutFrames": 200,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "gaha",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1211.0,
+        655.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454828,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905454828.json",
+      "sha256": "60e591e88bb9b998ae4f289fd0446f221cc8e6995978f7052ae5b0137359eb07",
+      "bytes": 71583,
+      "frameCount": 201,
+      "keyframes": 101,
+      "stdoutFrames": 200,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "gaha",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        792.0,
+        558.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454826,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905454826.json",
+      "sha256": "68fa85d8830574796c3771be5e3649c7d409972f3cea08d0eb80691f0c0a0efd",
+      "bytes": 56648,
+      "frameCount": 89,
+      "keyframes": 45,
+      "stdoutFrames": 88,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "gaha",
+        "delineate"
+      ],
+      "canonicalScores": [
+        1507.0,
+        951.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454775,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905454775.json",
+      "sha256": "2fa57bc5e592d9f6f6a0811de72085b7cf7134ca899bf3f0c455d1e53e9544fe",
+      "bytes": 57330,
+      "frameCount": 113,
+      "keyframes": 57,
+      "stdoutFrames": 112,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "gaha",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        749.0,
+        510.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454705,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905454705.json",
+      "sha256": "c360cd0bba271d6bd5d2dfc761b22ab88a02d5800a1ba9d895fa9a183e5ab925",
+      "bytes": 35258,
+      "frameCount": 69,
+      "keyframes": 35,
+      "stdoutFrames": 68,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "gaha"
+      ],
+      "canonicalScores": [
+        294.0,
+        366.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454556,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905454556.json",
+      "sha256": "bc839e72e4f160fc905faf295c17082eba593a7992a61026ac129c6ab5c93480",
+      "bytes": 49815,
+      "frameCount": 85,
+      "keyframes": 43,
+      "stdoutFrames": 84,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "gaha"
+      ],
+      "canonicalScores": [
+        828.0,
+        923.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454262,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905454262.json",
+      "sha256": "62b2c652c49a749ea57444fbab64869dadcea86680f6ad48c203988ca30afde4",
+      "bytes": 39034,
+      "frameCount": 77,
+      "keyframes": 39,
+      "stdoutFrames": 76,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "gaha"
+      ],
+      "canonicalScores": [
+        299.0,
+        515.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905453929,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905453929.json",
+      "sha256": "20eaf672453252432bf42f8b9f4e9bb0edd593231f07e1636d6329640b001ef4",
+      "bytes": 52671,
+      "frameCount": 99,
+      "keyframes": 50,
+      "stdoutFrames": 98,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "gaha",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        522.0,
+        701.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905453812,
+      "agentId": 6756439,
+      "path": "replays/cg-top10-v2/905453812.json",
+      "sha256": "568ec30c3f2fb23d0397d18541a67715be5851809f8fc0aaead6c3e9ea9431f5",
+      "bytes": 91415,
+      "frameCount": 201,
+      "keyframes": 101,
+      "stdoutFrames": 200,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "gaha"
+      ],
+      "canonicalScores": [
+        756.0,
+        1302.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455512,
+      "agentId": 6753015,
+      "path": "replays/cg-top10-v2/905455512.json",
+      "sha256": "1c9755e6d0d2ff82e412f9e9dcb3c0bc6df3f5eda346c66580ec55b1644a42a8",
+      "bytes": 47889,
+      "frameCount": 89,
+      "keyframes": 45,
+      "stdoutFrames": 88,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        476.0,
+        389.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455511,
+      "agentId": 6753015,
+      "path": "replays/cg-top10-v2/905455511.json",
+      "sha256": "10cd41055717a6394860e1ca76e5e8db53d573f4bb6bbb7a80148263e718f12b",
+      "bytes": 87893,
+      "frameCount": 195,
+      "keyframes": 98,
+      "stdoutFrames": 194,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1619.0,
+        1103.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455252,
+      "agentId": 6753015,
+      "path": "replays/cg-top10-v2/905455252.json",
+      "sha256": "6222eb3e3695a65be8d1b1d05af80d585b6c6305b2f2658f570b524ba079f779",
+      "bytes": 74774,
+      "frameCount": 201,
+      "keyframes": 101,
+      "stdoutFrames": 200,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Saelyos",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        515.0,
+        898.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455204,
+      "agentId": 6753015,
+      "path": "replays/cg-top10-v2/905455204.json",
+      "sha256": "f0d20cd97e53b112b2c0db5edf1b23f1e01a3f108da579f7fa90aca40c79b3ed",
+      "bytes": 48497,
+      "frameCount": 79,
+      "keyframes": 40,
+      "stdoutFrames": 78,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "Waffle3z"
+      ],
+      "canonicalScores": [
+        1150.0,
+        717.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455154,
+      "agentId": 6753015,
+      "path": "replays/cg-top10-v2/905455154.json",
+      "sha256": "fccd3020b562fe48261e0f182026dad1261930b0537497a693bdbefcbf03f9cc",
+      "bytes": 104431,
+      "frameCount": 201,
+      "keyframes": 101,
+      "stdoutFrames": 200,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        1759.0,
+        2101.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455251,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905455251.json",
+      "sha256": "cf3b85f934fec721d7387d2806fc5f12374d43df5a74637a2f948a0d7f04769e",
+      "bytes": 61316,
+      "frameCount": 97,
+      "keyframes": 49,
+      "stdoutFrames": 96,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "RamzaBeoulve",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1102.0,
+        1235.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454998,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454998.json",
+      "sha256": "9b4219caf160710633dcb8b8ec2de341088064b4065fd195e62a077c9e4bcfcb",
+      "bytes": 65241,
+      "frameCount": 111,
+      "keyframes": 56,
+      "stdoutFrames": 110,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "RamzaBeoulve"
+      ],
+      "canonicalScores": [
+        1273.0,
+        1406.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454870,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454870.json",
+      "sha256": "8bdfbbb8f08166d2b100136bf34864e47f408c327739b5a2adb6d9ae3af3cabb",
+      "bytes": 82098,
+      "frameCount": 111,
+      "keyframes": 56,
+      "stdoutFrames": 110,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "RamzaBeoulve",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        1863.0,
+        1470.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454773,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454773.json",
+      "sha256": "6c997f85043848fbb2dd856a098f5ed7ff5ba8dbe5fa98757794646790572c7c",
+      "bytes": 51548,
+      "frameCount": 81,
+      "keyframes": 41,
+      "stdoutFrames": 80,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "RamzaBeoulve",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        623.0,
+        593.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454631,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454631.json",
+      "sha256": "b46eb9f57b8787276c3705b57f98505ab6c4747f52b386af9fdf7a4c77d05f07",
+      "bytes": 55711,
+      "frameCount": 91,
+      "keyframes": 46,
+      "stdoutFrames": 90,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "RamzaBeoulve",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        1033.0,
+        884.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454507,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454507.json",
+      "sha256": "28061b3a51568665a1d05a5152c6fd97bc301bd9ef40289a23566c91b7956501",
+      "bytes": 74511,
+      "frameCount": 103,
+      "keyframes": 52,
+      "stdoutFrames": 102,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "RamzaBeoulve",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1716.0,
+        2219.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454332,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454332.json",
+      "sha256": "6a17151e3efeb0dde7b45b58394a6af673449338597c3832c2d45c6e60963a89",
+      "bytes": 70727,
+      "frameCount": 147,
+      "keyframes": 74,
+      "stdoutFrames": 146,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "RamzaBeoulve"
+      ],
+      "canonicalScores": [
+        675.0,
+        786.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454153,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454153.json",
+      "sha256": "ab7c4f09b580bee0df8a58c4ddd81d292f85bd44780f4f4db516188004f395d3",
+      "bytes": 34809,
+      "frameCount": 71,
+      "keyframes": 36,
+      "stdoutFrames": 70,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "delineate",
+        "RamzaBeoulve"
+      ],
+      "canonicalScores": [
+        274.0,
+        498.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454117,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454117.json",
+      "sha256": "3da687b2aca8840c697162624fba4d8e8d8e386f6e9c5e9fea99ce877a4624d4",
+      "bytes": 66332,
+      "frameCount": 117,
+      "keyframes": 59,
+      "stdoutFrames": 116,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "delineate",
+        "RamzaBeoulve"
+      ],
+      "canonicalScores": [
+        828.0,
+        856.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454067,
+      "agentId": 6756277,
+      "path": "replays/cg-top10-v2/905454067.json",
+      "sha256": "6dd3711541254ffbd066fcd4f12394632e515768a5765527fb02d128b9747166",
+      "bytes": 53095,
+      "frameCount": 93,
+      "keyframes": 47,
+      "stdoutFrames": 92,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "RamzaBeoulve",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        829.0,
+        783.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455697,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905455697.json",
+      "sha256": "d16080fb29d4c2039da041c42480c89acd668bd8508b319799e85c8cfb06da8e",
+      "bytes": 62357,
+      "frameCount": 99,
+      "keyframes": 50,
+      "stdoutFrames": 98,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Waffle3z",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1115.0,
+        914.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455345,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905455345.json",
+      "sha256": "5dedb73e5e188648e1a18f611cbdf236488d64fa3c77ec0b851df5bceec9ada6",
+      "bytes": 81815,
+      "frameCount": 125,
+      "keyframes": 63,
+      "stdoutFrames": 124,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "Waffle3z"
+      ],
+      "canonicalScores": [
+        1651.0,
+        1742.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455049,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905455049.json",
+      "sha256": "f8339ecc3af28ae5cb47bd10a47cb86f48f8b34d4946a02268361ab9611341fe",
+      "bytes": 73067,
+      "frameCount": 137,
+      "keyframes": 69,
+      "stdoutFrames": 136,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "Waffle3z"
+      ],
+      "canonicalScores": [
+        1139.0,
+        1613.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454872,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905454872.json",
+      "sha256": "d07bbb8fe68efd7c2516479c712eaeaa33cda1f00e9dc62867c4f8a92a2b8fe7",
+      "bytes": 38621,
+      "frameCount": 69,
+      "keyframes": 35,
+      "stdoutFrames": 68,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "Waffle3z"
+      ],
+      "canonicalScores": [
+        264.0,
+        255.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454868,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905454868.json",
+      "sha256": "e36744e804e66f01104077db1cb89311e787026dc043e241fe76823a10d1c6bc",
+      "bytes": 82954,
+      "frameCount": 201,
+      "keyframes": 101,
+      "stdoutFrames": 200,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "delineate",
+        "Waffle3z"
+      ],
+      "canonicalScores": [
+        902.0,
+        864.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454740,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905454740.json",
+      "sha256": "5587ad76238be5225ad68320f5d76640ae14e8674bffbd89d59401cc9b062955",
+      "bytes": 31270,
+      "frameCount": 61,
+      "keyframes": 31,
+      "stdoutFrames": 60,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Waffle3z",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        202.0,
+        274.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454727,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905454727.json",
+      "sha256": "0b667dd882a4a93f9ac2facd9f427662eaf3d058d3d62098f9eba50ccdcdd4d4",
+      "bytes": 49271,
+      "frameCount": 75,
+      "keyframes": 38,
+      "stdoutFrames": 74,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "Waffle3z"
+      ],
+      "canonicalScores": [
+        782.0,
+        698.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454508,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905454508.json",
+      "sha256": "36d9529c0d37d09f116c70f2523d3263a07d73b833171b0abad8dffb8ab3f283",
+      "bytes": 64246,
+      "frameCount": 85,
+      "keyframes": 43,
+      "stdoutFrames": 84,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Waffle3z",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        2005.0,
+        2634.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454484,
+      "agentId": 6756382,
+      "path": "replays/cg-top10-v2/905454484.json",
+      "sha256": "343db768a0cc7dfc45117f7a637b69ececabc067647dca3eda7a273ea1b522f4",
+      "bytes": 70187,
+      "frameCount": 125,
+      "keyframes": 63,
+      "stdoutFrames": 124,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Waffle3z",
+        "delineate"
+      ],
+      "canonicalScores": [
+        970.0,
+        663.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455666,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455666.json",
+      "sha256": "f8ef9409b208cf8f3bf88874b1ca52bcd48e3fa6f172d4573fd4e1b8c341216c",
+      "bytes": 64247,
+      "frameCount": 105,
+      "keyframes": 53,
+      "stdoutFrames": 104,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "R1FA",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1185.0,
+        903.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455629,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455629.json",
+      "sha256": "1f69200693b81fc7d2c180bcfbd96cc408485dfd758cac861508f90221877acf",
+      "bytes": 31288,
+      "frameCount": 67,
+      "keyframes": 34,
+      "stdoutFrames": 66,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "_H3R0_",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        174.0,
+        242.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455600,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455600.json",
+      "sha256": "48c50bb14c6a9c43fa0f30967f90b1cf75b4246ef58a0d5ef4a3749745cd9ed3",
+      "bytes": 61244,
+      "frameCount": 107,
+      "keyframes": 54,
+      "stdoutFrames": 106,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1129.0,
+        1517.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455552,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455552.json",
+      "sha256": "e0b8076e2a0b321bde0105d007a71195f27fe7e46db5e65ae29757c365e4e8b6",
+      "bytes": 29761,
+      "frameCount": 57,
+      "keyframes": 29,
+      "stdoutFrames": 56,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        240.0,
+        287.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455468,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455468.json",
+      "sha256": "0de2559096bcaa1228786e9d26d4821555f17c884280cebd68a5f17f27aa531a",
+      "bytes": 42146,
+      "frameCount": 93,
+      "keyframes": 47,
+      "stdoutFrames": 92,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        348.0,
+        441.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455434,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455434.json",
+      "sha256": "8a975de5d2aea460eefe898691629edf6b708f1534004da81953691e98b0d085",
+      "bytes": 52126,
+      "frameCount": 81,
+      "keyframes": 41,
+      "stdoutFrames": 80,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "sZoom",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        934.0,
+        788.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455392,
+      "agentId": 6753106,
+      "path": "replays/cg-top10-v2/905455392.json",
+      "sha256": "fac0043cb0edca38743c140812915724b51869c99788f1a90f9e067de5f6dd51",
+      "bytes": 52601,
+      "frameCount": 91,
+      "keyframes": 46,
+      "stdoutFrames": 90,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "Saelyos"
+      ],
+      "canonicalScores": [
+        675.0,
+        663.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455202,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905455202.json",
+      "sha256": "ffcbe2cd97a109e8299760710e66f66206b818651e6de967b87d6d1c40bee771",
+      "bytes": 52371,
+      "frameCount": 93,
+      "keyframes": 47,
+      "stdoutFrames": 92,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        755.0,
+        839.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455153,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905455153.json",
+      "sha256": "b8edf5822da49a0df93e0b9bb24bb5e82ba7b8f08a5232ec428e5c32f54feef2",
+      "bytes": 52287,
+      "frameCount": 87,
+      "keyframes": 44,
+      "stdoutFrames": 86,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        579.0,
+        656.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905455052,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905455052.json",
+      "sha256": "83937fc3163cb47b833a63ef330efabd56bc1f1a143e2ccc588fc80eda4f9609",
+      "bytes": 101070,
+      "frameCount": 191,
+      "keyframes": 96,
+      "stdoutFrames": 190,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "sZoom",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        3134.0,
+        2777.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454944,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905454944.json",
+      "sha256": "0a66b5acd6c5de11da9c47ff200884fb5616d96040389310114b494040e7e44f",
+      "bytes": 67647,
+      "frameCount": 107,
+      "keyframes": 54,
+      "stdoutFrames": 106,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        2418.0,
+        1364.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454830,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905454830.json",
+      "sha256": "902512f911eff618777f91ac8ef85fb081e5a16cf95c9b9a1230450d6dc259f0",
+      "bytes": 107377,
+      "frameCount": 123,
+      "keyframes": 62,
+      "stdoutFrames": 122,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        4198.0,
+        2895.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454827,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905454827.json",
+      "sha256": "4d7658dd473cfd2aac33ece06d48533eb961a88c828089a7ecd8db0485b4efe6",
+      "bytes": 83954,
+      "frameCount": 115,
+      "keyframes": 58,
+      "stdoutFrames": 114,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        2235.0,
+        2646.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454656,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905454656.json",
+      "sha256": "23e47f4f8c0c64babeb34b0b0dc6c89b1c94d2cb97100e8172d9823fb2cfa9bb",
+      "bytes": 84559,
+      "frameCount": 123,
+      "keyframes": 62,
+      "stdoutFrames": 122,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        2374.0,
+        2132.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454585,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905454585.json",
+      "sha256": "af3084f6fb07080b000ad567e0a189eb99363c07dba63a659b39b84da2c0c47f",
+      "bytes": 24159,
+      "frameCount": 49,
+      "keyframes": 25,
+      "stdoutFrames": 48,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "sZoom",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        83.0,
+        138.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454152,
+      "agentId": 6756122,
+      "path": "replays/cg-top10-v2/905454152.json",
+      "sha256": "976ede335bfb5aca61174910788b3e641d39c06befa48c1cc251f4d7a7a722fd",
+      "bytes": 88749,
+      "frameCount": 117,
+      "keyframes": 59,
+      "stdoutFrames": 116,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "sZoom"
+      ],
+      "canonicalScores": [
+        1976.0,
+        1908.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455100,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905455100.json",
+      "sha256": "852208e66e682f9aacb6876d804ac3ca7646d267b12523dc45f420a073003e87",
+      "bytes": 58351,
+      "frameCount": 87,
+      "keyframes": 44,
+      "stdoutFrames": 86,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "Saelyos"
+      ],
+      "canonicalScores": [
+        951.0,
+        887.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905455001,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905455001.json",
+      "sha256": "2d5eac8ea11d7679d07aae0f23a31feb908119f98566dec93dc1166a6fc26092",
+      "bytes": 89287,
+      "frameCount": 161,
+      "keyframes": 81,
+      "stdoutFrames": 160,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Pduhard-",
+        "Saelyos"
+      ],
+      "canonicalScores": [
+        2016.0,
+        1706.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454942,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905454942.json",
+      "sha256": "8b1ca35edda7506b49f2337c71b3943b138a1be07ec553294d78be26211a20a3",
+      "bytes": 38050,
+      "frameCount": 73,
+      "keyframes": 37,
+      "stdoutFrames": 72,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Saelyos",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        590.0,
+        668.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454934,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905454934.json",
+      "sha256": "75778f42c8ea38bcc48ccd7a2d6c9a98b08f149589005fb3e1c8cb0f9fed1b38",
+      "bytes": 34339,
+      "frameCount": 61,
+      "keyframes": 31,
+      "stdoutFrames": 60,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Saelyos",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        329.0,
+        310.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454606,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905454606.json",
+      "sha256": "afb967b6acda74972783749960f64e32fcb6889278cb4ce259879f8634973d54",
+      "bytes": 69114,
+      "frameCount": 105,
+      "keyframes": 53,
+      "stdoutFrames": 104,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Saelyos",
+        "Pduhard-"
+      ],
+      "canonicalScores": [
+        1507.0,
+        1416.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454483,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905454483.json",
+      "sha256": "f4ff418dc7b585ff4130998b6b21d369fb43a3f1ba54a6b32e8008ecbef6ce75",
+      "bytes": 81569,
+      "frameCount": 123,
+      "keyframes": 62,
+      "stdoutFrames": 122,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Saelyos",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        2270.0,
+        2532.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454356,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905454356.json",
+      "sha256": "93fdb5b25679cb07e03a07dfa6be622ee79ef41ac51bb9e5179c15952b358c05",
+      "bytes": 52241,
+      "frameCount": 87,
+      "keyframes": 44,
+      "stdoutFrames": 86,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Saelyos",
+        "delineate"
+      ],
+      "canonicalScores": [
+        732.0,
+        624.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454211,
+      "agentId": 6756282,
+      "path": "replays/cg-top10-v2/905454211.json",
+      "sha256": "c8df390b80169030146d7de47e55068bb3fd9165e3fcd73628528cf4e6a1c70c",
+      "bytes": 51567,
+      "frameCount": 109,
+      "keyframes": 55,
+      "stdoutFrames": 108,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "Saelyos"
+      ],
+      "canonicalScores": [
+        721.0,
+        652.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454680,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905454680.json",
+      "sha256": "63aab36c3a742e86623236e9dbb63cd401ffaa8d32ee73322c5f966efbff6826",
+      "bytes": 65184,
+      "frameCount": 97,
+      "keyframes": 49,
+      "stdoutFrames": 96,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "delineate",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        1769.0,
+        1415.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454212,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905454212.json",
+      "sha256": "17ba9e86ee77544512bb334b045fcc3572ee59e619bfa7be7c871fc7ee39f670",
+      "bytes": 68791,
+      "frameCount": 97,
+      "keyframes": 49,
+      "stdoutFrames": 96,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "_H3R0_",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        1724.0,
+        1812.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905453680,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905453680.json",
+      "sha256": "202ac938632c96ca01f16d36a4533a71e38a0cb364939d2e69ec84fa3aceb935",
+      "bytes": 39234,
+      "frameCount": 81,
+      "keyframes": 41,
+      "stdoutFrames": 80,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "_H3R0_",
+        "zasmu"
+      ],
+      "canonicalScores": [
+        244.0,
+        244.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905453679,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905453679.json",
+      "sha256": "09e3360813147f741c65ea660a270b5652695d61a9ce7df0303868fe43718792",
+      "bytes": 24701,
+      "frameCount": 51,
+      "keyframes": 26,
+      "stdoutFrames": 50,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "FlyingChoucroute",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        157.0,
+        194.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905453560,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905453560.json",
+      "sha256": "a97f6b7457539a51eda0a0527840d85033a7e7f17b97ae28652d101eca325b1a",
+      "bytes": 57516,
+      "frameCount": 89,
+      "keyframes": 45,
+      "stdoutFrames": 88,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "delineate",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        705.0,
+        713.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905452659,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905452659.json",
+      "sha256": "412c4651a080b248471a484306c5209c9e1a51505e74a89ef2a705426abbf206",
+      "bytes": 50144,
+      "frameCount": 93,
+      "keyframes": 47,
+      "stdoutFrames": 92,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "FlyingChoucroute",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        298.0,
+        422.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905452386,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905452386.json",
+      "sha256": "f8fc4db58fc1b407234cebecf6c067a8e8b70b0ee9745e98a65e8135e04b97f6",
+      "bytes": 59635,
+      "frameCount": 99,
+      "keyframes": 50,
+      "stdoutFrames": 98,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        978.0,
+        1172.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905452364,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905452364.json",
+      "sha256": "3e3eaca9fd291f949d79586fc40c937db934d26288db33a9963b0c681d7d6d25",
+      "bytes": 62557,
+      "frameCount": 91,
+      "keyframes": 46,
+      "stdoutFrames": 90,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        1395.0,
+        1482.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905452339,
+      "agentId": 6756333,
+      "path": "replays/cg-top10-v2/905452339.json",
+      "sha256": "0f261e738f15c959627cb99e6aac64a9dcd2c7fab11eb5a26940a7b02fdc13ca",
+      "bytes": 44372,
+      "frameCount": 79,
+      "keyframes": 40,
+      "stdoutFrames": 78,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "Indrill",
+        "_H3R0_"
+      ],
+      "canonicalScores": [
+        636.0,
+        471.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ],
+      "indrillSeat": 0,
+      "indrillCanonicalRank": 0,
+      "indrillCanonicalScore": 636.0
+    },
+    {
+      "gameId": 905454999,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905454999.json",
+      "sha256": "6a7bf6ef4c713391dfac4f21cc3ea251ff7130092f7516a34776040a3c4b398e",
+      "bytes": 80253,
+      "frameCount": 181,
+      "keyframes": 91,
+      "stdoutFrames": 180,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "R1FA",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        1522.0,
+        1157.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905454539,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905454539.json",
+      "sha256": "47a2376e5b35eb4d47a6eced55d80ea355da0cc196b27bfd0317ccb183098deb",
+      "bytes": 68623,
+      "frameCount": 135,
+      "keyframes": 68,
+      "stdoutFrames": 134,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "R1FA"
+      ],
+      "canonicalScores": [
+        706.0,
+        1109.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454357,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905454357.json",
+      "sha256": "036fc4c62a5516e2d7d15141512e0d78fff77570fe42a14d699d187f069ae0e4",
+      "bytes": 64944,
+      "frameCount": 103,
+      "keyframes": 52,
+      "stdoutFrames": 102,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "ziemekb",
+        "R1FA"
+      ],
+      "canonicalScores": [
+        1371.0,
+        1674.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905454126,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905454126.json",
+      "sha256": "4d0a346351df7b15cc3235683386ef891db5bbafccdd340553489766f62ed177",
+      "bytes": 62359,
+      "frameCount": 125,
+      "keyframes": 63,
+      "stdoutFrames": 124,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "R1FA",
+        "ziemekb"
+      ],
+      "canonicalScores": [
+        738.0,
+        588.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905453612,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905453612.json",
+      "sha256": "7fc970c413c17299b188e493a30a58ed1667ab3be333c56c359a6ecb5b78b93a",
+      "bytes": 41225,
+      "frameCount": 67,
+      "keyframes": 34,
+      "stdoutFrames": 66,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "R1FA",
+        "FlyingChoucroute"
+      ],
+      "canonicalScores": [
+        485.0,
+        511.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905453611,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905453611.json",
+      "sha256": "795fcebb961c44e6f9fc4f3b487fb89c657108713fbcd9b621828c934301d77d",
+      "bytes": 71794,
+      "frameCount": 151,
+      "keyframes": 76,
+      "stdoutFrames": 150,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "delineate",
+        "R1FA"
+      ],
+      "canonicalScores": [
+        1061.0,
+        1062.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905453336,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905453336.json",
+      "sha256": "71733aa0cc9f173bb1121b18bae0715bd1b10107f01c3e0d68ab29121f5b38fb",
+      "bytes": 48954,
+      "frameCount": 101,
+      "keyframes": 51,
+      "stdoutFrames": 100,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "zasmu",
+        "R1FA"
+      ],
+      "canonicalScores": [
+        456.0,
+        396.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    },
+    {
+      "gameId": 905453232,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905453232.json",
+      "sha256": "ad62274eee6db90c18096b8a24bb8c5266f4579bc70de1fd0ab00087250e093c",
+      "bytes": 53398,
+      "frameCount": 93,
+      "keyframes": 47,
+      "stdoutFrames": 92,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "R1FA",
+        "FlyingChoucroute"
+      ],
+      "canonicalScores": [
+        530.0,
+        546.0
+      ],
+      "canonicalRanks": [
+        1,
+        0
+      ]
+    },
+    {
+      "gameId": 905452827,
+      "agentId": 6756427,
+      "path": "replays/cg-top10-v2/905452827.json",
+      "sha256": "109a6f5e83ae17b8db0b4f9ba7f968c9d6df27c129b4fcf135deee2691006923",
+      "bytes": 44064,
+      "frameCount": 81,
+      "keyframes": 41,
+      "stdoutFrames": 80,
+      "invalidAgents": 0,
+      "explicitErrorFrames": 0,
+      "players": [
+        "R1FA",
+        "FlyingChoucroute"
+      ],
+      "canonicalScores": [
+        837.0,
+        612.0
+      ],
+      "canonicalRanks": [
+        0,
+        1
+      ]
+    }
+  ]
+}

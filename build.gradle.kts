@@ -158,6 +158,23 @@ tasks.register<JavaExec>("indrillCollect") {
 }
 
 /** Float32 cross-language model parity and fixed training-map exclusions. */
+tasks.register<JavaExec>("indrillV2Collect") {
+    group = "game"
+    description = "Collect v2 learned-state-value Q episodes, alternating frozen opponent seats"
+    mainClass.set("btk.tools.IndrillV2Collect")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("games", "128"), prop("seed", "2100000"), prop("weights", "build/analysis/indrill-q-v2/weights-0.bin"),
+        prop("out", "build/analysis/indrill-q-v2/round-1.bin.gz"), prop("epsilon", "0.30"), prop("opponent", "mixed"))
+}
+
+tasks.register<JavaExec>("indrillV2Probe") {
+    group = "game"
+    description = "Register v2's 960 training maps and export value/advantage numerical parity observations"
+    mainClass.set("btk.tools.IndrillV2Probe")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("weights", "build/analysis/indrill-q-v2/weights-6.bin"), prop("out", "build/analysis/indrill-q-v2/probe"))
+}
+
 tasks.register<JavaExec>("indrillProbe") {
     group = "game"
     description = "Register training-map exclusions and export fixed float32 inference parity observations"

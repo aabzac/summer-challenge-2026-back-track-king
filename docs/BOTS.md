@@ -97,6 +97,34 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Candidate: indrill-q-v2 Learned Position Value (2026-10-03, STOP_FUTILITY_300)
+
+New random-start outcome-trained version: **V(state) + additive build/ink advantages**,
+including learned WAIT. 3,387 parameters; exact budget-three construction. V enters every
+complete action once. Fixed larger schedule: **960 games / 186,162 transitions / 14,000
+updates / 448,000 sampled visits**; balanced seats within frozen-opponent cohorts,
+continued Adam/target/replay-priority state. Final weights `c5cfc9c8...`; v1 retained unchanged.
+
+Practical-v4 vs selected **v09**: **0 W / 300 L / 0 D**, zero errors, 150 fresh paired maps,
+two workers, all 960 training + 3 probe maps excluded. **STOP_FUTILITY_300, NOT_PASSED**;
+no local continuation or boss games. Mean score 8,945 vs 22,342; placement 86.4% vs 66.3%,
+accepted disruption 34.1% vs 68.6%. Extra construction did not produce winning income.
+On the separate reused eight-map/seat process panel, mean own score rose from v1's 11,510
+to 21,021 (higher in 8/8); both lost 8/8. Diagnostic only, not a win-strength comparison.
+
+386 Java + 29 related Python tests pass; 292 old + 86 newly downloaded public arena games
+reproduce exactly. Independent audit verifies all actual replay records, update counts,
+checkpoint chain and exact Java tensor bytes. Numerical parity: both actions 18/18, 8,514
+values within declared absolute-plus-relative float32 tolerance. Exact isolated artifact
+**82,755 characters**, source `2a35a982...`, build `eede222b...`; strict process **0/8 problems**,
+later response <=43.888 ms. Selected v09 and its saved submission unchanged.
+
+State-value/WAIT bug repaired; additive action interactions, uncentered advantages and the
+margin-shaped reward remain limitations. This combined experiment does not isolate the
+effects of architecture, training volume and seat balancing. Design and result:
+[indrill-q-v2.md](indrill-q-v2.md); [complete evidence](evidence/indrill-q-v2.json),
+[public corpus audit](evidence/indrill-q-v2-corpus.json).
+
 ## Candidate: indrill-q-v1 Indrill Action Values (2026-10-03, STOP_FUTILITY_300)
 
 Compact outcome-trained prototype inspired by [Indrill's published description](https://www.codingame.com/forum/t/summer-challenge-2026-feedback-strategies/208574/5),

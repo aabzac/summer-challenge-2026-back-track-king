@@ -4061,3 +4061,56 @@ Completed outcome (fixed sample, no retuning):
   `build/submit/Player.java` unchanged at `1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19`.
   No push, upload, boss API request or promotion. Full design `docs/indrill-q-v1.md`,
   self-contained training/process/local evidence `docs/evidence/indrill-q-v1.json`.
+
+## 2026-10-03 — indrill-q-v2: learned WAIT/value, larger fixed training; rejected
+
+User requested improvements after v1's 0/300 and authorized more public replay downloads.
+Hypothesis: v1's full per-action logits and fixed-zero WAIT conflate position value with
+action count. V2 learns `V(state) + sum(build advantages) + ink advantage`, counting V once
+and training V/shared layers on WAIT. Same 64/24 features/network, exact additive knapsack,
+reward, gamma and Double-DQN rule; no placement/ink interactions or centering added.
+Training volume and balanced frozen-control seats also changed, so this is not an isolated
+causal test of the value head. v1, core, frozen opponents, current/v09 and Params stay unchanged.
+
+Predeclared random seed 20261004; bootstrap old 192 games, then six 128-game blocks with fixed
+epsilon .30/.25/.20/.15/.12/.10, 2,000 batch-32 updates after each of seven stages. Finished
+**960 unique games / 186,162 transitions / 14,000 updates / 448,000 visits**. Continued exact
+Adam/target and content-keyed replay priorities. Independent audit scans real episode records
+and confirms counts, checkpoint predecessors, source pins and exact generated Java bytes.
+Final weights `c5cfc9c82ec34a2d3d9d91ec5e7d487fa654cca4a9583602dac00daecdd9340f`.
+Final sampled absolute TD residual 44.03 remains unstable; every new collection game against
+strong controls was lost (192 vs v09, 192 vs neural-v1). No interim strength tuning/retries.
+
+Bounded public top10/latest10 refresh: 86 new unique games, 97 read requests, 14 duplicate
+slots, zero final HTTP errors; original Indrill bytes retained. Initial sandbox connection
+failure preserved, read-only escalated fetch succeeded. All **86/86** new games reproduce
+exactly, in addition to **292/292** retained games. New corpus is not silently mixed into RL
+training. 386 Java + 29 related Python tests pass; fixed 18-position parity compares 8,514
+values within declared absolute+relative tolerance, build/ink actions 18/18 each.
+
+Separate merged source: 82,755 characters, SHA `2a35a982850bcb2e657528fa20ffd0ca3520fae7ed7f0c38a48f98077f63ee65`,
+build `eede222bae007b9aae7e716c5460ba5b8d4a0a5a0fc1f12da8fc4cd3b9b4c655`; compile and
+exact-source verification pass. Fixed strict process panel **0/8 problem games**, 800 turns,
+zero timeouts/overruns, later response <=43.888 ms. Same eight map/seat diagnostic scores:
+v1 mean 11,509.75 -> v2 21,020.875, higher in 8/8, but both lost all eight; reused small panel
+and timed-control variation do not establish win strength.
+
+Practical-v4 vs selected v09, seed1500000, two workers, 150 fresh paired maps; all 960 training
++3 probe hashes in exclusions before play. **0 W / 300 L / 0 D**, zero bot errors,
+**STOP_FUTILITY_300 / NOT_PASSED**. Mean score 8,945.48 vs 22,342.26; placement 86.41% vs
+66.30%, accepted disruption 34.09% vs 68.58%. 67,189 cells / 75,891 paint vs 43,093 / 57,774;
+all games lasted 100 turns. Quantity of construction still fails to earn winning income.
+Full fixed first block completed; no continuations/boss, no promotion/upload/push.
+
+Two pre-result checker/launch failures preserved in evidence: nonexistent `train_q.ROOT`
+reference in parity CLI fixed and covered by an end-to-end regression; an unquoted PowerShell
+JSON property stopped Gradle before any process game (quoted all properties). Neither altered
+model weights or discarded game outcomes. Started training-driver source retained; later
+resume-only guards do not alter the active fresh run's calculations.
+
+Decision: retain rejected `indrill-q-v2` separately. State-value/WAIT bug is repaired, but a
+fivefold game corpus and larger fixed learning budget still do not make this approximation
+competitive. Interaction/objective/teacher-prior changes require separate named experiments.
+Selected Player SHA remains `1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19`.
+Design/result: [indrill-q-v2.md](indrill-q-v2.md); [full evidence](evidence/indrill-q-v2.json),
+[public corpus audit](evidence/indrill-q-v2-corpus.json).

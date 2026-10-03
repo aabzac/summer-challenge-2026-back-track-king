@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "indrill-q-v2-block1",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 1500000,
+  "pairs": 150
+}

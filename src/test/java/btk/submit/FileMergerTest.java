@@ -392,11 +392,25 @@ class FileMergerTest {
         assertFalse(FileMerger.merge("current").contains("IndrillFeatures"));
         assertFalse(FileMerger.merge("current").contains("class TacticalPathing"));
         assertFalse(FileMerger.merge("v09").contains("class InkProjection"));
-        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("indrill-q-v2"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("indrill-q-v3"));
     }
 
     @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
         checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
+    }
+    @Test void v2SubmissionKeepsItsBaselineAndPreservesFrozenV1Artifact() throws Exception {
+        String source = FileMerger.merge("indrill-q-v2");
+        assertTrue(source.contains("static final class IndrillV2Net"));
+        assertTrue(source.contains("static final class IndrillV2Weights"));
+        assertTrue(source.contains("public float stateValue"));
+        assertFalse(source.contains("IndrillV2Bot"));
+        assertFalse(source.contains("static final class IndrillNet"));
+        assertFalse(source.contains("static final class IndrillWeights"));
+        assertFalse(source.contains("class InkProjection"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("indrill-q-v2", true);
+        assertEquals("c186d548aef00b8a6f777f7a9e50742b93a8ecf5aadb9e68c4932c9e4aebb8db",
+                FileMerger.sha256(FileMerger.merge("indrill-q-v1")));
     }
     @Test void defenseSubmissionMatchesOnDamagedActiveRouteIncludingWarmup() throws Exception {
         checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1",true);
