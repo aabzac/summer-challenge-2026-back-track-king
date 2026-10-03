@@ -4318,3 +4318,33 @@ retune or claim arena ranking gains from this practical regression pool. Next de
 step is separately authorized promotion/arena use of this exact candidate. The final
 boss/combined evidence supersedes pending status in the historical local snapshot:
 docs/evidence/neural-v3-boss.json; full protocol docs/neural-policy-v3.md.
+
+### 2026-10-04 — user-reported neural-v3 arena launch; next diagnostics
+
+The user reports submitting neural-v3 to the arena; placement games are running.
+Immediately before this report, a read-only puzzle-session lookup confirmed the IDE
+code exactly matches tested source2aee3ffe...563f. The arena agent/source/ranking
+have not yet been independently verified. No local default/promotion or further
+arena action is inferred from this report.
+
+Read-only follow-up identifies two separate next lines: reduce excessive exploration
+in outcome training after measuring agreement with the SAME current student's greedy
+choices; and audit complete placement bundles / closure decisions made before PLACE.
+The recorded26.33% construction agreement is against frozen teacher-v1, not current
+student argmax, so it must not be relabelled as deployment mismatch. Existing weights,
+strategy sources and evaluation results remain frozen. No new training, strength games,
+or scheduled polling started during this review. New arena losses should determine
+which mechanism to prioritize; recommendations are hypotheses, not measured fixes.
+
+Same-student diagnostic completed on128 evenly selected full decisions/head/round
+from all8 retained training rounds (1024 decisions per head), using that round's
+exact exported int16 student weights. Sampled choices agree with the student's own
+argmax in283/1024 build decisions (27.64%) and715/1024 sabotage decisions (69.82%).
+Behavior-logp reconstruction max error2.39e-7. Same-state mathematical recalculation
+at temperature0.5 raises mean probability of the best build candidate from26.14%
+to53.92%; this is not a rollout, selected optimum, strength result or exact comparison
+with deployment's argmax+Gaussian noise0.1. No training or strength games were run.
+Evidence: docs/evidence/neural-v3-exploration-gap.json. Proposed single-change follow-up:
+build-only temperature0.5 in a new fixed training run, with correctly matched actor
+probabilities/gradients; preserve sabotageT1, original protocol choices and v3 runtime.
+The current arena rollout remains the tested neural-v3; new candidate work is not begun.

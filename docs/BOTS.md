@@ -13,6 +13,13 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Latest user-reported arena update (2026-10-04, Europe/Bucharest): **neural-v3 was
+submitted to the arena; placement games are running**. Immediately beforehand the
+saved puzzle IDE source was read back and matched the tested neural-v3 artifact
+`2aee3ffe...` exactly. The deployed arena agent/source and ranking have not yet been
+verified from new arena replays. This records the user's deployment; local `current`
+and the default exported artifact still identify v09.
+
 October 3 diagnostic review (no new bot/version or strength games): Q-v1/v2's
 0/300 outcomes remain rejected. The final Q-v2 training block's 128 games / 12,446
 turns show no shaping delta beyond earned score increments; terminal-step shaping

@@ -671,3 +671,21 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [x] Finish authorized fresh40 control +40 matched candidate boss games:15/40 vs11/40,
       PASS. All80 replays exact, zero technical failures;40 maps disjoint from16,221 prior
       maps. Combined v4 and readiness pass; candidate retained without promotion.
+
+## neural-v3: arena follow-up (2026-10-04)
+
+- [x] Record the user's arena submission and ongoing placement. The preceding IDE
+      readback matches the exact tested artifact; arena agent/source/rank remain unverified.
+- [ ] Inspect a bounded set of new arena replays, verify engine/build identity, and
+      separate technical failures from opening, construction, disruption and closure losses.
+- [x] Measure current-student sampled-versus-greedy disagreement on retained data:
+      128 selectable decisions/head/round, 1,024 per head; build283/1024 (27.64%),
+      sabotage715/1024 (69.82%). Pure argmax approximates deployed argmax+small noise;
+      this is an offline diagnostic, not new strength evidence. Teacher-v1 agreement
+      is a different metric (`evidence/neural-v3-exploration-gap.json`).
+- [ ] Candidate hypothesis: a fresh repetition of the outcome-training protocol with
+      build-only sampling temperature0.5, keeping sabotage temperature1 and other
+      training/runtime choices fixed. Align actor probabilities/gradients and parity
+      with the actual collection distribution; predeclare before any new collection.
+- [ ] Audit saved states for missed complete placement bundles and closing decisions
+      made before construction. Use shared core; oracle opponent replies are diagnostics only.

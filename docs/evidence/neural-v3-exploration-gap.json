@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v3-existing-training-exploration-diagnostic",
+  "diagnosticOnly": true,
+  "newGames": 0,
+  "trainingUpdates": 0,
+  "helper": {
+    "path": "build/analysis/neural-v3/exploration_gap_diagnostic.py",
+    "sha256": "6f5e845f0a1e8ebfa716b912ea9ee4071dbaaa48e24956c104f7bfdd0f46683e"
+  },
+  "command": "python -B build/analysis/neural-v3/exploration_gap_diagnostic.py --output docs/evidence/neural-v3-exploration-gap.json",
+  "numpyVersion": "2.5.3",
+  "sources": [
+    {
+      "path": "tools/neural/train_outcome_v2.py",
+      "sha256": "e30e2b13fcc1ca14a857a78a54f56d6e75bfaba29a8a1f4f306721bd009c36a2"
+    },
+    {
+      "path": "tools/neural/train_neural.py",
+      "sha256": "460811a4b9e98a93110b1d276774f8d20b5f5f5809008c98726a85f853188c13"
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralV2Collect.java",
+      "sha256": "eae43e75cd58c28366e30b96f9ea19348d639dda102919f866effba17c38cd1e"
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralNet.java",
+      "sha256": "ed09d83ad4e0a532f24ad54d2fa873bbb323be2f7ecb4548455ed22e0c87a814"
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV3Bot.java",
+      "sha256": "2a80412294734d6a1e56a6b05a9de14e4f47c39235fa3e293d98f1f0fd76b362"
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v3.properties",
+      "sha256": "ae052f679ae581eb386b30f6aac517e9def83e1384db7062d6a6b1a0b345173f"
+    }
+  ],
+  "definitions": {
+    "selection": "For each of 8 rounds and each head independently: np.unique(np.linspace(0, populationDecisions-1, min(128,populationDecisions), dtype=int)); zero-based complete decision indices. Exactly 128 per head per round, 1024 per head overall. No outcome-based selection.",
+    "student": "Exact quantized exported weights-(round-1).json used by that collection round; SHA matched against its meta.json. Java-order float32 inference from train_outcome_v2.java_scores.",
+    "sameStudentArgmax": "Recorded chosen action has logit exactly equal to the maximum over the full legal/guarded candidates for that same student. Exact float32 ties count as agreement.",
+    "meanPmax": "Mean probability of a single maximum-probability action under softmax(student logits / T), not the combined mass of tied maxima.",
+    "meanEntropyT1": "Arithmetic mean Shannon entropy in nats over selected complete decisions at T=1.",
+    "aggregation": "Equal weight per selected decision; not reweighted to original round populations.",
+    "logpTolerance": "abs(reconstructed chosen logp - saved actual behavior logp) <= 1e-4 + 1e-5 * abs(saved logp); every sampled decision passed.",
+    "temperatureComparison": "Only the already-inspected T=1 and T=0.5 probabilities on the same recorded states; no rollout at T=0.5."
+  },
+  "limitations": [
+    "Deterministic diagnostic subsample, not a random sample, full corpus census, strength benchmark, or confidence interval.",
+    "Deployment uses argmax plus Gaussian NOISE=0.1 and runtime deadlines; pure argmax is an approximation, not the exact deployed action distribution.",
+    "Earlier frozen-teacher agreement 26.33% measures a different quantity; these counts use each round actual student.",
+    "T=0.5 probabilities do not represent the new states that lower-temperature collection would reach and do not establish improved playing strength.",
+    "Collection had offline 60000-ms student budget; this diagnostic does not measure runtime truncation in deployment."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-0.json",
+        "sha256": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-1/meta.json",
+        "sha256": "1cfc68a441fcdd64bfd904b3dca36417da8111a4ba33bcfbed2e6a668f755813"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14558,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 88,
+            "maxBehaviorLogpError": 2.3664864734485036e-07,
+            "sampledSameStudentArgmaxFraction": 0.6875,
+            "meanPmaxT1": 0.6928008133390111,
+            "meanPmaxT05": 0.8338178030495016,
+            "meanEntropyT1": 1.0953238108221317
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-1/sabotage.idx",
+              "sha256": "3917a176311da6b8c82e995e70fa78a0ab55fdf45da57d0b5021fd65ae883c03"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-1/sabotage.logp",
+              "sha256": "6290f4e1245b13ad41d618c3f3c05f0cdcf41b3efeb505c13737ea5ff0b63e0b"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-1/sabotage.bin",
+              "sha256": "902c19a33d5e9270d5e984346e034e7db5978cb121c59249f679b21bea20b150"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 30997,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 28,
+            "maxBehaviorLogpError": 2.3649290881166962e-07,
+            "sampledSameStudentArgmaxFraction": 0.21875,
+            "meanPmaxT1": 0.23628605440807238,
+            "meanPmaxT05": 0.5059015639223987,
+            "meanEntropyT1": 3.1370570178448407
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-1/build.idx",
+              "sha256": "4dca323eff3683a1c24680c1eb3f957a69947b52079f9a89ce962f180226df58"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-1/build.logp",
+              "sha256": "f3a61e5cde9bfb593ef1ed9d9a2df45e3b26010f43a762cf4de914548b68c875"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-1/build.bin",
+              "sha256": "1ebe8bf19d3bbed98d5d7f89d77d0853e94bc86286000e8f10bf55fc1afdee88"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 2,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-1.json",
+        "sha256": "7581c3fb142c1180e9968ef7cdcc04b99779c679ea3cf605b581e6c99773cb93"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-2/meta.json",
+        "sha256": "0f484e86e403bea5e705f68d35bb3b62a8d00b46a8b30032075cb8ddc0be97b9"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14637,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 89,
+            "maxBehaviorLogpError": 2.0147577028950536e-07,
+            "sampledSameStudentArgmaxFraction": 0.6953125,
+            "meanPmaxT1": 0.6802184773501161,
+            "meanPmaxT05": 0.8462190956929831,
+            "meanEntropyT1": 1.1414290511946734
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-2/sabotage.idx",
+              "sha256": "7788e898c066f589db11654344fef6987e949696706a37ee74cd9d74812d197a"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-2/sabotage.logp",
+              "sha256": "1c565d431815ee5224d0f1b3db3cc791ea36f994bf64b1b120ea1de1657d6ab7"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-2/sabotage.bin",
+              "sha256": "82a68e625ce7a8fcaa6a5bbe551a73bf92db537ff23739355dd0bc4ce8dffee2"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 30747,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 33,
+            "maxBehaviorLogpError": 2.1997222887648604e-07,
+            "sampledSameStudentArgmaxFraction": 0.2578125,
+            "meanPmaxT1": 0.2495605461900722,
+            "meanPmaxT05": 0.5156550119218981,
+            "meanEntropyT1": 2.985790610312118
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-2/build.idx",
+              "sha256": "2ecbb3c3f30acfd6b7742dba5c50aa1595ceae6d1ad1d7dd90c2f240d1bfd056"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-2/build.logp",
+              "sha256": "11cc62668ab41f1f08b080507d04e9b393694027b5d8f273df2d4d34d9e5a852"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-2/build.bin",
+              "sha256": "5eba1ac8d0ac0ed4618acba3ed54a70d2827ed7b1c6ff5f192ba5d0e275de438"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 3,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-2.json",
+        "sha256": "3a04dd5df0887a91bec11933caef10c66daf3282e26fcb9cb4f071291835eeff"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-3/meta.json",
+        "sha256": "cb0cadee861d2080b8dbf0690b05ff5bfcae2dd05be4d35f1e1f7407bc571c91"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14591,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 90,
+            "maxBehaviorLogpError": 1.7234375171426564e-07,
+            "sampledSameStudentArgmaxFraction": 0.703125,
+            "meanPmaxT1": 0.6588434608833638,
+            "meanPmaxT05": 0.8288454579126402,
+            "meanEntropyT1": 1.252019776174409
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-3/sabotage.idx",
+              "sha256": "14560417bf4251efa621cd9ea1784d5a6ca2505eea9f7f2c50f6eb5b94e5fec2"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-3/sabotage.logp",
+              "sha256": "263855d44fa06ddaea343d026eccd51ab3b4f45c6546a7b19c1c12386e1ef4e5"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-3/sabotage.bin",
+              "sha256": "1a9b10694f7b54b59591bfc3686fb0a3179d9674370393bb636f6ef4c78b2a9d"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 30733,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 45,
+            "maxBehaviorLogpError": 2.3841454677153706e-07,
+            "sampledSameStudentArgmaxFraction": 0.3515625,
+            "meanPmaxT1": 0.2776420804927403,
+            "meanPmaxT05": 0.568402557813157,
+            "meanEntropyT1": 2.9276080379905514
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-3/build.idx",
+              "sha256": "d9678be68edcd9903f4785029076d0f22919b139b017cb75d2468b4dcce638d6"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-3/build.logp",
+              "sha256": "d99c4c9175f6ee42da5d4b42d35c3bdb507f9177c6de8e966b649576ea23149a"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-3/build.bin",
+              "sha256": "270abc618f8a32e3cc9da4e45a42b1555d47afeb612c62c0ec2b4a3ecbf71239"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 4,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-3.json",
+        "sha256": "febd45882718d5b2c4016b842a1af93d73c6f934be2925fbe218302c81a8cce6"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-4/meta.json",
+        "sha256": "7046b600540e6652042e76aedf7dce2e85f235eb1056035a992b1d2dd90ba5db"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14590,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 90,
+            "maxBehaviorLogpError": 2.1534137317757995e-07,
+            "sampledSameStudentArgmaxFraction": 0.703125,
+            "meanPmaxT1": 0.6279843543942294,
+            "meanPmaxT05": 0.8174957017883084,
+            "meanEntropyT1": 1.3378781544274907
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-4/sabotage.idx",
+              "sha256": "b34cccd409feb67f992f3ea8e1423feea5acf5460a99c26b963c58aef3eb1aca"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-4/sabotage.logp",
+              "sha256": "d80815d9f25c95a40bcd40cf4da0d3b5c21fca2505f2a8575b378bd143c1eb84"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-4/sabotage.bin",
+              "sha256": "ccfbc8ff4e02409125dd9025bf5d8e0ddeb26472528cd88c31ece75998c4dd05"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 31202,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 33,
+            "maxBehaviorLogpError": 2.2393884879789994e-07,
+            "sampledSameStudentArgmaxFraction": 0.2578125,
+            "meanPmaxT1": 0.23953402048569694,
+            "meanPmaxT05": 0.507207128341596,
+            "meanEntropyT1": 3.100459958827798
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-4/build.idx",
+              "sha256": "82ee41426406e6321b8aedcfde5f65ed5e43d9926e0e977c5900a25c3b29cee4"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-4/build.logp",
+              "sha256": "67ef04d510b61d5a51f88b40b0a9616edfe2a9943e6773a117e2ad2734aa76c7"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-4/build.bin",
+              "sha256": "c43739b3656430e64ebd6dba6e89205beb864aa150e445cc8b8f4d2e77a44c92"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 5,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-4.json",
+        "sha256": "19721f71ce5bbbbf2c27e2f87ca5ec9a56d8170849042b5e40a3847796c2e433"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-5/meta.json",
+        "sha256": "035a95849f9cf87af1955eef3c29547ad006df735548e34de4a5a80d39b9d31f"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14627,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 92,
+            "maxBehaviorLogpError": 2.2011297939883434e-07,
+            "sampledSameStudentArgmaxFraction": 0.71875,
+            "meanPmaxT1": 0.7009067070292766,
+            "meanPmaxT05": 0.8623812028266065,
+            "meanEntropyT1": 1.0889735701507544
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-5/sabotage.idx",
+              "sha256": "07de949eb21f5e1e839c6eba241ac5be2b7479207a95377e8115b8e8c4844224"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-5/sabotage.logp",
+              "sha256": "8dae1f8cc9808dbfcf5544ba476858684a6c6a03ed574ca77ddb44057935b6cd"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-5/sabotage.bin",
+              "sha256": "8616ef86fb8e705d9db14fb80b722a3c70a684c0e74ee509fa63b8f0c158821f"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 30852,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 32,
+            "maxBehaviorLogpError": 2.3197549126052763e-07,
+            "sampledSameStudentArgmaxFraction": 0.25,
+            "meanPmaxT1": 0.26903331206391334,
+            "meanPmaxT05": 0.5331035699727447,
+            "meanEntropyT1": 2.9524985273274797
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-5/build.idx",
+              "sha256": "ee41122e68cc8c4a666635b173813160a581fb1568883ef0bbb5a9af61cfd7a2"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-5/build.logp",
+              "sha256": "d4fee3c4b75a6cb59ce3c709352e0939bb256189266c921271abdfd992de600c"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-5/build.bin",
+              "sha256": "a247814071f0aa03e3cca12106c531b353e342d9328e3000ac1a79408b5f2f42"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 6,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-5.json",
+        "sha256": "1ec9e615635594cfc67b5a97e5a482ada4e9a6e0c954fbe7f6aee88bc0fe3d63"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-6/meta.json",
+        "sha256": "683b1560b1055755c25043fbf1eb2ff6d30a1579a311b8249369badc108c691f"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14539,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 86,
+            "maxBehaviorLogpError": 2.1934380978194667e-07,
+            "sampledSameStudentArgmaxFraction": 0.671875,
+            "meanPmaxT1": 0.6803687078017397,
+            "meanPmaxT05": 0.8352027121824321,
+            "meanEntropyT1": 1.1441388221103261
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-6/sabotage.idx",
+              "sha256": "d355071c7f13c5beaa3d6ef3b5f38408eb81f7be086d569ee673f0ccef299e55"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-6/sabotage.logp",
+              "sha256": "8e9c52787ebb71cd603c9d5651291fc29ddf81b1f38ee8a37ab5b5fef6f5880c"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-6/sabotage.bin",
+              "sha256": "57c939a8d46d38d5c07917262bf61ad82b4b99fb526682626d38e825b436033b"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 30934,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 36,
+            "maxBehaviorLogpError": 2.373209104788998e-07,
+            "sampledSameStudentArgmaxFraction": 0.28125,
+            "meanPmaxT1": 0.24651013508887232,
+            "meanPmaxT05": 0.5302907437380677,
+            "meanEntropyT1": 3.093203526461398
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-6/build.idx",
+              "sha256": "b8ac66f4fe21e83c24484a855a75882492853d7487bd55d6efe41ef6d6beb994"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-6/build.logp",
+              "sha256": "02c75db88e640f8301a830c2e900e39a4f81a6dd9189b01a95f552556e44fe0a"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-6/build.bin",
+              "sha256": "67d53ec69e6e15f1d48e083aadeb0033fc6d49d4b289240f337210bbf12fb6f0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 7,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-6.json",
+        "sha256": "b2824dcaa9f2f0d7b73c8b1f8bf9554011050ad791fa5a2c8faae18a5a907129"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-7/meta.json",
+        "sha256": "14fecf859038c7324b8b3b89e62d2a25281101b75cf2a2b7fd11f348887d07cc"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14136,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 86,
+            "maxBehaviorLogpError": 2.0536829836714787e-07,
+            "sampledSameStudentArgmaxFraction": 0.671875,
+            "meanPmaxT1": 0.6650660808552225,
+            "meanPmaxT05": 0.8459398174044115,
+            "meanEntropyT1": 1.1928332487855784
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-7/sabotage.idx",
+              "sha256": "5f6417f2fdc5bb099c89fd798d2ea5f664825f5b32dd92ff50dd64c3b49d508f"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-7/sabotage.logp",
+              "sha256": "9e0c9d4cb3db57e343efd401a94cf6f877521fc924e89b0a32b6134fbb464b41"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-7/sabotage.bin",
+              "sha256": "177e2245f092495088a0955992134891297efa8637a9a0b239b12239231e11b1"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 29208,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 41,
+            "maxBehaviorLogpError": 2.3759191414285397e-07,
+            "sampledSameStudentArgmaxFraction": 0.3203125,
+            "meanPmaxT1": 0.28583313662863463,
+            "meanPmaxT05": 0.5780266355842552,
+            "meanEntropyT1": 2.897246209985266
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-7/build.idx",
+              "sha256": "b7a4240e008dc50cfe76be5996aaf48119d7dea731d242c81ecbf651241adae4"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-7/build.logp",
+              "sha256": "0bcbc366e8dd62f00326b2f3b82ea0a44b9747e270b63e839f0422a91f001954"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-7/build.bin",
+              "sha256": "d5edb06483ae8047d28ad67f985ed6616bac80a8991a403f8d7c9e5ee81bc20d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "round": 8,
+      "weights": {
+        "path": "build/analysis/neural-v2/weights-7.json",
+        "sha256": "37c1dda2d5c15f70bdbb2f2defe085bd449403e01405b0fff21c32be321bcdd2"
+      },
+      "meta": {
+        "path": "build/analysis/neural-v2/round-8/meta.json",
+        "sha256": "4c9177d07e436c4f0afae7b76e63f128b6364e371d468b11b964b0d44a739121"
+      },
+      "heads": {
+        "sabotage": {
+          "populationDecisions": 14457,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 94,
+            "maxBehaviorLogpError": 1.272698071375089e-07,
+            "sampledSameStudentArgmaxFraction": 0.734375,
+            "meanPmaxT1": 0.6810528345824713,
+            "meanPmaxT05": 0.85772427491727,
+            "meanEntropyT1": 1.1877480293595069
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-8/sabotage.idx",
+              "sha256": "209365a82f0234ca210e7c75f4a82a56c9318eb48e461ea2d7cc7f821a11ad46"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-8/sabotage.logp",
+              "sha256": "e71005b45a6994aa6aa639b37a6e91e458ac5fdbb6fa1ef1184f20480c650a2c"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-8/sabotage.bin",
+              "sha256": "202fce986a2277a00b20d226628dadece5ed313a181d7e64d2a4d4775983b9fa"
+            }
+          ]
+        },
+        "build": {
+          "populationDecisions": 30595,
+          "metrics": {
+            "decisions": 128,
+            "sameStudentArgmax": 35,
+            "maxBehaviorLogpError": 2.2453219550300219e-07,
+            "sampledSameStudentArgmaxFraction": 0.2734375,
+            "meanPmaxT1": 0.28665530231870107,
+            "meanPmaxT05": 0.5747688141913427,
+            "meanEntropyT1": 2.919493571929239
+          },
+          "inputs": [
+            {
+              "path": "build/analysis/neural-v2/round-8/build.idx",
+              "sha256": "2c758e34a6be40ab20d6c8a4b67d3bbffecff0c28a937b30b2ad283afd593ed2"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-8/build.logp",
+              "sha256": "d195b63ba46a6eeceec1b78a96b9ce3d76381ab359c90535477bf86fbf475eee"
+            },
+            {
+              "path": "build/analysis/neural-v2/round-8/build.bin",
+              "sha256": "a04fe7750f07702005547600923dfcac5de63b91a5fb0a905def5e33c1a4b888"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "pooled": {
+    "sabotage": {
+      "decisions": 1024,
+      "sameStudentArgmax": 715,
+      "maxBehaviorLogpError": 2.3664864734485036e-07,
+      "sampledSameStudentArgmaxFraction": 0.6982421875,
+      "meanPmaxT1": 0.6734051795294287,
+      "meanPmaxT05": 0.8409532582217691,
+      "meanEntropyT1": 1.180043057878109
+    },
+    "build": {
+      "decisions": 1024,
+      "sameStudentArgmax": 283,
+      "maxBehaviorLogpError": 2.3841454677153706e-07,
+      "sampledSameStudentArgmaxFraction": 0.2763671875,
+      "meanPmaxT1": 0.2613818234595879,
+      "meanPmaxT05": 0.5391695031856825,
+      "meanEntropyT1": 3.0016696825848364
+    }
+  },
+  "checks": {
+    "allWeightsMatchCollectionMetadata": true,
+    "allSampledBehaviorLogpWithinTolerance": true,
+    "reproducesPreviouslyReportedExactSampleCounts": true
+  }
+}
