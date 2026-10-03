@@ -4114,3 +4114,28 @@ competitive. Interaction/objective/teacher-prior changes require separate named 
 Selected Player SHA remains `1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19`.
 Design/result: [indrill-q-v2.md](indrill-q-v2.md); [full evidence](evidence/indrill-q-v2.json),
 [public corpus audit](evidence/indrill-q-v2-corpus.json).
+
+## 2026-10-03 - Indrill follow-up review and frozen reward-data audit
+
+- **Question:** what did the latest forum-inspired strategy attempts miss, and what
+  should be tried next? Re-read the original author post in the browser; reviewed
+  strategy, trainer and historical evidence independently. No new strength games.
+- **Hypothesis:** the current reward interpretation does not provide the early
+  projection signal or late outcome dominance described by the author. Streamed
+  the complete retained final collection block, verified its actual SHA-256 against
+  metadata, and compared exported rewards with exported earned-score increments.
+- **Result:** 128 games / 12,446 unique turns, both perspectives: zero differing
+  projection deltas at .01 reward-unit tolerance. Absolute undiscounted episode
+  return median 52.87 / p90 253.84 / max 548.14 versus outcome magnitude 1;
+  terminal-step shaping magnitude exceeds 1 in 32/128 games. This diagnoses a
+  learning-objective property, not the sole cause of all Q losses.
+- **Decision:** preserve Q-v1/v2 rejection and selected v09. Next distinguish model
+  capacity from TD learning using supervised complete teacher sets; prefer
+  outcome fine-tuning of the locally competitive neural-v1 as the next neural
+  strength candidate. An independent smaller v09 opportunity is all-cell-risk
+  bypass candidate coverage. Do not combine these into one experiment.
+- **Recorded:** detailed review appended to `indrill-q-v2.md`, reproducible
+  `tools/diagnostics/indrill_reward_audit.py`,
+  `evidence/indrill-reward-audit-v1.json`, PLAN/BOTS links. Historical source
+  interpretations (heuristic inference, identified routing, proven covariate shift)
+  are qualified in the review; historical policies and results are preserved.

@@ -13,6 +13,13 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+October 3 diagnostic review (no new bot/version or strength games): Q-v1/v2's
+0/300 outcomes remain rejected. The final Q-v2 training block's 128 games / 12,446
+turns show no shaping delta beyond earned score increments; terminal-step shaping
+exceeds the +/-1 outcome in 25% of games. See the
+[review and proposed next experiments](indrill-q-v2.md#october-3-follow-up-review-what-the-failed-runs-actually-establish)
+and [reward audit](evidence/indrill-reward-audit-v1.json).
+
 Selected on 2026-09-20: **v09 Never Idle**, the exact fill-v1 candidate
 (`current?USE_ROLLOUT_FILL=1`): v08 plus leftover paint spent on stable/protected cells next to
 own rails; RHEA code removed from the shipped source. Practical-v4 vs v08: **569/1000 (56.90%)**

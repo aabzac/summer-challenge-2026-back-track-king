@@ -626,3 +626,13 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [ ] Separate future versions: placement/ink interaction model, learning-objective
       change or teacher-policy prior. Predeclare one experiment and evaluation per version;
       additional games alone did not make v2 competitive.
+- [x] Re-read the Indrill forum post, audit Q-v1/v2 and imitation evidence, and inspect
+      reward records: 128 final-block games / 12,446 turns; projection changes no reward
+      deltas beyond earned-score increments; terminal shaping exceeds outcome in 25% of
+      games. Record `evidence/indrill-reward-audit-v1.json` and the Q-v2 follow-up review.
+- [ ] First separate representation from outcome learning with a fixed supervised
+      teacher-set/ink diagnostic on the existing Q observations (map/game-grouped split).
+      Preferred neural strength follow-up: outcome fine-tuning from retained neural-v1;
+      freeze its action/features and predeclare reward, regularization, opponents and budget.
+- [ ] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
+      saved threatened states before implementing a default-off proposal experiment.

@@ -140,3 +140,135 @@ were strengthened; the started driver and unchanged calculation-source pins are 
 
 Complete training, numerical, process and benchmark evidence:
 [indrill-q-v2.json](evidence/indrill-q-v2.json).
+
+## October 3 follow-up review: what the failed runs actually establish
+
+This is a source/code/evidence review, not another strength run. The author's
+[original post](https://www.codingame.com/forum/t/summer-challenge-2026-feedback-strategies/208574/5)
+was read again in the browser. Historical strength verdicts remain unchanged.
+
+The useful starting point is the contrast between **neural-v1's 558/1000 vs v09**
+(but failed boss regression, 12/40 vs 17/40) and **both Q candidates' 0/300**.
+Learning useful actions from the leader has already worked locally. Learning them
+from our current random-start Q pipeline has not. Neither result establishes a
+ceiling on reinforcement learning or reproduces the unpublished champion model.
+
+### Highest-priority learning-objective issue
+
+The author describes an early score signal and a late reward dominated by winning.
+Our implementation adds raw projected score-difference increments divided by 100
+to a terminal outcome of only +/-1. These are different scales: a final margin
+of 10,000 points contributes about 100 undiscounted reward units, versus one for
+winning, when projection starts at zero and ends at actual score. With gamma .99,
+even that telescoping interpretation no longer describes the discounted objective.
+This is a confirmed objective property, not proof it alone caused every loss.
+
+`InkProjection.scores` also destroys all disruptable regions, then returns already
+earned scores if no connection remains possible. In those states its difference
+provides no extra advance signal for unfinished routes. Raising a region's
+instability without changing the board or earned score cannot change this
+projection: it was already hypothetically inked. Delayed credit through Q-learning
+is still possible; the shaping itself does not teach those preparatory hits.
+Do not assume our interpretation of the author's brief reward description is his
+actual implementation or normalization.
+
+The retained final collection block was audited without training or new games:
+**128 games, 12,446 unique turns / 24,892 perspective records**. On every turn,
+the shaped reward after subtracting the terminal outcome matched the ordinary
+earned-score-difference increment divided by 100 (tolerance .01 reward units).
+The projection added no different delta on this entire block. Absolute
+undiscounted episode return: median **52.87**, 90th percentile **253.84**, maximum
+**548.14**, against terminal magnitude 1. In **32/128 games (25%)**, even the
+terminal-step shaping magnitude exceeded 1. This is descriptive evidence from
+the last training block, not a population strength result or a proof about all
+possible boards. Both perspectives duplicate magnitudes, not independent samples.
+
+[Audit evidence](evidence/indrill-reward-audit-v1.json) includes every episode and
+the independently verified compressed dataset SHA-256 `097cc7b8...39f`.
+Reproduce with `python tools/diagnostics/indrill_reward_audit.py --out build/analysis/indrill-review/reproduced.json`
+(requires the retained dataset; refuses an existing output). The tool only reads
+exported scores/actions/rewards; game rules are not reimplemented.
+
+### Action model and training limits
+
+- V2 correctly trains WAIT and counts V once, but adding the same V to all actions
+  cannot directly change their ordering. The experiment also changed training
+  volume, random initialization and seat balance, so its effects are not isolated.
+- The model still sums fixed cell advantages and chooses ink independently. It
+  cannot condition a cell's marginal value on the other chosen cells or this
+  turn's ink target. The game contains real complementarity: in saved boss game
+  904554568, turn 26, a three-cell chord changes income 132:126 to 64:186, while
+  every proper subset leaves immediate income unchanged
+  ([subset study](network-chords-v1.md)). This demonstrates a risk for the action
+  approximation, not a proof that long-term Q must equal immediate income.
+- The original post itself uses whole-quota knapsack and regional mean pooling.
+  Neither proves that its undisclosed joint-value parameterization matches ours;
+  conversely, neither justifies claiming that the author used sequential actions
+  or that regional mean pooling was an implementation mistake.
+- The 3,387-parameter model has one neighbor-mean block and global averaging.
+  Capacity and optimization are still unmeasured separately. Best/Good/Path and
+  the all-cell instability surcharge are present; simply adding those same
+  features again would not address the current failure.
+- 448,000 sampled visits over 186,162 final transitions is about 2.41 visits per
+  transition in aggregate, unequally distributed by prioritized replay. The last
+  stage alone samples 64,000 visits over that full pool. Final sampled absolute
+  TD error is 44.03 with Huber threshold 1. These numbers do not establish
+  convergence, and v2 does not show that more training could never help.
+
+### Recommended next work, in order
+
+1. **Separate capacity from RL credit assignment.** Freeze the current Q features
+   and action representation. Run a separately named supervised diagnostic using
+   the existing leader corpus, with splits grouped by full map/game. Fit the ink
+   target and the complete unordered placement set; do not count a different
+   ordering of the same triplet as an error. Report small-subset fit, held-out
+   set/cell agreement, target agreement and unrepresentable/filtered teacher
+   actions. There is no TD bootstrap in this diagnostic. Failure to fit even the
+   training subset sends work to representation/optimization; a fit shifts the
+   priority toward reward, exploration and the outcome-learning pipeline.
+   Existing teacher holdouts are development diagnostics, not fresh confirmation.
+2. **For the next strength candidate, prefer an imitation prior.** Start outcome
+   fine-tuning from retained neural-v1, whose sequential, target-conditioned
+   construction already plays competitively locally. Keep its features/action
+   architecture fixed for that experiment, retain a teacher-regularization term,
+   and predeclare a win-oriented reward, opponent mix and fixed update budget.
+   Use fresh local training maps against v09, neural-v1 and historical snapshots;
+   do not train on the cached boss regression maps. Track earning/survival of
+   placed cells, coherent completions and ink behavior, not paint usage alone.
+   This is a proposed new experiment, not a promise of improvement or promotion.
+3. If continuing the Q lineage instead, make reward normalization/objective a
+   separate version. Test terminal dominance explicitly on saved late states and
+   measure the shaping contribution by phase before collecting a large corpus.
+   Do not simultaneously change reward, action interactions and architecture and
+   then attribute a result to one of them.
+
+All candidate training data and diagnostic maps must be excluded from a fresh
+practical-v4 strength gate. Preserve 300/+200/+500, two workers and futility-only
+looks; do not rerun the rejected versions. A local survivor still needs the boss
+stage with a valid refreshed control cache and the applicable authorization.
+
+### Smaller independent opportunity in selected v09
+
+`RolloutBot.propose` supplies an instability surcharge, but
+`Pathing.cheapestPath` applies extra cost only to empty cells; existing rails have
+zero entry cost. The alternate route only blocks one predicted threat region.
+The leader's all-cell risk cost, already implemented by `TacticalPathing` for the
+Q features, suggests a narrow **additional bypass-candidate** experiment in v09.
+First audit saved threatened states: which affordable routes are newly generated,
+which are pruned, and which are actually evaluated at nominal time? Measure exact
+core income preserved under explicitly hypothetical ink; recorded future enemy
+actions are oracle diagnostics only. Avoid forcing defense: an earlier forced
+defense experiment already failed. Do not change canonical pathfinding semantics
+to implement a strategy proposal. Any new core helper still needs tests and
+`cgValidate`.
+
+A direct merger of neural-v1 and v09 requires a packaging plan: selected v09
+already occupies 95,278 of 100,000 source characters. It is not a free addition.
+
+### Corrections to historical interpretations
+
+Keep old results, but do not reuse the old claim that sub-millisecond inference
+means a heuristic. The author trained a neural Q policy. Broad route-class coverage
+also does not identify his complete routing valuation, and neural-v1's boss failure
+does not by itself prove covariate shift. Those were interpretations, not isolated
+causal experiments.
