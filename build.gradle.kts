@@ -147,6 +147,25 @@ tasks.register<JavaExec>("cgNeuralExport") {
         prop("holdout", "40"), prop("negatives", "40"), prop("seed", "20260920"))
 }
 
+/** Local terminal-outcome data for the independent Indrill-style action-value model. */
+tasks.register<JavaExec>("indrillCollect") {
+    group = "game"
+    description = "Collect local sequential action-value training rows; no arena or boss API calls"
+    mainClass.set("btk.tools.IndrillCollect")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("games", "48"), prop("seed", "2000000"), prop("weights", "build/analysis/indrill-q/weights-0.bin"),
+        prop("out", "build/analysis/indrill-q/round-1.bin.gz"), prop("epsilon", "0.25"), prop("opponent", "mixed"))
+}
+
+/** Float32 cross-language model parity and fixed training-map exclusions. */
+tasks.register<JavaExec>("indrillProbe") {
+    group = "game"
+    description = "Register training-map exclusions and export fixed float32 inference parity observations"
+    mainClass.set("btk.tools.IndrillProbe")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("weights", "build/indrill/round4.bin"), prop("out", "build/analysis/indrill-q/parity"))
+}
+
 tasks.register<JavaExec>("cgCellStudy") {
     group = "cg"
     description = "Per-cell construction study of one named player: routes at placement time and what each track did later"

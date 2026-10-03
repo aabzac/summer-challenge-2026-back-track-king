@@ -45,6 +45,9 @@ class BotCatalogTest {
         assertEquals("v03", BotFactory.create("v03").name().split("\\?", 2)[0]);
         assertEquals("working", BotCatalog.describe("current").category());
         assertEquals("local_only", BotCatalog.describe("pressure-v1").status());
+        assertEquals("indrill-q-v1 - Indrill Action Values", BotCatalog.displayName("indrill-q-v1"));
+        assertEquals("candidate", BotCatalog.describe("indrill-q-v1").category());
+        assertEquals("local_only", BotCatalog.describe("indrill-q-v1").status());
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("exp-does-not-exist"));
     }
 

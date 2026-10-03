@@ -4005,3 +4005,59 @@ Completed outcome (fixed sample, no retuning):
   domain bridge, hybrid move generator for the rollout).
 - **Evidence:** `docs/evidence/neural-v1-boss.json` (pairs with both results),
   `docs/evidence/neural-v1-decision.json`, `build/cg-boss/neural-v1-boss-40/report.json`.
+
+## 2026-10-03 - indrill-q-v1: forum-inspired Q-learning prototype (STOP_FUTILITY_300)
+
+- **Request:** implement a bot following Indrill's first-place post, rather than only infer
+  heuristics or imitate his replays. The post identifies Q-learning/Rainbow/BTR and a
+  grid network with augmented connection observations, greedy ink and joint construction.
+  It corrects the previous study's unsupported inference that fast decisions meant a heuristic.
+- **Hypothesis:** outcome-trained Q values over risk-aware Best/Good/Path connection channels
+  can provide an independent no-search policy. Implemented compact `bot/current/Indrill*`,
+  64 cell channels, 24-channel local/board-mean network, 3,362 parameters, region-mean ink
+  and additive whole-quota construction head with exact three-paint knapsack. No selected
+  default or frozen package changed. `Params.INDRILL_INK_PENALTY=2` is unused by older bots;
+  snapshots and v4 alias handling explicitly preserve their defaults.
+- **Engine boundary:** additive `core/TacticalPathing` handles forward/reverse entry-cost
+  maps and priority DFS with zero-cost rails; exact completed-route income comes from the
+  core's canonical scored path. `core/InkProjection` supplies the hypothetical training
+  potential using actual ink, termination and income rules. Original Pathing/Rules/SearchState
+  content matches HEAD, retaining historical engine hashes. Old exports omit both helpers;
+  only the tactical helper ships in this independent candidate.
+- **Training, fixed before the strength test:** four 48-game blocks, generated seeds
+  2000000/2001000/2002000/2003000, epsilon .25/.20/.15/.10; half self-play, quarter v09
+  (seat 0), quarter neural-v1 (seat 1), both perspectives retained. 192 games, 37,694
+  transitions; four 400-minibatch rounds on accumulated replay, batch 8, Double DQN,
+  three-step .99 returns, prioritized replay alpha .6/beta .4->1, target 100, Adam .0003,
+  Huber 1 and clip 10. Exactly 1,600 updates, no benchmark-guided tuning. Generated float32
+  weights SHA256 `6ebd02d14ab578684de6876d6399398500d9ecde4aa31c7457cfb7e628b1fd53`.
+- **Limits:** far smaller than the author's undisclosed architecture and training scale;
+  no full BTR/KataGo reproduction. Additive build/ink decomposition misses joint effects;
+  full WAIT=0 receives no gradient and forces a nonnegative bootstrap maximum. Reward
+  delta(ink-all projected score difference)/100+terminal is our documented interpretation,
+  not a policy-invariant discounted shaping claim. Final TD residuals are large, not proof
+  of convergence. Float16 replay and training seat asymmetry are recorded.
+- **Checks:** 379 Java tests pass, including 11 core helper tests and meaningful exhaustive
+  knapsack/known-context/legality/merged parity tests. 126 Python tools tests plus 5 numpy
+  gradient, contracts, terminal, update and knapsack tests pass. Seven older Python gate
+  tests initially lacked temp-folder permissions; all seven passed with ordinary temp
+  access, no strategy changes. `cgValidate`: 292/292 arena exact. Generated Java weight
+  bytes equal the frozen binary. Numerical probe: 6,972 Q values, 18 observations, both
+  actions 18/18 identical; max absolute build/ink error .000031/.000016.
+- **Artifact:** isolated `build/analysis/indrill-q-v1/submission/Player.java`, 81,823 chars,
+  source `c186d548...`, build `a3fbee95...`, `verifySubmission` exact. The declared strict
+  eight-game process panel, four maps/both seats/v09/zero grace/no other heavy work:
+  **0/8 problem games**, 0/8 wins, first <=583.176 ms, later <=18.1987 ms. No timing retries.
+- **Strength:** practical-v4, `run_practical_v4.py --spec indrill-q-v1 --control v09
+  --name indrill-q-v1 --seed 1200000`, two workers, CG budgets, 150 fresh paired maps;
+  13,040 previous map hashes excluded including 192 training and 3 probe maps.
+  **0 W / 300 L / 0 D = 0%, zero errors; STOP_FUTILITY_300, NOT_PASSED.** Accepted
+  disruption 54.9% vs 71.7%, 4/300 early closures. The futility rule ends evaluation;
+  blocks 2/3 and the live boss stage are skipped, with no tuning or retries.
+- **Decision:** reject this prototype. The implementation is usable for future distinct
+  RL experiments, but this result does not support selection and does not refute the
+  author's successful principle. A next version should fix value-baseline/action-interaction
+  capacity and then declare a larger training schedule. v09 remains selected; original
+  `build/submit/Player.java` unchanged at `1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19`.
+  No push, upload, boss API request or promotion. Full design `docs/indrill-q-v1.md`,
+  self-contained training/process/local evidence `docs/evidence/indrill-q-v1.json`.

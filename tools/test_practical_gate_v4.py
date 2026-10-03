@@ -168,6 +168,11 @@ class PracticalGateV4Test(unittest.TestCase):
         self.assertEqual('PASS', passed['strengthStatus'])
         self.assertEqual(['ROLLOUT_FILL_MAX_INSTABILITY', 'USE_ROLLOUT_FILL'], passed['bossControlAlias']['laterDefaultFields'])
         self.assertEqual('v08', passed['bossControlAlias']['localControl'])
+        indrill_later = gate.assess(*blocks({**later, 'INDRILL_INK_PENALTY': '2'}), boss=boss())
+        self.assertEqual('PASS', indrill_later['strengthStatus'])
+        self.assertIn('INDRILL_INK_PENALTY', indrill_later['bossControlAlias']['laterDefaultFields'])
+        with self.assertRaisesRegex(ValueError, 'non-default later field'):
+            gate.assess(*blocks({**later, 'INDRILL_INK_PENALTY': '3'}), boss=boss())
         with self.assertRaisesRegex(ValueError, 'specification changed'):
             gate.assess(*blocks(later), boss=boss(build='f' * 64))
         with self.assertRaisesRegex(ValueError, 'specification changed'):

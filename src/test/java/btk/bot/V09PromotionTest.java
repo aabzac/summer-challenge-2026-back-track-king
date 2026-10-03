@@ -53,8 +53,11 @@ class V09PromotionTest {
         assertEquals("true", expected.get("USE_ROLLOUT_FILL"));
         assertEquals("0", expected.get("ROLLOUT_FILL_MAX_INSTABILITY"));
         assertEquals("false", expected.get("USE_ROLLOUT_RHEA"));
-        for (String spec : new String[]{"current", "main", "v09", "current?USE_ROLLOUT_FILL=1"})
-            assertEquals(expected, new TreeMap<>(BotFactory.configuration(spec)), spec);
+        for (String spec : new String[]{"current", "main", "v09", "current?USE_ROLLOUT_FILL=1"}) {
+            var actual = new TreeMap<>(BotFactory.configuration(spec));
+            LiveTargetExperimentParams.removeIndrillAndCheck(actual);
+            assertEquals(expected, actual, spec);
+        }
         assertTrue(new Params().USE_ROLLOUT_FILL);
         assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
         assertInstanceOf(MainBot.class, BotFactory.create("main"));
@@ -70,8 +73,9 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size(), fields, "the v09 record covers every parameter field");
+        assertEquals(expected.size() + 1, fields, "only the independent later policy field is absent from the v09 record");
         FrozenParams.applyTo("v09", dirty);
+        assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
         Params override = BotFactory.parameters("v09?USE_ROLLOUT_FILL=0,ROLLOUT_FILL_MAX_INSTABILITY=1");

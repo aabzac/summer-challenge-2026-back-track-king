@@ -374,6 +374,27 @@ class FileMergerTest {
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v2"));
     }
 
+    @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {
+        String source = FileMerger.merge("indrill-q-v1");
+        assertTrue(source.contains("static final class IndrillFeatures"));
+        assertTrue(source.contains("static final class IndrillNet"));
+        assertTrue(source.contains("static final class IndrillWeights"));
+        assertFalse(source.contains("IndrillBot"));
+        assertFalse(source.contains("NeuralFeatures"));
+        assertFalse(source.contains("private double rollout("));
+        assertFalse(source.contains("class HeuristicBot"));
+        assertFalse(source.contains("class ProtectedOpening"));
+        assertFalse(source.contains("class IndrillCollect"));
+        assertTrue(source.contains("static final class TacticalPathing"));
+        assertFalse(source.contains("class InkProjection"));
+        assertTrue(source.contains("INDRILL_INK_PENALTY=2"));
+        checkFrozenDecisions("indrill-q-v1", true);
+        assertFalse(FileMerger.merge("current").contains("IndrillFeatures"));
+        assertFalse(FileMerger.merge("current").contains("class TacticalPathing"));
+        assertFalse(FileMerger.merge("v09").contains("class InkProjection"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("indrill-q-v2"));
+    }
+
     @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
         checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
     }

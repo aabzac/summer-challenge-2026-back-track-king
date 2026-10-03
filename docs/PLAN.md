@@ -597,3 +597,20 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       fitness, imitation as prior) and bridge the boss domain with v09-vs-boss states; add other
       Legend players' replays (`-Ppath`/`-Pplayer` lists); value head for the closure margin;
       hybrid = imitation candidates as the rollout's move generator.
+
+## Indrill forum Q-learning prototype (2026-10-03)
+
+- [x] Read the author's post and correct the earlier heuristic inference; document actual
+      Q-learning/grid-observation/two-action-head principle and undisclosed details.
+- [x] Implement allocation-free core tactical maps, Best/Good/Path aggregates and compact
+      outcome-trained grid Q policy; preserve original core and frozen bot identities.
+- [x] Add exact-core episode export, numpy Double DQN/n-step/prioritized training,
+      generated float32 weights and numerical/terminal/gradient/knapsack checks.
+- [x] Complete the fixed 192-game/1,600-update training; freeze indrill-q-v1 weights.
+- [x] Verify 379 Java + 126 tools Python + 5 numpy tests, 292/292 arena replays, exact
+      generated/binary/merged identities, 18-position numeric parity and strict 0/8 process problems.
+- [x] Run practical-v4 vs v09 on 150 fresh paired maps, excluding training/probe maps:
+      0/300 score, zero errors, STOP_FUTILITY_300. Evaluation complete; boss skipped,
+      no promotion or retries. Record complete evidence and retain rejected candidate.
+- [ ] Separate future RL version: learn a state-value baseline including WAIT, represent
+      interactions among placements/ink, then predeclare a larger training schedule.

@@ -100,6 +100,13 @@
       "description": "Behaviour-cloned policy: two small conditional-logit MLPs (sabotage region, sequential placement cell) over engine-grounded candidate features, trained on the arena leader's replays. Hard rules only for closing inks. Weights in btk.bot.neural.NeuralWeights."
     },
     {
+      "id": "indrill-q-v1",
+      "title": "Indrill Action Values",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Compact prototype inspired by Indrill's forum post: risk-aware connection observations, a neural Q model trained from score and terminal outcomes, additive whole-quota construction and region ink decisions. Rejected locally (0/300 vs v09). Generated weights in btk.bot.current.IndrillWeights."
+    },
+    {
       "id": "current",
       "title": "Working Copy",
       "category": "working",

@@ -13,6 +13,9 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
+    /** Independent Indrill-style action-value policy: extra route cost per instability level. */
+    public int INDRILL_INK_PENALTY = 2;
+
     // Selected v09 policy; disable explicitly to use the retained EvalBot experiments.
     public boolean USE_ROLLOUT_POLICY = true;
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.

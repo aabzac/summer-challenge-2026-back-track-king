@@ -23,6 +23,8 @@ final class FrozenParams {
             if (!snapshot.containsKey("USE_PROTECTED_OPENING")) params.USE_PROTECTED_OPENING = false;
             // Pre-v09 snapshots keep leaving leftover paint unused instead of inheriting the fill default.
             if (!snapshot.containsKey("USE_ROLLOUT_FILL")) params.USE_ROLLOUT_FILL = false;
+            // Historical strategies never read this independent policy's routing feature weight.
+            if (!snapshot.containsKey("INDRILL_INK_PENALTY")) params.INDRILL_INK_PENALTY = 2;
             for (String key : snapshot.stringPropertyNames()) params.set(key, snapshot.getProperty(key));
             return params;
         } catch (IOException e) {

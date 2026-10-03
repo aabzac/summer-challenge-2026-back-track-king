@@ -1,13 +1,15 @@
 # Bot versions
 
-Active strength policy (2026-09-19): **practical-300-1000-boss-cache-v3**. Direct 300:
->=60% passes, <=52% stops, otherwise fresh 1000 at >=55%. Also require exactly 40 NEW
+Active strength policy (2026-09-20): **practical-1000-futility-boss-cache-v4**. One pooled
+1000-game comparison in blocks 300/+200/+500; stop below 50% at 300/500, final pass >=55%
+over all 1000, no early pass. Also require exactly 40 NEW
 candidate games against the live boss on the saved control's maps/seeds/seats, scoring
 at least as much as the cached control (draws half, ties pass). This replaces mandatory
 older/style-opponent stages. Sequential boss calls may run alongside the required local
 1000; direct failure cannot be rescued. Reused boss maps are a practical regression pool,
 not fresh confirmation. Engine, errors and exact-artifact process checks still apply.
-See [the v3 rule](boss-cache-policy-v3.md) and [benchmarking.md](benchmarking.md).
+The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local selection follows
+[benchmarking.md](benchmarking.md). The former v3 local thresholds remain in historical entries.
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
@@ -94,6 +96,33 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 (153-47-0); no common-opponent support for promotion. Keep **factor 1.0**, no v06.
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
+
+## Candidate: indrill-q-v1 Indrill Action Values (2026-10-03, STOP_FUTILITY_300)
+
+Compact outcome-trained prototype inspired by [Indrill's published description](https://www.codingame.com/forum/t/summer-challenge-2026-feedback-strategies/208574/5),
+independent of rollout and the earlier imitation net. Risk-aware Best/Good/Path channels,
+a 3,362-parameter grid network, region-mean ink head and exact additive whole-quota build
+knapsack; greedy inference. Trained on **192 games / 37,694 transitions / 1,600 updates**;
+final weights `6ebd02d1...`. This is not the unpublished champion model or full BTR.
+
+Practical-v4 vs **v09**: **0 W / 300 L / 0 D**, 0%, zero errors, two workers, 150 new paired
+maps; **STOP_FUTILITY_300, NOT_PASSED**. All 13,040 prior map identities, including 192
+training maps and 3 numerical-probe maps, excluded. No continuation, boss batch or promotion.
+Selected v09 and the exact default submission remain unchanged.
+
+Separate candidate artifact **81,823 / 100,000 characters**, source `c186d548...`,
+build `a3fbee95...`; strict eight-game panel **0/8 problem games**, first <=583.2 ms,
+later <=18.2 ms. 379 Java tests, 126 Python tools tests and 5 numpy training tests pass;
+292/292 arena replays exact. Python/Java parity: 18/18 sampled actions for both heads,
+maximum Q difference 0.000031. Core's original rules/pathing classes and all frozen bots
+unchanged; new observation helpers stay in the core.
+
+Limits: tiny training budget, additive actions without cell interactions, fixed-zero WAIT
+without a state-value baseline, nonnegative bootstrap, approximate reward shaping and
+training seat asymmetry. The failure rejects this particular prototype, not the published
+RL principle. Retained as `indrill-q-v1`; new weights require a separately named experiment.
+Design: [indrill-q-v1.md](indrill-q-v1.md); complete evidence:
+[indrill-q-v1.json](evidence/indrill-q-v1.json).
 
 ## Candidate: neural-v1 Neural Imitation (2026-09-20, local PASS_1000, boss NOT_PASSED)
 

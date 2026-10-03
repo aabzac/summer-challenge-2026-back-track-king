@@ -1,6 +1,7 @@
 package btk.bot;
 
 import btk.bot.current.EvalBot;
+import btk.bot.current.IndrillBot;
 import btk.bot.neural.NeuralBot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
@@ -68,7 +69,7 @@ public final class BotFactory {
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
         if (version.equals("pressure-v1") || version.equals("leader-v1") || version.equals("leader-v2")
-                || version.equals("neural-v1")) FrozenParams.applyTo(version, params);
+                || version.equals("neural-v1") || version.equals("indrill-q-v1")) FrozenParams.applyTo(version, params);
         return params.apply(query);
     }
 
@@ -112,6 +113,7 @@ public final class BotFactory {
             case "leader-v1": return LeaderBot::new;
             case "leader-v2": return LeaderBot2::new;
             case "neural-v1": return NeuralBot::new;
+            case "indrill-q-v1": return IndrillBot::new;
             default:
                 if (version.startsWith("exp-") && BotCatalog.entry(version).category().equals("experiment")) return EvalBot::new;
                 return null;
