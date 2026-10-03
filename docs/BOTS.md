@@ -135,6 +135,31 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Candidate: neural-v5 Exact Completion Income (2026-10-04, LOCAL_PASS / PROCESS_FAILED)
+
+Retain V3 weights and policy; replace only hypothetical route-completion income
+with an additive exact core helper that avoids state copying and path allocation.
+Baseline profiling identifies a bounded target:16.15% of play time on tall maps,
+but95.0% of measured allocation comes from its connection updates. Feature Dijkstra
+remains the majority time cost and is outside this experiment. Separate V5 sources
+and packaging preserve V1-V4 and selected v09. All 432 tests and 292 engine replays
+pass. Saved-state parity: 800 actions and 11,789,067 feature values bit exact;
+allocation falls 88.30% overall / 93.46% on tall maps. Wall time changes only
+-1.85% / -0.77%; this one local pass establishes no clear timing improvement.
+Strict process panel fails 1/8: map903510176, P0 turn11, no response by 50ms.
+sendMs=34.6403 and consumerMs=66.3022 do not isolate bot CPU as the cause.
+No retries; source 34259281...34730, 95,627 characters. The fixed practical-v4
+comparison versus v09 passes: **610W/389L/1D /1000 (61.05%)**, blocks 185/300,
+117.5/200 and 308/500; all 500 maps fresh and zero bot errors. P0 score59.0%,
+P1 score63.1%. In-process timing also has occasional overruns; neither local
+strength nor reduced allocation clears the strict process failure. Combined
+verdict **LOCAL_PASS_BUT_PROCESS_FAILED**, boss skipped, no promotion/CG write.
+This is independent confirmation versus v09, not evidence of stronger play than V3.
+[Predeclared protocol](neural-policy-v5.md), [baseline profile](evidence/neural-v5-feature-profile.json),
+[saved-state parity/cost](evidence/neural-v5-saved-state.json),
+[readiness audit](evidence/neural-v5-verification.json), [strength audit](evidence/neural-v5-v4.json),
+[retained artifacts](evidence/neural-v5-artifacts.json).
+
 ## Candidate: neural-v4 Construction Temperature 0.5 (2026-10-04, REJECTED)
 
 Repeat the fixed neural-v2 outcome-training schedule from the exact original v1 prior,

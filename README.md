@@ -19,6 +19,7 @@ gradlew submit -PsubmitVersion=indrill-q-v2 -PsubmitOut=build/submit-indrill-v2 
 gradlew submit -PsubmitVersion=neural-v2 -PsubmitOut=build/submit-neural-v2 # outcome-tuned imitation candidate
 gradlew submit -PsubmitVersion=neural-v3 -PsubmitOut=build/submit-neural-v3 # same trained weights, deadline-aware execution
 gradlew submit -PsubmitVersion=neural-v4 -PsubmitOut=build/submit-neural-v4 # build-temperature training experiment
+gradlew submit -PsubmitVersion=neural-v5 -PsubmitOut=build/submit-neural-v5 # exact completion-income runtime experiment
 gradlew submit -PsubmitVersion=v09              # selected frozen v09 source + complete snapshot
 gradlew submit -PsubmitVersion=v08              # historical v08 reference build
 gradlew submit -PsubmitVersion=v07              # historical v07 reference build
@@ -133,6 +134,15 @@ The retained schedule is `python tools/neural/run_outcome_v4.py`;
 [predeclared protocol](docs/neural-policy-v4.md),
 [final strength evidence](docs/evidence/neural-v4-v4.json),
 [readiness evidence](docs/evidence/neural-v4-verification.json).
+
+`neural-v5` retains V3 weights and replaces hypothetical route-completion income
+with an exact allocation-free core helper. All 800 saved-state actions and
+11,789,067 feature values match. Allocations fall 88.30% overall, but the measured
+1.85% time reduction does not establish a clear speedup. Fresh practical-v4 versus
+v09 passes at **610W/389L/1D /1000 (61.05%)**. Strict process readiness still fails
+1/8; no boss games or promotion. [Protocol](docs/neural-policy-v5.md),
+[strength](docs/evidence/neural-v5-v4.json),
+[readiness](docs/evidence/neural-v5-verification.json).
 
 The selected protected opening claims town approaches during the first three turns using
 potential route traffic, then returns to the existing rollout policy. Disable it with

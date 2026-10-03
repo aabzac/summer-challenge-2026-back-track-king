@@ -121,6 +121,13 @@
       "description": "Fixed outcome-training repeat from neural-v1 with construction sampling temperature 0.5, sabotage and teacher temperature 1. Unchanged neural-v3 deadline-aware runtime and features; new generated NeuralV4Weights. Separate unpromoted experiment; docs/neural-policy-v4.md."
     },
     {
+      "id": "neural-v5",
+      "title": "Neural Exact Feature Optimization",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Exact neural-v3 weights, candidate order, greedy decisions and cooperative deadline with optimized feature preparation. No retraining or policy change; separate unpromoted runtime experiment."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

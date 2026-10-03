@@ -699,10 +699,30 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       aborts, nominal max31.5294ms. CG underpaint was not reproduced locally; no new
       games or claim of matching CG CPU/RNG. Preparation is80.65% of time on tall maps.
       Evidence: `evidence/neural-v3-budget-probe-20261004.json`.
-- [ ] Predeclare exact feature-preparation optimization with frozen V3 weights and
+- [x] Predeclare exact feature-preparation optimization with frozen V3 weights and
       feature/action parity: profile repeated completionGain/connection updates and
       scratch-path allocations, then independently check actual CG timing. Keep a cheap
       construction fallback as a separate policy experiment if needed.
+
+## neural-v5: exact hypothetical completion income (2026-10-04)
+
+- [x] Profile frozen V3 on the fixed800 arena states; all actions match previous
+      ample-time decisions. Direct Dijkstra dominates tall-map time58.89%; route
+      completion income is16.15%, with95.0% of play allocations in its connections.
+- [x] Predeclare bounded exact-income optimization only, unchanged V3 weights,
+      separate core helper and preserved prior submissions (`neural-policy-v5.md`).
+- [x] Verify core/feature/action parity: 432 tests, 292 exact engine replays, 800 actions
+      and 11,789,067 feature values bit exact. Allocations -88.30% overall / -93.46%
+      on tall maps; wall time -1.85% / -0.77%, no clear speedup from one local pass.
+- [x] Freeze exact artifact and complete strict8-game panel: FAILED 1/8, map903510176
+      P0turn11, response absent by50ms; send34.6403ms/consumer66.3022ms, no retry.
+- [x] Run fresh practical-v4 versus selected v09, seeds3600000/3700000/3800000;
+      two workers, 610W389L1D/1000 (61.05%), PASS_1000, all500maps fresh, zero errors.
+      Process failure blocks boss games; combined LOCAL_PASS_BUT_PROCESS_FAILED.
+- [x] Record actual verdict, retain compact evidence and commit; no arena promotion.
+- [ ] Separate next proposal: reuse four Dijkstra searches per source town/mask within
+      prepare, preserving (cost,cell) order and the popped-but-unexpanded target.
+      Invalidate on every prepare/source change; preserve public fresh-path API.
 
 ## neural-v4: construction temperature 0.5 (2026-10-04)
 

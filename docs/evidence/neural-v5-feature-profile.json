@@ -1,0 +1,1582 @@
+{
+  "schemaVersion": 1,
+  "kind": "single saved-state instrumented feature cost profile; development diagnosis, not strength or CG deadline evidence",
+  "complete": true,
+  "inputs": [
+    {
+      "path": "build/analysis/neural-v5/profile/plan.json",
+      "sha256": "49d0f55f0efe6eaabb838869333abc994944834072353c1edfdff18cb12dae30"
+    },
+    {
+      "path": "build/analysis/neural-v5/profile/intent.json",
+      "sha256": "27651fe89a3600688767a145aaa58e48d38b12a784a4d7142cbc8c2aed723a54"
+    },
+    {
+      "path": "build/analysis/neural-v5/profile/results.json",
+      "sha256": "80df52a54dc16d498f6628a45051be64149a5d7cf2e0c8cb7297d7bffbfaee83"
+    },
+    {
+      "path": "build/analysis/neural-v5/profile/run.log",
+      "sha256": "ba5a12752317b8cf2772be869e35eac8af8398fa3a8c628dac8aa8e675c4389b"
+    },
+    {
+      "path": "build/analysis/neural-v5/profile/summarize.py",
+      "sha256": "f91b73e0ca568bb7d49208ef7690ef061d275ca3a4af7dd819ecd191a5e44fed"
+    },
+    {
+      "path": "tools/diagnostics/NeuralFeatureCostProfile.java",
+      "sha256": "579416760a4dce1865e356060a28fcd1847f4d7a91811e18294071e424e7ac17"
+    }
+  ],
+  "protocol": {
+    "schemaVersion": 1,
+    "kind": "fixed saved-state V3 feature cost profile; no games or strategy edits",
+    "selection": "all 40 pinned arena games, turns 0..19, one pass, one V3 call per state",
+    "budgetMs": 60000,
+    "warmupMs": 500,
+    "memory": "actual public board prefix and previous accepted recorded disruption restored each turn",
+    "rng": "same explicit per-state seed as NeuralSavedStateBudgetProbe; not arena RNG reconstruction",
+    "profileNames": [
+      "prepare",
+      "prepare.cheapestCostPath",
+      "prepare.completionGain",
+      "prepare.completionGain.copyFrom",
+      "prepare.completionGain.updateConnections",
+      "prepare.completionGain.income",
+      "prepare.activePairRoutes",
+      "prepare.activePairRoutes.cheapestCostPath",
+      "prepare.labelComponents",
+      "sabotage",
+      "sabotage.copyFrom",
+      "sabotage.updateConnections",
+      "sabotage.income",
+      "build",
+      "build.copyFrom",
+      "build.updateConnections",
+      "build.income",
+      "prepare.income",
+      "other.cheapestCostPath"
+    ],
+    "timing": "inclusive nested nanoTime and per-thread allocated-byte deltas; overhead included in parents",
+    "limits": [
+      "Diagnostic instrumentation changes code/JIT and adds method/native calls.",
+      "One local sample per state, no repeated timing trials and no CG CPU/runtime reconstruction.",
+      "Allocation counters show allocated bytes, not retained memory or pause causality.",
+      "All states are reused development evidence; no strength or outcome claims.",
+      "Actions compared with prior ample-budget probe under the identical seed/memory convention."
+    ],
+    "inputs": [
+      {
+        "sha256": "579416760a4dce1865e356060a28fcd1847f4d7a91811e18294071e424e7ac17",
+        "path": "tools/diagnostics/NeuralFeatureCostProfile.java"
+      },
+      {
+        "sha256": "d173b8f282ca5b0d877fabcb84cf6cd76658166afd1706bb7232d2b16c4398c6",
+        "path": "src/main/java/btk/bot/neural/NeuralV3Features.java"
+      },
+      {
+        "sha256": "549a40a16d46b6d468545eff4a5f29c649553045f6b7e0f77098adfd22eb96ca",
+        "path": "docs/evidence/neural-v3-arena-paint-20261004.json"
+      },
+      {
+        "sha256": "56b76900d5b9f10d9e80688737cfa521946a102a43e9798766527dcaceed35bf",
+        "path": "build/analysis/neural-v3-arena-20261004/budget-probe.json"
+      }
+    ],
+    "generatedSource": {
+      "sha256": "d3ba4d1133608183be29f63661d5975e7f1de8b4abacf9b0295f44218c48219c",
+      "path": "build/analysis/neural-v5/profile/src/btk/bot/neural/NeuralV3Features.java"
+    },
+    "frozenRuntimeFiles": [
+      {
+        "sha256": "52f1ac25a70b6321022905646d62698a6b9bfa12cca9259cd8f19d068b09e144",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/Bot.class"
+      },
+      {
+        "sha256": "68dc432921f4972677935a24ab1979fd97cc7d17ca1b3bb3ede0070cb57850f3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/BotCatalog$Engine.class"
+      },
+      {
+        "sha256": "513003433f1fcc2390932634824264fb1744d931566c245ebc66c34c75a29d87",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/BotCatalog$Entry.class"
+      },
+      {
+        "sha256": "6ad79c1eff3d4fcd1e9d8c71264e932b3407e5695470159c8fabbc4d618976de",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/BotCatalog$Identity.class"
+      },
+      {
+        "sha256": "c98bddf61565a4158337a4f784fc32171336431b44bbeda2deeaae3c041bd1f7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/BotCatalog.class"
+      },
+      {
+        "sha256": "2adb4725fbf1eb475b6dd2eb6282ad792b6153bc12d91a591f4fdf669d806da1",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/BotFactory$1.class"
+      },
+      {
+        "sha256": "64f78be25fdbfdf18c29f1c81dca32b27c7a97d5cb06db9a599ec86f4fce06b2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/BotFactory.class"
+      },
+      {
+        "sha256": "0578f61a8e32fd0e9ebea035ccbfded7c443b36709c64ed82bc6a00b6cae6560",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/EvalBot.class"
+      },
+      {
+        "sha256": "f35a612fb7000ede218df689e70bc8f441b3185a98e62bd35b695d25ef0602e3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/HeuristicBot.class"
+      },
+      {
+        "sha256": "5f85607c96543e1aed911e71aa96092b5d56aa551b8171e1bb43eb6c63313094",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillBot.class"
+      },
+      {
+        "sha256": "e499a576bea0bb4ed4c97a448aa685ef82ef657b9335bdff1523c3e517d49554",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillFeatures.class"
+      },
+      {
+        "sha256": "523c455612fd421f538e085a8c3823b8f56ec4a0de53f837c54f440825b90885",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillNet.class"
+      },
+      {
+        "sha256": "b2c3fc7c77bf11a263e626dcdf2a6f2c72dc795af859762edfc60d5535d2b096",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillV2Bot.class"
+      },
+      {
+        "sha256": "abcf306cc9afe546093136fa7413ef044ba3483602862a785df6d2f8800e13bb",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillV2Net.class"
+      },
+      {
+        "sha256": "db0832ab3488c21bf9c588228e33f02ce29860ef6c3106dc3f0b7eac8a383839",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillV2Weights.class"
+      },
+      {
+        "sha256": "b0fde6f51d252cc8b95008d3f4de168baaec7a47c61805676ef0b18657051727",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/IndrillWeights.class"
+      },
+      {
+        "sha256": "9cb90166cdfe2fbe50ef7352c296fb9f808e884cd135891e6e71e24bf64668a7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/ProtectedOpening.class"
+      },
+      {
+        "sha256": "94ba3dac57ce3bec346bef9e5fd8b1f1db19492f2c36462ab639848c401f7e19",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/current/RolloutBot.class"
+      },
+      {
+        "sha256": "98afeef102e5eec67006be0c83d286adb14fa9355f029f38c653a6ab1765229a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/FrozenParams.class"
+      },
+      {
+        "sha256": "825b2b9f77efdaed7867826ca07b74d937660014dff2950f5743fe58abd7c60b",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/MainBot.class"
+      },
+      {
+        "sha256": "ece5b1765d9677a2867bc1800d911108f749fa42b07ffdddc5843716c42b2787",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralBot.class"
+      },
+      {
+        "sha256": "b0780ddceb792dcd0bef733e6c4f40285e0c58d7e5c0961408182406a5b3e666",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralFeatures.class"
+      },
+      {
+        "sha256": "6e4e7b9336d295f80291c03c900ce06f4f940f0ef7a7351e690d3a409e18e167",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralNet.class"
+      },
+      {
+        "sha256": "c905bc1aa1c9fb192a354d6db5472ea5721110cf8d30e2bb76f4cd37cfd328d8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV2Bot$DecisionChooser.class"
+      },
+      {
+        "sha256": "a170a1a60c8db9701c151f38c2d7fa62e0254d7e40b2760de52019fe9924cfee",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV2Bot.class"
+      },
+      {
+        "sha256": "9140901dfef064d4a5c134e19c9ee4c67614547e8457bcb9e1af5d665ec100e4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV2Weights.class"
+      },
+      {
+        "sha256": "5129e49fe9741bd824186074f0fbffe7ce39990a22a605dc55c365c879abd78b",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV3Bot.class"
+      },
+      {
+        "sha256": "86914bcea254c9d53648e6549295fe5e6362f2d16900c9afc4d7e484c0db6735",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV3Features$Deadline.class"
+      },
+      {
+        "sha256": "b0d29dc1136d74202df9942dc9e3b721615bee556381b17346da5d336915c08f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV3Features.class"
+      },
+      {
+        "sha256": "92326ca4e7759f6b63f2c8158d1cb78079717503c852def9298b2cb52b2d96d7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV4Bot.class"
+      },
+      {
+        "sha256": "a0c7f1133f5c2c9adfb1b749d34bb40f9dfa8b325db784976a8981da20d57d98",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralV4Weights.class"
+      },
+      {
+        "sha256": "56601d127feab392cc5946432fa7db6d736f69e60f55307b1e5d21d6dd3653d1",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/neural/NeuralWeights.class"
+      },
+      {
+        "sha256": "73f6d43849e08a8ac226993e17d3613a8cf50e46ad3a0ecb4be18a9863b9e50f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/Params.class"
+      },
+      {
+        "sha256": "e01fedd144c6dd52230870e4c6053975be03ec40f5f2a0cad23aaca568cc6856",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/reference/LeaderBot.class"
+      },
+      {
+        "sha256": "2d2fbb0fa53450213fded9a08c2346bae3ea7fe106e4873d0f11af6de6eda558",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/reference/LeaderBot2.class"
+      },
+      {
+        "sha256": "962690fee1a1b571d3dbbe0a1e6da3395c06e408211d89d892128a66754ba89f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/reference/PressureBot.class"
+      },
+      {
+        "sha256": "0eb5e17bf162305a30b68d10170cd0af64390dcc4d9f5758aaf6373f33ad77e3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/RetainedEngine.class"
+      },
+      {
+        "sha256": "3974fa6f1d0586291011ddcdf97c71b5dcb6dd7a74ec380b6b37358be3424235",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/Timer.class"
+      },
+      {
+        "sha256": "0f0a22773150d6cbea4231dca9d40c0d846fa923c0b73e544265597f46c24132",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v00/AutoplaceBot.class"
+      },
+      {
+        "sha256": "91ffacce62b6e63be04f793b64eea379358bf7b681d731a4d8972b097a6704d8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v01/GreedyBotV01.class"
+      },
+      {
+        "sha256": "072c2f8a39a3bd0dc26d9a0a56892db9fc940b2f811e41e46d72c7811fb2dce3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v02/EvalBotV02.class"
+      },
+      {
+        "sha256": "6b508f4a9a2c09871d795cc38988dd45ca91d599dd62c8a48c14cd4991daad9d",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v03/EvalBotV03.class"
+      },
+      {
+        "sha256": "264d09722952812d28b76c5a9d438f5fa241402e3e2ab54875e6b0545f5e2da6",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v04/EvalBotV04.class"
+      },
+      {
+        "sha256": "65b35b05dee3a117c40e58bd3922697776335b2a1946509d1f2e735c5cf9d3d3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v05/EvalBotV05.class"
+      },
+      {
+        "sha256": "f2e8a39e8c22ecdb5b83c433b41d1dd4f19501552d40577bd8d60e25512a7773",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v06/RolloutBotV06.class"
+      },
+      {
+        "sha256": "8d0ed44ddedc3e2bd362d34578a6768ac92bbf2a75cfa3eefc7036d8a08924a1",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v07/RolloutBotV07.class"
+      },
+      {
+        "sha256": "9fcd5fab04cc8b855bc3705fbeaadab34249041c79644172ed810af9cf8bb2fc",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v08/ProtectedOpeningV08.class"
+      },
+      {
+        "sha256": "73f0c2e0566b80ab30fa6ee6e0f2e767aebea18d759bb3364b14d481726a0fb3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v08/RolloutBotV08.class"
+      },
+      {
+        "sha256": "76933b58fd38f9b46a6000b34472ccd22598068c2b5096690f7b9970e899d439",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v09/ProtectedOpeningV09.class"
+      },
+      {
+        "sha256": "d8975db83169b1b1c8de3670c1e571b48dccd7017b83309557186d29eb4404d7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/v09/RolloutBotV09.class"
+      },
+      {
+        "sha256": "89bdc7c66c45a26122e2a2dffbba8052d1bf2270bb30007ccf5f76fe8051e4de",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Action$1.class"
+      },
+      {
+        "sha256": "e3d8498fe4d62a036c2c9253362c0194c4a07ed35ebc4430499ee16946ff91ba",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Action$Type.class"
+      },
+      {
+        "sha256": "49f57987fbed37b1e9b0dc6e42d40d97a300c1f4745172f87cc8dc5ca7a6dd85",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Action.class"
+      },
+      {
+        "sha256": "ddca4768bf211f2f23928a1c81a4caf735067d3e22ef6caeb6c1ce48cc1f6edb",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/GameState.class"
+      },
+      {
+        "sha256": "ce0215727153879797fb5b3da312015f5840598409c6357c86535c9b0005d989",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/InkProjection.class"
+      },
+      {
+        "sha256": "2b3f0717742d7589ff9e03de4e5030a61a535040398f350fc7234cbf7c877936",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/NetworkCells.class"
+      },
+      {
+        "sha256": "8b69fcb6ceb678972d0e44aefcf3bf4e6192ff22537226775ae4d568db2a6fd7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/NetworkChords.class"
+      },
+      {
+        "sha256": "6f09c8bdeb0c3ceb9018647d4cf6e5b02506ac99f15ee4e3292c3f8a49163f45",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Pathing.class"
+      },
+      {
+        "sha256": "d134f205fa01049bf7e73650748b76f0737f581cf04fa4ea616679e27089e954",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Protocol$Init.class"
+      },
+      {
+        "sha256": "7fb36d045abf3e38858781648f08b74ede8dba9429fce3ba9bc6c9cd84145fde",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Protocol$TokenReader.class"
+      },
+      {
+        "sha256": "a8c4a3e16b7b38de62da547a6ebfe222b319a6c43340cbbaa433a4882a74f4cc",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Protocol$TurnInfo.class"
+      },
+      {
+        "sha256": "b40541a05e98bf2ad6ea2f909dbba21da0b2d69d180bdff95312c48fdb5d721d",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Protocol.class"
+      },
+      {
+        "sha256": "64797d2e221dbde0123a47af66e77cb167ab2a40b9afddf744b42e998afc99f4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Rules$1.class"
+      },
+      {
+        "sha256": "cedd6e7bf303f5b122c0d11c24a92fd905dcece5a3aa6c04ad4dbfda041d3062",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Rules$PlayerMoves.class"
+      },
+      {
+        "sha256": "04f6591cd35d73a4485fe98354d05f279c5f72289baee3a17c8f9a0b01477603",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Rules$TurnResult.class"
+      },
+      {
+        "sha256": "195db7e02620cd0d4f562ac4280714fa7b7fd7703aa039af8f0d6b64aec64ac3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/Rules.class"
+      },
+      {
+        "sha256": "701464854c6818ee889333f5853aeaffd75725a1e10efb2c465ec99a8ef335c8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/SearchState.class"
+      },
+      {
+        "sha256": "c9b7e9ddf14f546c49fd85c8f64d95f1cbefa5625f8ac9f90791371b0cf4eb02",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/core/TacticalPathing.class"
+      },
+      {
+        "sha256": "3f0d8c1a723379cb0c28ad554924cec607fe46c471a34323f071a2903af74413",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$1.class"
+      },
+      {
+        "sha256": "f9dd2fe1f4aaf78c4bf8a0bc734897b2d8a96d8633f9546779850085ab9901be",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$Coord.class"
+      },
+      {
+        "sha256": "c46fc728e8910ccd6b84fe0fa18ec7a3c41caae43f87479c0de0be3bf6606dc4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$Direction.class"
+      },
+      {
+        "sha256": "70ea5916c5c8698c96d00e27f67061440c1e5a0c6aaaaba8b17280f995039a62",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$Grid.class"
+      },
+      {
+        "sha256": "5b743a23a1bbed7d867a0d4f10929446ba2553ca5d1e36bc5c5942fe543b28d8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$River.class"
+      },
+      {
+        "sha256": "c6e96ed24dac5ca21885d3b81ba65e8bcc7c4e90d228d46da6e66f23ba262410",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$Tile.class"
+      },
+      {
+        "sha256": "ba1a44a5e3ee665665108845a4443b61ed037224d47178363fd6c0d8de5cb1d7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$Town.class"
+      },
+      {
+        "sha256": "4e7738879b76a83b5eb628639f77c427e598ae70d25237317b6a2fe7269e29de",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker$Zone.class"
+      },
+      {
+        "sha256": "3f0f3ee253b4dfd13edff5078f549a59f83ce6711376c1455a291a663b142aa7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/GridMaker.class"
+      },
+      {
+        "sha256": "e632e443e4ef291de72b39fe71c499c17ea22b95d1a0e21e20aa1e1a59f6f30a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/MapGenerator.class"
+      },
+      {
+        "sha256": "c76ae8a73ea86010c99044befb13637f2d6b0bbe617f4f63c66c80c49907918a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/Referee$Result.class"
+      },
+      {
+        "sha256": "c502fa63b64a493ccc58904f8f26668c801110949df27825be2f288513b19246",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/Referee.class"
+      },
+      {
+        "sha256": "1bba2ebab6fdca44c057abba960abe3f62bb8ea335e15ca120dc9b6bc95e1097",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/Replay$MapDoc.class"
+      },
+      {
+        "sha256": "fd30875344e632fe06f45e91cd707d39316280a48dd2e2f299f287ac35ef9eb1",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/Replay$Meta.class"
+      },
+      {
+        "sha256": "d1a92012d715b9da2b39a2db53ff0aa3eb959a66f8cdc9e4baf19cb483fc19e0",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/Replay$Turn.class"
+      },
+      {
+        "sha256": "e9ed0eff9eece8d3d1942962dc934c055e622fcb4019c40b424ba1bd8bf7e3b2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/referee/Replay.class"
+      },
+      {
+        "sha256": "a44b11c9a3bb2bdc4b4218568b5a5a782d8d42bd90838052ec4256982489297c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchmarkRunner$PairResult.class"
+      },
+      {
+        "sha256": "25239e37ac9dbee59a04105792b7f2c6f06c1a9b6b92500f6138721151ed84f4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchmarkRunner$Stats.class"
+      },
+      {
+        "sha256": "09ca1ca3a4d415296a597c126c71c1abe64c619032a545810172f06bd9b6cc8a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchmarkRunner$Stratum.class"
+      },
+      {
+        "sha256": "4838a696f14b2de736f29ca1b47922f4d7a6ec81432f5f176bad345018bb736c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchmarkRunner.class"
+      },
+      {
+        "sha256": "c9f533d204224d2b5b9bcc2638bab0c07d56454e4a87e412d25d20ac46e0107d",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchmarkSuite.class"
+      },
+      {
+        "sha256": "062b69ba3a5190205b7db55f4f26dd5660528c624fd9dcc371a6be82bae83ab9",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchPool$Exclusions.class"
+      },
+      {
+        "sha256": "bc8739c6cb7ef2d97df7dbf5cbc7ded4f13b46846ed18dfca76b8a79f8eb2b14",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/BenchPool.class"
+      },
+      {
+        "sha256": "f12a5262e560d79fa5ad110aa94c3076eb13d1e9630864166d91e63121f036ab",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/LocalRunner.class"
+      },
+      {
+        "sha256": "667c736c311fdc068113932d09201fe00d0f6682c2da470d384e277dfd4d976b",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/Maps.class"
+      },
+      {
+        "sha256": "a228821e19bff269eac8e0dd4b74824656c0a486436d850df9ea6a62ba4bb3d7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessBot$HostCounters.class"
+      },
+      {
+        "sha256": "604b9c42c180a094a71fd46645e26f8f9e27a8edb22e71b9798ff296985df29f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessBot$IoTiming.class"
+      },
+      {
+        "sha256": "29bf30bff6a2ef8a336502be989a9136b572d2dd8cc864789fa382645f82abcc",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessBot$Response.class"
+      },
+      {
+        "sha256": "c30e4f073bf809b6ecf8d1e4c50fabafe048ac9f70dac69ff458288a113baaa2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessBot$TurnTiming.class"
+      },
+      {
+        "sha256": "fafb62457116a2bb2c8d7bbbb8ad919f95af30f96c29ce58bcb8a00b53f4e096",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessBot.class"
+      },
+      {
+        "sha256": "f6f11eccfe4f4d78ace5f63d76da0546bd92d198309cd210ed1e584a66782045",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessCheck$GameCheck.class"
+      },
+      {
+        "sha256": "9b231cfb37ca3dbebf358fd35d5a8c77775eb4a2d0959b69f2ebae092530b7a3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/ProcessCheck.class"
+      },
+      {
+        "sha256": "ca72a05af9a77c95369dda0bf1534844892076fa5512d37399e41e9682c044f8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/TimingProfile$1.class"
+      },
+      {
+        "sha256": "d1222ebdc3e4421047d6b6652ba3af9a9ece4f669d608b4e73bc51254a18ebbd",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/runner/TimingProfile.class"
+      },
+      {
+        "sha256": "84f7392daa03eddeff6ff48ef092ec80e71da907c95134de57a48821601f5f8c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/submit/ArtifactCheck.class"
+      },
+      {
+        "sha256": "c919d1760a296bbf7750b265a8b3e4de667171dafc68babd0951a6782229f1a4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/submit/CGRunner.class"
+      },
+      {
+        "sha256": "5c858766d3cc0ef500cbae8ed4f73c6a9d3bc9e3b7a87cfd052d37c6e79124a0",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/submit/FileMerger.class"
+      },
+      {
+        "sha256": "46a98838a02e7dfd6e11614c8f7dba52327750b0b114a0853fb191d22f830b96",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/BotCatalogTool.class"
+      },
+      {
+        "sha256": "16ecbf396451a4288eb50f552f14a1c0c28a28e0bae7be2c095451988844f118",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossDefenseStudy$Boss.class"
+      },
+      {
+        "sha256": "969081d2823a441afd90fc259e9dbaf58394fa20a0db80e2bd38b8b9e55507c6",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossDefenseStudy$Game.class"
+      },
+      {
+        "sha256": "86d9c6e150ba7f23cb7bf8ee35e6495d351c8aa9c5b83bd02ceddcb380dbd4a7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossDefenseStudy$PairCost.class"
+      },
+      {
+        "sha256": "945c943c4a3cdbd1837924911827a238833b0cef081a3ce865550f255b676a2c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossDefenseStudy$Threat.class"
+      },
+      {
+        "sha256": "21a69ae66c58a74df8bb27ad22743c5ee6144c9cdec80f68909b33936891c736",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossDefenseStudy$Turn.class"
+      },
+      {
+        "sha256": "c4457587098c1012a9af3d40da3b4998518c2ceebc47aa7853421d84964c6633",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossDefenseStudy.class"
+      },
+      {
+        "sha256": "d7247d56f70b97c41cd499d30e589e2b5c9ae9eafa91af24d0f6ccdd3948ae29",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossLossStudy$Entry.class"
+      },
+      {
+        "sha256": "0d935099ffbeade0bfdd5824a9858c3962e448505c05e051b9f199f1571ee1a2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossLossStudy$Input.class"
+      },
+      {
+        "sha256": "1cadf1d2009d1805c2b6a68d88eb8b41cf149d62d7c022fed405b5dea2dc98da",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgBossLossStudy.class"
+      },
+      {
+        "sha256": "e188026e2e9a4f3d8226c78c1afbbe97df29f7b189255d552ed6e2eae0a853cd",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgCellStudy$GameRun.class"
+      },
+      {
+        "sha256": "01e95a4d250f19c2c18416bfc481bad741e521042cbbd7448aab451a14cc15d9",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgCellStudy$Track.class"
+      },
+      {
+        "sha256": "f9a789b0512d1e095266fae6fee06bb1e5f422290b64dc3bd4a1025e1db6e9dd",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgCellStudy.class"
+      },
+      {
+        "sha256": "4877aada0caf1dc8dac60e6dfc9c590f9cc93f6ed7bda273afaea58aa9d4f3b3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgDisruptStudy$Evaluation.class"
+      },
+      {
+        "sha256": "5bf0d1ba02702c27153296a1b35d12112e34868bd5fecc24f2984c3144f96613",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgDisruptStudy$Sample.class"
+      },
+      {
+        "sha256": "b5d5006b11cc7ee77103a9934847f1a56306ef3c9dbb1440edd35d100933ed78",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgDisruptStudy$Target.class"
+      },
+      {
+        "sha256": "d601cda13d3cd3b658c69d1436bb35111af112fe614501f0bdf5ba0fc03775eb",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgDisruptStudy.class"
+      },
+      {
+        "sha256": "585b9f3c20ff8d5842b5da5fa102c3b8f0b26e8406a4e4e374867d4f2feaa644",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgFetch.class"
+      },
+      {
+        "sha256": "0b8bcff0fcadf520104426e8bc3894d362610a14551643c79b8a4bb3ffc4eab6",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgForecastStudy$Game.class"
+      },
+      {
+        "sha256": "5f7314e8e304f8da8c25038269551fbdd560b1b212fdb80afa2ad67f2f31eaed",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgForecastStudy$Metric.class"
+      },
+      {
+        "sha256": "1d80b67d66b107eb46e68666fc707842a20305f8038822951ea9559935fa5f73",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgForecastStudy$Report.class"
+      },
+      {
+        "sha256": "9139f8b6b99713827aba84e94dcb8f931505b6deb07a4c7ecfc92198218f9c83",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgForecastStudy$Turn.class"
+      },
+      {
+        "sha256": "a4728f3033acb4a9a35432e808f571e8e4ebee3f1b6b581968c7611fd21aa24a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgForecastStudy.class"
+      },
+      {
+        "sha256": "338a455e19954228e5349aa09b4210763d4fc42e2d5c6bb85247b2cbe82ea21a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgInkStudy.class"
+      },
+      {
+        "sha256": "e5886501721b73782667c4fd777e934e5e9217a319aeae5e2849b4299c5ddee8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgLeaderStudy$GameRun.class"
+      },
+      {
+        "sha256": "a4587025e0841617d2e0d5ef47ae5c6cc589b457855cf3d843f8ab49b5db54e2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgLeaderStudy.class"
+      },
+      {
+        "sha256": "ddecf903118ac44e5168c667ce9b38ce28a2a6a7ca65c9daed48e6d91b6ee507",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgMapValidate.class"
+      },
+      {
+        "sha256": "462aa4a78d01ebe047c2d229a2e37261f06b41a0a143e22aa6dc1d7dd58fd452",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgNeuralExport$BinWriter.class"
+      },
+      {
+        "sha256": "cc2064338eec89a16cd51150cf01cc339fb49c0a1fb76c0dddc0319af6ee2ba0",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgNeuralExport$Exporter.class"
+      },
+      {
+        "sha256": "ab77160a4ddfc7377c904c4b5dd202bece141cf2e3a495df37096be469b5fc6a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgNeuralExport$Stats.class"
+      },
+      {
+        "sha256": "359534c9ef02b9d6073c7ab7b4c46c3f6c33b7ef045dcbb4fdcc04b2aa2de0fa",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgNeuralExport.class"
+      },
+      {
+        "sha256": "31df2b4fe35fd3a76fb6c7ec35fa844456e4cb969f415fb5ec3c885aa318c1b8",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPlayerStudy$Branch.class"
+      },
+      {
+        "sha256": "b8053121410ebf4b18c7fd671a3d67624565035f77f7af80b8f2e87fc2596be3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPlayerStudy$Game.class"
+      },
+      {
+        "sha256": "a7c979d2d37a47a9838518e01939f423715db0ceaa0c31687e9980eaa327be44",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPlayerStudy$Report.class"
+      },
+      {
+        "sha256": "70fbd1ffc983378722414ae45fc90bed329b688398884fd4df13f051e7aea4a0",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPlayerStudy$Turn.class"
+      },
+      {
+        "sha256": "c5d3d769414ee8315fe343e41be7efa0b6986b142e979df669ec7e6fbc1d2e4c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPlayerStudy.class"
+      },
+      {
+        "sha256": "3a28ee2976a569eef5d262b6a828af4641d13181b533ca380d7ddcdaa9ca1d3d",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPolicyStudy$PlacementStats.class"
+      },
+      {
+        "sha256": "d100bbb5048808751fdba448cbdcdaaf822917744345f2db3991a53023770d24",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgPolicyStudy.class"
+      },
+      {
+        "sha256": "d82cfc1c2b978afb59d0d200c6542afa15c5e40c968293bff288434a49cac43a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgRender.class"
+      },
+      {
+        "sha256": "e139eeb0dc0c9b2256183ed6232a6f872d8aac3593068e1e16dc2a0c841d0bd5",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgReplay$Event.class"
+      },
+      {
+        "sha256": "7df418dc51fcea28ec7555bef290579e6597247433a066e69d5c6ba278e9e8ff",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgReplay.class"
+      },
+      {
+        "sha256": "b58f6a82fe255858089a224011dd14b85a78c52f6d79f6e71d8c115442f884df",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgRolloutBossProbe$Prediction.class"
+      },
+      {
+        "sha256": "3275dbacf55ed7181be5d9527b8300d898a1f446745c3907121ab6e9996065f3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgRolloutBossProbe$Route.class"
+      },
+      {
+        "sha256": "69bd4b8970a9503d268a9d7671dbe278bd97ee718de8418a68130f040ee50733",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgRolloutBossProbe.class"
+      },
+      {
+        "sha256": "32b44446c7e43a446a6f3a6fab70ed0638dc845b07c1c3ef8e966b4eba882c67",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgTimingStudy$Sample.class"
+      },
+      {
+        "sha256": "706920e865cac7b09dc537b1ceb8321ee8d58b574989f41177262bde74b8e158",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgTimingStudy$Warmup.class"
+      },
+      {
+        "sha256": "7119e864f9180a130213291cdd9f59078dc6cdfc7e6bbd0a13a72e6f98387815",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgTimingStudy.class"
+      },
+      {
+        "sha256": "e7557e03610065d1c72faf0b427a1eb03855c93ab9e2d4a99f471fda8cef1ddf",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgValidate$Outcome.class"
+      },
+      {
+        "sha256": "2979e7d17cef635d1e3d8e60e825e247a0dbd93d054f2e80e13f928c990b0075",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/CgValidate.class"
+      },
+      {
+        "sha256": "c67287f2c0d0a7e7f3e58340a4996638df7370430bb00ae86a79f90b9fe90f2a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/IndrillCollect.class"
+      },
+      {
+        "sha256": "785083017b6b1a38dc4b642eabfc91578f122129f91424a33db57bd56823a2b9",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/IndrillProbe.class"
+      },
+      {
+        "sha256": "5548510dd0c7d4284dea00eb8c9144d33bed959045522d162ba7f88f266daa88",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/IndrillV2Collect.class"
+      },
+      {
+        "sha256": "551aad6b178df59a500d9e18e419f1ce96b1520033eec3b70bfd7b9b2a8c19bf",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/IndrillV2Probe.class"
+      },
+      {
+        "sha256": "07301fec8bda36b179c1f3bcd63623ff35170a176c37350a2896ef222c0560ad",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointActionCheck$Play.class"
+      },
+      {
+        "sha256": "7670bc0a244fdd0610b0edfb2d54e65fa34a49abd51caa22a3bf30c4e18e7c2e",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointActionCheck$Sample.class"
+      },
+      {
+        "sha256": "cb250c38b0588aab11fda01d265174a307dbc04fd8880df9e77702cc1d9b8341",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointActionCheck.class"
+      },
+      {
+        "sha256": "00246a21218a44530f82bab0bdae05418b619dcc2c7d62929686d061a2cbbde4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy$Counts.class"
+      },
+      {
+        "sha256": "1ecb545ac3627f1545fcc2e7c21cfb43a65a43782e1fef30666191f1394b712b",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy$Effect.class"
+      },
+      {
+        "sha256": "27965ac2bda8c760f2baea2ffc5902d7cf65c6f76452a604c61c65597a1c606b",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy$Joint.class"
+      },
+      {
+        "sha256": "4277059af5e202aa4509d75ee2192f10cb54aea2615524bc6d0d604915c153ab",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy$Prior.class"
+      },
+      {
+        "sha256": "19918904edc59b2e9ad4c9137d72eb9976cfc6d505bc2aeb0ceab7068e0a752e",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy$Sample.class"
+      },
+      {
+        "sha256": "966bea2f47036f9dc88e65b6f658696e7b58f346bd17091f82e6d9b083c1e68d",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy$Scenario.class"
+      },
+      {
+        "sha256": "a29cc8adb4be67207fba45ddffc31a7c6296c3ff55364f8536fe5e5c61f5fdd7",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/JointReplyStudy.class"
+      },
+      {
+        "sha256": "12f2df87099668df4f1efd8cefabd55c0d7214d2f8c8d4e6da38c93e28217e8d",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NetworkCellStudy.class"
+      },
+      {
+        "sha256": "33ce48af8d67ec8130e756b6daa440d4418d0bc5a02be0fc0209e610478db8db",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV2Collect$BinaryWriter.class"
+      },
+      {
+        "sha256": "3912a7ad9a2b61229aae99949ed7c64b86370ddc1259f7cb70d1e8fad2e39c97",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV2Collect$HeadWriter.class"
+      },
+      {
+        "sha256": "52bab502cd70c4ec7ef04a9d7dd0c5fdead200346fe8543769d90885d8372e12",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV2Collect$SoftmaxChooser.class"
+      },
+      {
+        "sha256": "4d69b4218bd06803e748c86c18e23a9fbe85361ac604a93d00f7822c0f86e233",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV2Collect.class"
+      },
+      {
+        "sha256": "fae3c8b61fb59aef63fa5c7f4b0ebc7e8ce4899621148fbb85286fc7dd67bd49",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV2Verify.class"
+      },
+      {
+        "sha256": "bfec9b0f7991cfec7c184898fba2c924e02eb576b26be8b02a16c7d13d6380d0",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV4Collect$BinaryWriter.class"
+      },
+      {
+        "sha256": "156b8cf01e511b82302fe79264fbd3fda7080d7a48710b3a934e023a9bada10c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV4Collect$HeadWriter.class"
+      },
+      {
+        "sha256": "3ebe1e2d615617d4744393b1c464f93c878c881d98779e63c2f586e9afc2d9f4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV4Collect$SoftmaxChooser.class"
+      },
+      {
+        "sha256": "d7876616fcd928bedeb2268da44a2d284bfc4dd21a1798813c05b1954e359903",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV4Collect.class"
+      },
+      {
+        "sha256": "6fd4651fc405d0db0009e5c4d3b7baba24dec2fe7f32cd0e7b0f055e3b17ee21",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/NeuralV4Verify.class"
+      },
+      {
+        "sha256": "015f1103b5902d0a16adcfb84cdb53520ff8ce34e854a99941c24b29ec646004",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/QuickRouteStudy.class"
+      },
+      {
+        "sha256": "f0bd635d1d438ab82091a93393d8d455699ed5143be5bf3fc54928deea3364a2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplayPaths.class"
+      },
+      {
+        "sha256": "e686671306698bbc51b8faac46911964a20851265cd46cbe42387fac2f54e1e9",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe$Choice.class"
+      },
+      {
+        "sha256": "da47656188e556a438b9906d4ca6d5a02a313b01bef49f9ba392e5a1635aba6a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe$Inspection.class"
+      },
+      {
+        "sha256": "1f3a63308017628cb57d62e50662d08b64954ed071b7dafca01de0d8a2d5804e",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe$Play.class"
+      },
+      {
+        "sha256": "e8426dd525eac4e2792035c3b085355ca26f54a180b45b15f0116da0f6ce6b1a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe$Prepared.class"
+      },
+      {
+        "sha256": "6ac624f043260f48c1f2bd8863b275e12527013e670e88f7403c36d28bdc1ff3",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe$Reply.class"
+      },
+      {
+        "sha256": "2bee78ff04a0d9dab8a1d7999791572f05fa146bc426b007fcc986464368c08b",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe$Value.class"
+      },
+      {
+        "sha256": "12bda71d6aeaf6bc426819094b47d2f9099d75a22f2f371d4d435b3606e0989f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyProbe.class"
+      },
+      {
+        "sha256": "80e48f94a94c404a00d77910be897ab85092b35774b90756a42af9ffea725d8f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy$Captured.class"
+      },
+      {
+        "sha256": "b960f92e25fa8017954dd7466f8a42e8fa06f3adaff93fd6e4c2fab7f58912a5",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy$Entry.class"
+      },
+      {
+        "sha256": "a75c41785da341daf088c4d4e174f725adcde55229cfef48cc63cda2673c143e",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy$Manifest.class"
+      },
+      {
+        "sha256": "f4afbbfb701d9fa91de1bfdf459af0970ab8e9a1f5368db2518e1da006bd87f1",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy$Position.class"
+      },
+      {
+        "sha256": "9608eb4821e8ce3b9b5d555f57a9535f04ed41acc2ddbc3115a7183f0a9edc73",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy$Sample.class"
+      },
+      {
+        "sha256": "bdb4f80cd7a51ab813c14a61b6d83167d820f9fec0d50939f5d0f56b3fa18eae",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy$Summary.class"
+      },
+      {
+        "sha256": "9f7c9ce0fdcb48090adcc08f834a5c90fdde2b27b8084889997d2002cfa22d69",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/ReplyStudy.class"
+      },
+      {
+        "sha256": "40d5bbfb5cd507e39af66317bcbf32ee46d81ba3317ba4ba5eed63bc9ec5c795",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/RolloutCheck.class"
+      },
+      {
+        "sha256": "76f88fefb5cc1a7c37c6c8a0551e2d533eb2f78be9c305e7eb354d2e7deb97a6",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/RolloutFollowupStudy.class"
+      },
+      {
+        "sha256": "67a2a658d39ec95ae406bc161c5b8254e8ee5423cf1f8fe7711c26336a93b43a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/SabotageForecast.class"
+      },
+      {
+        "sha256": "4d4ee71716a5dae819b60a38a7469f4ab0a7aad36ea43030dc85d7004507910e",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/tools/SearchExperimentStudy.class"
+      },
+      {
+        "sha256": "3ebb35ec885b0b8c76f1c32d1de45107e2fcba3626b2f7a86fcd2eadc22a382a",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/catalog.json"
+      },
+      {
+        "sha256": "79fc2d11d6aa403edab9ff9475cb3bb6741efd62e46a566566f14e9c659bca95",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/experiment-engine-v1-classes.json"
+      },
+      {
+        "sha256": "b0a2d36b31779bc628248387695b4dc7d533c83c231054e8ac58ac525226c3c5",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/experiment-engine-v1.json"
+      },
+      {
+        "sha256": "a928876278b2e9693ef1bf9f069df896a15892fae897195f6bc711dbc4c2008e",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/indrill-q-v1.properties"
+      },
+      {
+        "sha256": "56a27cdd605157f77bedfdf7e5c68ae6c189c1b32da78c2dfaf485403a2cc9d4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/indrill-q-v2.properties"
+      },
+      {
+        "sha256": "e8c092ea83658f2602b38a09f8afe03a87549178d028281c1fe06302fec636c4",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/leader-v1.properties"
+      },
+      {
+        "sha256": "4632d7955999ac8b2c07c3cbbabf67abc5c1ef4a121ca9ecd564937095290218",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/leader-v2.properties"
+      },
+      {
+        "sha256": "0727fa41a86c767273a745a3cfd6c0528663e7946b949c38c247a7a0ec0b119f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/neural-v1.properties"
+      },
+      {
+        "sha256": "853346d9f2a6bfbac91e890db451f85cbe961d10b6fb5bea924c1e70dd6c3746",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/neural-v2.properties"
+      },
+      {
+        "sha256": "ae052f679ae581eb386b30f6aac517e9def83e1384db7062d6a6b1a0b345173f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/neural-v3.properties"
+      },
+      {
+        "sha256": "4c28621eb2c4f784daaf8ee1da41313b2502a42e35c80623f42d000adea3a8b2",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/neural-v4.properties"
+      },
+      {
+        "sha256": "b92484bc1d21262fe6b5211358922934bfe4fc7538e316196e075b321fcf4fb9",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/pressure-v1.properties"
+      },
+      {
+        "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v01.properties"
+      },
+      {
+        "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v02.properties"
+      },
+      {
+        "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v03.properties"
+      },
+      {
+        "sha256": "06ddf3ae46849e334a627b74d9b5b9c868957459d89418300226386197918414",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v04.properties"
+      },
+      {
+        "sha256": "1f0869e4c1d4e76b249b496eb173d2cafa3930dd21864738d662d6a6aa3b739c",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v05.properties"
+      },
+      {
+        "sha256": "5ae783d32083178d0b43c4b0472d7580135d0aad5fa3f7e7e453948906f430eb",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v06.properties"
+      },
+      {
+        "sha256": "8ac645d621537d1de419ed9398fef411446dbce4f8d89062fef4f6cd53f97e11",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v07.properties"
+      },
+      {
+        "sha256": "03168c7c0c09a7d43dd0f7b3bb82773448a726617ebeaa4b94504a6be1fe90ed",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v08.properties"
+      },
+      {
+        "sha256": "93a6f0ab512f0d914ce98c1e554653b131dc8d4dc5702a5cd0402958c5fca5bf",
+        "path": "build/analysis/neural-v5/profile/frozen-classes/btk/bot/versions/v09.properties"
+      },
+      {
+        "sha256": "57928d6e5a6edeb2abd3770a8f95ba44dce45f3b23b7a9dc2b309c581552a78b",
+        "path": "build/analysis/neural-v5/profile/gson-2.11.0.jar"
+      }
+    ],
+    "javaVersion": "17.0.12"
+  },
+  "configuration": {
+    "ALWAYS_DISRUPT": "true",
+    "BUILD_BEAM_WIDTH": "4",
+    "CHOOSE_BUILD_DIRECTION": "false",
+    "COLLISION_COST": "2.0",
+    "DEBUG": "false",
+    "DEFENSE_MAX_PAINT": "6",
+    "DEFENSE_MAX_PAIRS": "4",
+    "DEFENSE_MAX_REGIONS": "3",
+    "DEFENSE_MIN_INSTABILITY": "1",
+    "DISRUPT_DELAY_FACTOR": "1.0",
+    "DISRUPT_MIN": "0.01",
+    "DISRUPT_RESERVE_MS": "6",
+    "EARLY_DISRUPT_FALLBACK": "false",
+    "FORECAST_DECAY": "0.95",
+    "FORECAST_FLOOR": "0.1",
+    "GUARD_BUILD_INCOME": "false",
+    "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+    "HEURISTIC_AVOID_INSTABILITY": "2",
+    "HEURISTIC_DETOUR_CAP": "12",
+    "HEURISTIC_DETOUR_PAIRS": "4",
+    "HEURISTIC_DETOUR_REGIONS": "4",
+    "HEURISTIC_DETOUR_WEIGHT": "1.0",
+    "HEURISTIC_EMERGENCY_STOP": "true",
+    "HEURISTIC_MAX_ROUTES": "64",
+    "HEURISTIC_OWN_PENALTY": "2.0",
+    "HEURISTIC_ROUTE_STICKINESS": "1.25",
+    "HEURISTIC_TARGET_STICKINESS": "1.3",
+    "HORIZON": "100",
+    "INDRILL_INK_PENALTY": "2",
+    "INTERRUPT_VULN_EVAL": "false",
+    "ISOLATED_ROUTE_WARMUP": "true",
+    "MESSAGE": "false",
+    "NEURAL_DEADLINE_RESERVE_MS": "2",
+    "NOISE": "0.1",
+    "OPENING_CITY_QUOTA": "1",
+    "OPENING_COLLISION_FACTOR": "0.25",
+    "OPENING_TURNS": "3",
+    "OPP_REPLY_WIDTH": "2",
+    "OWN_BUILD_DEPTH": "3",
+    "OWN_BUILD_WIDTH": "3",
+    "PRESSURE_BUILD_RESERVE_MS": "12",
+    "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+    "PRESSURE_HORIZON": "8",
+    "PRESSURE_STICKINESS": "0.25",
+    "PRESSURE_TRACK_WEIGHT": "0.8",
+    "PROFILE_SEARCH": "false",
+    "ROLLOUT_ALWAYS_DISRUPT": "false",
+    "ROLLOUT_DEPTH": "8",
+    "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+    "ROLLOUT_LIVE_TURNS": "2",
+    "ROLLOUT_LIVE_WEIGHT": "12.0",
+    "ROLLOUT_MAX_ROUTES": "64",
+    "ROLLOUT_NETWORK_MAX_CELLS": "24",
+    "ROLLOUT_NETWORK_RESERVE_MS": "12",
+    "ROLLOUT_NETWORK_ROOTS": "2",
+    "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+    "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+    "ROLLOUT_QUICK_MAX_PAINT": "6",
+    "ROLLOUT_REPLAN_TURN": "4",
+    "ROLLOUT_REPLIES": "2",
+    "ROLLOUT_RESERVE_MS": "20",
+    "ROLLOUT_RHEA_ELITES": "2",
+    "ROLLOUT_RHEA_MUTATIONS": "12",
+    "ROLLOUT_ROBUSTNESS": "0.5",
+    "ROLLOUT_ROUTE_HORIZON": "16.0",
+    "ROLLOUT_SPREAD_ROOTS": "2",
+    "ROLLOUT_TAIL": "3.0",
+    "ROLLOUT_TARGETS": "4",
+    "ROLLOUT_TARGET_HORIZON": "8.0",
+    "ROLLOUT_THREAT_WEIGHT": "0.5",
+    "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+    "ROLLOUT_TRACK_WEIGHT": "0.4",
+    "ROLLOUT_WIDTH": "6",
+    "ROLLOUT_WIN_VALUE": "1000000.0",
+    "SEED": "1",
+    "SKIP_UNFINISHABLE": "true",
+    "UNSTABLE_COST": "1.0",
+    "USE_BACKUP": "true",
+    "USE_CLOSE": "true",
+    "USE_DEFENSE_PRIORITY": "false",
+    "USE_DISRUPT": "true",
+    "USE_HEURISTIC_DETOUR": "false",
+    "USE_HEURISTIC_POLICY": "false",
+    "USE_IDLE_EXTEND": "true",
+    "USE_JOINT_ACTION": "false",
+    "USE_OPP_MODEL": "false",
+    "USE_OWN_BUILD_PLAN": "false",
+    "USE_PROTECTED_OPENING": "false",
+    "USE_REPLY_RERANK": "false",
+    "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+    "USE_ROLLOUT_FILL": "false",
+    "USE_ROLLOUT_LIVE_TARGET": "false",
+    "USE_ROLLOUT_NETWORK": "false",
+    "USE_ROLLOUT_NETWORK_AFTER_BASE": "false",
+    "USE_ROLLOUT_NETWORK_CHORDS": "false",
+    "USE_ROLLOUT_POLICY": "false",
+    "USE_ROLLOUT_QUICK_EARLY": "false",
+    "USE_ROLLOUT_QUICK_ROUTE": "false",
+    "USE_ROLLOUT_QUICK_SAFE": "false",
+    "USE_ROLLOUT_QUICK_VALUE": "false",
+    "USE_ROLLOUT_REPLAN": "false",
+    "USE_ROLLOUT_RHEA": "false",
+    "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+    "USE_ROLLOUT_SECOND_TARGET": "false",
+    "USE_ROLLOUT_SPREAD": "false",
+    "USE_ROLLOUT_TRACK_VALUE": "false",
+    "USE_STEAL": "true",
+    "WARMUP_SLICE_MS": "36",
+    "W_COST": "0.0",
+    "W_FUTURE_OWN": "0.4",
+    "W_FUTURE_TRACK": "0.3",
+    "W_OPP": "1.0",
+    "W_OPP_INCOME": "1.0",
+    "W_OPP_ROUTE": "0.3",
+    "W_OWN": "1.0",
+    "W_RISK": "0.6",
+    "W_SELF_LOSS": "1.2",
+    "W_THEIR_LOSS": "1.0",
+    "W_VULN": "1.0"
+  },
+  "warmup": {
+    "actualWallMs": 500.7765,
+    "method": "one disposable V3 on the same largest saved map; 36-ms slices, unchanged board",
+    "requestedMs": 500,
+    "gameId": 907069260,
+    "calls": 63
+  },
+  "allocationSupported": true,
+  "javaVersion": "17.0.12",
+  "groups": {
+    "all": {
+      "states": 800,
+      "games": 40,
+      "heightRange": [
+        14,
+        20
+      ],
+      "playNanos": 4805400600,
+      "playAllocatedBytes": 30374344,
+      "meanPlayMs": 6.00675075,
+      "recordedPaint": 2125,
+      "profilePaint": 2400,
+      "actionMismatchesAgainstPriorAmple": 0,
+      "directDijkstraPercentPrepare": 67.68970352875367,
+      "completionGainPercentPrepare": 20.252276136148634,
+      "completionUpdatePercentCompletion": 84.3286607006354,
+      "metrics": {
+        "prepare": {
+          "calls": 2137,
+          "nanos": 3501020800,
+          "allocatedBytes": 27463496,
+          "percentPlayNanos": 72.85596126990953,
+          "percentPlayAllocatedBytes": 90.41675435031617
+        },
+        "prepare.cheapestCostPath": {
+          "calls": 72509,
+          "nanos": 2369830600,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 49.31598418662536,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.completionGain": {
+          "calls": 61484,
+          "nanos": 709036400,
+          "allocatedBytes": 27463248,
+          "percentPlayNanos": 14.754990458027578,
+          "percentPlayAllocatedBytes": 90.41593787177757
+        },
+        "prepare.completionGain.copyFrom": {
+          "calls": 61484,
+          "nanos": 30084000,
+          "allocatedBytes": 69648,
+          "percentPlayNanos": 0.6260456204213235,
+          "percentPlayAllocatedBytes": 0.22929877925923273
+        },
+        "prepare.completionGain.updateConnections": {
+          "calls": 61484,
+          "nanos": 597920900,
+          "allocatedBytes": 27393600,
+          "percentPlayNanos": 12.442685839761205,
+          "percentPlayAllocatedBytes": 90.18663909251835
+        },
+        "prepare.completionGain.income": {
+          "calls": 61484,
+          "nanos": 36507500,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.7597181387957541,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.activePairRoutes": {
+          "calls": 8987,
+          "nanos": 168631900,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 3.509216276370382,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.activePairRoutes.cheapestCostPath": {
+          "calls": 7784,
+          "nanos": 151085400,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 3.1440750225902083,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.labelComponents": {
+          "calls": 2137,
+          "nanos": 22242000,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.46285423113319624,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "sabotage": {
+          "calls": 800,
+          "nanos": 69199800,
+          "allocatedBytes": 1246048,
+          "percentPlayNanos": 1.440042272438223,
+          "percentPlayAllocatedBytes": 4.102304234126011
+        },
+        "sabotage.copyFrom": {
+          "calls": 7269,
+          "nanos": 4371900,
+          "allocatedBytes": 1040112,
+          "percentPlayNanos": 0.09097888737933732,
+          "percentPlayAllocatedBytes": 3.424310990880988
+        },
+        "sabotage.updateConnections": {
+          "calls": 7269,
+          "nanos": 38687400,
+          "allocatedBytes": 205936,
+          "percentPlayNanos": 0.8050816824720087,
+          "percentPlayAllocatedBytes": 0.6779932432450229
+        },
+        "sabotage.income": {
+          "calls": 7269,
+          "nanos": 2384500,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.049621253220803276,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "build": {
+          "calls": 2137,
+          "nanos": 301890200,
+          "allocatedBytes": 772248,
+          "percentPlayNanos": 6.282310781748352,
+          "percentPlayAllocatedBytes": 2.5424351551427744
+        },
+        "build.copyFrom": {
+          "calls": 20262,
+          "nanos": 8828800,
+          "allocatedBytes": 78248,
+          "percentPlayNanos": 0.18372661792234346,
+          "percentPlayAllocatedBytes": 0.2576121479364295
+        },
+        "build.updateConnections": {
+          "calls": 20262,
+          "nanos": 137281600,
+          "allocatedBytes": 694000,
+          "percentPlayNanos": 2.856819054794308,
+          "percentPlayAllocatedBytes": 2.284823007206345
+        },
+        "build.income": {
+          "calls": 20262,
+          "nanos": 6394300,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.13306486872291146,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.income": {
+          "calls": 2137,
+          "nanos": 1245600,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.025920835819598476,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "other.cheapestCostPath": {
+          "calls": 0,
+          "nanos": 0,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.0,
+          "percentPlayAllocatedBytes": 0.0
+        }
+      }
+    },
+    "largeHeight18to20": {
+      "states": 220,
+      "games": 11,
+      "heightRange": [
+        18,
+        20
+      ],
+      "playNanos": 2547498600,
+      "playAllocatedBytes": 16612360,
+      "meanPlayMs": 11.579539090909092,
+      "recordedPaint": 411,
+      "profilePaint": 660,
+      "actionMismatchesAgainstPriorAmple": 0,
+      "directDijkstraPercentPrepare": 72.03840606015208,
+      "completionGainPercentPrepare": 19.758295927951185,
+      "completionUpdatePercentCompletion": 84.25267671469042,
+      "metrics": {
+        "prepare": {
+          "calls": 617,
+          "nanos": 2082588000,
+          "allocatedBytes": 15805320,
+          "percentPlayNanos": 81.75030989222134,
+          "percentPlayAllocatedBytes": 95.14193046623117
+        },
+        "prepare.cheapestCostPath": {
+          "calls": 40282,
+          "nanos": 1500263200,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 58.89162019559108,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.completionGain": {
+          "calls": 34772,
+          "nanos": 411483900,
+          "allocatedBytes": 15805320,
+          "percentPlayNanos": 16.152468150522242,
+          "percentPlayAllocatedBytes": 95.14193046623117
+        },
+        "prepare.completionGain.copyFrom": {
+          "calls": 34772,
+          "nanos": 18919600,
+          "allocatedBytes": 18560,
+          "percentPlayNanos": 0.742673617170977,
+          "percentPlayAllocatedBytes": 0.1117240416172055
+        },
+        "prepare.completionGain.updateConnections": {
+          "calls": 34772,
+          "nanos": 346686200,
+          "allocatedBytes": 15786760,
+          "percentPlayNanos": 13.608886772302839,
+          "percentPlayAllocatedBytes": 95.03020642461397
+        },
+        "prepare.completionGain.income": {
+          "calls": 34772,
+          "nanos": 20849100,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.8184145812680721,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.activePairRoutes": {
+          "calls": 1866,
+          "nanos": 43157200,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 1.694101029142862,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.activePairRoutes.cheapestCostPath": {
+          "calls": 1815,
+          "nanos": 38049300,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 1.4935945401500907,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.labelComponents": {
+          "calls": 617,
+          "nanos": 7703400,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.3023907451803899,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "sabotage": {
+          "calls": 220,
+          "nanos": 15594300,
+          "allocatedBytes": 202712,
+          "percentPlayNanos": 0.612141651422301,
+          "percentPlayAllocatedBytes": 1.220248056266539
+        },
+        "sabotage.copyFrom": {
+          "calls": 1658,
+          "nanos": 1041000,
+          "allocatedBytes": 149408,
+          "percentPlayNanos": 0.0408636142135662,
+          "percentPlayAllocatedBytes": 0.8993785350185043
+        },
+        "sabotage.updateConnections": {
+          "calls": 1658,
+          "nanos": 6926200,
+          "allocatedBytes": 53304,
+          "percentPlayNanos": 0.27188238690298006,
+          "percentPlayAllocatedBytes": 0.3208695212480346
+        },
+        "sabotage.income": {
+          "calls": 1658,
+          "nanos": 481900,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.01891659528291792,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "build": {
+          "calls": 617,
+          "nanos": 86537100,
+          "allocatedBytes": 252632,
+          "percentPlayNanos": 3.3969439669171946,
+          "percentPlayAllocatedBytes": 1.5207472026852296
+        },
+        "build.copyFrom": {
+          "calls": 5672,
+          "nanos": 2868600,
+          "allocatedBytes": 13504,
+          "percentPlayNanos": 0.11260457611242652,
+          "percentPlayAllocatedBytes": 0.08128887165941504
+        },
+        "build.updateConnections": {
+          "calls": 5672,
+          "nanos": 28023500,
+          "allocatedBytes": 239128,
+          "percentPlayNanos": 1.10003985870689,
+          "percentPlayAllocatedBytes": 1.4394583310258144
+        },
+        "build.income": {
+          "calls": 5672,
+          "nanos": 1551800,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.0609146556547666,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.income": {
+          "calls": 617,
+          "nanos": 286800,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.011258102359702964,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "other.cheapestCostPath": {
+          "calls": 0,
+          "nanos": 0,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.0,
+          "percentPlayAllocatedBytes": 0.0
+        }
+      }
+    },
+    "smallHeight14to17": {
+      "states": 580,
+      "games": 29,
+      "heightRange": [
+        14,
+        17
+      ],
+      "playNanos": 2257902000,
+      "playAllocatedBytes": 13761984,
+      "meanPlayMs": 3.892934482758621,
+      "recordedPaint": 1714,
+      "profilePaint": 1740,
+      "actionMismatchesAgainstPriorAmple": 0,
+      "directDijkstraPercentPrepare": 61.304800622207836,
+      "completionGainPercentPrepare": 20.977553536551046,
+      "completionUpdatePercentCompletion": 84.43373858394737,
+      "metrics": {
+        "prepare": {
+          "calls": 1520,
+          "nanos": 1418432800,
+          "allocatedBytes": 11658176,
+          "percentPlayNanos": 62.82083101923821,
+          "percentPlayAllocatedBytes": 84.71290186066196
+        },
+        "prepare.cheapestCostPath": {
+          "calls": 32227,
+          "nanos": 869567400,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 38.51218520555808,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.completionGain": {
+          "calls": 26712,
+          "nanos": 297552500,
+          "allocatedBytes": 11657928,
+          "percentPlayNanos": 13.178273459166961,
+          "percentPlayAllocatedBytes": 84.7110997949133
+        },
+        "prepare.completionGain.copyFrom": {
+          "calls": 26712,
+          "nanos": 11164400,
+          "allocatedBytes": 51088,
+          "percentPlayNanos": 0.49445901549314364,
+          "percentPlayAllocatedBytes": 0.3712255442238561
+        },
+        "prepare.completionGain.updateConnections": {
+          "calls": 26712,
+          "nanos": 251234700,
+          "allocatedBytes": 11606840,
+          "percentPlayNanos": 11.12690896239075,
+          "percentPlayAllocatedBytes": 84.33987425068943
+        },
+        "prepare.completionGain.income": {
+          "calls": 26712,
+          "nanos": 15658400,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.6934933402778332,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.activePairRoutes": {
+          "calls": 7121,
+          "nanos": 125474700,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 5.557136669350574,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.activePairRoutes.cheapestCostPath": {
+          "calls": 5969,
+          "nanos": 113036100,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 5.006244735156796,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.labelComponents": {
+          "calls": 1520,
+          "nanos": 14538600,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.6438986280183994,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "sabotage": {
+          "calls": 580,
+          "nanos": 53605500,
+          "allocatedBytes": 1043336,
+          "percentPlayNanos": 2.3741287265789217,
+          "percentPlayAllocatedBytes": 7.581290604610498
+        },
+        "sabotage.copyFrom": {
+          "calls": 5611,
+          "nanos": 3330900,
+          "allocatedBytes": 890704,
+          "percentPlayNanos": 0.1475219030763957,
+          "percentPlayAllocatedBytes": 6.4722063330403525
+        },
+        "sabotage.updateConnections": {
+          "calls": 5611,
+          "nanos": 31761200,
+          "allocatedBytes": 152632,
+          "percentPlayNanos": 1.406668668525029,
+          "percentPlayAllocatedBytes": 1.1090842715701457
+        },
+        "sabotage.income": {
+          "calls": 5611,
+          "nanos": 1902600,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.08426406460510687,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "build": {
+          "calls": 1520,
+          "nanos": 215353100,
+          "allocatedBytes": 519616,
+          "percentPlayNanos": 9.53775230280145,
+          "percentPlayAllocatedBytes": 3.7757346615139213
+        },
+        "build.copyFrom": {
+          "calls": 14590,
+          "nanos": 5960200,
+          "allocatedBytes": 64744,
+          "percentPlayNanos": 0.26397071263500366,
+          "percentPlayAllocatedBytes": 0.4704554227064935
+        },
+        "build.updateConnections": {
+          "calls": 14590,
+          "nanos": 109258100,
+          "allocatedBytes": 454872,
+          "percentPlayNanos": 4.83892126407612,
+          "percentPlayAllocatedBytes": 3.3052792388074277
+        },
+        "build.income": {
+          "calls": 14590,
+          "nanos": 4842500,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.2144690070693945,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "prepare.income": {
+          "calls": 1520,
+          "nanos": 958800,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.04246419906621279,
+          "percentPlayAllocatedBytes": 0.0
+        },
+        "other.cheapestCostPath": {
+          "calls": 0,
+          "nanos": 0,
+          "allocatedBytes": 0,
+          "percentPlayNanos": 0.0,
+          "percentPlayAllocatedBytes": 0.0
+        }
+      }
+    }
+  },
+  "findings": [
+    "Direct feature Dijkstra dominates measured time: 49.32% of all play and 58.89% of large-map play; active-route Dijkstra is additional.",
+    "completionGain consumes 14.75% of all play and 16.15% of large-map play; its updateConnections dominates that subtotal.",
+    "completionGain.updateConnections allocates 27.39 MB, 90.2% of total per-play allocations; large-map share is about 95.0%.",
+    "copyFrom alone costs under 1% of play, so eliminating copies without the connection reconstruction is unlikely to materially improve time.",
+    "An exact direct-income computation would target most allocations but only around one sixth of measured play time before secondary effects.",
+    "A per-source Dijkstra tree cache within each unchanged prepare board may target repeated pair destinations; exact path ties and blocked masks require separate validation.",
+    "All 800 actions equal the earlier uninstrumented ample-budget probe; actual replay prefix scores/paint/cells remained exact."
+  ],
+  "limitations": [
+    "Nested metrics are inclusive; never add completionGain to its children or activePairRoutes to its Dijkstra child.",
+    "Instrumentation adds clock/allocation-native calls and changes JIT decisions; percentages are local diagnostic estimates, not uninstrumented speedup guarantees.",
+    "Per-thread allocations measure bytes allocated during bot.play; initialization, copied replay input and result reporting are excluded.",
+    "The same previously selected 800 positions are reused; this does not establish strength or explain CG underpainting causally.",
+    "One fixed pass and one disposable 500-ms warm-up; no retries or selected fastest runs."
+  ]
+}

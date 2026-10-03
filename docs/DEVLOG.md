@@ -4475,3 +4475,72 @@ ZIP integrity and every archived hash verified. Archive SHA256:
 7e5fcd8c0bb09d80e6fb335ccdabf55d1101eaf1b1c51d64908f4e371d564c98.
 Index: docs/evidence/neural-v4-artifacts.json. Commit the completed rejected experiment
 and its evidence under AGENTS.md#8; no push, arena upload or strategy promotion.
+
+### 2026-10-04 - neural-v5 exact completion-income hypothesis
+
+User asked to continue the runtime investigation. Baseline d5c0463. A single
+isolated instrumented pass over the same40x20 arena states completed; all800 actions
+match the previous ample-time V3 probe. Tall-map play: directfeatureDijkstra58.89%,
+completionGain16.15%, completionGain.updateConnections13.61%; the latter allocates
+95.0% of measured playbytes. All800: completionGain update27.39MB of30.37MB total.
+Counters are nested and instrumentation changes JIT/cost: these are local diagnostic
+shares, not CG readiness or proof of loss causality. Majority Dijkstra optimization
+is deliberately reserved for a separate version.
+
+Predeclare neural-v5 as only exact hypothetical route-completion income replacement:
+add btk.core.HypotheticalIncome, preserve canonical BFS/tie/scoring, sameV3 features,
+NeuralV2Weights, noise/deadlines/warmup. No training, new fallback or Dijkstra change.
+Oldcore/source/artifacts remain unchanged through V5-only packaging. Differential
+core tests, full/incremental feature/action parity, fulltest+cgValidate, fixed800-state
+uninstrumented comparison, then exact8processgames and fresh practical-v4 against
+selectedv09 on3600000/3700000/3800000, two workers. No outcome tuning/retries.
+Protocol docs/neural-policy-v5.md; baseline profile evidence/neural-v5-feature-profile.json.
+
+neural-v5 implementation/readiness complete. New additive core helper only; old23
+frozen sources and previous exported identities unchanged.432 tests pass, including
+20,000 differential requests and full/incremental/action interruption tests;
+292/292 archived CG replays reproduce exactly. New source3425928153d5d1c07ec32f711cf3aa04a25c9c5ae3d248176f3ef5d226d34730,
+buildd538b7bb85e1c31624c93e165796ae01ec28199ae7205eefc8f4a404bea29820,
+95,627characters, sameV3configab242b34... and exactNeuralV2Weights.
+
+Fixed800-state comparison:800full +1337incremental passes,33,225sabotage rows,
+257,751build rows,11,789,067floatvalues bitexact; zeroactiondifferences. Allocation
+30.374MB->3.554MB (-88.30%), tall16.612MB->1.086MB (-93.46%). Wall5201.31->5105.33ms
+(-1.85%), tall2783.67->2762.22ms (-0.77%); one local shared-JVM run, no clear timing
+gain established. All source/runtime pins stable. No retuning after the result.
+
+Strict zero-grace process panel:1/8 failed, map903510176,P0turn11. No response before
+50ms; send34.6403ms, consumer66.3022ms. Aggregate input timing includes host work and
+pipe delivery; failure cannot be assigned solely to bot CPU/allocations. Other7games
+pass; no retries/grace changes. Readiness PROCESS_FAILED. Independent audit confirms
+133source+225runtime+29artifact+85JUnitXML pins and500prospective maps disjoint from
+17,300previous maps. Evidence: neural-v5-feature-profile.json, neural-v5-saved-state.json,
+neural-v5-verification.json. Fixed practical-v4 vsV09 continues separately to its
+registered stopping rule; process failure prevents live boss/CG source transmission.
+
+neural-v5 final local practical-v4 COMPLETE / PASS_1000: block1 185W115L0D/300,
+block2 117W82L1D/200, block3 308W192L0D/500. Pooled610W389L1D/1000 (61.05%),
+P0score59.0%, P1score63.1%, zero bot errors. All500actual maps match their predeclared
+seeds/hashes; all three exclusion unions and cross-block disjointness verified.
+Frozen source/runtime/artifact pins unchanged. In-process overrun observations
+remain diagnostics; raw maximum does not distinguish first/later turn. The existing
+strict process failure is retained. Combined LOCAL_PASS_BUT_PROCESS_FAILED, boss
+SKIPPED_PROCESS_FAILURE, zero live requests, no promotion or replacement of default.
+This is a fresh comparison against v09, not proof V5 is stronger than V3.
+Final strength evidence: docs/evidence/neural-v5-v4.json, SHA
+ e582c6b1d692d827f456f2f6a103e11c3d1654da44ac40ce6ec1d4b6222a3082.
+
+Next separate proposed experiment targets the measured majority cost: four resumable
+feature-Dijkstra searches for current source town, keyed by semantic block mask,
+reset on every prepare/source change. Preserve (cost,cell), strict relaxation and
+the popped-but-not-expanded pending target; zero-cost rails require path-sequence
+parity tests. Keep the public fresh-search/lastCost contract independent. No V6
+implementation or candidate tuning was added to this frozen V5 evaluation.
+
+Compact archive verified:442files,4,201,887bytes, including isolated profiling
+runtime/source copies, raw fixed diagnostic results, exact submitted artifact,
+all process/strength reports and audit helpers. ZIP and per-file hashes verified;
+no credentials/private sessions or raw canonical replay corpus included. Archive
+SHA256 daaaf594d8787840ea47078eacad0add94dbae1243b538cc00d84ba161a52788.
+All133source+225runtime+29artifact pins still match after evaluation. Commit the
+completed experiment and documentation under AGENTS.md#8; no push or CG upload.

@@ -7,6 +7,7 @@ import btk.bot.neural.NeuralBot;
 import btk.bot.neural.NeuralV2Bot;
 import btk.bot.neural.NeuralV3Bot;
 import btk.bot.neural.NeuralV4Bot;
+import btk.bot.neural.NeuralV5Bot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
 import btk.bot.reference.PressureBot;
@@ -74,7 +75,7 @@ public final class BotFactory {
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
         if (version.equals("pressure-v1") || version.equals("leader-v1") || version.equals("leader-v2")
                 || version.equals("neural-v1") || version.equals("neural-v2") || version.equals("neural-v3")
-                || version.equals("neural-v4") || version.equals("indrill-q-v1")
+                || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("indrill-q-v1")
                 || version.equals("indrill-q-v2")) FrozenParams.applyTo(version, params);
         return params.apply(query);
     }
@@ -86,9 +87,10 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
-                // Only v3/v4 consume this deadline; historical effective configurations stay exact.
+                // Only v3/v4/v5 consume this deadline; historical effective configurations stay exact.
                 if (field.getName().equals("NEURAL_DEADLINE_RESERVE_MS")
-                        && !version(spec).equals("neural-v3") && !version(spec).equals("neural-v4")) continue;
+                        && !version(spec).equals("neural-v3") && !version(spec).equals("neural-v4")
+                        && !version(spec).equals("neural-v5")) continue;
                 if (version(spec).startsWith("exp-") && !BotCatalog.parameterNames(version(spec)).contains(field.getName())) continue;
                 if (!Modifier.isStatic(field.getModifiers())) values.put(field.getName(), String.valueOf(field.get(params)));
             }
@@ -125,6 +127,7 @@ public final class BotFactory {
             case "neural-v2": return NeuralV2Bot::new;
             case "neural-v3": return NeuralV3Bot::new;
             case "neural-v4": return NeuralV4Bot::new;
+            case "neural-v5": return NeuralV5Bot::new;
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
             default:

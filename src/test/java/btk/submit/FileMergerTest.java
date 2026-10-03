@@ -432,6 +432,33 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("neural-v3")));
     }
 
+    @Test void neuralV5OptimizationShipsOnlyItsHelperAndPreservesFrozenArtifacts() throws Exception {
+        String source = FileMerger.merge("neural-v5");
+        assertTrue(source.contains("static final class NeuralFeatures"));
+        assertTrue(source.contains("interface Deadline"));
+        assertTrue(source.contains("static final class NeuralWeights"));
+        assertTrue(source.contains("class HypotheticalIncome"));
+        assertTrue(source.contains("NEURAL_DEADLINE_RESERVE_MS=2"));
+        assertFalse(source.contains("NeuralV5Features"));
+        assertFalse(source.contains("NeuralV5Bot"));
+        assertFalse(source.contains("NeuralV2Weights"));
+        assertFalse(source.contains("NeuralV4Weights"));
+        assertFalse(source.contains("DecisionChooser"));
+        assertFalse(source.contains("NeuralV4Collect"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("neural-v5", true);
+        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "indrill-q-v1", "indrill-q-v2"})
+            assertFalse(FileMerger.merge(prior).contains("HypotheticalIncome"), prior);
+        assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9",
+                FileMerger.sha256(FileMerger.merge("neural-v2")));
+        assertEquals("2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+                FileMerger.sha256(FileMerger.merge("neural-v3")));
+        assertEquals("0b124a2d1e17d2b1b0448c26accca5bb63065672cb24318228733159105b5163",
+                FileMerger.sha256(FileMerger.merge("neural-v4")));
+        assertEquals("66559817e09dc2b3cfcf5e8ede8709a7c71797eb1eb2bdb41741470f372706a1",
+                FileMerger.sha256(FileMerger.merge("current")));
+    }
+
     @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {
         String source = FileMerger.merge("indrill-q-v1");
         assertTrue(source.contains("static final class IndrillFeatures"));
