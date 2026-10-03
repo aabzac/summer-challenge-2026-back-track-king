@@ -17,6 +17,7 @@ gradlew submit                                 # -> build/submit/Player.java (co
 gradlew submit -PsubmitVersion=indrill-q-v1 -PsubmitOut=build/submit-indrill # separate Q-learning candidate
 gradlew submit -PsubmitVersion=indrill-q-v2 -PsubmitOut=build/submit-indrill-v2 # learned position/WAIT candidate
 gradlew submit -PsubmitVersion=neural-v2 -PsubmitOut=build/submit-neural-v2 # outcome-tuned imitation candidate
+gradlew submit -PsubmitVersion=neural-v3 -PsubmitOut=build/submit-neural-v3 # same trained weights, deadline-aware execution
 gradlew submit -PsubmitVersion=v09              # selected frozen v09 source + complete snapshot
 gradlew submit -PsubmitVersion=v08              # historical v08 reference build
 gradlew submit -PsubmitVersion=v07              # historical v07 reference build
@@ -113,6 +114,14 @@ the same source hashes and verified completed artifacts. Generated weights use a
 class and submission directory; the original neural-v1 and selected v09 remain available.
 Completed result: **64.5% vs v09 / 1000 games**, local gate passed; strict process
 panel had **1/8 timeouts**, and the boss stage is pending. It is not ready/promoted.
+
+`neural-v3` retains those exact trained weights, checks the remaining time budget
+and discards incomplete feature/scoring passes. It passed **621/1000 (62.1%) vs v09**, all
+**8/8 strict process games**, 406 tests and 292 archived replay validations. The
+completed live boss check is **15/40 vs v09's 11/40** on the same maps/seats, with
+**80/80 new replays reproduced exactly** and zero technical failures. Practical-v4
+and readiness checks passed; the candidate is **not promoted**. Details and evidence:
+[neural-policy-v3.md](docs/neural-policy-v3.md).
 
 The selected protected opening claims town approaches during the first three turns using
 potential route traffic, then returns to the existing rollout policy. Disable it with

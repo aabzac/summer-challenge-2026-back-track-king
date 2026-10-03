@@ -72,8 +72,8 @@ class V08PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size(), fields,
-                "only explicitly named inactive post-v08 fields are absent from the record");
+        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size() + 1, fields,
+                "only explicitly named inactive post-v08 fields, including the V3-only deadline, are absent from the record");
         FrozenParams.applyTo("v08", dirty);
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());

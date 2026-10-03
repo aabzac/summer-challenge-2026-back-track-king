@@ -4195,3 +4195,126 @@ before the next live stage. v09 remains selected. Retain this successful local p
 and address deadlines in a separately versioned candidate with identical weights and
 a new fixed strength gate; do not mutate this experiment's weights or retry its panel.
 Evidence: neural-v2-{training,exploration,verification,v4}.json under docs/evidence/.
+
+## 2026-10-03 - neural-v3 deadline follow-up predeclared
+
+Neural-v2 is retained at commit1796158: local645/1000, process1/8 timeout.
+Single new hypothesis: preserve exact V2 trained weights/feature math/decision rules
+but interrupt incomplete expensive passes at search budget minus a fixed2ms reserve.
+Return only completed legal actions; initial/sabotage abort records no target and WAIT.
+New NeuralV3Bot/Features; old V1/V2 sources and weights unchanged, core unchanged.
+The actual MainBot36ms isolated warmup stays, not a duplicate warmup wrapper.
+New timed decisions require a new version and strength bench; do not reuse64.5% as
+its result. Fixed strict8games on the same four process fixtures, no retries, then
+fresh practical-v4 seeds2600000/2700000/2800000, two workers, existing futility rules.
+No reserve tuning or source adjustment using these outcomes. Details in
+neural-policy-v3.md. Implementation and verification started, no v3 results yet.
+
+## 2026-10-03 - neural-v3 fixed boss refresh before live outcomes
+
+The 500-game futility look cleared at304/500 (60.8%); block3 proceeds unchanged.
+The exact neural-v3 artifact passed8/8 strict process games (max later40.1253ms).
+User working agreement#3 explicitly requires40 new live-boss candidate games and
+cache refresh after outcome-guided development. Refresh the known v09 pool before
+this candidate comparison:40 fresh fixed controls, then40 matched candidate games.
+This is IDE boss benchmarking, not arena submission or strategy promotion.
+The original imported IDE source backup is retained and hash-verified; test calls
+save supplied code to the IDE. There are no concurrent IDE operations in this task.
+
+Control plan c519a75e87fe9f84435b8bff3759e2ddf5279c927711810bccb1aadc5cb16aa2,
+schedule seed2026100301,40 unique seeds,20P0/20P1,20-second spacing. Prospective
+checks exclude16,352 prior/reserved seeds and671 canonical map identities; control
+replays will also be compared with local/training maps through shared-core hashes.
+Existing exact fill-v1 artifact/process8/8 and documented v09 alias are pinned;
+no new control strategy or historical17/40 threshold is substituted. Candidate
+weights and source are already frozen. Complete fixed stages, retain failures and
+uncertain requests without blind retries; refresh cannot rescue a failed gate.
+See evidence/neural-v3-boss-readiness.json for commands, pins and limitations.
+
+The fresh-control run above was NOT executed: automatic approval review rejected
+process creation because explicit consent to send the specific private source
+artifacts to CodinGame's IDE was missing. No HTTP requests or games occurred and
+the prospective control plan hash is unchanged. No workaround/retry was attempted.
+Continue the unaffected local1000; request consent for the concrete40+40 IDE test
+batch after local verification completes. Evidence:neural-v3-boss-pending.json.
+
+## 2026-10-03 - neural-v3 authorized live stage and training-IDE migration
+
+User explicitly approved40+40 IDE games. First old-contest control request returned
+HTTP422/code270: "It's too late to connect to the challenge." Retain its unresolved
+intent/error,0 confirmed created/completed games and no gameId. No retry. The user
+then supplied the working /ide/puzzle/summer-challenge-2026-back-track-king URL.
+Browser inspection confirms logged-in Silver/Boss4. The absence of a catalog entry
+was not proof that training was unavailable; correct that initial inference.
+
+Use official current client bootstrap (Puzzle/generateSessionFromPuzzlePrettyId,
+TestSession/startTestSession), existing authorized same-origin connection, and new
+private session. The current training IDE source was backed up separately and is
+exactly the saved fill-v1 control(7d55b4...). Arena metadata confirms division2611,
+Boss4 initial agent6740207, Silver league index3/6 and isSoloLeague=false.
+Before any new outcomes, freeze training plan162d6f0840b4b6a9ef8c24565317c19a73ab5dad52570b5d697628c393182f28:
+EXACT same40 seeds/seats, same builds and671 exclusions as oldprospectiveplan;
+only supported session context/binding and plan identity change. No extra smoke,
+no outcome replacement. Old contest request/session/backup remain preserved.
+Evidence:neural-v3-boss-interrupted.json. User consent persists; no arena/promotion.
+
+### 2026-10-03 — neural-v3 puzzle boss metadata correction before remaining games
+
+The user-supplied permanent puzzle IDE works. Its bootstrap `agentInitialId=6740207`
+is not the canonical executable Boss4 ID6767608. First control game907056523 is
+retained once as slot1 LOSS, P1score1670 versus1761. Shared-core validation1/1exact,
+zero overlap with prior training/local maps. Owner replay access follows the public
+client `gameResult/findByGameId [gameId, authenticatedUserId]`; no sharing required.
+The separate immutable amended plan4c2f77df15b703827d1068f13994dc4e8214d6724ba461c29981389c98318c49
+preserves all40slots/builds/exclusions and copies the first intent/response/canonical
+byte-for-byte, retaining the original intent planId. Only canonical boss metadata
+changes; no replacement game, strategy adjustment or additional smoke sample.
+Ten focused offline tests passed for strict provenance, exactly39 remaining plays,
+cached-control acceptance and unchanged play payloads. The old rejected contest
+intent and all original plans remain untouched. Evidence: neural-v3-boss-amendment.json.
+Proceed with remaining39control and40candidate under the user's existing approval.
+
+### 2026-10-03 — neural-v3 fresh live control completed; candidate batch frozen
+
+Training Boss4 agent6767608: exact retained fill-v1/v09 control11W29L0D/40,
+zero retries, exclusions or technical issues. All40 canonical replays reproduced
+exactly;40 distinct Protocol maps, no overlap with16221 prior maps. The original
+first loss remains slot1. Candidate plan d0e1d42e499718b68d90fe42e426a4cfc8e96a47b05da4464128327bdf280415
+pins the same40maps/seeds/seats, exact neural-v3 build9158eae9..., and all40 individual
+verified control outcomes. Candidate must score>=11/40; complete all40 without tuning.
+Shared-core evidence: build/analysis/neural-v3/core-control-40/shared-core-audit.json.
+
+### 2026-10-03 — neural-v3 COMPLETE: practical-v4 and readiness PASS, not promoted
+
+Hypothesis: preserve the outcome-trained neural-v2 weights while closing unchecked
+feature/scoring sequences with cooperative deadline checks and a fixed2-ms reserve.
+Original neural-v1/v2, weights and btk.core remain unchanged. No outcome-guided tuning.
+
+Local fixedv4:194/300 +110/200 +317/500 =621W379L0D/1000 (62.1%) versus v09;
+500 distinct paired maps, zero game errors, both futility looks cleared. Strict exact
+Player panel8/8 passed with zero grace, max later40.1253ms. 406 Java tests passed;
+292 archived replays validated before the new live panel. 92,497-character artifact
+source2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f,
+build9158eae9029544f3b1984d543c36c1e5d3bd73bfbcbb5ba3a4f633a77da13267.
+
+Authorized live puzzle IDE comparison COMPLETE against Boss4 agent6767608:
+exact fill-v1/v09 control11W29L0D/40; candidate15W25L0D/40. Same40maps/seeds/seats,
+20 games per seat per arm. Matched outcomes:9 gained wins,5 lost wins,6 shared wins,
+20 shared losses; candidateP0 7/20,P1 8/20. Zero explicit runtime/referee failures,
+source attribution issues, retries or discarded training outcomes. First control
+loss907056523 retained once through the documented immutable identity amendment.
+The old rejected contest intent remains separately preserved, without a claimed game.
+
+Shared core reproduces all80 new canonical replays exactly. All40 maps are unique
+and disjoint from16221 prior local/training/Q/corpus maps. Final v4 checker PASS:
+local621/1000 plus boss15/40>=11/40; documented exact fill-v1/v09 alias verified.
+Its promotion=true is eligibility only. Source audit verifies125 frozen runtime/policy
+pins,7 original V1/V2 pins and weights, exact V3 artifact/classes/process reports,
+stored default and5 service plumbing modules. New service checks56/56 current tests.
+
+Decision: retain neural-v3 as a fully verified candidate. No selected-strategy change,
+arena publication or push. The requested40+40 IDE games are complete; do not replay,
+retune or claim arena ranking gains from this practical regression pool. Next deployment
+step is separately authorized promotion/arena use of this exact candidate. The final
+boss/combined evidence supersedes pending status in the historical local snapshot:
+docs/evidence/neural-v3-boss.json; full protocol docs/neural-policy-v3.md.

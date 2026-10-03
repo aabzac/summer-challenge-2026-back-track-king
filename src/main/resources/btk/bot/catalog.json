@@ -107,6 +107,13 @@
       "description": "Outcome fine-tuning of neural-v1, fixed 1536 training games: 645/1000 vs v09 (64.5%), local PASS_1000. Strict process 1/8 timeout; boss unplayed, not ready or promoted. Generated NeuralV2Weights; docs/neural-policy-v2.md."
     },
     {
+      "id": "neural-v3",
+      "title": "Neural Cooperative Deadline",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Exact neural-v2 weights and completed decisions with cooperative deadlines in features and scoring. Incomplete passes are discarded while earlier completed actions remain. Separate timing experiment; no retraining or promotion."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

@@ -1,0 +1,1043 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v3",
+  "createdAt": "2026-10-03T19:21:00.054020+00:00",
+  "noNetworkCalls": true,
+  "noNewGames": true,
+  "scope": "prospective fresh40control +40candidate; selected control and V3 frozen",
+  "refreshReason": "previous control pool informed neural-v1 analysis and neural-v2/v3 development; original17/40 is not reused as a fresh threshold",
+  "controlPlan": {
+    "path": "build/cg-boss/neural-v3-v09-refresh-40/plan.json",
+    "sha256": "52782900ca44ca53e593ae01eeb4ef6ad6188b0dd1cd276a8264597621fe2196"
+  },
+  "controlPlanId": "c519a75e87fe9f84435b8bff3759e2ddf5279c927711810bccb1aadc5cb16aa2",
+  "scheduleSeed": 2026100301,
+  "scheduleSha256": "4d1c96e31a31203aa56c95c774152bc19d316081f7ebbfbf064284141ed05216",
+  "games": 40,
+  "seats": {
+    "P0": 20,
+    "P1": 20
+  },
+  "uniqueSeeds": 40,
+  "seedOverlap": [],
+  "excludedSeedCount": 16352,
+  "excludedSeedsSha256": "5572051b1f2bbf2b2237f7e3ebaea4ac015c0bc753d16f8fc24a099d4ecc1874",
+  "seedInputs": [
+    {
+      "path": "build/analysis/neural-v2/probe/games.json",
+      "sha256": "a96c39523cb36402b24cda16ca4ae2586329433d2db2243d3ef1be5ae3cedb8f",
+      "seedCount": 3
+    },
+    {
+      "path": "build/analysis/neural-v2/probe/meta.json",
+      "sha256": "9a0b01fa9946d49fdfe56495e518f9500738848ea1a08bc7883f80dc650aaee5",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-1/games.json",
+      "sha256": "5090e53b3cd00bef64767f5a3625ef066b392fc658c07e281f280d8487b32e53",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-1/meta.json",
+      "sha256": "1cfc68a441fcdd64bfd904b3dca36417da8111a4ba33bcfbed2e6a668f755813",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-2/games.json",
+      "sha256": "48a78e70ffd82d072ff4f6d8dac66f1624025a2662ad545b4820f8e8c7e2b06e",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-2/meta.json",
+      "sha256": "0f484e86e403bea5e705f68d35bb3b62a8d00b46a8b30032075cb8ddc0be97b9",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-3/games.json",
+      "sha256": "2933364ca2530761988d8e20685b75a7ac5743c63730ec62a5ec673616a302d3",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-3/meta.json",
+      "sha256": "cb0cadee861d2080b8dbf0690b05ff5bfcae2dd05be4d35f1e1f7407bc571c91",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-4/games.json",
+      "sha256": "85ec93a608ffe1e5acc7fc38ea5a005d87dd6e9810c5670c6b81914b1b34cc5a",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-4/meta.json",
+      "sha256": "7046b600540e6652042e76aedf7dce2e85f235eb1056035a992b1d2dd90ba5db",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-5/games.json",
+      "sha256": "c1138c2aacbd3d074880a3c069076d03f6773d4b651f6ee18f5f798d3e51637d",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-5/meta.json",
+      "sha256": "035a95849f9cf87af1955eef3c29547ad006df735548e34de4a5a80d39b9d31f",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-6/games.json",
+      "sha256": "738699bffce97b44f958564a5631e0e045258af2b9f3746cedf89d06aff0cf97",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-6/meta.json",
+      "sha256": "683b1560b1055755c25043fbf1eb2ff6d30a1579a311b8249369badc108c691f",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-7/games.json",
+      "sha256": "22566bc48c29db3f407be5fc4df27c643768ad57c67ce5e18190f24bd5f001de",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-7/meta.json",
+      "sha256": "14fecf859038c7324b8b3b89e62d2a25281101b75cf2a2b7fd11f348887d07cc",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/round-8/games.json",
+      "sha256": "2e47970f30c0d7086ab9415a261a0f98c98727c2da3242a3b676865f551507a6",
+      "seedCount": 96
+    },
+    {
+      "path": "build/analysis/neural-v2/round-8/meta.json",
+      "sha256": "4c9177d07e436c4f0afae7b76e63f128b6364e371d468b11b964b0d44a739121",
+      "seedCount": 2
+    },
+    {
+      "path": "build/analysis/neural-v2/training-plan.json",
+      "sha256": "abf6ca2c5e33748c20d8fac23192c23582dbbe47be975833ea7da61d21961fad",
+      "seedCount": 1
+    },
+    {
+      "path": "build/bench/always-disrupt-v1/screen.json",
+      "sha256": "239b2bb4408c157439a6663cd2cc3346ab04de137b2d4a1a7b22367b23f1da7f",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/build-direction-v05-cg428.json",
+      "sha256": "97d5e3ee45c04f24144ff8dd3492a4a97872737eda7eb7d86adfb1bd1dc85bc8",
+      "seedCount": 215
+    },
+    {
+      "path": "build/bench/catalog-reply-smoke.json",
+      "sha256": "ff37f4bb8e09a28a5e1148778cc8bc1d9ac3a3aefd955e7cec703465242a36b5",
+      "seedCount": 3
+    },
+    {
+      "path": "build/bench/current-early-disrupt-v03.json",
+      "sha256": "42184bbe1556f3934a39fe8d633cb15e11f78844dc05fdcabbca9468cfd64735",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/current-idle-extend-v02.json",
+      "sha256": "13cbd1cd16414c50ac0204f15faa48be04a893cf6e46c9b2d14433cd989a2d30",
+      "seedCount": 51
+    },
+    {
+      "path": "build/bench/current-idle-extend-v03-300.json",
+      "sha256": "a91f61489d5090c10453671c915981effd7177cc73be269fdbf2c55e9cd598a7",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/current-idle-extend-v03.json",
+      "sha256": "1c0748296fe0986376024bd57e9e8097f31138afe77703d5dd3074d4d1185147",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/current-prebuild-v03.json",
+      "sha256": "91677b03f884006800a27a8f915684a8122bd7eaaceaf7f27bee509373c500e3",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/defense-priority-v1/candidate-v02.json",
+      "sha256": "503c149cb2bbc71ac63ddac7781eb2fd2c29855b3e3ffe27b972cbd6ffd9ee34",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/defense-priority-v1/candidate-v05.json",
+      "sha256": "6414e7894ed59bb4c6691acbd4b6623e7e0d43391bf1a0c82964594439c6aa98",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/defense-priority-v1/control-v02.json",
+      "sha256": "048365b34667ea817479265d4341a6d56788cc90ddb25cef4d9cdb73b81c9566",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/disrupt-delay065-v02aggressive-gen14000.json",
+      "sha256": "a234c507e01443e46169f02f73191161e27451c0cf5b5a568d7508bc691316f3",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/disrupt-delay065-v05-gen13000.json",
+      "sha256": "f117e48b9500667d17e57fcde9f9bfb50847f36b74093aa6245b47b1f1181275",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/early-disrupt-v05-cg428.json",
+      "sha256": "5f3d1e54dd8e4b68601a7e1a67e9e17f9ffea3b60dabb20b8d1af4e5f95ba146",
+      "seedCount": 215
+    },
+    {
+      "path": "build/bench/fill-v1/block1-decision.json",
+      "sha256": "495a03899c0d76cf3c64bd296406b1edc8949e3310089e243a295e118af33c1d",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/fill-v1/block1.json",
+      "sha256": "cc27bd79a4a126d6b87950d3eda48cf606b0a9ce6f40443535a64ab2c319a0a7",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/fill-v1/block2-decision.json",
+      "sha256": "e8b6139abcfb77c31f42528c116be78d061a995a6a860c99394c9f6fad152925",
+      "seedCount": 251
+    },
+    {
+      "path": "build/bench/fill-v1/block2.json",
+      "sha256": "6bc30bc0801818d95e96a1402e5bdf4ce2e74145fa9b5702c49897df47d4186a",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/fill-v1/block3-decision.json",
+      "sha256": "d797b5cffe88e9b0022f5b6c882edf0fcaecf8e4fc539fa51fbe1ec727ef7d1e",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/fill-v1/block3.json",
+      "sha256": "84a52a4ea5d6d6aface4cb634fb500541aa8ccec919671e4f12cbe3209678a18",
+      "seedCount": 251
+    },
+    {
+      "path": "build/bench/fill-v1/decision.json",
+      "sha256": "00c843903e4891f232ca7edf7f0150d2b5a77c1461c0e174b5e32f9f14982a42",
+      "seedCount": 541
+    },
+    {
+      "path": "build/bench/guard-income-v05-cg428.json",
+      "sha256": "f6d24f3ccf1f4952575d3ef6567e9cf2650e0d16ee154807987b7daf95df3f05",
+      "seedCount": 215
+    },
+    {
+      "path": "build/bench/heuristic-detour-v1/candidate-pressure.json",
+      "sha256": "3055c8c51a77564a97b5810b11d0dbe8cd1a55b47eb63871b9aff1a1f9e1cfc7",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/heuristic-detour-v1/candidate-v05.json",
+      "sha256": "62323651cdbda46fcc0fa69e82932da24d610305484cda9c909da9b89f7b4fab",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/heuristic-detour-v1/control-v05.json",
+      "sha256": "5edc91c67201e55f91b5bba224d59aaec04468dc2fa1cd59443b37b3594567c3",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/heuristic-v1/candidate-pressure.json",
+      "sha256": "bf1436c804cf62d110d890c42b43de77428130a4e8dfdfcd8c7eaddfad7caa88",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/heuristic-v1/candidate-v05.json",
+      "sha256": "99f4040cbc4084b8d2d731e3d60a9fa0ff4fd47521efdf31241fa07e6dd6d9b1",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/indrill-q-training-excluded.json",
+      "sha256": "59eaebcbca81dc790c70aafe34bd1a8120d3aceae6ecb653b905f148a13ccda2",
+      "seedCount": 192
+    },
+    {
+      "path": "build/bench/indrill-q-v1/block1-decision.json",
+      "sha256": "ae66620e967afb1553d1036d99badbca0662782780c15d662518b634045bbe76",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/indrill-q-v1/block1.json",
+      "sha256": "f8d2baa6a082251aaed1e98a1bb9e4cbc43c4d74e298f043712a8dd26ec099aa",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/indrill-q-v2/block1-decision.json",
+      "sha256": "8873a803aad5d55b7c892caf35e749499f8dc7bc3e06ff3c9bbf924c6520ea84",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/indrill-q-v2/block1.json",
+      "sha256": "46a9586796548b043a7e8dbc1f09debd725a9ee311f798d01967a6bf1afff813",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/indrill-q-v2-training-excluded.json",
+      "sha256": "5c95dad00c63db96d05fd5fdb65440d022c50e7807ed78418d8283946ee16147",
+      "seedCount": 960
+    },
+    {
+      "path": "build/bench/interrupt-eval-v05-gen12000.json",
+      "sha256": "83938ed4bf59d6930a958025b041992eb91b370571c0fee4e0c4cd75ae92182c",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/joint-action-v1/candidate-pressure.json",
+      "sha256": "59770ff3104df22786361d77d113bd528ee29ce7d8e5513e960f4d4f93d94ead",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/joint-action-v1/candidate-v05.json",
+      "sha256": "e50802f80ef102f9fecc08e7c2cd86dbf2a48986bd1183a8f7105c722d183705",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/joint-action-v1/control-pressure.json",
+      "sha256": "c697d5919016a22174742ed4fd48a1fb38d17895ba92929a532e708a90fc0ef8",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/joint-action-v1/joint-on-off.json",
+      "sha256": "f4c7a87d1716d980cd9789a82904c151d6eb21345748dcf695d6c41f594af704",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/leader-coverage-v1/always-disrupt.json",
+      "sha256": "651681578d41640792bf6422501f05a0f61e35f9151e1b50011faf78ae92c04e",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/leader-coverage-v1/control.json",
+      "sha256": "c9f55b2d631c98dadff50b3cb1a1a65c2ca2fa776fae72a9b8a34924b5db66de",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/leader-coverage-v1/live-target.json",
+      "sha256": "89f5531fa05f49c6b07d0b3c780df83e6461a5aab440d553c9b22327eda56ec9",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/leader-coverage-v1/track-value-self.json",
+      "sha256": "eac5bafbab5cd2103eb02e8d7cd198ec52972105e21ead97dc7808ba16444726",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/live-target-v1/direct.json",
+      "sha256": "445d79efcf3cf6320ca63bc0b63338a52b959b309d81273b88e7dfddf1a58862",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/live-target-v1/screen.json",
+      "sha256": "7bdd513dad56e40bb452f6e50d9815227464c4a050577d621338f8039355dc8f",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/narrow-reply-pressure-v1/candidate-pressure.json",
+      "sha256": "8b01b8dfe29e69f7a9fb60bf99245c55ed1561ebdd41b51220695851a38102b6",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/narrow-reply-pressure-v1/candidate-v05.json",
+      "sha256": "dfcf276222ccff64d5bd2316787aa6129ee06852171b812c6c88bed36359dceb",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/narrow-reply-pressure-v1/control-pressure.json",
+      "sha256": "6e270be72cf50edc96040755e5aadcce020819af4b9b2f8492f83c6c66362708",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-after-base-v1/ablation.json",
+      "sha256": "d0cd6334d033b2eab8b884a1de8444b2d1b376ec4f36fd8bc24d9937231ab67d",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-after-base-v1/decision.json",
+      "sha256": "b6def5fbd123afd91a241994e1612b174874a47702a9fca7430a4761e798a364",
+      "seedCount": 801
+    },
+    {
+      "path": "build/bench/network-after-base-v1/full-candidate.json",
+      "sha256": "bbe80702300326cc3f19f9e639ed1aafb99f7e1d1ce464e2068b140c4f74e389",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/network-after-base-v1/full-control.json",
+      "sha256": "58fe251a6498a80fe9a5f4f6293bcd7e63089e3120ac5e0b8815904ac1ef7690",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/network-after-base-v1/launch.json",
+      "sha256": "a95a6f5717d52ad22df898c027d1ed9082af00ed488d6ff5caf44528172bcd74",
+      "seedCount": 1
+    },
+    {
+      "path": "build/bench/network-after-base-v1/screen.json",
+      "sha256": "e985984cac0f76b16daa84fb2b3f35eff6cc241e48284970361af176fd72109f",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-after-base-v1/style-candidate.json",
+      "sha256": "79e81895c7e647c48fe9ac7ff1123e52817ebc97b65531d311a0bfa164f69684",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-after-base-v1/style-control.json",
+      "sha256": "ce174462a0e455c918f5f26d278925903dab44dc44ccd56540c39fe5b58c2339",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-chords-v1/decision.json",
+      "sha256": "d58c37e4a0aba999dc20a386bfb277c657e0a794ec575ea02a5b2c8fd63dfcd7",
+      "seedCount": 651
+    },
+    {
+      "path": "build/bench/network-chords-v1/direct.json",
+      "sha256": "2f014c0287d5d4d1a44945e44283b82821df9ec30517bb527b0d5450eec1ecb0",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/network-chords-v1/launch.json",
+      "sha256": "779815783d107aa4e58db091cf21073ae0b3454c8d2c0d60127ac2464b79a826",
+      "seedCount": 1
+    },
+    {
+      "path": "build/bench/network-chords-v1/screen.json",
+      "sha256": "45f15fc9184a13e9d528eb3e63e92405faefdd353103a89e12a1b8fa8ccd3f97",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-single-cell-v1/ablation.json",
+      "sha256": "0713004cb2bc329682dcde744a1c4a83925ccad80ef4eb9e7688a5ba7c2ab9c1",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-single-cell-v1/decision.json",
+      "sha256": "9cf5afc2b6f1e826a222e742c362e7ef5a8e5c5e081f339acfaa8d8923caa2dc",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/network-single-cell-v1/launch.json",
+      "sha256": "92fe433df4fcd6d62853667ae76f5dbe00aba71a0a4261f9c5a2f5fab6dbfbf1",
+      "seedCount": 1
+    },
+    {
+      "path": "build/bench/network-single-cell-v1/screen.json",
+      "sha256": "5c77c359f56531b4754049afdd8e5b3a330e36ea0bcf8e699fb54d86fc01ef50",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/neural-v1/block1-decision.json",
+      "sha256": "1e9115f9b8cd662bfc5358195c0181f6561fcbd6d0b41b392d91706191c3f760",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/neural-v1/block1.json",
+      "sha256": "7b705f59255c300c9f6d6798a99c6f8bc8b9bb34a3014a405d59a5c2a0b0b4c9",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/neural-v1/block2-decision.json",
+      "sha256": "2bb78c974e9325dbba18a5c988dbd948328dcf21b9e9d947981b4355df210ddb",
+      "seedCount": 251
+    },
+    {
+      "path": "build/bench/neural-v1/block2.json",
+      "sha256": "be3ed74b8f81bef041a61e207faad2902bfe19fab251762102fe16f131057a1f",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/neural-v1/block3-decision.json",
+      "sha256": "0546d1dc343f78679375313a5e25d730cae83c7df3c22c9740c22571e102aea2",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/neural-v1/block3.json",
+      "sha256": "fcd7645fbee812e75c432677c2f7d5feaffaf81912d9142907f9ce931c733aaf",
+      "seedCount": 251
+    },
+    {
+      "path": "build/bench/neural-v1/decision.json",
+      "sha256": "ac7f298a173dfd87b1ccceee9327af1a2c5344d18696f974742a3f8a100c6aa9",
+      "seedCount": 541
+    },
+    {
+      "path": "build/bench/neural-v1/style-leader-v1.json",
+      "sha256": "57b8ad7f017686a47c4bd08443fe2506c938c1ca0cb0efc1d7daa7e633d340ba",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/neural-v1-smoke-v09.json",
+      "sha256": "a64f08237d6e24dd24ef908181151f3f28709c097ad91f0daa6f3b6cfb1f2e57",
+      "seedCount": 21
+    },
+    {
+      "path": "build/bench/neural-v2/block1-decision.json",
+      "sha256": "42b539ef87acd4da9d510a3e3e3bde368b79d3f5f56c2eba4649fb93b6c7a668",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/neural-v2/block1.json",
+      "sha256": "bff7eb61cfa032612504b23f40b06273a34192664da272b05d2a80da255f5b52",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/neural-v2/block2-decision.json",
+      "sha256": "bf1cacaa312b1657d66373d19b173c1e5a094f2718887f4f05c404cd61ff3d9c",
+      "seedCount": 251
+    },
+    {
+      "path": "build/bench/neural-v2/block2.json",
+      "sha256": "52296a7c5ccfaa4d72b98217c4e378c1503e5f7fb9e0f114620d8a2d175c3eed",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/neural-v2/block3-decision.json",
+      "sha256": "2bcd33dcb8614ceecd9eb6f712a107ec2f203d62e5acdabc59d2c7cbd656aa8a",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/neural-v2/block3.json",
+      "sha256": "46fc1bf2275eb3a26ac3e6707782ddfe6d8b08bb9cced59de90fd2ee9c461b75",
+      "seedCount": 251
+    },
+    {
+      "path": "build/bench/neural-v3/block1-decision.json",
+      "sha256": "a2ad9dbf17b6c46e3f9daad353ada20c36d5059137f38411d45742be9bb81bec",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/neural-v3/block1.json",
+      "sha256": "4f46612ca1d560e954406cade5acb2acb2b713a7668a4d206df348e2100cd39c",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/own-build-plan-v1/candidate-v02.json",
+      "sha256": "718d115ed1dbc2785da29d632e05e588af34234ef27694b6a7535c2dda17aafc",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/own-build-plan-v1/candidate-v05.json",
+      "sha256": "e805d2ee3a7af587021b25bd58bd88ad2dc9c60d81b2953ff269622f020cd621",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/own-build-plan-v1/control-v02.json",
+      "sha256": "bcb80df22a9fd0598e60e2dd576cf765fa399e603d94b420f1eafe9359301a42",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/paired-current-v02-replays.json",
+      "sha256": "f0df0fb4f0e6e0e04c7263c89e6c0e891de1be03c7c6d5de453a1b21561c3bec",
+      "seedCount": 21
+    },
+    {
+      "path": "build/bench/paired-current-v03.json",
+      "sha256": "0aade94c31d7647739a7f90ea58dd697a69deebebc731535b190eb847f59b8b1",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/panel-v1-v05-development/index.json",
+      "sha256": "7ce2908556c5de89f926a848f9ecba34da8c9cb67a3f4fcc125e238635e146d4",
+      "seedCount": 1
+    },
+    {
+      "path": "build/bench/panel-v1-v05-development/opponent-1.json",
+      "sha256": "79827bbed035616fc922a2fdf14406d9d1f5bdcd389a302608f701c315be4433",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/panel-v1-v05-development/opponent-2.json",
+      "sha256": "1db8871c308294986b9ef6692c98022111da3cdcb1b743cef8383e873a8db39f",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/panel-v1-v05-development/opponent-3.json",
+      "sha256": "5bf1788a5d7fc7204affc28a19e6d98bde1a3950eb59bf5a2a37c5437d32a585",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/quick-followup-early-v1/decision.json",
+      "sha256": "39500967a346a37012ff464e517606cf76b2f19be006c7a4d3cc61da1d48d8be",
+      "seedCount": 651
+    },
+    {
+      "path": "build/bench/quick-followup-early-v1/direct.json",
+      "sha256": "e6e65f97acc46b2c2e707d9a205d5f974d62d8279b887018766f6bb6f1f7b1cc",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/quick-followup-early-v1/screen.json",
+      "sha256": "6e4bf8cf4666bd6ec62b088396d8fbda6d9df5c7a18a463c16331185294ecca5",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/quick-followup-safe-v1/decision.json",
+      "sha256": "ec250af4029a9f7b0d991f91f5f3a1643218a67f57e840e30b555b6b9d2f3a05",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/quick-followup-safe-v1/screen.json",
+      "sha256": "82392d244ed67b84598346b0de98d4594b119253a95109ca3163c972f7940787",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/quick-followup-value-v1/decision.json",
+      "sha256": "f2c2768359720518d0633e2a919c3d3d099c3549cc7b7f51650badb4befffee5",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/quick-followup-value-v1/screen.json",
+      "sha256": "dedb4335e827e97443cc087caea3755b0a91b3506cb0273ecc529f0a1fbf8d69",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/quick-income-practical-v1/direct-1000.json",
+      "sha256": "ea15ba58a19630573bdd8b118516fbfe893543e6257185374fd49fda25017780",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/quick-income-v1/candidate-v05.json",
+      "sha256": "ce0b084f8f114212d34207873a498a64ee01a6196aaf0c16432b63d0ef1c4aea",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/quick-income-v1/candidate-v06.json",
+      "sha256": "669168ea5d6f57f274627f15d4e3063e25c0d82fcf7691418951e2b32a5c35fb",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/reply-rerank-k2r1-v05-gen10000.json",
+      "sha256": "a893d7dbf153895ec7349d6c16b207522055cfa7a97078b410d6c97336d814f4",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/reply-rerank-k4r1-v05-gen10000.json",
+      "sha256": "dcc22d1df9b827c4c2c82847e63f861f78f11395a9b726723ba8d5ec2fc14bc0",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/reply-rerank-smoke20.json",
+      "sha256": "5fc92a9a6b5ed65f110356b914e3513c718d954971d89a9008a86b7e9395b7fb",
+      "seedCount": 11
+    },
+    {
+      "path": "build/bench/reply-rerank-v05-cg428.json",
+      "sha256": "41bc9428a87dcaf472c3af53930bf568ff971c839b29e80b4c15866ae6461c2a",
+      "seedCount": 215
+    },
+    {
+      "path": "build/bench/reserve6-v02aggressive8000.json",
+      "sha256": "30878862f4b377f341b228c16d3df63181a05f5c9215f8934ac9025917b2c743",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/reserve6-v03-holdout5000.json",
+      "sha256": "3880453f7ea49d4deae44bede5a8f4ff3d528334fdd0ecb1027049b3938af4cf",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/reserve6-v04-cg.json",
+      "sha256": "518ea74ca1a6d8d151d699d3861a2dbdd56966d3daf6d34d8319ba1917db251e",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/reserve6-v04-confirm6000-2.json",
+      "sha256": "adb73f703d5d166dcdde2616c1651f8e7c39b414ec9f90020303e6fe009840eb",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/reserve6-v04-confirm6000-3.json",
+      "sha256": "0239f1951db096989b5dfa180a07e4255e081bf276b986815664e25401fcee81",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/reserve6-v04-confirm6000-4.json",
+      "sha256": "5b091c19234fe253422abb55be703d8c0c312bb83fc41d2c7756bd852f2e5cd3",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/reserve6-v04-confirm6000-5.json",
+      "sha256": "f0945c04f3f0845984684abceac25502da14c0b7f801fe02d956db3ba2ecbe50",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/reserve6-v04-confirm6000.json",
+      "sha256": "dee2c769b9861904e7c310aeb202aad0eb082f2b06c4b829964f6672d80c46df",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/rollout-confirmation-2x1000/combined.json",
+      "sha256": "3416e572775d6834727215886d15f9b3f2db83546f2465f397025671540b4eea",
+      "seedCount": 3
+    },
+    {
+      "path": "build/bench/rollout-confirmation-2x1000/run-1.json",
+      "sha256": "85835d5bbb4c70088de2971dfaec3f999088f6caf048d41724d16c985a5dacad",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/rollout-confirmation-2x1000/run-2.json",
+      "sha256": "572150fb6952df2b21057bd31c6c175be6d318e21c2e37e61001b8cab5999934",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/rollout-followup-diverse-v1/decision.json",
+      "sha256": "28b14fdaee424d7bcd59db0b797a7832827e1dac6d2e7e5959d59570d5aeba33",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/rollout-followup-diverse-v1/screen.json",
+      "sha256": "a708086dbd61911287a468c22c002a6fdbc3411135df54dde744a14fe187e3d0",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/rollout-followup-replan-v1/decision.json",
+      "sha256": "5a2167b9dd2c3629b360190997dfe29f1464bbfb5afbf8fc1424896dad2ac29b",
+      "seedCount": 651
+    },
+    {
+      "path": "build/bench/rollout-followup-replan-v1/direct.json",
+      "sha256": "32779e6e9c3484aa202e2b630db4d4090cf2795500888692dbf6c20bdbe249dc",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/rollout-followup-replan-v1/screen.json",
+      "sha256": "ebf01b66a1820af75a128867d8978430413f0fd10e017af2ae1ab44513816501",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/rollout-followup-target-v1/decision.json",
+      "sha256": "76dc459ed2c3f98eac34347e59341191da2caaf99c811fabb4df15b24f16a79a",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/rollout-followup-target-v1/screen.json",
+      "sha256": "9f0cd9ecadd0e2e713307f714d05bf126342a7709377c8b6a6df53c7eff12713",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/rollout-v1/candidate-pressure.json",
+      "sha256": "f61127d1fade3557f42a4e5082d71b047b21c527a61b215fba0f288177a00a7f",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/rollout-v1/candidate-v03.json",
+      "sha256": "dde968314f4cb755e864c31a6622986e9aea4e99c3225feb0e8c5b6139736abe",
+      "seedCount": 101
+    },
+    {
+      "path": "build/bench/rollout-v1/candidate-v05.json",
+      "sha256": "aed6dff387b9aa820795bf7537c17a76cc00e9db689c23dc7cacfcfe565c65fb",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/route-dependencies-v1/decision.json",
+      "sha256": "e8b2f0ca478a885797f651de5c29e09269ff49428cf86b88a80190755a169951",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/route-dependencies-v1/launch.json",
+      "sha256": "f119f73677bd788ccd71efa516ba4c41c207ca33c2ae6c67550bdbc08325b8a1",
+      "seedCount": 1
+    },
+    {
+      "path": "build/bench/route-dependencies-v1/screen.json",
+      "sha256": "4c1214166ff1a26de9e82c05978f81ddd23112107e11f44fc68566be162d5f14",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/spread-construction-v1/ablation.json",
+      "sha256": "12f083290d9b40b4ed6fbe51435cc35d03c9dbc411d1871910fba3e1e5246e27",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/spread-construction-v1/decision.json",
+      "sha256": "1c6e2f2a913e35bb799c50a832acaf4188a9cc081ffe82dbb9269ad9423000d1",
+      "seedCount": 651
+    },
+    {
+      "path": "build/bench/spread-construction-v1/direct.json",
+      "sha256": "1eb19041fedf3401b2dab1c842a5dc24ed31ae4aaf6007310e1764364ecccba0",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/spread-construction-v1/screen.json",
+      "sha256": "64b17b9762d8fffaa08ffbf96636a6bc9ad7f2f2b9a1db262508556ab9d3ca16",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/strategy-search-v1/launch.json",
+      "sha256": "32fd761499a43b81d950a8b73dbb5ded07b509e0094db15d07bb9ec3d6caa33b",
+      "seedCount": 41
+    },
+    {
+      "path": "build/bench/strategy-search-v1/opening/decision.json",
+      "sha256": "0e9bc946dcdef76486dc0f588e9921f80a72e4c5b80b155daa04081d5d20bec4",
+      "seedCount": 191
+    },
+    {
+      "path": "build/bench/strategy-search-v1/opening/screen-decision.json",
+      "sha256": "62699c978306e101370a245d6c8df96e44febc0e5c8814aa79a347e011085254",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/strategy-search-v1/opening/screen.json",
+      "sha256": "31febc468afa1467e2874e77471f8537559b45cf4e25cffcd2781f0549989cc0",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/strategy-search-v1/preflight-inputs.json",
+      "sha256": "9a6ff5d95f52a77e017ae9853b1f6cc3120933cf3a5f55d9fd04b3136cf8a311",
+      "seedCount": 41
+    },
+    {
+      "path": "build/bench/strategy-search-v1/rhea/decision.json",
+      "sha256": "234ecb42de3f25d4bf6a3a1239c987b23b94ba779e01ee652dc4a4be3da24f51",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/strategy-search-v1/rhea/screen-decision.json",
+      "sha256": "234ecb42de3f25d4bf6a3a1239c987b23b94ba779e01ee652dc4a4be3da24f51",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/strategy-search-v1/rhea/screen.json",
+      "sha256": "4e4748173500fe9c90d8d6cfa55d932ee406bff752a9042935bb19200eb505b7",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/track-value-v1/both-screen-decision.json",
+      "sha256": "6252421b1eddf69c3edb2acbe24474c62133abe120a73c60375c2b344dee70be",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/track-value-v1/both-screen.json",
+      "sha256": "11e7b9c44b42015b5b31f1ccf3a8028c1f2ed263f6d9becba64069286536cb1e",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/track-value-v1/self-direct-decision.json",
+      "sha256": "8e9105232d1250b42c6dcf93ba8f46a3f7f89ad6505b1977dfae36e3cd486828",
+      "seedCount": 651
+    },
+    {
+      "path": "build/bench/track-value-v1/self-direct.json",
+      "sha256": "5dcd5baea5cefdf1d063c4dcb271c7c2a63f797d1b44e75a6c912111efd8e909",
+      "seedCount": 501
+    },
+    {
+      "path": "build/bench/track-value-v1/self-screen-decision.json",
+      "sha256": "0c3e4aa2fe6b0fe4b18892adcc08b06566defbab61009ae9a1373e865932b15d",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/track-value-v1/self-screen.json",
+      "sha256": "5420ead6e6a05e8fba253f7cf45cb55c8c1fa1ea214fe526d540b8f4e2a94ac6",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/v03-v02-control.json",
+      "sha256": "af4d8b4621c6de131c470f2f93c60358786aaec81c9e224fdebaa830cbbf2b16",
+      "seedCount": 51
+    },
+    {
+      "path": "build/bench/v04-v02aggressive8000.json",
+      "sha256": "112fe26d8998d49a421d8940b36b353b6959505f4af583824dc37daa5bed9d2c",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/v04-v03-cg-4000.json",
+      "sha256": "b545486c3b70bde4e730b8dd583db9060b1048c54ec97e74699bc7cdf2f8fc89",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/v04-v03-holdout5000.json",
+      "sha256": "72eacf94fcd76503ae3d2a8948bd5123e7eeb418c4c6277f59b1ddf73eead2c8",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/v04-v03-legacy-4000.json",
+      "sha256": "d5144890d5c07326a529efbc7ecd47ff27893231a04e59062a86ab2c3c496378",
+      "seedCount": 151
+    },
+    {
+      "path": "build/bench/v05-v02aggressive-gen14000.json",
+      "sha256": "f34e3c016d30222dac19e4d617a49a4db8c9cb27cfeaffe4fe860502b93c4b9d",
+      "seedCount": 101
+    },
+    {
+      "path": "build/cg-boss/chords-v07-boss-40/plan.json",
+      "sha256": "76daa81abb87f2846674a2707a3bb07451a67aa6b00d3d236a1af8bdff897d66",
+      "seedCount": 41
+    },
+    {
+      "path": "build/cg-boss/fill-v1-boss-40/plan.json",
+      "sha256": "4fa38be2420a6dbe472d28d34ddbe535d3ea30bd33d180b571d429bcfc509f14",
+      "seedCount": 40
+    },
+    {
+      "path": "build/cg-boss/fill-v1-boss-40b/plan.json",
+      "sha256": "65f4e17455d5e503c70f3c8042b54927ef193a809e717c898c7a61dadd30ca6b",
+      "seedCount": 40
+    },
+    {
+      "path": "build/cg-boss/live-target-v1-boss-40/plan.json",
+      "sha256": "446f1471cf8274a49deaceaa70cf5ec7db441f8c82694cef354791e07280ce2e",
+      "seedCount": 40
+    },
+    {
+      "path": "build/cg-boss/neural-v1-boss-40/plan.json",
+      "sha256": "6a9bd6f6df2c978633f806acdc07287547c37a396ca1397f1a535f15850c82fd",
+      "seedCount": 40
+    },
+    {
+      "path": "build/cg-boss/smoke-api-error-diagnostic/plan.json",
+      "sha256": "8d3560efd05873e09162806ac53212fd8d47e21ac44725bb2e3e9a7bfb197b72",
+      "seedCount": 2
+    },
+    {
+      "path": "build/cg-boss/smoke-paired/plan.json",
+      "sha256": "2da55130edd0acdab1cc02d8ca8718e657a360210ea17760f171da32590f1cd5",
+      "seedCount": 3
+    },
+    {
+      "path": "build/cg-boss/smoke-v07/plan.json",
+      "sha256": "68bd9b0d6869b5ec481c662a5632b346f2e7c9ede4e60856de43addfa6af12ab",
+      "seedCount": 2
+    },
+    {
+      "path": "build/cg-boss/strategy-search-opening-v1/plan.json",
+      "sha256": "1f160f202b2c2cce80ee7ac8814479db02c5405a8b5fb7137adc93deb0bf800c",
+      "seedCount": 40
+    }
+  ],
+  "reservedCurrentLocalRanges": [
+    {
+      "start": 2600000,
+      "count": 150
+    },
+    {
+      "start": 2700000,
+      "count": 100
+    },
+    {
+      "start": 2800000,
+      "count": 250
+    }
+  ],
+  "replaySeedCount": 671,
+  "mapHashScheme": "cg-global-graphics-utf8-sha256-v1",
+  "mapExclusions": {
+    "existingKnown": 389,
+    "teacherMaps": 282,
+    "teacherAdditional": 282,
+    "total": 671,
+    "method": "existing make_plan called with in-memory known_maps superset; frozen tool files unchanged"
+  },
+  "crossDomainLimitation": "CG graphics and local Protocol hashes are distinct schemes; local training/bench seed values excluded, not asserted cross-domain content equivalence",
+  "control": {
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\fill-v1",
+    "buildId": "4cda8b1b50de4f94009b658d6aa56d13f3ff9577168ae4395e85718668e55407",
+    "strategy": "current?USE_ROLLOUT_FILL=1",
+    "sourceSha256": "7d55b4fb9ec2968d34fcf4270bc17a9b63cc92d69371115c9dbd05f5cee653a2",
+    "classesSha256": "b5fcc1ba2f2fdd963cde82621e23bca5448fc9bd66e5d2f9a07d6038a92fb5b2",
+    "configSha256": "aed03344969c1845af2040d7c0def5d6afaaef723c4f54fb6c65c700ed9908e8",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\fill-v1\\process-check.json",
+    "processCheckSha256": "7e7887a052cedccd2aee693a8ee5e8db6f8cf824843afb074fedaed5df04a592"
+  },
+  "candidate": {
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\submit-neural-v3",
+    "buildId": "9158eae9029544f3b1984d543c36c1e5d3bd73bfbcbb5ba3a4f633a77da13267",
+    "strategy": "neural-v3",
+    "sourceSha256": "2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+    "classesSha256": "03dee7881823f85d76ca7a1a0b9371777d5afa9d27915bac5d659a3fa3411997",
+    "configSha256": "ab242b34c826aa5f024687c66c2a54e7160d5cea188f42453cc3df2eb9392624",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v3\\process-903510176.json",
+    "processCheckSha256": "9ca8d631fa78ce981f8ff80c93e0d797c62c5cf2a657abf1e9cab2a24560dbc5"
+  },
+  "controlAlias": {
+    "localControl": "v09",
+    "cachedSpec": "current?USE_ROLLOUT_FILL=1",
+    "buildId": "4cda8b1b50de4f94009b658d6aa56d13f3ff9577168ae4395e85718668e55407",
+    "laterDefaultFields": [
+      "INDRILL_INK_PENALTY"
+    ]
+  },
+  "candidateFullStrictPanel": [
+    {
+      "path": "build/analysis/neural-v3/process-903510176.json",
+      "sha256": "9ca8d631fa78ce981f8ff80c93e0d797c62c5cf2a657abf1e9cab2a24560dbc5"
+    },
+    {
+      "path": "build/analysis/neural-v3/process-904146009.json",
+      "sha256": "bdc43e71f5f9c6320fd490cd78dea0144f62ab265bf6b394aecccfbeae604445"
+    },
+    {
+      "path": "build/analysis/neural-v3/process-904148181.json",
+      "sha256": "66ae32fa1856b9072b8a4301b77e5899b0f4efad9769d6745b3c5b5712f6db76"
+    },
+    {
+      "path": "build/analysis/neural-v3/process-904147739.json",
+      "sha256": "d519783104dd7c8ebcd6be7328335d5a04a2180836721dbfb293e5550e711b71"
+    }
+  ],
+  "sourceTools": [
+    {
+      "path": "tools/boss_batch.py",
+      "sha256": "e0b5c88b2ea706393f0d15a4307f66ee286cdd3e9e41ba9c09749b0cf385077e"
+    },
+    {
+      "path": "tools/boss_cached.py",
+      "sha256": "4bad58e9f446cd522e8d4b22197c7b9a3aa1439cb5700aa6950b4037dd4c4a46"
+    },
+    {
+      "path": "tools/boss_api.py",
+      "sha256": "4eaacfa946a80a58bb59c645b8a70244896657ea0a3c6c4139f22eecd8d5410c"
+    },
+    {
+      "path": "tools/practical_gate_v4.py",
+      "sha256": "1b632549cf8bad373db1d8244d6d5b8c80249435c4553e803967659a5d6479f7"
+    }
+  ],
+  "sessionLocalValidation": {
+    "origin": "https://www.codingame.com",
+    "session_loaded": true,
+    "source_backup_present": true,
+    "source_sha256": "3c94f8ed5cd0cc16933e45b7fab7e8d48faafb9a1f52c952f601cd3fbcfc42c7",
+    "language": "Java",
+    "agent_ids": [
+      -1,
+      -2
+    ],
+    "play_type": [
+      "IDE_CODE",
+      "BOSS"
+    ],
+    "solo_league": false,
+    "game_options_present": false
+  },
+  "sessionLimitations": [
+    "Remote authentication expiry is not established by local inspection.",
+    "Imported original IDE source backup is hash-validated; later remote IDE edits cannot be checked locally."
+  ],
+  "liveExecution": {
+    "owner": "root",
+    "minimumCumulativeLocalGames": 500,
+    "localFutilityRequirement": "score >=50 percent at cumulative500",
+    "delaySeconds": 20,
+    "controlCommand": "python tools/boss_batch.py run --plan build/cg-boss/neural-v3-v09-refresh-40/plan.json --delay 20",
+    "candidatePlanCommand": "python tools/boss_cached.py plan --control-plan build/cg-boss/neural-v3-v09-refresh-40/plan.json --control-arm candidate --candidate build/submit-neural-v3 --candidate-check build/analysis/neural-v3/process-903510176.json --out build/cg-boss/neural-v3-boss-40",
+    "candidateCommand": "python tools/boss_cached.py run --plan build/cg-boss/neural-v3-boss-40/plan.json --delay 20",
+    "noAutomaticRetry": true,
+    "noArenaSubmission": true,
+    "noPromotion": true
+  }
+}

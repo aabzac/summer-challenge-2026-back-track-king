@@ -252,6 +252,8 @@ def load_plan(path):
     if plan.get('schemaVersion') != 1 or digest(encoded(plan)) != identity:
         raise ValueError('Plan has changed; refuse to run')
     plan['planId'] = identity
+    if 'adoptedRequests' in plan:
+        validate_adopted_requests(path.parent, plan)
     return path.parent, plan
 
 
@@ -401,7 +403,14 @@ def attempt_folder(folder, request_attempt=1):
 
 def validate_intent(folder, plan, slot, request_attempt=1):
     previous = read_json(attempt_folder(folder, request_attempt) / 'intent.json')
-    if (previous.get('planId') != plan['planId'] or previous.get('slot') != slot
+    foreign = previous.get('planId') != plan['planId']
+    if foreign:
+        validate_adopted_requests(Path(folder).parent, plan)
+        adopted = plan.get('adoptedRequests', [])
+        if (request_attempt != 1 or len(adopted) != 1 or adopted[0]['slot'] != slot['slot']
+                or previous.get('planId') != adopted[0]['sourcePlanId']):
+            raise ValueError('Foreign intent is not an explicitly adopted original request')
+    if (previous.get('slot') != slot
             or previous.get('sourceSha256') != plan['builds'][slot['arm']]['sourceSha256']
             or type(previous.get('requestAttempt', 1)) is not int
             or previous.get('requestAttempt', 1) != request_attempt):
@@ -410,6 +419,87 @@ def validate_intent(folder, plan, slot, request_attempt=1):
         validate_retry_authorization(folder, plan, slot)
         if previous.get('retryAuthorizationSha256') != digest((folder / 'retry-authorization.json').read_bytes()):
             raise ValueError('Retry intent is not bound to its explicit authorization')
+
+
+def validate_adopted_requests(directory, plan):
+    """Retain the first completed request when a default boss's canonical ID corrects its initial ID.
+
+    This never creates/replaces an intent. Both source evidence and its copied bytes remain
+    immutable, including the original plan ID; every game still passes normal canonical checks.
+    The narrow one-slot contract deliberately cannot adopt retries or discard earlier outcomes.
+    """
+    entries = plan.get('adoptedRequests')
+    if not isinstance(entries, list) or len(entries) != 1:
+        raise ValueError('Adoption requires exactly one explicitly pinned first request')
+    entry = entries[0]
+    if (not isinstance(entry, dict) or type(entry.get('slot')) is not int or entry['slot'] != 1
+            or type(entry.get('gameId')) is not int or entry['gameId'] <= 0
+            or entry.get('reason') != 'CORRECT_CANONICAL_BOSS_AGENT_ID'):
+        raise ValueError('Unsupported adopted request')
+
+    def pinned(pin, expected=None):
+        if (not isinstance(pin, dict) or set(pin) != {'path', 'sha256'}
+                or not isinstance(pin['path'], str) or not isinstance(pin['sha256'], str)):
+            raise ValueError('Malformed adoption file pin')
+        path = (ROOT / pin['path']).resolve()
+        if (not path.is_relative_to((ROOT / 'build/cg-boss').resolve())
+                or 'private' in path.relative_to(ROOT.resolve()).parts
+                or expected is not None and path != expected.resolve()
+                or digest(path.read_bytes()) != pin['sha256']):
+            raise ValueError('Adopted request source file changed or escapes its expected path')
+        return path
+
+    source_path = pinned(entry.get('sourcePlan'))
+    source = read_json(source_path)
+    source_body = dict(source)
+    source_id = source_body.pop('planId', None)
+    if (source.get('schemaVersion') != 1 or digest(encoded(source_body)) != source_id
+            or source_id != entry.get('sourcePlanId') or source_id == plan.get('planId')
+            or 'adoptedRequests' in source):
+        raise ValueError('Adoption source plan identity is invalid or already amended')
+    allowed = {'createdAt', 'planId', 'bossAgentId', 'adoptedRequests'}
+    if ({k: v for k, v in source.items() if k not in allowed}
+            != {k: v for k, v in plan.items() if k not in allowed}
+            or plan.get('requestBossAgentId') != -2 or plan.get('gamesPerBuild') != 40
+            or len(plan.get('slots', [])) != 40 or set(plan.get('builds', {})) != {'candidate'}
+            or plan.get('design') != 'independent'
+            or type(plan.get('bossAgentId')) is not int or plan['bossAgentId'] <= 0
+            or type(source.get('bossAgentId')) is not int or source['bossAgentId'] <= 0
+            or source['bossAgentId'] == plan['bossAgentId']):
+        raise ValueError('Adoption may correct only the canonical boss ID, never the fixed experiment')
+    slot = plan['slots'][0]
+    if slot.get('slot') != 1:
+        raise ValueError('Only the original first slot can be adopted')
+    old_folder, folder = source_path.parent / '0001', Path(directory).resolve() / '0001'
+    if folder == old_folder.resolve():
+        raise ValueError('An adopted request requires a separate new plan directory')
+    if any((source_path.parent / f"{s['slot']:04d}" / 'intent.json').exists()
+           for s in source['slots'][1:]):
+        raise ValueError('Other original requests exist; first-request adoption cannot omit them')
+    names = {'intent.json', 'play-response.json', 'canonical.json'}
+    files = entry.get('files')
+    if not isinstance(files, dict) or set(files) != names:
+        raise ValueError('Adoption requires the original intent, response and canonical bytes')
+    for name in names:
+        original = pinned(files[name], old_folder / name)
+        if (folder / name).read_bytes() != original.read_bytes():
+            raise ValueError('Adopted evidence is not a byte-identical copy of the original request')
+    for location in (old_folder, folder):
+        if any((location / name).exists() for name in
+               ('retry', 'retry-authorization.json', 'retry-amendment.txt', 'recovered-game.json')):
+            raise ValueError('Adoption cannot include a replacement/recovered request')
+    validate_intent(old_folder, source, slot)
+    if bound_game_id(old_folder) != entry['gameId'] or bound_game_id(folder) != entry['gameId']:
+        raise ValueError('Adopted game ID differs from the original play response')
+    raw = read_json(folder / 'canonical.json')
+    if replay_identity(raw)[0] != entry['gameId']:
+        raise ValueError('Adopted canonical identifies a different game')
+    outcome(raw, entry['gameId'], slot, plan['bossAgentId'])
+    identity = identify_build(raw, slot['seat'], ROOT)
+    if (not identity.get('retainedArtifactVerified')
+            or identity.get('buildId') != plan['builds'][slot['arm']]['buildId']):
+        raise ValueError('Adopted canonical does not identify the exact planned artifact')
+    return entry
 
 
 def unknown_422_original(folder, plan, slot):
@@ -640,8 +730,16 @@ def retry_metadata(directory, plan):
                          'originalErrorSha256': authorization['originalErrorSha256']})
         amendments.append({'slot': slot['slot'], 'authorizationId': authorization['authorizationId'],
                            'amendmentSha256': authorization['amendmentSha256']})
-    return {'protocolStatus': 'amended exploratory' if amendments else 'original fixed',
-            'attemptedRequests': attempts, 'authorizedRetries': len(amendments),
+    retry_count = len(amendments)
+    if 'adoptedRequests' in plan:
+        adopted = validate_adopted_requests(directory, plan)
+        amendments.append({'kind': adopted['reason'], 'slot': adopted['slot'], 'gameId': adopted['gameId'],
+                           'sourcePlanId': adopted['sourcePlanId'], 'sourcePlan': adopted['sourcePlan'],
+                           'files': adopted['files'], 'outcomeRetained': True})
+    status = ('amended exploratory' if retry_count else
+              'canonical boss identity corrected; all requests and outcomes retained' if amendments else 'original fixed')
+    return {'protocolStatus': status,
+            'attemptedRequests': attempts, 'authorizedRetries': retry_count,
             'completedRetryGames': completed_retries, 'excludedAttempts': excluded,
             'protocolAmendments': amendments}
 

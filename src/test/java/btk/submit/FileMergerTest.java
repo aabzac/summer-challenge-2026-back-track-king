@@ -371,7 +371,7 @@ class FileMergerTest {
         assertTrue(source.contains("NOISE=0.1"));
         checkFrozenDecisions("neural-v1", true);
         assertFalse(FileMerger.merge("current").contains("NeuralFeatures"));
-        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v3"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v4"));
     }
 
     @Test void neuralV2SubmissionIsIsolatedAndMatchesCompiledPolicyDecisions() throws Exception {
@@ -390,6 +390,28 @@ class FileMergerTest {
         checkFrozenDecisions("neural-v2", true);
         assertFalse(FileMerger.merge("neural-v1").contains("NeuralV2"));
         assertFalse(FileMerger.merge("current").contains("NeuralV2"));
+    }
+
+    @Test void neuralV3DeadlineShipsOneFeatureCopyAndPreservesExistingArtifactIdentities() throws Exception {
+        String source = FileMerger.merge("neural-v3");
+        assertTrue(source.contains("static final class NeuralFeatures"));
+        assertTrue(source.contains("interface Deadline"));
+        assertTrue(source.contains("static final class NeuralWeights"));
+        assertTrue(source.contains("NEURAL_DEADLINE_RESERVE_MS=2"));
+        assertFalse(source.contains("NeuralV3Features"));
+        assertFalse(source.contains("NeuralV3Bot"));
+        assertFalse(source.contains("NeuralV2Weights"));
+        assertFalse(source.contains("DecisionChooser"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("neural-v3", true);
+        // The V3-only Param must not drift the completed V2 or the current merge at 1796158.
+        assertFalse(FileMerger.merge("neural-v2").contains("NEURAL_DEADLINE_RESERVE_MS"));
+        assertFalse(FileMerger.merge("current").contains("NEURAL_DEADLINE_RESERVE_MS"));
+        assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9", FileMerger.sha256(FileMerger.merge("neural-v2")));
+        // The retained default artifact 1df7c131... predates d8bd6bd's INDRILL_INK_PENALTY.
+        // Current already embeds that unused declaration/config entry at the V2 baseline;
+        // removing only those two fragments reproduces the retained normalized source exactly.
+        assertEquals("66559817e09dc2b3cfcf5e8ede8709a7c71797eb1eb2bdb41741470f372706a1", FileMerger.sha256(FileMerger.merge("current")));
     }
 
     @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {

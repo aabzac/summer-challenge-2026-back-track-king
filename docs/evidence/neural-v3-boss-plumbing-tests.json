@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v3",
+  "recordedAtUtc": "2026-10-03T20:10:43.843777+00:00",
+  "scope": "offline adoption and authenticated-owner lookup plumbing; no strategy or policy threshold change",
+  "finalStatus": "PASS",
+  "currentCoverage": {
+    "legacyBatchAndCachedTests": 46,
+    "newAdoptionAndOwnerTests": 10,
+    "totalDistinctTests": 56
+  },
+  "runs": [
+    {
+      "command": "python -m unittest test_boss_adoption test_boss_owner_lookup test_boss_batch test_boss_cached",
+      "workingDirectory": "tools",
+      "tests": 56,
+      "durationSeconds": 159.059,
+      "exitCode": 1,
+      "errors": 2,
+      "failures": 0,
+      "legacyTestsPassed": 46,
+      "newTestsPassed": 8,
+      "errorsExplained": "Only two new adoption fixtures incorrectly placed their source plan outside mandatory build/cg-boss. They were rejected by the intended production guard. Fixture location was corrected; no production change was needed."
+    },
+    {
+      "command": "python -m unittest test_boss_adoption test_boss_owner_lookup",
+      "workingDirectory": "tools",
+      "tests": 10,
+      "durationSeconds": 8.679,
+      "exitCode": 0,
+      "errors": 0,
+      "failures": 0,
+      "note": "All new tests rerun after fixture correction. Same final production source as legacy regression run."
+    }
+  ],
+  "coverage": [
+    "Original first loss retained exactly once; only39 subsequent plays sent for the40-game fixed sample.",
+    "Original intent, play response and canonical files remain byte-identical in both source and adopted copies.",
+    "Wrong or tampered source-plan, copied-file, request, slot, seed, game, source and plan pins are rejected.",
+    "Deleting an adopted intent cannot cause a replacement play. Other original played slots cannot be omitted.",
+    "Standard boss_cached control snapshot accepts the completed adopted control, retains its loss and revalidates original provenance after tampering.",
+    "Owner lookup changes only the canonical read second argument and preserves exact play object, code, options, timeout and input list.",
+    "Wrong owner, bootstrap hash, session handle, session cookie, puzzle type and missing/changed source backup fail offline.",
+    "Both batch and cached entry points persist a write-once owner binding with source pins. Transport is restored after failure."
+  ],
+  "actualPrivateBootstrapValidation": {
+    "status": "PASS",
+    "operation": "load_session then validate_owner only; no network",
+    "bootstrapSha256": "1c98ba1dc69c4743279a5026e883d6c8c8b3d9df319e84782848cf0a1853644d",
+    "sourceBackupSha256": "7d55b4fb9ec2968d34fcf4270bc17a9b63cc92d69371115c9dbd05f5cee653a2",
+    "credentialsOrSourcePrinted": false
+  },
+  "productionSourcePins": [
+    {
+      "path": "tools/boss_owner_lookup.py",
+      "sha256": "a26f15a6c02c3852c04b585888031db7fdf794af9d85a4a9f7ab75bed08ba8b5"
+    },
+    {
+      "path": "tools/boss_batch.py",
+      "sha256": "7fc6d56669bcdcc1c382a674b5d713b6aa8b4dea041100c79a2c0685d54f834b"
+    },
+    {
+      "path": "tools/boss_cached.py",
+      "sha256": "4bad58e9f446cd522e8d4b22197c7b9a3aa1439cb5700aa6950b4037dd4c4a46"
+    },
+    {
+      "path": "tools/boss_api.py",
+      "sha256": "4eaacfa946a80a58bb59c645b8a70244896657ea0a3c6c4139f22eecd8d5410c"
+    },
+    {
+      "path": "tools/replay_capture.py",
+      "sha256": "5a2b14c38dc30a5bf5687cfb00c1c27203d8db964adbbcf164ba48552c0fd2a4"
+    }
+  ],
+  "testSourcePins": [
+    {
+      "path": "tools/test_boss_adoption.py",
+      "sha256": "a194e75e6522b1de0a60b3a99358d68fa4b495401aa32fb2d99f02a7f3fdd1e8"
+    },
+    {
+      "path": "tools/test_boss_owner_lookup.py",
+      "sha256": "19c17ea7402d4340c6231bb0958865ee80a3c240547eda5f018cdd19ce9b8950"
+    },
+    {
+      "path": "tools/test_boss_batch.py",
+      "sha256": "a4077a9caada15f41f4e801ff5c8229329a184f46ab2324f2202744b6a83e5a4"
+    },
+    {
+      "path": "tools/test_boss_cached.py",
+      "sha256": "740d47c21e197016654b00f24d4059ba0fcf6bac9c1a85488ee90d39878b610f"
+    }
+  ],
+  "agentNetworkGameRequests": 0,
+  "productionSourcesFrozenAfterFocusedPass": true
+}

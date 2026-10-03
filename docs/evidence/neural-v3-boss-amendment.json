@@ -1,0 +1,200 @@
+{
+  "actualCanonicalBossAgentId": 6767608,
+  "additionalSmokeGames": 0,
+  "adoptedRequests": [
+    {
+      "files": {
+        "canonical.json": {
+          "path": "build/cg-boss/neural-v3-v09-training-40/0001/canonical.json",
+          "sha256": "dd11ec7a3d91acbc95810e3f3e29fdf18fc3c9ab1e827f082d2b1313313efa9f"
+        },
+        "intent.json": {
+          "path": "build/cg-boss/neural-v3-v09-training-40/0001/intent.json",
+          "sha256": "cb8801df97f28ab6def677de1be906ea027f539bfbf41a581f23a6839024b13a"
+        },
+        "play-response.json": {
+          "path": "build/cg-boss/neural-v3-v09-training-40/0001/play-response.json",
+          "sha256": "7906dafa8029a74583db0d08adc6bdba1bb214d31fdd020f1a351bbb433df7fa"
+        }
+      },
+      "gameId": 907056523,
+      "reason": "CORRECT_CANONICAL_BOSS_AGENT_ID",
+      "slot": 1,
+      "sourcePlan": {
+        "path": "build/cg-boss/neural-v3-v09-training-40/plan.json",
+        "sha256": "7bd26da137e98c66bb3a62f8423bb55f945c633ba74243d38c1b01907e05361d"
+      },
+      "sourcePlanId": "162d6f0840b4b6a9ef8c24565317c19a73ab5dad52570b5d697628c393182f28"
+    }
+  ],
+  "amendment": "Canonical boss identity and authenticated owner replay lookup",
+  "bootstrapBossInitialId": 6740207,
+  "bossSelectorUnchanged": -2,
+  "candidateRequests": 40,
+  "experiment": "neural-v3",
+  "firstGameRetainedOnce": {
+    "bossScore": 1761,
+    "controlScore": 1670,
+    "controlSeat": 1,
+    "gameId": 907056523,
+    "result": "LOSS",
+    "slot": 1
+  },
+  "firstReplayEngineAndFreshnessAudit": {
+    "actualBossAgentId": 6767608,
+    "actualBossName": "Boss 4",
+    "bootstrapPlanBossAgentIdAtAudit": 6740207,
+    "canonicalSha256": "dd11ec7a3d91acbc95810e3f3e29fdf18fc3c9ab1e827f082d2b1313313efa9f",
+    "command": "./gradlew.bat cgValidate neuralV2Verify \"-Ppath=build/cg-boss/neural-v3-v09-training-40/0001/canonical.json\" -Pmode=maps \"-Pout=build/cg-boss/neural-v3-v09-training-40/0001/shared-core-map.json\"",
+    "controlOutcome": "LOSS",
+    "controlSeat": 1,
+    "coreSourceSha256": {
+      "src/main/java/btk/core\\Action.java": "d6ec211f4e4ccb559de9b3420519749de1bde1e423932bd65a70a37278f9ac07",
+      "src/main/java/btk/core\\GameState.java": "96dfeb45b10a90517d8eec93dc0b9ce5624d2239348c237346f7ad1cc9162943",
+      "src/main/java/btk/core\\InkProjection.java": "32ced1f6f9a41650ab679c897248ba522839ed9d5110f0d154053747784e1785",
+      "src/main/java/btk/core\\NetworkCells.java": "8f253d578b56e30de3ea246514f6cafd501222767a67c600a1ba78e63d7f246b",
+      "src/main/java/btk/core\\NetworkChords.java": "9a0ddd5d6b8782e663d78d59742797c237a871ed0420b8072bd9d308fe6fea70",
+      "src/main/java/btk/core\\Pathing.java": "93f0ab4cf9f90f2a37d9794a69a60488183cb9f51c7458b4bbcd000e69f689f5",
+      "src/main/java/btk/core\\Protocol.java": "e98d8fbc901cf4a94b83017cd321411f39e3f72d915c524bd88d7db6aa1d1b26",
+      "src/main/java/btk/core\\Rules.java": "c05c75ccb105b5bb3eb2640a89ba29605e3fb2b89601635c41cd6ef91a122162",
+      "src/main/java/btk/core\\SearchState.java": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b",
+      "src/main/java/btk/core\\TacticalPathing.java": "b0b1e6b2e57e48e353b88b92583171bde3fbd8131e9892e2878238cc5af0b22a"
+    },
+    "engineValidation": {
+      "exactReplays": 1,
+      "exitCode": 0,
+      "output": "1/1 replays reproduced exactly",
+      "totalReplays": 1
+    },
+    "freshness": {
+      "benchmarkJsonFiles": 236,
+      "checkedSources": [
+        {
+          "maps": 15971,
+          "overlap": false,
+          "path": "build/bench/neural-v3/block3-excluded.json",
+          "sha256": "a5bfa556da389b1217d8b7978fc9c3e933455e9dc91a87ad6c6139773a14714d"
+        },
+        {
+          "maps": 250,
+          "overlap": false,
+          "path": "build/bench/neural-v3/block3.json",
+          "sha256": "27374b3223e8a7338adb4c3dee5778986e2abed90ddfbc38819780dacf865816"
+        },
+        {
+          "maps": 768,
+          "overlap": false,
+          "path": "build/bench/neural-v2-training-excluded.json",
+          "sha256": "f985ee569b51abffafb5959f37da234fb136a7dc18633a66015a769d96b5eeb5"
+        },
+        {
+          "maps": 3,
+          "overlap": false,
+          "path": "build/bench/neural-v2-probe-excluded.json",
+          "sha256": "9a513afc8711b76dd7c74a78b3897e12b3cc83e1c61118732d6dc1f8d17b92bc"
+        },
+        {
+          "maps": 380,
+          "overlap": false,
+          "path": "build/bench/neural-v2-corpus-excluded.json",
+          "sha256": "4bdb08661a8ce96cad7b45be85686728b3dbec7efd77baa4ddace1a39fba7f0f"
+        },
+        {
+          "maps": 192,
+          "overlap": false,
+          "path": "build/bench/indrill-q-training-excluded.json",
+          "sha256": "59eaebcbca81dc790c70aafe34bd1a8120d3aceae6ecb653b905f148a13ccda2"
+        },
+        {
+          "maps": 960,
+          "overlap": false,
+          "path": "build/bench/indrill-q-v2-training-excluded.json",
+          "sha256": "5c95dad00c63db96d05fd5fdb65440d022c50e7807ed78418d8283946ee16147"
+        }
+      ],
+      "conclusion": "No overlap with retained prior training/corpus/probe/local map reports, including all neural-v3 strength blocks.",
+      "overlappingFiles": []
+    },
+    "gameId": 907056523,
+    "limitations": [
+      "Single exact replay validates this played game, not identity equivalence of boss agent IDs.",
+      "Plan bootstrap boss ID differs from canonical agent ID; caller must reconcile identity before remaining games."
+    ],
+    "mapHashScheme": "sha256-utf8-Protocol.initBlock(initialState,0)",
+    "modifications": "No strategy, core, weights, canonical replay or game outcome changed; only verification artifacts written.",
+    "requestBossAgentId": -2,
+    "schemaVersion": 1,
+    "scoreBoss": 1761.0,
+    "scoreControl": 1670.0,
+    "sharedCoreMapHash": "c65af402fe51d5adbcde07f438a8ed0b2896fb96df15cb391f85e283c601343d"
+  },
+  "newPlan": {
+    "path": "build/cg-boss/neural-v3-v09-training-amended-40/plan.json",
+    "sha256": "840f2885be5f3e059bb5696ff8686210d9befa82c902a8b45856de70cdf2f30a"
+  },
+  "newPlanId": "4c2f77df15b703827d1068f13994dc4e8214d6724ba461c29981389c98318c49",
+  "oldContestUnknownIntent": "Preserved separately without retry or a claimed game outcome",
+  "originalPlanId": "162d6f0840b4b6a9ef8c24565317c19a73ab5dad52570b5d697628c393182f28",
+  "ownerLookup": {
+    "agentAuthenticatedCalls": 0,
+    "agentGameCalls": 0,
+    "anonymousArgumentProblem": "Prior requests supplied null as second arg, unlike the logged-in official client. They were denied; no canonical success is claimed here.",
+    "arguments": [
+      "game ID returned by the already authorized play request",
+      "currently authenticated codinGamer.userId"
+    ],
+    "asset": {
+      "path": "build/analysis/neural-v3/public-app.2e41418e.js",
+      "sha256": "b175b9974156353adb4c4d0cd1e2448eda09672508891358e02e91a3056a251c",
+      "url": "https://static.codingame.com/app.2e41418e.js"
+    },
+    "dependencyInjectionOffset": 1386383,
+    "notRequested": [
+      "gameResult/shareReplay",
+      "any additional play",
+      "alternate user identities"
+    ],
+    "offsetScheme": "zero-based Unicode characters in decoded UTF-8",
+    "purpose": "official client read-only own-IDE replay retrieval after anonymous-context lookup was denied",
+    "schemaVersion": 1,
+    "service": "gameResult/findByGameId",
+    "serviceDefinitionOffset": 1384238,
+    "supportedInstance": {
+      "gameId": 907056523,
+      "ownerProvenance": "root verified logged-in aabzac and matching canonical userId; new puzzle bootstrap succeeded with this userId",
+      "ownerUserId": 1172955
+    },
+    "userIdGetterOffset": 2001680,
+    "verification": "Keep canonical result, map, seed, seat, boss, completion, errors and submitted build-marker checks unchanged."
+  },
+  "recordedAtUtc": "2026-10-03T20:08:05.324418+00:00",
+  "remainingControlRequests": 39,
+  "replacementRequests": 0,
+  "same40Slots": true,
+  "sameBuilds": true,
+  "sameMapExclusions": true,
+  "schemaVersion": 1,
+  "scope": "Metadata/access correction only; no strategy, artifact, schedule, map or outcome replacement",
+  "sourceImplementationPins": [
+    {
+      "path": "tools/boss_batch.py",
+      "sha256": "7fc6d56669bcdcc1c382a674b5d713b6aa8b4dea041100c79a2c0685d54f834b"
+    },
+    {
+      "path": "tools/boss_cached.py",
+      "sha256": "4bad58e9f446cd522e8d4b22197c7b9a3aa1439cb5700aa6950b4037dd4c4a46"
+    },
+    {
+      "path": "tools/boss_api.py",
+      "sha256": "4eaacfa946a80a58bb59c645b8a70244896657ea0a3c6c4139f22eecd8d5410c"
+    },
+    {
+      "path": "tools/replay_capture.py",
+      "sha256": "5a2b14c38dc30a5bf5687cfb00c1c27203d8db964adbbcf164ba48552c0fd2a4"
+    },
+    {
+      "path": "tools/boss_owner_lookup.py",
+      "sha256": "a26f15a6c02c3852c04b585888031db7fdf794af9d85a4a9f7ab75bed08ba8b5"
+    }
+  ]
+}

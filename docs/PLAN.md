@@ -652,5 +652,22 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       local645/1000 (64.5%) PASS; strict process1/8 failed (50.3003ms), boss not started.
 - [x] Record actual branch/outcome and any required boss-cache refresh/live stage; no automatic
       promotion. Commit the completed candidate, checks and results including rejection.
-- [ ] Separate runtime follow-up: keep neural-v2 weights, interrupt incomplete feature passes
-      safely and return completed legal actions; new version, process panel and fresh strength gate.
+- [x] Separate runtime follow-up: keep neural-v2 weights, interrupt incomplete feature passes
+      safely and return completed legal actions; neural-v3 strict8/8 and fresh621/1000 local pass.
+
+## neural-v3: deadline-aware retained neural policy (2026-10-03)
+
+- [x] Predeclare the single deadline change, 2-ms internal reserve, unchanged v2 weights,
+      fixed process panel and fresh practical-v4 seeds (`neural-policy-v3.md`).
+- [x] Implement isolated features/bot; verify interruption recovery and unlimited parity.
+- [x] Build and verify exact artifact, prior artifact identities, tests/engine and strict8/8:
+      406 tests,292/292 replays,max later process response40.1253ms.
+- [x] Complete one fresh practical-v4 evaluation versus v09:621/1000 (62.1%),zero errors,
+      500 disjoint paired maps; record actual readiness and the subsequent boss result.
+- [x] Commit the completed experiment, preserving original neural-v1/v2 and selected v09.
+- [x] Continue via the user-supplied permanent puzzle IDE; preserve old contest rejection,
+      pin owner replay access and actual Boss4 ID6767608, retain game907056523 as slot1 LOSS
+      through an immutable metadata amendment with the same40slots/builds/exclusions.
+- [x] Finish authorized fresh40 control +40 matched candidate boss games:15/40 vs11/40,
+      PASS. All80 replays exact, zero technical failures;40 maps disjoint from16,221 prior
+      maps. Combined v4 and readiness pass; candidate retained without promotion.

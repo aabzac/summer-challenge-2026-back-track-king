@@ -13,6 +13,9 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
+    /** V3-only cooperative deadline; excluded from other bots' config and emitted Params to preserve their artifacts. */
+    public int NEURAL_DEADLINE_RESERVE_MS = 2;
+
     /** Independent Indrill-style action-value policy: extra route cost per instability level. */
     public int INDRILL_INK_PENALTY = 2;
 

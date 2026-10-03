@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v3",
+  "recordedAtUtc": "2026-10-03T19:49:17.552094+00:00",
+  "explicitUserAuthorization": "User explicitly approved uploading v09 and neural-v3 source to CodinGame IDE for40+40 games, then supplied the training IDE continuation URL.",
+  "initialApprovalReviewBlock": "Pre-execution rejection; resolved by explicit user consent; original record retained in neural-v3-boss-pending.json.",
+  "oldContestAttempt": {
+    "planId": "c519a75e87fe9f84435b8bff3759e2ddf5279c927711810bccb1aadc5cb16aa2",
+    "planSha256": "52782900ca44ca53e593ae01eeb4ef6ad6188b0dd1cd276a8264597621fe2196",
+    "intent": {
+      "planId": "c519a75e87fe9f84435b8bff3759e2ddf5279c927711810bccb1aadc5cb16aa2",
+      "requestAttempt": 1,
+      "slot": {
+        "arm": "candidate",
+        "pair": 1,
+        "seat": 1,
+        "seed": "1132660295",
+        "slot": 1
+      },
+      "sourceSha256": "7d55b4fb9ec2968d34fcf4270bc17a9b63cc92d69371115c9dbd05f5cee653a2",
+      "startedAt": "2026-10-03T19:31:46.012046+00:00"
+    },
+    "error": {
+      "apiCode": 270,
+      "at": "2026-10-03T19:31:46.431840+00:00",
+      "message": "HTTP 422; response details redacted; request not repeated",
+      "requestAttempt": 1,
+      "retryAfterSeconds": null,
+      "status": 422,
+      "uncertain": true
+    },
+    "serverMessage": "It's too late to connect to the challenge.",
+    "confirmedCreatedGames": 0,
+    "confirmedCompletedGames": 0,
+    "returnedGameId": null,
+    "requestOutcomeConservativelyUnknown": true,
+    "retry": false,
+    "remoteSourcePersistence": "not independently verified"
+  },
+  "trainingMigration": {
+    "userSuppliedUrl": "https://www.codingame.com/ide/puzzle/summer-challenge-2026-back-track-king",
+    "newPlanId": "162d6f0840b4b6a9ef8c24565317c19a73ab5dad52570b5d697628c393182f28",
+    "newPlanPath": "build/cg-boss/neural-v3-v09-training-40/plan.json",
+    "newPlanSha256": "7bd26da137e98c66bb3a62f8423bb55f945c633ba74243d38c1b01907e05361d",
+    "same40Slots": true,
+    "sameBuilds": true,
+    "same671Exclusions": true,
+    "scope": "New supported puzzle context; no replay or modification of the old uncertain contest intent. No outcome-guided replacement.",
+    "bootstrap": [
+      "Puzzle/generateSessionFromPuzzlePrettyId [authenticated userId, exact user-supplied slug, false]",
+      "TestSession/startTestSession [returned handle]"
+    ],
+    "arenaDivisionId": 2611,
+    "bossAgentInitialId": 6740207,
+    "bossNickname": "Boss 4",
+    "league": {
+      "divisionIndex": 3,
+      "divisionCount": 6,
+      "divisionOffset": 0
+    },
+    "isSoloLeague": false,
+    "currentIdeBackupSha256": "7d55b4fb9ec2968d34fcf4270bc17a9b63cc92d69371115c9dbd05f5cee653a2",
+    "currentIdeBackupMatchesControl": true,
+    "oldSessionAndBackupPreserved": true,
+    "newSessionPrivate": true,
+    "newGamesBeforeThisRecord": 0
+  },
+  "publicClientEvidence": {
+    "schemaVersion": 1,
+    "purpose": "read-only public client evidence for permanent puzzle IDE bootstrap; no authenticated calls or source upload by audit agent",
+    "assets": [
+      {
+        "path": "build/analysis/neural-v3/public-runtime.7bab54f8.js",
+        "url": "https://static.codingame.com/runtime~app.7bab54f8.js",
+        "sha256": "0d7070a425142d8d255d5a62c5d4e559838a9962e482159efb6a60c9ff901a88",
+        "bytes": 9120
+      },
+      {
+        "path": "build/analysis/neural-v3/public-app.2e41418e.js",
+        "url": "https://static.codingame.com/app.2e41418e.js",
+        "sha256": "b175b9974156353adb4c4d0cd1e2448eda09672508891358e02e91a3056a251c",
+        "bytes": 2990983
+      },
+      {
+        "path": "build/analysis/neural-v3/public-ide.f71b4ccb.js",
+        "url": "https://static.codingame.com/ide.f71b4ccb.js",
+        "sha256": "1d9e3b9a62fe9d130ef397fc73b873614f0ef2f4fbde70ea5c04fe4355cab8c7",
+        "bytes": 347533
+      }
+    ],
+    "offsetScheme": "zero-based Unicode character offsets in decoded UTF-8 public assets",
+    "steps": [
+      {
+        "service": "Session/findSession",
+        "args": [],
+        "resultField": "codinGamer.userId",
+        "role": "official refreshSession optional authenticated identity lookup",
+        "appOffset": 1422615,
+        "userIdGetterOffset": 2001680
+      },
+      {
+        "service": "Puzzle/generateSessionFromPuzzlePrettyId",
+        "argsDescription": [
+          "authenticated codinGamer.userId",
+          "summer-challenge-2026-back-track-king",
+          false
+        ],
+        "resultField": "handle",
+        "route": "/ide/puzzle/:puzzlePrettyId?mode",
+        "appRouteOffset": 1532782,
+        "appServiceOffset": 1676883
+      },
+      {
+        "service": "TestSession/startTestSession",
+        "argsDescription": [
+          "handle from previous response"
+        ],
+        "appOffset": 1432297,
+        "backupFields": [
+          "currentQuestion.answer.code",
+          "currentQuestion.answer.programmingLanguageId"
+        ],
+        "puzzleFields": [
+          "puzzle.prettyId",
+          "puzzle.id",
+          "testType"
+        ],
+        "arenaFields": [
+          "currentQuestion.arena.division.arenaboss",
+          "currentQuestion.arena.league",
+          "currentQuestion.arena.arenaCodinGamer"
+        ],
+        "ideAnswerOffset": 189322,
+        "ideArenaOffset": 184482
+      }
+    ],
+    "playShape": {
+      "service": "TestSession/play",
+      "argsDescription": [
+        "new puzzle handle",
+        {
+          "code": "exact frozen artifact text after current code backup",
+          "programmingLanguageId": "Java",
+          "multi": {
+            "agentsIds": "-1 for IDE and -2 for current arena boss, ordered by fixed player seat",
+            "gameOptions": "seed=<fixed prospective seed> followed by newline",
+            "isSoloLeague": "division.bossBattleCount != null; do not assume false without checking",
+            "playType": "IDE_CODE and BOSS ordered by fixed player seat; BOSS requires arena boss metadata"
+          }
+        }
+      ],
+      "appOffset": 1432397,
+      "ideMultiOffset": 198158,
+      "idePlayTypeOffset": 199020,
+      "ideSoloLeagueOffset": 186239
+    },
+    "positiveBossFallback": {
+      "service": "Leaderboards/getCompatibleAgentsLeaderboard",
+      "argsDescription": [
+        {
+          "divisionId": "currentQuestion.arena.arenaCodinGamer.divisionId",
+          "roomIndex": "currentQuestion.arena.arenaCodinGamer.roomIndex"
+        },
+        "authenticated codinGamer.publicHandle"
+      ],
+      "appOffset": 1392568,
+      "roomOffset": 1438251,
+      "condition": "only if start response arena metadata lacks a positive canonical agent ID; use returned boss entry, never guess previous contest ID"
+    },
+    "limits": [
+      "Public client analysis confirms shapes, not the contents or validity of the users current session.",
+      "Prior contest request and its rejected response must remain unchanged.",
+      "A new session template changes sessionBindingSha256 and requires a prospectively frozen replacement plan, not editing the attempted plan.",
+      "No session handles, credentials, user code, or authenticated responses are stored in this public evidence."
+    ]
+  },
+  "officialEvent": "https://www.codingame.com/contests/summer-challenge-2026-back-track-king",
+  "catalogCaveat": "Public catalog search did not locate the game; the user-provided training IDE is available, so catalog absence was not an availability proof."
+}

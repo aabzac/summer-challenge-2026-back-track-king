@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v3",
+  "recordedAtUtc": "2026-10-03T19:24:35.435335+00:00",
+  "stage": "LIVE_BOSS_NOT_STARTED",
+  "controlPlanId": "c519a75e87fe9f84435b8bff3759e2ddf5279c927711810bccb1aadc5cb16aa2",
+  "attemptedCommand": "python tools/boss_batch.py run --plan build/cg-boss/neural-v3-v09-refresh-40/plan.json --delay 20",
+  "commandExecuted": false,
+  "networkRequestsSent": 0,
+  "newBossGames": 0,
+  "reason": "Automatic approval review rejected the command before process creation: explicit consent is required to send these specific private source artifacts to CodinGame because IDE test games save supplied source.",
+  "scopeAwaitingConsent": "40 fresh v09 control IDE games, then 40 neural-v3 games on the same maps and seats; 20-second pacing; no arena submission, promotion or push",
+  "candidate": {
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\submit-neural-v3",
+    "buildId": "9158eae9029544f3b1984d543c36c1e5d3bd73bfbcbb5ba3a4f633a77da13267",
+    "strategy": "neural-v3",
+    "sourceSha256": "2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+    "classesSha256": "03dee7881823f85d76ca7a1a0b9371777d5afa9d27915bac5d659a3fa3411997",
+    "configSha256": "ab242b34c826aa5f024687c66c2a54e7160d5cea188f42453cc3df2eb9392624",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v3\\process-903510176.json",
+    "processCheckSha256": "9ca8d631fa78ce981f8ff80c93e0d797c62c5cf2a657abf1e9cab2a24560dbc5"
+  },
+  "control": {
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\fill-v1",
+    "buildId": "4cda8b1b50de4f94009b658d6aa56d13f3ff9577168ae4395e85718668e55407",
+    "strategy": "current?USE_ROLLOUT_FILL=1",
+    "sourceSha256": "7d55b4fb9ec2968d34fcf4270bc17a9b63cc92d69371115c9dbd05f5cee653a2",
+    "classesSha256": "b5fcc1ba2f2fdd963cde82621e23bca5448fc9bd66e5d2f9a07d6038a92fb5b2",
+    "configSha256": "aed03344969c1845af2040d7c0def5d6afaaef723c4f54fb6c65c700ed9908e8",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\cg-boss\\artifacts\\fill-v1\\process-check.json",
+    "processCheckSha256": "7e7887a052cedccd2aee693a8ee5e8db6f8cf824843afb074fedaed5df04a592"
+  },
+  "planUnchanged": true,
+  "workaroundAttempted": false
+}

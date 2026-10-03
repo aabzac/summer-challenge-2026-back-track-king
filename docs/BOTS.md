@@ -104,6 +104,31 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Candidate: neural-v3 Deadline-Aware Neural Policy (2026-10-03, PASS / NOT_PROMOTED)
+
+Same exact neural-v2 weights; one fixed runtime change with a 2-ms internal reserve,
+cooperative feature/scoring interruption and retention of completed legal actions.
+No retraining or weight selection. Practical-v4 vs v09: **621/1000 (62.10%)**,
+blocks **194/300, 110/200, 317/500**, **PASS_1000**, zero game errors and 500 fresh
+paired maps. All **406 tests**, **292/292** replay validations and **8/8 strict
+process games** passed; max later process response **40.1253 ms**. The in-process
+strength bench separately recorded one 53-ms call (its summary does not identify
+the turn); this is not a hard real-time guarantee. No process or strength retries.
+Exact Player:92,497 characters, source2aee3ffe..., build9158eae9.... V1/V2 remain
+unchanged; the selected default artifact is preserved.
+
+Authorized live comparison completed in the permanent puzzle IDE: **neural-v3
+15W/25L versus v09 11W/29L**, each 40 games on the same maps/seats against Boss4
+agent6767608. Nine losses became wins and five wins became losses; net +4/40.
+All **80/80** new replays reproduce exactly, zero technical failures, no retries
+or excluded training games. All 40 maps are disjoint from 16,221 prior maps.
+Practical-v4 **PASS**, exact-artifact readiness passed; **not promoted**, v09 stays
+selected. The earlier rejected contest intent remains unresolved and preserved
+separately; the first training loss stays slot1 through an immutable boss-identity
+amendment. [Protocol/results](neural-policy-v3.md), [final boss/combined audit](evidence/neural-v3-boss.json),
+[local strength](evidence/neural-v3-v4.json), [verification](evidence/neural-v3-verification.json),
+[historical boss interruption](evidence/neural-v3-boss-interrupted.json).
+
 ## Candidate: neural-v2 Outcome Fine-tuning (2026-10-03, LOCAL_PASS / PROCESS_NOT_READY)
 
 The separate experiment **neural-v2** is predeclared in
