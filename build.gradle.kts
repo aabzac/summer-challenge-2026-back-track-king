@@ -167,6 +167,26 @@ tasks.register<JavaExec>("neuralV2Verify") {
         prop("weights", "build/analysis/neural-v2/weights-0.json"), prop("out", "build/bench/neural-v2-corpus-excluded.json"))
 }
 
+/** Per-head exploration follow-up; retained V2 collection remains unchanged. */
+tasks.register<JavaExec>("neuralV4Collect") {
+    group = "game"
+    description = "Collect neural-v4 decisions with sabotage T=1 and construction T=0.5"
+    mainClass.set("btk.tools.NeuralV4Collect")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("games", "192"), prop("seed", "3100000"), prop("weights", "build/analysis/neural-v4/weights-0.json"),
+        prop("out", "build/analysis/neural-v4/round-1"), prop("sabotageTemp", "1.0"), prop("buildTemp", "0.5"))
+}
+
+/** Register existing maps or compare fixed probe rows with the new generated weights. */
+tasks.register<JavaExec>("neuralV4Verify") {
+    group = "game"
+    description = "Write-once neural-v4 corpus exclusions or generated-weight numerical parity"
+    mainClass.set("btk.tools.NeuralV4Verify")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("mode", "maps"), prop("path", "replays/cg-indrill,replays/cg/boss,replays/cg/903510176.json"),
+        prop("weights", "build/analysis/neural-v4/weights-0.json"), prop("out", "build/bench/neural-v4-corpus-excluded.json"))
+}
+
 /** Local terminal-outcome data for the independent Indrill-style action-value model. */
 tasks.register<JavaExec>("indrillCollect") {
     group = "game"

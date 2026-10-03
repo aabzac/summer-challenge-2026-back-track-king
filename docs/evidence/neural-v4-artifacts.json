@@ -1,0 +1,1085 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v4",
+  "archive": "docs/evidence/neural-v4-artifacts.zip",
+  "sha256": "7e5fcd8c0bb09d80e6fb335ccdabf55d1101eaf1b1c51d64908f4e371d564c98",
+  "bytes": 1788382,
+  "files": [
+    {
+      "path": "bench/pools/neural-v4-block1.json",
+      "bytes": 160,
+      "sha256": "e9d17e8923f909b659d575afa0575679dbb55c9f40677f6fa0399c91f025b20a"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/budget-probe.json",
+      "bytes": 992161,
+      "sha256": "56b76900d5b9f10d9e80688737cfa521946a102a43e9798766527dcaceed35bf"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/budget-probe.json.intent.json",
+      "bytes": 5606,
+      "sha256": "9fd1b28738649b4c0fa59ba242ab271ddc618fbcc484c1003f6f5988520cd752"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/budget-probe.log",
+      "bytes": 1507,
+      "sha256": "79888f1c70585a0e24a4828af0ea11a4417e87971dbd65d05e0d1f0c9a61c969"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/ending-audit.json",
+      "bytes": 18802,
+      "sha256": "e1a4fc0f0d43594f5fa5466c17e47abb6c98dd05a3aff10190fa9a0211be6980"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/player-study.json",
+      "bytes": 3474870,
+      "sha256": "4b6b072bb65b2e413d462ff5c5bc275db5b616c60a4f3b786a2891db1f97ec33"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/summarize_budget_probe.py",
+      "bytes": 4526,
+      "sha256": "cdbfd0324b873ffe46f386f56261ddff5ae4d856bf5d57eecb937681893b4a31"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/validation.log",
+      "bytes": 36,
+      "sha256": "31b27520725bba50852928b87c75b556d59093797d42665e6bd0e11ebdc16b88"
+    },
+    {
+      "path": "build/analysis/neural-v4/archive_evidence.py",
+      "bytes": 3072,
+      "sha256": "fb8eced45f6dbcb52467fa09e8658f6bd233554e676fdc40193e674007a405b3"
+    },
+    {
+      "path": "build/analysis/neural-v4/audit.log",
+      "bytes": 622,
+      "sha256": "16a42d3ce01471845827839951724c3d9112ceb986c7d1f401e5ce809d044f69"
+    },
+    {
+      "path": "build/analysis/neural-v4/audit_strength_result.py",
+      "bytes": 16120,
+      "sha256": "acb4f5d4c4dbbea2e24efb1aa6a256d5b504dffc38da0a12312b373473ce7548"
+    },
+    {
+      "path": "build/analysis/neural-v4/bootstrap.json",
+      "bytes": 13728,
+      "sha256": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe"
+    },
+    {
+      "path": "build/analysis/neural-v4/checkpoint-8.npz",
+      "bytes": 96313,
+      "sha256": "cbad6ada6f0ff6b34c412b57442e6c609af85055ade8d2e0ce2fe5904f0bd8eb"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-1.log",
+      "bytes": 1079,
+      "sha256": "89f7873ccc2f99968dd6647d1deddcd59b39b2d4eda855feffc6c026c2feeb24"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-2.log",
+      "bytes": 1078,
+      "sha256": "7ea182b4552c50cbb427026bfd7e0542a5c0801e2e4b49234dc6835eb2373293"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-3.log",
+      "bytes": 1078,
+      "sha256": "08ede647f8e033cbfb67bb86b205f8a44d044d070c18f02c10d50e42c6842cd4"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-4.log",
+      "bytes": 1076,
+      "sha256": "c6c19a2427d2a7198f5120dc12c25951f8df875227ac66ac92f028a9f3686f2f"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-5.log",
+      "bytes": 1080,
+      "sha256": "f779652f3badac12587360faf41ec5d74ddbaea0aafe377e088bb32c727128f1"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-6.log",
+      "bytes": 1079,
+      "sha256": "0f62b46d35fc398eec1dfcd5620f3bdc973adff31483ea544facebc6474bd877"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-7.log",
+      "bytes": 1077,
+      "sha256": "d192802ff4ca3c709f4f05996c90853f2dd7a6781aee255e888fcce52f83a621"
+    },
+    {
+      "path": "build/analysis/neural-v4/collect-8.log",
+      "bytes": 1078,
+      "sha256": "6077fb513022c5a4b8bb8a9dad428a9c703726f1f37cfdc09004d220ebb7bd48"
+    },
+    {
+      "path": "build/analysis/neural-v4/exploration-diagnostic.log",
+      "bytes": 2467,
+      "sha256": "2a0edf4e33ef373b743be2bfbae453af434e1bbbbd3c9b15f4c32f1c046f0c48"
+    },
+    {
+      "path": "build/analysis/neural-v4/exploration_diagnostic.py",
+      "bytes": 11630,
+      "sha256": "5b8c0d548905e6694b9a37eb70d0d3af51961e6b35bf0e63416c5f668c1e7eeb"
+    },
+    {
+      "path": "build/analysis/neural-v4/final-parity-java.json",
+      "bytes": 94042,
+      "sha256": "4414cd180bd2be6ea7e46d8d276441b2740a5d1016da711d033834202cab4df6"
+    },
+    {
+      "path": "build/analysis/neural-v4/final-parity-java.log",
+      "bytes": 277,
+      "sha256": "7979fa3618d6ff0fb4bfe3acba195d564a0f1b9d5da4eeb36d97bdc6f0d1123a"
+    },
+    {
+      "path": "build/analysis/neural-v4/final-parity-python.log",
+      "bytes": 1468,
+      "sha256": "a6258fd03edd3fe30260eea874e3fe47afecd7c49a6dec56d5fea901cc8dcec9"
+    },
+    {
+      "path": "build/analysis/neural-v4/final-parity-summary.json",
+      "bytes": 1468,
+      "sha256": "a6258fd03edd3fe30260eea874e3fe47afecd7c49a6dec56d5fea901cc8dcec9"
+    },
+    {
+      "path": "build/analysis/neural-v4/final-tests-engine-submit.log",
+      "bytes": 642,
+      "sha256": "1b61b69a044bfbf658b0513960a68577aa3846c0c76df2692aa9d99db6dcb3dd"
+    },
+    {
+      "path": "build/analysis/neural-v4/final_verification.py",
+      "bytes": 26787,
+      "sha256": "729b50052c93504fb42e0983d2bcdae294a0429592f49326f3993e215c22d73d"
+    },
+    {
+      "path": "build/analysis/neural-v4/fresh-map-preflight.json",
+      "bytes": 198856,
+      "sha256": "5a195473bfc5db428c50d55a1e0cddae48a0c2321ac11e38a8e605d4a9590c6c"
+    },
+    {
+      "path": "build/analysis/neural-v4/FreshMapPreflight.java",
+      "bytes": 3158,
+      "sha256": "7ff32591f34f075c3913da615f079660d8acbd3c0c9832bdf9fae9004d4b110e"
+    },
+    {
+      "path": "build/analysis/neural-v4/init.log",
+      "bytes": 80,
+      "sha256": "a20e096fd19e3a36bddd92b2e27f836f0830fdf0e3b7841826efbe8e72959348"
+    },
+    {
+      "path": "build/analysis/neural-v4/preflight/java-tests-cgvalidate-authorized.log",
+      "bytes": 301,
+      "sha256": "fbb007fa096eb0bb9fcb565ceb00d55ebd3d428c51ee7b73c83cdd2702e910e6"
+    },
+    {
+      "path": "build/analysis/neural-v4/preflight/java-tests-cgvalidate.log",
+      "bytes": 530,
+      "sha256": "739ea37ef36c85d1eb27d35e3344ba6c034ecbcc82423acc4ff5a0709336955e"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe/games.json",
+      "bytes": 1783,
+      "sha256": "ba32037068463eb319edf707d93f759cc52304538ff61fd680db2675a1f58f88"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe/meta.json",
+      "bytes": 19896,
+      "sha256": "50afe36ec88b3dcdf7732db0cfa6912e5fcc6ac4041ebb654fc8b15cc5e241f6"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe-collection-quoted.log",
+      "bytes": 261,
+      "sha256": "e90ecb69f2c5aa9a167732131b219f6b0c27be5935c956ac042cd606641132c9"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe-collection.log",
+      "bytes": 745,
+      "sha256": "dd8f8c3a9b27ad2b2299ca6c24b752dec2a30c4caf80e8781195f710580f6434"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe-java.json",
+      "bytes": 94175,
+      "sha256": "8c3cf432c680888d08d3d1600f84c1649f9ff9f3ccc5d693ea5af87304fbdf45"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe-parity-summary.json",
+      "bytes": 196,
+      "sha256": "576a6886085132899426d433149e527962e15d110c92a27b0ea5423e1e1f3929"
+    },
+    {
+      "path": "build/analysis/neural-v4/probe-python.json",
+      "bytes": 2330,
+      "sha256": "dda5c0d0bcd1c8a5486bb165d986297b1e82259ac9df6bf3a26a68f54572f69c"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-903510176.json",
+      "bytes": 52580,
+      "sha256": "49cb7930d2c6c511eaf00767c16c66c61c0d2e3522156c1bcdf339c3a62a0144"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-903510176.log",
+      "bytes": 812,
+      "sha256": "8488fab04a460d951882dea4409276fe4fc929db7bc6ad78df2e38bf8d3c71f4"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-904146009.json",
+      "bytes": 46122,
+      "sha256": "3c9e930f1911673703e984397e48dd5eb5c9f44794a31c90a040b19e613f30e9"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-904146009.log",
+      "bytes": 811,
+      "sha256": "c1ca6d6e96bb1df1e6a895c70f076879df4f57b8f088fd40dcb36f493a34ebd9"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-904147739.json",
+      "bytes": 40302,
+      "sha256": "6263e4db4a4965e5f2419d9671cde6f18a2465a8b40b87327f412a18b2c5b132"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-904147739.log",
+      "bytes": 809,
+      "sha256": "1ef711248bf80e00d6a7c6572ee00e31669179d624df1fe2de78c44d8ddd62c7"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-904148181.json",
+      "bytes": 38532,
+      "sha256": "65917557745b12521d2c31cd74ca01f40be66174f0dd1c5e3a5b58b2f24bff56"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-904148181.log",
+      "bytes": 1355,
+      "sha256": "f288efd63186f0d50dd2f1a73809229c82fd38232b4aa44950ae2faec138d145"
+    },
+    {
+      "path": "build/analysis/neural-v4/process-panel-index.json",
+      "bytes": 816,
+      "sha256": "d2005f57b75e279d871ee45b2568c322d2e1a3e4d47f981597503f1f999fb5de"
+    },
+    {
+      "path": "build/analysis/neural-v4/python-tests.json",
+      "bytes": 5735,
+      "sha256": "b6f94ab835f6f477a2404324feeb97b5c4a7946bfcdd5105d543f5b6eec14256"
+    },
+    {
+      "path": "build/analysis/neural-v4/python-tests.log",
+      "bytes": 2938,
+      "sha256": "f90d6972803c2fa05ffbbbd56d6f313403afef3c2c940bec2b24519ac96e423c"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-1/games.json",
+      "bytes": 57263,
+      "sha256": "3e331cf11b6e5aeeaf283c5e9ba3a5d805c4130cc758c52ff2f0cadef9141ab1"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-1/meta.json",
+      "bytes": 19907,
+      "sha256": "a871922d86367eb93c004c17cece65802109eca167d9cabb44bae4fd2a6351c3"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-2/games.json",
+      "bytes": 57221,
+      "sha256": "729f8187f9707342da623422b4ab95d4cccb3f4df15f47aea76def789d89ce81"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-2/meta.json",
+      "bytes": 19907,
+      "sha256": "326bb9b1ffc3416ed2c3862ad38b6af01cd5d26c0300b68f7f2fdf26e4312b23"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-3/games.json",
+      "bytes": 57239,
+      "sha256": "3ac8f1ebfb120aed1dc163eb71453410ddaa954eadf0ecc5b61ad5a7acbb0fd6"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-3/meta.json",
+      "bytes": 19906,
+      "sha256": "4507d4b7f29cd7581b43bb30ab324de2afa75f80c02ef557c882aa81b11abce7"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-4/games.json",
+      "bytes": 57237,
+      "sha256": "304a259f397046262731b3c348d8cab05504cc7b5b683d2f9b351829497e340e"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-4/meta.json",
+      "bytes": 19907,
+      "sha256": "ecb9e621d2fae86561ca5b6bcc27de31074c896b6c5c022c5ce5497c415c598e"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-5/games.json",
+      "bytes": 57257,
+      "sha256": "69f7d70403b7946eebab5908732232b2764a61c5168794c8c967988250e85931"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-5/meta.json",
+      "bytes": 19907,
+      "sha256": "708e436de133860bf009b0f6f42e4ed544999cab6b2fb6d612aa91544bd0a620"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-6/games.json",
+      "bytes": 57232,
+      "sha256": "63bf50256b82dccfa619184e39b1f7f36cad28a09fbb6bb51dd1d9234f072def"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-6/meta.json",
+      "bytes": 19907,
+      "sha256": "594cf50ba0756e775bbe0e51c2cacec9019c01c23efe4dcd4a2696c4652cc6c4"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-7/games.json",
+      "bytes": 57218,
+      "sha256": "6daf88271270a7a343eaefe7e5e88fe07e7d00152f48957710997e37864cc7e2"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-7/meta.json",
+      "bytes": 19907,
+      "sha256": "cb9da7a62ea4983872358d31187c280e57cae9f5b2a0226635db34d9b660099a"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-8/games.json",
+      "bytes": 57240,
+      "sha256": "9320a1fe7fecfca9e1894a1f30cde6fe6c0b047376dcd1c731b9e80bcb07ddb4"
+    },
+    {
+      "path": "build/analysis/neural-v4/round-8/meta.json",
+      "bytes": 19907,
+      "sha256": "61c7e3f7338bab6845d829e7cb7a09b8d08eb49dc942a8225a1a7c83db0a7dc0"
+    },
+    {
+      "path": "build/analysis/neural-v4/run_readiness.py",
+      "bytes": 2870,
+      "sha256": "d988497adc094626735a7aaf501b2d99e25a5b1d4286e38397bf267a8b5213df"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-1.json",
+      "bytes": 62378,
+      "sha256": "c475e46f7cf57e5b59e31774f8c0ad9e2feed7e7a907944fe9597e00e7117acb"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-1.log",
+      "bytes": 600,
+      "sha256": "694caaee2aeccf815eacf134cee067b75895a6cf9540e1af5767ffb3db071171"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-2.json",
+      "bytes": 62476,
+      "sha256": "4f4cae4c9c4a7a9fa409d077e7dd3277b170e3e0afe7b662404d1de3235687eb"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-2.log",
+      "bytes": 600,
+      "sha256": "a0283264b26719652295d4e09831f0c818de2ccbe9be5009f0d1df45fc98ec84"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-3.json",
+      "bytes": 62541,
+      "sha256": "eabce6a0c7619a2394fa9fc87d4d3cc863fa8e3f37189a96a2c6ad2da217070a"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-3.log",
+      "bytes": 600,
+      "sha256": "d615462b4f6c9e7e18024b7d996d1d4ee16eb8432924f3f27b9342c4640d2eba"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-4.json",
+      "bytes": 62361,
+      "sha256": "5f674db9b7460ab0cb1be509cd34699ca241b367fe934c91c540df4ab6e662a2"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-4.log",
+      "bytes": 601,
+      "sha256": "a64e51751244ac518a329166daf5584454d8be0103938fb0dcc1077f1b5c9f10"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-5.json",
+      "bytes": 62497,
+      "sha256": "59842c75a8c6a57b7de7f589bee6ae3a2f8db70a0ae8cae6084558631779ad80"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-5.log",
+      "bytes": 600,
+      "sha256": "061ff3f0d3ba8f8cbd9aaa517d615adcaeb40798bafb8c2faf9f42e458d118ef"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-6.json",
+      "bytes": 62573,
+      "sha256": "ff4bae5562372c4c05608ac229a2680a11054b2b1382f11189409dff4a7e2cf8"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-6.log",
+      "bytes": 601,
+      "sha256": "d2059b35f65684b50bb785b6b19cfb1b068213a4c994970ca349452a51282e21"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-7.json",
+      "bytes": 62401,
+      "sha256": "7fbe31b337a3a37406dd3e12a00682cc6f297c06b4ff1dca2d5ee6f498d99427"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-7.log",
+      "bytes": 601,
+      "sha256": "9b1879cf774c243219d935b11f44e05002430dc01ef60f8138372c1434b940da"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-8.json",
+      "bytes": 62478,
+      "sha256": "68968a87602b57f8143301f52d2664ac811129846535ac7437d8c34552c7fef9"
+    },
+    {
+      "path": "build/analysis/neural-v4/train-8.log",
+      "bytes": 601,
+      "sha256": "a147919508855f53af5a52bfdedd9f4c093794f006dfb4c0407bf7f36bc8293e"
+    },
+    {
+      "path": "build/analysis/neural-v4/training-complete.json",
+      "bytes": 58785,
+      "sha256": "66b9fc127b7ec3d7540a7c53ff118f01430826b04079bce5d27e022d3369961b"
+    },
+    {
+      "path": "build/analysis/neural-v4/training-plan.json",
+      "bytes": 16768,
+      "sha256": "f3706241774ce4b70d37a393d4dc35ed16c05406b55e0a1c1b8bcfea52cba69f"
+    },
+    {
+      "path": "build/analysis/neural-v4/v3-preserved-export.log",
+      "bytes": 543,
+      "sha256": "89a2d16f12e833256825240e4671b1621fd760b7354edd48c511fb5c9ed3433b"
+    },
+    {
+      "path": "build/analysis/neural-v4/verify_probe.py",
+      "bytes": 6253,
+      "sha256": "1499b03febef9627d0240a4368205af2c123cb4944691e00abd65beb210be790"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-0.json",
+      "bytes": 13728,
+      "sha256": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-1.json",
+      "bytes": 13728,
+      "sha256": "e8034f75370be1c7673a9ffbf8e2c2e459c1798dabf4de2709c327230c9e9f1b"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-2.json",
+      "bytes": 13728,
+      "sha256": "bcc7d79c17e6a9bd1896449c9dbd40b394b3d4e3096abe7979c80b3f37780ad2"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-3.json",
+      "bytes": 13728,
+      "sha256": "2e7d5faa77855dd51536ba9f4760a0046a0f5c0920f26539fcdfde582cb4e936"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-4.json",
+      "bytes": 13728,
+      "sha256": "a22d682e1b0b4793f68258b281d6343ce0b39e9408ef6b7d1e2846ff656a3ba6"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-5.json",
+      "bytes": 13728,
+      "sha256": "690e84785e0ed20df2a31e1a935059578ae8d3f58e6af15bed72a282f54b40f8"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-6.json",
+      "bytes": 13728,
+      "sha256": "798f64d914f5b46ee0dff942eeb5ef77aecd4b3a511f6660f71111eff7235646"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-7.json",
+      "bytes": 13728,
+      "sha256": "395d7a17be2eda7f4d4ba69abd37ae734671445fd86fd7e41123b79357ad4cc9"
+    },
+    {
+      "path": "build/analysis/neural-v4/weights-8.json",
+      "bytes": 13728,
+      "sha256": "4cf8303bf1bf800ba696fdb7d48941d17bca8512de5c704e16983050f23fd499"
+    },
+    {
+      "path": "build/bench/neural-v4/block1-decision.json",
+      "bytes": 222119,
+      "sha256": "bd2462d4d4a68b577294322cb6c34c24de84710189a52568d5475bc619775586"
+    },
+    {
+      "path": "build/bench/neural-v4/block1-excluded.json",
+      "bytes": 1284500,
+      "sha256": "073e73535af94f8b9c5a74c4ea0b8514ad00537bc8aded3c1163f7b205f8e699"
+    },
+    {
+      "path": "build/bench/neural-v4/block1.json",
+      "bytes": 283705,
+      "sha256": "3bd95fc649a94bae14f5b38eff10c4469bedad0fd192ef81e6b48c36b26ead06"
+    },
+    {
+      "path": "build/bench/neural-v4/block1.log",
+      "bytes": 2095,
+      "sha256": "9a80044a0a90f61dd1a107c8fef8f5759dfdc1bde454d5dcf45e850450a3abd4"
+    },
+    {
+      "path": "build/bench/neural-v4-corpus-excluded.json",
+      "bytes": 440055,
+      "sha256": "ba5abb84fd5150b0a359f27719767fc54a8f62dd78284728b7f6c08fcef129ab"
+    },
+    {
+      "path": "build/bench/neural-v4-probe-excluded.json",
+      "bytes": 516,
+      "sha256": "55b9a8d53e7854cf91e0dfdad6e497689a9fdf92b94880d22c3b4d6493c32aa8"
+    },
+    {
+      "path": "build/bench/neural-v4-training-excluded.json",
+      "bytes": 58643,
+      "sha256": "5a58755584932fb239eaaa251aa944fd3991d61497777e013b5ff6657599437f"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$1.class",
+      "bytes": 792,
+      "sha256": "0ce579f2c8954cdd7beab1fd6995bffdcb49d6a569de6e4a6ff63eaa3b1e2df3"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Action$Type.class",
+      "bytes": 1137,
+      "sha256": "d9c53856a12c91448c4ddc18b536ab8e6f2d8a57176072b7661e16016629f303"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Action.class",
+      "bytes": 4768,
+      "sha256": "a47cc8034ba91f73a196e3516d1e719a5e029dacbef209636fd0efd85b673faa"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Bot.class",
+      "bytes": 921,
+      "sha256": "c330d9e469f006b9c5c1d150e718e733a3a5e6d728150f5c3b4190ca363285b9"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$CGRunner.class",
+      "bytes": 5997,
+      "sha256": "cd90da732dec670beab9da06684da140580f82b31c6b1e4968524913ed0f689e"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$EvalBot.class",
+      "bytes": 21509,
+      "sha256": "8fc30d648a26d3a8d22c2440c1d58165b7c45b2aa48bfc4acb2cc190836b19d5"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$GameState.class",
+      "bytes": 5094,
+      "sha256": "4edcefe8913e9d1d8616a08e5a30f5a9abe25be070f1b99a9cac77f652a54011"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$MainBot.class",
+      "bytes": 5612,
+      "sha256": "1b5bab8ba04d9ada26408af6e6826b4a7e90221ee7534b98d92714e73537e144"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$NetworkCells.class",
+      "bytes": 1048,
+      "sha256": "322a77478cc3b28cac7171744faef95a687621d07743bdb48c62f2ba6f617476"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$NetworkChords.class",
+      "bytes": 1393,
+      "sha256": "52ded9a39cec3002b7201cebefb2da067124d853b35b864454a4d2a0be8035e9"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$NeuralFeatures$Deadline.class",
+      "bytes": 266,
+      "sha256": "a81a6a3380039834f969df27ed335b468b21abf48d0198a916e27733a2929863"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$NeuralFeatures.class",
+      "bytes": 19955,
+      "sha256": "a71e70ae549ffc1d5fa73e67c987c34da3cc578e8e480905f661beb2fe7f939c"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$NeuralNet.class",
+      "bytes": 2493,
+      "sha256": "ce7b5cc16ed215b0bbb05fe10f981615d2f629412cefc52af7d7c5081dcbc294"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$NeuralWeights.class",
+      "bytes": 14296,
+      "sha256": "c58dbec118b85309baee2f79e7a7ad541f8c4fa3973b137edac3d21f54d37dcb"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Params.class",
+      "bytes": 11127,
+      "sha256": "95f4d455186c847b067b8aa388333c53f72d18e001bb5d3d6a2c0547cb159319"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Pathing.class",
+      "bytes": 7012,
+      "sha256": "d5b738bf282797225b3ee1eda37048f53c4344b72ec1b0e029977e2456d23c6e"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Protocol$Init.class",
+      "bytes": 407,
+      "sha256": "a990a2098d3607b97b246f3213bfb0db3e09f68157624dc0ed06a6c675b88903"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Protocol$TokenReader.class",
+      "bytes": 1525,
+      "sha256": "669aff68a535b7011660ddaf881747ebf3ad7ce7273cb564136086a66c668ec6"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Protocol$TurnInfo.class",
+      "bytes": 400,
+      "sha256": "bfea2444fee9ed7df764c4690e58723e0207a105e498b6ac72676368a5733c70"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Protocol.class",
+      "bytes": 4856,
+      "sha256": "28ff2b69875bebbea7ac7add5efc606b3c8292888a6c98c1689e0fef723f4674"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Rules$PlayerMoves.class",
+      "bytes": 1054,
+      "sha256": "fc377da89c76728c10d42899de3ba8f4f1e748fd8ade4b8831a61bfc61b8945e"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Rules$TurnResult.class",
+      "bytes": 895,
+      "sha256": "3a06a2a1f41d698fd009b7ffcfcc05d3148a0ffcd803f4be559209ce93c89126"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Rules.class",
+      "bytes": 7907,
+      "sha256": "7ea8264f5afde41a5e884a100634e0d46ecd032f7a1c6d886e68aac17584a102"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$SearchState.class",
+      "bytes": 1977,
+      "sha256": "eb5dd805a078a378942379675bb037f6bd11540c63ee00cdad6043c611315833"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player$Timer.class",
+      "bytes": 809,
+      "sha256": "6b2aa124a78257415eec037da2738b8a5be3f3ecbd0bb648cd615c8c39d7898c"
+    },
+    {
+      "path": "build/submit-neural-v4/classes/Player.class",
+      "bytes": 1427,
+      "sha256": "170b68d908fb6c7b10283bdeed9cd99a474a0090489baf17b1a60e56c5191fa4"
+    },
+    {
+      "path": "build/submit-neural-v4/manifest.json",
+      "bytes": 4812,
+      "sha256": "098d9575e0c89d4c4c64b9bb78c16f5d08bc32157daebcad1d3565c05cb1af85"
+    },
+    {
+      "path": "build/submit-neural-v4/Player.java",
+      "bytes": 92518,
+      "sha256": "0b124a2d1e17d2b1b0448c26accca5bb63065672cb24318228733159105b5163"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.BotCatalogTest.xml",
+      "bytes": 1075,
+      "sha256": "95367f36708bc5e48cef075a4ff2637d0fae61bf657c55105af81031b9599aa3"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.BuildDirectionTest.xml",
+      "bytes": 995,
+      "sha256": "f357665deed02ff0596cbaaa004e2b42926e0e88bdaeaf322c9b6f4ee9ffeb6f"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.BuildIncomeGuardTest.xml",
+      "bytes": 576,
+      "sha256": "8030bcf3f4761695a42af210f29c992dec31c5c2ceee6c973a76119f734f4f21"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.DefensePriorityTest.xml",
+      "bytes": 1231,
+      "sha256": "ef14982b6b23c7c785ff1bc114437ca53c4da9356e2a1d8cf0691d1ffd28754b"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.EarlyDisruptFallbackTest.xml",
+      "bytes": 581,
+      "sha256": "ec452b2fd633cfcbbcf8b8ebfad13648a974cd0edcfefc908d07ee12db66476c"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.EvalBotTest.xml",
+      "bytes": 1172,
+      "sha256": "893834d9ec8bec9cb3e95ad8c9d83a9506d0a46ab69d11cde0f58a6162fe4adb"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.HeuristicBaselineTest.xml",
+      "bytes": 457,
+      "sha256": "945674b5866cc42679ced83ed0f0814cd7fd3d0c79a331ea9487d765613c2f84"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.HeuristicBotTest.xml",
+      "bytes": 1120,
+      "sha256": "0950a33d6705fff749afa7702f6060a6aca88572f544c515d041f6d04983a5eb"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.HeuristicDetourTest.xml",
+      "bytes": 1172,
+      "sha256": "f3355bcd81685e4bdb718bc1a49da5078caa83dafeef019e89f84df381b28685"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.InterruptedEvalTest.xml",
+      "bytes": 732,
+      "sha256": "11508e0c6ab0f7d3a927f0653155e58e490be402b6305f752878fe510551eafe"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.OwnBuildPlanTest.xml",
+      "bytes": 1426,
+      "sha256": "478928a6ffa8455ae0741e9ac5968254898c0dcdc0cbf344bd6884732a225709"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.ProtectedOpeningTest.xml",
+      "bytes": 1620,
+      "sha256": "af2334203d641f164a0165331c5a1c89deca37c955962b12140913efc1e0e9c9"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.ReplyRerankTest.xml",
+      "bytes": 566,
+      "sha256": "961abbaa9221e45b09f35555466d67d8b5fa19159fd76d4bc82e651d495e0d9a"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutBotTest.xml",
+      "bytes": 1577,
+      "sha256": "833f2f2b15c541f30e7ff3a58ec5f5d6f0c3d0a30a9844eb0fa26510ec03ef18"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutDiverseRepliesTest.xml",
+      "bytes": 637,
+      "sha256": "64c2bac3be9a576349cfef190f803bcf8ca28b0ca1ffe3ffc773ea5f8cc449d1"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutFillTest.xml",
+      "bytes": 764,
+      "sha256": "e21d1be17d489db75771d285a8922082cbec70e9ebbaa86529683a1e1507a7cb"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutLiveTargetTest.xml",
+      "bytes": 633,
+      "sha256": "66ce30d137115f235e4d2b2e6be007754d5b28b341ebf6c1d91744dcbe2d7ec1"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml",
+      "bytes": 1398,
+      "sha256": "81dfff9a9d5d47803e6f8ff5f4bf11de6b924bf0223d26f4d1d2afc2e154aa09"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutNetworkChordsTest.xml",
+      "bytes": 1063,
+      "sha256": "f5f37390178db0bfdd708c815030a7fd66cab6d2b82e05f9c2ec7a8a4c2d181a"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutNetworkTest.xml",
+      "bytes": 1206,
+      "sha256": "7fee8296ea4e478c12f902f027a2b2e48c38ab23c3737d50171af90a82277f41"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutOpeningIntegrationTest.xml",
+      "bytes": 814,
+      "sha256": "ce1090a2a61d83bd5e40a6cca753525b3474382e38306c1b19195407fb285ce0"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutQuickRouteTest.xml",
+      "bytes": 1361,
+      "sha256": "08e947e4927fb5bc0d518fa2d1801a1baf2a9628e678de2cce20a294936ecb44"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutReplanTest.xml",
+      "bytes": 605,
+      "sha256": "7f006962194dbf24d569e50102683c2ec95a791751bfa2c1cdc4183e7a77d6b6"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutRouteDependenciesTest.xml",
+      "bytes": 1280,
+      "sha256": "b601da2ca69ec1d0a174920ee35a56da5acfd55af8c284e19883626c5c2613f3"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutSecondTargetTest.xml",
+      "bytes": 630,
+      "sha256": "04163a6d1a84a11ea603ff43166c7f457b84185f628c2ae91ee2e0ff4df5e9b8"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutSpreadTest.xml",
+      "bytes": 1010,
+      "sha256": "a82e6b32c4bacaeecd75751182df4eb5e825d8c08e52774fdc1eb4aeff25d643"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutTrackValueTest.xml",
+      "bytes": 767,
+      "sha256": "204a6cad7ecf0dc21f66136b830813e7753a273f20bda591d578920774df9288"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.SabotageRegressionTest.xml",
+      "bytes": 468,
+      "sha256": "b436ca44f4a20276b436e9951a08dd3377b9c8111f79a35a1491222fd8c20014"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.FrozenParamsTest.xml",
+      "bytes": 2296,
+      "sha256": "b163f81618235c992adf6d2a2f14e5bf2ab406412ffbf3de782070d04dee992f"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.IndrillBotTest.xml",
+      "bytes": 1005,
+      "sha256": "cac4d3c921f1498969f34e16f4fcffda37f6435b718ad87c66263449bbdecb9b"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.IndrillV2BotTest.xml",
+      "bytes": 1135,
+      "sha256": "68d494e0dcdcef4f880b764d3ff97ae7d523254bcbd0177fb33f88cfd797a9ff"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.LeaderBot2Test.xml",
+      "bytes": 833,
+      "sha256": "a0c836ba100fb91f94cfb65d87e67f88c64ce597996656f1d4eb124c5b24b03c"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.LeaderBotTest.xml",
+      "bytes": 1006,
+      "sha256": "b8fac24b87e2149e1ed3a98665b0dffe57ee7208c48f3173759a569c1cc9dc02"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralBotTest.xml",
+      "bytes": 1050,
+      "sha256": "f204af3fdef83c4fb5deb6429d0ff252803c942e82bd6ef21e0b032faf46df02"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV2BotTest.xml",
+      "bytes": 853,
+      "sha256": "29b2f4c9244432fc12e4ce1cdf782a1d6a7f32f04c8e6264808603e9e64a96b3"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV3BotTest.xml",
+      "bytes": 853,
+      "sha256": "c711fdbb2f212dc2d777a8f10c2c47771a244e762c84ab634c28e99c68399392"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV3FeaturesTest.xml",
+      "bytes": 1031,
+      "sha256": "5bb10dcdc8db89e69e6457e639b824c878618320e1ffbe1db2239852ea6da251"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV4BotTest.xml",
+      "bytes": 598,
+      "sha256": "6b7f4059a6be273d2998c5c0cb75a9fc39f8cabfb237caea7342c6deed9b1044"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.PressureBotTest.xml",
+      "bytes": 838,
+      "sha256": "56603352e50d8bb4a4c9410053caa356bad651c9e7ba93746efa202190a3daca"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.RouteWarmupTest.xml",
+      "bytes": 909,
+      "sha256": "938d766b710a01063377431c0364af080e8db9ba05218b3ffde9d0a4ab156940"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.TimerTest.xml",
+      "bytes": 524,
+      "sha256": "182fba3fb4ba50cc55a9a65939842eeb463ac0b11aff5da75a1bced88d5e4514"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V06PromotionTest.xml",
+      "bytes": 577,
+      "sha256": "f82ef0c0931de0004f328d21f3f49ae414378769142999c0881d481292f8d679"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V07PromotionTest.xml",
+      "bytes": 700,
+      "sha256": "eda83ab33d59896ca3d2b23872282447fcd8f3f2b738644634f298e7a203486d"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V08PromotionTest.xml",
+      "bytes": 1015,
+      "sha256": "da36b16cd7bba867cf82a664a13ec8bdaa432a588f77be5b84a633c0ac1406ce"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V09PromotionTest.xml",
+      "bytes": 988,
+      "sha256": "0fdcc13e6c7136f2f5f322f8bf9020059d273554da5c668130871588725b87dd"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.InkAllProjectionTest.xml",
+      "bytes": 856,
+      "sha256": "45b5561ac00bc5a70fea7c7ced2af6eaba218581a3e719d0f4b2780c7e79454d"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.InkTest.xml",
+      "bytes": 793,
+      "sha256": "137e945d76fed275893b55d4254c1846679c980635438ce862870d920f239647"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.NetworkChordsTest.xml",
+      "bytes": 594,
+      "sha256": "a05c525c67bf24660d5827cf4e6f930c9ad5152dd7a8c209c96b0b2baba8a43e"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.PathingTest.xml",
+      "bytes": 824,
+      "sha256": "596ebebfb863101e885d2442227118e63d796eac9e995debf89a9fa387f6f2b7"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.ProtocolTest.xml",
+      "bytes": 506,
+      "sha256": "b4529fd7e48dda5bac1783e1c9e637e6ee3d614e6de9d4d0a7575dd949ca3b2d"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.RulesTest.xml",
+      "bytes": 1323,
+      "sha256": "86448136accb359147cf877822b96259a206b47978ead1caa637500597ebfd13"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.SearchStateTest.xml",
+      "bytes": 840,
+      "sha256": "1b61269725896c1d200746101d94ed2fa30497239afcc5a55eeb87e8a84b9b48"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.SingleCellConnectionsTest.xml",
+      "bytes": 1291,
+      "sha256": "4f5dff6d28a44488fe911b60e653c507e1765842ccc7e46092d320a7a3ffa80c"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.WeightedDistancesTest.xml",
+      "bytes": 1244,
+      "sha256": "971ffe2cf54c50691b9a3a4e18a61dd26c2dae5bfb996673f1e6837b20cd6937"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.referee.MapGeneratorTest.xml",
+      "bytes": 1605,
+      "sha256": "f8535aa65cabf78d129087b9d19ae88da5c685b08e76ae4d1f5540b0a5084869"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.referee.ReplayTest.xml",
+      "bytes": 658,
+      "sha256": "4fd4ba1f70a0746b5556ebb3dc71f51a4b568b91e0f8a0ffa7ab40586d3fbe6b"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BehaviorMetricsTest.xml",
+      "bytes": 449,
+      "sha256": "0c2245fb4bfa3ace3b55c8476a62f12ee15aed7b49b2f5c5e168ff7bc9367cb2"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BenchmarkRunnerTest.xml",
+      "bytes": 1323,
+      "sha256": "b6efc81cad1cf7266e98702a8e2a6e0a19d16d9fcfa20bc0c3be889d6875c409"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BenchmarkSuiteTest.xml",
+      "bytes": 1693,
+      "sha256": "027a907de43b70f0a23d10270dd66076af06671d3630d63dd0bcf15156b73e6d"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BenchPoolTest.xml",
+      "bytes": 789,
+      "sha256": "63a60878eb5826d994591141dcf3495da33f2d461a458e5f472e1ab9c4199193"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.ProcessBotTest.xml",
+      "bytes": 1691,
+      "sha256": "15ac16b1549dd31676bfad57f81136bdbc0c9cf75e85d58e1a3edd40f8232ff1"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.ProcessCheckTest.xml",
+      "bytes": 1200,
+      "sha256": "9712641445df0914849a63a40891c4c547826440b080f952573a6f5ee5e18457"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.TimingProfileTest.xml",
+      "bytes": 751,
+      "sha256": "b7369fc6b1debd9efe1b486b3a9f638a28e7fd0ea0db86e3677f8eed96e9cb34"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.submit.BuildProvenanceTest.xml",
+      "bytes": 869,
+      "sha256": "00386b19ae0d0bab5eb76660d7cac268c3ceb5dff16d11cb913fc0ea85766171"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.submit.FileMergerTest.xml",
+      "bytes": 3822,
+      "sha256": "51a28257d5a1e5e3f35165b9bf56dbeece7cc2584668b90a7dc7680399fcc69f"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgBossDefenseStudyTest.xml",
+      "bytes": 859,
+      "sha256": "92ec353e6b22c237cd3689b17a103a752fa780f62e1f939671df7614860afd00"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgDisruptStudyTest.xml",
+      "bytes": 1228,
+      "sha256": "1e9a6beb8eab9a72ab8824d205728c214d503401db218faf723d0aece6699e93"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgPlayerStudyTest.xml",
+      "bytes": 970,
+      "sha256": "dc368fd8ecd7e91ca88c9708d5d78acd146296b36f4be77e39e15d995bb5cb07"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgRenderSeedTest.xml",
+      "bytes": 1225,
+      "sha256": "9a04be4f51a35f86d9ece0795542dd646e879b202abdc7c7d5a7060cdbb7ce10"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgReplayPlayersTest.xml",
+      "bytes": 831,
+      "sha256": "af1e344a0f5f9b5d21c465b8a04c4d4e0fedeb7f83e3c2cd55775a9d6094d3be"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgReplaySeedTest.xml",
+      "bytes": 564,
+      "sha256": "1f833f2a77bea856a15cd49e1a3d38a72de7dcc57abe39cb746eea0d29c0cc5e"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgRolloutBossProbeTest.xml",
+      "bytes": 758,
+      "sha256": "19946fd634926f1b59096858f4d0396daecc8b336293255ff44f722c6f96e049"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgValidateTest.xml",
+      "bytes": 1279,
+      "sha256": "f78e13b44db60beb365916b5ce36af453a48b30aa4fb1c5f1bc3139caa802c01"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.JointActionTest.xml",
+      "bytes": 840,
+      "sha256": "c1b4b3ab352aa891a6b4d9e9f74db8dcf108041eb37e7bcf05b9927f1a313934"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.JointReplyStudyTest.xml",
+      "bytes": 1200,
+      "sha256": "dacaae4d331ea2b7255bc227c6f19f3dd97987d8c8e09ca887791e9876f57ec1"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV2CollectTest.xml",
+      "bytes": 702,
+      "sha256": "83175da6790e6bb0141e221d05afc04f970335017b7871c760b548004a426e9b"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV2VerifyTest.xml",
+      "bytes": 693,
+      "sha256": "cfeff8f41f49ebafa7ab319a1425b42ddc7f5511f40ce19f89e59dcb43501559"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV4CollectTest.xml",
+      "bytes": 707,
+      "sha256": "00827b918b878a542a50137e06657f6232f0744eba2831156f50332d303a42ec"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV4VerifyTest.xml",
+      "bytes": 695,
+      "sha256": "e4e58803e2bf94f540fd9e9eb92ef4c572c3b4bab495c4e01f70555a479ba30e"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.ReplayPathsTest.xml",
+      "bytes": 1085,
+      "sha256": "4e7d37e8658ef20398eada0073585158bf2647e9ce9066c5c4a218156781f47e"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.ReplyStudyTest.xml",
+      "bytes": 1420,
+      "sha256": "7cd21f63c3f8852638728094d2847c750e6058eeb07940600d530839284a3c8e"
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.SabotageForecastTest.xml",
+      "bytes": 989,
+      "sha256": "c76fd6f09cbc2dcafe8e15881b25925c6be9098d542e209c112fccc62d815c11"
+    }
+  ],
+  "scope": "Compact local evidence, final checkpoint/submission, helper sources and logs; no private sessions. Raw training arrays and canonical replays remain in the local ignored corpus; their hashes are retained."
+}

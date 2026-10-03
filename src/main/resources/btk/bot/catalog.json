@@ -114,6 +114,13 @@
       "description": "Exact neural-v2 weights and completed decisions with cooperative deadlines in features and scoring. Incomplete passes are discarded while earlier completed actions remain. Separate timing experiment; no retraining or promotion."
     },
     {
+      "id": "neural-v4",
+      "title": "Neural Lower Build Exploration",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Fixed outcome-training repeat from neural-v1 with construction sampling temperature 0.5, sabotage and teacher temperature 1. Unchanged neural-v3 deadline-aware runtime and features; new generated NeuralV4Weights. Separate unpromoted experiment; docs/neural-policy-v4.md."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

@@ -1,0 +1,1887 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v4",
+  "complete": true,
+  "auditTool": {
+    "path": "tools/neural/audit_outcome_v4.py",
+    "sha256": "3eaf94c31ce501d5ef9b37835d0ca59b1ca6a7791f7f91b352f533fb6b92ef7f"
+  },
+  "plan": {
+    "path": "build/analysis/neural-v4/training-plan.json",
+    "sha256": "f3706241774ce4b70d37a393d4dc35ed16c05406b55e0a1c1b8bcfea52cba69f"
+  },
+  "completion": {
+    "path": "build/analysis/neural-v4/training-complete.json",
+    "sha256": "66b9fc127b7ec3d7540a7c53ff118f01430826b04079bce5d27e022d3369961b"
+  },
+  "sourceSha256": {
+    "tools/neural/train_outcome_v4.py": "f041ddec21751e2139b20e0ddd36473f1a8f6ecadf87c23bac7d7da5f6d101df",
+    "tools/neural/train_neural.py": "460811a4b9e98a93110b1d276774f8d20b5f5f5809008c98726a85f853188c13",
+    "tools/neural/run_outcome_v4.py": "6246a5b9a98f5dadd5da7f352a50b26a87884952879739006cb0fc63d4176721",
+    "tools/neural/audit_outcome_v4.py": "3eaf94c31ce501d5ef9b37835d0ca59b1ca6a7791f7f91b352f533fb6b92ef7f",
+    "build.gradle.kts": "40eb43d2dafab78d521d3b2958afdba5b1d8dfd49be7f120cd791f0822fe8500",
+    "docs/evidence/neural-v1-training.json": "784bf68a439567b605b31a4987c4aa8a2e55e308b8786cb72ee72c1d8cba48e3",
+    "src/main/java/btk/bot/Bot.java": "21eb774e67a8ee5a3523b75be50fb11d61fcf36ce2d51975e6f5e97ce9162810",
+    "src/main/java/btk/bot/BotCatalog.java": "5204172a3385e8c60a9ff704d19e62de735881b9bdf77e2544393f465eb5cf63",
+    "src/main/java/btk/bot/BotFactory.java": "02ebf27239630121c05200b3f5c10b3709c3a478b0da5a19b0db8bb62680fa46",
+    "src/main/java/btk/bot/current/EvalBot.java": "4ca4f89ba8772b2144dd25511561fe8d90ec913ee55f8e5b9a2edc9cb0c757bc",
+    "src/main/java/btk/bot/current/HeuristicBot.java": "1d18dec99a5f516f8e42c81fc85da71a3475bb9bab588e5a3e31b073ba21d78a",
+    "src/main/java/btk/bot/current/IndrillBot.java": "0acabb20e52a2e18b20937abc3a36903a52a03f1311c57daa3adae1ea089b923",
+    "src/main/java/btk/bot/current/IndrillFeatures.java": "558ec06510a35f9bed94e2b95348331ab9875666f7648d6d94a5342cfee8ebbb",
+    "src/main/java/btk/bot/current/IndrillNet.java": "cca6393e9f7955c1cce652a4ccdcdc54fcc11026c964d655485886d51fa957ea",
+    "src/main/java/btk/bot/current/IndrillV2Bot.java": "e2ad3d7a0b3c25e446bdc3d0b5386f6f0af54fdbd36d585c923094fb0837581e",
+    "src/main/java/btk/bot/current/IndrillV2Net.java": "ce9c36ba252bc82b23740e58ac88fdbf1946d1aee000038d50a6005b14ca5415",
+    "src/main/java/btk/bot/current/IndrillV2Weights.java": "e8f5bc21ca62983884ab4bb1a68e2489ec272a211cb820100882dbfd94b05451",
+    "src/main/java/btk/bot/current/IndrillWeights.java": "be34ddd0ee48087a213934877ee7d4f3121a96fd1732ddb7c62349d377cea0fe",
+    "src/main/java/btk/bot/current/ProtectedOpening.java": "96c2de3a843439a57e2d12e63c5e83d3b5fc0b6278d875e36b4587d2424613d3",
+    "src/main/java/btk/bot/current/RolloutBot.java": "fd0c8023720dd71c03da75cab27f13d39d25b3919f722c365cca25cc10951464",
+    "src/main/java/btk/bot/FrozenParams.java": "b33f396c7adb74c88cf2ab81aa2a9ed42f83ff68f95f59a07b40ed5e61366d81",
+    "src/main/java/btk/bot/MainBot.java": "b4e94791c92a0452fc1fbc7f3172aaa820ed67e6fa0f04d7b4d56ad92086b584",
+    "src/main/java/btk/bot/neural/NeuralBot.java": "d22fe4d3970cd380f3bb569a5abb3d630c71c9f526fd9c3c1bd1ae6d23992a11",
+    "src/main/java/btk/bot/neural/NeuralFeatures.java": "532ca3757bb0bfe4a1ae5fdbb476c25bc1d3440eb74238d573aec52fb170fdc9",
+    "src/main/java/btk/bot/neural/NeuralNet.java": "ed09d83ad4e0a532f24ad54d2fa873bbb323be2f7ecb4548455ed22e0c87a814",
+    "src/main/java/btk/bot/neural/NeuralV2Bot.java": "51a84df44c332ac00d15aebd257373a8ba89bd41e91798d96d7a6f6284c92cba",
+    "src/main/java/btk/bot/neural/NeuralV2Weights.java": "bf650f1102323d73f77bb9e98a1a8c1472a20b11e599e5c145499cc9e4fa93e2",
+    "src/main/java/btk/bot/neural/NeuralV3Bot.java": "2a80412294734d6a1e56a6b05a9de14e4f47c39235fa3e293d98f1f0fd76b362",
+    "src/main/java/btk/bot/neural/NeuralV3Features.java": "d173b8f282ca5b0d877fabcb84cf6cd76658166afd1706bb7232d2b16c4398c6",
+    "src/main/java/btk/bot/neural/NeuralV4Bot.java": "a4b90d2ade9377f4adfdf91af69adeb2378cd2ad93011b3074a461066ad29751",
+    "src/main/java/btk/bot/neural/NeuralWeights.java": "6f7c0ea74be444e03f25444ccc51b37aaa8ed1c6588c112788659c95d62d3b29",
+    "src/main/java/btk/bot/Params.java": "1a113f2b79b300b6439dc25c5e38937a9620774bb18a8e4ecfe7afa0b7411352",
+    "src/main/java/btk/bot/reference/LeaderBot.java": "d9e779ab7aebd23e1a0461d35e50cb1fac60c7df12567056e513ad662fad4b5e",
+    "src/main/java/btk/bot/reference/LeaderBot2.java": "aa332c7e74e33d9524ede5e45d6ddf795e7a5dde48d5ddeb8792a2a01ab98db3",
+    "src/main/java/btk/bot/reference/PressureBot.java": "2df3e14f7f3affbb52fdebce430c1901575b9a7d13ca671d9bce80f2225d2243",
+    "src/main/java/btk/bot/RetainedEngine.java": "17fa7401a08693435da4c6161a3ec8f57d2ba16ed9095535282918854ae06eb0",
+    "src/main/java/btk/bot/Timer.java": "d18aadb0f092b1b4ef00aacde6cc76df4eaa9871e79f854bf9639f1b2fbe0bdd",
+    "src/main/java/btk/bot/v00/AutoplaceBot.java": "a5604bf9996db03d0cfc48614713ef3c9b4c42f48ba6299e5f64310814ac26e9",
+    "src/main/java/btk/bot/v01/GreedyBotV01.java": "4aba45f93963d1f75759ccbc2a3d56b1611e0bb3f0d8925a1004723566f9f67d",
+    "src/main/java/btk/bot/v02/EvalBotV02.java": "4b7f316c1f23ccc29ae5fa2500ad9a16cf19a08a58b4f701f9dfd274c40aadc7",
+    "src/main/java/btk/bot/v03/EvalBotV03.java": "fa9f71f7f943aaf4849d5020aa8da70f04ecbd6cd2308edb6a3349d0d5ced0b6",
+    "src/main/java/btk/bot/v04/EvalBotV04.java": "8359b8e4f4c9045ca51d5d8336d2236ecf81231e7a9d7dc1bfb152fb744f61df",
+    "src/main/java/btk/bot/v05/EvalBotV05.java": "ab63ab08f7574919594cad51bce89a9eb05cc46e6d637d042bf214347ec8ab38",
+    "src/main/java/btk/bot/v06/RolloutBotV06.java": "c917311ebda80a013eab1fadfc6a45853eda926bd738bba05ee16098dd9b148c",
+    "src/main/java/btk/bot/v07/RolloutBotV07.java": "eed64af714e5a1ec68211c749b0801c29a5cad15604bc3a3f9215578b2a6250c",
+    "src/main/java/btk/bot/v08/ProtectedOpeningV08.java": "b25add5c88c37dc382ea7f1a9382c5c5ecc59a3bef5c1d5baf57997ecf028009",
+    "src/main/java/btk/bot/v08/RolloutBotV08.java": "381df6f7c86ad11bba408e27342d5fd4abb41c70d80a1f9cc0e452e55bb5b9d3",
+    "src/main/java/btk/bot/v09/ProtectedOpeningV09.java": "8e41de9439fe078fab59a1d29ffb1d86439ac16ad74a7d4334780719fc109049",
+    "src/main/java/btk/bot/v09/RolloutBotV09.java": "2eff39dea3a9bf1dd9f4e69bc3cc61a8133da812dc494f3fe3e282ce1714e4b7",
+    "src/main/java/btk/core/Action.java": "d6ec211f4e4ccb559de9b3420519749de1bde1e423932bd65a70a37278f9ac07",
+    "src/main/java/btk/core/GameState.java": "96dfeb45b10a90517d8eec93dc0b9ce5624d2239348c237346f7ad1cc9162943",
+    "src/main/java/btk/core/InkProjection.java": "32ced1f6f9a41650ab679c897248ba522839ed9d5110f0d154053747784e1785",
+    "src/main/java/btk/core/NetworkCells.java": "8f253d578b56e30de3ea246514f6cafd501222767a67c600a1ba78e63d7f246b",
+    "src/main/java/btk/core/NetworkChords.java": "9a0ddd5d6b8782e663d78d59742797c237a871ed0420b8072bd9d308fe6fea70",
+    "src/main/java/btk/core/Pathing.java": "93f0ab4cf9f90f2a37d9794a69a60488183cb9f51c7458b4bbcd000e69f689f5",
+    "src/main/java/btk/core/Protocol.java": "e98d8fbc901cf4a94b83017cd321411f39e3f72d915c524bd88d7db6aa1d1b26",
+    "src/main/java/btk/core/Rules.java": "c05c75ccb105b5bb3eb2640a89ba29605e3fb2b89601635c41cd6ef91a122162",
+    "src/main/java/btk/core/SearchState.java": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b",
+    "src/main/java/btk/core/TacticalPathing.java": "b0b1e6b2e57e48e353b88b92583171bde3fbd8131e9892e2878238cc5af0b22a",
+    "src/main/java/btk/referee/GridMaker.java": "53eabc2e7b4b40a641c3f9906bdc7a9f3025e8b4183766d2753ee01c09a387f6",
+    "src/main/java/btk/referee/MapGenerator.java": "373a5c72b93e0ff93f6d645413af99535a91ce9f2d5d7b14ef069f6e733638f9",
+    "src/main/java/btk/referee/Referee.java": "f49014760a6726bf202143f0d5bb69ca3824806e94ac99df9fa75a5c8cf59074",
+    "src/main/java/btk/referee/Replay.java": "d09e72710c6b1130cdde49702ef346bdecb158f4705c34baa30efbcbbac63dba",
+    "src/main/java/btk/runner/BenchmarkRunner.java": "88e71cdb95a64477e186fadc6e385dc24d5e15939d2a5a655d2fcf5386ac00cc",
+    "src/main/java/btk/runner/BenchmarkSuite.java": "633a7e220e860066c74b85b947068ebfcb8bfa799b2fa4625120e8a71c25e5af",
+    "src/main/java/btk/runner/BenchPool.java": "5a9bbcf3a052ce900dd4554e94cb3204e50ac63594d9fc5e73580af6becf10ca",
+    "src/main/java/btk/runner/LocalRunner.java": "c0723b39f5ed16115a34b15c713092c76114faf2f444b61408979dfa0bb866ba",
+    "src/main/java/btk/runner/Maps.java": "38e0a77d5e20cbc158d2bc6988fe3f7b00539868c6a2b30dc1d19c3520454f99",
+    "src/main/java/btk/runner/ProcessBot.java": "e8b186986f2475f767efd00c7d5a230c93e5adae16ad4ad866cfe14ef2230b36",
+    "src/main/java/btk/runner/ProcessCheck.java": "00cc32bb2158056587eeabdf432b7181666788d4f2659887eda45ac5e4063700",
+    "src/main/java/btk/runner/TimingProfile.java": "2b2c67ec16e6de77c2c093cc57e389a30d41e51ca04b041fe443d7dda0b07abd",
+    "src/main/java/btk/submit/ArtifactCheck.java": "ec85425d5a8ba05502d0202c5a6205335b993856a3ad155bc32be9449fb250d2",
+    "src/main/java/btk/submit/CGRunner.java": "531b2e46fffee3a947d31d71ce0c59bd33df8c6c6862d29b995ffc7e546f56d9",
+    "src/main/java/btk/submit/FileMerger.java": "f5981fdd483eaf8f6556a08a292136e66001d6ac65b5c02e5c7862d38ffe4c68",
+    "src/main/java/btk/tools/BotCatalogTool.java": "0af2c9609f98e97207aac615c0304224a7be0dcfa69ecf8dc6e3635fa356daf2",
+    "src/main/java/btk/tools/CgBossDefenseStudy.java": "2388320e0c644aea86087d41df6331157b09f2eac38ed6ddc3a08f777c2c3d20",
+    "src/main/java/btk/tools/CgBossLossStudy.java": "b147d459dc7a26cad9099a6a1a350cbb52eb8e70340d5e0542edc170c6bf7434",
+    "src/main/java/btk/tools/CgCellStudy.java": "93da53747ffbf172e1842a00548c0664357c206d9e6fcdffbd10c85229317846",
+    "src/main/java/btk/tools/CgDisruptStudy.java": "c3a676d4460c59c072347f89f7f8877ca926fbb780930aba7708937b188cda62",
+    "src/main/java/btk/tools/CgFetch.java": "723c4aa58dec256ff9c7b4eab27fd646215cd82ded1113364d05abd07af2bd06",
+    "src/main/java/btk/tools/CgForecastStudy.java": "b9709d456072742a05093178c6167a148b9d01d03c9e441c2dae959a0f4af7c5",
+    "src/main/java/btk/tools/CgInkStudy.java": "5807d4849b6d91bc6cd51537a65e8579cb532234dbf687b5d7c113b012d4d1e7",
+    "src/main/java/btk/tools/CgLeaderStudy.java": "f73b2c906b7b84b6ac8a925e4339bcad89634514356831fa7e7ccdc025a027ab",
+    "src/main/java/btk/tools/CgMapValidate.java": "80fae1d728f6192962b882365ae2c968260d01145e82d06295f7617832a0afe5",
+    "src/main/java/btk/tools/CgNeuralExport.java": "b7a1ec5ea0a1d74ac37ade6e5bc821a88e86f8943f3f7424cce171d9019d5282",
+    "src/main/java/btk/tools/CgPlayerStudy.java": "788d3997e27d6e2a5021b932b4d578325c8bdb8e17e6e0b1a97b6cf1a65f64ee",
+    "src/main/java/btk/tools/CgPolicyStudy.java": "8925af2385d3f8ee0af0d7493b8f154a020fd8500767223ea59bb29457a5efad",
+    "src/main/java/btk/tools/CgRender.java": "3d1df611e77958721838fa3f45a11ce8a1bec31e2617a74a2713ccd151789453",
+    "src/main/java/btk/tools/CgReplay.java": "ff45521b97bfebdd1a4ab8eaf2e68002c59308cbb01273bd3c2017ac6c1a0822",
+    "src/main/java/btk/tools/CgRolloutBossProbe.java": "741c84735026b2451618c7b6c67d8c6ef85fed0871239fad61f96997d96652f6",
+    "src/main/java/btk/tools/CgTimingStudy.java": "96edcbe4716acacbec3793e20425ba675e46f2ce8bbd98770b1a0f1e0d6e735b",
+    "src/main/java/btk/tools/CgValidate.java": "98251180703753818ab4aebcec86e9dc06bc5331c9f46c7ffa74a6eca2b0bf06",
+    "src/main/java/btk/tools/IndrillCollect.java": "46f2b2fa2aec9c30058d0e37228b350bcffd9d6abac4b9f40de92cec4d7875bc",
+    "src/main/java/btk/tools/IndrillProbe.java": "7af15e70d93de92b80386242bad7b6bd8ccdbb6874e612e546797b8746837740",
+    "src/main/java/btk/tools/IndrillV2Collect.java": "8431fdb9a9430d740926949fe64b4a2b42a37eec500ca534fd2cc2fcfce387f1",
+    "src/main/java/btk/tools/IndrillV2Probe.java": "3619526ae295ce4b9106f823d247bbd1b523de6deec0cf82da1b72e38584ab32",
+    "src/main/java/btk/tools/JointActionCheck.java": "535bfff29f51982ee0272c6569ff71b3a1a1ca1ae3c13b843734ff52ecb85e23",
+    "src/main/java/btk/tools/JointReplyStudy.java": "4685a191ff7e13a2626cd8621f9a8c2447d46497c47429257b74ca213cf930b3",
+    "src/main/java/btk/tools/NetworkCellStudy.java": "7259f586c882f0f16a33045ff530f27f8cd29865900d13ec7c78989d140bf9da",
+    "src/main/java/btk/tools/NeuralV2Collect.java": "eae43e75cd58c28366e30b96f9ea19348d639dda102919f866effba17c38cd1e",
+    "src/main/java/btk/tools/NeuralV2Verify.java": "9052e3baa892e58b2925b011d4da089d9c00bf31bc9ad4f7267bc96920b7e4c6",
+    "src/main/java/btk/tools/NeuralV4Collect.java": "87e73c4ff54bd2f0ac0e33ef21109eeb238c2384d81c25de7f90ad355b2ff6a7",
+    "src/main/java/btk/tools/NeuralV4Verify.java": "c7e1f47ba5445cbb4949ab2ccfc1de872f7ecd407c163381e8e0e3e04a112461",
+    "src/main/java/btk/tools/QuickRouteStudy.java": "3391e43ba406bb33aec66e1a0659adcacbd343d5cb2c465858f4f84a922891a0",
+    "src/main/java/btk/tools/ReplayPaths.java": "d6915cb6cb0a9c88cfcd12e3c45c3b90bfb86ddea991bce6f66b718da7ec11c2",
+    "src/main/java/btk/tools/ReplyProbe.java": "ec17769f5a20dc86bfcd1586fde05dfae32f77c6e9041eeb476cb8645cfce324",
+    "src/main/java/btk/tools/ReplyStudy.java": "8bf976cede2ca502f85623c8d55423507c1a00033b5a287b4b13cf516d537b82",
+    "src/main/java/btk/tools/RolloutCheck.java": "689d6d68c57416832b33a8c961dccf30b221d83474dcbf9b118c35b563053fcd",
+    "src/main/java/btk/tools/RolloutFollowupStudy.java": "d4f72051da0cee8d3e3cbc8b2943ac4f488f34c76ae453336e95f32795eec5f9",
+    "src/main/java/btk/tools/SabotageForecast.java": "b7192b2d91a792f8777a11e1f7975ff60d06b63d844db3f35b69e9908d139fd1",
+    "src/main/java/btk/tools/SearchExperimentStudy.java": "e4cb5549807970b44342b8b7d31073a6c6b5a2d3be60e03f7c8ccc2e7a353e95",
+    "src/main/resources/btk/bot/catalog.json": "3ebb35ec885b0b8c76f1c32d1de45107e2fcba3626b2f7a86fcd2eadc22a382a",
+    "src/main/resources/btk/bot/experiment-engine-v1-classes.json": "79fc2d11d6aa403edab9ff9475cb3bb6741efd62e46a566566f14e9c659bca95",
+    "src/main/resources/btk/bot/experiment-engine-v1.json": "b0a2d36b31779bc628248387695b4dc7d533c83c231054e8ac58ac525226c3c5",
+    "src/main/resources/btk/bot/versions/indrill-q-v1.properties": "a928876278b2e9693ef1bf9f069df896a15892fae897195f6bc711dbc4c2008e",
+    "src/main/resources/btk/bot/versions/indrill-q-v2.properties": "56a27cdd605157f77bedfdf7e5c68ae6c189c1b32da78c2dfaf485403a2cc9d4",
+    "src/main/resources/btk/bot/versions/leader-v1.properties": "e8c092ea83658f2602b38a09f8afe03a87549178d028281c1fe06302fec636c4",
+    "src/main/resources/btk/bot/versions/leader-v2.properties": "4632d7955999ac8b2c07c3cbbabf67abc5c1ef4a121ca9ecd564937095290218",
+    "src/main/resources/btk/bot/versions/neural-v1.properties": "0727fa41a86c767273a745a3cfd6c0528663e7946b949c38c247a7a0ec0b119f",
+    "src/main/resources/btk/bot/versions/neural-v2.properties": "853346d9f2a6bfbac91e890db451f85cbe961d10b6fb5bea924c1e70dd6c3746",
+    "src/main/resources/btk/bot/versions/neural-v3.properties": "ae052f679ae581eb386b30f6aac517e9def83e1384db7062d6a6b1a0b345173f",
+    "src/main/resources/btk/bot/versions/neural-v4.properties": "4c28621eb2c4f784daaf8ee1da41313b2502a42e35c80623f42d000adea3a8b2",
+    "src/main/resources/btk/bot/versions/pressure-v1.properties": "b92484bc1d21262fe6b5211358922934bfe4fc7538e316196e075b321fcf4fb9",
+    "src/main/resources/btk/bot/versions/v01.properties": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+    "src/main/resources/btk/bot/versions/v02.properties": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+    "src/main/resources/btk/bot/versions/v03.properties": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+    "src/main/resources/btk/bot/versions/v04.properties": "06ddf3ae46849e334a627b74d9b5b9c868957459d89418300226386197918414",
+    "src/main/resources/btk/bot/versions/v05.properties": "1f0869e4c1d4e76b249b496eb173d2cafa3930dd21864738d662d6a6aa3b739c",
+    "src/main/resources/btk/bot/versions/v06.properties": "5ae783d32083178d0b43c4b0472d7580135d0aad5fa3f7e7e453948906f430eb",
+    "src/main/resources/btk/bot/versions/v07.properties": "8ac645d621537d1de419ed9398fef411446dbce4f8d89062fef4f6cd53f97e11",
+    "src/main/resources/btk/bot/versions/v08.properties": "03168c7c0c09a7d43dd0f7b3bb82773448a726617ebeaa4b94504a6be1fe90ed",
+    "src/main/resources/btk/bot/versions/v09.properties": "93a6f0ab512f0d914ce98c1e554653b131dc8d4dc5702a5cd0402958c5fca5bf"
+  },
+  "config": {
+    "clip": 0.2,
+    "kl": 0.02,
+    "batch": 64,
+    "epochs": 4,
+    "lr": 3e-05,
+    "gradNorm": 1.0,
+    "weightDecay": 0.0,
+    "temperatures": {
+      "sabotage": 1.0,
+      "build": 0.5
+    },
+    "teacherTemperature": 1.0,
+    "gamma": 1.0,
+    "advantageNormalization": false,
+    "baseline": "per-opponent leave-one-game-out outcome mean",
+    "decisionWeight": "uniform; no per-game length normalization"
+  },
+  "seed": 20261005,
+  "games": 1536,
+  "distinctMaps": 768,
+  "mapHashScheme": "sha256-utf8-Protocol.initBlock(initialState,0)",
+  "trainingSeats": {
+    "P0": 768,
+    "P1": 768
+  },
+  "bootstrap": {
+    "weights": {
+      "path": "build/analysis/neural-v4/weights-0.json",
+      "sha256": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe"
+    },
+    "checkpoint": {
+      "path": "build/analysis/neural-v4/checkpoint-0.npz",
+      "sha256": "0ba91f284280d42af0e6e5f8aafb5773abdb06a74fc3152545b930b0db210a4d"
+    },
+    "exactOriginalBlobs": true
+  },
+  "finalWeights": {
+    "path": "build/analysis/neural-v4/weights-8.json",
+    "sha256": "4cf8303bf1bf800ba696fdb7d48941d17bca8512de5c704e16983050f23fd499"
+  },
+  "finalCheckpoint": {
+    "path": "build/analysis/neural-v4/checkpoint-8.npz",
+    "sha256": "cbad6ada6f0ff6b34c412b57442e6c609af85055ade8d2e0ce2fe5904f0bd8eb"
+  },
+  "optimizerSteps": {
+    "sabotage": 6964,
+    "build": 14676
+  },
+  "checkpointLineageVerified": true,
+  "rngScheduleVerified": true,
+  "corpus": {
+    "path": "build/bench/neural-v4-corpus-excluded.json",
+    "sha256": "ba5abb84fd5150b0a359f27719767fc54a8f62dd78284728b7f6c08fcef129ab",
+    "replays": 1073,
+    "distinctMaps": 751,
+    "mapDerivation": "NeuralV4Verify reconstructed canonical replays through shared core; replay byte pins rechecked"
+  },
+  "probe": {
+    "games": 6,
+    "distinctMaps": 3,
+    "purpose": "fixed plumbing probe; excluded from strength and training",
+    "cohorts": {
+      "v09": {
+        "games": 2,
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "meanOutcome": 0.0
+      },
+      "neural-v1": {
+        "games": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "meanOutcome": -1.0
+      },
+      "v07": {
+        "games": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "meanOutcome": -1.0
+      }
+    },
+    "heads": {
+      "sabotage": {
+        "decisions": 406,
+        "rows": 13428,
+        "gamesWithDecisions": 6,
+        "decisionsPerGameMin": 51,
+        "decisionsPerGameMax": 86,
+        "validation": {
+          "decisionsChecked": 128,
+          "maxBehaviorLogpError": 2.1101225566866333e-07,
+          "maxTeacherScoreError": 0.0,
+          "maxNumpyTrainingLogpError": 1.2781308811327108e-06,
+          "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+        }
+      },
+      "build": {
+        "decisions": 822,
+        "rows": 80361,
+        "gamesWithDecisions": 6,
+        "decisionsPerGameMin": 102,
+        "decisionsPerGameMax": 162,
+        "validation": {
+          "decisionsChecked": 128,
+          "maxBehaviorLogpError": 2.2028640955795709e-07,
+          "maxTeacherScoreError": 0.0,
+          "maxNumpyTrainingLogpError": 2.250909527212741e-06,
+          "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+        }
+      }
+    },
+    "dataSha256": {
+      "sabotage.bin": "94abf3f88aec8c8f34f9e135dd6543776f13fa75dae99b3c2f9c30c2034574c8",
+      "sabotage.idx": "de3ea40ecff34beb8dbcc478782e0f899f2a6b1428e58371ac3b2cbf102a1b2d",
+      "sabotage.logp": "16e79d1afb24f924dae1d3410f32f479ae9b31bb650d972e06636be4cc34881a",
+      "sabotage.teacher": "e2f35d50163d737e8c72f0d034a314d0602c36d952eecab0d9c4068c1254a977",
+      "build.bin": "0af25ff42a43f5d187ce26f38d772147545e8230e21dc74add210ac9f76bef5d",
+      "build.idx": "d4f505ecae44393e488134da19bbd7213f3530c65ef96c50c03ba81b24c67f4d",
+      "build.logp": "d6c42ebca2522aa08f61dcced69b22f2f0343e46ab3abb9e5acf92b3fd4ac401",
+      "build.teacher": "ef0d86ee1bad00de080fd7401cd70594d8ab79343c0ce336ef7b5bd5d37bebe5",
+      "games.json": "ba32037068463eb319edf707d93f759cc52304538ff61fd680db2675a1f58f88",
+      "meta.json": "50afe36ec88b3dcdf7732db0cfa6912e5fcc6ac4041ebb654fc8b15cc5e241f6"
+    },
+    "javaPythonParity": {
+      "cases": 64,
+      "candidateScores": 4168,
+      "bitExactScores": true,
+      "allArgmaxMatch": true,
+      "javaEvidenceSha256": "8c3cf432c680888d08d3d1600f84c1649f9ff9f3ccc5d693ea5af87304fbdf45"
+    },
+    "inputs": [
+      {
+        "path": "build/analysis/neural-v4/bootstrap.json",
+        "sha256": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe"
+      },
+      {
+        "path": "build/analysis/neural-v4/probe-python.json",
+        "sha256": "dda5c0d0bcd1c8a5486bb165d986297b1e82259ac9df6bf3a26a68f54572f69c"
+      },
+      {
+        "path": "build/analysis/neural-v4/probe-java.json",
+        "sha256": "8c3cf432c680888d08d3d1600f84c1649f9ff9f3ccc5d693ea5af87304fbdf45"
+      },
+      {
+        "path": "build/analysis/neural-v4/probe-parity-summary.json",
+        "sha256": "576a6886085132899426d433149e527962e15d110c92a27b0ea5423e1e1f3929"
+      }
+    ]
+  },
+  "mapOverlaps": {
+    "trainingCorpus": 0,
+    "trainingProbe": 0,
+    "probeCorpus": 0
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3100000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 17,
+          "draws": 0,
+          "losses": 47,
+          "meanOutcome": -0.46875
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 16,
+          "draws": 0,
+          "losses": 48,
+          "meanOutcome": -0.5
+        },
+        "v07": {
+          "games": 64,
+          "wins": 26,
+          "draws": 0,
+          "losses": 38,
+          "meanOutcome": -0.1875
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14510,
+          "rows": 423439,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 30,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 1.8907464482964542e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.4390011364717736e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 0.0,
+            "optimizerStepRetained": 0,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.061393805952741305,
+              "policyLoss": 0.06138962670375363,
+              "teacherKl": 0.00020896244938363052,
+              "clipFraction": 6.891798759476223e-05,
+              "ratioMean": 0.9997151164817951,
+              "maxUnclippedGradNorm": 1.8108162424356478,
+              "optimizerStep": 227
+            },
+            {
+              "epoch": 2,
+              "loss": 0.060239585765897614,
+              "policyLoss": 0.06022338521630083,
+              "teacherKl": 0.0008100274798382474,
+              "clipFraction": 0.0013094417643004824,
+              "ratioMean": 0.999416591603212,
+              "maxUnclippedGradNorm": 1.820421081687467,
+              "optimizerStep": 454
+            },
+            {
+              "epoch": 3,
+              "loss": 0.05933548256332922,
+              "policyLoss": 0.059304967780047055,
+              "teacherKl": 0.0015257391641075296,
+              "clipFraction": 0.00585802894555479,
+              "ratioMean": 0.999165639292854,
+              "maxUnclippedGradNorm": 1.8567014730504399,
+              "optimizerStep": 681
+            },
+            {
+              "epoch": 4,
+              "loss": 0.058907368353503256,
+              "policyLoss": 0.058863002639121316,
+              "teacherKl": 0.0022182857190967964,
+              "clipFraction": 0.014334941419710544,
+              "ratioMean": 0.9992453884032726,
+              "maxUnclippedGradNorm": 2.199716397949019,
+              "optimizerStep": 908
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.000217437744140625,
+            "maxNumpyVsJavaOrderScoreError": 9.5367431640625e-07
+          },
+          "checkpointOptimizerStep": 908
+        },
+        "build": {
+          "decisions": 30736,
+          "rows": 3222901,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 71,
+          "decisionsPerGameMax": 247,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.3625994138853912e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 3.242455315799475e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 0.0,
+            "optimizerStepRetained": 0,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.03566159323348373,
+              "policyLoss": 0.03565412640875807,
+              "teacherKl": 0.0003733412362817284,
+              "clipFraction": 0.004262103071317022,
+              "ratioMean": 1.0001564216871586,
+              "maxUnclippedGradNorm": 6.660765205568781,
+              "optimizerStep": 481
+            },
+            {
+              "epoch": 2,
+              "loss": 0.03337648440921202,
+              "policyLoss": 0.03336181891119872,
+              "teacherKl": 0.0007332749006674756,
+              "clipFraction": 0.011127017178552837,
+              "ratioMean": 1.0000574743618893,
+              "maxUnclippedGradNorm": 13.406366124919053,
+              "optimizerStep": 962
+            },
+            {
+              "epoch": 3,
+              "loss": 0.031797845657234654,
+              "policyLoss": 0.031778684223463645,
+              "teacherKl": 0.0009580716885492141,
+              "clipFraction": 0.01698334200937012,
+              "ratioMean": 0.9996440227003026,
+              "maxUnclippedGradNorm": 6.687185804756957,
+              "optimizerStep": 1443
+            },
+            {
+              "epoch": 4,
+              "loss": 0.030540980414807135,
+              "policyLoss": 0.030518203460442248,
+              "teacherKl": 0.0011388477182424461,
+              "clipFraction": 0.024466423737636647,
+              "ratioMean": 0.9995924258220913,
+              "maxUnclippedGradNorm": 7.8076590329766,
+              "optimizerStep": 1924
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0003300905227661133,
+            "maxNumpyVsJavaOrderScoreError": 1.430511474609375e-06
+          },
+          "checkpointOptimizerStep": 1924
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "859c669d32dbe874a1cfcd2ac6f2114d27a50f736efab40ea8e2522e603f7d22",
+        "sabotage.idx": "736f5d2d6fad7debe4746140419ed57e50cb7e0994a1cc4097f4580c078eb7af",
+        "sabotage.logp": "acfa3248d00caf034b242a0dfeeceb706b1a3fee3b5ba6243b78abe7f21e7c60",
+        "sabotage.teacher": "c3817271500b08673b94361971330b3266c7795efd9efbb4602989e55d4bb1ce",
+        "build.bin": "cead7039823414056d522f7080c7b2bef7fe558ecb86ff15d50c18b70e8fd686",
+        "build.idx": "57b2c96b544f8b74cca2760f9dc6abf7e26e248a155f5a8ec75c58d33641e679",
+        "build.logp": "a16206feb5fe508e94254bea8f4c7b164c4bc300cfc8e69045a06e3fb298634b",
+        "build.teacher": "8cf0e6184ef6d4eae5f47075fa9b2acb3821b57c3fa7023c705af0a3fe6845ed",
+        "games.json": "3e331cf11b6e5aeeaf283c5e9ba3a5d805c4130cc758c52ff2f0cadef9141ab1",
+        "meta.json": "a871922d86367eb93c004c17cece65802109eca167d9cabb44bae4fd2a6351c3"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-1.json",
+        "sha256": "c475e46f7cf57e5b59e31774f8c0ad9e2feed7e7a907944fe9597e00e7117acb"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-0.json",
+        "sha256": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-0.npz",
+        "sha256": "0ba91f284280d42af0e6e5f8aafb5773abdb06a74fc3152545b930b0db210a4d"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-1.json",
+        "sha256": "e8034f75370be1c7673a9ffbf8e2c2e459c1798dabf4de2709c327230c9e9f1b"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-1.npz",
+        "sha256": "d7e891775903267c8f4811279bc06ce3c0ba065c13858f43e828fc9721f3baa7"
+      }
+    },
+    {
+      "round": 2,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3101000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 18,
+          "draws": 0,
+          "losses": 46,
+          "meanOutcome": -0.4375
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 20,
+          "draws": 0,
+          "losses": 44,
+          "meanOutcome": -0.375
+        },
+        "v07": {
+          "games": 64,
+          "wins": 28,
+          "draws": 0,
+          "losses": 36,
+          "meanOutcome": -0.125
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 13687,
+          "rows": 393724,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 29,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.072209106529499e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.1700066859798852e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.519918441772461e-05,
+            "optimizerStepRetained": 908,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.07599339211532037,
+              "policyLoss": 0.07593977888730245,
+              "teacherKl": 0.0026806614008932296,
+              "clipFraction": 0.0,
+              "ratioMean": 1.0000584901513387,
+              "maxUnclippedGradNorm": 1.7365430152800982,
+              "optimizerStep": 1122
+            },
+            {
+              "epoch": 2,
+              "loss": 0.07490338481213328,
+              "policyLoss": 0.0748344165750947,
+              "teacherKl": 0.003448411851929162,
+              "clipFraction": 0.0010228684152845766,
+              "ratioMean": 0.9997670721807168,
+              "maxUnclippedGradNorm": 1.8479798272161376,
+              "optimizerStep": 1336
+            },
+            {
+              "epoch": 3,
+              "loss": 0.07413587633104421,
+              "policyLoss": 0.07405287292548654,
+              "teacherKl": 0.004150170277883903,
+              "clipFraction": 0.005771900343391539,
+              "ratioMean": 0.9995647774864028,
+              "maxUnclippedGradNorm": 1.7057418158582043,
+              "optimizerStep": 1550
+            },
+            {
+              "epoch": 4,
+              "loss": 0.0735350560259003,
+              "policyLoss": 0.0734375081630052,
+              "teacherKl": 0.004877393144752592,
+              "clipFraction": 0.00920581573756119,
+              "ratioMean": 0.9994916099356156,
+              "maxUnclippedGradNorm": 1.5498689258408653,
+              "optimizerStep": 1764
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0002570152282714844,
+            "maxNumpyVsJavaOrderScoreError": 7.152557373046875e-07
+          },
+          "checkpointOptimizerStep": 1764
+        },
+        "build": {
+          "decisions": 29032,
+          "rows": 2811840,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 72,
+          "decisionsPerGameMax": 257,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.318921632493698e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 2.6949201892279007e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.920759677886963e-05,
+            "optimizerStepRetained": 1924,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.02344413834068498,
+              "policyLoss": 0.02341465599133515,
+              "teacherKl": 0.001474117467490992,
+              "clipFraction": 0.001963350785340314,
+              "ratioMean": 1.000231270528355,
+              "maxUnclippedGradNorm": 6.913833937874113,
+              "optimizerStep": 2378
+            },
+            {
+              "epoch": 2,
+              "loss": 0.021295600854047324,
+              "policyLoss": 0.021258795628159875,
+              "teacherKl": 0.0018402612943729767,
+              "clipFraction": 0.008060071645081289,
+              "ratioMean": 1.0003073169660432,
+              "maxUnclippedGradNorm": 7.671592659564458,
+              "optimizerStep": 2832
+            },
+            {
+              "epoch": 3,
+              "loss": 0.019576631666281603,
+              "policyLoss": 0.01953824670184752,
+              "teacherKl": 0.0019192482217044529,
+              "clipFraction": 0.01350234224304216,
+              "ratioMean": 1.0000252656320558,
+              "maxUnclippedGradNorm": 5.111201228723509,
+              "optimizerStep": 3286
+            },
+            {
+              "epoch": 4,
+              "loss": 0.01829792619008433,
+              "policyLoss": 0.01825480954858137,
+              "teacherKl": 0.0021558320751478253,
+              "clipFraction": 0.01963350785340314,
+              "ratioMean": 0.9998815136743936,
+              "maxUnclippedGradNorm": 6.20257028920638,
+              "optimizerStep": 3740
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0005714893341064453,
+            "maxNumpyVsJavaOrderScoreError": 9.5367431640625e-07
+          },
+          "checkpointOptimizerStep": 3740
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "c740b3b2b1635bf5bf4fb7d756a10beedd79666677d4b2ff2957e132eafeb0af",
+        "sabotage.idx": "5e47149b15ebac9111b1ac73d5d6dac6e0311addbfe99481b81cf132b81e3a89",
+        "sabotage.logp": "659234e9664b0b3698a8a9ad3082291df2621b02d00acca251c8d3abf88f85d5",
+        "sabotage.teacher": "9607510bbfd3414d3f970084258fb7c114db210ce39447965629f444fb554ba3",
+        "build.bin": "2192d192d1e896dd485fcc284814c27ff64996a83cef85c6ccbdf221919c1265",
+        "build.idx": "8cfd7856627991bb05694652a2bae3295880629d0cde45eee7e79a99562881cd",
+        "build.logp": "95950b181b472cf2fa5cdb0a5fe6bca3cbbf47d3afe460ba0004f2a0abcfc82a",
+        "build.teacher": "69da9b38b08fac68c5f4829381e3d6ef285edca8e40a3178e3e2d274d0b4e43a",
+        "games.json": "729f8187f9707342da623422b4ab95d4cccb3f4df15f47aea76def789d89ce81",
+        "meta.json": "326bb9b1ffc3416ed2c3862ad38b6af01cd5d26c0300b68f7f2fdf26e4312b23"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-2.json",
+        "sha256": "4f4cae4c9c4a7a9fa409d077e7dd3277b170e3e0afe7b662404d1de3235687eb"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-1.json",
+        "sha256": "e8034f75370be1c7673a9ffbf8e2c2e459c1798dabf4de2709c327230c9e9f1b"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-1.npz",
+        "sha256": "d7e891775903267c8f4811279bc06ce3c0ba065c13858f43e828fc9721f3baa7"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-2.json",
+        "sha256": "bcc7d79c17e6a9bd1896449c9dbd40b394b3d4e3096abe7979c80b3f37780ad2"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-2.npz",
+        "sha256": "d7729ff651642d9742d72293774516e3f1013e74dc2a585266b33e3a0bec632f"
+      }
+    },
+    {
+      "round": 3,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3102000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 18,
+          "draws": 0,
+          "losses": 46,
+          "meanOutcome": -0.4375
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 12,
+          "draws": 0,
+          "losses": 52,
+          "meanOutcome": -0.625
+        },
+        "v07": {
+          "games": 64,
+          "wins": 29,
+          "draws": 0,
+          "losses": 35,
+          "meanOutcome": -0.09375
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 13762,
+          "rows": 397256,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 34,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 1.7468353341598686e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.0881231293780047e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.5206634998321533e-05,
+            "optimizerStepRetained": 1764,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.08263455886178186,
+              "policyLoss": 0.08253906833891068,
+              "teacherKl": 0.004774526143557417,
+              "clipFraction": 0.0,
+              "ratioMean": 1.0001695217684268,
+              "maxUnclippedGradNorm": 5.313495020899449,
+              "optimizerStep": 1980
+            },
+            {
+              "epoch": 2,
+              "loss": 0.08192220509885605,
+              "policyLoss": 0.08182973884622399,
+              "teacherKl": 0.00462331263160052,
+              "clipFraction": 0.0,
+              "ratioMean": 1.0001032213897627,
+              "maxUnclippedGradNorm": 1.6484014734842818,
+              "optimizerStep": 2196
+            },
+            {
+              "epoch": 3,
+              "loss": 0.08115210494245353,
+              "policyLoss": 0.08105700216061654,
+              "teacherKl": 0.004755139091849935,
+              "clipFraction": 0.000508646998982706,
+              "ratioMean": 1.000113893442886,
+              "maxUnclippedGradNorm": 6.821905495319639,
+              "optimizerStep": 2412
+            },
+            {
+              "epoch": 4,
+              "loss": 0.08055098102799531,
+              "policyLoss": 0.08045396507349924,
+              "teacherKl": 0.004850797724806348,
+              "clipFraction": 0.003996512134864119,
+              "ratioMean": 1.0001884939609655,
+              "maxUnclippedGradNorm": 7.112259586957294,
+              "optimizerStep": 2628
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0004451274871826172,
+            "maxNumpyVsJavaOrderScoreError": 9.5367431640625e-07
+          },
+          "checkpointOptimizerStep": 2628
+        },
+        "build": {
+          "decisions": 28506,
+          "rows": 2730941,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 82,
+          "decisionsPerGameMax": 255,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 1.818126857955349e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 2.8945566343807627e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.9177794456481934e-05,
+            "optimizerStepRetained": 3740,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.041817347354714395,
+              "policyLoss": 0.04176654125107772,
+              "teacherKl": 0.002540305181832341,
+              "clipFraction": 0.0025959447133936716,
+              "ratioMean": 0.9999307328876123,
+              "maxUnclippedGradNorm": 6.623642952467994,
+              "optimizerStep": 4186
+            },
+            {
+              "epoch": 2,
+              "loss": 0.03954398956044317,
+              "policyLoss": 0.03948543514195692,
+              "teacherKl": 0.0029277209243128775,
+              "clipFraction": 0.011120465866835053,
+              "ratioMean": 0.9998564259536817,
+              "maxUnclippedGradNorm": 4.294921070384891,
+              "optimizerStep": 4632
+            },
+            {
+              "epoch": 3,
+              "loss": 0.03795113448530155,
+              "policyLoss": 0.037887637141509306,
+              "teacherKl": 0.003174867189610773,
+              "clipFraction": 0.017961130989967024,
+              "ratioMean": 0.9996140141454681,
+              "maxUnclippedGradNorm": 5.75446015895918,
+              "optimizerStep": 5078
+            },
+            {
+              "epoch": 4,
+              "loss": 0.03680596339508416,
+              "policyLoss": 0.03673451671324979,
+              "teacherKl": 0.003572334091717919,
+              "clipFraction": 0.023117940082789588,
+              "ratioMean": 0.9993110773367262,
+              "maxUnclippedGradNorm": 4.952534461362661,
+              "optimizerStep": 5524
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0005087852478027344,
+            "maxNumpyVsJavaOrderScoreError": 1.430511474609375e-06
+          },
+          "checkpointOptimizerStep": 5524
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "70b3b7f4a578a7632fd0a2eb50268dfa0e11556911ee10e0c17d5d684938bee1",
+        "sabotage.idx": "1591f88bd263c572a2ba9c69bddefe2ca0189c660ede6add971d658f8c424623",
+        "sabotage.logp": "2a803c660221f5b2b9ac2a328b8110e2692437de2ee841b4b0a86711e51db5cd",
+        "sabotage.teacher": "c09cb7879ba0a5325a034a5a453dcb20c8fba43f13d275f4623bb7a5625b8228",
+        "build.bin": "f9553917f7c1ae66203cb58db910e872d80ea3e5b56395f853b640586de463d0",
+        "build.idx": "f8ef526f8a0c564ce10c0f71a26fd5416031d63774529bcd33465a8d82e761c9",
+        "build.logp": "89e00825271454e130309396981e3d2d40eafccd4c477d89eafb414bbb51ca9e",
+        "build.teacher": "439cde9cebb03b5bd31dc22622ae727298fe88ac9f7b31600b841d2a7c01614b",
+        "games.json": "3ac8f1ebfb120aed1dc163eb71453410ddaa954eadf0ecc5b61ad5a7acbb0fd6",
+        "meta.json": "4507d4b7f29cd7581b43bb30ab324de2afa75f80c02ef557c882aa81b11abce7"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-3.json",
+        "sha256": "eabce6a0c7619a2394fa9fc87d4d3cc863fa8e3f37189a96a2c6ad2da217070a"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-2.json",
+        "sha256": "bcc7d79c17e6a9bd1896449c9dbd40b394b3d4e3096abe7979c80b3f37780ad2"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-2.npz",
+        "sha256": "d7729ff651642d9742d72293774516e3f1013e74dc2a585266b33e3a0bec632f"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-3.json",
+        "sha256": "2e7d5faa77855dd51536ba9f4760a0046a0f5c0920f26539fcdfde582cb4e936"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-3.npz",
+        "sha256": "2083e1880cf3d4ab513ca206762b193fadaccf2f8b8b46b67a74156a1c75487b"
+      }
+    },
+    {
+      "round": 4,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3103000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 28,
+          "draws": 0,
+          "losses": 36,
+          "meanOutcome": -0.125
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 10,
+          "draws": 0,
+          "losses": 54,
+          "meanOutcome": -0.6875
+        },
+        "v07": {
+          "games": 64,
+          "wins": 27,
+          "draws": 0,
+          "losses": 37,
+          "meanOutcome": -0.15625
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14016,
+          "rows": 401564,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 26,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.273468195923556e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.4765610201195045e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.5188008546829224e-05,
+            "optimizerStepRetained": 2628,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.07072961604998748,
+              "policyLoss": 0.07062171525400804,
+              "teacherKl": 0.005395039798972219,
+              "clipFraction": 0.0,
+              "ratioMean": 1.0001589321756632,
+              "maxUnclippedGradNorm": 1.5795031691432517,
+              "optimizerStep": 2847
+            },
+            {
+              "epoch": 2,
+              "loss": 0.07000660607285356,
+              "policyLoss": 0.06987901132623299,
+              "teacherKl": 0.006379737331029039,
+              "clipFraction": 0.0,
+              "ratioMean": 1.0003245316414544,
+              "maxUnclippedGradNorm": 1.7434154449862262,
+              "optimizerStep": 3066
+            },
+            {
+              "epoch": 3,
+              "loss": 0.06925183739330454,
+              "policyLoss": 0.06912132718915456,
+              "teacherKl": 0.006525510207501564,
+              "clipFraction": 0.0004280821917808219,
+              "ratioMean": 1.0005715826595891,
+              "maxUnclippedGradNorm": 2.0361832230917516,
+              "optimizerStep": 3285
+            },
+            {
+              "epoch": 4,
+              "loss": 0.06856470874942973,
+              "policyLoss": 0.06842425696076432,
+              "teacherKl": 0.007022589433271631,
+              "clipFraction": 0.0021404109589041095,
+              "ratioMean": 1.0008594392499155,
+              "maxUnclippedGradNorm": 2.0254182865122723,
+              "optimizerStep": 3504
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0002193450927734375,
+            "maxNumpyVsJavaOrderScoreError": 9.5367431640625e-07
+          },
+          "checkpointOptimizerStep": 3504
+        },
+        "build": {
+          "decisions": 28863,
+          "rows": 2894829,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 65,
+          "decisionsPerGameMax": 248,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 4.2050529280857063e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 3.690411618517686e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.9196420907974243e-05,
+            "optimizerStepRetained": 5524,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.004866147525162857,
+              "policyLoss": 0.004795130158142412,
+              "teacherKl": 0.0035508683510219585,
+              "clipFraction": 0.0025291896199286282,
+              "ratioMean": 0.9997372501057655,
+              "maxUnclippedGradNorm": 8.537449638411205,
+              "optimizerStep": 5975
+            },
+            {
+              "epoch": 2,
+              "loss": 0.0022356546417405245,
+              "policyLoss": 0.0021568840523962453,
+              "teacherKl": 0.003938529467213969,
+              "clipFraction": 0.013789280393583481,
+              "ratioMean": 0.9993665059351063,
+              "maxUnclippedGradNorm": 6.0352226974449605,
+              "optimizerStep": 6426
+            },
+            {
+              "epoch": 3,
+              "loss": 0.000658411709970711,
+              "policyLoss": 0.000574898168319177,
+              "teacherKl": 0.004175677082576781,
+              "clipFraction": 0.019713820462183416,
+              "ratioMean": 0.999468608063837,
+              "maxUnclippedGradNorm": 5.015337338639857,
+              "optimizerStep": 6877
+            },
+            {
+              "epoch": 4,
+              "loss": -0.0007082105026215966,
+              "policyLoss": -0.0007958750338440996,
+              "teacherKl": 0.004383226561125421,
+              "clipFraction": 0.02976128607559852,
+              "ratioMean": 0.9992023052818753,
+              "maxUnclippedGradNorm": 7.6451455950270235,
+              "optimizerStep": 7328
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0012078285217285156,
+            "maxNumpyVsJavaOrderScoreError": 1.9073486328125e-06
+          },
+          "checkpointOptimizerStep": 7328
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "0d6d0f4acce8f465bbe3a45db3e702ec1d5cb5014dad55efafcc7bf750fdbd63",
+        "sabotage.idx": "1efca7eab21fa60916a22719f56f8657ab2a40bcae29165dcbcbefba7b01a3be",
+        "sabotage.logp": "e7ea35261fd00f0628382ece4a20ccb65dd41c28a176eefb6d0e7772d662c603",
+        "sabotage.teacher": "2205d40848ff87be5ddd714db039c680aa9ec77114bb21b6c74d0a8c3c66e527",
+        "build.bin": "2e1cf8a3d97f46e1157ac82c1689bd800d4ac1ce3f213bf77b860237a2646b3c",
+        "build.idx": "46bb4f1d51233c383ff7bc1b92e4464440168b8f351d8a2c037fd9da955ade13",
+        "build.logp": "b5978b42ccdd07addf0714553ebb75aed37d617982984481519c398c90e8dc6e",
+        "build.teacher": "a7906171681743a63d084863b0b5bbaa49d53df43c4a7ede8e364ad158badb99",
+        "games.json": "304a259f397046262731b3c348d8cab05504cc7b5b683d2f9b351829497e340e",
+        "meta.json": "ecb9e621d2fae86561ca5b6bcc27de31074c896b6c5c022c5ce5497c415c598e"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-4.json",
+        "sha256": "5f674db9b7460ab0cb1be509cd34699ca241b367fe934c91c540df4ab6e662a2"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-3.json",
+        "sha256": "2e7d5faa77855dd51536ba9f4760a0046a0f5c0920f26539fcdfde582cb4e936"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-3.npz",
+        "sha256": "2083e1880cf3d4ab513ca206762b193fadaccf2f8b8b46b67a74156a1c75487b"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-4.json",
+        "sha256": "a22d682e1b0b4793f68258b281d6343ce0b39e9408ef6b7d1e2846ff656a3ba6"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-4.npz",
+        "sha256": "410a6167704406a598a2c056514c2a151066e2077bba7d5773431e9571e17066"
+      }
+    },
+    {
+      "round": 5,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3104000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 17,
+          "draws": 0,
+          "losses": 47,
+          "meanOutcome": -0.46875
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 15,
+          "draws": 0,
+          "losses": 49,
+          "meanOutcome": -0.53125
+        },
+        "v07": {
+          "games": 64,
+          "wins": 27,
+          "draws": 0,
+          "losses": 37,
+          "meanOutcome": -0.15625
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14065,
+          "rows": 414618,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 34,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.3647194069553734e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.5827797890111128e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.519918441772461e-05,
+            "optimizerStepRetained": 3504,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.0515192734740398,
+              "policyLoss": 0.05133737724096953,
+              "teacherKl": 0.009094811653513661,
+              "clipFraction": 0.0,
+              "ratioMean": 0.9998047201457442,
+              "maxUnclippedGradNorm": 1.6714656844128406,
+              "optimizerStep": 3724
+            },
+            {
+              "epoch": 2,
+              "loss": 0.05069764503154582,
+              "policyLoss": 0.050498910470735625,
+              "teacherKl": 0.009936728040508032,
+              "clipFraction": 0.00014219694276573053,
+              "ratioMean": 0.9998371269391183,
+              "maxUnclippedGradNorm": 1.7564722505163446,
+              "optimizerStep": 3944
+            },
+            {
+              "epoch": 3,
+              "loss": 0.04992631936505436,
+              "policyLoss": 0.04969653537428046,
+              "teacherKl": 0.011489199538695559,
+              "clipFraction": 0.0007820831852115179,
+              "ratioMean": 0.9996133997329225,
+              "maxUnclippedGradNorm": 1.8787893471306163,
+              "optimizerStep": 4164
+            },
+            {
+              "epoch": 4,
+              "loss": 0.04934110822283559,
+              "policyLoss": 0.049079318372557926,
+              "teacherKl": 0.013089492513883695,
+              "clipFraction": 0.004621400639886242,
+              "ratioMean": 0.9994644160158812,
+              "maxUnclippedGradNorm": 2.038149257868809,
+              "optimizerStep": 4384
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.00041091442108154297,
+            "maxNumpyVsJavaOrderScoreError": 1.1920928955078125e-06
+          },
+          "checkpointOptimizerStep": 4384
+        },
+        "build": {
+          "decisions": 29859,
+          "rows": 3207055,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 77,
+          "decisionsPerGameMax": 271,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 4.468738517005022e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.9117734013640586e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.9311904907226562e-05,
+            "optimizerStepRetained": 7328,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.012439537384546232,
+              "policyLoss": 0.012330377289260397,
+              "teacherKl": 0.005458004764291185,
+              "clipFraction": 0.0037509628587695503,
+              "ratioMean": 0.9995970379993975,
+              "maxUnclippedGradNorm": 5.333464529545296,
+              "optimizerStep": 7795
+            },
+            {
+              "epoch": 2,
+              "loss": 0.010106295975499722,
+              "policyLoss": 0.009972686153882894,
+              "teacherKl": 0.00668049108084147,
+              "clipFraction": 0.015606684751666164,
+              "ratioMean": 0.9987197258308762,
+              "maxUnclippedGradNorm": 6.785015804615665,
+              "optimizerStep": 8262
+            },
+            {
+              "epoch": 3,
+              "loss": 0.008842554249732192,
+              "policyLoss": 0.00869777779046255,
+              "teacherKl": 0.0072388229634820994,
+              "clipFraction": 0.023510499346930575,
+              "ratioMean": 0.9983414196392552,
+              "maxUnclippedGradNorm": 5.358057602506705,
+              "optimizerStep": 8729
+            },
+            {
+              "epoch": 4,
+              "loss": 0.007614912474467435,
+              "policyLoss": 0.0074717052471037744,
+              "teacherKl": 0.0071603613681832995,
+              "clipFraction": 0.024615693760675173,
+              "ratioMean": 0.9984654224071406,
+              "maxUnclippedGradNorm": 5.760357884974715,
+              "optimizerStep": 9196
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0004508495330810547,
+            "maxNumpyVsJavaOrderScoreError": 1.1920928955078125e-06
+          },
+          "checkpointOptimizerStep": 9196
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "2ca44d6e0630de93e917fbef4e31f5a89c75181bb4d976a48fa7723f8c8bc567",
+        "sabotage.idx": "04c682c0231a5da570645899a03bb8ac1ff1d5be699568cf0b07d1521190a70f",
+        "sabotage.logp": "b1a3880ee77d14598d8f0071183663a329a489465c38515ed7ff5640a4972036",
+        "sabotage.teacher": "b9866e00392309469889015fb6b817fb01cf0abafe1ea976ee0645ae25b46384",
+        "build.bin": "9964b6523af28b30a6df9337a9a65c49fd8f22276b5a5659b1528e0258cdab7b",
+        "build.idx": "c9872dec3f0144d8fdad804f86e926ee1bd5286070f8fb93865f5a9e9b362b10",
+        "build.logp": "53731b3fd3df2b0eb48e807c000946c6d097ee2bd1707e5ba36152ead5232ec7",
+        "build.teacher": "84de1f4c0a050cad960a5df1923f0822a8bc6bde8da52a18f141c400132b7f19",
+        "games.json": "69f7d70403b7946eebab5908732232b2764a61c5168794c8c967988250e85931",
+        "meta.json": "708e436de133860bf009b0f6f42e4ed544999cab6b2fb6d612aa91544bd0a620"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-5.json",
+        "sha256": "59842c75a8c6a57b7de7f589bee6ae3a2f8db70a0ae8cae6084558631779ad80"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-4.json",
+        "sha256": "a22d682e1b0b4793f68258b281d6343ce0b39e9408ef6b7d1e2846ff656a3ba6"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-4.npz",
+        "sha256": "410a6167704406a598a2c056514c2a151066e2077bba7d5773431e9571e17066"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-5.json",
+        "sha256": "690e84785e0ed20df2a31e1a935059578ae8d3f58e6af15bed72a282f54b40f8"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-5.npz",
+        "sha256": "346c60b69040371a3a00f5a0447cb27427ebe88dc0db61d1889a650ddc966cc8"
+      }
+    },
+    {
+      "round": 6,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3105000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 15,
+          "draws": 0,
+          "losses": 49,
+          "meanOutcome": -0.53125
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 16,
+          "draws": 0,
+          "losses": 48,
+          "meanOutcome": -0.5
+        },
+        "v07": {
+          "games": 64,
+          "wins": 35,
+          "draws": 0,
+          "losses": 29,
+          "meanOutcome": 0.09375
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 13708,
+          "rows": 403878,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 31,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.3686768901853839e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.5608357974983278e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.52587890625e-05,
+            "optimizerStepRetained": 4384,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.05043329732638222,
+              "policyLoss": 0.050195275822000285,
+              "teacherKl": 0.0119010752190964,
+              "clipFraction": 0.0,
+              "ratioMean": 1.000119447112414,
+              "maxUnclippedGradNorm": 1.9262226199068886,
+              "optimizerStep": 4599
+            },
+            {
+              "epoch": 2,
+              "loss": 0.049701652963406284,
+              "policyLoss": 0.04945893683516975,
+              "teacherKl": 0.012135806411826164,
+              "clipFraction": 0.0,
+              "ratioMean": 1.0001874276327236,
+              "maxUnclippedGradNorm": 2.7222462760174957,
+              "optimizerStep": 4814
+            },
+            {
+              "epoch": 3,
+              "loss": 0.04903596215322478,
+              "policyLoss": 0.048794221818787245,
+              "teacherKl": 0.01208701672187808,
+              "clipFraction": 0.0007295010213014298,
+              "ratioMean": 1.0001594229265616,
+              "maxUnclippedGradNorm": 1.8254276185765963,
+              "optimizerStep": 5029
+            },
+            {
+              "epoch": 4,
+              "loss": 0.048453910132312004,
+              "policyLoss": 0.04821037847977304,
+              "teacherKl": 0.012176582626948863,
+              "clipFraction": 0.0019696527575138604,
+              "ratioMean": 1.0001223487250854,
+              "maxUnclippedGradNorm": 2.682791600926867,
+              "optimizerStep": 5244
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0004467964172363281,
+            "maxNumpyVsJavaOrderScoreError": 1.519918441772461e-06
+          },
+          "checkpointOptimizerStep": 5244
+        },
+        "build": {
+          "decisions": 28807,
+          "rows": 2857091,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 64,
+          "decisionsPerGameMax": 251,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 4.2030346136812113e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.9858203543776654e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.9252300262451172e-05,
+            "optimizerStepRetained": 9196,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.02049344397519116,
+              "policyLoss": 0.02034518218549758,
+              "teacherKl": 0.007413089484678494,
+              "clipFraction": 0.0027423890026729613,
+              "ratioMean": 0.9995430649661219,
+              "maxUnclippedGradNorm": 6.338633585386516,
+              "optimizerStep": 9647
+            },
+            {
+              "epoch": 2,
+              "loss": 0.018075346968439,
+              "policyLoss": 0.017904418495573678,
+              "teacherKl": 0.008546423643266155,
+              "clipFraction": 0.013364807164925191,
+              "ratioMean": 0.9995998404111183,
+              "maxUnclippedGradNorm": 5.551643871382548,
+              "optimizerStep": 10098
+            },
+            {
+              "epoch": 3,
+              "loss": 0.01669498601904725,
+              "policyLoss": 0.016527926646578595,
+              "teacherKl": 0.008352968623432374,
+              "clipFraction": 0.013850800152740653,
+              "ratioMean": 0.9996463229055946,
+              "maxUnclippedGradNorm": 6.897845130627202,
+              "optimizerStep": 10549
+            },
+            {
+              "epoch": 4,
+              "loss": 0.015463657212100844,
+              "policyLoss": 0.015289098487132072,
+              "teacherKl": 0.008727936248438012,
+              "clipFraction": 0.019682716006526192,
+              "ratioMean": 0.9996394433048972,
+              "maxUnclippedGradNorm": 11.967635457871673,
+              "optimizerStep": 11000
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0004715919494628906,
+            "maxNumpyVsJavaOrderScoreError": 1.430511474609375e-06
+          },
+          "checkpointOptimizerStep": 11000
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "81a912c24fdec0a653de06ba028e9d05b9757f240440d9552187ec3b711a2a2c",
+        "sabotage.idx": "128f08a15fc842a6a413752e46974af0afcfa8291faa045005e848459563fb5c",
+        "sabotage.logp": "55f5052283ae5d5ef5a2a80818b2a4a82f5639407eed33ace2c7d356b167a68b",
+        "sabotage.teacher": "0ed38fefad631cb1b91e93ae264808221b41e8056a67d8bdbb9e8cea08105c0a",
+        "build.bin": "e0a062bc0ae51857d90593a5bc7b943d6a76f45d2ed240a3cbe0fd1aabe78a74",
+        "build.idx": "da54f3e3b39be10f8b981252317ed5e46e65df737264e4c5d95f5591d785903a",
+        "build.logp": "88320546b0f88a145ce02b85f7d8aef62563ec29421364ca2e28ad4fcd505a81",
+        "build.teacher": "b871400c279238ba9233b2850f507585ad021af5b7671f16c16dff7eb5b36c1e",
+        "games.json": "63bf50256b82dccfa619184e39b1f7f36cad28a09fbb6bb51dd1d9234f072def",
+        "meta.json": "594cf50ba0756e775bbe0e51c2cacec9019c01c23efe4dcd4a2696c4652cc6c4"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-6.json",
+        "sha256": "ff4bae5562372c4c05608ac229a2680a11054b2b1382f11189409dff4a7e2cf8"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-5.json",
+        "sha256": "690e84785e0ed20df2a31e1a935059578ae8d3f58e6af15bed72a282f54b40f8"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-5.npz",
+        "sha256": "346c60b69040371a3a00f5a0447cb27427ebe88dc0db61d1889a650ddc966cc8"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-6.json",
+        "sha256": "798f64d914f5b46ee0dff942eeb5ef77aecd4b3a511f6660f71111eff7235646"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-6.npz",
+        "sha256": "4ebb9526b0cad96b6aa90ce222381fe30d47928972b96bb7a568ab7843105363"
+      }
+    },
+    {
+      "round": 7,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3106000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 23,
+          "draws": 0,
+          "losses": 41,
+          "meanOutcome": -0.28125
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 23,
+          "draws": 0,
+          "losses": 41,
+          "meanOutcome": -0.28125
+        },
+        "v07": {
+          "games": 64,
+          "wins": 38,
+          "draws": 0,
+          "losses": 26,
+          "meanOutcome": 0.1875
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 13872,
+          "rows": 407541,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 32,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 1.7750169334362909e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.4383532742634486e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.5169382095336914e-05,
+            "optimizerStepRetained": 5244,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.099288636076097,
+              "policyLoss": 0.09902372914203092,
+              "teacherKl": 0.013245346703305178,
+              "clipFraction": 0.0,
+              "ratioMean": 1.000037659203637,
+              "maxUnclippedGradNorm": 1.964528878957473,
+              "optimizerStep": 5461
+            },
+            {
+              "epoch": 2,
+              "loss": 0.0982755904123025,
+              "policyLoss": 0.0979846823634644,
+              "teacherKl": 0.014545402441906528,
+              "clipFraction": 0.00036043829296424453,
+              "ratioMean": 1.0000829604281842,
+              "maxUnclippedGradNorm": 1.8038659896649714,
+              "optimizerStep": 5678
+            },
+            {
+              "epoch": 3,
+              "loss": 0.0972925235804441,
+              "policyLoss": 0.09699419912034876,
+              "teacherKl": 0.014916223004767916,
+              "clipFraction": 0.002234717416378316,
+              "ratioMean": 0.999976650086835,
+              "maxUnclippedGradNorm": 1.6285108386525409,
+              "optimizerStep": 5895
+            },
+            {
+              "epoch": 4,
+              "loss": 0.09652771595601341,
+              "policyLoss": 0.09621800914043423,
+              "teacherKl": 0.015485340778956172,
+              "clipFraction": 0.007713379469434832,
+              "ratioMean": 1.000034752415131,
+              "maxUnclippedGradNorm": 1.8199179085314474,
+              "optimizerStep": 6112
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.00019311904907226562,
+            "maxNumpyVsJavaOrderScoreError": 9.5367431640625e-07
+          },
+          "checkpointOptimizerStep": 6112
+        },
+        "build": {
+          "decisions": 29560,
+          "rows": 2944264,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 66,
+          "decisionsPerGameMax": 263,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.3159425310836923e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 2.5779454242425004e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.9222497940063477e-05,
+            "optimizerStepRetained": 11000,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.03138430739284966,
+              "policyLoss": 0.031186057691473493,
+              "teacherKl": 0.0099124850688083,
+              "clipFraction": 0.002300405953991881,
+              "ratioMean": 0.9999472488469722,
+              "maxUnclippedGradNorm": 5.586330227825042,
+              "optimizerStep": 11462
+            },
+            {
+              "epoch": 2,
+              "loss": 0.028985413237247893,
+              "policyLoss": 0.028787890106382812,
+              "teacherKl": 0.009876156543251772,
+              "clipFraction": 0.011197564276048715,
+              "ratioMean": 0.99977100423211,
+              "maxUnclippedGradNorm": 5.637090606665855,
+              "optimizerStep": 11924
+            },
+            {
+              "epoch": 3,
+              "loss": 0.02740023264649251,
+              "policyLoss": 0.027191551605967354,
+              "teacherKl": 0.010434052026257946,
+              "clipFraction": 0.016339648173207037,
+              "ratioMean": 0.9995946175996272,
+              "maxUnclippedGradNorm": 5.8444575869270405,
+              "optimizerStep": 12386
+            },
+            {
+              "epoch": 4,
+              "loss": 0.026132747839332338,
+              "policyLoss": 0.02592402910687954,
+              "teacherKl": 0.010435936622642089,
+              "clipFraction": 0.02023004059539919,
+              "ratioMean": 0.9996788733776504,
+              "maxUnclippedGradNorm": 6.522497951738501,
+              "optimizerStep": 12848
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0002843141555786133,
+            "maxNumpyVsJavaOrderScoreError": 9.834766387939453e-07
+          },
+          "checkpointOptimizerStep": 12848
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "f85550d39706ad6c3facaa5bd445bb2bb56352c27355a49f2c945318beef2401",
+        "sabotage.idx": "7113675e6296620a8da24c9c425601b707f0531759877f182ac34987ba489542",
+        "sabotage.logp": "50cacf479a13e29957e36c0bd5093c93f79bd688b4859e6ee13ccb208b677e08",
+        "sabotage.teacher": "d2b52f104e31e13b2677fb51420de302a1f44797f4f56ff5fe7d927674db7316",
+        "build.bin": "9bf2c5f83f594ca4f46ea057b193a90d0a67933ee4dc552dccd5e394415bc107",
+        "build.idx": "41e10294aa48c7ec93ebfb5e652a4f5ff36981e97fe6735de010be86d0ca98d7",
+        "build.logp": "26ad07ab2b9e665fa51506f35665255a7d180933d1ec186a1b34f439de04bbda",
+        "build.teacher": "1b22173dcf40d432d7605cde0f8b96dc64ae86c43fb660871340684dc4169b6a",
+        "games.json": "6daf88271270a7a343eaefe7e5e88fe07e7d00152f48957710997e37864cc7e2",
+        "meta.json": "cb9da7a62ea4983872358d31187c280e57cae9f5b2a0226635db34d9b660099a"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-7.json",
+        "sha256": "7fbe31b337a3a37406dd3e12a00682cc6f297c06b4ff1dca2d5ee6f498d99427"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-6.json",
+        "sha256": "798f64d914f5b46ee0dff942eeb5ef77aecd4b3a511f6660f71111eff7235646"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-6.npz",
+        "sha256": "4ebb9526b0cad96b6aa90ce222381fe30d47928972b96bb7a568ab7843105363"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-7.json",
+        "sha256": "395d7a17be2eda7f4d4ba69abd37ae734671445fd86fd7e41123b79357ad4cc9"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-7.npz",
+        "sha256": "268555a3eb94bea4fcfbb45c94790ffe09e6feb8bfd5de96a3245d4219fcb99b"
+      }
+    },
+    {
+      "round": 8,
+      "games": 192,
+      "distinctMaps": 96,
+      "mapSeedBase": 3107000,
+      "cohorts": {
+        "v09": {
+          "games": 64,
+          "wins": 21,
+          "draws": 0,
+          "losses": 43,
+          "meanOutcome": -0.34375
+        },
+        "neural-v1": {
+          "games": 64,
+          "wins": 21,
+          "draws": 0,
+          "losses": 43,
+          "meanOutcome": -0.34375
+        },
+        "v07": {
+          "games": 64,
+          "wins": 31,
+          "draws": 0,
+          "losses": 33,
+          "meanOutcome": -0.03125
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 13576,
+          "rows": 401885,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 25,
+          "decisionsPerGameMax": 100,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 1.8489395969822908e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 1.4521305526926653e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.5255063772201538e-05,
+            "optimizerStepRetained": 6112,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.06739987702261097,
+              "policyLoss": 0.06704751088847292,
+              "teacherKl": 0.01761830670690048,
+              "clipFraction": 0.0,
+              "ratioMean": 0.9999583583355459,
+              "maxUnclippedGradNorm": 2.6243654178399134,
+              "optimizerStep": 6325
+            },
+            {
+              "epoch": 2,
+              "loss": 0.06633817085610952,
+              "policyLoss": 0.06591375063160497,
+              "teacherKl": 0.021221011225223962,
+              "clipFraction": 0.0012522097819681792,
+              "ratioMean": 0.9997959070765267,
+              "maxUnclippedGradNorm": 2.9458365207384567,
+              "optimizerStep": 6538
+            },
+            {
+              "epoch": 3,
+              "loss": 0.06547040182823319,
+              "policyLoss": 0.06501257057641416,
+              "teacherKl": 0.02289156259094923,
+              "clipFraction": 0.00648202710665881,
+              "ratioMean": 0.9997089863501581,
+              "maxUnclippedGradNorm": 3.058306180187736,
+              "optimizerStep": 6751
+            },
+            {
+              "epoch": 4,
+              "loss": 0.06482451321852148,
+              "policyLoss": 0.06436866832231337,
+              "teacherKl": 0.022792244810405166,
+              "clipFraction": 0.006997642899233943,
+              "ratioMean": 0.9997915407886483,
+              "maxUnclippedGradNorm": 3.154417683008038,
+              "optimizerStep": 6964
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.0004932880401611328,
+            "maxNumpyVsJavaOrderScoreError": 1.1920928955078125e-06
+          },
+          "checkpointOptimizerStep": 6964
+        },
+        "build": {
+          "decisions": 29212,
+          "rows": 3026918,
+          "gamesWithDecisions": 192,
+          "decisionsPerGameMin": 72,
+          "decisionsPerGameMax": 251,
+          "validation": {
+            "decisionsChecked": 128,
+            "maxBehaviorLogpError": 2.1915662440363803e-07,
+            "maxTeacherScoreError": 0.0,
+            "maxNumpyTrainingLogpError": 2.6555772505432174e-06,
+            "logpTolerance": "1e-4 + 1e-5 * abs(logp)"
+          },
+          "rebase": {
+            "maxParameterRebaseDelta": 1.919269561767578e-05,
+            "optimizerStepRetained": 12848,
+            "parametersExactlyEqualDecodedBehavior": true
+          },
+          "history": [
+            {
+              "epoch": 1,
+              "loss": 0.030483623867971352,
+              "policyLoss": 0.03024977732600832,
+              "teacherKl": 0.01169232709815014,
+              "clipFraction": 0.003217855675749692,
+              "ratioMean": 0.9999040203197344,
+              "maxUnclippedGradNorm": 7.242893026521612,
+              "optimizerStep": 13305
+            },
+            {
+              "epoch": 2,
+              "loss": 0.02817905497363338,
+              "policyLoss": 0.027939414500692445,
+              "teacherKl": 0.011982023647045741,
+              "clipFraction": 0.008078871696563057,
+              "ratioMean": 0.9997279187310435,
+              "maxUnclippedGradNorm": 9.541204899846521,
+              "optimizerStep": 13762
+            },
+            {
+              "epoch": 3,
+              "loss": 0.026442191029218878,
+              "policyLoss": 0.02619758941779466,
+              "teacherKl": 0.012230080571210897,
+              "clipFraction": 0.014925373134328358,
+              "ratioMean": 0.9996862536944575,
+              "maxUnclippedGradNorm": 9.309750671177877,
+              "optimizerStep": 14219
+            },
+            {
+              "epoch": 4,
+              "loss": 0.025007847827204326,
+              "policyLoss": 0.02476545020099232,
+              "teacherKl": 0.012119881310599524,
+              "clipFraction": 0.022764617280569627,
+              "ratioMean": 0.9994022179342661,
+              "maxUnclippedGradNorm": 5.447368134542218,
+              "optimizerStep": 14676
+            }
+          ],
+          "quantization": {
+            "maxQuantizationScoreError": 0.00027298927307128906,
+            "maxNumpyVsJavaOrderScoreError": 9.5367431640625e-07
+          },
+          "checkpointOptimizerStep": 14676
+        }
+      },
+      "inputDataSha256": {
+        "sabotage.bin": "df9ceb7784ec082e12bec7e0709cba7a13e66fc577973f13925e018685d70410",
+        "sabotage.idx": "8e96e2766de85ac9974578564bd6c690d9e8b63015ac707a779cfc6ed061697d",
+        "sabotage.logp": "80f6aaa14714821b8152a206dfdb5d58b5214a55090f46434e4cf88e64eade72",
+        "sabotage.teacher": "50aa61e4e381cc0e9f710bb997d6ff064c457501dc537275a25883a1c7816ec0",
+        "build.bin": "8f963a97c1fce10dbaa84a1b3bc8061439bb4ccfb73ac6d1b92d52a28131c723",
+        "build.idx": "ca4975e8a71769541cfac67f0620c00c464eceb9ebfa462b7536e084dde610bc",
+        "build.logp": "68f7dcb764a79b0d99b43c1e099db1a3ca8465971a0d52e41ff8ce6c9c582b43",
+        "build.teacher": "68c554379899a0f5ae4589c3d7305a63f4658bd99d9d4c89a798d0fd34b1b882",
+        "games.json": "9320a1fe7fecfca9e1894a1f30cde6fe6c0b047376dcd1c731b9e80bcb07ddb4",
+        "meta.json": "61c7e3f7338bab6845d829e7cb7a09b8d08eb49dc942a8225a1a7c83db0a7dc0"
+      },
+      "evidence": {
+        "path": "build/analysis/neural-v4/train-8.json",
+        "sha256": "68968a87602b57f8143301f52d2664ac811129846535ac7437d8c34552c7fef9"
+      },
+      "inputWeights": {
+        "path": "build/analysis/neural-v4/weights-7.json",
+        "sha256": "395d7a17be2eda7f4d4ba69abd37ae734671445fd86fd7e41123b79357ad4cc9"
+      },
+      "inputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-7.npz",
+        "sha256": "268555a3eb94bea4fcfbb45c94790ffe09e6feb8bfd5de96a3245d4219fcb99b"
+      },
+      "outputWeights": {
+        "path": "build/analysis/neural-v4/weights-8.json",
+        "sha256": "4cf8303bf1bf800ba696fdb7d48941d17bca8512de5c704e16983050f23fd499"
+      },
+      "outputCheckpoint": {
+        "path": "build/analysis/neural-v4/checkpoint-8.npz",
+        "sha256": "cbad6ada6f0ff6b34c412b57442e6c609af85055ade8d2e0ce2fe5904f0bd8eb"
+      }
+    }
+  ],
+  "selection": "fixed final round; no checkpoint selection or outcome-guided extension",
+  "strength": "not assessed here; collection outcomes are training diagnostics",
+  "benchmarkExclusions": [
+    {
+      "path": "build/bench/neural-v4-training-excluded.json",
+      "sha256": "5a58755584932fb239eaaa251aa944fd3991d61497777e013b5ff6657599437f"
+    },
+    {
+      "path": "build/bench/neural-v4-probe-excluded.json",
+      "sha256": "55b9a8d53e7854cf91e0dfdad6e497689a9fdf92b94880d22c3b4d6493c32aa8"
+    },
+    {
+      "path": "build/bench/neural-v4-corpus-excluded.json",
+      "sha256": "ba5abb84fd5150b0a359f27719767fc54a8f62dd78284728b7f6c08fcef129ab"
+    }
+  ]
+}

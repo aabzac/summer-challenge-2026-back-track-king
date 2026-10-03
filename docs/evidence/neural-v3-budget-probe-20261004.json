@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "kind": "single fixed local saved-state timing diagnostic; not a strength experiment",
+  "status": "COMPLETE_CG_UNDERPAINT_NOT_REPRODUCED",
+  "inputs": [
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/budget-probe.json",
+      "sha256": "56b76900d5b9f10d9e80688737cfa521946a102a43e9798766527dcaceed35bf"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/budget-probe.json.intent.json",
+      "sha256": "9fd1b28738649b4c0fa59ba242ab271ddc618fbcc484c1003f6f5988520cd752"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/budget-probe.log",
+      "sha256": "79888f1c70585a0e24a4828af0ea11a4417e87971dbd65d05e0d1f0c9a61c969"
+    },
+    {
+      "path": "docs/evidence/neural-v3-arena-paint-20261004.json",
+      "sha256": "549a40a16d46b6d468545eff4a5f29c649553045f6b7e0f77098adfd22eb96ca"
+    },
+    {
+      "path": "tools/diagnostics/NeuralSavedStateBudgetProbe.java",
+      "sha256": "775abe4aeb05e351117c0337cf75b22f22349fef5971ebbdd5119aa30ab7e96f"
+    },
+    {
+      "path": "build/analysis/neural-v3-arena-20261004/summarize_budget_probe.py",
+      "sha256": "cdbfd0324b873ffe46f386f56261ddff5ae4d856bf5d57eecb937681893b4a31"
+    }
+  ],
+  "protocol": {
+    "selection": "all40 pinned arena replays, every turn0..19; fixed before execution",
+    "timedFirstBudgetMs": 486,
+    "timedLaterBudgetMs": 36,
+    "ampleBudgetMs": 60000,
+    "callOrder": "timed then ample on even(gameIndex+turn), reverse on odd; one pass only",
+    "memory": "public board prefixes and previous accepted recorded target identical; alternative actions never advance the replay",
+    "randomness": "both calls reseeded identically per state; not the unrecoverable arena RNG state",
+    "warmup": {
+      "gameId": 907069260,
+      "calls": 64,
+      "actualWallMs": 505.5456,
+      "method": "one disposable bot on the fixed largest saved map; actual board never advanced",
+      "requestedMs": 500
+    },
+    "javaVersion": "17.0.12"
+  },
+  "configuration": {
+    "ALWAYS_DISRUPT": "true",
+    "BUILD_BEAM_WIDTH": "4",
+    "CHOOSE_BUILD_DIRECTION": "false",
+    "COLLISION_COST": "2.0",
+    "DEBUG": "false",
+    "DEFENSE_MAX_PAINT": "6",
+    "DEFENSE_MAX_PAIRS": "4",
+    "DEFENSE_MAX_REGIONS": "3",
+    "DEFENSE_MIN_INSTABILITY": "1",
+    "DISRUPT_DELAY_FACTOR": "1.0",
+    "DISRUPT_MIN": "0.01",
+    "DISRUPT_RESERVE_MS": "6",
+    "EARLY_DISRUPT_FALLBACK": "false",
+    "FORECAST_DECAY": "0.95",
+    "FORECAST_FLOOR": "0.1",
+    "GUARD_BUILD_INCOME": "false",
+    "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+    "HEURISTIC_AVOID_INSTABILITY": "2",
+    "HEURISTIC_DETOUR_CAP": "12",
+    "HEURISTIC_DETOUR_PAIRS": "4",
+    "HEURISTIC_DETOUR_REGIONS": "4",
+    "HEURISTIC_DETOUR_WEIGHT": "1.0",
+    "HEURISTIC_EMERGENCY_STOP": "true",
+    "HEURISTIC_MAX_ROUTES": "64",
+    "HEURISTIC_OWN_PENALTY": "2.0",
+    "HEURISTIC_ROUTE_STICKINESS": "1.25",
+    "HEURISTIC_TARGET_STICKINESS": "1.3",
+    "HORIZON": "100",
+    "INDRILL_INK_PENALTY": "2",
+    "INTERRUPT_VULN_EVAL": "false",
+    "ISOLATED_ROUTE_WARMUP": "true",
+    "MESSAGE": "false",
+    "NEURAL_DEADLINE_RESERVE_MS": "2",
+    "NOISE": "0.1",
+    "OPENING_CITY_QUOTA": "1",
+    "OPENING_COLLISION_FACTOR": "0.25",
+    "OPENING_TURNS": "3",
+    "OPP_REPLY_WIDTH": "2",
+    "OWN_BUILD_DEPTH": "3",
+    "OWN_BUILD_WIDTH": "3",
+    "PRESSURE_BUILD_RESERVE_MS": "12",
+    "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+    "PRESSURE_HORIZON": "8",
+    "PRESSURE_STICKINESS": "0.25",
+    "PRESSURE_TRACK_WEIGHT": "0.8",
+    "PROFILE_SEARCH": "false",
+    "ROLLOUT_ALWAYS_DISRUPT": "false",
+    "ROLLOUT_DEPTH": "8",
+    "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+    "ROLLOUT_LIVE_TURNS": "2",
+    "ROLLOUT_LIVE_WEIGHT": "12.0",
+    "ROLLOUT_MAX_ROUTES": "64",
+    "ROLLOUT_NETWORK_MAX_CELLS": "24",
+    "ROLLOUT_NETWORK_RESERVE_MS": "12",
+    "ROLLOUT_NETWORK_ROOTS": "2",
+    "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+    "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+    "ROLLOUT_QUICK_MAX_PAINT": "6",
+    "ROLLOUT_REPLAN_TURN": "4",
+    "ROLLOUT_REPLIES": "2",
+    "ROLLOUT_RESERVE_MS": "20",
+    "ROLLOUT_RHEA_ELITES": "2",
+    "ROLLOUT_RHEA_MUTATIONS": "12",
+    "ROLLOUT_ROBUSTNESS": "0.5",
+    "ROLLOUT_ROUTE_HORIZON": "16.0",
+    "ROLLOUT_SPREAD_ROOTS": "2",
+    "ROLLOUT_TAIL": "3.0",
+    "ROLLOUT_TARGETS": "4",
+    "ROLLOUT_TARGET_HORIZON": "8.0",
+    "ROLLOUT_THREAT_WEIGHT": "0.5",
+    "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+    "ROLLOUT_TRACK_WEIGHT": "0.4",
+    "ROLLOUT_WIDTH": "6",
+    "ROLLOUT_WIN_VALUE": "1000000.0",
+    "SEED": "1",
+    "SKIP_UNFINISHABLE": "true",
+    "UNSTABLE_COST": "1.0",
+    "USE_BACKUP": "true",
+    "USE_CLOSE": "true",
+    "USE_DEFENSE_PRIORITY": "false",
+    "USE_DISRUPT": "true",
+    "USE_HEURISTIC_DETOUR": "false",
+    "USE_HEURISTIC_POLICY": "false",
+    "USE_IDLE_EXTEND": "true",
+    "USE_JOINT_ACTION": "false",
+    "USE_OPP_MODEL": "false",
+    "USE_OWN_BUILD_PLAN": "false",
+    "USE_PROTECTED_OPENING": "false",
+    "USE_REPLY_RERANK": "false",
+    "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+    "USE_ROLLOUT_FILL": "false",
+    "USE_ROLLOUT_LIVE_TARGET": "false",
+    "USE_ROLLOUT_NETWORK": "false",
+    "USE_ROLLOUT_NETWORK_AFTER_BASE": "false",
+    "USE_ROLLOUT_NETWORK_CHORDS": "false",
+    "USE_ROLLOUT_POLICY": "false",
+    "USE_ROLLOUT_QUICK_EARLY": "false",
+    "USE_ROLLOUT_QUICK_ROUTE": "false",
+    "USE_ROLLOUT_QUICK_SAFE": "false",
+    "USE_ROLLOUT_QUICK_VALUE": "false",
+    "USE_ROLLOUT_REPLAN": "false",
+    "USE_ROLLOUT_RHEA": "false",
+    "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+    "USE_ROLLOUT_SECOND_TARGET": "false",
+    "USE_ROLLOUT_SPREAD": "false",
+    "USE_ROLLOUT_TRACK_VALUE": "false",
+    "USE_STEAL": "true",
+    "WARMUP_SLICE_MS": "36",
+    "W_COST": "0.0",
+    "W_FUTURE_OWN": "0.4",
+    "W_FUTURE_TRACK": "0.3",
+    "W_OPP": "1.0",
+    "W_OPP_INCOME": "1.0",
+    "W_OPP_ROUTE": "0.3",
+    "W_OWN": "1.0",
+    "W_RISK": "0.6",
+    "W_SELF_LOSS": "1.2",
+    "W_THEIR_LOSS": "1.0",
+    "W_VULN": "1.0"
+  },
+  "groups": {
+    "all": {
+      "states": 800,
+      "nominalPaint": 2400,
+      "recordedPaint": 2125,
+      "recordedPartialPaintStates": 161,
+      "identicalTimedAmpleActions": 800,
+      "timed": {
+        "acceptedPaint": 2400,
+        "partialPaintStates": 0,
+        "abortedPhases": {
+          "0": 800
+        },
+        "meanMs": {
+          "wallMs": 6.928479875,
+          "prepareMs": 4.976036375,
+          "sabotageFeaturesMs": 0.092149375,
+          "buildFeaturesMs": 0.363515
+        },
+        "maxWallMs": 31.5294,
+        "prepareShareOfTotalWallTime": 0.7182003072499362
+      },
+      "ample": {
+        "acceptedPaint": 2400,
+        "partialPaintStates": 0,
+        "abortedPhases": {
+          "0": 800
+        },
+        "meanMs": {
+          "wallMs": 6.924204,
+          "prepareMs": 4.9247805,
+          "sabotageFeaturesMs": 0.09073,
+          "buildFeaturesMs": 0.368997375
+        },
+        "maxWallMs": 30.0184,
+        "prepareShareOfTotalWallTime": 0.7112413932345147
+      }
+    },
+    "height18to20": {
+      "states": 220,
+      "nominalPaint": 660,
+      "recordedPaint": 411,
+      "recordedPartialPaintStates": 144,
+      "identicalTimedAmpleActions": 220,
+      "timed": {
+        "acceptedPaint": 660,
+        "partialPaintStates": 0,
+        "abortedPhases": {
+          "0": 220
+        },
+        "meanMs": {
+          "wallMs": 13.480276363636364,
+          "prepareMs": 10.87238,
+          "sabotageFeaturesMs": 0.08635863636363636,
+          "buildFeaturesMs": 0.37625681818181816
+        },
+        "maxWallMs": 31.5294,
+        "prepareShareOfTotalWallTime": 0.8065398443409307
+      },
+      "ample": {
+        "acceptedPaint": 660,
+        "partialPaintStates": 0,
+        "abortedPhases": {
+          "0": 220
+        },
+        "meanMs": {
+          "wallMs": 13.429910454545455,
+          "prepareMs": 10.733531818181818,
+          "sabotageFeaturesMs": 0.07834272727272727,
+          "buildFeaturesMs": 0.3732440909090909
+        },
+        "maxWallMs": 30.0184,
+        "prepareShareOfTotalWallTime": 0.7992258663607822
+      }
+    },
+    "height14to17": {
+      "states": 580,
+      "nominalPaint": 1740,
+      "recordedPaint": 1714,
+      "recordedPartialPaintStates": 17,
+      "identicalTimedAmpleActions": 580,
+      "timed": {
+        "acceptedPaint": 1740,
+        "partialPaintStates": 0,
+        "abortedPhases": {
+          "0": 580
+        },
+        "meanMs": {
+          "wallMs": 4.443315689655172,
+          "prepareMs": 2.73949224137931,
+          "sabotageFeaturesMs": 0.09434586206896552,
+          "buildFeaturesMs": 0.3586818965517241
+        },
+        "maxWallMs": 13.2812,
+        "prepareShareOfTotalWallTime": 0.6165423374614896
+      },
+      "ample": {
+        "acceptedPaint": 1740,
+        "partialPaintStates": 0,
+        "abortedPhases": {
+          "0": 580
+        },
+        "meanMs": {
+          "wallMs": 4.45652224137931,
+          "prepareMs": 2.7214610344827586,
+          "sabotageFeaturesMs": 0.09542862068965517,
+          "buildFeaturesMs": 0.3673865517241379
+        },
+        "maxWallMs": 12.0407,
+        "prepareShareOfTotalWallTime": 0.6106692364763013
+      }
+    }
+  },
+  "conclusions": [
+    "All 800 paired calls return identical actions, spend 3 paint legally against WAIT, and report no aborted phase.",
+    "Recorded CG partial construction occurs in 161 of these states; the local nominal-budget arm does not reproduce it.",
+    "Complete legal construction exists on every tested state; this does not establish its score or outcome against the recorded simultaneous opponent action.",
+    "Preparation dominates local time on large maps. Runtime/environment sensitivity remains a hypothesis supported by CG warnings, not a proven cause of losses.",
+    "Next proposed experiment: measure and reduce exact feature preparation work while keeping V3 weights/features/action ordering. No runtime or strategy change is made by this diagnostic."
+  ],
+  "limitations": [
+    "Local wall-clock sensitivity only; does not reproduce CodinGame CPU, JIT or parsing overhead.",
+    "Timed arm uses CG local profile486ms first turn and36ms later; parsing/runtime overhead is not reconstructed.",
+    "lastAbortedPhase=0 does not prove completion: the6ms later-placement reserve can stop without setting this field.",
+    "Accepted paint uses core Rules.resolve versus WAIT on a scratch copy; this is not a predicted game result.",
+    "No alternate-action trajectories, new maps, outcome evaluation, repetitions or strategy edits.",
+    "A shared JVM and local warmup do not reconstruct the deployed merged program, CG hardware or per-match JVM history.",
+    "Paint capacity is demonstrated by one legal complete action, not an exhaustive search or recovered-win calculation.",
+    "Height groups were selected retrospectively in the prior arena analysis; these are descriptive diagnostics."
+  ],
+  "newGames": 0,
+  "repetitions": 1
+}

@@ -676,16 +676,48 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 
 - [x] Record the user's arena submission and ongoing placement. The preceding IDE
       readback matches the exact tested artifact; arena agent/source/rank remain unverified.
-- [ ] Inspect a bounded set of new arena replays, verify engine/build identity, and
-      separate technical failures from opening, construction, disruption and closure losses.
+- [x] Inspect latest40 new arena games:20W20L,40/40 exact engine/build,zero technical
+      failures. Verified arena134/712 Silver;13/20 losses behind at turn20. Three
+      apparent self-closures require simultaneous opponent disruption; no guaranteed
+      recovery or matched v09 comparison established (`evidence/neural-v3-arena-20261004.json`).
 - [x] Measure current-student sampled-versus-greedy disagreement on retained data:
       128 selectable decisions/head/round, 1,024 per head; build283/1024 (27.64%),
       sabotage715/1024 (69.82%). Pure argmax approximates deployed argmax+small noise;
       this is an offline diagnostic, not new strength evidence. Teacher-v1 agreement
       is a different metric (`evidence/neural-v3-exploration-gap.json`).
-- [ ] Candidate hypothesis: a fresh repetition of the outcome-training protocol with
+- [x] Candidate hypothesis: a fresh repetition of the outcome-training protocol with
       build-only sampling temperature0.5, keeping sabotage temperature1 and other
       training/runtime choices fixed. Align actor probabilities/gradients and parity
       with the actual collection distribution; predeclare before any new collection.
 - [ ] Audit saved states for missed complete placement bundles and closing decisions
       made before construction. Use shared core; oracle opponent replies are diagnostics only.
+- [x] Inspect early accepted paint by board size in the same40 arena games: on11 tall
+      maps62.3% of nominal paint versus99.4% for opponents;2W9L. All first turns fill3.
+      79/84 own37-51ms warnings coincide with partial paint, but replay lacks abort phase.
+- [x] Probe the same fixed first20 states of all40 games with ample versus nominal CG
+      budgets:800 identical action pairs, all spend3paint legally against WAIT, zero
+      aborts, nominal max31.5294ms. CG underpaint was not reproduced locally; no new
+      games or claim of matching CG CPU/RNG. Preparation is80.65% of time on tall maps.
+      Evidence: `evidence/neural-v3-budget-probe-20261004.json`.
+- [ ] Predeclare exact feature-preparation optimization with frozen V3 weights and
+      feature/action parity: profile repeated completionGain/connection updates and
+      scratch-path allocations, then independently check actual CG timing. Keep a cheap
+      construction fallback as a separate policy experiment if needed.
+
+## neural-v4: construction temperature 0.5 (2026-10-04)
+
+- [x] Predeclare one temperature change, original v1 initialization, same eight-round
+      training budget and frozen v3 runtime (`neural-policy-v4.md`); preserve v09 default.
+- [x] Verify separate collector/trainer:414 Java+31 Python tests, unchanged teacher KL,
+      4,168 bit-exact Java/Python probe scores. All1,271 prospective maps disjoint from
+      16,379 previous maps; exact v3 export retained and292/292 archived replays match.
+- [x] Complete fixed1,536-game/768-map training; independent132-source, lineage/RNG,
+      numeric and map audits PASS. Export only final round8 weights4cf8303b...d499.
+      Build sampled-maximum agreement587/1024 (57.3%); mechanism only, not strength.
+- [x] Verify final artifact, unchanged v3,414 tests,292/292 engine replays and4,168
+      bit-exact final-model scores. Strict panel COMPLETE but FAILED1/8: map904148181,
+      P1turn38,response52.0318ms versus50ms; no retry. Readiness remains NOT_PASSED.
+- [x] Complete fixed practical-v4 vs neural-v3:149W150L1D/300 (49.8333%),150 fresh maps,
+      zero errors, STOP_FUTILITY_300. No continuation or boss; candidate REJECTED.
+- [x] Retain compact artifacts and commit completed experiment and arena audit;
+      no automatic arena upload or promotion.

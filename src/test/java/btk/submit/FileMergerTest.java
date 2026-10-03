@@ -371,7 +371,7 @@ class FileMergerTest {
         assertTrue(source.contains("NOISE=0.1"));
         checkFrozenDecisions("neural-v1", true);
         assertFalse(FileMerger.merge("current").contains("NeuralFeatures"));
-        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v4"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v99"));
     }
 
     @Test void neuralV2SubmissionIsIsolatedAndMatchesCompiledPolicyDecisions() throws Exception {
@@ -412,6 +412,24 @@ class FileMergerTest {
         // Current already embeds that unused declaration/config entry at the V2 baseline;
         // removing only those two fragments reproduces the retained normalized source exactly.
         assertEquals("66559817e09dc2b3cfcf5e8ede8709a7c71797eb1eb2bdb41741470f372706a1", FileMerger.sha256(FileMerger.merge("current")));
+    }
+
+    @Test void neuralV4ShipsNewWeightsAndUnchangedDeadlineFeaturesWithoutDriftingV3() throws Exception {
+        String source = FileMerger.merge("neural-v4");
+        assertTrue(source.contains("static final class NeuralFeatures"));
+        assertTrue(source.contains("interface Deadline"));
+        assertTrue(source.contains("static final class NeuralWeights"));
+        assertTrue(source.contains("NEURAL_DEADLINE_RESERVE_MS=2"));
+        assertFalse(source.contains("NeuralV3Features"));
+        assertFalse(source.contains("NeuralV4Bot"));
+        assertFalse(source.contains("NeuralV4Weights"));
+        assertFalse(source.contains("NeuralV2Weights"));
+        assertFalse(source.contains("DecisionChooser"));
+        assertFalse(source.contains("NeuralV4Collect"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("neural-v4", true);
+        assertEquals("2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+                FileMerger.sha256(FileMerger.merge("neural-v3")));
     }
 
     @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {

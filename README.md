@@ -18,6 +18,7 @@ gradlew submit -PsubmitVersion=indrill-q-v1 -PsubmitOut=build/submit-indrill # s
 gradlew submit -PsubmitVersion=indrill-q-v2 -PsubmitOut=build/submit-indrill-v2 # learned position/WAIT candidate
 gradlew submit -PsubmitVersion=neural-v2 -PsubmitOut=build/submit-neural-v2 # outcome-tuned imitation candidate
 gradlew submit -PsubmitVersion=neural-v3 -PsubmitOut=build/submit-neural-v3 # same trained weights, deadline-aware execution
+gradlew submit -PsubmitVersion=neural-v4 -PsubmitOut=build/submit-neural-v4 # build-temperature training experiment
 gradlew submit -PsubmitVersion=v09              # selected frozen v09 source + complete snapshot
 gradlew submit -PsubmitVersion=v08              # historical v08 reference build
 gradlew submit -PsubmitVersion=v07              # historical v07 reference build
@@ -122,6 +123,16 @@ completed live boss check is **15/40 vs v09's 11/40** on the same maps/seats, wi
 **80/80 new replays reproduced exactly** and zero technical failures. Practical-v4
 and readiness checks passed; the candidate is **not promoted**. Details and evidence:
 [neural-policy-v3.md](docs/neural-policy-v3.md).
+
+`neural-v4` repeats outcome training from the original v1 prior with construction
+sampling temperature0.5 and sabotage temperature1. It keeps the v3 inference policy,
+uses separate generated weights, and is evaluated against neural-v3 on fresh maps.
+The completed experiment is **rejected**: 149W/150L/1D over 300 games (49.83%),
+first futility stop; strict process check also failed 1/8. No boss run or promotion.
+The retained schedule is `python tools/neural/run_outcome_v4.py`;
+[predeclared protocol](docs/neural-policy-v4.md),
+[final strength evidence](docs/evidence/neural-v4-v4.json),
+[readiness evidence](docs/evidence/neural-v4-verification.json).
 
 The selected protected opening claims town approaches during the first three turns using
 potential route traffic, then returns to the existing rollout policy. Disable it with

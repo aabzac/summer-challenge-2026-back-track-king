@@ -13,12 +13,36 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-Latest user-reported arena update (2026-10-04, Europe/Bucharest): **neural-v3 was
-submitted to the arena; placement games are running**. Immediately beforehand the
-saved puzzle IDE source was read back and matched the tested neural-v3 artifact
-`2aee3ffe...` exactly. The deployed arena agent/source and ranking have not yet been
-verified from new arena replays. This records the user's deployment; local `current`
-and the default exported artifact still identify v09.
+Verified arena snapshot (2026-10-04, Europe/Bucharest): user-uploaded **neural-v3**,
+agent6779375, Silver **134/712**, score22.4, placement100%, inProgress=false.
+The fixed latest40 games give20W20L across22 opponent agents; all40 reproduce exactly,
+carry the tested build/config markers, and show no technical failures or skipped own
+actions. Losses often develop early:13/20 behind at turn20,18/19 surviving losses behind
+at turn40. Three apparent self-closures require simultaneous opponent disruption;
+none ends against opponent WAIT. These diagnostics establish neither a matched v09
+comparison nor recoverable wins. The user reports apparent regression relative to v09.
+[Arena evidence](evidence/neural-v3-arena-20261004.json). Local `current` and the
+default exported artifact still identify v09.
+
+Additional retrospective timing clue on those same40 games: on11 maps of height18-20,
+V3 spends411/660 nominal paint in turns0-19 (62.3%) versus656/660 (99.4%) for opponents,
+and wins2/11. On29 shorter maps it spends1714/1740 (98.5%). All40 first moves use3paint;
+the deficit begins after the first-turn allowance. Own stderr has84 warnings at37-51ms,
+79 on turns spending<3paint; no official timeout is reported. Cooperative interruption
+is a credible hypothesis, not yet established as the cause of each loss. Aggregate
+whole-game paint totals conceal this opening deficit. [Evidence and limitations](evidence/neural-v3-arena-paint-20261004.json).
+
+The single fixed local follow-up tested all800 saved states with nominal486/36ms
+and ample60000ms: all800 action pairs are identical, legal against WAIT and spend3paint;
+no aborts, maximum nominal call31.5294ms. CG underpainting (161 of these states)
+was not reproduced locally. Preparation accounts for80.65% of measured nominal time
+on tall maps (mean10.87ms of13.48ms). This demonstrates available complete construction,
+not recovered wins or proven CG timing causality. Next priority is exact feature
+preparation optimization with frozen V3 weights and explicit CG timing observation.
+The coupled diagnostic RNG differs from CG, so availability of a continuation after
+the actual CG-selected prefix is not established. Preparation timing combines full
+and incremental calls; repeated hypothetical connection recomputation needs profiling.
+[Saved-state diagnostic](evidence/neural-v3-budget-probe-20261004.json).
 
 October 3 diagnostic review (no new bot/version or strength games): Q-v1/v2's
 0/300 outcomes remain rejected. The final Q-v2 training block's 128 games / 12,446
@@ -110,6 +134,25 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 (153-47-0); no common-opponent support for promotion. Keep **factor 1.0**, no v06.
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
+
+## Candidate: neural-v4 Construction Temperature 0.5 (2026-10-04, REJECTED)
+
+Repeat the fixed neural-v2 outcome-training schedule from the exact original v1 prior,
+lowering only construction sampling temperature from1 to0.5. Sabotage remains at1;
+the actor probabilities and gradient match the new distribution, while teacher KL
+stays at1. Use the frozen v3 deadline-aware runtime with a separate generated weight
+class. All8x192 training games and the independent audit completed; final checkpoint
+only, weight hash4cf8303b...d499. Final414 tests,292/292 engine replays and4,168 bit-exact
+scores pass. Strict process panel failed1/8:904148181 asP1,turn38,response52.0318ms
+against50ms. No retry; not ready for CG. The predeclared practical-v4 comparison
+against neural-v3 also fails: **149W/150L/1D /300 (49.8333%)**,150 fresh paired maps,
+two workers, **STOP_FUTILITY_300**, zero game errors. No blocks2/3 or boss games.
+Build sampled-maximum agreement improved from27.64% to57.32%, but the intended
+mechanism did not produce a passing strength result. No tuning, retry, checkpoint
+selection or promotion. Selected local `current` remains v09; arena V3 was not changed.
+[Predeclared protocol](neural-policy-v4.md), [training](evidence/neural-v4-training.json),
+[mechanism](evidence/neural-v4-exploration.json), [readiness](evidence/neural-v4-verification.json),
+[local verdict](evidence/neural-v4-v4.json), [retained artifacts](evidence/neural-v4-artifacts.json).
 
 ## Candidate: neural-v3 Deadline-Aware Neural Policy (2026-10-03, PASS / NOT_PROMOTED)
 
