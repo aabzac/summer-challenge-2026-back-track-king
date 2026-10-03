@@ -147,6 +147,26 @@ tasks.register<JavaExec>("cgNeuralExport") {
         prop("holdout", "40"), prop("negatives", "40"), prop("seed", "20260920"))
 }
 
+/** Terminal-outcome decisions from the retained imitation policy, with its original feature space. */
+tasks.register<JavaExec>("neuralV2Collect") {
+    group = "game"
+    description = "Collect local outcome fine-tuning decisions for neural-v2 against frozen opponents"
+    mainClass.set("btk.tools.NeuralV2Collect")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("games", "64"), prop("seed", "2200000"), prop("weights", "build/analysis/neural-v2/weights-0.json"),
+        prop("out", "build/analysis/neural-v2/round-1"), prop("temp", "1.0"))
+}
+
+/** Register existing corpus maps or score fixed probe rows; creates no games. */
+tasks.register<JavaExec>("neuralV2Verify") {
+    group = "game"
+    description = "Write-once neural-v2 corpus exclusions or generated-weight numerical parity"
+    mainClass.set("btk.tools.NeuralV2Verify")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("mode", "maps"), prop("path", "replays/cg-indrill,replays/cg/boss,replays/cg/903510176.json"),
+        prop("weights", "build/analysis/neural-v2/weights-0.json"), prop("out", "build/bench/neural-v2-corpus-excluded.json"))
+}
+
 /** Local terminal-outcome data for the independent Indrill-style action-value model. */
 tasks.register<JavaExec>("indrillCollect") {
     group = "game"

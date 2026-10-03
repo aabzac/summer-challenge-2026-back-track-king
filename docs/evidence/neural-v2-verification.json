@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v2",
+  "javaTests": {
+    "tests": 396,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pythonTests": {
+    "outcomeMathCheckpointData": 18,
+    "fixedDriverEvidence": 4,
+    "passed": true
+  },
+  "engine": {
+    "exactReplays": 292,
+    "totalReplays": 292
+  },
+  "artifact": {
+    "schemaVersion": 2,
+    "strategy": "neural-v2",
+    "strategyId": "neural-v2",
+    "params": {
+      "ALWAYS_DISRUPT": "true",
+      "BUILD_BEAM_WIDTH": "4",
+      "CHOOSE_BUILD_DIRECTION": "false",
+      "COLLISION_COST": "2.0",
+      "DEBUG": "false",
+      "DEFENSE_MAX_PAINT": "6",
+      "DEFENSE_MAX_PAIRS": "4",
+      "DEFENSE_MAX_REGIONS": "3",
+      "DEFENSE_MIN_INSTABILITY": "1",
+      "DISRUPT_DELAY_FACTOR": "1.0",
+      "DISRUPT_MIN": "0.01",
+      "DISRUPT_RESERVE_MS": "6",
+      "EARLY_DISRUPT_FALLBACK": "false",
+      "FORECAST_DECAY": "0.95",
+      "FORECAST_FLOOR": "0.1",
+      "GUARD_BUILD_INCOME": "false",
+      "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+      "HEURISTIC_AVOID_INSTABILITY": "2",
+      "HEURISTIC_DETOUR_CAP": "12",
+      "HEURISTIC_DETOUR_PAIRS": "4",
+      "HEURISTIC_DETOUR_REGIONS": "4",
+      "HEURISTIC_DETOUR_WEIGHT": "1.0",
+      "HEURISTIC_EMERGENCY_STOP": "true",
+      "HEURISTIC_MAX_ROUTES": "64",
+      "HEURISTIC_OWN_PENALTY": "2.0",
+      "HEURISTIC_ROUTE_STICKINESS": "1.25",
+      "HEURISTIC_TARGET_STICKINESS": "1.3",
+      "HORIZON": "100",
+      "INDRILL_INK_PENALTY": "2",
+      "INTERRUPT_VULN_EVAL": "false",
+      "ISOLATED_ROUTE_WARMUP": "true",
+      "MESSAGE": "false",
+      "NOISE": "0.1",
+      "OPENING_CITY_QUOTA": "1",
+      "OPENING_COLLISION_FACTOR": "0.25",
+      "OPENING_TURNS": "3",
+      "OPP_REPLY_WIDTH": "2",
+      "OWN_BUILD_DEPTH": "3",
+      "OWN_BUILD_WIDTH": "3",
+      "PRESSURE_BUILD_RESERVE_MS": "12",
+      "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+      "PRESSURE_HORIZON": "8",
+      "PRESSURE_STICKINESS": "0.25",
+      "PRESSURE_TRACK_WEIGHT": "0.8",
+      "PROFILE_SEARCH": "false",
+      "ROLLOUT_ALWAYS_DISRUPT": "false",
+      "ROLLOUT_DEPTH": "8",
+      "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+      "ROLLOUT_LIVE_TURNS": "2",
+      "ROLLOUT_LIVE_WEIGHT": "12.0",
+      "ROLLOUT_MAX_ROUTES": "64",
+      "ROLLOUT_NETWORK_MAX_CELLS": "24",
+      "ROLLOUT_NETWORK_RESERVE_MS": "12",
+      "ROLLOUT_NETWORK_ROOTS": "2",
+      "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+      "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+      "ROLLOUT_QUICK_MAX_PAINT": "6",
+      "ROLLOUT_REPLAN_TURN": "4",
+      "ROLLOUT_REPLIES": "2",
+      "ROLLOUT_RESERVE_MS": "20",
+      "ROLLOUT_RHEA_ELITES": "2",
+      "ROLLOUT_RHEA_MUTATIONS": "12",
+      "ROLLOUT_ROBUSTNESS": "0.5",
+      "ROLLOUT_ROUTE_HORIZON": "16.0",
+      "ROLLOUT_SPREAD_ROOTS": "2",
+      "ROLLOUT_TAIL": "3.0",
+      "ROLLOUT_TARGETS": "4",
+      "ROLLOUT_TARGET_HORIZON": "8.0",
+      "ROLLOUT_THREAT_WEIGHT": "0.5",
+      "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+      "ROLLOUT_TRACK_WEIGHT": "0.4",
+      "ROLLOUT_WIDTH": "6",
+      "ROLLOUT_WIN_VALUE": "1000000.0",
+      "SEED": "1",
+      "SKIP_UNFINISHABLE": "true",
+      "UNSTABLE_COST": "1.0",
+      "USE_BACKUP": "true",
+      "USE_CLOSE": "true",
+      "USE_DEFENSE_PRIORITY": "false",
+      "USE_DISRUPT": "true",
+      "USE_HEURISTIC_DETOUR": "false",
+      "USE_HEURISTIC_POLICY": "false",
+      "USE_IDLE_EXTEND": "true",
+      "USE_JOINT_ACTION": "false",
+      "USE_OPP_MODEL": "false",
+      "USE_OWN_BUILD_PLAN": "false",
+      "USE_PROTECTED_OPENING": "false",
+      "USE_REPLY_RERANK": "false",
+      "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+      "USE_ROLLOUT_FILL": "false",
+      "USE_ROLLOUT_LIVE_TARGET": "false",
+      "USE_ROLLOUT_NETWORK": "false",
+      "USE_ROLLOUT_NETWORK_AFTER_BASE": "false",
+      "USE_ROLLOUT_NETWORK_CHORDS": "false",
+      "USE_ROLLOUT_POLICY": "false",
+      "USE_ROLLOUT_QUICK_EARLY": "false",
+      "USE_ROLLOUT_QUICK_ROUTE": "false",
+      "USE_ROLLOUT_QUICK_SAFE": "false",
+      "USE_ROLLOUT_QUICK_VALUE": "false",
+      "USE_ROLLOUT_REPLAN": "false",
+      "USE_ROLLOUT_RHEA": "false",
+      "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+      "USE_ROLLOUT_SECOND_TARGET": "false",
+      "USE_ROLLOUT_SPREAD": "false",
+      "USE_ROLLOUT_TRACK_VALUE": "false",
+      "USE_STEAL": "true",
+      "WARMUP_SLICE_MS": "36",
+      "W_COST": "0.0",
+      "W_FUTURE_OWN": "0.4",
+      "W_FUTURE_TRACK": "0.3",
+      "W_OPP": "1.0",
+      "W_OPP_INCOME": "1.0",
+      "W_OPP_ROUTE": "0.3",
+      "W_OWN": "1.0",
+      "W_RISK": "0.6",
+      "W_SELF_LOSS": "1.2",
+      "W_THEIR_LOSS": "1.0",
+      "W_VULN": "1.0"
+    },
+    "charactersUtf16": 88938,
+    "bytesUtf8": 88938,
+    "sourceLimit": 100000,
+    "sha256": "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9",
+    "buildId": "071aacbf815fc11a98e3ee7adabca37c785ac440cf935bb7134079d165a7b7dd",
+    "configSha256": "105823405f2b4db5c376a5387542c74da950951c5bb951abb42c630a8864b092",
+    "marker": "BTK_BUILD_V1 strategy=neural-v2 build=071aacbf815fc11a98e3ee7adabca37c785ac440cf935bb7134079d165a7b7dd config=105823405f2b4db5c376a5387542c74da950951c5bb951abb42c630a8864b092",
+    "identityScheme": "sha256-source-with-empty-BUILD_MARKER-v1",
+    "attribution": "Replay MESSAGE is a self-reported identity. Matching the locally retained artifact verifies the marker mapping, not independently which source the server executed."
+  },
+  "artifactFile": {
+    "path": "build/submit-neural-v2/Player.java",
+    "sha256": "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9"
+  },
+  "classesSha256": "ece93e4a9db0a68949a7e20863813a57e096586a5635576b371c75e52553d4bd",
+  "finalExport": {
+    "weightsSha256": "aba8733720be99b707ea2af8765f1076ad20eff9d92e05930767b1d4aecc78ac",
+    "generatedJavaSha256": "bf650f1102323d73f77bb9e98a1a8c1472a20b11e599e5c145499cc9e4fa93e2",
+    "summary": "neural-v2 outcome fine tuning: 8 rounds, 1536 games; fixed v1 prior KL 0.02",
+    "source": "src/main/java/btk/bot/neural/NeuralV2Weights.java",
+    "selection": "final round 8 only"
+  },
+  "finalJavaPythonParity": {
+    "cases": 64,
+    "candidateScores": 3704,
+    "bitExactScores": true,
+    "allArgmaxMatch": true,
+    "javaEvidenceSha256": "1880441b051c48d4aae95781e6aba2e0b3cf56a6e4e12fe4fb41c1d4c82ab581",
+    "weightsSha256": "aba8733720be99b707ea2af8765f1076ad20eff9d92e05930767b1d4aecc78ac"
+  },
+  "parityReport": {
+    "path": "build/analysis/neural-v2/final-java.json",
+    "sha256": "1880441b051c48d4aae95781e6aba2e0b3cf56a6e4e12fe4fb41c1d4c82ab581"
+  },
+  "process": {
+    "games": 8,
+    "problemGames": 1,
+    "status": "NOT_READY",
+    "reports": [
+      {
+        "report": {
+          "path": "build/analysis/neural-v2/process-903510176.json",
+          "sha256": "a36804f96ea33ed8ec43a536140ff8f1850cba7c884af9d9c42789f6979aac03"
+        },
+        "fixture": "903510176",
+        "problemGames": 0,
+        "games": [
+          {
+            "player": 0,
+            "turns": 100,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 585.9864,
+            "maxLaterResponseMs": 31.1171,
+            "nonOkTurns": []
+          },
+          {
+            "player": 1,
+            "turns": 65,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 608.0944,
+            "maxLaterResponseMs": 31.5377,
+            "nonOkTurns": []
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": "build/analysis/neural-v2/process-904146009.json",
+          "sha256": "3f70c65b69827c3407b405aa90d5fedbc08e1f1644bf6b701ed92a4d21e1d5dc"
+        },
+        "fixture": "904146009",
+        "problemGames": 0,
+        "games": [
+          {
+            "player": 0,
+            "turns": 100,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 584.6873,
+            "maxLaterResponseMs": 40.5066,
+            "nonOkTurns": []
+          },
+          {
+            "player": 1,
+            "turns": 100,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 614.4678,
+            "maxLaterResponseMs": 31.6481,
+            "nonOkTurns": []
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": "build/analysis/neural-v2/process-904148181.json",
+          "sha256": "f6267b29116915f380683ea038d3468fb1a345e8b4e9a94dd7b8723d31f400a0"
+        },
+        "fixture": "904148181",
+        "problemGames": 1,
+        "games": [
+          {
+            "player": 0,
+            "turns": 4,
+            "timeouts": 1,
+            "nominalOverruns": 1,
+            "errors": [
+              "exception: java.lang.IllegalStateException: TIMEOUT turn 3 (deadline 50 ms)",
+              null
+            ],
+            "firstResponseMs": 617.4959,
+            "maxLaterResponseMs": 50.3003,
+            "nonOkTurns": [
+              {
+                "turn": 3,
+                "budgetMs": 50,
+                "graceMs": 0,
+                "sendMs": 0.4933,
+                "responseMs": 50.3003,
+                "consumerMs": 50.4182,
+                "status": "TIMEOUT",
+                "io": null
+              }
+            ]
+          },
+          {
+            "player": 1,
+            "turns": 76,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 641.3228,
+            "maxLaterResponseMs": 45.7829,
+            "nonOkTurns": []
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": "build/analysis/neural-v2/process-904147739.json",
+          "sha256": "db630caa5ea6e67dc69c4e2c147bf11a99fd73dfae23e8e7d621b347b33cae20"
+        },
+        "fixture": "904147739",
+        "problemGames": 0,
+        "games": [
+          {
+            "player": 0,
+            "turns": 83,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 588.0877,
+            "maxLaterResponseMs": 37.0046,
+            "nonOkTurns": []
+          },
+          {
+            "player": 1,
+            "turns": 100,
+            "timeouts": 0,
+            "nominalOverruns": 0,
+            "errors": [
+              null,
+              null
+            ],
+            "firstResponseMs": 590.3579,
+            "maxLaterResponseMs": 27.9737,
+            "nonOkTurns": []
+          }
+        ]
+      }
+    ],
+    "retries": 0
+  },
+  "defaultPlayerUnchanged": {
+    "path": "build/submit/Player.java",
+    "sha256": "1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19"
+  },
+  "pythonRuntime": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "strength": "assessed separately on fresh paired maps"
+}

@@ -16,6 +16,7 @@ gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation i
 gradlew submit                                 # -> build/submit/Player.java (compile-checked)
 gradlew submit -PsubmitVersion=indrill-q-v1 -PsubmitOut=build/submit-indrill # separate Q-learning candidate
 gradlew submit -PsubmitVersion=indrill-q-v2 -PsubmitOut=build/submit-indrill-v2 # learned position/WAIT candidate
+gradlew submit -PsubmitVersion=neural-v2 -PsubmitOut=build/submit-neural-v2 # outcome-tuned imitation candidate
 gradlew submit -PsubmitVersion=v09              # selected frozen v09 source + complete snapshot
 gradlew submit -PsubmitVersion=v08              # historical v08 reference build
 gradlew submit -PsubmitVersion=v07              # historical v07 reference build
@@ -101,6 +102,17 @@ action once, including WAIT. Its fixed larger training schedule and evaluation a
 in [indrill-q-v2.md](docs/indrill-q-v2.md); training uses `tools/indrill/run_v2_training.py` and
 generates only `IndrillV2Weights`. The v1 source and weights stay frozen.
 It completed 960-game/14,000-update training but again won 0/300 games vs v09; selected v09 stays.
+
+`neural-v2` continues from the retained `neural-v1` imitation weights with terminal
+win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,
+candidate filters and sequential placement policy remain the same. Its one fixed
+1,536-game training run, numerical checks and separate practical-v4 evaluation are documented
+in [neural-policy-v2.md](docs/neural-policy-v2.md). Run the predeclared schedule with
+`python tools/neural/run_outcome_v2.py`; existing stages are preserved, and `--resume` requires
+the same source hashes and verified completed artifacts. Generated weights use a separate
+class and submission directory; the original neural-v1 and selected v09 remain available.
+Completed result: **64.5% vs v09 / 1000 games**, local gate passed; strict process
+panel had **1/8 timeouts**, and the boss stage is pending. It is not ready/promoted.
 
 The selected protected opening claims town approaches during the first three turns using
 potential route traffic, then returns to the existing rollout policy. Disable it with

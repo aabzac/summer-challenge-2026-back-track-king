@@ -4139,3 +4139,59 @@ Design/result: [indrill-q-v2.md](indrill-q-v2.md); [full evidence](evidence/indr
   `evidence/indrill-reward-audit-v1.json`, PLAN/BOTS links. Historical source
   interpretations (heuristic inference, identified routing, proven covariate shift)
   are qualified in the review; historical policies and results are preserved.
+
+## 2026-10-03 - neural-v2 outcome fine-tuning predeclared
+
+- **Request/hypothesis:** improve neural-v1 first. Starting from its actual shipped
+  imitation weights and learning terminal win/draw/loss on self-generated states
+  may improve strength while preserving its useful construction/sabotage policy.
+- **Frozen protocol before results:** docs/neural-policy-v2.md. Same features,
+  candidate sets, sequential placements, guards, dimensions and normalization;
+  actor-only clipped policy gradient plus teacher forward KL, no score shaping.
+  Eight rounds x192 games, v09/neural-v1/v07, both seats, seeds2200000+i*1000;
+  four epochs/head, batch64, lr.00003, clip.2, KL.02, gradient cap1, temp1.
+  Final weights only; no benchmark-guided retries or checkpoint selection.
+- **Evaluation:** probes2209000..2 excluded; strict8-case process panel; fresh
+  practical-v4 vs v09 at2300000/+100000/+200000, two workers. Boss-cache refresh
+  suitability must be resolved for a local survivor; historical17/40 is not fresh
+  evidence. Current/v09 and the original four neural-v1 files stay unchanged.
+- **Status:** implementation underway, no training/strength outcomes yet.
+
+## 2026-10-03 - neural-v2 outcome fine-tuning: local PASS, process NOT_READY
+
+Hypothesis: retain neural-v1 features, candidate filtering, sequential action model and
+exact imitation weights, then improve preferences using terminal WDL with a frozen
+teacher KL prior. Predeclared eight rounds of 192 paired games vs v09/neural-v1/v07;
+actor-only clipped updates, lr 3e-5, clip 0.2, KL 0.02, batch 64, four epochs/head,
+uniform decision weighting, no score shaping, final checkpoint only. No retries or
+checkpoint selection. Protocol: docs/neural-policy-v2.md.
+
+Completed 1,536 games / 768 maps, 116,135 sabotage and 245,268 build decisions.
+Independent audit verified every data/checkpoint hash, source pins, exact optimizer
+and RNG continuation, and map separation. Final weights JSON aba87337..., generated
+Java bf650f11.... Original neural-v1 four files and selected default Player unchanged.
+396 Java tests, 22 Python tests, 292/292 CG replays, and bootstrap/final numerical
+parity on 3,704 candidates / 64 decisions all pass. The audit helper initially treated
+Windows backslashes as a different path; normalized comparison fixed that audit-only
+portability error. An initial cgValidate invocation reused the probe's -Ppath and
+correctly rejected non-replay JSON; canonical-corpus validation passed 292/292.
+
+One fresh practical-v4: 190/300, 123/200, 332/500 = 645-355-0 / 1000 (64.50%),
+PASS_1000, two workers, 500 distinct paired maps, all exclusions verified. Historical
+neural-v1 558/1000 used different maps; this is not a direct v2-v1 comparison.
+
+Exact isolated Player: 88,938 characters; source 16c49e63..., build 071aacbf....
+Strict fixed four-map/eight-game process panel: 1/8 failed, no retries. Map904148181
+P0 turn3 response50.3003ms, preceding turn47.9425ms; bot stderr47/49ms. Full result
+preserved. MainBot's actual isolated warmup is already36ms; an initially suspected
+5ms direct-bot warmup path is bypassed in this artifact and is not its fix. Initial
+feature/candidate work and the first build are uncapped; later6ms entry guard also
+starts a whole uncapped pass. This is a structural risk, not proven phase attribution.
+
+Exploratory training WDL202/0/1334; chosen frozen network argmax66.38% sabotage,
+26.33% build. These are on-policy collection diagnostics, not greedy strength.
+Boss not run, no upload/promotion. Existing outcome-guided boss cache needs refresh
+before the next live stage. v09 remains selected. Retain this successful local policy
+and address deadlines in a separately versioned candidate with identical weights and
+a new fixed strength gate; do not mutate this experiment's weights or retry its panel.
+Evidence: neural-v2-{training,exploration,verification,v4}.json under docs/evidence/.

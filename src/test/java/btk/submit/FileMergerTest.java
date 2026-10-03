@@ -371,7 +371,25 @@ class FileMergerTest {
         assertTrue(source.contains("NOISE=0.1"));
         checkFrozenDecisions("neural-v1", true);
         assertFalse(FileMerger.merge("current").contains("NeuralFeatures"));
-        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v2"));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v3"));
+    }
+
+    @Test void neuralV2SubmissionIsIsolatedAndMatchesCompiledPolicyDecisions() throws Exception {
+        String source = FileMerger.merge("neural-v2");
+        assertTrue(source.contains("static final class NeuralFeatures"));
+        assertTrue(source.contains("static final class NeuralNet"));
+        assertTrue(source.contains("static final class NeuralV2Weights"));
+        assertFalse(source.contains("static final class NeuralWeights"));
+        assertFalse(source.contains("NeuralV2Bot"));
+        assertFalse(source.contains("class NeuralBot"));
+        assertFalse(source.contains("class NeuralV2Collect"));
+        assertFalse(source.contains("private double rollout("));
+        assertFalse(source.contains("class HeuristicBot"));
+        assertFalse(source.contains("class ProtectedOpening"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("neural-v2", true);
+        assertFalse(FileMerger.merge("neural-v1").contains("NeuralV2"));
+        assertFalse(FileMerger.merge("current").contains("NeuralV2"));
     }
 
     @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {

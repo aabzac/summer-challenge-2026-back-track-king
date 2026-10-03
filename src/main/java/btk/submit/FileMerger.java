@@ -105,12 +105,13 @@ public class FileMerger {
         String spec = version;
         int queryAt = version.indexOf('?');
         if (queryAt >= 0) version = version.substring(0, queryAt);
-        boolean neural = version.equals("neural-v1");
+        boolean neuralV2 = version.equals("neural-v2");
+        boolean neural = version.equals("neural-v1") || neuralV2;
         boolean indrillV2 = version.equals("indrill-q-v2");
         boolean indrill = version.equals("indrill-q-v1") || indrillV2;
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
                 && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural && !indrill) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, indrill-q-v1 or indrill-q-v2");
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, indrill-q-v1 or indrill-q-v2");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
@@ -122,6 +123,7 @@ public class FileMerger {
                 : version.equals("v07") ? "bot/v07/RolloutBotV07.java"
                 : version.equals("v08") ? "bot/v08/RolloutBotV08.java"
                 : version.equals("v09") ? "bot/v09/RolloutBotV09.java"
+                : neuralV2 ? "bot/neural/NeuralV2Bot.java"
                 : neural ? "bot/neural/NeuralBot.java"
                 : indrillV2 ? "bot/current/IndrillV2Bot.java"
                 : indrill ? "bot/current/IndrillBot.java"
@@ -139,7 +141,7 @@ public class FileMerger {
         if (neural) {
             files.add(SRC_ROOT.resolve("bot/neural/NeuralFeatures.java"));
             files.add(SRC_ROOT.resolve("bot/neural/NeuralNet.java"));
-            files.add(SRC_ROOT.resolve("bot/neural/NeuralWeights.java"));
+            files.add(SRC_ROOT.resolve(neuralV2 ? "bot/neural/NeuralV2Weights.java" : "bot/neural/NeuralWeights.java"));
         }
         if (indrill) {
             files.add(SRC_ROOT.resolve("bot/current/IndrillFeatures.java"));
@@ -184,6 +186,9 @@ public class FileMerger {
                 }
                 if (neural && file.endsWith("NeuralBot.java")) {
                     line = line.replaceAll("\\bNeuralBot\\b", "EvalBot");
+                }
+                if (neuralV2 && file.endsWith("NeuralV2Bot.java")) {
+                    line = line.replaceAll("\\bNeuralV2Bot\\b", "EvalBot");
                 }
                 if (indrill && file.endsWith("IndrillBot.java")) {
                     line = line.replaceAll("\\bIndrillBot\\b", "EvalBot");

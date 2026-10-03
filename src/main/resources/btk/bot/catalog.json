@@ -100,6 +100,13 @@
       "description": "Behaviour-cloned policy: two small conditional-logit MLPs (sabotage region, sequential placement cell) over engine-grounded candidate features, trained on the arena leader's replays. Hard rules only for closing inks. Weights in btk.bot.neural.NeuralWeights."
     },
     {
+      "id": "neural-v2",
+      "title": "Neural Outcome Fine-tuning",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Outcome fine-tuning of neural-v1, fixed 1536 training games: 645/1000 vs v09 (64.5%), local PASS_1000. Strict process 1/8 timeout; boss unplayed, not ready or promoted. Generated NeuralV2Weights; docs/neural-policy-v2.md."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

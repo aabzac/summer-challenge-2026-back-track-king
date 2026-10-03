@@ -104,6 +104,23 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Candidate: neural-v2 Outcome Fine-tuning (2026-10-03, LOCAL_PASS / PROCESS_NOT_READY)
+
+The separate experiment **neural-v2** is predeclared in
+[neural-policy-v2.md](neural-policy-v2.md): outcome fine-tuning from retained
+neural-v1 with unchanged inference features/action model, terminal WDL and a
+teacher prior. Fixed training completed: 1,536 games / 768 maps, final checkpoint
+only. Practical-v4 vs v09: **645/1000 (64.50%)**, blocks190/300,123/200,332/500,
+**PASS_1000**. Historical neural-v1's 55.8% used different maps, not a head-to-head.
+396 Java / 22 Python tests, 292/292 exact replays, 3,704 bit-exact numerical scores.
+Exact Player 88,938 characters, source 16c49e63..., strict process **1/8 failed**:
+904148181 P0 turn 3 response 50.3003 ms against 50 ms. No retries. Actual submission
+already uses isolated 36-ms warmup; the direct bot's 5-ms method is bypassed.
+Boss not started; outcome-guided control pool needs a refresh decision.
+Retain as a promising local candidate, not ready or promoted; selected v09 stays.
+[Training](evidence/neural-v2-training.json), [strength](evidence/neural-v2-v4.json),
+[artifact/process](evidence/neural-v2-verification.json), [diagnostics](evidence/neural-v2-exploration.json).
+
 ## Candidate: indrill-q-v2 Learned Position Value (2026-10-03, STOP_FUTILITY_300)
 
 New random-start outcome-trained version: **V(state) + additive build/ink advantages**,

@@ -636,3 +636,21 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       freeze its action/features and predeclare reward, regularization, opponents and budget.
 - [ ] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
       saved threatened states before implementing a default-off proposal experiment.
+
+## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
+
+- [x] Fix the single candidate hypothesis and training/evaluation protocol before results:
+      retained imitation weights, terminal WDL, clipped actor updates plus teacher KL;
+      8 x 192 paired training games, final checkpoint only (`neural-policy-v2.md`).
+- [x] Implement separate candidate/collector/trainer and isolated packaging; preserve the
+      four neural-v1 source files and selected v09 submission byte-for-byte.
+- [x] Pass math, closure/sequence, initial action parity, checkpoint and numerical checks:
+      396 Java tests, 22 Python tests, 3,704 bit-exact candidate scores; 292/292 CG replays.
+- [x] Run all eight fixed rounds; independently verify data/weights/source pins and exclusions:
+      1,536 games / 768 maps, final weights aba87337..., no overlap with probe/corpus.
+- [x] Freeze final weights, engine/tests/parity/strict process panel, fresh practical-v4 vs v09:
+      local645/1000 (64.5%) PASS; strict process1/8 failed (50.3003ms), boss not started.
+- [x] Record actual branch/outcome and any required boss-cache refresh/live stage; no automatic
+      promotion. Commit the completed candidate, checks and results including rejection.
+- [ ] Separate runtime follow-up: keep neural-v2 weights, interrupt incomplete feature passes
+      safely and return completed legal actions; new version, process panel and fresh strength gate.

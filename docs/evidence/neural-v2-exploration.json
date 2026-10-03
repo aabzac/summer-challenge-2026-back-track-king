@@ -1,0 +1,645 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v2",
+  "samplingTemperature": 1,
+  "definitions": {
+    "population": "All selectable student decisions from all eight complete training rounds; forced and singleton decisions omitted by collector.",
+    "outcomes": "Win/draw/loss from student seat, terminal outcome +1/0/-1; averageTurns is arithmetic mean of saved game turns.",
+    "chosenFrozenTeacherArgmaxFraction": "Fraction of recorded decisions where the chosen candidate's stored frozen-v1 logit equals the maximum over the same full candidate set; exact float32 ties count as agreement.",
+    "meanChosenBehaviorProbability": "Arithmetic mean over decisions of exp(saved chosen-action behavior logp), using the actual quantized policy sampled that round at temperature 1.",
+    "meanFrozenTeacherMaxSoftmaxProbability": "Arithmetic mean over decisions of max softmax(stored frozen-v1 candidate logits / 1); describes prior concentration on visited states.",
+    "aggregation": "Uniform decision weighting per head. Pooled fractions/probabilities use summed numerators divided by summed decision counts; game outcomes/turns use uniform game weighting.",
+    "interpretation": "Diagnostics of stochastic collection on training maps. They do not establish strength or improvement of deployed greedy policies and are not a strength gate."
+  },
+  "inputSha256": {
+    "training-complete.json": "ba158cdfef492c5a90fc70b4986b80b42f027dfcf84e28f211084c965fbc98e9",
+    "training-plan.json": "abf6ca2c5e33748c20d8fac23192c23582dbbe47be975833ea7da61d21961fad"
+  },
+  "toolSha256": "27d0bd3ac78fd36107f910b5a301b297e5c918e0b99bfc558c6970b6e77f187d",
+  "rounds": [
+    {
+      "round": 1,
+      "allOpponents": {
+        "games": 192,
+        "wins": 11,
+        "draws": 0,
+        "losses": 181,
+        "averageTurns": 76.79166666666667
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 3,
+          "draws": 0,
+          "losses": 61,
+          "averageTurns": 57.984375
+        },
+        "v07": {
+          "games": 64,
+          "wins": 5,
+          "draws": 0,
+          "losses": 59,
+          "averageTurns": 84.03125
+        },
+        "v09": {
+          "games": 64,
+          "wins": 3,
+          "draws": 0,
+          "losses": 61,
+          "averageTurns": 88.359375
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14558,
+          "candidateRows": 417276,
+          "chosenFrozenTeacherArgmaxCount": 9616,
+          "chosenBehaviorProbabilitySum": 7836.878758068201,
+          "frozenTeacherMaxProbabilitySum": 9577.488701207652,
+          "chosenFrozenTeacherArgmaxFraction": 0.660530292622613,
+          "meanChosenBehaviorProbability": 0.5383211126575217,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6578849224624023,
+          "meanCandidates": 28.663003159774693
+        },
+        "build": {
+          "decisions": 30997,
+          "candidateRows": 3295997,
+          "chosenFrozenTeacherArgmaxCount": 7566,
+          "chosenBehaviorProbabilitySum": 3764.835831530302,
+          "frozenTeacherMaxProbabilitySum": 7570.188651390995,
+          "chosenFrozenTeacherArgmaxFraction": 0.24408813756169953,
+          "meanChosenBehaviorProbability": 0.12145807115302455,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.2442232684256862,
+          "meanCandidates": 106.33277413943284
+        }
+      },
+      "inputSha256": {
+        "round-1/sabotage.bin": "902c19a33d5e9270d5e984346e034e7db5978cb121c59249f679b21bea20b150",
+        "round-1/sabotage.idx": "3917a176311da6b8c82e995e70fa78a0ab55fdf45da57d0b5021fd65ae883c03",
+        "round-1/sabotage.logp": "6290f4e1245b13ad41d618c3f3c05f0cdcf41b3efeb505c13737ea5ff0b63e0b",
+        "round-1/sabotage.teacher": "154c40802324052216ae5db5b46a7ece1446f71dbca14aba33f0176dbdbb7e0b",
+        "round-1/build.bin": "1ebe8bf19d3bbed98d5d7f89d77d0853e94bc86286000e8f10bf55fc1afdee88",
+        "round-1/build.idx": "4dca323eff3683a1c24680c1eb3f957a69947b52079f9a89ce962f180226df58",
+        "round-1/build.logp": "f3a61e5cde9bfb593ef1ed9d9a2df45e3b26010f43a762cf4de914548b68c875",
+        "round-1/build.teacher": "09bb33f26c4903296b4b37175bd0229189fe4213ca1ea93c7e0e85911b773841",
+        "round-1/games.json": "5090e53b3cd00bef64767f5a3625ef066b392fc658c07e281f280d8487b32e53",
+        "round-1/meta.json": "1cfc68a441fcdd64bfd904b3dca36417da8111a4ba33bcfbed2e6a668f755813",
+        "weights-0.json": "095a3fea1fd8f19d98ce2880b9e5efdb0ca7f3752fcba4d551df98b9df93fdfe",
+        "train-1.json": "a44171680ee314ae641b802cfaf3c7614fcad3e8b0c0e5491a8cd1c830d90835"
+      }
+    },
+    {
+      "round": 2,
+      "allOpponents": {
+        "games": 192,
+        "wins": 19,
+        "draws": 0,
+        "losses": 173,
+        "averageTurns": 78.22916666666667
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 4,
+          "draws": 0,
+          "losses": 60,
+          "averageTurns": 59.828125
+        },
+        "v07": {
+          "games": 64,
+          "wins": 10,
+          "draws": 0,
+          "losses": 54,
+          "averageTurns": 84.921875
+        },
+        "v09": {
+          "games": 64,
+          "wins": 5,
+          "draws": 0,
+          "losses": 59,
+          "averageTurns": 89.9375
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14637,
+          "candidateRows": 401061,
+          "chosenFrozenTeacherArgmaxCount": 9595,
+          "chosenBehaviorProbabilitySum": 7875.692508467524,
+          "frozenTeacherMaxProbabilitySum": 9578.024015088402,
+          "chosenFrozenTeacherArgmaxFraction": 0.6555305048848807,
+          "meanChosenBehaviorProbability": 0.538067398269285,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6543707054101525,
+          "meanCandidates": 27.400491904078706
+        },
+        "build": {
+          "decisions": 30747,
+          "candidateRows": 3015360,
+          "chosenFrozenTeacherArgmaxCount": 7662,
+          "chosenBehaviorProbabilitySum": 3967.7300748564676,
+          "frozenTeacherMaxProbabilitySum": 7549.064307877213,
+          "chosenFrozenTeacherArgmaxFraction": 0.24919504341887014,
+          "meanChosenBehaviorProbability": 0.12904446205667114,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.24552197963629663,
+          "meanCandidates": 98.07005561518197
+        }
+      },
+      "inputSha256": {
+        "round-2/sabotage.bin": "82a68e625ce7a8fcaa6a5bbe551a73bf92db537ff23739355dd0bc4ce8dffee2",
+        "round-2/sabotage.idx": "7788e898c066f589db11654344fef6987e949696706a37ee74cd9d74812d197a",
+        "round-2/sabotage.logp": "1c565d431815ee5224d0f1b3db3cc791ea36f994bf64b1b120ea1de1657d6ab7",
+        "round-2/sabotage.teacher": "726169dc22b00c5b7c6798a9b94d3c3f4393e1ddeff09ab41e20badcd3a0a29e",
+        "round-2/build.bin": "5eba1ac8d0ac0ed4618acba3ed54a70d2827ed7b1c6ff5f192ba5d0e275de438",
+        "round-2/build.idx": "2ecbb3c3f30acfd6b7742dba5c50aa1595ceae6d1ad1d7dd90c2f240d1bfd056",
+        "round-2/build.logp": "11cc62668ab41f1f08b080507d04e9b393694027b5d8f273df2d4d34d9e5a852",
+        "round-2/build.teacher": "9c9ea649e7982d34bebb62a6112a9a6280f98e155c596fe5b2d0c3888c87cb91",
+        "round-2/games.json": "48a78e70ffd82d072ff4f6d8dac66f1624025a2662ad545b4820f8e8c7e2b06e",
+        "round-2/meta.json": "0f484e86e403bea5e705f68d35bb3b62a8d00b46a8b30032075cb8ddc0be97b9",
+        "weights-1.json": "7581c3fb142c1180e9968ef7cdcc04b99779c679ea3cf605b581e6c99773cb93",
+        "train-2.json": "3cb5720b4821954fe4b3ca14acec9df71ba0c16e8b9947bfb7a3c097958cf240"
+      }
+    },
+    {
+      "round": 3,
+      "allOpponents": {
+        "games": 192,
+        "wins": 28,
+        "draws": 0,
+        "losses": 164,
+        "averageTurns": 77.02604166666667
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 8,
+          "draws": 0,
+          "losses": 56,
+          "averageTurns": 60.171875
+        },
+        "v07": {
+          "games": 64,
+          "wins": 14,
+          "draws": 0,
+          "losses": 50,
+          "averageTurns": 81.921875
+        },
+        "v09": {
+          "games": 64,
+          "wins": 6,
+          "draws": 0,
+          "losses": 58,
+          "averageTurns": 88.984375
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14591,
+          "candidateRows": 415034,
+          "chosenFrozenTeacherArgmaxCount": 9636,
+          "chosenBehaviorProbabilitySum": 7914.5900220897565,
+          "frozenTeacherMaxProbabilitySum": 9511.204847795838,
+          "chosenFrozenTeacherArgmaxFraction": 0.6604071002672881,
+          "meanChosenBehaviorProbability": 0.5424295813919373,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6518542147759466,
+          "meanCandidates": 28.44452059488726
+        },
+        "build": {
+          "decisions": 30733,
+          "candidateRows": 3246890,
+          "chosenFrozenTeacherArgmaxCount": 8108,
+          "chosenBehaviorProbabilitySum": 4286.173928090839,
+          "frozenTeacherMaxProbabilitySum": 7704.037927589652,
+          "chosenFrozenTeacherArgmaxFraction": 0.2638206488139785,
+          "meanChosenBehaviorProbability": 0.13946487255038034,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.2506764041125062,
+          "meanCandidates": 105.64832590375167
+        }
+      },
+      "inputSha256": {
+        "round-3/sabotage.bin": "1a9b10694f7b54b59591bfc3686fb0a3179d9674370393bb636f6ef4c78b2a9d",
+        "round-3/sabotage.idx": "14560417bf4251efa621cd9ea1784d5a6ca2505eea9f7f2c50f6eb5b94e5fec2",
+        "round-3/sabotage.logp": "263855d44fa06ddaea343d026eccd51ab3b4f45c6546a7b19c1c12386e1ef4e5",
+        "round-3/sabotage.teacher": "9db7b6ea345f1c5dfed200ba373d2f613861e46a6ab2a4019b2ba1ed0fdd1b94",
+        "round-3/build.bin": "270abc618f8a32e3cc9da4e45a42b1555d47afeb612c62c0ec2b4a3ecbf71239",
+        "round-3/build.idx": "d9678be68edcd9903f4785029076d0f22919b139b017cb75d2468b4dcce638d6",
+        "round-3/build.logp": "d99c4c9175f6ee42da5d4b42d35c3bdb507f9177c6de8e966b649576ea23149a",
+        "round-3/build.teacher": "3b3d5a1b7cfb86649d61e63f21fad17e90a5e2d06575f1dc3bc57fae3ce25306",
+        "round-3/games.json": "2933364ca2530761988d8e20685b75a7ac5743c63730ec62a5ec673616a302d3",
+        "round-3/meta.json": "cb0cadee861d2080b8dbf0690b05ff5bfcae2dd05be4d35f1e1f7407bc571c91",
+        "weights-2.json": "3a04dd5df0887a91bec11933caef10c66daf3282e26fcb9cb4f071291835eeff",
+        "train-3.json": "06aa32487646d0cbdf0ae7acfdb268f12d26f058374171a53a42ed09c3369458"
+      }
+    },
+    {
+      "round": 4,
+      "allOpponents": {
+        "games": 192,
+        "wins": 36,
+        "draws": 0,
+        "losses": 156,
+        "averageTurns": 77.25520833333333
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 8,
+          "draws": 0,
+          "losses": 56,
+          "averageTurns": 61.28125
+        },
+        "v07": {
+          "games": 64,
+          "wins": 19,
+          "draws": 0,
+          "losses": 45,
+          "averageTurns": 82.53125
+        },
+        "v09": {
+          "games": 64,
+          "wins": 9,
+          "draws": 0,
+          "losses": 55,
+          "averageTurns": 87.953125
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14590,
+          "candidateRows": 410330,
+          "chosenFrozenTeacherArgmaxCount": 9660,
+          "chosenBehaviorProbabilitySum": 7933.096621960622,
+          "frozenTeacherMaxProbabilitySum": 9433.845752819347,
+          "chosenFrozenTeacherArgmaxFraction": 0.6620973269362577,
+          "meanChosenBehaviorProbability": 0.5437352036984662,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6465966931336085,
+          "meanCandidates": 28.124057573680602
+        },
+        "build": {
+          "decisions": 31202,
+          "candidateRows": 3132919,
+          "chosenFrozenTeacherArgmaxCount": 8104,
+          "chosenBehaviorProbabilitySum": 4322.790480679116,
+          "frozenTeacherMaxProbabilitySum": 7804.247551108885,
+          "chosenFrozenTeacherArgmaxFraction": 0.259726940580732,
+          "meanChosenBehaviorProbability": 0.13854209604125106,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.2501201061184823,
+          "meanCandidates": 100.40763412601757
+        }
+      },
+      "inputSha256": {
+        "round-4/sabotage.bin": "ccfbc8ff4e02409125dd9025bf5d8e0ddeb26472528cd88c31ece75998c4dd05",
+        "round-4/sabotage.idx": "b34cccd409feb67f992f3ea8e1423feea5acf5460a99c26b963c58aef3eb1aca",
+        "round-4/sabotage.logp": "d80815d9f25c95a40bcd40cf4da0d3b5c21fca2505f2a8575b378bd143c1eb84",
+        "round-4/sabotage.teacher": "4fdc5ff9493cb935d8d7691a9b880cb0685fcceaad65530a205dec24278b5f2b",
+        "round-4/build.bin": "c43739b3656430e64ebd6dba6e89205beb864aa150e445cc8b8f4d2e77a44c92",
+        "round-4/build.idx": "82ee41426406e6321b8aedcfde5f65ed5e43d9926e0e977c5900a25c3b29cee4",
+        "round-4/build.logp": "67ef04d510b61d5a51f88b40b0a9616edfe2a9943e6773a117e2ad2734aa76c7",
+        "round-4/build.teacher": "5b7a93e13d2360ee68a7cb8c2d83991a7ed348af16f5e96ada936bb18a87f0a7",
+        "round-4/games.json": "85ec93a608ffe1e5acc7fc38ea5a005d87dd6e9810c5670c6b81914b1b34cc5a",
+        "round-4/meta.json": "7046b600540e6652042e76aedf7dce2e85f235eb1056035a992b1d2dd90ba5db",
+        "weights-3.json": "febd45882718d5b2c4016b842a1af93d73c6f934be2925fbe218302c81a8cce6",
+        "train-4.json": "36ea963431a89d2110a90ba3fa729d44ff6ff87d4d73558a4e363685c5ee7f55"
+      }
+    },
+    {
+      "round": 5,
+      "allOpponents": {
+        "games": 192,
+        "wins": 29,
+        "draws": 0,
+        "losses": 163,
+        "averageTurns": 77.16666666666667
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 7,
+          "draws": 0,
+          "losses": 57,
+          "averageTurns": 59.515625
+        },
+        "v07": {
+          "games": 64,
+          "wins": 17,
+          "draws": 0,
+          "losses": 47,
+          "averageTurns": 80.734375
+        },
+        "v09": {
+          "games": 64,
+          "wins": 5,
+          "draws": 0,
+          "losses": 59,
+          "averageTurns": 91.25
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14627,
+          "candidateRows": 414207,
+          "chosenFrozenTeacherArgmaxCount": 9785,
+          "chosenBehaviorProbabilitySum": 8106.274514240398,
+          "frozenTeacherMaxProbabilitySum": 9507.813814304329,
+          "chosenFrozenTeacherArgmaxFraction": 0.6689683462090654,
+          "meanChosenBehaviorProbability": 0.5541993925097695,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6500180361184337,
+          "meanCandidates": 28.317973610446433
+        },
+        "build": {
+          "decisions": 30852,
+          "candidateRows": 3250902,
+          "chosenFrozenTeacherArgmaxCount": 8161,
+          "chosenBehaviorProbabilitySum": 4352.466796667448,
+          "frozenTeacherMaxProbabilitySum": 7704.721669204032,
+          "chosenFrozenTeacherArgmaxFraction": 0.26452093867496435,
+          "meanChosenBehaviorProbability": 0.14107567731970205,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.24973167604058188,
+          "meanCandidates": 105.37086736678336
+        }
+      },
+      "inputSha256": {
+        "round-5/sabotage.bin": "8616ef86fb8e705d9db14fb80b722a3c70a684c0e74ee509fa63b8f0c158821f",
+        "round-5/sabotage.idx": "07de949eb21f5e1e839c6eba241ac5be2b7479207a95377e8115b8e8c4844224",
+        "round-5/sabotage.logp": "8dae1f8cc9808dbfcf5544ba476858684a6c6a03ed574ca77ddb44057935b6cd",
+        "round-5/sabotage.teacher": "a9def878bb6a694fc3150a80230552716099355ad6af7aea407990a4d9ce4a82",
+        "round-5/build.bin": "a247814071f0aa03e3cca12106c531b353e342d9328e3000ac1a79408b5f2f42",
+        "round-5/build.idx": "ee41122e68cc8c4a666635b173813160a581fb1568883ef0bbb5a9af61cfd7a2",
+        "round-5/build.logp": "d4fee3c4b75a6cb59ce3c709352e0939bb256189266c921271abdfd992de600c",
+        "round-5/build.teacher": "bfacc30796228c75d91dc1ec8b7357fd3fae78f040858558e5e49426ae4f2b6c",
+        "round-5/games.json": "c1138c2aacbd3d074880a3c069076d03f6773d4b651f6ee18f5f798d3e51637d",
+        "round-5/meta.json": "035a95849f9cf87af1955eef3c29547ad006df735548e34de4a5a80d39b9d31f",
+        "weights-4.json": "19721f71ce5bbbbf2c27e2f87ca5ec9a56d8170849042b5e40a3847796c2e433",
+        "train-5.json": "aedf67337d4651b386d776e03bf4e7cb1a89f0a7c2c4e9d5351e0c8e28bcfd11"
+      }
+    },
+    {
+      "round": 6,
+      "allOpponents": {
+        "games": 192,
+        "wins": 25,
+        "draws": 0,
+        "losses": 167,
+        "averageTurns": 76.81770833333333
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 4,
+          "draws": 0,
+          "losses": 60,
+          "averageTurns": 60.15625
+        },
+        "v07": {
+          "games": 64,
+          "wins": 11,
+          "draws": 0,
+          "losses": 53,
+          "averageTurns": 82.6875
+        },
+        "v09": {
+          "games": 64,
+          "wins": 10,
+          "draws": 0,
+          "losses": 54,
+          "averageTurns": 87.609375
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14539,
+          "candidateRows": 408961,
+          "chosenFrozenTeacherArgmaxCount": 9798,
+          "chosenBehaviorProbabilitySum": 8093.105610038907,
+          "frozenTeacherMaxProbabilitySum": 9563.488221389282,
+          "chosenFrozenTeacherArgmaxFraction": 0.6739115482495357,
+          "meanChosenBehaviorProbability": 0.5566480232504922,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6577817058524852,
+          "meanCandidates": 28.128550794415023
+        },
+        "build": {
+          "decisions": 30934,
+          "candidateRows": 3053905,
+          "chosenFrozenTeacherArgmaxCount": 8198,
+          "chosenBehaviorProbabilitySum": 4466.764039974061,
+          "frozenTeacherMaxProbabilitySum": 7798.593832149753,
+          "chosenFrozenTeacherArgmaxFraction": 0.2650158401758583,
+          "meanChosenBehaviorProbability": 0.14439658757270515,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.2521042811194722,
+          "meanCandidates": 98.72324949893321
+        }
+      },
+      "inputSha256": {
+        "round-6/sabotage.bin": "57c939a8d46d38d5c07917262bf61ad82b4b99fb526682626d38e825b436033b",
+        "round-6/sabotage.idx": "d355071c7f13c5beaa3d6ef3b5f38408eb81f7be086d569ee673f0ccef299e55",
+        "round-6/sabotage.logp": "8e9c52787ebb71cd603c9d5651291fc29ddf81b1f38ee8a37ab5b5fef6f5880c",
+        "round-6/sabotage.teacher": "d4242b080c244343ea3408da2d5998172f7ccd985aab743ab2b632e0c9a0669a",
+        "round-6/build.bin": "67d53ec69e6e15f1d48e083aadeb0033fc6d49d4b289240f337210bbf12fb6f0",
+        "round-6/build.idx": "b8ac66f4fe21e83c24484a855a75882492853d7487bd55d6efe41ef6d6beb994",
+        "round-6/build.logp": "02c75db88e640f8301a830c2e900e39a4f81a6dd9189b01a95f552556e44fe0a",
+        "round-6/build.teacher": "798092640afe9823d926d6d4e24d35b0f7f73919e05605dcdc2c13c37db2aa3f",
+        "round-6/games.json": "738699bffce97b44f958564a5631e0e045258af2b9f3746cedf89d06aff0cf97",
+        "round-6/meta.json": "683b1560b1055755c25043fbf1eb2ff6d30a1579a311b8249369badc108c691f",
+        "weights-5.json": "1ec9e615635594cfc67b5a97e5a482ada4e9a6e0c954fbe7f6aee88bc0fe3d63",
+        "train-6.json": "d9ae63d85a5e33ada12d503f04b7cf3c896a6f58398f982676671623fd50c6bd"
+      }
+    },
+    {
+      "round": 7,
+      "allOpponents": {
+        "games": 192,
+        "wins": 24,
+        "draws": 0,
+        "losses": 168,
+        "averageTurns": 75.01041666666667
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 5,
+          "draws": 0,
+          "losses": 59,
+          "averageTurns": 59.46875
+        },
+        "v07": {
+          "games": 64,
+          "wins": 18,
+          "draws": 0,
+          "losses": 46,
+          "averageTurns": 78.0625
+        },
+        "v09": {
+          "games": 64,
+          "wins": 1,
+          "draws": 0,
+          "losses": 63,
+          "averageTurns": 87.5
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14136,
+          "candidateRows": 393161,
+          "chosenFrozenTeacherArgmaxCount": 9316,
+          "chosenBehaviorProbabilitySum": 7609.465991353316,
+          "frozenTeacherMaxProbabilitySum": 9286.334582168985,
+          "chosenFrozenTeacherArgmaxFraction": 0.6590265987549518,
+          "meanChosenBehaviorProbability": 0.5383040457946602,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6569280264692264,
+          "meanCandidates": 27.812747594793436
+        },
+        "build": {
+          "decisions": 29208,
+          "candidateRows": 2982848,
+          "chosenFrozenTeacherArgmaxCount": 8077,
+          "chosenBehaviorProbabilitySum": 4403.149155342449,
+          "frozenTeacherMaxProbabilitySum": 7328.184155182302,
+          "chosenFrozenTeacherArgmaxFraction": 0.2765338263489455,
+          "meanChosenBehaviorProbability": 0.1507514775178872,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.250896472034453,
+          "meanCandidates": 102.12434949328951
+        }
+      },
+      "inputSha256": {
+        "round-7/sabotage.bin": "177e2245f092495088a0955992134891297efa8637a9a0b239b12239231e11b1",
+        "round-7/sabotage.idx": "5f6417f2fdc5bb099c89fd798d2ea5f664825f5b32dd92ff50dd64c3b49d508f",
+        "round-7/sabotage.logp": "9e0c9d4cb3db57e343efd401a94cf6f877521fc924e89b0a32b6134fbb464b41",
+        "round-7/sabotage.teacher": "40124d14e884947e874ac506d4d12ab9720b4c6812bc402815139ec5181d778e",
+        "round-7/build.bin": "d5edb06483ae8047d28ad67f985ed6616bac80a8991a403f8d7c9e5ee81bc20d",
+        "round-7/build.idx": "b7a4240e008dc50cfe76be5996aaf48119d7dea731d242c81ecbf651241adae4",
+        "round-7/build.logp": "0bcbc366e8dd62f00326b2f3b82ea0a44b9747e270b63e839f0422a91f001954",
+        "round-7/build.teacher": "19945b3693310e7157dcd2e199b75c6f27c8df3ab8404db98d44275f7d4d2391",
+        "round-7/games.json": "22566bc48c29db3f407be5fc4df27c643768ad57c67ce5e18190f24bd5f001de",
+        "round-7/meta.json": "14fecf859038c7324b8b3b89e62d2a25281101b75cf2a2b7fd11f348887d07cc",
+        "weights-6.json": "b2824dcaa9f2f0d7b73c8b1f8bf9554011050ad791fa5a2c8faae18a5a907129",
+        "train-7.json": "66f87e23a1c0785113590a6f34b1f8feb5ac8ca7ced081dd5fd6faf6bd9ffd43"
+      }
+    },
+    {
+      "round": 8,
+      "allOpponents": {
+        "games": 192,
+        "wins": 30,
+        "draws": 0,
+        "losses": 162,
+        "averageTurns": 76.21875
+      },
+      "byOpponent": {
+        "neural-v1": {
+          "games": 64,
+          "wins": 4,
+          "draws": 0,
+          "losses": 60,
+          "averageTurns": 61.359375
+        },
+        "v07": {
+          "games": 64,
+          "wins": 17,
+          "draws": 0,
+          "losses": 47,
+          "averageTurns": 78.140625
+        },
+        "v09": {
+          "games": 64,
+          "wins": 9,
+          "draws": 0,
+          "losses": 55,
+          "averageTurns": 89.15625
+        }
+      },
+      "heads": {
+        "sabotage": {
+          "decisions": 14457,
+          "candidateRows": 416150,
+          "chosenFrozenTeacherArgmaxCount": 9689,
+          "chosenBehaviorProbabilitySum": 8090.792173440187,
+          "frozenTeacherMaxProbabilitySum": 9482.745792671134,
+          "chosenFrozenTeacherArgmaxFraction": 0.6701943695095801,
+          "meanChosenBehaviorProbability": 0.5596453049346467,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.6559276331653271,
+          "meanCandidates": 28.78536349173411
+        },
+        "build": {
+          "decisions": 30595,
+          "candidateRows": 3321665,
+          "chosenFrozenTeacherArgmaxCount": 8691,
+          "chosenBehaviorProbabilitySum": 4872.334976459624,
+          "frozenTeacherMaxProbabilitySum": 7697.695022314142,
+          "chosenFrozenTeacherArgmaxFraction": 0.2840660238601079,
+          "meanChosenBehaviorProbability": 0.15925265489327092,
+          "meanFrozenTeacherMaxSoftmaxProbability": 0.2515997719337847,
+          "meanCandidates": 108.56888380454322
+        }
+      },
+      "inputSha256": {
+        "round-8/sabotage.bin": "202fce986a2277a00b20d226628dadece5ed313a181d7e64d2a4d4775983b9fa",
+        "round-8/sabotage.idx": "209365a82f0234ca210e7c75f4a82a56c9318eb48e461ea2d7cc7f821a11ad46",
+        "round-8/sabotage.logp": "e71005b45a6994aa6aa639b37a6e91e458ac5fdbb6fa1ef1184f20480c650a2c",
+        "round-8/sabotage.teacher": "d15582efbd0c14de3d4e0fd916439bdead4525482371de589e28cfa320185b28",
+        "round-8/build.bin": "a04fe7750f07702005547600923dfcac5de63b91a5fb0a905def5e33c1a4b888",
+        "round-8/build.idx": "2c758e34a6be40ab20d6c8a4b67d3bbffecff0c28a937b30b2ad283afd593ed2",
+        "round-8/build.logp": "d195b63ba46a6eeceec1b78a96b9ce3d76381ab359c90535477bf86fbf475eee",
+        "round-8/build.teacher": "ba43ab680359382b5121a78f002e93ee93081e3b9f05a1eaf7d727419f4e4aea",
+        "round-8/games.json": "2e47970f30c0d7086ab9415a261a0f98c98727c2da3242a3b676865f551507a6",
+        "round-8/meta.json": "4c9177d07e436c4f0afae7b76e63f128b6364e371d468b11b964b0d44a739121",
+        "weights-7.json": "37c1dda2d5c15f70bdbb2f2defe085bd449403e01405b0fff21c32be321bcdd2",
+        "train-8.json": "34f6d83987c67e4d1d5e353455c1a6588646baaa0bcec2ca489b93b14b34c57d"
+      }
+    }
+  ],
+  "pooled": {
+    "allOpponents": {
+      "games": 1536,
+      "wins": 202,
+      "draws": 0,
+      "losses": 1334,
+      "averageTurns": 76.814453125
+    },
+    "byOpponent": {
+      "neural-v1": {
+        "games": 512,
+        "wins": 43,
+        "draws": 0,
+        "losses": 469,
+        "averageTurns": 59.970703125
+      },
+      "v07": {
+        "games": 512,
+        "wins": 111,
+        "draws": 0,
+        "losses": 401,
+        "averageTurns": 81.62890625
+      },
+      "v09": {
+        "games": 512,
+        "wins": 48,
+        "draws": 0,
+        "losses": 464,
+        "averageTurns": 88.84375
+      }
+    },
+    "heads": {
+      "sabotage": {
+        "decisions": 116135,
+        "candidateRows": 3276180,
+        "chosenFrozenTeacherArgmaxCount": 77095,
+        "chosenBehaviorProbabilitySum": 63459.89619965891,
+        "frozenTeacherMaxProbabilitySum": 75940.94572744498,
+        "chosenFrozenTeacherArgmaxFraction": 0.6638394971369527,
+        "meanChosenBehaviorProbability": 0.5464321367344807,
+        "meanFrozenTeacherMaxSoftmaxProbability": 0.6539023182283117,
+        "meanCandidates": 28.210100314289406
+      },
+      "build": {
+        "decisions": 245268,
+        "candidateRows": 25300486,
+        "chosenFrozenTeacherArgmaxCount": 64567,
+        "chosenBehaviorProbabilitySum": 34436.24528360031,
+        "frozenTeacherMaxProbabilitySum": 61156.73311681697,
+        "chosenFrozenTeacherArgmaxFraction": 0.2632508113573723,
+        "meanChosenBehaviorProbability": 0.14040252003359716,
+        "meanFrozenTeacherMaxSoftmaxProbability": 0.24934656423511004,
+        "meanCandidates": 103.15445145718154
+      }
+    }
+  }
+}
