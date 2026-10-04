@@ -135,6 +135,39 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-capacity-v1 (2026-10-04, FIT_NOT_ESTABLISHED)
+
+Completed supervised fitting diagnostic after the bounded neural-v7 experiment.
+It retains the Q policy's 64-feature, 24/24-hidden-unit representation and additive
+whole-set construction/ink decoder, with a fresh model and a whole-subset likelihood
+objective. It is a diagnostic, not a new promoted bot or a strength evaluation.
+
+All 293 source games reproduce exactly with the core. The independently audited
+export contains 3,068 valid observations, preserving the old 40 and later 11
+holdout maps: Stage A has 64 observations from 16 maps, Stage B has 2,048 from
+128 maps, and holdout has 1,020 from 51 maps. Stage A is a subset of B. Accepted
+teacher actions are paired with their original pre-turn features; map groups and
+exact inputs do not cross the training/holdout boundary. No input-label conflicts
+or sufficient structural tie groups were found by the retained checks.
+
+Stage A completes its predeclared **2,000 updates, batch 16, 32,000 sample visits**.
+Final exact agreement is **6/64 joint (9.375%), 15/64 build (23.4375%), and
+26/64 ink (40.625%)**. Mean joint NLL decreases **17.19242878 -> 7.49216108**.
+The final-only requirement is at least 63/64 joint; verdict **FIT_NOT_ESTABLISHED**.
+Stage B training and holdout model scoring were therefore not run. No continuation,
+new games, strength gate or promotion is inferred from this fitting result.
+
+The fixed optimization recipe has not learned even the small panel. Loss is still
+decreasing, so this does not establish convergence or prove that the representation
+cannot fit it. Absence of detected collisions/ties is not a universal capacity proof.
+Prioritize a separately bounded fitting investigation of optimization and representation
+before another large RL run. Selected/default v09 remains unchanged.
+All 2,001 checkpoints and 2,000 update links pass the final lineage audit; recorded
+Adam steps and sampling state match exactly. Compact evidence retains all receipts
+and five scheduled checkpoints; raw data and other checkpoints remain locally pinned.
+[Protocol](indrill-capacity-v1.md), [final evidence](evidence/indrill-capacity-v1.json),
+[artifact archive](evidence/indrill-capacity-v1-artifacts.json).
+
 ## Candidate: neural-v7 Deadline Extension (2026-10-04, NOT_PASSED / NOT_PROMOTED)
 
 One follow-up to V6's remaining CG under-spending before returning to Indrill.
@@ -180,8 +213,8 @@ V6 used different maps, so these descriptive metrics and scores do not establish
 
 Final readback confirms exact V7 in IDE; the original V6 source backup is retained.
 Selected/default strategy remains v09, with no promotion or arena publication.
-This bounded neural experiment is closed; the Indrill representation diagnostic remains
-next. The immutable live archive retains 207 public files/657,157 bytes separately
+This bounded neural experiment is closed; the subsequent Indrill representation diagnostic
+is completed above. The immutable live archive retains 207 public files/657,157 bytes separately
 from the sealed local archive; canonical/private responses remain hash-pinned outside it.
 [Protocol](neural-policy-v7.md), [prefix evidence](evidence/neural-v7-prefix.json),
 [production mechanism](evidence/neural-v7-mechanism.json),

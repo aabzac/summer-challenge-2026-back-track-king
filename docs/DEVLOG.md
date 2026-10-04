@@ -4795,3 +4795,72 @@ under-building problem solved. Preserve V6 as the previously qualified neural
 baseline and remaining timing/fallback questions as future work. Continue the
 user-authorized return to the separate fixed Indrill supervised representation
 and optimization diagnostic; no further neural tuning in this experiment.
+
+### 2026-10-04 — Indrill capacity-v1 fixed supervised diagnostic starts
+
+Following the completed V7 rejection, freeze the separate diagnostic described in
+indrill-capacity-v1.md: unchanged64-feature compact Q representation and additive
+whole-action decoder, new weights, supervised subset/ink likelihood, zero frozen
+value head, no TD or self-play. A:64 observations/16 maps,2000 updates/batch16;
+only final joint>=63/64 enables independent B:2048 observations/128 maps,
+4000 updates/batch32, followed by one development-holdout comparison to frozenQ-v2.
+
+Standalone exporter and exact JDK/Gson/compiled runtime are hash-bound; six fresh
+synthetic check reports pass after relocation. All293 teacher replays are exact.
+Independent selection review verifies242 training and51 held-out maps, preserving
+old40+later11; export3068 unique rows, no skipped labels, cross-split overlap,
+input-label conflicts or detected structural ties. Decoder covers every label.
+These are implementation/availability checks, not proof of trainability.
+
+Training freeze9fb04e3a5f64c1182d774fc016b09be06e6fa5e32df8634e7a63f0a3341ad9ea;
+independent review770aaaaec73c2714fb61044db83c3f5ed4800b080beba9b0ff726fbdce7db621.
+No gradients existed when these were sealed. Run the one fixed StageA, with exact
+checkpoint/optimizer/RNG/sample-position retention; no alternate seed/budget or
+best-checkpoint selection. No CG games, generated Java weights or promotion.
+
+### 2026-10-04 — Indrill capacity-v1 complete: FIT_NOT_ESTABLISHED
+
+Completed exactly2,000 Stage-A updates /32,000 visits on64 observations from16 maps.
+Joint exact0/1/4/6/6 at steps0/500/1000/1500/2000; final6/64 (9.375%), below the
+predeclared63/64. Build exact15/64 (23.4375%), ink26/64 (40.625%). Final predicted
+paint3.0 matches teacher3.0, which plainly does not imply correct construction.
+Joint NLL17.19242878 ->11.35230710 ->9.27653547 ->8.26736036 ->7.49216108;
+build13.65655966 ->5.56911593, ink3.53586912 ->1.92304514. Both still decrease.
+Only4/2000 updates activate norm clipping. By teacher cardinality, build exact is
+8/11 for one cell,3/12 for two and4/41 for three: descriptive difficulty of bundles,
+not proof that the additive representation cannot express them.
+
+Stop the declared experiment at FIT_NOT_ESTABLISHED: Stage B, holdout model scoring,
+further seeds/updates and strength games were not run. All64 A inputs are unique,
+all3,068 exported labels have legal/unconstrained-decoder coverage; no exact-input
+conflicts or sufficient structural ties were detected. This does not establish a
+universal model-capacity bound. The fixed recipe fails memorization; decreasing
+loss is not convergence, and this does not disprove RL or Indrill's approach.
+
+Independent final audit verifies all2,001 NPZ checkpoints,2,000 update intents,
+five committed metric reports, exact fresh initializer and seeded sample/RNG/position
+sequence. All tensors finite; WV/BV and their Adam moments stay zero. Saved weights
+match every Adam step reconstructed from its stored moments BIT EXACT (max error0).
+This checks saved arithmetic/lineage, not independent recalculation of gradients or
+model logits. Frozen Q-v2 comparator/source/runtime/dataset pins remain unchanged.
+All293 inspected corpus maps are retained in the future strength-exclusion registry.
+
+Final evidence docs/evidence/indrill-capacity-v1.json SHA
+5bb9305cad2e7d0bd1b164f66724f05d17d66573cbf23bec42268bcd50fe7b24.
+Final weights checkpointdfaf672e9db47f187ee97076d6a9c6425168ded2f9bd52cf843214278979e661.
+Compact archive4,190files/4,955,656bytes SHA
+e52acd6b8722dc249e0ba0722e11cb4e58ae6df5aaec18f5cb9ea4b9b8413d83.
+It retains setup/source/selection proofs, every receipt/hash, saved metrics and
+checkpoints0/500/1000/1500/2000. Other NPZ checkpoints and467,592,346-byte raw teacher
+JSONL stay locally retained/hash-pinned outside the archive. Its first packaging
+attempt stopped before creating a ZIP because a synthetic JSONL reached the raw-data
+deny guard; preserve the original helper/repair record, filter JSONL from selection,
+and retain the deny guard. No training/data/results changed. The independent review's
+preliminary JShell failed on Windows Preferences; existing293 exact-core outputs
+remain its explicitly stated engine evidence, without alternate rule reconstruction.
+
+Decision: prioritize a separately predeclared fitting/optimization investigation
+before another large RL run. A concrete next diagnostic could fit the first fixed
+A position's build head, paired with an independent-logit positive control, same
+fixed budget and no seed search. It has NOT been started. Selected v09 and all prior
+bots/weights are preserved; no generated submission, CG games or promotion here.

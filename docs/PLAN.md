@@ -630,13 +630,35 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       reward records: 128 final-block games / 12,446 turns; projection changes no reward
       deltas beyond earned-score increments; terminal shaping exceeds outcome in 25% of
       games. Record `evidence/indrill-reward-audit-v1.json` and the Q-v2 follow-up review.
-- [ ] First separate representation from outcome learning with a fixed supervised
-      teacher-set/ink diagnostic on the existing Q observations (map/game-grouped split).
-      This is the next step after the completed bounded neural-v7 follow-up below.
+- [x] Separate representation from outcome learning with the fixed supervised
+      `indrill-capacity-v1` teacher-set/ink diagnostic on existing Q observations.
+      Complete Stage A with FIT_NOT_ESTABLISHED; details and bounded next step below.
 - [x] The previously proposed neural-v1 outcome fine-tuning was completed as neural-v2;
       its trained weights are retained by neural-v3/v5/v6. It is not a new pending proposal.
 - [ ] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
       saved threatened states before implementing a default-off proposal experiment.
+
+## Indrill capacity-v1: supervised fitting diagnostic (2026-10-04)
+
+- [x] Freeze the existing Q representation, whole-subset/ink likelihood, deterministic
+      map-group split and fixed optimizer budgets; preserve original bots and weights.
+      [Protocol](indrill-capacity-v1.md).
+- [x] Validate all 293 teacher replays exactly and export 3,068 valid pre-turn observations.
+      Independently verify raw bytes, full-map grouping, old40/later11 retention and exact
+      quantiles: A64/16 maps, B2048/128 maps, holdout1020/51 maps; A is contained in B.
+- [x] Verify input/label/decoder contracts, gradients, checkpoint lineage and resume rules.
+      No cross-split exact-input overlap, input-label conflicts or sufficient structural
+      tie groups found; these checks do not establish universal network capacity.
+- [x] Complete all 2,000 Stage-A updates, batch16 / 32,000 sample visits. Final agreement:
+      joint6/64, build15/64, ink26/64; mean joint NLL17.19242878 -> 7.49216108.
+      FIT_NOT_ESTABLISHED against the final-only joint63/64 requirement. Stage B and
+      holdout model scoring were not run; no new games, strength result or promotion.
+      [Completed evidence](evidence/indrill-capacity-v1.json).
+- [ ] Predeclare one separate bounded fitting investigation of optimization/representation
+      before another large RL run. Continued loss reduction is not convergence evidence;
+      this fixed-budget failure alone does not prove the representation cannot fit.
+      Suggested scope: the first fixed A position, build-only learning, with an independent
+      per-cell-logit positive control and fixed budgets; no seed search or continuation of A.
 
 ## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
 
@@ -753,8 +775,9 @@ then return to Indrill. Preserve the completed V6 experiment and its frozen arti
       Early paint 2276/2400 overall,1321/1440 on 24 tall maps does not demonstrate
       resolved under-spending or superiority over V6's different historical maps.
       See evidence/neural-v7-final.json; retain unfinished ideas as future work.
-- [ ] Resume the separate Indrill representation diagnostic above; no new training
-      or further neural tuning is part of this completed experiment.
+- [x] Return to Indrill through the separate `indrill-capacity-v1` diagnostic above:
+      Stage A completed with FIT_NOT_ESTABLISHED; Stage B and holdout scoring skipped.
+      Further fitting investigation remains separately bounded future work.
 
 ## neural-v5: exact hypothetical completion income (2026-10-04)
 

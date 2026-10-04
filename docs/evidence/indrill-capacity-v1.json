@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-capacity-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "recordedAtUtc": "2026-10-04T13:16:33.700232+00:00",
+  "decision": "FIT_NOT_ESTABLISHED",
+  "freeze": {
+    "path": "build/analysis/indrill-capacity-v1/training-freeze.json",
+    "sha256": "9fb04e3a5f64c1182d774fc016b09be06e6fa5e32df8634e7a63f0a3341ad9ea"
+  },
+  "helper": {
+    "path": "build/analysis/indrill-capacity-v1/audit_completed_training.py",
+    "sha256": "a88df16a49a2ef9d44f076c26af12df4f81d950907dd45985a92898447fda841"
+  },
+  "intent": {
+    "path": "build/analysis/indrill-capacity-v1/completed-audit-intent.json",
+    "sha256": "e7d3a55314fd4e64e1c2ac09db693b328edc7d7a49e6ce6129516d428fe44341"
+  },
+  "dataset": {
+    "independentReview": {
+      "path": "build/analysis/indrill-capacity-v1/dataset/independent-review.json",
+      "sha256": "770aaaaec73c2714fb61044db83c3f5ed4800b080beba9b0ff726fbdce7db621"
+    },
+    "loaderReview": {
+      "path": "build/analysis/indrill-capacity-v1/dataset/loader-audit.json",
+      "sha256": "ed746a59f9cb56f932b065b583e6f39adefe74e62eed4bfbe0e342719a3f1445"
+    },
+    "preflight": {
+      "path": "build/analysis/indrill-capacity-v1/dataset/teacher-preflight.json",
+      "sha256": "eabdae34a802c14aad55fc435e84be4bce05fc5e9334318624b4586a1687354b"
+    },
+    "manifest": {
+      "path": "build/analysis/indrill-capacity-v1/dataset/dataset-manifest.json",
+      "sha256": "3e63d95529eebb2a1e55e7848bb58443f391875dbd8814c111a3a14b6589dc05"
+    },
+    "teacherJsonl": {
+      "path": "build/analysis/indrill-capacity-v1/dataset/teacher.jsonl",
+      "sha256": "606332c9626dabc2061f302ff66b200656771e58a75c64617fda88c9ba0dca6c"
+    },
+    "counts": {
+      "games": 293,
+      "mapGroups": 293,
+      "eligibleTrainMapGroups": 242,
+      "holdoutMapGroups": 51,
+      "selectedUniqueRows": 3068,
+      "panelCounts": {
+        "holdout": 1020,
+        "A": 64,
+        "B": 2048
+      },
+      "oldHoldoutIds": 40,
+      "laterIds": 11,
+      "unavailableHoldoutMaps": 0
+    },
+    "collisionSummary": {
+      "B": {
+        "observations": 2048,
+        "uniqueInputs": 2048,
+        "conflictGroups": 0,
+        "exactJointCeilingCount": 2048,
+        "exactJointCeilingRate": 1.0,
+        "groups": []
+      },
+      "A": {
+        "observations": 64,
+        "uniqueInputs": 64,
+        "conflictGroups": 0,
+        "exactJointCeilingCount": 64,
+        "exactJointCeilingRate": 1.0,
+        "groups": []
+      },
+      "holdout": {
+        "observations": 1020,
+        "uniqueInputs": 1020,
+        "conflictGroups": 0,
+        "exactJointCeilingCount": 1020,
+        "exactJointCeilingRate": 1.0,
+        "groups": []
+      }
+    },
+    "representationCertificates": {
+      "schema": "indrill-capacity-representation-certificates-v1",
+      "complete": true,
+      "observations": 3068,
+      "inputLabelBindingSha256": "823f53389b125492f19c1cada17207d0eb0e68bc63108ed633dfbf137df57844",
+      "mathematicalCellGroups": 0,
+      "mathematicalRegionGroups": 0,
+      "runtimeCellClasses": 0,
+      "runtimeRegionClasses": 0,
+      "observationsWithConditionalTieObstruction": 0,
+      "capacityCeilingApplied": false,
+      "details": [],
+      "interpretation": {
+        "mathematicalInvariance": "Sufficient real-arithmetic equivalences, not arbitrary reflection/rotation symmetries. Coordinates and directional features are retained.",
+        "conditionalDecoderConstraints": "Only Java scalar ordered refinements with explicit same-cost or ink-scan tie constraints, conditional on equal finite logits. NumPy runtime equality and a universal decoder capacity bound remain unproven. No automatic capacity ceiling or stop criterion.",
+        "observationalAliasing": "Identical complete inputs with conflicting labels have a separate empirical ceiling reported by collision_summary; this is not the same as local pooling symmetry.",
+        "optimization": "Static certificates do not establish fitting, convergence, a representation bottleneck, or a failure of reinforcement learning."
+      }
+    },
+    "newEngineExecutionsByAudit": 0,
+    "retainedCoreExactGames": 293
+  },
+  "implementationProofs": {
+    "syntheticChecks": {
+      "path": "build/analysis/indrill-capacity-v1/setup/synthetic-checks-first.json",
+      "sha256": "a9821f5daf452ce57a6da283e6c97eefc491e92697c4a5520ead573d74620483"
+    },
+    "trainerChecks": {
+      "path": "build/analysis/indrill-capacity-v1/setup/synthetic-trainer/result.json",
+      "sha256": "d1cb436db7d11fba9607f25801682fea21abbe6f9d51cd94d49a3e6de46c3bc8"
+    },
+    "certificateChecks": {
+      "python": {
+        "path": "build/analysis/indrill-capacity-v1/setup/certificate-synthetic-first.json",
+        "sha256": "4c57c790f71d9a42e1c3008d95a7d5564c0e2461488dfa51d6bed268c6d27eec"
+      },
+      "java": {
+        "path": "build/analysis/indrill-capacity-v1/setup/certificate-java-first.json",
+        "sha256": "7c15d2a1390c243a168ba3db92ec6a0bd5a26aa5507893e58b3153dbd124c34c"
+      }
+    },
+    "exportFreeze": {
+      "path": "build/analysis/indrill-capacity-v1/setup/export-execution-freeze.json",
+      "sha256": "6ca811d5130fcb48488829319955e2cfd6789d06ba898f1e317b238d321de864"
+    }
+  },
+  "comparator": {
+    "path": "build/analysis/indrill-q-v2/weights-6.bin",
+    "sha256": "c5cfc9c82ec34a2d3d9d91ec5e7d487fa654cca4a9583602dac00daecdd9340f"
+  },
+  "comparatorBinaryMatchesCheckpoint": true,
+  "stageA": {
+    "stage": "A",
+    "result": {
+      "path": "build/analysis/indrill-capacity-v1/stage-A/result.json",
+      "sha256": "5253b0838b00aca9e788ac5b80c45e2fcad7f797ed26d92c537e642c156b09a0"
+    },
+    "intent": {
+      "path": "build/analysis/indrill-capacity-v1/stage-A/intent.json",
+      "sha256": "3a44156294107b51dd607dc970481eac57134a80316730d8839540290daadcd0"
+    },
+    "decision": "FIT_NOT_ESTABLISHED",
+    "settings": {
+      "modelSeed": 2026100401,
+      "samplingSeed": 2026100411,
+      "updates": 2000,
+      "batch": 16,
+      "observations": 64,
+      "metricsAt": [
+        0,
+        500,
+        1000,
+        1500,
+        2000
+      ]
+    },
+    "updates": 2000,
+    "sampleVisits": 32000,
+    "checkpoints": 2001,
+    "updateIntents": 2000,
+    "finalCheckpoint": {
+      "path": "build/analysis/indrill-capacity-v1/stage-A/checkpoints/step-2000.npz",
+      "sha256": "dfaf672e9db47f187ee97076d6a9c6425168ded2f9bd52cf843214278979e661"
+    },
+    "finalJointExact": 6,
+    "metrics": [
+      {
+        "step": 0,
+        "metrics": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-0000.json",
+          "sha256": "3d8ab104fc6c6e0422a4d5120308192388afad0ad16eecd11f7f7092ceaa26ff"
+        },
+        "receipt": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-0000-commit.json",
+          "sha256": "635f5f4de9bc5890472817745cde25a2ef20edf189d108a051628adfff5bfb67"
+        },
+        "observations": 64,
+        "jointExactCount": 0,
+        "buildExactCount": 0,
+        "inkExactCount": 0,
+        "summary": {
+          "observations": 64,
+          "maps": 16,
+          "meanOfMapMeans": {
+            "buildExact": 0.0,
+            "inkExact": 0.0,
+            "jointExact": 0.0,
+            "cellPrecision": 0.0,
+            "cellRecall": 0.0,
+            "predictedPaint": 0.015625,
+            "teacherPaint": 3.0,
+            "buildNll": 13.656559657343603,
+            "inkNll": 3.5358691214605455,
+            "jointNll": 17.192428778804146
+          }
+        },
+        "subgroupSummariesRetainedInMetrics": true
+      },
+      {
+        "step": 500,
+        "metrics": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-0500.json",
+          "sha256": "3ff1e26845bf705548b552702f1f3df21f566b15904052cba112c4555aa1a388"
+        },
+        "receipt": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-0500-commit.json",
+          "sha256": "3ccb12c36ed581f43010067dd2dc297dc55a5f627bb2364a902678069f354b79"
+        },
+        "observations": 64,
+        "jointExactCount": 1,
+        "buildExactCount": 8,
+        "inkExactCount": 13,
+        "summary": {
+          "observations": 64,
+          "maps": 16,
+          "meanOfMapMeans": {
+            "buildExact": 0.125,
+            "inkExact": 0.203125,
+            "jointExact": 0.015625,
+            "cellPrecision": 0.2864583333333333,
+            "cellRecall": 0.28385416666666663,
+            "predictedPaint": 2.609375,
+            "teacherPaint": 3.0,
+            "buildNll": 8.421774667136212,
+            "inkNll": 2.9305324290768784,
+            "jointNll": 11.352307096213089
+          }
+        },
+        "subgroupSummariesRetainedInMetrics": true
+      },
+      {
+        "step": 1000,
+        "metrics": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-1000.json",
+          "sha256": "5be3f236b6805be330bc26895c8b31ea546a7c55706cf453f8ea4e745c74024a"
+        },
+        "receipt": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-1000-commit.json",
+          "sha256": "61552ff4d8646cc1856f93f34bb368d92256cc92a4e71710973d9c40d810cce7"
+        },
+        "observations": 64,
+        "jointExactCount": 4,
+        "buildExactCount": 12,
+        "inkExactCount": 22,
+        "summary": {
+          "observations": 64,
+          "maps": 16,
+          "meanOfMapMeans": {
+            "buildExact": 0.1875,
+            "inkExact": 0.34375,
+            "jointExact": 0.0625,
+            "cellPrecision": 0.3567708333333333,
+            "cellRecall": 0.35416666666666663,
+            "predictedPaint": 2.953125,
+            "teacherPaint": 3.0,
+            "buildNll": 7.006869981240309,
+            "inkNll": 2.269665491986233,
+            "jointNll": 9.276535473226541
+          }
+        },
+        "subgroupSummariesRetainedInMetrics": true
+      },
+      {
+        "step": 1500,
+        "metrics": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-1500.json",
+          "sha256": "d13add338c7026a3c9cd5744fb134429d9704bf909564db7abe2165d79e66bf8"
+        },
+        "receipt": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-1500-commit.json",
+          "sha256": "81eb553d291290bd80f5786e0e429bb45f03961c8f585b4691fb1adb4cad522d"
+        },
+        "observations": 64,
+        "jointExactCount": 6,
+        "buildExactCount": 13,
+        "inkExactCount": 26,
+        "summary": {
+          "observations": 64,
+          "maps": 16,
+          "meanOfMapMeans": {
+            "buildExact": 0.203125,
+            "inkExact": 0.40625,
+            "jointExact": 0.09375,
+            "cellPrecision": 0.40104166666666663,
+            "cellRecall": 0.3984375,
+            "predictedPaint": 2.984375,
+            "teacherPaint": 3.0,
+            "buildNll": 6.210567919158921,
+            "inkNll": 2.0567924408476768,
+            "jointNll": 8.267360360006597
+          }
+        },
+        "subgroupSummariesRetainedInMetrics": true
+      },
+      {
+        "step": 2000,
+        "metrics": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-2000.json",
+          "sha256": "5f4543cb9e29c85afe7a9aa93ca088bb354053d26b3310e67579c54b451f694b"
+        },
+        "receipt": {
+          "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-2000-commit.json",
+          "sha256": "efdb08569855d9c64ca695fff479d4354416c35d1593582503a51157df7a3663"
+        },
+        "observations": 64,
+        "jointExactCount": 6,
+        "buildExactCount": 15,
+        "inkExactCount": 26,
+        "summary": {
+          "observations": 64,
+          "maps": 16,
+          "meanOfMapMeans": {
+            "buildExact": 0.234375,
+            "inkExact": 0.40625,
+            "jointExact": 0.09375,
+            "cellPrecision": 0.4427083333333333,
+            "cellRecall": 0.43749999999999994,
+            "predictedPaint": 3.0,
+            "teacherPaint": 3.0,
+            "buildNll": 5.569115933387827,
+            "inkNll": 1.9230451443091259,
+            "jointNll": 7.492161077696952
+          }
+        },
+        "subgroupSummariesRetainedInMetrics": true
+      }
+    ],
+    "adamMaxAbsDifference": 0.0,
+    "adamBitDifferentTensorsWithinTolerance": 0,
+    "adamFloat32Tolerance": {
+      "rtol": 9.5367431640625e-07,
+      "atol": 9.5367431640625e-07
+    },
+    "finiteTensorsAllCheckpoints": true,
+    "valueHeadAndMomentsZeroAllCheckpoints": true,
+    "fixedInitializerExact": true,
+    "samplingRngOrderPositionExact": true
+  },
+  "stageB": null,
+  "stageBStatus": "NOT_RUN_A_FAILED",
+  "holdout": null,
+  "checkpointChain": {
+    "path": "build/analysis/indrill-capacity-v1/chain-manifest.json",
+    "sha256": "5829262848fc165e76ae0df35bd0ab79b37e438065be6f8e1440e5b35945eb7d"
+  },
+  "mapExclusionRegistry": {
+    "path": "build/bench/indrill-capacity-v1-diagnostic-maps.json",
+    "sha256": "aeb88791e1a17e60b78fc3ca890d5c91449261fc9026537234e4c8bc656a38cb"
+  },
+  "newGames": 0,
+  "auditNewGradients": 0,
+  "auditNewModelEvaluations": 0,
+  "promotion": false,
+  "arenaUploaded": false,
+  "limitations": [
+    "This audit never reruns forward/decoder inference, model evaluation, gradients, training or CG games. It validates retained predictions and their arithmetic, not their derivation from checkpoint logits.",
+    "Saved NLLs and gradient norms are checked for finiteness/binding; the objective and gradients are not recomputed. Adam consistency from recorded moments does not independently prove those moments came from the correct gradients.",
+    "The fixed initializer, all checkpoint tensor shapes/finiteness, frozen WV/BV state, receipt chain and sampling RNG/order/position are checked; no best-checkpoint or alternate-seed selection is performed.",
+    "A failure to reach63/64 establishes failure of this fixed fitting routine, not universal architecture incapacity, an RL impossibility or arena weakness. A pass is an operational memorization screen, not a capacity proof.",
+    "B and its single held-out evaluation are permitted only after the complete A pass. Recomputed B bootstrap statistics use saved paired per-map predictions only, with the protocol10000 resamples/seed2026100421.",
+    "Both old40 and later11 holdouts are development data previously inspected in this project; transfer evidence is not pristine confirmation, champion-level imitation or a strength/promotion gate.",
+    "Core replay identity, features, masks, labels and unconstrained decoder coverage rely on retained pinned export/loader/independent reviews. This audit does not rerun the engine or infer a universal capacity bound from the descriptive symmetry certificates."
+  ]
+}

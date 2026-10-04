@@ -108,6 +108,19 @@ in [indrill-q-v2.md](docs/indrill-q-v2.md); training uses `tools/indrill/run_v2_
 generates only `IndrillV2Weights`. The v1 source and weights stay frozen.
 It completed 960-game/14,000-update training but again won 0/300 games vs v09; selected v09 stays.
 
+The completed `indrill-capacity-v1` diagnostic tests direct teacher imitation with
+the existing Q representation. All 293 replays reproduce exactly; the export has
+3,068 valid observations. Stage A uses 64 observations from 16 maps and completes
+its fixed 2,000 updates / 32,000 sample visits. Final agreement is **6/64 joint,
+15/64 build, 26/64 ink**, below the required 63/64 joint: **FIT_NOT_ESTABLISHED**.
+Mean joint NLL falls from 17.1924 to 7.4922. Stage B and model scoring of the
+1,020 held-out observations from 51 maps were not run. No input-label conflicts
+or sufficient structural ties were found; this does not prove universal model
+capacity, and decreasing loss does not establish convergence. Next priority is a
+separate bounded investigation of optimization and representation before more
+large RL training. This diagnostic creates no promoted bot or strength result.
+[Protocol](docs/indrill-capacity-v1.md), [evidence](docs/evidence/indrill-capacity-v1.json).
+
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,
 candidate filters and sequential placement policy remain the same. Its one fixed
@@ -146,7 +159,7 @@ versus v09 15W25L**: combined **NOT_PASSED**, all 80 replays exact. Early paint 
 94.83% overall and 91.74% on 24 tall maps. This does not demonstrate that under-spending
 is resolved, or establish a gain over V6 on different maps. IDE contains exact V7; default
 remains v09, with no promotion or arena upload. This bounded experiment is closed;
-the separate Indrill representation diagnostic remains next. [Protocol](docs/neural-policy-v7.md),
+the subsequent Indrill diagnostic is completed above. [Protocol](docs/neural-policy-v7.md),
 [final evidence](docs/evidence/neural-v7-final.json),
 [live archive](docs/evidence/neural-v7-live-artifacts.json).
 
