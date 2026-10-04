@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-fit-one-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "observationId": "905008481:0:0",
+  "mapHash": "cffa8f3e2bf34d3b9e279ad5ef8ff9185a9f909a1288c2e7e351578d9295d952",
+  "inputSha256": "8d9d37d005bfbaaa3a93c47187e43cd26fa32283300527e44d9ef9575aaf0cc8",
+  "teacherCells": [
+    75,
+    178,
+    179
+  ],
+  "legalCells": 289,
+  "freeze": {
+    "path": "build/analysis/indrill-fit-one-v1/freeze.json",
+    "sha256": "906924593db1aea4cf3d453f7b309c7992152d7143e1d58f089f1bd979675a1f"
+  },
+  "runnerResult": {
+    "path": "build/analysis/indrill-fit-one-v1/result.json",
+    "sha256": "b95eeb174180833c29ba5367804977e10a48e4a67ea4441b55801b0e344f20d1"
+  },
+  "helper": {
+    "path": "build/analysis/indrill-fit-one-v1/seal_evidence.py",
+    "sha256": "91e19185e49dfba8b0dffb6acd929cc0aa192fd523dbe77631753115fe747276"
+  },
+  "checkpointChain": {
+    "path": "build/analysis/indrill-fit-one-v1/chain-manifest.json",
+    "sha256": "f8d10e7dc55ee981a5a8c3d1208d59d51f31b0649363d70b3ed8c10b019547d5"
+  },
+  "arms": {
+    "free": {
+      "decision": "FINAL_SET_FIT",
+      "updates": 2000,
+      "sampleVisits": 2000,
+      "checkpointCount": 2001,
+      "result": {
+        "path": "build/analysis/indrill-fit-one-v1/arm-free/result.json",
+        "sha256": "2becd8f9911ed8373f5ec57914fb196d9c5d156e706c9361d81f29de8e9664c3"
+      },
+      "curve": [
+        {
+          "step": 0,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-0000.json",
+            "sha256": "f8cee80c9e23e2fc98a7653d9d2d172e3732abd0a02a46010b5b28979b7317b8"
+          },
+          "arm": "free",
+          "updates": 0,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/checkpoints/step-0000.npz",
+            "sha256": "f1bf8107a8135f657db5a3638eb814fa40d70202e5e333c9273d9f58522afdec"
+          },
+          "exactSet": 0,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [],
+          "cellPrecision": 0.0,
+          "cellRecall": 0.0,
+          "predictedPaint": 0,
+          "teacherPaint": 3,
+          "buildNll": 14.196417227813626,
+          "teacherSetLogitScore": 0.0,
+          "decodedSetLogitScore": 0,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 500,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-0500.json",
+            "sha256": "cf5adbff05b3a4875b2ee597f1521f4d328d532dfe3c638b334e0cff489720f2"
+          },
+          "arm": "free",
+          "updates": 500,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/checkpoints/step-0500.npz",
+            "sha256": "e68c4cd9122bfba5f497695b37ef7c3ae645a8d12599411194da4b7d7ce3b4af"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 13.31563553956425,
+          "teacherSetLogitScore": 0.4495222717523575,
+          "decodedSetLogitScore": 0.4495222717523575,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 1000,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-1000.json",
+            "sha256": "2aa8dbbbddd6bbe47ac46bb74a052f10afad232b3a022b6a70cb340b6835cf3c"
+          },
+          "arm": "free",
+          "updates": 1000,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/checkpoints/step-1000.npz",
+            "sha256": "966819c7c6e3ffb24353ef8a993858683471e0e4fcb43c155c4b242bdb8e4d07"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 12.442862223980402,
+          "teacherSetLogitScore": 0.8978632092475891,
+          "decodedSetLogitScore": 0.8978632092475891,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 1500,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-1500.json",
+            "sha256": "83cf46f4298e6d1c48e55df92aa5621f3e909f5bce0802ad164c0ffe96b50b18"
+          },
+          "arm": "free",
+          "updates": 1500,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/checkpoints/step-1500.npz",
+            "sha256": "fd4b6969a2a4e140e321606fbf6b379e6067cc4dba47f906b9268ca5bf6dbfe7"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 11.580216549296612,
+          "teacherSetLogitScore": 1.3447426557540894,
+          "decodedSetLogitScore": 1.3447426557540894,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 2000,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-2000.json",
+            "sha256": "815d2222ab6191bf109756debf3e67c39dd705dc937710d7afdff3a8e1f1df98"
+          },
+          "arm": "free",
+          "updates": 2000,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-free/checkpoints/step-2000.npz",
+            "sha256": "d7d6b012cac1cf4002f4ec6a904ffebcee17c2a30875d33b96ed51fe32a027e7"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 10.730319381144042,
+          "teacherSetLogitScore": 1.789816975593567,
+          "decodedSetLogitScore": 1.789816975593567,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        }
+      ],
+      "clippedUpdates": 0,
+      "exactInitializer": true,
+      "allStatesFinite": true,
+      "adamStepsBitExact": true,
+      "adamMaxAbsDifference": 0.0
+    },
+    "network": {
+      "decision": "FINAL_SET_FIT",
+      "updates": 2000,
+      "sampleVisits": 2000,
+      "checkpointCount": 2001,
+      "result": {
+        "path": "build/analysis/indrill-fit-one-v1/arm-network/result.json",
+        "sha256": "77193cd2e692fb3f32552e27d5f3a0edb5fc01829a90ae2701c138cb42a87707"
+      },
+      "curve": [
+        {
+          "step": 0,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-0000.json",
+            "sha256": "849a90b965cae72fcda080db6fc8681b7f3d5d0dfc783838059a828c69be7c42"
+          },
+          "arm": "network",
+          "updates": 0,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/checkpoints/step-0000.npz",
+            "sha256": "a945a17196c24af3b5ff88572514729200f9d0e49f5c5200602e486f236c833b"
+          },
+          "exactSet": 0,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [],
+          "cellPrecision": 0.0,
+          "cellRecall": 0.0,
+          "predictedPaint": 0,
+          "teacherPaint": 3,
+          "buildNll": 14.396392474688605,
+          "teacherSetLogitScore": -0.5248428583145142,
+          "decodedSetLogitScore": 0,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 500,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-0500.json",
+            "sha256": "2074b48af3881940e770778fc769e7562e562c4215db2e60c25527961305dcfa"
+          },
+          "arm": "network",
+          "updates": 500,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/checkpoints/step-0500.npz",
+            "sha256": "3b42e3affb7dddee03a08ff6e666790aa65783563d0d41c64697c5854a5d4cbd"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 0.5985241100005805,
+          "teacherSetLogitScore": 14.96608018875122,
+          "decodedSetLogitScore": 14.96608018875122,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 1000,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-1000.json",
+            "sha256": "dd5243f00f992241223d371ed8b1c205d834315816205698e194320cad4a40e0"
+          },
+          "arm": "network",
+          "updates": 1000,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/checkpoints/step-1000.npz",
+            "sha256": "21571533afe988236ac649f3d6fcbf29f99dcd379c009e6076db7b56686b9475"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 0.03872375011373208,
+          "teacherSetLogitScore": 23.20486354827881,
+          "decodedSetLogitScore": 23.20486354827881,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 1500,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-1500.json",
+            "sha256": "1a92f8ab1559cc3ee9a77e4802a37d12542ec0b6b6e5fc11c06f2b80fc3eb637"
+          },
+          "arm": "network",
+          "updates": 1500,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/checkpoints/step-1500.npz",
+            "sha256": "0d7a75687acb8bb2fb5bfab66839f152c691a7a202d65867eaa50750c8b45dcc"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 0.008602079074723434,
+          "teacherSetLogitScore": 26.561524868011475,
+          "decodedSetLogitScore": 26.561524868011475,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        },
+        {
+          "step": 2000,
+          "metrics": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-2000.json",
+            "sha256": "2f6666e1fd62ce4b095222abb4b04c7fa5bf9809c66618581a678f9885495f8a"
+          },
+          "arm": "network",
+          "updates": 2000,
+          "checkpoint": {
+            "path": "build/analysis/indrill-fit-one-v1/arm-network/checkpoints/step-2000.npz",
+            "sha256": "0e9fb84dbd51112a144d70168df569be5be03fc4fe4ee28ab439b442b2642012"
+          },
+          "exactSet": 1,
+          "targetCells": [
+            75,
+            178,
+            179
+          ],
+          "predictedCells": [
+            75,
+            178,
+            179
+          ],
+          "cellPrecision": 1.0,
+          "cellRecall": 1.0,
+          "predictedPaint": 3,
+          "teacherPaint": 3,
+          "buildNll": 0.0029808662639609906,
+          "teacherSetLogitScore": 29.294631004333496,
+          "decodedSetLogitScore": 29.294631004333496,
+          "scoreScope": "Descriptive float64 sum of cell logits; frozen decoder retains its own float32 pattern comparisons."
+        }
+      ],
+      "clippedUpdates": 37,
+      "exactInitializer": true,
+      "allStatesFinite": true,
+      "adamStepsBitExact": true,
+      "adamMaxAbsDifference": 0.0
+    }
+  },
+  "priorMapExclusions": {
+    "path": "build/bench/indrill-capacity-v1-diagnostic-maps.json",
+    "sha256": "aeb88791e1a17e60b78fc3ca890d5c91449261fc9026537234e4c8bc656a38cb"
+  },
+  "newGames": 0,
+  "auditNewModelPredictions": 0,
+  "auditNewGradients": 0,
+  "promotion": false,
+  "oldWeightsReused": false,
+  "limitations": [
+    "One development position and build-only loss; no generalization, full-action or strength claim.",
+    "Audit checks saved predictions/arithmetic and optimizer lineage, without independently recomputing logits or gradients.",
+    "Correct final argmax does not establish concentrated likelihood or convergence; equal update counts do not equalize optimization difficulty."
+  ]
+}

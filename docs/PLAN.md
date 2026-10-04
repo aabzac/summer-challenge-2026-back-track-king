@@ -654,11 +654,35 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       FIT_NOT_ESTABLISHED against the final-only joint63/64 requirement. Stage B and
       holdout model scoring were not run; no new games, strength result or promotion.
       [Completed evidence](evidence/indrill-capacity-v1.json).
-- [ ] Predeclare one separate bounded fitting investigation of optimization/representation
-      before another large RL run. Continued loss reduction is not convergence evidence;
-      this fixed-budget failure alone does not prove the representation cannot fit.
-      Suggested scope: the first fixed A position, build-only learning, with an independent
-      per-cell-logit positive control and fixed budgets; no seed search or continuation of A.
+- [x] Complete the separate bounded `indrill-fit-one-v1` investigation below: first
+      fixed A position, construction-only network and independent per-cell-logit control.
+      Preserve the old fixed-budget failure; no seed search or continuation of A.
+
+## Indrill fit-one-v1: fixed-position construction check (2026-10-04)
+
+- [x] Predeclare first A tuple 905008481:0:0, unchanged subset loss/decoder, independent
+      free logits and fresh network, build-only, exactly 2000 updates per arm.
+      [Protocol](indrill-fit-one-v1.md); no selection by previous model errors.
+- [x] Verify build-only gradients, frozen heads, Adam/masks and checkpoint integrity
+      on synthetic inputs; freeze source/runtime/selected row before real gradients.
+      57 sampled network derivatives, free-logit gradients/Adam and both-arm resume
+      boundaries pass; freeze 90692459... fixes the first A row and original artifacts.
+- [x] Complete both arms at exactly 2,000 updates/visits: both FINAL_SET_FIT, exact
+      teacher set [75,178,179], 3 paint, precision/recall 1. Network NLL 14.39639247 ->
+      0.002980866; free-logit final NLL 10.73031938. Both are exact at the scheduled
+      500/1000/1500/2000 checks; no early success stop, old A continuation or new games.
+- [x] Pass the final audit: both 2,001-checkpoint chains, exact initialization,
+      finite/frozen state and every Adam step verified bit-exactly.
+      [Final evidence](evidence/indrill-fit-one-v1.json). No holdout scoring, promotion,
+      generalization, strength or universal capacity-ceiling claim.
+- [x] Archive and commit the completed fitting diagnostic and audit.
+      8,162 archive entries, 7,700,236 bytes; all payload hashes and 22 startup/metric
+      metadata files verified. Remaining checkpoints are retained locally and pinned.
+- [ ] Predeclare a separate build-only diagnostic on the same 64 A positions versus
+      the retained joint run, fixing the old seed, batch 16, 2,000 updates, sample order
+      and exposure. The one-position test gave 2,000 visits versus about 500 per old A
+      row, so it does not isolate ink/build interference. This next test is unstarted;
+      keep the old failed run closed and preserve its weights/results.
 
 ## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
 

@@ -4864,3 +4864,85 @@ before another large RL run. A concrete next diagnostic could fit the first fixe
 A position's build head, paired with an independent-logit positive control, same
 fixed budget and no seed search. It has NOT been started. Selected v09 and all prior
 bots/weights are preserved; no generated submission, CG games or promotion here.
+
+### 2026-10-04 — Indrill fit-one-v1 predeclared and frozen
+
+User authorized the next bounded diagnostic. Protocol docs/indrill-fit-one-v1.md
+fixes the FIRST old A tuple in manifest/export order,905008481:0:0, before new
+model scores. It is21x14 with289 legal cells, teacher cells[75,178,179], paint3;
+mapcffa8f3e2bf34d3b9e279ad5ef8ff9185a9f909a1288c2e7e351578d9295d952.
+No score/outcome/ease-based selection, re-export or new games. Previous293-map
+exclusion and all old evidence/source/weights are preserved and checked.
+
+Two serial independent arms, each2000 updates/batch1/Adam.0003/clip10: zero free
+cell logits and fresh64->24->24 network seed2026100401. Same frozen subset loss
+and decoder; build-only backprop excludes ink derivatives before the shared trunk.
+WI/BI stay at initialization; WV/BV are zero; all four heads' moments stay zero.
+Frozen ink parameters do not imply frozen ink outputs as the trunk changes.
+Final exact set decides each arm; metrics0/500/1000/1500/2000 are descriptive.
+
+New synthetic checks PASS:57 sampled network finite differences(max3.3036e-6),
+free output gradient(max3.6701e-8), padding/ink-label invariance/frozen heads,
+free Adam matching old optimizer, invalid/nonfinite guards. Both-arm two-update
+persistence checks PASS, including all incomplete metric triplets with no scoring
+or writes, partial-step/hash/binding rejection and exact restored optimizer state.
+Static review fixed NumPy/BLAS import order and absolute/relative pin comparisons
+before any preparation or real gradient; finalizer validates existing metrics only.
+
+Objective proofaa7806ea49d3a898d1d337f4965e96075a25f97d558777604f1e8251fa17e626;
+runner proof21a2ac173d2570e27369275367056094203aaa1b782dbcfb4b13d160256fde2a.
+Freeze906924593db1aea4cf3d453f7b309c7992152d7143e1d58f089f1bd979675a1f
+binds the selected row, old complete audit/freezes, exact sources/runtime and proofs
+before real training. No early success, new seed, extension of old A, holdout scoring
+or automatic retry. Both arms run regardless of the other's empirical outcome.
+
+### 2026-10-04 — Indrill fit-one-v1 complete: both arms FINAL_SET_FIT
+
+Both independent arms completed exactly 2,000 updates / 2,000 visits on the
+predeclared first A position. Each final decoder returns teacher [75,178,179],
+paint 3, cell precision/recall 1. Exact-set observations at steps
+0/500/1000/1500/2000 are 0/1/1/1/1 for both arms; no early pass or extra training.
+Network construction NLL: 14.39639247 -> 0.59852411 -> 0.03872375 ->
+0.00860208 -> 0.002980866. Free-logit NLL: 14.19641723 -> 13.31563554 ->
+12.44286222 -> 11.58021655 -> 10.73031938. Correct free-logit argmax does not
+establish concentrated teacher probability, convergence or general superiority.
+
+Finalization and independent saved-state audit PASS. Each arm retains 2,001
+checkpoints, 2,000 linked update intents and five committed metric triplets.
+Fresh initialization and every recorded Adam parameter update match bit-exactly
+(max difference 0); all tensors finite, illegal free-cell values/moments and
+frozen network heads/moments valid. Norm clipping: free 0/2000, network 37/2000.
+The audit validates saved arithmetic/lineage, without rerunning model predictions
+or gradients. Previous source/weights/dataset freezes and the 293-map exclusion
+registry remain unchanged. No old A continuation, B/holdout scoring, new games,
+deployable weights, strength gate or strategy promotion.
+
+Final evidence docs/evidence/indrill-fit-one-v1.json SHA
+ a3eeaa1b86dc7e4930a736945454a5e84f0c0d09be4dbf90422db39b81a9016f.
+Final free checkpoint d7d6b012cac1cf4002f4ec6a904ffebcee17c2a30875d33b96ed51fe32a027e7;
+network checkpoint 0e9fb84dbd51112a144d70168df569be5be03fc4fe4ee28ab439b442b2642012.
+Compact archive 8,162 files / 7,700,236 bytes SHA
+ d37185b2a081f341077f9f65ab540a03f0b8554ba9d40344f0807a49ea1ceac2.
+It includes the exact selected row, protocol/source/setup proofs, every update
+receipt/intent/checkpoint hash and checkpoints 0/500/1000/1500/2000 per arm.
+Other NPZ checkpoints remain locally retained and pinned; the old full corpus,
+raw replays and prior artifacts remain external and pinned by earlier evidence.
+
+Archive review added verification of 12,022 output pins and prior archive digest/size
+before its first packaging run. A follow-up noted 22 startup/metric metadata files
+outside that reference graph. Preserve the completed ZIP and independently verify
+these files' frozen binding/runtime and all ten metric triplets, then compare their
+exact ZIP/index hashes and sizes: PASS, no model scoring. Supplementary report
+ docs/evidence/indrill-fit-one-v1-archive-check.json SHA
+ 0d425a1f518bf237a2d38401f401b7966e57573aa9f8bb03e4b52ebc5d55fbaf.
+No training settings, completed evidence or archive was overwritten.
+
+Decision: the unchanged network/loss/decoder can fit this one opening position
+under build-only training. This does not establish full-action fitting, capacity
+on the 64-position panel, generalization or arena strength. The one position gets
+2,000 visits versus about 500 per old A row; ink removal, shared-position
+competition and exposure all differ, so causes remain unresolved. Next proposed
+separate experiment (NOT STARTED): original 64 A rows, build-only, same fresh seed,
+batch 16, 2,000 updates, sample order and exposure as the retained joint run.
+Compare final build exactness descriptively with the old 15/64, with a new protocol
+before gradients; do not resume/retune the closed failure or launch more RL yet.

@@ -116,10 +116,23 @@ its fixed 2,000 updates / 32,000 sample visits. Final agreement is **6/64 joint,
 Mean joint NLL falls from 17.1924 to 7.4922. Stage B and model scoring of the
 1,020 held-out observations from 51 maps were not run. No input-label conflicts
 or sufficient structural ties were found; this does not prove universal model
-capacity, and decreasing loss does not establish convergence. Next priority is a
-separate bounded investigation of optimization and representation before more
-large RL training. This diagnostic creates no promoted bot or strength result.
+capacity, and decreasing loss does not establish convergence. The bounded
+single-position follow-up is recorded below. This diagnostic creates no promoted
+bot or strength result.
 [Protocol](docs/indrill-capacity-v1.md), [evidence](docs/evidence/indrill-capacity-v1.json).
+
+Both `indrill-fit-one-v1` arms completed exactly 2,000 updates on the first A
+position, learning construction only: **FINAL_SET_FIT** for free cell logits and
+the fresh unchanged network. The network's NLL falls **14.39639247 -> 0.002980866**;
+its decoded set is exact at updates 500/1000/1500/2000. Free logits also decode
+exactly, with final NLL **10.73031938**. The final audit and archive checks pass.
+This one position received 2,000 visits versus about 500 per row in the old A run,
+so the result does not isolate ink/build interference. Next, under a separate
+predeclared protocol, test build-only fitting on the same 64 A positions with the
+old seed, batch 16, 2,000 updates, sample order and exposure. This is an unstarted
+diagnostic proposal; no generalization, strength, capacity-ceiling or promotion
+claim follows. [Protocol](docs/indrill-fit-one-v1.md),
+[final evidence](docs/evidence/indrill-fit-one-v1.json).
 
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,

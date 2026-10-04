@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-fit-one-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "archiveIndex": {
+    "path": "docs/evidence/indrill-fit-one-v1-artifacts.json",
+    "sha256": "9a64aa2c20fd7ff18fcd0e7de542efb299da334019995ea66ea5152815b61d91"
+  },
+  "archive": {
+    "path": "docs/evidence/indrill-fit-one-v1-artifacts.zip",
+    "sha256": "d37185b2a081f341077f9f65ab540a03f0b8554ba9d40344f0807a49ea1ceac2"
+  },
+  "purpose": "Post-archive validation of the two startup intents and twenty scheduled metric intents/receipts not directly pinned by the final output graph.",
+  "validation": "Each startup binding/runtime equals frozen settings. The original read-only validate_metrics checks all ten saved metric triplets. All 22 metadata files equal their ZIP/index hashes and sizes.",
+  "checkedFiles": [
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/intent.json",
+      "sha256": "2da861489d8d35d8e057175f95332f3037a719aa5975ac8de20dcec33e69944e"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-0000-intent.json",
+      "sha256": "a2e0fe8156609de8a21a8a0a6b216e815078d89089dba2a3e33441f682b47963"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-0000-receipt.json",
+      "sha256": "8d94e18e92399f73199970fe33be9620b6dbc41bf4cdc3088a0e24ff4acc748f"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-0500-intent.json",
+      "sha256": "a4ec488480e440f635df11d3ead81409bd0ac58f959fecdabb4acd40c025414a"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-0500-receipt.json",
+      "sha256": "1af1682afd054cb79025e183830d45a141f840c0daf5855a2555ba4f6e1f6d4d"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-1000-intent.json",
+      "sha256": "78d39af963582dd49f24f2a5aef4328c882a407891e22d0f1f24e350d622f439"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-1000-receipt.json",
+      "sha256": "c566c289894065e9db7e715de46f5a31caed04a61b5c4a44a36fc47a5101e113"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-1500-intent.json",
+      "sha256": "e285438da1b6d994d0aab45df1144b20e670d3aa64740f85ee60ac6b946b9f67"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-1500-receipt.json",
+      "sha256": "8a6fc32999e2fb9feaff424ec5f2699b5746324e1b1050204fbfcf2e8ced0cd6"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-2000-intent.json",
+      "sha256": "f6e9832b12aacb678dcf173c2ed4258baf064609d488f3cb300bd767fda7e8e4"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-free/metrics-2000-receipt.json",
+      "sha256": "b0cc90629a10c8e05810906341172d6492ff23ef9c9b9b3eba542dd1d12b7562"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/intent.json",
+      "sha256": "9bf28c5d95a635eb4f1ddd27be1af5e82cd78df707af9e00babb80ff84361298"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-0000-intent.json",
+      "sha256": "21551da74e362e63f8b0da1fcce1afb844e6f14d1af47fbd9503d8beebe72273"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-0000-receipt.json",
+      "sha256": "850f881fecc77bf8589c63a0ced1d85845747593b2a808b459b269689979827e"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-0500-intent.json",
+      "sha256": "1fe56247bdfed22729a0253cc0d6fbcd1da8bda52e057aa1bf77565cd8ca6473"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-0500-receipt.json",
+      "sha256": "2e77f877ab436a710d5c231c0f7c298e3fda5ffe0561e93abe5c8dbda8822acd"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-1000-intent.json",
+      "sha256": "2674579ba6a3264a228ad7d937e5ddc8b8cfe437ec10d4aeb42782a1e3da3483"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-1000-receipt.json",
+      "sha256": "b86c99c770af866dcfbfd0facb74666c01f63ae1fee007cf61991045d66f7129"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-1500-intent.json",
+      "sha256": "a7fe254b92dfd98418d1790c417c6795a9dffb8db870903275c7b5950bf577db"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-1500-receipt.json",
+      "sha256": "7780ca38e440e4dea1e8075545de9b014ca56e1aed64510ad44d3c76b4470c96"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-2000-intent.json",
+      "sha256": "5db24599f810fe1d36c854f2e8cc6e60e278a599ee2eb0fbe6c9b720db402402"
+    },
+    {
+      "path": "build/analysis/indrill-fit-one-v1/arm-network/metrics-2000-receipt.json",
+      "sha256": "2307aab613bb04a30bbf57d1de6127874f190ea49bbeb6cbada49b4ea7392011"
+    }
+  ],
+  "newModelPredictions": 0,
+  "newGradients": 0
+}

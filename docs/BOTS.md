@@ -135,6 +135,42 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-fit-one-v1 (2026-10-04, both arms FINAL_SET_FIT)
+
+Both fixed arms completed exactly **2,000 updates / 2,000 visits**, batch one,
+on the first retained A tuple `905008481:0:0`. Selection followed the existing
+export order before new model scores. Construction alone is trained: independent
+zero-initialized cell logits and a fresh network with the unchanged 64->24->24
+representation, seed 2026100401. WI/BI/WV/BV parameters and moments stay frozen;
+the previous A checkpoint is not resumed.
+
+Both final decoders return the accepted teacher set **[75,178,179]**, spending
+3 paint with precision/recall 1. Both are already exact at the scheduled
+500/1000/1500-update observations and still complete all 2,000 updates.
+Network NLL falls **14.39639247 -> 0.002980866**; free-logit NLL falls
+**14.19641723 -> 10.73031938**. Each final-only arm verdict is **FINAL_SET_FIT**.
+Correct free-logit argmax with much larger NLL does not establish concentrated
+teacher probability or convergence. The final audit verifies both 2,001-checkpoint
+chains, initialization, finite/frozen state and every Adam update bit-exactly.
+The compact archive preserves all update receipts and five scheduled checkpoints
+per arm; other checkpoints remain locally retained and hash-pinned. Archive bytes
+and startup/metric metadata pass verification.
+
+This establishes fitting for one development position under the simplified
+objective. It does not explain the earlier 64-position joint failure: this row
+received 2,000 visits, versus about 500 per row there, while both the objective
+and competition between positions changed. No generalization, arena strength or
+universal capacity limit is established. No new games, holdout scoring, promotion
+or production-weight change occurred; selected/default v09 remains unchanged.
+
+Next unstarted hypothesis: construction-only fitting on the same 64 A positions,
+compared with the retained joint run, keeping its seed, batch 16, 2,000 updates,
+sample order and per-position exposure. This requires a separate predeclared
+protocol; it does not extend or retry the old failed run.
+[Protocol](indrill-fit-one-v1.md), [final evidence](evidence/indrill-fit-one-v1.json),
+[archive index](evidence/indrill-fit-one-v1-artifacts.json),
+[archive metadata check](evidence/indrill-fit-one-v1-archive-check.json).
+
 ## Diagnostic: indrill-capacity-v1 (2026-10-04, FIT_NOT_ESTABLISHED)
 
 Completed supervised fitting diagnostic after the bounded neural-v7 experiment.
@@ -160,8 +196,9 @@ new games, strength gate or promotion is inferred from this fitting result.
 The fixed optimization recipe has not learned even the small panel. Loss is still
 decreasing, so this does not establish convergence or prove that the representation
 cannot fit it. Absence of detected collisions/ties is not a universal capacity proof.
-Prioritize a separately bounded fitting investigation of optimization and representation
-before another large RL run. Selected/default v09 remains unchanged.
+The separate single-position fitting follow-up is completed above; the next bounded
+proposal controls the 64-position exposure before another large RL run.
+Selected/default v09 remains unchanged.
 All 2,001 checkpoints and 2,000 update links pass the final lineage audit; recorded
 Adam steps and sampling state match exactly. Compact evidence retains all receipts
 and five scheduled checkpoints; raw data and other checkpoints remain locally pinned.
