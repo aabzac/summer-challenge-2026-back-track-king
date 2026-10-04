@@ -128,6 +128,13 @@
       "description": "Exact neural-v3 weights, candidate order, greedy decisions and cooperative deadline with optimized feature preparation. No retraining or policy change; separate unpromoted runtime experiment."
     },
     {
+      "id": "neural-v6",
+      "title": "Neural Resumable Feature Paths",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Exact neural-v5 weights, features, candidate order and cooperative deadline with resumable Dijkstra per source town and semantic block mask. No retraining or policy change; separate unpromoted runtime experiment."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

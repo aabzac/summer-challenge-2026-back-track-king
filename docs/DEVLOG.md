@@ -4544,3 +4544,103 @@ no credentials/private sessions or raw canonical replay corpus included. Archive
 SHA256 daaaf594d8787840ea47078eacad0add94dbae1243b538cc00d84ba161a52788.
 All133source+225runtime+29artifact pins still match after evaluation. Commit the
 completed experiment and documentation under AGENTS.md#8; no push or CG upload.
+
+## 2026-10-04 — neural-v6: exact resumable feature paths (predeclared)
+
+User accepted the next step after V5. Hypothesis: reuse feature Dijkstra work per
+source town and semantic block mask to reduce the dominant repeated search cost.
+V5 calculations, weights, params, noise, warmup and deadlines stay unchanged.
+Four caches reset every prepare/source change, with pending popped target retained;
+public fresh-search/lastCost behavior remains intact. No outcome-guided scope change.
+Protocol docs/neural-policy-v6.md, baseline60e6027. Saved V5/V6 comparison fixed800
+states; strict8 process games; practical-v4 vs selectedv09, two workers, fresh
+seeds3900000/4000000/4100000, no reruns, pooled futility at300/500 and final1000 gate.
+27 frozen prior source files pinned. New helper ships only V6. No automatic promotion.
+
+V6 pre-freeze Java test run:452 tests,1 fixture-coverage assertion failed. Exact
+candidate/feature comparisons passed; the threatened-region mask was queried but
+its route was unreachable, so no positive bypass candidate was expected. Corrected
+only coverage proof to inspect helper initialization and active-pair preconditions;
+all parity assertions retained. Original log preserved as tests-before-fixture-fix.log.
+This is pre-freeze correctness repair, not a repeated process or strength stage.
+
+V6 correctness/build:452 Java tests PASS;292/292 archived CG replays exact. New
+submission96,619/100,000characters, source0597d5b7fba6fed69313c313f422616784d18acc7219c6d4b7835a7abd90b155,
+build0df5830284088df290bf7e492b757ada9dc097feeb92910109f3e7d4960ab01c.
+One fixed V5/V6 diagnostic COMPLETE:800actions and11,789,067floatvalues bit exact,
+800full+1337incremental passes,33,225sabotage and257,751build candidate rows. All
+baseline actions also match both older saved witnesses. Local play wall -22.73%
+overall, -30.82% on tall maps; prepare -33.36%/-40.15%; play allocations unchanged.
+Single shared-JVM pass with fixed warmup and alternating measured order: mechanism
+evidence only, no claim of CG latency/strength. Raw/intent retained, no rerun.
+Durable summary docs/evidence/neural-v6-saved-state.json SHA
+5acca4dbc0680ade027b8759543a54585744469dcd35a89ac9df06c106aa3747.
+Source/params/protocol fixed before process/strength; no subsequent tuning permitted.
+
+V6 frozen strict process panel COMPLETE/PASS:8/8, zero errors/timeouts/nominal
+late replies, max first response691.1358ms and max later36.2853ms. No retries or
+grace. Independent readiness audit PASS:137source+230runtime+30artifact+88testXML
+pins,27old frozen sources,500prospective maps disjoint from17,800prior maps;
+preserved V5/V3/v09 and stored default artifact unchanged. Readiness evidence SHA
+a3877cc278ec8a4b831bb9587c4c0c1ae1e120bc010e8f0810399fb3e974a973.
+Fixed practical-v4 started against v09, two workers, no code/parameter changes.
+
+V6 local block1:199W101L0D/300 (66.3333%), no futility stop; block2 proceeds.
+Read-only live CG preflight: currentIDEsource equals V3 2aee3ffe...563f and is newly
+backed up privately; canonical Boss4=6767608 and league6/3/0 unchanged. First
+sandboxed metadata read failed at network; one explicit read-only network-enabled
+retry succeeded. Neither attempt uploaded source or created games. New cached
+40-game plan prepared at build/cg-boss/neural-v6-v09-cached-40/plan.json. Same old
+v09/fill-v1 control pool,11/40,20perseat, exact identities. Local plan creation only;
+V6-specific IDE source transmission authorization remains separate and pending.
+
+V6 block2:136W64L0D/200; pooled335W165L0D/500 (67.0%). Both futility-only
+looks cleared; block3 must complete500games, no early pass. User asked asynchronously
+for V6-specific40-game IDE authorization conditional on the full local strength pass;
+no source transmission or boss games before that condition and explicit reply.
+
+V6 final local practical-v4 COMPLETE/PASS_1000:199W101L/300,136W64L/200,
+308W192L/500; pooled643W357L0D/1000 (64.30%), P0score62.0%,P1score66.6%,
+zero candidate/control errors. All500actual maps match predeclared hashes and remain
+disjoint from17,800prior maps; all137source/230runtime/30artifact pins unchanged.
+Local audit SHA7890cc85fc3f994ff52df8e16d39b969fe760ac4ec2176fc6ad45a87e3bdb90e.
+The local evidence intentionally records LOCAL_PASS_BOSS_PENDING before live play.
+
+User explicitly approved40 IDE games conditional on full local pass; condition met.
+Live run started via run_boss.py: rechecked source backup immediately before write,
+fixed planSHA d3a78d762fa2dd155e14b16acb1da8d1609edb4efc5da9ed1abe189ebe4a9635,
+exact artifact, owner-bound replay transport,20-second spacing, no automatic play
+retries. This sends V6 source to IDE only; no arena publication or strategy promotion.
+
+V6 authorized boss stage COMPLETE:20W20L/40 versus individually pinned v09/fill-v1
+11W29L/40, PASS,40unique new game IDs,20perseat, no server/referee technical failures,
+uncertain plays or retries. First907122532, lastgame retained in final evidence.
+IDE readback confirms exact source0597d5b7...90b155. No arena upload/promotion.
+Combined practical-v4 PASS. Final audit SHA
+beaab5e061a9008518f5353b2c81e95c8412194aff946a931579ee706dff580f.
+
+Post-boss validation: default cgValidate remains292/292 because its directory scan
+is not recursive. Explicit candidate capture directory gives40/40 new exact replays.
+The descriptive actual-paint helper validates80/80 candidate+cached control replays.
+Its first read-only run failed on a diagnostic bug: compared Protocol.initBlock SHA
+to boss global.graphics SHA. Original helper/log/SHA manifest preserved; corrected
+helper verifies graphics hashes and separately paired shared-core init hashes. No
+candidate changes, new games, outcome selection or gate changes; rerun analysis only.
+
+Actual CG turns0..19: V6 2304/2400 nominal paint (96.0%); on11 tall maps583/660
+(88.3333%), versus cachedv09 2352/2400 (98.0%) and660/660 (100%). V6 has730/800
+full-paint early turns,164/220 on tall maps, zero skipped/server-failure actions.
+Own stderr22early WARN lines,17with<3paint;31whole-game warnings,24with<3paint.
+Two late-turn self-reports53/66ms were accepted without official failure. Remaining
+under-spending is observed, but paint totals/WARN do not identify a missed affordable
+candidate, abort phase or server CPU timeout. No paired comparison against the old
+V3 arena sample is implied. Preserve V6; a follow-up should isolate remaining costly
+preparation or a cheap useful construction fallback, as a new fixed experiment.
+
+Sealed V6 evidence archive: docs/evidence/neural-v6-artifacts.zip,
+720 files / 4,659,909 bytes, SHA256
+f0dd452c9fba447e9f4e21d0ab4ee05bb7312be9fcdacad7e88878f6d9aab2d5.
+Archive index records every member hash; ZIP integrity and all member hashes verified.
+Private session material and raw CG responses are excluded; replay corpus is pinned
+and retained locally. Completed experiment recorded for the authorized local commit;
+practical-v4 PASS / NOT_PROMOTED, IDE contains V6, arena and default v09 unchanged.

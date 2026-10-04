@@ -459,6 +459,27 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("current")));
     }
 
+    @Test void neuralV6ResumablePathsShipInIsolationAndKeepEveryFrozenArtifactExact() throws Exception {
+        String source = FileMerger.merge("neural-v6");
+        assertTrue(source.contains("static final class NeuralFeatures"));
+        assertTrue(source.contains("interface Deadline"));
+        assertTrue(source.contains("static final class NeuralWeights"));
+        assertTrue(source.contains("class HypotheticalIncome"));
+        assertTrue(source.contains("class FeaturePaths"));
+        assertTrue(source.contains("NEURAL_DEADLINE_RESERVE_MS=2"));
+        assertFalse(source.contains("NeuralV6Features"));
+        assertFalse(source.contains("NeuralV6Bot"));
+        assertFalse(source.contains("NeuralV2Weights"));
+        assertFalse(source.contains("NeuralV4Weights"));
+        assertFalse(source.contains("DecisionChooser"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("neural-v6", true);
+        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "neural-v5", "indrill-q-v1", "indrill-q-v2"})
+            assertFalse(FileMerger.merge(prior).contains("FeaturePaths"), prior);
+        assertEquals("3425928153d5d1c07ec32f711cf3aa04a25c9c5ae3d248176f3ef5d226d34730",
+                FileMerger.sha256(FileMerger.merge("neural-v5")));
+    }
+
     @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {
         String source = FileMerger.merge("indrill-q-v1");
         assertTrue(source.contains("static final class IndrillFeatures"));

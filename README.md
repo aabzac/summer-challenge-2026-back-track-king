@@ -20,6 +20,7 @@ gradlew submit -PsubmitVersion=neural-v2 -PsubmitOut=build/submit-neural-v2 # ou
 gradlew submit -PsubmitVersion=neural-v3 -PsubmitOut=build/submit-neural-v3 # same trained weights, deadline-aware execution
 gradlew submit -PsubmitVersion=neural-v4 -PsubmitOut=build/submit-neural-v4 # build-temperature training experiment
 gradlew submit -PsubmitVersion=neural-v5 -PsubmitOut=build/submit-neural-v5 # exact completion-income runtime experiment
+gradlew submit -PsubmitVersion=neural-v6 -PsubmitOut=build/submit-neural-v6 # exact resumable feature-path experiment
 gradlew submit -PsubmitVersion=v09              # selected frozen v09 source + complete snapshot
 gradlew submit -PsubmitVersion=v08              # historical v08 reference build
 gradlew submit -PsubmitVersion=v07              # historical v07 reference build
@@ -134,6 +135,16 @@ The retained schedule is `python tools/neural/run_outcome_v4.py`;
 [predeclared protocol](docs/neural-policy-v4.md),
 [final strength evidence](docs/evidence/neural-v4-v4.json),
 [readiness evidence](docs/evidence/neural-v4-verification.json).
+
+`neural-v6` reuses exact feature path searches within preparation, with unchanged
+V5/V3 policy and V2 weights.800 actions and11.8million feature values match exactly;
+one local measurement reduced play time22.73% overall/30.82% on tall maps.452 tests,
+strict process8/8, fresh practical-v4 vs v09 **643/1000 (64.3%)**, live boss **20/40
+versus cached v09 11/40**: combined PASS. All40 new CG replays are exact. IDE contains
+V6; default/local selection remains v09 and no arena upload was performed. CG still
+spends only88.33% of nominal early paint on tall maps and emits some wall warnings;
+this is not proof of complete timing safety or a paired strength gain over V3/V5.
+[Protocol](docs/neural-policy-v6.md), [final evidence](docs/evidence/neural-v6-final.json).
 
 `neural-v5` retains V3 weights and replaces hypothetical route-completion income
 with an exact allocation-free core helper. All 800 saved-state actions and

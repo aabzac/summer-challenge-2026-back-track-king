@@ -704,6 +704,26 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       scratch-path allocations, then independently check actual CG timing. Keep a cheap
       construction fallback as a separate policy experiment if needed.
 
+## neural-v6: exact resumable feature paths (2026-10-04)
+
+- [x] Predeclare one implementation change, frozen V5 policy and V2 weights,
+      selected v09 control, fixed diagnostics/process/pools (`neural-policy-v6.md`).
+- [x] Add shared-core resumable feature paths and separate V6 bot integration;
+      preserve tie-breaking, mask/reset behavior and public fresh-search costs.
+- [x] Verify path/feature/action parity:452 Java tests,292 exact CG replays,
+      previous artifact identities,800 actions and11,789,067 floats exact.
+      Local play wall -22.73% overall/-30.82% tall maps; one diagnostic pass.
+- [x] Freeze exact artifact; strict process8/8 PASS (max later36.2853ms) and fresh
+      practical-v4 versus v09:643W357L0D/1000,64.30%,PASS_1000,zero errors.
+- [x] Complete authorized40-game cached-boss series:20W20L versus cached11W29L,
+      all40 exact, no technical failures. Combined PASS; IDE contains exact V6.
+      Actual CG early paint96.0% overall/88.33% tall, with22 early wall warnings.
+- [x] Record actual result, preserve evidence
+      and commit without changing the selected strategy or arena submission.
+- [ ] Separate follow-up: inspect remaining CG tall-map under-spending and useful
+      construction fallbacks using frozen V6. Do not infer missed legal moves or
+      server timeouts solely from paint totals/self-reported wall warnings.
+
 ## neural-v5: exact hypothetical completion income (2026-10-04)
 
 - [x] Profile frozen V3 on the fixed800 arena states; all actions match previous
@@ -720,7 +740,7 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       two workers, 610W389L1D/1000 (61.05%), PASS_1000, all500maps fresh, zero errors.
       Process failure blocks boss games; combined LOCAL_PASS_BUT_PROCESS_FAILED.
 - [x] Record actual verdict, retain compact evidence and commit; no arena promotion.
-- [ ] Separate next proposal: reuse four Dijkstra searches per source town/mask within
+- [x] Separate next proposal implemented as V6: reuse four Dijkstra searches per source town/mask within
       prepare, preserving (cost,cell) order and the popped-but-unexpanded target.
       Invalidate on every prepare/source change; preserve public fresh-path API.
 

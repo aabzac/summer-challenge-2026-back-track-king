@@ -135,6 +135,44 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Candidate: neural-v6 Resumable Feature Paths (2026-10-04, PASS / NOT_PROMOTED)
+
+Frozen V5 policy and V2 weights; the sole change reuses feature Dijkstra searches
+within each prepare and source town, separately for four semantic blocking masks.
+Retain exact route tie-breaking, pending target expansion and fresh public costs.
+No tuning, changed reserves or training. Selected control remains v09.
+[Predeclared protocol](neural-policy-v6.md):452 Java tests and292 exact CG replays;
+800 saved actions and11,789,067 feature values bit exact against V5. One local cost
+pass reduced play wall22.73% overall/30.82% on height18-20, preparation33.36%/40.15%;
+play allocations unchanged. This is local mechanism evidence, not proof of CG gain.
+
+Exact artifact96,619/100,000characters, source0597d5b7...90b155; original V5/V3/v09
+submissions unchanged. Strict8-game zero-grace process panel PASS8/8, max later
+response36.2853ms, no retries. Fresh practical-v4 vs v09:199-101/136-64/308-192,
+pooled643W357L0D/1000 (64.30%), PASS_1000,500 disjoint maps, zero bot errors.
+P0score62.0%, P1score66.6%; no paired strength comparison with V5/V3 was run.
+
+User authorized exactly40 IDE boss games after the local pass. Current V3 IDE source
+was backed up, live boss/league checked, and unchanged cached v09 control11/40
+pinned. Completed40 new games:20W20L versus cached11W29L, PASS, no technical
+failures, retries or replacement outcomes. All40 new replays reproduce exactly;
+the descriptive audit also validates all40 cached controls. The unchanged default
+corpus separately remains292/292 exact. Final combined practical-v4 verdict PASS;
+this is eligibility, not automatic promotion. IDE now contains the exact V6 source;
+no arena publication or local selected-strategy change was performed.
+
+Actual CG first20turns:2304/2400paint (96.0%) overall,583/660 (88.33%) on11 tall
+maps, versus the cached v09's2352/2400 and660/660. No skipped actions/server failures.
+Own stderr has22 early WARN lines (17 with<3paint),31 over full games; two later-turn
+warnings report53/66ms without official timeout. These are self-reported wall times,
+not server deadline failures. Remaining tall-map under-spending motivates a separate
+follow-up; the different earlier V3 arena sample cannot establish a paired gain.
+[Saved-state parity/cost](evidence/neural-v6-saved-state.json),
+[readiness](evidence/neural-v6-verification.json),
+[local strength](evidence/neural-v6-v4.json), [boss](evidence/neural-v6-boss.json),
+[CG paint](evidence/neural-v6-boss-paint.json), [final audit](evidence/neural-v6-final.json),
+[combined gate](evidence/neural-v6-decision.json), [retained artifacts](evidence/neural-v6-artifacts.json).
+
 ## Candidate: neural-v5 Exact Completion Income (2026-10-04, LOCAL_PASS / PROCESS_FAILED)
 
 Retain V3 weights and policy; replace only hypothetical route-completion income

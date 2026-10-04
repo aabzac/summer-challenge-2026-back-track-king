@@ -71,6 +71,13 @@ class BotCatalogTest {
         assertEquals(BotFactory.configuration("neural-v3"), BotFactory.configuration("neural-v5"));
         assertEquals(4, BotFactory.parameters("neural-v5?NEURAL_DEADLINE_RESERVE_MS=4").NEURAL_DEADLINE_RESERVE_MS);
         assertEquals(0.1, BotFactory.parameters("neural-v5").NOISE);
+        assertEquals("neural-v6 - Neural Resumable Feature Paths", BotCatalog.displayName("neural-v6"));
+        assertEquals("candidate", BotCatalog.describe("neural-v6").category());
+        assertEquals("local_only", BotCatalog.describe("neural-v6").status());
+        assertInstanceOf(btk.bot.neural.NeuralV6Bot.class, BotFactory.create("neural-v6"));
+        assertEquals(BotFactory.configuration("neural-v5"), BotFactory.configuration("neural-v6"));
+        assertEquals(4, BotFactory.parameters("neural-v6?NEURAL_DEADLINE_RESERVE_MS=4").NEURAL_DEADLINE_RESERVE_MS);
+        assertEquals(0.1, BotFactory.parameters("neural-v6").NOISE);
         assertEquals("indrill-q-v1 - Indrill Action Values", BotCatalog.displayName("indrill-q-v1"));
         assertEquals("candidate", BotCatalog.describe("indrill-q-v1").category());
         assertEquals("local_only", BotCatalog.describe("indrill-q-v1").status());
