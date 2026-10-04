@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-build64-12k-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "decision": "BUILD_FIT_ESTABLISHED",
+  "freeze": {
+    "path": "build/analysis/indrill-build64-12k-v1/freeze.json",
+    "sha256": "c227dc9b99f0110ff90b711afc0c1b6e8ae287344b4ddb7478d308bb3ba7a5ba"
+  },
+  "helper": {
+    "path": "build/analysis/indrill-build64-12k-v1/audit_completed_training.py",
+    "sha256": "4ab16151d888c22bdc27a5942583a82649c60a7af73486140bb52813d568f0ba"
+  },
+  "intent": {
+    "path": "build/analysis/indrill-build64-12k-v1/completed-audit-intent.json",
+    "sha256": "18cc668a22ae4ad5989525d8f0c175949b78761355025e1b71369efeda557c2d"
+  },
+  "checkpointChain": {
+    "path": "build/analysis/indrill-build64-12k-v1/chain-manifest.json",
+    "sha256": "fd3eaed3890091217c7d884db7340a66e8637725f5458fe8d91a8d3896321aa0"
+  },
+  "runnerResult": {
+    "path": "build/analysis/indrill-build64-12k-v1/result.json",
+    "sha256": "959598879f01709bb1e5dedca577497ce58b169b2b068b41d64ef38cd58bb3a9"
+  },
+  "settings": {
+    "modelSeed": 2026100401,
+    "samplingSeed": 2026100411,
+    "startStep": 8000,
+    "updates": 12000,
+    "batch": 16,
+    "observations": 64,
+    "metricsAt": [
+      8000,
+      10000,
+      12000
+    ]
+  },
+  "observations": 64,
+  "maps": 16,
+  "integrity": {
+    "checkpointsVerified": 4001,
+    "startStep": 8000,
+    "newUpdates": 4000,
+    "totalUpdates": 12000,
+    "newSampleVisits": 64000,
+    "totalSampleVisits": 192000,
+    "newVisitsPerObservation": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "totalVisitsPerObservation": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "scheduleSha256": "e401adc03184314a60cafecbdb04bc8d86e9bdfc6834d80aaf220c27a7d1ecb4",
+    "newBoundaryScheduleSha256": "99758bcf92fecd2c9aadf36f55c0726ece12c8b2f6df3588529ff12bca8898c2",
+    "parentScheduleSha256": "cacbdf0c7f311fced920899b62857a0211288c84df16b1226868383ad3dc148f",
+    "parentForkAllArraysAndStateBitExact": true,
+    "optimizerClockContinuedWithoutReset": true,
+    "allSamplerRngOrderPositionExact": true,
+    "allTensorsFinite": true,
+    "allFrozenHeadsAndMomentsUnchanged": true,
+    "adamStepsBitExact": true,
+    "adamMaxAbsDifference": 0.0,
+    "clippedNewUpdates": 24,
+    "baselineMetricPayloadInheritedExact": true,
+    "startProof": {
+      "path": "build/analysis/indrill-build64-12k-v1/run/start-proof.json",
+      "sha256": "31fd30fff1bf0b0d86f7d228dbcb7a9b27f8f9089f01cda0dce22fe408cc736c"
+    }
+  },
+  "inheritedParent": {
+    "publicEvidence": {
+      "path": "docs/evidence/indrill-build64-long-v1.json",
+      "sha256": "a1e19f7dc4bf32d7ab2c0b2870cbb6825a464d4e826865f44cff681efd443171"
+    },
+    "freeze": {
+      "path": "build/analysis/indrill-build64-long-v1/freeze.json",
+      "sha256": "2ad21f45c2de7c42584ad9f24a7a0c628fc5b468ca59f69ecadbfab22a67a4f6"
+    },
+    "checkpointChain": {
+      "path": "build/analysis/indrill-build64-long-v1/chain-manifest.json",
+      "sha256": "439c1edb9b29e0f117d3e6c4f81d125319747060ca396089d6bad5c28f575746"
+    },
+    "auditedInputPinsVerified": 28099,
+    "inheritedStates": 8001,
+    "inheritedUpdates": 8000,
+    "allParentInputHashesVerified": true,
+    "parentTensorAuditRerun": false,
+    "archive": {
+      "path": "docs/evidence/indrill-build64-long-v1-artifacts.zip",
+      "sha256": "849c5b1257120c2d0ee92ea3925bfb1d85e43e5d42365321a5e1476330ed3879"
+    },
+    "archiveIndex": {
+      "path": "docs/evidence/indrill-build64-long-v1-artifacts.json",
+      "sha256": "f688dd306e4f9b60486d7b8fa60a7188095bb8f3a369a112552ae8c14688c13c"
+    },
+    "archiveEntriesVerified": 16073,
+    "newLearnedPredictions": 0,
+    "newGradients": 0
+  },
+  "curve": [
+    {
+      "step": 8000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-8000.json",
+        "sha256": "8a3a3b4a4f215dff6f0c658cee9bb110df664d3a1e1c0f069ac604c1f0cea4bc"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-8000-intent.json",
+        "sha256": "b5e7b68689231cb9555779a520d916699f39286849a0d8dfbb77960d3d111957"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-8000-receipt.json",
+        "sha256": "e9acc0c571edc2e8c20d892bb45a7c8a2f723a39f8f298b8c7d4aa67fefa440e"
+      },
+      "evaluationOrigin": "INHERITED_PARENT",
+      "observations": 64,
+      "buildExactCount": 59,
+      "meanBuildNll": 0.5822936894583486,
+      "meanCellPrecision": 0.9635416666666667,
+      "meanCellRecall": 0.9635416666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 10000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-10000.json",
+        "sha256": "23a006a560df3cad18b8d62d18476e9b277ee111349b80d46eb57066b34d54a4"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-10000-intent.json",
+        "sha256": "93bb015f6364ecf50d02b4eb967e5e63b165c5929f0f20a9beb5dbe8e46308e8"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-10000-receipt.json",
+        "sha256": "9e194892beae1013cf3402db983d99ba5889fc2c478366874e659c4ceaeb9f47"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 63,
+      "meanBuildNll": 0.19659454838433288,
+      "meanCellPrecision": 0.9947916666666667,
+      "meanCellRecall": 0.9947916666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 12000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-12000.json",
+        "sha256": "509963fd40712fb7b7214bd21dc038aacdfc5b66e33d20dc4b9d4bd1f0ee5b04"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-12000-intent.json",
+        "sha256": "bb4661b9cf33cd4e7086e8cbbc85bc113514e795e03b0f1c4cd2ffbae7dddfcd"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-12k-v1/run/metrics-12000-receipt.json",
+        "sha256": "04c28586eb805d94a78759c40a489d532be78cd68b4278935ab403826b3f78f1"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 64,
+      "meanBuildNll": 0.05434279870100711,
+      "meanCellPrecision": 1.0,
+      "meanCellRecall": 1.0,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    }
+  ],
+  "comparison": {
+    "observations": 64,
+    "maps": 16,
+    "oldBuildExact": 59,
+    "candidateBuildExact": 64,
+    "netExactDifference": 5,
+    "direction": "BETTER_FIXED_BUILD_FIT",
+    "counts": {
+      "gained": 5,
+      "lost": 0,
+      "retainedExact": 59,
+      "bothInexact": 0
+    },
+    "observationIds": {
+      "gained": [
+        "905008481:0:23",
+        "905187591:0:53",
+        "905192266:0:40",
+        "905193675:0:24",
+        "905203841:1:28"
+      ],
+      "lost": [],
+      "retainedExact": [
+        "905008481:0:0",
+        "905008481:0:11",
+        "905008481:0:35",
+        "905047727:0:0",
+        "905047727:0:21",
+        "905047727:0:42",
+        "905047727:0:63",
+        "905048023:1:0",
+        "905048023:1:14",
+        "905048023:1:28",
+        "905048023:1:42",
+        "905170414:0:0",
+        "905170414:0:11",
+        "905170414:0:22",
+        "905170414:0:34",
+        "905171676:1:0",
+        "905171676:1:18",
+        "905171676:1:37",
+        "905171676:1:56",
+        "905172701:1:0",
+        "905172701:1:11",
+        "905172701:1:22",
+        "905172701:1:33",
+        "905183189:0:0",
+        "905183189:0:12",
+        "905183189:0:24",
+        "905183189:0:37",
+        "905186012:1:0",
+        "905186012:1:28",
+        "905186012:1:56",
+        "905186012:1:85",
+        "905187591:0:0",
+        "905187591:0:17",
+        "905187591:0:35",
+        "905189574:0:0",
+        "905189574:0:19",
+        "905189574:0:38",
+        "905189574:0:57",
+        "905190235:1:0",
+        "905190235:1:16",
+        "905190235:1:32",
+        "905190235:1:49",
+        "905192266:0:0",
+        "905192266:0:13",
+        "905192266:0:26",
+        "905193675:0:0",
+        "905193675:0:12",
+        "905193675:0:36",
+        "905202827:0:0",
+        "905202827:0:19",
+        "905202827:0:39",
+        "905202827:0:59",
+        "905203841:1:0",
+        "905203841:1:9",
+        "905203841:1:18",
+        "905206234:1:0",
+        "905206234:1:9",
+        "905206234:1:19",
+        "905206234:1:29"
+      ],
+      "bothInexact": []
+    },
+    "oldMeanBuildNll": 0.5822936894583486,
+    "candidateMeanBuildNll": 0.05434279870100711,
+    "descriptiveOnly": true
+  },
+  "referenceFinalMetrics": {
+    "path": "build/analysis/indrill-build64-long-v1/run/metrics-8000.json",
+    "sha256": "f7db7e39a77dc19d109544a5a8b655ef9e70b7f3b0c958b10a07e6959f2bad31"
+  },
+  "parentEvidence": {
+    "path": "docs/evidence/indrill-build64-long-v1.json",
+    "sha256": "a1e19f7dc4bf32d7ab2c0b2870cbb6825a464d4e826865f44cff681efd443171"
+  },
+  "parentFreeze": {
+    "path": "build/analysis/indrill-build64-long-v1/freeze.json",
+    "sha256": "2ad21f45c2de7c42584ad9f24a7a0c628fc5b468ca59f69ecadbfab22a67a4f6"
+  },
+  "syntheticChecks": {
+    "path": "build/analysis/indrill-build64-12k-v1/setup/checks.json",
+    "sha256": "6c056dafc3931fde66e60ba3de95ed0c1c0a5aa0319a55073a82f882d7cae92f"
+  },
+  "startProof": {
+    "path": "build/analysis/indrill-build64-12k-v1/run/start-proof.json",
+    "sha256": "31fd30fff1bf0b0d86f7d228dbcb7a9b27f8f9089f01cda0dce22fe408cc736c"
+  },
+  "mapExclusionRegistry": {
+    "path": "build/bench/indrill-capacity-v1-diagnostic-maps.json",
+    "sha256": "aeb88791e1a17e60b78fc3ca890d5c91449261fc9026537234e4c8bc656a38cb"
+  },
+  "retainedExactCoreGames": 293,
+  "newGames": 0,
+  "auditNewLearnedPredictions": 0,
+  "auditNewGradients": 0,
+  "baselineMetricReused": true,
+  "newLearnedEvaluationsAt": [
+    10000,
+    12000
+  ],
+  "parentTrajectoryReexecuted": false,
+  "stageBRun": false,
+  "holdoutEvaluated": false,
+  "promotion": false,
+  "arenaUploaded": false,
+  "limitations": [
+    "Same outcome-inspected development panel and inherited trajectory; no independent confirmation, generalization, full-action or arena-strength claim.",
+    "The full-state fork preserves Adam moments/update counter and sampler state. Only 4000 new updates were executed, giving 12000 total updates.",
+    "The completed parent audit and all its pinned inputs are verified and referenced; parent tensor/gradient computation is not rerun.",
+    "Audit validates saved predictions and NLL aggregation/binding, not their derivation from logits. Saved NLLs are not recomputed.",
+    "Adam parameter arithmetic is checked from saved moments; no gradients are reconstructed, so this does not independently establish the origin of those moments.",
+    "The 63/64 threshold screens memorization only. The paired 59/64 comparison is descriptive; neither result permits automatic further runs.",
+    "A finite-budget miss does not establish convergence or a universal capacity limit. Engine/features/labels provenance remains the retained exact replay/export/loader evidence."
+  ]
+}

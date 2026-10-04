@@ -152,10 +152,25 @@ build NLL falls **5.16299332 -> 0.58229369** between updates 2,000 and 8,000. Ex
 substantially improves fitting on this panel, but the final-only 63/64 screen is
 still not met: **BUILD_FIT_NOT_ESTABLISHED**. Five construction sets remain wrong.
 Final audit and archive verification pass. No holdout scoring, new games, promotion or
-generalization/arena-strength result follows. A separate fixed 12,000-update
-diagnostic is proposed, retaining the architecture and optimizer; it is unstarted.
+generalization/arena-strength result follows. The separate continuation to 12,000
+total updates is recorded below; this parent run and its verdict remain unchanged.
 [Protocol](docs/indrill-build64-long-v1.md),
 [evidence](docs/evidence/indrill-build64-long-v1.json).
+
+`indrill-build64-12k-v1` reaches **64/64 exact construction sets**:
+**BUILD_FIT_ESTABLISHED** against the final-only 63/64 screen. It continues the
+audited full step-8,000 state for exactly **4,000 new updates / 12,000 total**,
+preserving Adam moments, optimizer clock and sampler. All 59 parent successes
+remain exact and the five errors are corrected. Build NLL falls
+**0.58229369 -> 0.05434280**; the scheduled 10,000-update result was 63/64, but the
+full fixed budget still ran. All 158/158 target cells match. Final audit and archive
+verification pass. This establishes
+construction fitting on these 64 development observations; ink heads stayed frozen.
+It does not unlock the old joint Stage B or establish arena strength. The proposed,
+unstarted next diagnostic matches the original joint build+ink recipe at 12,000
+total updates, starting from its full 2,000-update checkpoint in a separate run.
+[Protocol](docs/indrill-build64-12k-v1.md),
+[evidence](docs/evidence/indrill-build64-12k-v1.json).
 
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,

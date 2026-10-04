@@ -5131,3 +5131,98 @@ selected64 rows and prior-archive references. ZIP and every payload hash pass;
 SHA849c5b1257120c2d0ee92ea3925bfb1d85e43e5d42365321a5e1476330ed3879.
 Other update checkpoints stay locally retained and pinned; raw corpus/replays
 and session material are excluded. README/BOTS/PLAN record the completed outcome.
+
+## 2026-10-04 - Indrill build64-12k-v1 predeclared
+
+User accepted the fixed12,000-total-update proposal. This separate diagnostic
+continues the fully audited long-v1 step8,000 checkpoint in a new directory,
+preserving parameters, both Adam moments, update counter, sampler RNG/order/
+position. No weights-only reset, fresh initialization or recomputation of the
+old8,000 updates. The old59/64, NLL0.5822936894583486 and fixed-budget verdict
+remain closed and immutable. New protocol: docs/indrill-build64-12k-v1.md.
+
+Exactly4,000 new updates /64,000 new visits, reaching total12,000 updates /
+192,000 visits /3,000 per original A observation. Same64 rows/16 maps, raw
+features/labels, build-only64->24->24 network, original seeds, batch16,
+Adam0.0003/betas0.9,0.999/epsilon1e-8 and clip10. No changed recipe, early pass,
+best checkpoint, alternate seed, tuning, automatic extension or hidden retry.
+
+Verify all retained parent-audit input pins and exact full starting state before
+new gradients. Freeze source/runtime/proof/parent/data. Synthetic checks cover
+unchanged mathematics, full optimizer/sampler restoration across8,000, numeric
+ordering across9,999/10,000, limits and partial-record protection. Inherit the
+saved8,000 metric payload without rescoring; new learned evaluations only at
+10,000 and12,000. Final-only>=63/64 screen; descriptive paired comparison with
+parent59/64. Repeated budget investigation remains development-panel fitting,
+not independent confirmation, convergence, generalization or strength evidence.
+
+Audit all4,001 new boundaries, old-chain linkage, sampler/exposure, frozen heads,
+Adam arithmetic and saved metric aggregation without learned forward/gradients.
+Archive allnewmetadata and three scheduled NPZ snapshots with prior references;
+retain otherstateslocally. No StageB, held-out scoring, RL, new games, Java/core
+or production-weight change, submission, arena upload or promotion. End after
+fixed run, evidence, documentation and local commit, even if memorization passes.
+
+## 2026-10-04 - Indrill build64-12k-v1 completed: 64/64 construction fit
+
+The fixed continuation completed once: 4,000 new updates from the audited full
+step-8,000 state, 12,000 total updates. Adam moments, optimizer clock and sampler
+were preserved; the old trajectory was not executed again. New exposure was
+64,000 visits / 1,000 per row, total 192,000 visits / 3,000 per row. Same 64 A
+observations from 16 maps, seeds, raw features, model, build-only loss and Adam.
+The original parent, source, artifact and 59/64 finite-budget verdict are unchanged.
+
+The single synthetic proof passed before real preparation: SHA
+6c056dafc3931fde66e60ba3de95ed0c1c0a5aa0319a55073a82f882d7cae92f.
+Checks establish identical mathematical bodies/first five synthetic updates,
+full-state continuation across 8,000 and the next epoch, numeric checkpoint
+ordering/resume across 9,999/10,000, sampler exposure, unchanged parent fixtures,
+starting proof, no baseline rescoring and incomplete metric/source/state guards.
+Freeze c227dc9b99f0110ff90b711afc0c1b6e8ae287344b4ddb7478d308bb3ba7a5ba
+binds new code/protocol/runtime/proof/data and parent evidence. All 28,099 inherited
+audited input pins were verified before new gradients. The new starting state
+matches every parent tensor/moment and sampler/clock value bit-exactly.
+
+The 8,000 baseline was inherited without model evaluation; only 10,000 and
+12,000 received new learned evaluations. At 8,000 / 10,000 / 12,000, exact sets
+are 59 / 63 / 64, and mean build NLL is 0.5822936894583486 /
+0.19659454838433288 / 0.05434279870100711. No early pass, alternate seed,
+best-checkpoint choice, retry or additional update occurred. Final-only >=63/64
+passes: BUILD_FIT_ESTABLISHED. All 59 parent successes remain exact, five errors
+are corrected, zero regressions. All 158/158 target and predicted cells match;
+macro/micro precision and recall are 1, with 192/192 paint.
+
+The only error still present at 10,000 was observation 905193675:0:24, target
+[38,258,276]. Predictions at 8,000 / 10,000 / 12,000 were [20,258,276] /
+[80,258,276] / [38,258,276]; its NLL fell 5.81772304 / 2.41771961 / 0.65963262.
+These are scheduled saved observations, not a claim about intermediate steps.
+
+The current representation/decoder can fit construction on this development
+panel; the earlier 16/64 was not a capacity ceiling. WI/BI remained frozen,
+so full-action/ink learning, transfer and arena strength remain untested here.
+The original joint Stage-A and its skipped Stage B remain closed. Suggested next
+experiment, NOT STARTED: match the original joint build+ink recipe at 12,000 total
+updates, continuing its full original 2,000-step checkpoint in a separate run,
+with the same seeds/data/Adam/loss and final-only joint >=63/64. Old joint6,
+build15, ink26 at 2,000 cannot isolate objective difficulty from budget: build-only
+also fitted only16 at that budget. No automatic next experiment follows this pass.
+
+Read-only finalization and independent saved-state audit PASS: all 4,001 new
+boundaries, exact parent fork, global/new sample exposure, frozen heads, finite
+state and 4,000 Adam parameter steps bit-exact (max difference0; 24 clipped new
+updates). Parent audit/manifest input hashes and all 16,073 parent ZIP entries
+were verified. No learned predictions or gradients were recomputed by audit.
+No core/Java change; retained 293 exact replay provenance remains unchanged.
+No holdout scoring, new games, generated production weights, upload or promotion.
+
+Public evidence docs/evidence/indrill-build64-12k-v1.json SHA
+e841e5191a4184baf00763f54f9a6fa0494f76f1b047d702a264d7b068e42214.
+Chain SHA fd3eaed3890091217c7d884db7340a66e8637725f5458fe8d91a8d3896321aa0;
+final NPZ cd2161e971f1939a5632bd2ca3a04c5c733dba355069c6f0aa8031717ee3cf39;
+final metric 509963fd40712fb7b7214bd21dc038aacdfc5b66e33d20dc4b9d4bd1f0ee5b04.
+Verified compact archive: 8,083 files / 11,938,938 bytes, 12,099 new audited pins,
+all 8,013 production metadata files, three scheduled NPZ states, exact selected
+64 rows and prior-archive references. ZIP/inventory/every payload hash PASS;
+SHA f7e7054832d9881e7aa6f6767e292271ee27783f629591126357f8371f27e661.
+Other new NPZ states remain locally retained and pinned. README/BOTS/PLAN record
+the completed construction-only pass and the unstarted joint fitting proposal.

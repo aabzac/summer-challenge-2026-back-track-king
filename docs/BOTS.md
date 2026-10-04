@@ -135,6 +135,47 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-build64-12k-v1 (2026-10-04, BUILD_FIT_ESTABLISHED)
+
+The separate continuation completes exactly **4,000 new updates / 12,000 total**
+from the audited long-v1 full step-8,000 checkpoint. Parameters, Adam moments,
+update counter and sampler are restored exactly; the parent trajectory is not
+executed again. The same 64 observations, architecture, build-only objective,
+seeds and batch 16 remain fixed. New exposure is 64,000 visits / 1,000 per row;
+total exposure is 192,000 visits / 3,000 per row. The saved parent baseline is
+inherited without another model evaluation.
+
+Final agreement is **64/64 exact construction sets**, passing the final-only
+63/64 screen: **BUILD_FIT_ESTABLISHED**. Compared with parent 59/64, five rows
+improve, none regress, all 59 successes remain and no construction errors remain
+on this panel. At total updates 8,000/10,000/12,000, exact counts are **59/63/64**
+and mean build NLL is **0.58229369 / 0.19659455 / 0.05434280**. The 10,000-update
+observation does not trigger early success; the full declared budget completes.
+All 158/158 target and predicted cells match, with precision/recall 100% and
+192/192 paint. The audit verifies all 4,001 new states and 4,000 Adam steps
+bit-exactly (maximum difference zero), including 24 clipped new updates. The
+exact full-state fork and inherited baseline pass; all 28,099 parent audit pins
+and 16,073 parent archive entries are verified. The new archive passes for all
+8,083 files / 11,938,938 bytes.
+
+This establishes construction fitting for these 64 development positions under
+the retained representation and decoder. WI/BI remained frozen, so it does not
+establish full-action learning, transfer or arena strength, and does not satisfy
+the old joint-action criterion or automatically unlock Stage B. The parent and
+all earlier finite-budget verdicts remain unchanged. No holdout scores, new games,
+production-weight change or promotion follow; selected v09 remains in place.
+
+Suggested next diagnostic, still **unstarted**: match the original joint build+ink
+recipe on the same 64 observations at **12,000 total updates**, continuing its
+full original 2,000-update checkpoint in a separate run. Retain the same seeds,
+Adam and joint loss, and decide once at final joint agreement >=63/64. The old
+2,000-update result (joint 6/64, build 15/64, ink 26/64) did not isolate difficulty
+from the joint objective: build-only also reached only 16/64 at that budget.
+A matched longer joint run would test full-action fitting; it is not launched by
+this construction-only pass.
+[Protocol](indrill-build64-12k-v1.md), [evidence](evidence/indrill-build64-12k-v1.json),
+[archive index](evidence/indrill-build64-12k-v1-artifacts.json).
+
 ## Diagnostic: indrill-build64-long-v1 (2026-10-04, BUILD_FIT_NOT_ESTABLISHED)
 
 The separately frozen longer-budget run completes exactly **8,000 updates,
@@ -168,10 +209,9 @@ Five final construction sets remain wrong. This does not establish convergence,
 a universal representation limit, full-action imitation, transfer or arena
 strength. No Stage B, holdout model scoring, new games, production-weight change
 or promotion occurs; selected v09 and all earlier verdicts remain unchanged.
-Suggested next step is one separate fixed **12,000-update** diagnostic with the
-same architecture and optimizer, a final-only 63/64 screen and no automatic
-extensions. It is unstarted; its protocol and starting procedure remain to be
-declared. The remaining errors do not yet justify changing width or features.
+The separate continuation to **12,000 total updates** is completed above with
+the same architecture and optimizer. Its full-state starting checkpoint is this
+run's audited step 8,000; this historical result and verdict remain unchanged.
 [Protocol](indrill-build64-long-v1.md), [evidence](evidence/indrill-build64-long-v1.json),
 [archive index](evidence/indrill-build64-long-v1-artifacts.json).
 

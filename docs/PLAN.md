@@ -732,11 +732,42 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       All 8,001 states and 8,000 Adam steps pass bit-exactly; 1,341 clipped updates.
       Exact prefix: 2,001 states / five metrics. Verified archive: 16,073 files /
       19,106,278 bytes; earlier verdicts and production weights remain unchanged.
-- [ ] Consider one separately predeclared fixed 12,000-update diagnostic, keeping
+- [x] Predeclare one separate fixed 12,000-update diagnostic, keeping
       the architecture and optimizer, final-only 63/64 and no automatic extensions.
-      This proposal is unstarted; its starting procedure remains to be declared.
+      Continue through build64-12k-v1 below; preserve this closed 8,000-step run.
       All five residual-error NLLs still decrease at the last two saved checks,
       so a plateau or need for wider layers/new features has not been established.
+
+## Indrill build64-12k-v1: fixed total 12,000-update diagnostic (2026-10-04)
+
+- [x] Predeclare exact full-state continuation from audited long-v1 step 8,000
+      in a separate run: 4,000 new updates, unchanged optimizer/architecture/data,
+      total 192,000 visits / 3,000 per row. Final-only 63/64 versus parent 59/64.
+      [Protocol](indrill-build64-12k-v1.md).
+- [x] Verify unchanged mathematics, full-state restoration, sampler continuation,
+      update guards and numeric checkpoint ordering across 9,999/10,000;
+      freeze new source/proof/runtime/data and verified parent evidence.
+      Synthetic checks pass; freeze c227dc9b... binds all 28,099 verified parent
+      input pins, the exact full starting state and original selected rows.
+- [x] Prove the exact starting state, inherit saved baseline metrics without
+      rescoring, then complete steps 8,001..12,000 and the two fixed evaluations.
+      Exactly 4,000 new updates / 12,000 total; final 64/64, five gained, none lost
+      versus parent 59/64. NLL 0.58229369 -> 0.05434280; intermediate 10,000 result
+      63/64 did not shorten the budget. BUILD_FIT_ESTABLISHED for construction on
+      this panel, not joint actions or arena strength. No automatic Stage B.
+      [Evidence](evidence/indrill-build64-12k-v1.json).
+- [x] Audit all 4,001 new saved boundaries, archive results, record the outcome
+      and commit. No automatic additional training, holdout scoring or new games.
+      All 4,000 new Adam steps are bit-exact; 24 clipped updates. Exact parent fork,
+      inherited baseline, 28,099 parent audit pins and 16,073 parent archive entries
+      pass. All 158/158 target cells match. New archive verified: 8,083 files /
+      11,938,938 bytes, retaining 8,013 production metadata records.
+- [ ] Consider a separate matched joint build+ink diagnostic on the original
+      64 observations at 12,000 total updates, from its full original 2,000-step
+      checkpoint; retain seeds, Adam and joint loss, final-only joint >=63/64.
+      This proposal is unstarted. The old joint result at 2,000 updates cannot
+      isolate joint-objective difficulty from budget, since build-only reached
+      only 16/64 under that same budget; its later pass leaves ink learning open.
 
 ## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
 
