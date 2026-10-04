@@ -127,12 +127,24 @@ the fresh unchanged network. The network's NLL falls **14.39639247 -> 0.00298086
 its decoded set is exact at updates 500/1000/1500/2000. Free logits also decode
 exactly, with final NLL **10.73031938**. The final audit and archive checks pass.
 This one position received 2,000 visits versus about 500 per row in the old A run,
-so the result does not isolate ink/build interference. Next, under a separate
-predeclared protocol, test build-only fitting on the same 64 A positions with the
-old seed, batch 16, 2,000 updates, sample order and exposure. This is an unstarted
-diagnostic proposal; no generalization, strength, capacity-ceiling or promotion
-claim follows. [Protocol](docs/indrill-fit-one-v1.md),
+so the result does not isolate ink/build interference. The separate matched-panel
+follow-up is recorded below. No generalization, strength, capacity-ceiling or
+promotion claim follows. [Protocol](docs/indrill-fit-one-v1.md),
 [final evidence](docs/evidence/indrill-fit-one-v1.json).
+
+`indrill-build64-v1` completes the same 64-position recipe with construction-only
+training: **16/64 exact sets versus the old 15/64**, with 3 gained, 2 lost and
+13 retained exact rows. Original initialization, batch 16, sampling order and
+2,000 updates / 500 visits per row are matched. Mean build NLL falls
+**13.65655966 -> 5.16299332**, versus the old final **5.56911593**. This small
+descriptive improvement does not meet the separate 63/64 memorization screen:
+**BUILD_FIT_NOT_ESTABLISHED**. Final evidence audit and archive verification pass.
+No holdout scoring, new games or promotion occurred. A possible next diagnostic
+is a separately predeclared fresh run with 8,000 updates and the same recipe,
+including its first 2,000-update sequence, to test optimization budget. This is
+an unstarted proposal: continuing loss reduction is not convergence or a capacity
+proof. [Protocol](docs/indrill-build64-v1.md),
+[evidence](docs/evidence/indrill-build64-v1.json).
 
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,

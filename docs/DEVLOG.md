@@ -4946,3 +4946,106 @@ separate experiment (NOT STARTED): original 64 A rows, build-only, same fresh se
 batch 16, 2,000 updates, sample order and exposure as the retained joint run.
 Compare final build exactness descriptively with the old 15/64, with a new protocol
 before gradients; do not resume/retune the closed failure or launch more RL yet.
+
+### 2026-10-04 — Indrill build64-v1 predeclared
+
+User authorized the proposed next bounded diagnostic. Protocol
+ docs/indrill-build64-v1.md fixes the original 64 A observations / 16 maps,
+unchanged input/label/export order, fresh original model seed 2026100401,
+sampling seed 2026100411, 2,000 updates / batch 16 / 32,000 visits, exactly
+500 visits per row. Compare final construction fitting with retained old A
+15/64; independently label near-memorization only at final >=63/64 build sets.
+No early stop/pass, new seed, old checkpoint continuation or extra update.
+
+The sole training ablation removes ink derivatives before shared-trunk backprop.
+WI/BI stay initialized, WV/BV zero; all four frozen heads keep zero moments.
+Preserve vectorized batch16 arithmetic, original float64 derivative division then
+float32 assignment, existing subset likelihood/decoder/Adam and metrics batches
+of32. Removing the ink task also changes global clipping/Adam trajectory; this
+comparison does not separately isolate gradient conflict. Same row/order/exposure
+removes the main confounds of the one-position diagnostic, while the conclusion
+remains conditional on this fixed panel, seed, architecture and finite budget.
+
+Prepare new build64 tools/outputs and synthetic gradient/persistence checks, then
+freeze exact sources/runtime/selected rows and old initialization/sampling proof
+before any real-data gradient. Independent read-only inspection confirms old A
+and fit-one step0 have byte-identical parameters and moments; old sample exposure
+is exactly500 visits per row. Original293 core-exact replay proofs remain pinned;
+no rules/export change requires a new engine run. No holdout score, B stage, RL,
+new game, generated Java weight or arena action is part of this diagnostic.
+
+build64 setup complete before production gradients: the single synthetic run PASS,
+proof a3c80605b93448255edf2320ad59df13c62d207874635a1a591dc2e4e73033cf.
+22 sampled finite-difference coordinates have max absolute error 1.3547381e-6;
+build output/backprop arrays match the old build component with ink derivative
+zeroed, and batch-one matches frozen fit-one. Five-update continuous versus
+2+resume3 states match byte-exactly across an epoch boundary. Sampler-only check
+covers all2,000 updates/500 visits per row; incomplete metric, changed sampler,
+nonfinite/frozen-moment and write-once guards pass without new scoring on rejection.
+
+Preparation verifies all2,001 original sampler checkpoints/receipts/intents and
+all36 initial parameter/moment arrays; schedule SHA
+31d5c9e244355dbf0afafae729a5fd9c52e18b32fae4ec587e01f7fe0c5d8aec.
+Old-sampling proof3b797f57e81fb504cf250af045153e050e71928d34ccd792e25a895209756b99.
+Exact selected64 JSONL lines retained (9,866,127 bytes); no re-export or row changes.
+Freeze04157eccba1d9e069042a2355ce50500351f8c87c9ed3739a393ec6655f19edc
+binds protocol/new sources/runtime/proofs, original data/weights/evidence and maps
+before the one production run. Root and independent reviewers found no source or
+protocol blockers. Training now follows the fixed schedule without result tuning.
+
+### 2026-10-04 — Indrill build64-v1 complete: 16/64, BUILD_FIT_NOT_ESTABLISHED
+
+The one fixed production run completed exactly 2,000 updates / batch 16 /
+32,000 visits, 500 for each original A observation. Final exact construction
+16/64 (25%) versus the retained joint run's 15/64 (23.4375%): 3 gained, 2 lost,
+13 retained exact, 46 inexact in both. Descriptive net +1 is below the separate
+final-only 63/64 construction memorization screen: BUILD_FIT_NOT_ESTABLISHED.
+No early decision, alternate seed, extension, restart or extra learned evaluation.
+
+Exact counts at steps 0/500/1000/1500/2000: 0/8/12/13/16, versus the old
+0/8/12/13/15. New build NLL 13.6565596573 -> 8.3371228554 -> 6.9261033940 ->
+5.9760687676 -> 5.1629933196. Old final build NLL 5.5691159334. The build task
+improves slightly when trained alone, but the small exact-count gain does not
+support treating ink removal as a sufficient solution to the earlier failure.
+It does not isolate gradient conflict or establish a universal capacity limit.
+
+Saved-only error inspection: target cardinality one 9/11 exact (old 8/11),
+two 2/12 (old 3/12), three 5/41 (old 4/41). Turn bands 0..19: 5/32 (old 5),
+20..49: 9/25 (old 8), 50+: 2/7 (old 2). All 64 rows have no skipped actions.
+Among the final 48 errors, 46 are never exact at the five recorded observations;
+two had been correct at an earlier scheduled observation. This says nothing
+about unsaved intermediate predictions. These counts use retained rows only,
+without new model forward/gradients or outcome-guided checkpoint selection.
+
+Read-only finalization and independently reviewed saved-state audit PASS:
+all 2,001 new states match original sampling RNG/order/position and fresh initial
+parameter/moment arrays. Every saved Adam parameter step reconstructed from its
+moments is bit-exact (max difference 0); all states finite and four frozen heads/
+moments valid. Clipping occurs on 4/2,000 updates. All 64 initial construction
+metric rows, including NLL/sets/precision/paint, exactly equal the original
+batch-32 evaluation. Saved target/legality/paint/overlap and grouped metric
+arithmetic, paired comparison, startup/update/metric metadata and prior-map
+exclusions pass. Audits do not independently reconstruct gradients or logits.
+
+Final checkpoint SHA
+476e5b18c128c2cf133f59127b819e601e9d2867eba42380314c02c90847bcd2;
+final metric SHA29f360468ab1e2f56551df1b4cffa17645f2eefb425b83bf47d42ee64019fe2c.
+Final evidence docs/evidence/indrill-build64-v1.json SHA
+b35bbf9057f92869971e17de9dfa1241f93f60d00aa219b749c1cc58e2c4308e.
+Compact archive 4,119 files / 6,027,939 bytes SHA
+94f942018c927a24679e6ee92f89e50b1fc7e5a7d720b43252c4cb7c29875bbc.
+The first audit/packaging runs pass. Archive allowlist binds exact selected64rows,
+protocol/source/proofs, every production intent/receipt/metric and all checkpoint
+hashes, with five scheduled NPZ files. Each entry's bytes are verified against
+completed-audit hashes. Other NPZ checkpoints remain locally retained/pinned;
+prior corpora/runtime/replays are referenced through unchanged old evidence.
+
+Decision: close this diagnostic with a small descriptive gain, not fitting or
+strength success. No B/holdout, RL, new games, production weights, Java changes,
+submission or promotion. Original 293 core-exact proofs remain pinned. Suggested
+next separate experiment (NOT STARTED, no new protocol frozen): fresh build-only
+training on the same64 with 8,000 fixed updates, same seeds/batch16 and identical
+first2,000 sequence. It would probe optimization budget and give 2,000 visits per
+row, matching the successful one-position test's exposure. The loss still falls
+5.9761 -> 5.1630 in the last500 updates; this motivates a budget check but neither
+shows convergence nor guarantees that a larger budget will fit the panel.

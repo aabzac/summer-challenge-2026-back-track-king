@@ -135,6 +135,50 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-build64-v1 (2026-10-04, BUILD_FIT_NOT_ESTABLISHED)
+
+The separate construction-only run completes exactly **2,000 updates, batch 16,
+32,000 sample visits / 500 per observation**, on the original 64 A positions from
+16 maps. Initial parameters and moments, model seed 2026100401, sampling seed
+2026100411 and the complete original sample order are matched. The unchanged
+64->24->24 network learns the build objective only; WI/BI/WV/BV parameters and
+moments remain frozen, and ink derivatives do not enter the shared trunk.
+
+Final construction agreement is **16/64 (25%) versus the retained joint run's
+15/64 (23.4375%)**: 3 gained, 2 lost, 13 retained exact, and 46 inexact in both.
+This is a net gain of one exact set, not a significance or strength result. Mean
+build NLL falls **13.65655966 -> 5.16299332**; the old final build NLL is
+**5.56911593**. Scheduled exact counts at 0/500/1000/1500/2000 updates are
+0/8/12/13/16; all 2,000 updates run without an early success stop. The separate
+final-only 63/64 build memorization requirement is not met:
+**BUILD_FIT_NOT_ESTABLISHED**. The saved-state audit passes all 2,001 checkpoints,
+original initialization/sampling and bit-exact Adam parameter arithmetic. All 64
+initial construction metric rows match the original run exactly. Archive verification
+passes, including every startup/update/metric record.
+
+Saved final exact counts by target size are 9/11 for one cell (old 8/11), 2/12 for
+two cells (old 3/12), and 5/41 for three cells (old 4/41). Of the 48 final errors,
+46 were never exact at any of the five scheduled observations; two had been exact
+earlier. This sparse curve does not reveal behavior between those observations.
+
+Removing the ink objective provides only a small fitting gain in this fixed
+recipe. It does not establish gradient conflict as the earlier failure's cause,
+generalization, arena strength or a universal capacity limit. Global clipping and
+Adam trajectories also change when the ink loss is removed. There are no new
+games, holdout model scores, production weights or strategy promotion; v09 remains
+selected. The old joint and single-position runs remain closed and unchanged.
+
+Suggested, unstarted next diagnostic: a separately predeclared fresh build-only
+run on these same 64 observations with **8,000 updates**, retaining the seed,
+batch 16 and full first 2,000-update sequence, and deciding once at the final
+63/64 screen. This would test a larger optimization budget, with 2,000 visits per
+row matching the single-position test's exposure. NLL still falls from 5.9761 at
+update 1,500 to 5.1630 at 2,000; that motivates the question but does not prove
+convergence or promise success. The next experiment remains unstarted and would
+need its own frozen protocol before training.
+[Protocol](indrill-build64-v1.md), [evidence](evidence/indrill-build64-v1.json),
+[archive index](evidence/indrill-build64-v1-artifacts.json).
+
 ## Diagnostic: indrill-fit-one-v1 (2026-10-04, both arms FINAL_SET_FIT)
 
 Both fixed arms completed exactly **2,000 updates / 2,000 visits**, batch one,
@@ -163,10 +207,9 @@ and competition between positions changed. No generalization, arena strength or
 universal capacity limit is established. No new games, holdout scoring, promotion
 or production-weight change occurred; selected/default v09 remains unchanged.
 
-Next unstarted hypothesis: construction-only fitting on the same 64 A positions,
-compared with the retained joint run, keeping its seed, batch 16, 2,000 updates,
-sample order and per-position exposure. This requires a separate predeclared
-protocol; it does not extend or retry the old failed run.
+The separate matched 64-position construction-only follow-up is completed above,
+with the original seed, batch 16, 2,000 updates, sample order and per-position
+exposure. It does not extend or retry the old failed run.
 [Protocol](indrill-fit-one-v1.md), [final evidence](evidence/indrill-fit-one-v1.json),
 [archive index](evidence/indrill-fit-one-v1-artifacts.json),
 [archive metadata check](evidence/indrill-fit-one-v1-archive-check.json).
@@ -196,8 +239,8 @@ new games, strength gate or promotion is inferred from this fitting result.
 The fixed optimization recipe has not learned even the small panel. Loss is still
 decreasing, so this does not establish convergence or prove that the representation
 cannot fit it. Absence of detected collisions/ties is not a universal capacity proof.
-The separate single-position fitting follow-up is completed above; the next bounded
-proposal controls the 64-position exposure before another large RL run.
+The separate single-position and matched 64-position fitting follow-ups are
+completed above; neither establishes that another large RL run is ready.
 Selected/default v09 remains unchanged.
 All 2,001 checkpoints and 2,000 update links pass the final lineage audit; recorded
 Adam steps and sampling state match exactly. Compact evidence retains all receipts

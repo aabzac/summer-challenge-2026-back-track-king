@@ -678,11 +678,39 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
 - [x] Archive and commit the completed fitting diagnostic and audit.
       8,162 archive entries, 7,700,236 bytes; all payload hashes and 22 startup/metric
       metadata files verified. Remaining checkpoints are retained locally and pinned.
-- [ ] Predeclare a separate build-only diagnostic on the same 64 A positions versus
+- [x] Predeclare a separate build-only diagnostic on the same 64 A positions versus
       the retained joint run, fixing the old seed, batch 16, 2,000 updates, sample order
       and exposure. The one-position test gave 2,000 visits versus about 500 per old A
-      row, so it does not isolate ink/build interference. This next test is unstarted;
-      keep the old failed run closed and preserve its weights/results.
+      row, so it does not isolate ink/build interference. Continue with the separate
+      build64-v1 diagnostic below; keep the old run closed and preserve its results.
+
+## Indrill build64-v1: matched construction-only fitting (2026-10-04)
+
+- [x] Predeclare the original 64 A observations, fresh original initialization,
+      sampling seed/order and fixed 2,000 updates / batch 16 / 500 visits per row.
+      Remove only the ink training objective; preserve old sources and weights.
+      [Protocol](indrill-build64-v1.md).
+- [x] Check batched build-only derivatives, frozen heads and persistence on synthetic
+      inputs; bind original initialization/sampling proof and freeze before training.
+      Synthetic checks pass, including epoch-boundary resume and incomplete metrics;
+      freeze 04157ecc... binds the original 64 rows and all 2,001 old sampler states.
+- [x] Complete all 2,000 updates / 32,000 sample visits and compare saved final rows:
+      16/64 exact construction sets versus old 15/64; 3 gained, 2 lost, 13 retained
+      exact and 46 inexact in both. Build NLL 13.65655966 -> 5.16299332, versus old
+      final 5.56911593. BUILD_FIT_NOT_ESTABLISHED against the separate final-only
+      63/64 screen; the net +1 is descriptive, not a strength or significance claim.
+      [Evidence](evidence/indrill-build64-v1.json).
+- [x] Audit saved optimizer/sampling/metric evidence, archive, document and commit.
+      All 2,001 checkpoints and original sampler states pass; Adam steps are bit-exact.
+      Compact archive: 4,119 files / 6,027,939 bytes, including all production metadata.
+      No held-out scoring, extra updates, new games or strategy promotion.
+- [ ] Consider a separate, predeclared fresh build-only budget diagnostic: same 64
+      observations, seed and batch 16, with 8,000 updates and the unchanged first
+      2,000-update sequence; decide once at final 63/64. This proposed run is not
+      started. It would give 2,000 visits
+      per row, matching the single-position exposure, without continuing the old
+      checkpoint. Loss still falls at the current endpoint; neither convergence
+      nor a universal capacity limit has been established.
 
 ## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
 

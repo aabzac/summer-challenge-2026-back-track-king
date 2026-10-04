@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-build64-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "decision": "BUILD_FIT_NOT_ESTABLISHED",
+  "freeze": {
+    "path": "build/analysis/indrill-build64-v1/freeze.json",
+    "sha256": "04157eccba1d9e069042a2355ce50500351f8c87c9ed3739a393ec6655f19edc"
+  },
+  "helper": {
+    "path": "build/analysis/indrill-build64-v1/audit_completed_training.py",
+    "sha256": "841fe48766f65cebe7076a6d52525ee54287e1b8979010247ddf8062762ce743"
+  },
+  "intent": {
+    "path": "build/analysis/indrill-build64-v1/completed-audit-intent.json",
+    "sha256": "897c298ed8fdab8e0736569d6531a288c4d53dd9ca7aaba35b0b707095f0f7fd"
+  },
+  "checkpointChain": {
+    "path": "build/analysis/indrill-build64-v1/chain-manifest.json",
+    "sha256": "3b6770afe86c048a9157cc4e65924e8d46001f588b8572e5685ce9684d65c0a0"
+  },
+  "runnerResult": {
+    "path": "build/analysis/indrill-build64-v1/result.json",
+    "sha256": "d3a66fc45c4887d5cecb1f9fdc71d199ad3ffa4bd2034a9eb6bbabac7d5ba364"
+  },
+  "settings": {
+    "modelSeed": 2026100401,
+    "samplingSeed": 2026100411,
+    "updates": 2000,
+    "batch": 16,
+    "observations": 64,
+    "metricsAt": [
+      0,
+      500,
+      1000,
+      1500,
+      2000
+    ]
+  },
+  "observations": 64,
+  "maps": 16,
+  "integrity": {
+    "checkpointsVerified": 2001,
+    "updates": 2000,
+    "sampleVisits": 32000,
+    "visitsPerObservation": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "scheduleSha256": "31d5c9e244355dbf0afafae729a5fd9c52e18b32fae4ec587e01f7fe0c5d8aec",
+    "fixedInitializerBitExact": true,
+    "oldSamplerRngOrderPositionBitExact": true,
+    "allTensorsFinite": true,
+    "allFrozenHeadsAndMomentsUnchanged": true,
+    "adamStepsBitExact": true,
+    "adamMaxAbsDifference": 0.0,
+    "clippedUpdates": 4,
+    "initialMetricRowsMatchOriginal": true,
+    "oldInitialMetrics": {
+      "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-0000.json",
+      "sha256": "3d8ab104fc6c6e0422a4d5120308192388afad0ad16eecd11f7f7092ceaa26ff"
+    }
+  },
+  "curve": [
+    {
+      "step": 0,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-0000.json",
+        "sha256": "829b477b2ae869e0ebe87256e6cf0834f05bbd4e30a4924c23fcf19195d0e54d"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-0000-intent.json",
+        "sha256": "222ff0bae3352ee37bbfb8ffdfc7036cd5c6d82700d31ad8a3b756fdb0634db3"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-0000-receipt.json",
+        "sha256": "fd973a1151f51f5fc3112773c1f27da3850158e284c92d2b7ddf4141cebbb6b4"
+      },
+      "observations": 64,
+      "buildExactCount": 0,
+      "meanBuildNll": 13.656559657343603,
+      "meanCellPrecision": 0.0,
+      "meanCellRecall": 0.0,
+      "totalPredictedPaint": 1,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 500,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-0500.json",
+        "sha256": "c69ab7596ad4e736568cafa405065930aed4a201fe8cea62aa050bee2db25fd8"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-0500-intent.json",
+        "sha256": "83f883827a9de6b00df9f9ba56a65050c4a9b2210451ebd2ce10dd314cff0015"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-0500-receipt.json",
+        "sha256": "7a65f276517072419ead74234287b943e5d462728b4dfb06e9c799803aa527ac"
+      },
+      "observations": 64,
+      "buildExactCount": 8,
+      "meanBuildNll": 8.337122855395176,
+      "meanCellPrecision": 0.2864583333333333,
+      "meanCellRecall": 0.28385416666666663,
+      "totalPredictedPaint": 169,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 1000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-1000.json",
+        "sha256": "905d43a1d4f47af53707641b6f9729963f40e541b1e68a9a6334810f3143c069"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-1000-intent.json",
+        "sha256": "cde5b18ec8a4364ec52fa2f6a5c8b8ae59682ac5214c8433df711cc84194abaa"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-1000-receipt.json",
+        "sha256": "cdd4ca3f94b03180d6edfe479315771f37c20fb9608051a4801813fb3875750b"
+      },
+      "observations": 64,
+      "buildExactCount": 12,
+      "meanBuildNll": 6.926103393996102,
+      "meanCellPrecision": 0.36197916666666663,
+      "meanCellRecall": 0.36197916666666663,
+      "totalPredictedPaint": 186,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 1500,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-1500.json",
+        "sha256": "42c349b566a789f7332ad45586184cf3baff2c9dc47b345db2753dd92edfd74f"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-1500-intent.json",
+        "sha256": "b7214d858d5d7c760628c6ffe0df0778c39194ced15667f25308c4bbf4bc4f42"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-1500-receipt.json",
+        "sha256": "0f2fc48f1921ee77430254cdbd4f4dfce30ec4f70f4cbc3d36404040782a01d0"
+      },
+      "observations": 64,
+      "buildExactCount": 13,
+      "meanBuildNll": 5.976068767619921,
+      "meanCellPrecision": 0.3984375,
+      "meanCellRecall": 0.4010416666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 2000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-2000.json",
+        "sha256": "29f360468ab1e2f56551df1b4cffa17645f2eefb425b83bf47d42ee64019fe2c"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-2000-intent.json",
+        "sha256": "a4495e72e0bea0dd8cde2086ba369a2ad4e79fa85f710335ccf03a4d1268c18f"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-v1/run/metrics-2000-receipt.json",
+        "sha256": "b2ca962fbbdb400289a38a3b17f6c84f70c2370d161436bed0b566acf3d85a3c"
+      },
+      "observations": 64,
+      "buildExactCount": 16,
+      "meanBuildNll": 5.162993319552122,
+      "meanCellPrecision": 0.4583333333333333,
+      "meanCellRecall": 0.4583333333333333,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    }
+  ],
+  "comparison": {
+    "observations": 64,
+    "maps": 16,
+    "oldBuildExact": 15,
+    "candidateBuildExact": 16,
+    "netExactDifference": 1,
+    "direction": "BETTER_FIXED_BUILD_FIT",
+    "counts": {
+      "gained": 3,
+      "lost": 2,
+      "retainedExact": 13,
+      "bothInexact": 46
+    },
+    "observationIds": {
+      "gained": [
+        "905008481:0:0",
+        "905190235:1:49",
+        "905203841:1:0"
+      ],
+      "lost": [
+        "905047727:0:0",
+        "905202827:0:19"
+      ],
+      "retainedExact": [
+        "905008481:0:11",
+        "905008481:0:35",
+        "905047727:0:42",
+        "905170414:0:22",
+        "905171676:1:0",
+        "905172701:1:0",
+        "905183189:0:37",
+        "905186012:1:85",
+        "905187591:0:35",
+        "905189574:0:38",
+        "905190235:1:32",
+        "905202827:0:39",
+        "905202827:0:59"
+      ],
+      "bothInexact": [
+        "905008481:0:23",
+        "905047727:0:21",
+        "905047727:0:63",
+        "905048023:1:0",
+        "905048023:1:14",
+        "905048023:1:28",
+        "905048023:1:42",
+        "905170414:0:0",
+        "905170414:0:11",
+        "905170414:0:34",
+        "905171676:1:18",
+        "905171676:1:37",
+        "905171676:1:56",
+        "905172701:1:11",
+        "905172701:1:22",
+        "905172701:1:33",
+        "905183189:0:0",
+        "905183189:0:12",
+        "905183189:0:24",
+        "905186012:1:0",
+        "905186012:1:28",
+        "905186012:1:56",
+        "905187591:0:0",
+        "905187591:0:17",
+        "905187591:0:53",
+        "905189574:0:0",
+        "905189574:0:19",
+        "905189574:0:57",
+        "905190235:1:0",
+        "905190235:1:16",
+        "905192266:0:0",
+        "905192266:0:13",
+        "905192266:0:26",
+        "905192266:0:40",
+        "905193675:0:0",
+        "905193675:0:12",
+        "905193675:0:24",
+        "905193675:0:36",
+        "905202827:0:0",
+        "905203841:1:9",
+        "905203841:1:18",
+        "905203841:1:28",
+        "905206234:1:0",
+        "905206234:1:9",
+        "905206234:1:19",
+        "905206234:1:29"
+      ]
+    },
+    "oldMeanBuildNll": 5.569115933387826,
+    "candidateMeanBuildNll": 5.162993319552122,
+    "descriptiveOnly": true
+  },
+  "oldFinalMetrics": {
+    "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-2000.json",
+    "sha256": "5f4543cb9e29c85afe7a9aa93ca088bb354053d26b3310e67579c54b451f694b"
+  },
+  "priorEvidence": {
+    "path": "docs/evidence/indrill-capacity-v1.json",
+    "sha256": "5bb9305cad2e7d0bd1b164f66724f05d17d66573cbf23bec42268bcd50fe7b24"
+  },
+  "fitOneEvidence": {
+    "path": "docs/evidence/indrill-fit-one-v1.json",
+    "sha256": "a3eeaa1b86dc7e4930a736945454a5e84f0c0d09be4dbf90422db39b81a9016f"
+  },
+  "syntheticChecks": {
+    "path": "build/analysis/indrill-build64-v1/setup/checks.json",
+    "sha256": "a3c80605b93448255edf2320ad59df13c62d207874635a1a591dc2e4e73033cf"
+  },
+  "oldSamplingAudit": {
+    "path": "build/analysis/indrill-build64-v1/old-sampling-audit.json",
+    "sha256": "3b797f57e81fb504cf250af045153e050e71928d34ccd792e25a895209756b99"
+  },
+  "mapExclusionRegistry": {
+    "path": "build/bench/indrill-capacity-v1-diagnostic-maps.json",
+    "sha256": "aeb88791e1a17e60b78fc3ca890d5c91449261fc9026537234e4c8bc656a38cb"
+  },
+  "retainedExactCoreGames": 293,
+  "newGames": 0,
+  "auditNewLearnedPredictions": 0,
+  "auditNewGradients": 0,
+  "stageBRun": false,
+  "holdoutEvaluated": false,
+  "promotion": false,
+  "arenaUploaded": false,
+  "limitations": [
+    "Fixed seed, 64 training observations from 16 maps and finite optimization budget; no generalization, full-action or arena-strength claim.",
+    "Removing ink loss also changes global clipping and Adam trajectory; this does not isolate a gradient-conflict mechanism.",
+    "Audit validates saved predictions and NLL aggregation/binding, not their derivation from logits. Saved NLLs are not recomputed.",
+    "Adam parameter arithmetic is checked from saved moments; no gradients are reconstructed, so this does not independently establish the origin of those moments.",
+    "The 63/64 build-only threshold is a bounded memorization screen, distinct from the old joint-action criterion and descriptive 15/64 comparison.",
+    "Engine/features/labels provenance relies on retained exact replay/export/loader reviews; this audit runs no new engine games."
+  ]
+}
