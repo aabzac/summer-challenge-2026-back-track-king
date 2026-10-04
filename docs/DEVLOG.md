@@ -5226,3 +5226,67 @@ all 8,013 production metadata files, three scheduled NPZ states, exact selected
 SHA f7e7054832d9881e7aa6f6767e292271ee27783f629591126357f8371f27e661.
 Other new NPZ states remain locally retained and pinned. README/BOTS/PLAN record
 the completed construction-only pass and the unstarted joint fitting proposal.
+
+## 2026-10-04 - Indrill joint64-12k-v1 predeclared
+
+Hypothesis: the original joint build+ink objective may fit the same 64 A observations
+with the 12,000-update budget that gave construction-only 64/64. User accepted this
+separate diagnostic. Continue the original joint full checkpoint at step 2,000,
+including Adam moments/clock and sampling state, for exactly 10,000 new updates.
+Keep seeds, features, labels, architecture, batch16, optimizer and original summed
+build+ink NLL unchanged. Inherit saved baseline; evaluate only at total steps
+4,000/6,000/8,000/10,000/12,000. Final-only joint >=63/64. Original closed verdicts
+remain unchanged. No Stage B, holdout scoring, games or promotion follows
+implicitly. Protocol: docs/indrill-joint64-12k-v1.md. Preparation/training unstarted.
+
+Joint64-12k-v1 preflight: the single synthetic proof passes (4a51b327...cf39),
+including unchanged original joint derivatives, live ink/frozen value heads,
+full-state continuation, numeric checkpoint boundary and saved metric guards.
+Static review caught generator concatenation in the draft before any proof or
+preparation; corrected before freezing. Prepare passes, verifying 6,322 original
+parent audited pins; freeze 37062d4b...c8b1. The one authorized fixed training run
+has started. Prior checkpoint and metrics remain unchanged.
+
+Joint64-12k-v1 completed its one fixed run: exactly 10,000 new / 12,000 total
+updates, 160,000 new / 192,000 total visits (2,500 new / 3,000 total per row).
+Original full parent state and inherited step-2,000 metrics match exactly; the
+old trajectory was not rerun. At total steps 2k/4k/6k/8k/10k/12k, joint exact is
+6/19/30/47/58/63, construction 15/28/41/54/63/64, ink 26/37/45/55/59/63.
+Final-only verdict: JOINT_FIT_ESTABLISHED (63/64 threshold). Parent-to-final gains
+are joint57, build49, ink37, with zero losses for all three; every original exact
+row is retained. Mean-of-map-means NLL: joint7.492161077696952 -> .32454612398397314;
+build5.569115933387827 -> .13778353023563483; ink1.9230451443091259 -> .1867625937483383.
+Build-only12k also gives64/64, with lower build NLL .05434279870100711; the joint
+run catches up in exact construction despite slower earlier fitting.
+
+Only final wrong full action is905170414:0:0: construction[222,317,422] is exact;
+ink target14 versus predicted27, both legal. Ink NLL there falls from3.636080 at8k
+to3.035720 at10k and1.672206 at12k. All158 construction cells and192 paint match.
+Final checkpoint76f904ae...90a5; final metric85ffdd2a...3d81; starting proof742cfcad...
+3eb3. Read-only finalization passes all10,001 new boundaries and fixed metrics;
+global sampler digest e401adc0...1ecb4 matches the construction-only12k schedule.
+Independent saved-state audit and compact archive follow; no new model scoring.
+
+Interpretation: this fixed network and original joint objective can memorize
+almost all actions on this inspected development panel. The early6/64 result
+does not establish an architectural fitting barrier; increasing the unchanged
+training budget suffices for the prospective operational threshold. This does
+not establish transfer, optimal teacher actions, absence of all joint-objective
+interference, the cause of prior RL failure or arena strength. No extra64-row
+fitting, Stage B, holdout scoring, games or promotion. A separately scoped larger
+training panel with a map-separated holdout is the next unstarted proposal.
+
+Joint64-12k-v1 audit and archive complete: PASS. All10,001 new saved boundaries,
+full parent fork, sampler/RNG, inherited baseline and10,000 new Adam parameter
+steps are bit-exact (maximum difference0);1,796 new steps use norm clipping.
+Verified6,322 original parent input pins and4,190 parent archive entries. No
+learned predictions or gradients were recomputed during finalization/audit.
+Public evidence SHA ec36e55a9e9ed738faa0967e9f8a1bca8a355dd25e477fb4ae1ab71dfa8c1d25;
+chain SHA036beaadd53a111cbf1dfb26dc45175ef99caf597086fc113d0626d861e98977.
+The archive contains20,095 files /28,260,826 bytes, including all new production
+metadata and six scheduled checkpoints; other NPZ states remain locally pinned.
+ZIP SHA67a949ae34ff51ff87bfaa748b7611482b84e900fd65f03f9d26dcae0c4c3072.
+Audit helper and archive helper received independent source reviews; their paired
+report schema also passed a saved-only contract check before the audit. All
+previous experiments, Java/core sources, submission and selected v09 unchanged.
+This closes the authorized fitting experiment; no next experiment has started.

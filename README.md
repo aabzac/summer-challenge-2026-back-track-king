@@ -166,11 +166,27 @@ remain exact and the five errors are corrected. Build NLL falls
 full fixed budget still ran. All 158/158 target cells match. Final audit and archive
 verification pass. This establishes
 construction fitting on these 64 development observations; ink heads stayed frozen.
-It does not unlock the old joint Stage B or establish arena strength. The proposed,
-unstarted next diagnostic matches the original joint build+ink recipe at 12,000
-total updates, starting from its full 2,000-update checkpoint in a separate run.
+It does not unlock the old joint Stage B or establish arena strength. The separate
+matched joint diagnostic is recorded below; this construction-only result remains
+unchanged.
 [Protocol](docs/indrill-build64-12k-v1.md),
 [evidence](docs/evidence/indrill-build64-12k-v1.json).
+
+`indrill-joint64-12k-v1` completes **10,000 new updates / 12,000 total** from the
+original joint model's full audited step-2,000 checkpoint. Final agreement is
+**63/64 joint, 64/64 build and 63/64 ink**: **JOINT_FIT_ESTABLISHED** at the fixed
+final-only 63/64 screen. All six original joint successes remain, with 57 gained
+and one residual ink error. Mean joint NLL falls **7.49216108 -> 0.32454612**.
+Construction is exact under both matched 12k recipes, with build NLL **0.13778353**
+for joint training versus **0.05434280** for build-only. This establishes fitting
+on these 64 development observations under the retained representation; the old
+2,000-update failure did not establish an inability to learn the full labels.
+All 158/158 construction cells match; final audit and archive verification pass.
+No Stage B, holdout scoring,
+new games or promotion follows. A separately scoped larger training panel and
+map-separated holdout is the suggested, unstarted next diagnostic before RL or
+strength testing. [Protocol](docs/indrill-joint64-12k-v1.md),
+[evidence](docs/evidence/indrill-joint64-12k-v1.json).
 
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,

@@ -1,0 +1,826 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-joint64-12k-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "decision": "JOINT_FIT_ESTABLISHED",
+  "freeze": {
+    "path": "build/analysis/indrill-joint64-12k-v1/freeze.json",
+    "sha256": "37062d4bc4c8e41b9446e2976b1d765f2eaaf9ce4b08880857dc11909599c8b1"
+  },
+  "helper": {
+    "path": "build/analysis/indrill-joint64-12k-v1/audit_completed_training.py",
+    "sha256": "fec3e8188658df4f7ed46c21e74863e2bbd599fa622dceb48941b6509e5a4c44"
+  },
+  "intent": {
+    "path": "build/analysis/indrill-joint64-12k-v1/completed-audit-intent.json",
+    "sha256": "b57634efa9b738fed14464786f1bf13b8ffd42981cc9975bf1c1c4218da985c0"
+  },
+  "checkpointChain": {
+    "path": "build/analysis/indrill-joint64-12k-v1/chain-manifest.json",
+    "sha256": "036beaadd53a111cbf1dfb26dc45175ef99caf597086fc113d0626d861e98977"
+  },
+  "runnerResult": {
+    "path": "build/analysis/indrill-joint64-12k-v1/result.json",
+    "sha256": "562c0bddc60a5f70270a6be37f6baee0fb3011f8bd342f6d859814ff98dc673b"
+  },
+  "settings": {
+    "modelSeed": 2026100401,
+    "samplingSeed": 2026100411,
+    "startStep": 2000,
+    "updates": 12000,
+    "batch": 16,
+    "observations": 64,
+    "metricsAt": [
+      2000,
+      4000,
+      6000,
+      8000,
+      10000,
+      12000
+    ]
+  },
+  "observations": 64,
+  "maps": 16,
+  "integrity": {
+    "checkpointsVerified": 10001,
+    "startStep": 2000,
+    "newUpdates": 10000,
+    "totalUpdates": 12000,
+    "newSampleVisits": 160000,
+    "totalSampleVisits": 192000,
+    "newVisitsPerObservation": [
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500
+    ],
+    "totalVisitsPerObservation": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "scheduleSha256": "e401adc03184314a60cafecbdb04bc8d86e9bdfc6834d80aaf220c27a7d1ecb4",
+    "newBoundaryScheduleSha256": "d723d7945f9932410c506206e4a713eadb1d8a7f26da8f7e68c8f7b31ee63b24",
+    "parentScheduleSha256": "31d5c9e244355dbf0afafae729a5fd9c52e18b32fae4ec587e01f7fe0c5d8aec",
+    "parentForkAllArraysAndStateBitExact": true,
+    "optimizerClockContinuedWithoutReset": true,
+    "allSamplerRngOrderPositionExact": true,
+    "allTensorsFinite": true,
+    "valueHeadAndMomentsZero": true,
+    "inkHeadTrainable": true,
+    "adamStepsBitExact": true,
+    "adamMaxAbsDifference": 0.0,
+    "clippedNewUpdates": 1796,
+    "baselineMetricPayloadInheritedExact": true,
+    "startProof": {
+      "path": "build/analysis/indrill-joint64-12k-v1/run/start-proof.json",
+      "sha256": "742cfcadceac2216915f72e2e3ae5233ef3e8e6f1a4bdc8c125a1bc371ea3eb3"
+    }
+  },
+  "inheritedParent": {
+    "publicEvidence": {
+      "path": "docs/evidence/indrill-capacity-v1.json",
+      "sha256": "5bb9305cad2e7d0bd1b164f66724f05d17d66573cbf23bec42268bcd50fe7b24"
+    },
+    "freeze": {
+      "path": "build/analysis/indrill-capacity-v1/training-freeze.json",
+      "sha256": "9fb04e3a5f64c1182d774fc016b09be06e6fa5e32df8634e7a63f0a3341ad9ea"
+    },
+    "checkpointChain": {
+      "path": "build/analysis/indrill-capacity-v1/chain-manifest.json",
+      "sha256": "5829262848fc165e76ae0df35bd0ab79b37e438065be6f8e1440e5b35945eb7d"
+    },
+    "auditedInputPinsVerified": 6322,
+    "inheritedStates": 2001,
+    "inheritedUpdates": 2000,
+    "allParentInputHashesVerified": true,
+    "parentTensorAuditRerun": false,
+    "archive": {
+      "path": "docs/evidence/indrill-capacity-v1-artifacts.zip",
+      "sha256": "e52acd6b8722dc249e0ba0722e11cb4e58ae6df5aaec18f5cb9ea4b9b8413d83"
+    },
+    "archiveIndex": {
+      "path": "docs/evidence/indrill-capacity-v1-artifacts.json",
+      "sha256": "ca3971dc1d28f2aa4c7a77f3256b3a52823e20cf50ac41c49af69d850e369c79"
+    },
+    "archiveEntriesVerified": 4190,
+    "newLearnedPredictions": 0,
+    "newGradients": 0
+  },
+  "curve": [
+    {
+      "step": 2000,
+      "metrics": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-2000.json",
+        "sha256": "1b2777d7de82ae052629d45f90e84fdb834340e149c8d597ad4e2dccd9452484"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-2000-intent.json",
+        "sha256": "634ca07cd263299659418700cd2882e5f7a4229db803786eb36310954bb1c1c0"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-2000-receipt.json",
+        "sha256": "e4f594ea4e2cc1c775464980e5426758117a76a34d51b5a5df42e4b897ecff04"
+      },
+      "evaluationOrigin": "INHERITED_PARENT",
+      "observations": 64,
+      "buildExactCount": 15,
+      "inkExactCount": 26,
+      "jointExactCount": 6,
+      "meanBuildNll": 5.569115933387826,
+      "meanInkNll": 1.9230451443091257,
+      "meanJointNll": 7.492161077696952,
+      "meanCellPrecision": 0.4427083333333333,
+      "meanCellRecall": 0.4375,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 4000,
+      "metrics": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-4000.json",
+        "sha256": "532fe4b27d36f55c94e5c59ff96e8908a31e263768597959a6b4fe7dc3952bcf"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-4000-intent.json",
+        "sha256": "baad68d63eef937c92a5551291dbebcddaadc2076956ed60155ec61c52405f02"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-4000-receipt.json",
+        "sha256": "1565ff62733ea19e5d0809df82f62f66174162ff798216c989934b1b0180e0d5"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 28,
+      "inkExactCount": 37,
+      "jointExactCount": 19,
+      "meanBuildNll": 3.3719847910279137,
+      "meanInkNll": 1.4883874824884131,
+      "meanJointNll": 4.860372273516327,
+      "meanCellPrecision": 0.6770833333333333,
+      "meanCellRecall": 0.6770833333333333,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 6000,
+      "metrics": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-6000.json",
+        "sha256": "aa9c93647d07f8f44916631a6da2a46a80f6721fb6373d48abf313ed619638b7"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-6000-intent.json",
+        "sha256": "f746e4098045bfac83a95412b23a305f28fb71e263dc9d5eafbf443db3905921"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-6000-receipt.json",
+        "sha256": "665d3acaa5bbbab7eae1a399830c802a9e2fed032f08cb56a961090849962f49"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 41,
+      "inkExactCount": 45,
+      "jointExactCount": 30,
+      "meanBuildNll": 1.7899932319896932,
+      "meanInkNll": 1.0997678063844714,
+      "meanJointNll": 2.8897610383741643,
+      "meanCellPrecision": 0.8385416666666667,
+      "meanCellRecall": 0.8385416666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 8000,
+      "metrics": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-8000.json",
+        "sha256": "c09c0c8ea864ee5f7f3e3b12e41b2c573eb29d36be42bdfe16af19e99700c24d"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-8000-intent.json",
+        "sha256": "782cf2d7105ef84a61961d7e319adbcd3ace9aae4bd997a303a1db69b37fbc74"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-8000-receipt.json",
+        "sha256": "e37c91ef253383eebabda9d858bdea3968ed276071c9bf18ce91d08e2cce11b2"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 54,
+      "inkExactCount": 55,
+      "jointExactCount": 47,
+      "meanBuildNll": 0.8374246569757484,
+      "meanInkNll": 0.727233104390745,
+      "meanJointNll": 1.5646577613664934,
+      "meanCellPrecision": 0.9375,
+      "meanCellRecall": 0.9375,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 10000,
+      "metrics": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-10000.json",
+        "sha256": "21a76dd73484bd28ed80ecc842098e1d1172b7c47ed858ab799907edf5e40122"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-10000-intent.json",
+        "sha256": "433aad0dd7aa6bec102f6294c26cf07eb8bd6160e1ce3a6e8359d33166e06f05"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-10000-receipt.json",
+        "sha256": "5f23bc6cb5849f165592e93a49e81641c4d075182bef1ceb5ca75d7d97774e24"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 63,
+      "inkExactCount": 59,
+      "jointExactCount": 58,
+      "meanBuildNll": 0.3639351851143279,
+      "meanInkNll": 0.4103042974155492,
+      "meanJointNll": 0.7742394825298771,
+      "meanCellPrecision": 0.9947916666666667,
+      "meanCellRecall": 0.9947916666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 12000,
+      "metrics": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-12000.json",
+        "sha256": "85ffdd2af530f03484f3fe7adad9c49fa1176f048fdd7910f286aec05df23d81"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-12000-intent.json",
+        "sha256": "0e9bb9eea88f95e1b9cbc3b70ecb8b7830426540c6106943775e66fc799c589b"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-joint64-12k-v1/run/metrics-12000-receipt.json",
+        "sha256": "f2454225f3381a7c72f416f2c63bb64d84c9e5949b8b6e8d84f33222f05de84f"
+      },
+      "evaluationOrigin": "NEW_SCHEDULED",
+      "observations": 64,
+      "buildExactCount": 64,
+      "inkExactCount": 63,
+      "jointExactCount": 63,
+      "meanBuildNll": 0.13778353023563483,
+      "meanInkNll": 0.1867625937483383,
+      "meanJointNll": 0.32454612398397314,
+      "meanCellPrecision": 1.0,
+      "meanCellRecall": 1.0,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    }
+  ],
+  "comparison": {
+    "jointExact": {
+      "oldExact": 6,
+      "candidateExact": 63,
+      "netExactDifference": 57,
+      "status": "BETTER",
+      "oldMeanOfMapMeansNll": 7.492161077696952,
+      "candidateMeanOfMapMeansNll": 0.32454612398397314,
+      "rowGroups": {
+        "gained": [
+          "905008481:0:0",
+          "905008481:0:23",
+          "905047727:0:0",
+          "905047727:0:21",
+          "905047727:0:42",
+          "905047727:0:63",
+          "905048023:1:0",
+          "905048023:1:14",
+          "905048023:1:28",
+          "905048023:1:42",
+          "905170414:0:11",
+          "905170414:0:34",
+          "905171676:1:0",
+          "905171676:1:18",
+          "905171676:1:37",
+          "905171676:1:56",
+          "905172701:1:0",
+          "905172701:1:11",
+          "905172701:1:22",
+          "905172701:1:33",
+          "905183189:0:0",
+          "905183189:0:12",
+          "905183189:0:24",
+          "905183189:0:37",
+          "905186012:1:0",
+          "905186012:1:28",
+          "905186012:1:56",
+          "905187591:0:0",
+          "905187591:0:17",
+          "905187591:0:35",
+          "905187591:0:53",
+          "905189574:0:0",
+          "905189574:0:19",
+          "905189574:0:38",
+          "905189574:0:57",
+          "905190235:1:0",
+          "905190235:1:16",
+          "905190235:1:49",
+          "905192266:0:0",
+          "905192266:0:13",
+          "905192266:0:26",
+          "905192266:0:40",
+          "905193675:0:0",
+          "905193675:0:12",
+          "905193675:0:24",
+          "905193675:0:36",
+          "905202827:0:0",
+          "905202827:0:19",
+          "905202827:0:39",
+          "905203841:1:0",
+          "905203841:1:9",
+          "905203841:1:18",
+          "905203841:1:28",
+          "905206234:1:0",
+          "905206234:1:9",
+          "905206234:1:19",
+          "905206234:1:29"
+        ],
+        "lost": [],
+        "retainedExact": [
+          "905008481:0:11",
+          "905008481:0:35",
+          "905170414:0:22",
+          "905186012:1:85",
+          "905190235:1:32",
+          "905202827:0:59"
+        ],
+        "bothInexact": [
+          "905170414:0:0"
+        ]
+      },
+      "groupCounts": {
+        "gained": 57,
+        "lost": 0,
+        "retainedExact": 6,
+        "bothInexact": 1
+      }
+    },
+    "buildExact": {
+      "oldExact": 15,
+      "candidateExact": 64,
+      "netExactDifference": 49,
+      "status": "BETTER",
+      "oldMeanOfMapMeansNll": 5.569115933387827,
+      "candidateMeanOfMapMeansNll": 0.13778353023563483,
+      "rowGroups": {
+        "gained": [
+          "905008481:0:0",
+          "905008481:0:23",
+          "905047727:0:21",
+          "905047727:0:63",
+          "905048023:1:0",
+          "905048023:1:14",
+          "905048023:1:28",
+          "905048023:1:42",
+          "905170414:0:0",
+          "905170414:0:11",
+          "905170414:0:34",
+          "905171676:1:18",
+          "905171676:1:37",
+          "905171676:1:56",
+          "905172701:1:11",
+          "905172701:1:22",
+          "905172701:1:33",
+          "905183189:0:0",
+          "905183189:0:12",
+          "905183189:0:24",
+          "905186012:1:0",
+          "905186012:1:28",
+          "905186012:1:56",
+          "905187591:0:0",
+          "905187591:0:17",
+          "905187591:0:53",
+          "905189574:0:0",
+          "905189574:0:19",
+          "905189574:0:57",
+          "905190235:1:0",
+          "905190235:1:16",
+          "905190235:1:49",
+          "905192266:0:0",
+          "905192266:0:13",
+          "905192266:0:26",
+          "905192266:0:40",
+          "905193675:0:0",
+          "905193675:0:12",
+          "905193675:0:24",
+          "905193675:0:36",
+          "905202827:0:0",
+          "905203841:1:0",
+          "905203841:1:9",
+          "905203841:1:18",
+          "905203841:1:28",
+          "905206234:1:0",
+          "905206234:1:9",
+          "905206234:1:19",
+          "905206234:1:29"
+        ],
+        "lost": [],
+        "retainedExact": [
+          "905008481:0:11",
+          "905008481:0:35",
+          "905047727:0:0",
+          "905047727:0:42",
+          "905170414:0:22",
+          "905171676:1:0",
+          "905172701:1:0",
+          "905183189:0:37",
+          "905186012:1:85",
+          "905187591:0:35",
+          "905189574:0:38",
+          "905190235:1:32",
+          "905202827:0:19",
+          "905202827:0:39",
+          "905202827:0:59"
+        ],
+        "bothInexact": []
+      },
+      "groupCounts": {
+        "gained": 49,
+        "lost": 0,
+        "retainedExact": 15,
+        "bothInexact": 0
+      }
+    },
+    "inkExact": {
+      "oldExact": 26,
+      "candidateExact": 63,
+      "netExactDifference": 37,
+      "status": "BETTER",
+      "oldMeanOfMapMeansNll": 1.9230451443091259,
+      "candidateMeanOfMapMeansNll": 0.1867625937483383,
+      "rowGroups": {
+        "gained": [
+          "905008481:0:23",
+          "905047727:0:0",
+          "905047727:0:42",
+          "905048023:1:28",
+          "905048023:1:42",
+          "905170414:0:11",
+          "905171676:1:0",
+          "905171676:1:18",
+          "905172701:1:0",
+          "905172701:1:11",
+          "905183189:0:0",
+          "905183189:0:12",
+          "905183189:0:37",
+          "905186012:1:0",
+          "905186012:1:56",
+          "905187591:0:0",
+          "905187591:0:35",
+          "905189574:0:0",
+          "905189574:0:19",
+          "905189574:0:38",
+          "905190235:1:0",
+          "905190235:1:16",
+          "905192266:0:0",
+          "905192266:0:26",
+          "905192266:0:40",
+          "905193675:0:0",
+          "905193675:0:24",
+          "905193675:0:36",
+          "905202827:0:0",
+          "905202827:0:19",
+          "905202827:0:39",
+          "905203841:1:0",
+          "905203841:1:18",
+          "905203841:1:28",
+          "905206234:1:0",
+          "905206234:1:9",
+          "905206234:1:19"
+        ],
+        "lost": [],
+        "retainedExact": [
+          "905008481:0:0",
+          "905008481:0:11",
+          "905008481:0:35",
+          "905047727:0:21",
+          "905047727:0:63",
+          "905048023:1:0",
+          "905048023:1:14",
+          "905170414:0:22",
+          "905170414:0:34",
+          "905171676:1:37",
+          "905171676:1:56",
+          "905172701:1:22",
+          "905172701:1:33",
+          "905183189:0:24",
+          "905186012:1:28",
+          "905186012:1:85",
+          "905187591:0:17",
+          "905187591:0:53",
+          "905189574:0:57",
+          "905190235:1:32",
+          "905190235:1:49",
+          "905192266:0:13",
+          "905193675:0:12",
+          "905202827:0:59",
+          "905203841:1:9",
+          "905206234:1:29"
+        ],
+        "bothInexact": [
+          "905170414:0:0"
+        ]
+      },
+      "groupCounts": {
+        "gained": 37,
+        "lost": 0,
+        "retainedExact": 26,
+        "bothInexact": 1
+      }
+    }
+  },
+  "buildOnlyComparison": {
+    "buildExact": {
+      "oldExact": 64,
+      "candidateExact": 64,
+      "netExactDifference": 0,
+      "status": "EQUAL",
+      "oldMeanOfMapMeansNll": 0.05434279870100711,
+      "candidateMeanOfMapMeansNll": 0.13778353023563483,
+      "rowGroups": {
+        "gained": [],
+        "lost": [],
+        "retainedExact": [
+          "905008481:0:0",
+          "905008481:0:11",
+          "905008481:0:23",
+          "905008481:0:35",
+          "905047727:0:0",
+          "905047727:0:21",
+          "905047727:0:42",
+          "905047727:0:63",
+          "905048023:1:0",
+          "905048023:1:14",
+          "905048023:1:28",
+          "905048023:1:42",
+          "905170414:0:0",
+          "905170414:0:11",
+          "905170414:0:22",
+          "905170414:0:34",
+          "905171676:1:0",
+          "905171676:1:18",
+          "905171676:1:37",
+          "905171676:1:56",
+          "905172701:1:0",
+          "905172701:1:11",
+          "905172701:1:22",
+          "905172701:1:33",
+          "905183189:0:0",
+          "905183189:0:12",
+          "905183189:0:24",
+          "905183189:0:37",
+          "905186012:1:0",
+          "905186012:1:28",
+          "905186012:1:56",
+          "905186012:1:85",
+          "905187591:0:0",
+          "905187591:0:17",
+          "905187591:0:35",
+          "905187591:0:53",
+          "905189574:0:0",
+          "905189574:0:19",
+          "905189574:0:38",
+          "905189574:0:57",
+          "905190235:1:0",
+          "905190235:1:16",
+          "905190235:1:32",
+          "905190235:1:49",
+          "905192266:0:0",
+          "905192266:0:13",
+          "905192266:0:26",
+          "905192266:0:40",
+          "905193675:0:0",
+          "905193675:0:12",
+          "905193675:0:24",
+          "905193675:0:36",
+          "905202827:0:0",
+          "905202827:0:19",
+          "905202827:0:39",
+          "905202827:0:59",
+          "905203841:1:0",
+          "905203841:1:9",
+          "905203841:1:18",
+          "905203841:1:28",
+          "905206234:1:0",
+          "905206234:1:9",
+          "905206234:1:19",
+          "905206234:1:29"
+        ],
+        "bothInexact": []
+      },
+      "groupCounts": {
+        "gained": 0,
+        "lost": 0,
+        "retainedExact": 64,
+        "bothInexact": 0
+      }
+    }
+  },
+  "referenceFinalMetrics": {
+    "path": "build/analysis/indrill-capacity-v1/stage-A/train-metrics-2000.json",
+    "sha256": "5f4543cb9e29c85afe7a9aa93ca088bb354053d26b3310e67579c54b451f694b"
+  },
+  "buildOnlyReference": {
+    "evidence": {
+      "path": "docs/evidence/indrill-build64-12k-v1.json",
+      "sha256": "e841e5191a4184baf00763f54f9a6fa0494f76f1b047d702a264d7b068e42214"
+    },
+    "freeze": {
+      "path": "build/analysis/indrill-build64-12k-v1/freeze.json",
+      "sha256": "c227dc9b99f0110ff90b711afc0c1b6e8ae287344b4ddb7478d308bb3ba7a5ba"
+    },
+    "chain": {
+      "path": "build/analysis/indrill-build64-12k-v1/chain-manifest.json",
+      "sha256": "fd3eaed3890091217c7d884db7340a66e8637725f5458fe8d91a8d3896321aa0"
+    },
+    "metrics": {
+      "path": "build/analysis/indrill-build64-12k-v1/run/metrics-12000.json",
+      "sha256": "509963fd40712fb7b7214bd21dc038aacdfc5b66e33d20dc4b9d4bd1f0ee5b04"
+    },
+    "metricsIntent": {
+      "path": "build/analysis/indrill-build64-12k-v1/run/metrics-12000-intent.json",
+      "sha256": "bb4661b9cf33cd4e7086e8cbbc85bc113514e795e03b0f1c4cd2ffbae7dddfcd"
+    },
+    "metricsReceipt": {
+      "path": "build/analysis/indrill-build64-12k-v1/run/metrics-12000-receipt.json",
+      "sha256": "04c28586eb805d94a78759c40a489d532be78cd68b4278935ab403826b3f78f1"
+    },
+    "runIntent": {
+      "path": "build/analysis/indrill-build64-12k-v1/run/intent.json",
+      "sha256": "475b5fd16275cd3df9bc22fbfa34b93848a344d8f2608a16399659d28ce6bff4"
+    }
+  },
+  "parentEvidence": {
+    "path": "docs/evidence/indrill-capacity-v1.json",
+    "sha256": "5bb9305cad2e7d0bd1b164f66724f05d17d66573cbf23bec42268bcd50fe7b24"
+  },
+  "parentFreeze": {
+    "path": "build/analysis/indrill-capacity-v1/training-freeze.json",
+    "sha256": "9fb04e3a5f64c1182d774fc016b09be06e6fa5e32df8634e7a63f0a3341ad9ea"
+  },
+  "syntheticChecks": {
+    "path": "build/analysis/indrill-joint64-12k-v1/setup/checks.json",
+    "sha256": "4a51b3271f98ea65bbdbff6b9c1a171e458458c51f210128ed76295803afcf39"
+  },
+  "startProof": {
+    "path": "build/analysis/indrill-joint64-12k-v1/run/start-proof.json",
+    "sha256": "742cfcadceac2216915f72e2e3ae5233ef3e8e6f1a4bdc8c125a1bc371ea3eb3"
+  },
+  "mapExclusionRegistry": {
+    "path": "build/bench/indrill-capacity-v1-diagnostic-maps.json",
+    "sha256": "aeb88791e1a17e60b78fc3ca890d5c91449261fc9026537234e4c8bc656a38cb"
+  },
+  "retainedExactCoreGames": 293,
+  "newGames": 0,
+  "auditNewLearnedPredictions": 0,
+  "auditNewGradients": 0,
+  "baselineMetricReused": true,
+  "newLearnedEvaluationsAt": [
+    4000,
+    6000,
+    8000,
+    10000,
+    12000
+  ],
+  "parentTrajectoryReexecuted": false,
+  "stageBRun": false,
+  "holdoutEvaluated": false,
+  "promotion": false,
+  "arenaUploaded": false,
+  "limitations": [
+    "Same outcome-inspected development panel and inherited original joint trajectory; no independent confirmation, generalization or arena-strength claim.",
+    "The full-state fork preserves Adam moments/update counter and sampler state. Exactly 10000 new updates give 12000 total updates, matching build-only exposure.",
+    "The original completed parent audit and all its pinned inputs are verified and referenced; parent tensor/gradient computation is not rerun.",
+    "Joint and build-only share initialization/data/sampler/exposure, but joint gradients also change clipping and Adam history; the comparison does not isolate a unique causal mechanism.",
+    "Audit validates saved predictions and NLL aggregation/binding, not their derivation from logits. Saved NLLs are not recomputed.",
+    "Adam parameter arithmetic is checked from saved moments; no gradients are reconstructed, so this does not independently establish the origin of those moments.",
+    "The 63/64 joint threshold screens memorization only. Paired baseline/build-only comparisons are descriptive; no result permits automatic further runs.",
+    "A finite-budget miss does not establish convergence or a universal capacity limit. Engine/features/labels provenance remains the retained exact replay/export/loader evidence."
+  ]
+}

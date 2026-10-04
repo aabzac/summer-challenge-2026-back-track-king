@@ -762,12 +762,42 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       inherited baseline, 28,099 parent audit pins and 16,073 parent archive entries
       pass. All 158/158 target cells match. New archive verified: 8,083 files /
       11,938,938 bytes, retaining 8,013 production metadata records.
-- [ ] Consider a separate matched joint build+ink diagnostic on the original
+- [x] Predeclare a separate matched joint build+ink diagnostic on the original
       64 observations at 12,000 total updates, from its full original 2,000-step
       checkpoint; retain seeds, Adam and joint loss, final-only joint >=63/64.
-      This proposal is unstarted. The old joint result at 2,000 updates cannot
+      User accepted; continue in joint64-12k-v1 below. The old joint result cannot
       isolate joint-objective difficulty from budget, since build-only reached
       only 16/64 under that same budget; its later pass leaves ink learning open.
+
+## Indrill joint64-12k-v1: matched full-action fitting (2026-10-04)
+
+- [x] Predeclare full-state continuation of original joint Stage A from 2,000
+      to 12,000 total updates, same 64 rows/16 maps, sampler, Adam and joint loss.
+      Final-only joint >=63/64; compare saved build-only 12k results descriptively.
+      [Protocol](indrill-joint64-12k-v1.md).
+- [x] Verify unchanged joint mathematics, restoration and persistence on synthetic
+      data; freeze all source/runtime/data/proof and verified parent evidence.
+      Single synthetic proof PASS; freeze 37062d4b... verifies 6,322 original
+      parent audit pins, exact selected rows and saved build-only comparison.
+- [x] Prove exact parent fork, inherit step-2,000 metrics, execute exactly 10,000
+      new updates and the five fixed evaluations; decide only at total 12,000.
+      Final 63/64 joint, 64/64 build and 63/64 ink: JOINT_FIT_ESTABLISHED.
+      Joint gains 57, loses none and retains all six parent successes; the one
+      remaining error is an ink choice. Mean joint NLL 7.49216108 -> 0.32454612.
+      Exactly 160,000 new visits / 192,000 total, or 3,000 total visits per row.
+      Build-only at the same budget also fits 64/64, with build NLL 0.05434280
+      versus joint training's 0.13778353. This is fixed-panel fitting evidence,
+      not generalization or arena strength. Earlier finite-budget verdicts stand.
+      [Evidence](evidence/indrill-joint64-12k-v1.json).
+- [x] Audit all 10,001 new boundaries, archive, record results and commit.
+      All 10,000 new Adam steps are bit-exact; 1,796 clipped updates. Exact fork,
+      inherited baseline, 6,322 parent audit pins and 4,190 parent ZIP entries
+      pass. All 158/158 construction cells match. Verified archive: 20,095 files /
+      28,260,826 bytes. No automatic Stage B, held-out scoring, further fitting
+      or new games.
+- [ ] Suggested next, unstarted: define a separate fixed diagnostic with a larger
+      training panel and map-separated holdout before RL or strength testing.
+      Keep the original Stage B closed; this pass alone does not start another run.
 
 ## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
 

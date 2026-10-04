@@ -135,6 +135,52 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-joint64-12k-v1 (2026-10-04, JOINT_FIT_ESTABLISHED)
+
+The separate joint continuation completes exactly **10,000 new updates / 12,000
+total**, starting from the original capacity-v1 Stage A full step-2,000 checkpoint.
+All parameters, Adam moments, optimizer clock and sampler are restored; the parent
+trajectory is inherited rather than executed again. The same 64 observations from
+16 maps, labels, architecture, joint loss, seeds and batch 16 remain fixed. WI/BI
+train; only the value head and its moments remain zero. New exposure is 160,000
+visits / 2,500 per row; total exposure is 192,000 visits / 3,000 per row. The saved
+step-2,000 metric is inherited without rescoring.
+
+Final agreement is **63/64 joint (98.4375%), 64/64 build and 63/64 ink**, meeting
+the final-only 63/64 screen: **JOINT_FIT_ESTABLISHED**. Versus original joint
+step 2,000, joint agreement gains 57 rows, loses none, retains six and leaves
+one inexact. Construction gains 49 and retains all 15; ink gains 37 and retains
+all 26. The sole residual error chooses ink region 27 instead of teacher region
+14; its three-cell construction set is correct.
+
+At total updates 2,000/4,000/6,000/8,000/10,000/12,000, exact counts are
+**6/19/30/47/58/63 joint**, **15/28/41/54/63/64 build** and
+**26/37/45/55/59/63 ink**. Mean joint NLL falls **7.49216108 -> 0.32454612**;
+final build/ink NLL is **0.13778353 / 0.18676259**. The matched construction-only
+12k result also has 64/64 exact sets, with lower build NLL **0.05434280**.
+These are descriptive comparisons of saved rows; neither control is rescored.
+All 158/158 target and predicted construction cells match, with precision/recall
+100% and 192/192 paint. The independent audit verifies all 10,001 new states and
+10,000 new Adam steps bit-exactly (maximum difference zero), including 1,796
+clipped new updates. The exact parent fork and inherited baseline pass; all
+6,322 parent audit pins and 4,190 parent ZIP entries are verified. The new archive
+passes for all 20,095 files / 28,260,826 bytes.
+
+The retained representation and original joint objective can fit at least 63
+full actions on this inspected development panel. The old 2,000-update failure
+did not establish a representation barrier or an inability to learn both heads.
+The comparison does not isolate a unique cause of the earlier RL failure:
+joint gradients also change clipping and Adam history. No generalization,
+teacher optimality, universal capacity or arena-strength claim follows. Earlier
+verdicts remain unchanged; no old Stage B, holdout scoring, new games, production
+weights or promotion is triggered, and selected v09 stays in place.
+
+Suggested next diagnostic, **unstarted**: a separately scoped larger training
+panel with a map-separated holdout, before returning to RL or strength testing.
+It needs its own fixed protocol; this pass does not reopen the closed Stage B.
+[Protocol](indrill-joint64-12k-v1.md), [evidence](evidence/indrill-joint64-12k-v1.json),
+[archive index](evidence/indrill-joint64-12k-v1-artifacts.json).
+
 ## Diagnostic: indrill-build64-12k-v1 (2026-10-04, BUILD_FIT_ESTABLISHED)
 
 The separate continuation completes exactly **4,000 new updates / 12,000 total**
@@ -165,14 +211,11 @@ the old joint-action criterion or automatically unlock Stage B. The parent and
 all earlier finite-budget verdicts remain unchanged. No holdout scores, new games,
 production-weight change or promotion follow; selected v09 remains in place.
 
-Suggested next diagnostic, still **unstarted**: match the original joint build+ink
-recipe on the same 64 observations at **12,000 total updates**, continuing its
-full original 2,000-update checkpoint in a separate run. Retain the same seeds,
-Adam and joint loss, and decide once at final joint agreement >=63/64. The old
+The separate matched joint build+ink diagnostic at **12,000 total updates** is
+recorded above, continuing the full original 2,000-update checkpoint with the
+same seeds, Adam and joint loss. This construction-only result remains unchanged. The old
 2,000-update result (joint 6/64, build 15/64, ink 26/64) did not isolate difficulty
 from the joint objective: build-only also reached only 16/64 at that budget.
-A matched longer joint run would test full-action fitting; it is not launched by
-this construction-only pass.
 [Protocol](indrill-build64-12k-v1.md), [evidence](evidence/indrill-build64-12k-v1.json),
 [archive index](evidence/indrill-build64-12k-v1-artifacts.json).
 
