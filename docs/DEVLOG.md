@@ -5049,3 +5049,85 @@ first2,000 sequence. It would probe optimization budget and give 2,000 visits pe
 row, matching the successful one-position test's exposure. The loss still falls
 5.9761 -> 5.1630 in the last500 updates; this motivates a budget check but neither
 shows convergence nor guarantees that a larger budget will fit the panel.
+
+### 2026-10-04 — Indrill build64-long-v1 predeclared
+
+User accepted the proposed 8,000-update diagnostic. New protocol
+ docs/indrill-build64-long-v1.md changes only the fixed optimization budget from
+2,000 to 8,000: same 64 A positions / 16 maps, fresh model seed 2026100401,
+sampling seed 2026100411, batch 16, original build-only subset likelihood,
+64->24->24 model, raw inputs and Adam .0003 / clip10. Exactly128,000 visits /
+2,000 per row; WI/BI initialized, WV/BV zero, all four heads' moments frozen.
+Final-only >=63/64 construction screen and descriptive comparison with retained
+build64-v1 16/64 / NLL5.1629933196. No early pass, seed search or best-checkpoint
+selection. Previous runs remain immutable; this one starts fresh.
+
+Before the first gradient after update2,000, require exact reproduction of every
+old boundary0..2000: parameters/Adam moments, sampler RNG/order/position, losses,
+norms and chosen indices; match five saved metric payloads except artifact fields.
+A mismatch is a technical stop, not a new fitting verdict or automatic retry.
+New code raises only the update guard to8,000 with identical mathematical body;
+never mutate old modules or falsify counters. Prepare synthetic counter/boundary/
+prefix checks, then freeze sources/runtime/proofs and the original selected rows.
+
+Metrics fixed at0/500/1000/1500/2000/4000/6000/8000. All8,001 saved states and
+metadata are retained for a no-new-scoring audit; eight scheduled NPZ snapshots
+enter the compact archive. Equal per-row exposure to the one-position run still
+leaves shared-position competition different. This test may reveal budget
+sensitivity; neither success nor failure alone proves transfer or a universal
+capacity limit. No B/holdout, RL, new games, generated weights or arena action.
+
+## 2026-10-04 - Indrill build64-long-v1 completed: 59/64, larger budget helps
+
+Completed the predeclared fresh build-only diagnostic at exactly 8,000 updates,
+batch16, 128,000 sample visits / 2,000 per observation. Same original64 A rows
+from16 maps, model/sampling seeds, 64->24->24 network, subset objective and Adam.
+The sole full synthetic proof passed before preparation; SHA
+2f6c9ee638f9e39d692cc363ac1321f3dff3b5d80d2668a8f6374962aa61542c.
+Freeze2ad21f45c2de7c42584ad9f24a7a0c628fc5b468ca59f69ecadbfab22a67a4f6
+references the old selected rows directly. No raw corpus export or copy.
+
+Every first2,001 saved state matched the completed build64-v1 tensors, Adam
+moments, RNG/order/position exactly; all2,000 sampled batches/losses/norms and
+five metric payloads also matched. The write-once prefix proof passed before
+update2,001. The run reached8,000 once, without resume, retry, early pass, tuning
+or best-checkpoint selection. At0/500/1000/1500/2000/4000/6000/8000, exact sets
+were0/8/12/13/16/28/48/59. NLL at2000/4000/6000/8000 was
+5.1629933196 / 2.9279837434 / 1.3608030484 / 0.5822936895.
+
+Final59/64 (92.1875%) versus16/64:43 gained, zero lost,16 retained exact,
+five inexact in both. All positions exact at any earlier saved check remain
+exact at the final check. Macro cell precision/recall96.3542%;151/158 target
+cells recovered. Four residual sets substitute one of three unit-cost cells;
+the fifth chooses one cost3 cell instead of three cost1 cells. All five were
+inexact at all eight saved checks, and each NLL still fell from6000 to8000.
+These saved observations do not show behavior between checks or choice margins.
+
+Final-only63/64 screen remains BUILD_FIT_NOT_ESTABLISHED. The exact shared
+prefix establishes additional optimization budget as the changed factor behind
+this fitting improvement; the old2000-update result did not establish a model
+capacity ceiling. It does not establish convergence, full-action imitation,
+generalization or arena strength. The prospective next proposal is one separate
+fixed12,000-update diagnostic with unchanged architecture/optimizer and final-only
+63/64, no automatic extension. It is unstarted and requires its own protocol;
+this completed8,000-update result remains closed and preserved.
+
+Read-only finalization and independent saved-state audit PASS: all8,001 states,
+exact initializer/sampler/exposure, finite tensors, frozen heads/moments and all
+Adam parameter steps bit-exact (maxdifference0;1,341 clipped updates). No learned
+predictions or gradients were recomputed during audit. Mathematical and boundary
+synthetic proofs plus independent runner/protocol/audit/archive reviews pass.
+No Java/core changes; retained293 exact CG replay provenance remains unchanged.
+No StageB, holdout scoring, new games, production weights, submission or promotion.
+
+Public evidence docs/evidence/indrill-build64-long-v1.json SHA
+a1e19f7dc4bf32d7ab2c0b2870cbb6825a464d4e826865f44cff681efd443171.
+Checkpoint-chain SHA439c1edb9b29e0f117d3e6c4f81d125319747060ca396089d6bad5c28f575746;
+final NPZ4f75279785b0573c9a1fd1423b6c90e03e1d784e9528a835cf512fe53bb72ca5;
+final metricf7db7e39a77dc19d109544a5a8b655ef9e70b7f3b0c958b10a07e6959f2bad31.
+Compact archive PASS:16,073 files/19,106,278 bytes,28,099 audited input pins,
+all16,028 production metadata files and eight scheduled NPZ snapshots, exact
+selected64 rows and prior-archive references. ZIP and every payload hash pass;
+SHA849c5b1257120c2d0ee92ea3925bfb1d85e43e5d42365321a5e1476330ed3879.
+Other update checkpoints stay locally retained and pinned; raw corpus/replays
+and session material are excluded. README/BOTS/PLAN record the completed outcome.

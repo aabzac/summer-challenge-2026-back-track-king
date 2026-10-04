@@ -135,6 +135,46 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-build64-long-v1 (2026-10-04, BUILD_FIT_NOT_ESTABLISHED)
+
+The separately frozen longer-budget run completes exactly **8,000 updates,
+batch 16, 128,000 sample visits / 2,000 per observation** on the same 64 A positions
+from 16 maps. It starts fresh with the original seed, build-only objective,
+optimizer and sample order. Before update 2,001, the complete first 2,001 states
+match retained build64-v1 parameters, Adam moments, RNG/order/position and sampled
+batches/losses/gradient norms exactly; the first five metric payloads also match.
+
+Final construction agreement is **59/64 (92.1875%) versus 16/64**: 43 gained,
+none lost, 16 retained exact and five inexact in both. At updates
+0/500/1000/1500/2000/4000/6000/8000 the saved exact counts are
+**0/8/12/13/16/28/48/59**. Mean build NLL falls from **5.16299332** at
+the old 2,000-update endpoint to **0.58229369** at 8,000. The fixed final-only
+63/64 requirement remains unmet: **BUILD_FIT_NOT_ESTABLISHED**. All 8,000 updates
+complete without early stopping or checkpoint selection. The final audit verifies
+all 8,001 states and 8,000 Adam steps bit-exactly, with maximum difference zero;
+1,341 updates use clipping. The 2,001-state/five-metric prefix also passes.
+Archive verification passes for all 16,073 files / 19,106,278 bytes.
+
+The final five errors were never exact at the eight saved observations: four
+substitute one cell in a three-cell set; the fifth selects one cost-three cell
+instead of three unit-cost cells. All five NLLs decrease from update 6,000 to
+8,000. Overall macro precision/recall is 96.35%, with 151/158 target cells
+recovered. These sparse observations do not describe behavior between checks.
+
+The exact shared prefix makes the larger optimization budget the change behind
+this substantial fitting improvement. The old 2,000-update budget was limiting
+for this recipe; its failure did not establish an inability to fit these labels.
+Five final construction sets remain wrong. This does not establish convergence,
+a universal representation limit, full-action imitation, transfer or arena
+strength. No Stage B, holdout model scoring, new games, production-weight change
+or promotion occurs; selected v09 and all earlier verdicts remain unchanged.
+Suggested next step is one separate fixed **12,000-update** diagnostic with the
+same architecture and optimizer, a final-only 63/64 screen and no automatic
+extensions. It is unstarted; its protocol and starting procedure remain to be
+declared. The remaining errors do not yet justify changing width or features.
+[Protocol](indrill-build64-long-v1.md), [evidence](evidence/indrill-build64-long-v1.json),
+[archive index](evidence/indrill-build64-long-v1-artifacts.json).
+
 ## Diagnostic: indrill-build64-v1 (2026-10-04, BUILD_FIT_NOT_ESTABLISHED)
 
 The separate construction-only run completes exactly **2,000 updates, batch 16,
@@ -168,14 +208,11 @@ Adam trajectories also change when the ink loss is removed. There are no new
 games, holdout model scores, production weights or strategy promotion; v09 remains
 selected. The old joint and single-position runs remain closed and unchanged.
 
-Suggested, unstarted next diagnostic: a separately predeclared fresh build-only
-run on these same 64 observations with **8,000 updates**, retaining the seed,
-batch 16 and full first 2,000-update sequence, and deciding once at the final
-63/64 screen. This would test a larger optimization budget, with 2,000 visits per
-row matching the single-position test's exposure. NLL still falls from 5.9761 at
-update 1,500 to 5.1630 at 2,000; that motivates the question but does not prove
-convergence or promise success. The next experiment remains unstarted and would
-need its own frozen protocol before training.
+The separately predeclared fresh **8,000-update** follow-up is completed above,
+retaining the same seed, batch 16 and first 2,000-update sequence. It tests the
+larger budget with 2,000 visits per row, matching the single-position exposure.
+The declining NLL at this run's endpoint motivated that test; it did not prove
+convergence or promise success. This original fixed-budget verdict is preserved.
 [Protocol](indrill-build64-v1.md), [evidence](evidence/indrill-build64-v1.json),
 [archive index](evidence/indrill-build64-v1-artifacts.json).
 

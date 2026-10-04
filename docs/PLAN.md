@@ -704,13 +704,39 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       All 2,001 checkpoints and original sampler states pass; Adam steps are bit-exact.
       Compact archive: 4,119 files / 6,027,939 bytes, including all production metadata.
       No held-out scoring, extra updates, new games or strategy promotion.
-- [ ] Consider a separate, predeclared fresh build-only budget diagnostic: same 64
+- [x] Predeclare a separate fresh build-only budget diagnostic: same 64
       observations, seed and batch 16, with 8,000 updates and the unchanged first
-      2,000-update sequence; decide once at final 63/64. This proposed run is not
-      started. It would give 2,000 visits
-      per row, matching the single-position exposure, without continuing the old
-      checkpoint. Loss still falls at the current endpoint; neither convergence
-      nor a universal capacity limit has been established.
+      2,000-update sequence; decide once at final 63/64. Continue through the
+      separate build64-long-v1 experiment below. Preserve this closed run.
+
+## Indrill build64-long-v1: fixed 8,000-update budget test (2026-10-04)
+
+- [x] Predeclare fresh original initialization, exact same 64 observations,
+      optimizer/sampler/batch 16, exactly 8,000 updates and 2,000 visits per row.
+      Compare to retained build64-v1 16/64; final-only memorization screen 63/64.
+      [Protocol](indrill-build64-long-v1.md).
+- [x] Verify the expanded counter guard, unchanged objective arithmetic and saved
+      boundary/prefix checks on synthetic inputs; freeze before real gradients.
+      Synthetic checks pass; freeze 2ad21f45... binds the original selected rows,
+      completed build64-v1 evidence, runtime and unchanged training arithmetic.
+- [x] Reproduce all first 2,001 states and five metric payloads exactly, then
+      complete the fixed 8,000-update run without tuning or early success.
+      Final 59/64 (92.1875%) versus 16/64, with 43 gained and none lost. Build NLL
+      falls from 5.16299332 at update 2,000 to 0.58229369 at 8,000. Total 128,000 sample visits,
+      exactly 2,000 per row. BUILD_FIT_NOT_ESTABLISHED against final-only 63/64.
+      The budget increase substantially improves this fixed-panel fit; five sets
+      remain incorrect, without proving convergence, capacity limits or strength.
+      [Evidence](evidence/indrill-build64-long-v1.json).
+- [x] Audit every saved optimizer/sampling/metric record, archive results,
+      document the outcome and commit. No holdout scoring, new games or promotion.
+      All 8,001 states and 8,000 Adam steps pass bit-exactly; 1,341 clipped updates.
+      Exact prefix: 2,001 states / five metrics. Verified archive: 16,073 files /
+      19,106,278 bytes; earlier verdicts and production weights remain unchanged.
+- [ ] Consider one separately predeclared fixed 12,000-update diagnostic, keeping
+      the architecture and optimizer, final-only 63/64 and no automatic extensions.
+      This proposal is unstarted; its starting procedure remains to be declared.
+      All five residual-error NLLs still decrease at the last two saved checks,
+      so a plateau or need for wider layers/new features has not been established.
 
 ## neural-v2: outcome fine-tuning from neural-v1 (2026-10-03)
 

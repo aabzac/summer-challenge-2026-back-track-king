@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "experiment": "indrill-build64-long-v1",
+  "complete": true,
+  "auditStatus": "PASS",
+  "decision": "BUILD_FIT_NOT_ESTABLISHED",
+  "freeze": {
+    "path": "build/analysis/indrill-build64-long-v1/freeze.json",
+    "sha256": "2ad21f45c2de7c42584ad9f24a7a0c628fc5b468ca59f69ecadbfab22a67a4f6"
+  },
+  "helper": {
+    "path": "build/analysis/indrill-build64-long-v1/audit_completed_training.py",
+    "sha256": "d692f76dc35d6476972e5ea2b1ec11c401757418fd78c73319ca5404be72f610"
+  },
+  "intent": {
+    "path": "build/analysis/indrill-build64-long-v1/completed-audit-intent.json",
+    "sha256": "07884ef7c757e30645786d0f8004b9e2927c196e1edefc1280089dc406b4d454"
+  },
+  "checkpointChain": {
+    "path": "build/analysis/indrill-build64-long-v1/chain-manifest.json",
+    "sha256": "439c1edb9b29e0f117d3e6c4f81d125319747060ca396089d6bad5c28f575746"
+  },
+  "runnerResult": {
+    "path": "build/analysis/indrill-build64-long-v1/result.json",
+    "sha256": "99c4c83d99f4bdea766c808df6e2ab8af58b56880dfdf35112240f5e7fb98e65"
+  },
+  "settings": {
+    "modelSeed": 2026100401,
+    "samplingSeed": 2026100411,
+    "updates": 8000,
+    "batch": 16,
+    "observations": 64,
+    "metricsAt": [
+      0,
+      500,
+      1000,
+      1500,
+      2000,
+      4000,
+      6000,
+      8000
+    ]
+  },
+  "observations": 64,
+  "maps": 16,
+  "integrity": {
+    "checkpointsVerified": 8001,
+    "updates": 8000,
+    "sampleVisits": 128000,
+    "visitsPerObservation": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "scheduleSha256": "cacbdf0c7f311fced920899b62857a0211288c84df16b1226868383ad3dc148f",
+    "prefixScheduleSha256": "31d5c9e244355dbf0afafae729a5fd9c52e18b32fae4ec587e01f7fe0c5d8aec",
+    "prefixCheckpointsBitExact": 2001,
+    "prefixUpdateLossNormAndSampleIndicesExact": 2000,
+    "fixedInitializerBitExact": true,
+    "allSamplerRngOrderPositionExact": true,
+    "allTensorsFinite": true,
+    "allFrozenHeadsAndMomentsUnchanged": true,
+    "adamStepsBitExact": true,
+    "adamMaxAbsDifference": 0.0,
+    "clippedUpdates": 1341,
+    "prefixMetricPayloadsExact": 5,
+    "prefixProof": {
+      "path": "build/analysis/indrill-build64-long-v1/run/prefix-proof.json",
+      "sha256": "fa10dccda0289fbf06f29ef7073985efe5e6015bbd44dcae23689f6a85992002"
+    }
+  },
+  "curve": [
+    {
+      "step": 0,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-0000.json",
+        "sha256": "65d7e983cf64ce23c7cb380880b0cf6ec9919db44104de1564f1f7180c5f5e36"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-0000-intent.json",
+        "sha256": "60abefe50fac4fb36a1457a834f6c3316ec08356d7dda32b66a730079732b137"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-0000-receipt.json",
+        "sha256": "e1a4dbde7bc64afb26e306b844292453f74b7be7c57840a159216f5a1b45d929"
+      },
+      "observations": 64,
+      "buildExactCount": 0,
+      "meanBuildNll": 13.656559657343603,
+      "meanCellPrecision": 0.0,
+      "meanCellRecall": 0.0,
+      "totalPredictedPaint": 1,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 500,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-0500.json",
+        "sha256": "b7cdcd7cd7a37a55b779443c1c4c48fa5649b5de799fd02142805082a817996a"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-0500-intent.json",
+        "sha256": "bbed1ae76f582efcb5550eb406fa624224b5fae65e605ea420a1cb2a58453401"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-0500-receipt.json",
+        "sha256": "df07ed1ba57b47ccfe142b44ae427d4e383ff405bd6a3774c7bfbdcf785fbeb3"
+      },
+      "observations": 64,
+      "buildExactCount": 8,
+      "meanBuildNll": 8.337122855395176,
+      "meanCellPrecision": 0.2864583333333333,
+      "meanCellRecall": 0.28385416666666663,
+      "totalPredictedPaint": 169,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 1000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-1000.json",
+        "sha256": "d6f39da15a7e4d374a9f319666f8718d3eaf8d7554f5f9d560fbf793affb23da"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-1000-intent.json",
+        "sha256": "3621f648fe29358de9638cce9d69c4035f0f94a3f70e778e6db4d57a55866dd8"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-1000-receipt.json",
+        "sha256": "12bfcf618b314eddb844308a16f2b96d2a412eeb3863ce58b9478d0d7441c40d"
+      },
+      "observations": 64,
+      "buildExactCount": 12,
+      "meanBuildNll": 6.926103393996102,
+      "meanCellPrecision": 0.36197916666666663,
+      "meanCellRecall": 0.36197916666666663,
+      "totalPredictedPaint": 186,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 1500,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-1500.json",
+        "sha256": "aff7b48a4b270e6cf9c82dba8904ce8f425da8a48a1beb5033afeac8af6a25fd"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-1500-intent.json",
+        "sha256": "da502f12e50052bb3cb2e629bc46fe6c37e8cb8bef3e3ab3d772812150d2c380"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-1500-receipt.json",
+        "sha256": "be738a286f3dd6afd8b05909d7ad09fb69405eb8516925b56dba4367eba27c08"
+      },
+      "observations": 64,
+      "buildExactCount": 13,
+      "meanBuildNll": 5.976068767619921,
+      "meanCellPrecision": 0.3984375,
+      "meanCellRecall": 0.4010416666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 2000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-2000.json",
+        "sha256": "40eab698e2c364f073acfb46323ff310de9a8d2d7284459f2d2f4ff5a9a94936"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-2000-intent.json",
+        "sha256": "9afb81c117b859e39d825d70e4a7aa0f5e52ed7806dd3d9cc86bf2d285fe3bc1"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-2000-receipt.json",
+        "sha256": "271ca2e24e892561773b55c97463918dab8f1ce88b79fc390959eb7da317b359"
+      },
+      "observations": 64,
+      "buildExactCount": 16,
+      "meanBuildNll": 5.162993319552122,
+      "meanCellPrecision": 0.4583333333333333,
+      "meanCellRecall": 0.4583333333333333,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 4000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-4000.json",
+        "sha256": "27fb65565dc8d15243ff8ca8b377c355961c7881a790c8123dd82571b8c23399"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-4000-intent.json",
+        "sha256": "2c3f64f2c54a26af54f8870f52c19dfcc230e0bb88e6e9567a1146fa5e14f404"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-4000-receipt.json",
+        "sha256": "c05b66a80693cef7bf2a481059902ccaeb9f7bfd0fa8a4cffc4c8eeb580f4aed"
+      },
+      "observations": 64,
+      "buildExactCount": 28,
+      "meanBuildNll": 2.9279837433546363,
+      "meanCellPrecision": 0.703125,
+      "meanCellRecall": 0.7005208333333333,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 6000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-6000.json",
+        "sha256": "425e6c90d948e24083ad3a7594fcbda2b1115380ceefcad874b53045007adb4b"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-6000-intent.json",
+        "sha256": "dc3aad9ac24189f2218dd0c54dd44168b2eac93dfd50d8d55ba925d77a70d69d"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-6000-receipt.json",
+        "sha256": "d96ee7d025b3082b8ee9c44f11c7e334c75b42ac765f0caa99f2faf665b66a4d"
+      },
+      "observations": 64,
+      "buildExactCount": 48,
+      "meanBuildNll": 1.3608030483820999,
+      "meanCellPrecision": 0.8958333333333333,
+      "meanCellRecall": 0.8958333333333333,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    },
+    {
+      "step": 8000,
+      "metrics": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-8000.json",
+        "sha256": "f7db7e39a77dc19d109544a5a8b655ef9e70b7f3b0c958b10a07e6959f2bad31"
+      },
+      "intent": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-8000-intent.json",
+        "sha256": "144484c285fa7107af78d271b140322c85c78df5b346f426c73629145de0d4cb"
+      },
+      "receipt": {
+        "path": "build/analysis/indrill-build64-long-v1/run/metrics-8000-receipt.json",
+        "sha256": "1b46656597b851e42083545eefc6cdb55d39c062f4bd4eef1fecc441be410d96"
+      },
+      "observations": 64,
+      "buildExactCount": 59,
+      "meanBuildNll": 0.5822936894583486,
+      "meanCellPrecision": 0.9635416666666667,
+      "meanCellRecall": 0.9635416666666667,
+      "totalPredictedPaint": 192,
+      "totalTeacherPaint": 192
+    }
+  ],
+  "comparison": {
+    "observations": 64,
+    "maps": 16,
+    "oldBuildExact": 16,
+    "candidateBuildExact": 59,
+    "netExactDifference": 43,
+    "direction": "BETTER_FIXED_BUILD_FIT",
+    "counts": {
+      "gained": 43,
+      "lost": 0,
+      "retainedExact": 16,
+      "bothInexact": 5
+    },
+    "observationIds": {
+      "gained": [
+        "905047727:0:0",
+        "905047727:0:21",
+        "905047727:0:63",
+        "905048023:1:0",
+        "905048023:1:14",
+        "905048023:1:28",
+        "905048023:1:42",
+        "905170414:0:0",
+        "905170414:0:11",
+        "905170414:0:34",
+        "905171676:1:18",
+        "905171676:1:37",
+        "905171676:1:56",
+        "905172701:1:11",
+        "905172701:1:22",
+        "905172701:1:33",
+        "905183189:0:0",
+        "905183189:0:12",
+        "905183189:0:24",
+        "905186012:1:0",
+        "905186012:1:28",
+        "905186012:1:56",
+        "905187591:0:0",
+        "905187591:0:17",
+        "905189574:0:0",
+        "905189574:0:19",
+        "905189574:0:57",
+        "905190235:1:0",
+        "905190235:1:16",
+        "905192266:0:0",
+        "905192266:0:13",
+        "905192266:0:26",
+        "905193675:0:0",
+        "905193675:0:12",
+        "905193675:0:36",
+        "905202827:0:0",
+        "905202827:0:19",
+        "905203841:1:9",
+        "905203841:1:18",
+        "905206234:1:0",
+        "905206234:1:9",
+        "905206234:1:19",
+        "905206234:1:29"
+      ],
+      "lost": [],
+      "retainedExact": [
+        "905008481:0:0",
+        "905008481:0:11",
+        "905008481:0:35",
+        "905047727:0:42",
+        "905170414:0:22",
+        "905171676:1:0",
+        "905172701:1:0",
+        "905183189:0:37",
+        "905186012:1:85",
+        "905187591:0:35",
+        "905189574:0:38",
+        "905190235:1:32",
+        "905190235:1:49",
+        "905202827:0:39",
+        "905202827:0:59",
+        "905203841:1:0"
+      ],
+      "bothInexact": [
+        "905008481:0:23",
+        "905187591:0:53",
+        "905192266:0:40",
+        "905193675:0:24",
+        "905203841:1:28"
+      ]
+    },
+    "oldMeanBuildNll": 5.162993319552122,
+    "candidateMeanBuildNll": 0.5822936894583486,
+    "descriptiveOnly": true
+  },
+  "referenceFinalMetrics": {
+    "path": "build/analysis/indrill-build64-v1/run/metrics-2000.json",
+    "sha256": "29f360468ab1e2f56551df1b4cffa17645f2eefb425b83bf47d42ee64019fe2c"
+  },
+  "priorEvidence": {
+    "path": "docs/evidence/indrill-build64-v1.json",
+    "sha256": "b35bbf9057f92869971e17de9dfa1241f93f60d00aa219b749c1cc58e2c4308e"
+  },
+  "priorInputFreeze": {
+    "path": "build/analysis/indrill-build64-v1/freeze.json",
+    "sha256": "04157eccba1d9e069042a2355ce50500351f8c87c9ed3739a393ec6655f19edc"
+  },
+  "syntheticChecks": {
+    "path": "build/analysis/indrill-build64-long-v1/setup/checks.json",
+    "sha256": "2f6c9ee638f9e39d692cc363ac1321f3dff3b5d80d2668a8f6374962aa61542c"
+  },
+  "prefixProof": {
+    "path": "build/analysis/indrill-build64-long-v1/run/prefix-proof.json",
+    "sha256": "fa10dccda0289fbf06f29ef7073985efe5e6015bbd44dcae23689f6a85992002"
+  },
+  "mapExclusionRegistry": {
+    "path": "build/bench/indrill-capacity-v1-diagnostic-maps.json",
+    "sha256": "aeb88791e1a17e60b78fc3ca890d5c91449261fc9026537234e4c8bc656a38cb"
+  },
+  "retainedExactCoreGames": 293,
+  "newGames": 0,
+  "auditNewLearnedPredictions": 0,
+  "auditNewGradients": 0,
+  "stageBRun": false,
+  "holdoutEvaluated": false,
+  "promotion": false,
+  "arenaUploaded": false,
+  "limitations": [
+    "Fixed seed, 64 training observations from 16 maps and finite optimization budget; no generalization, full-action or arena-strength claim.",
+    "Exact reproduction of the first 2000 updates isolates the additional training budget within this recipe; it does not establish convergence or a universal architecture limit.",
+    "Matching the single-position test in visits per position does not equalize shared-parameter competition, batching or optimization difficulty.",
+    "Audit validates saved predictions and NLL aggregation/binding, not their derivation from logits. Saved NLLs are not recomputed.",
+    "Adam parameter arithmetic is checked from saved moments; no gradients are reconstructed, so this does not independently establish the origin of those moments.",
+    "The 63/64 build-only threshold is a bounded memorization screen. The paired 16/64 comparison is descriptive and does not unlock further runs.",
+    "Engine/features/labels provenance relies on retained exact replay/export/loader reviews; this audit runs no new engine games."
+  ]
+}

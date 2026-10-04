@@ -139,12 +139,23 @@ training: **16/64 exact sets versus the old 15/64**, with 3 gained, 2 lost and
 **13.65655966 -> 5.16299332**, versus the old final **5.56911593**. This small
 descriptive improvement does not meet the separate 63/64 memorization screen:
 **BUILD_FIT_NOT_ESTABLISHED**. Final evidence audit and archive verification pass.
-No holdout scoring, new games or promotion occurred. A possible next diagnostic
-is a separately predeclared fresh run with 8,000 updates and the same recipe,
-including its first 2,000-update sequence, to test optimization budget. This is
-an unstarted proposal: continuing loss reduction is not convergence or a capacity
-proof. [Protocol](docs/indrill-build64-v1.md),
+No holdout scoring, new games or promotion occurred. The separate longer-budget
+follow-up is recorded below; this historical verdict is unchanged.
+[Protocol](docs/indrill-build64-v1.md),
 [evidence](docs/evidence/indrill-build64-v1.json).
+
+`indrill-build64-long-v1` completes exactly **8,000 updates / 128,000 sample visits**,
+with the same 64 observations, initialization, objective and batch 16. All first
+2,001 states and five metric payloads match the prior run exactly. Final agreement
+is **59/64 (92.1875%) versus 16/64**, with 43 gained and no lost exact sets. Mean
+build NLL falls **5.16299332 -> 0.58229369** between updates 2,000 and 8,000. Extra training
+substantially improves fitting on this panel, but the final-only 63/64 screen is
+still not met: **BUILD_FIT_NOT_ESTABLISHED**. Five construction sets remain wrong.
+Final audit and archive verification pass. No holdout scoring, new games, promotion or
+generalization/arena-strength result follows. A separate fixed 12,000-update
+diagnostic is proposed, retaining the architecture and optimizer; it is unstarted.
+[Protocol](docs/indrill-build64-long-v1.md),
+[evidence](docs/evidence/indrill-build64-long-v1.json).
 
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,
