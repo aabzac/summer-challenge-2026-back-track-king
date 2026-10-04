@@ -1,0 +1,530 @@
+{
+  "schemaVersion": 1,
+  "kind": "descriptive first20 and full-game actual CG paint/warnings",
+  "newGames": 0,
+  "control": {
+    "height18Through20": {
+      "games": 24,
+      "wins": 8,
+      "losses": 16,
+      "draws": 0,
+      "allTurns": {
+        "us": {
+          "turns": 2021,
+          "nominalPaintCapacity": 6063,
+          "acceptedPaint": 5008,
+          "acceptedCells": 3974,
+          "paintHistogram": [
+            311,
+            24,
+            74,
+            1612
+          ],
+          "fractionOfNominalPaintCapacity": 0.8259937324756721,
+          "disruptTurns": 1784,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 833,
+          "warningLinesWithShortPaint": 163,
+          "warningsAtLeast50Ms": 10,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 58
+        },
+        "boss": {
+          "turns": 2021,
+          "nominalPaintCapacity": 6063,
+          "acceptedPaint": 4017,
+          "acceptedCells": 3198,
+          "paintHistogram": [
+            669,
+            11,
+            17,
+            1324
+          ],
+          "fractionOfNominalPaintCapacity": 0.6625432953983177,
+          "disruptTurns": 1874,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        }
+      },
+      "turns0Through19": {
+        "us": {
+          "turns": 480,
+          "nominalPaintCapacity": 1440,
+          "acceptedPaint": 1439,
+          "acceptedCells": 1286,
+          "paintHistogram": [
+            0,
+            0,
+            1,
+            479
+          ],
+          "fractionOfNominalPaintCapacity": 0.9993055555555556,
+          "disruptTurns": 448,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 285,
+          "warningLinesWithShortPaint": 1,
+          "warningsAtLeast50Ms": 3,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 55
+        },
+        "boss": {
+          "turns": 480,
+          "nominalPaintCapacity": 1440,
+          "acceptedPaint": 1440,
+          "acceptedCells": 1292,
+          "paintHistogram": [
+            0,
+            0,
+            0,
+            480
+          ],
+          "fractionOfNominalPaintCapacity": 1.0,
+          "disruptTurns": 403,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        }
+      }
+    },
+    "all": {
+      "games": 40,
+      "wins": 15,
+      "losses": 25,
+      "draws": 0,
+      "allTurns": {
+        "us": {
+          "turns": 2936,
+          "nominalPaintCapacity": 8808,
+          "acceptedPaint": 7504,
+          "acceptedCells": 6055,
+          "paintHistogram": [
+            378,
+            35,
+            100,
+            2423
+          ],
+          "fractionOfNominalPaintCapacity": 0.851952770208901,
+          "disruptTurns": 2565,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 1153,
+          "warningLinesWithShortPaint": 201,
+          "warningsAtLeast50Ms": 15,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 74
+        },
+        "boss": {
+          "turns": 2936,
+          "nominalPaintCapacity": 8808,
+          "acceptedPaint": 5879,
+          "acceptedCells": 4653,
+          "paintHistogram": [
+            958,
+            12,
+            31,
+            1935
+          ],
+          "fractionOfNominalPaintCapacity": 0.6674613987284287,
+          "disruptTurns": 2735,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        }
+      },
+      "turns0Through19": {
+        "us": {
+          "turns": 800,
+          "nominalPaintCapacity": 2400,
+          "acceptedPaint": 2379,
+          "acceptedCells": 2124,
+          "paintHistogram": [
+            5,
+            2,
+            2,
+            791
+          ],
+          "fractionOfNominalPaintCapacity": 0.99125,
+          "disruptTurns": 741,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 451,
+          "warningLinesWithShortPaint": 5,
+          "warningsAtLeast50Ms": 4,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 55
+        },
+        "boss": {
+          "turns": 800,
+          "nominalPaintCapacity": 2400,
+          "acceptedPaint": 2387,
+          "acceptedCells": 2099,
+          "paintHistogram": [
+            3,
+            1,
+            2,
+            794
+          ],
+          "fractionOfNominalPaintCapacity": 0.9945833333333334,
+          "disruptTurns": 670,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        }
+      }
+    },
+    "heightBelow18": {
+      "games": 16,
+      "wins": 7,
+      "losses": 9,
+      "draws": 0,
+      "allTurns": {
+        "us": {
+          "turns": 915,
+          "nominalPaintCapacity": 2745,
+          "acceptedPaint": 2496,
+          "acceptedCells": 2081,
+          "paintHistogram": [
+            67,
+            11,
+            26,
+            811
+          ],
+          "fractionOfNominalPaintCapacity": 0.9092896174863389,
+          "disruptTurns": 781,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 320,
+          "warningLinesWithShortPaint": 38,
+          "warningsAtLeast50Ms": 5,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 74
+        },
+        "boss": {
+          "turns": 915,
+          "nominalPaintCapacity": 2745,
+          "acceptedPaint": 1862,
+          "acceptedCells": 1455,
+          "paintHistogram": [
+            289,
+            1,
+            14,
+            611
+          ],
+          "fractionOfNominalPaintCapacity": 0.6783242258652095,
+          "disruptTurns": 861,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        }
+      },
+      "turns0Through19": {
+        "us": {
+          "turns": 320,
+          "nominalPaintCapacity": 960,
+          "acceptedPaint": 940,
+          "acceptedCells": 838,
+          "paintHistogram": [
+            5,
+            2,
+            1,
+            312
+          ],
+          "fractionOfNominalPaintCapacity": 0.9791666666666666,
+          "disruptTurns": 293,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 166,
+          "warningLinesWithShortPaint": 4,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        },
+        "boss": {
+          "turns": 320,
+          "nominalPaintCapacity": 960,
+          "acceptedPaint": 947,
+          "acceptedCells": 807,
+          "paintHistogram": [
+            3,
+            1,
+            2,
+            314
+          ],
+          "fractionOfNominalPaintCapacity": 0.9864583333333333,
+          "disruptTurns": 267,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        }
+      }
+    }
+  },
+  "candidate": {
+    "all": {
+      "games": 40,
+      "wins": 14,
+      "losses": 26,
+      "draws": 0,
+      "allTurns": {
+        "boss": {
+          "turns": 2697,
+          "nominalPaintCapacity": 8091,
+          "acceptedPaint": 5647,
+          "acceptedCells": 4508,
+          "paintHistogram": [
+            801,
+            9,
+            23,
+            1864
+          ],
+          "fractionOfNominalPaintCapacity": 0.6979359782474355,
+          "disruptTurns": 2419,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 2697,
+          "nominalPaintCapacity": 8091,
+          "acceptedPaint": 7779,
+          "acceptedCells": 5887,
+          "paintHistogram": [
+            40,
+            67,
+            58,
+            2532
+          ],
+          "fractionOfNominalPaintCapacity": 0.9614386355209492,
+          "disruptTurns": 2665,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 132,
+          "warningLinesWithShortPaint": 107,
+          "warningsAtLeast50Ms": 4,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      },
+      "turns0Through19": {
+        "boss": {
+          "turns": 800,
+          "nominalPaintCapacity": 2400,
+          "acceptedPaint": 2394,
+          "acceptedCells": 2073,
+          "paintHistogram": [
+            2,
+            0,
+            0,
+            798
+          ],
+          "fractionOfNominalPaintCapacity": 0.9975,
+          "disruptTurns": 660,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 800,
+          "nominalPaintCapacity": 2400,
+          "acceptedPaint": 2276,
+          "acceptedCells": 2017,
+          "paintHistogram": [
+            2,
+            43,
+            32,
+            723
+          ],
+          "fractionOfNominalPaintCapacity": 0.9483333333333334,
+          "disruptTurns": 797,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 82,
+          "warningLinesWithShortPaint": 65,
+          "warningsAtLeast50Ms": 2,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      }
+    },
+    "heightBelow18": {
+      "games": 16,
+      "wins": 8,
+      "losses": 8,
+      "draws": 0,
+      "allTurns": {
+        "boss": {
+          "turns": 855,
+          "nominalPaintCapacity": 2565,
+          "acceptedPaint": 1811,
+          "acceptedCells": 1480,
+          "paintHistogram": [
+            246,
+            3,
+            10,
+            596
+          ],
+          "fractionOfNominalPaintCapacity": 0.7060428849902534,
+          "disruptTurns": 760,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 855,
+          "nominalPaintCapacity": 2565,
+          "acceptedPaint": 2447,
+          "acceptedCells": 1935,
+          "paintHistogram": [
+            36,
+            3,
+            4,
+            812
+          ],
+          "fractionOfNominalPaintCapacity": 0.9539961013645224,
+          "disruptTurns": 829,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 9,
+          "warningLinesWithShortPaint": 4,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      },
+      "turns0Through19": {
+        "boss": {
+          "turns": 320,
+          "nominalPaintCapacity": 960,
+          "acceptedPaint": 954,
+          "acceptedCells": 821,
+          "paintHistogram": [
+            2,
+            0,
+            0,
+            318
+          ],
+          "fractionOfNominalPaintCapacity": 0.99375,
+          "disruptTurns": 277,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 320,
+          "nominalPaintCapacity": 960,
+          "acceptedPaint": 955,
+          "acceptedCells": 826,
+          "paintHistogram": [
+            0,
+            1,
+            3,
+            316
+          ],
+          "fractionOfNominalPaintCapacity": 0.9947916666666666,
+          "disruptTurns": 320,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 8,
+          "warningLinesWithShortPaint": 4,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      }
+    },
+    "height18Through20": {
+      "games": 24,
+      "wins": 6,
+      "losses": 18,
+      "draws": 0,
+      "allTurns": {
+        "boss": {
+          "turns": 1842,
+          "nominalPaintCapacity": 5526,
+          "acceptedPaint": 3836,
+          "acceptedCells": 3028,
+          "paintHistogram": [
+            555,
+            6,
+            13,
+            1268
+          ],
+          "fractionOfNominalPaintCapacity": 0.6941730003619254,
+          "disruptTurns": 1659,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 1842,
+          "nominalPaintCapacity": 5526,
+          "acceptedPaint": 5332,
+          "acceptedCells": 3952,
+          "paintHistogram": [
+            4,
+            64,
+            54,
+            1720
+          ],
+          "fractionOfNominalPaintCapacity": 0.9648932319942092,
+          "disruptTurns": 1836,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 123,
+          "warningLinesWithShortPaint": 103,
+          "warningsAtLeast50Ms": 3,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      },
+      "turns0Through19": {
+        "boss": {
+          "turns": 480,
+          "nominalPaintCapacity": 1440,
+          "acceptedPaint": 1440,
+          "acceptedCells": 1252,
+          "paintHistogram": [
+            0,
+            0,
+            0,
+            480
+          ],
+          "fractionOfNominalPaintCapacity": 1.0,
+          "disruptTurns": 383,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 480,
+          "nominalPaintCapacity": 1440,
+          "acceptedPaint": 1321,
+          "acceptedCells": 1191,
+          "paintHistogram": [
+            2,
+            42,
+            29,
+            407
+          ],
+          "fractionOfNominalPaintCapacity": 0.9173611111111111,
+          "disruptTurns": 477,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 74,
+          "warningLinesWithShortPaint": 61,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      }
+    }
+  },
+  "auditPins": [
+    {
+      "path": "build/analysis/neural-v7/control-audit.json",
+      "sha256": "bad756d65fbc1cb8d02f29e94b777bc2eae06cf0ea21a4977629dc48c1325981"
+    },
+    {
+      "path": "build/analysis/neural-v7/candidate-audit.json",
+      "sha256": "544c2d54f7db20e83fa4308bcd3ed030c291f329d9583d010ceec9285e21eb6c"
+    }
+  ],
+  "limitations": [
+    "V7 versus selected v09 does not establish head-to-head superiority over V6.",
+    "The fresh V7 boss pool differs from historical V6 boss and arena maps/opponents; paint or win-rate differences are not paired V7-vs-V6 improvements.",
+    "Accepted paint is descriptive; spending all 3 is not proof of useful construction, and short paint/wall warnings do not identify abort phases or server timeouts.",
+    "The gate promotion flag expresses eligibility only; current/default remains v09 and no arena publication or promotion was performed.",
+    "The local phase archive remains immutable; the separate live archive retains public eighty-game continuation evidence."
+  ]
+}

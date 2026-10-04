@@ -1,0 +1,1418 @@
+{
+  "schemaVersion": 1,
+  "kind": "neural-v7-fresh-candidate-audit",
+  "complete": true,
+  "status": "PASS",
+  "auditStatus": "PASS",
+  "bossStrengthStatus": "NOT_PASSED",
+  "createdAtUtc": "2026-10-04T12:57:18.436273+00:00",
+  "games": 40,
+  "engineReplaysExact": 40,
+  "technicalFailures": 0,
+  "skippedCommands": 0,
+  "uncertainRequests": 0,
+  "retries": 0,
+  "newGames": 0,
+  "controlPlan": {
+    "path": "build/cg-boss/neural-v7-v09-fresh-control-40/plan.json",
+    "sha256": "3bb6635489d3b6fad417678afa14018bff6fa0422f8132d992d6a5e4e4816774"
+  },
+  "stagePlan": {
+    "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/plan.json",
+    "sha256": "b8db642363a2b9ea898dc04c3dd4ebb022f8b8d735076dc01ae11e7629f3cbe3"
+  },
+  "prospectiveMaps": {
+    "path": "build/analysis/neural-v7/boss-map-preflight.json",
+    "sha256": "ce42957f8561f4c7cafa40364f07d86c08a43e641b966826ed3dacd2388f05dc"
+  },
+  "buildId": "9e53ce4a2eccbd7ba0c1044460ec928fac0954e857455b16d6d374da81bc626f",
+  "sourceSha256": "53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8",
+  "verifier": {
+    "path": "build/analysis/neural-v7/audit_boss_stage.py",
+    "sha256": "e8e085ca12d4ef8dff51a8d1ca9f5a6d6c3d285a91008ea04214ef76e685f346"
+  },
+  "validationEvidencePins": [
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/intent.json",
+      "sha256": "da32cfcf04a993da8c4c66c3099231344488b0781c0830301288320600714aad"
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/strict-snapshot.json",
+      "sha256": "82e8c13a60db8f640c9458327073330442c04d587fffe10445864b7f47d44b23"
+    },
+    {
+      "path": "build/analysis/neural-v7/BossActualAudit.java",
+      "sha256": "1c16eee43a0ec459fbde6a5b9922fdaa2e5a7e9b0404f3906ccc1df079e0f352"
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/java-result.json",
+      "sha256": "60f6726270e0bd2f512e20e1450f7569f16064e4d2de4658100a758572fdbe5f"
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/java.log",
+      "sha256": "8320e62a40bdda23a45127a18422ff135b44f28dacf19a523a1ac594ffadaed7"
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/cached-assessment.json",
+      "sha256": "93f57790cf7b9167601029eeee421b228268e495af010e2524a396c26fbd86c8"
+    }
+  ],
+  "rows": [
+    {
+      "slot": 1,
+      "seed": "931928174",
+      "seat": 1,
+      "gameId": 907137159,
+      "coreMapHash": "701c80dbcf5372718edeae37260494865f8ebc4b50d633e2b9f92c57de9fb5f0",
+      "mapHash": "93cfa8df889eccd6fa1277fb6b89e3049776701ae096084e3aa616d409d0cb37",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0001/canonical.json",
+        "sha256": "f1126c4eede929af6201aba65c45fded5f10728edcbaa259f778975e3a80ff17"
+      }
+    },
+    {
+      "slot": 2,
+      "seed": "1441995785",
+      "seat": 1,
+      "gameId": 907137243,
+      "coreMapHash": "a2e780b357579c94cace94992e306b4f377db0bb1d42df2bef130e1a462b68a3",
+      "mapHash": "a1e1e70f61e77bf0fc2ecc5b36f77959239eb5c40da2666efd76c3b77e65da75",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0002/canonical.json",
+        "sha256": "b3b8142e0c8596e26cb0bf6a571a0933e606904d213475cac195a8ddb9fa1b11"
+      }
+    },
+    {
+      "slot": 3,
+      "seed": "1834379172",
+      "seat": 0,
+      "gameId": 907137291,
+      "coreMapHash": "30001a74679a0ec4d6d1e93641eaf868f808d3787ec1d9821278179f995aa6c7",
+      "mapHash": "a74f666c8dbfefc4adfccee17e548fa9a35d5d16f05481e5e4ff91966e88be05",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0003/canonical.json",
+        "sha256": "7552ad65197409316f31ce5ea30b57eee133130a918bc269ea8618c8e782b873"
+      }
+    },
+    {
+      "slot": 4,
+      "seed": "455750181",
+      "seat": 0,
+      "gameId": 907137380,
+      "coreMapHash": "e31b9ceaf08902a7373e10f4fe6f170354503094c247d84c72c586f9548928ee",
+      "mapHash": "733d305dc7b92d3d040c6b7f07b394a096875a62cbcc43e8edfc6ad351821a98",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0004/canonical.json",
+        "sha256": "fbd61112a620bd7c1dd08488fbee4a656072d6f59629b73e34d39348b73ee177"
+      }
+    },
+    {
+      "slot": 5,
+      "seed": "743446929",
+      "seat": 1,
+      "gameId": 907137452,
+      "coreMapHash": "44f6870a5893865848a1829242534ed08866321bc7f1592982e73fb448955b7c",
+      "mapHash": "9560b31e76123bab485dc38e0f2c34ea0abaf765b194e684647475b186bd4dc8",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0005/canonical.json",
+        "sha256": "a6fc6b39df29e682996cc3113783a2a879adb8b3db25fbbd1c65f0a8d34f7ada"
+      }
+    },
+    {
+      "slot": 6,
+      "seed": "577146896",
+      "seat": 0,
+      "gameId": 907137517,
+      "coreMapHash": "38001fe63f32d76c27a7504f07c5dc8ea1cd55ac76b5818c8b79c7f6ca97cfd7",
+      "mapHash": "d3e32d70778d5727dc8099783cb10992286b6c1a327b2e9cb025fc0be5c134b1",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0006/canonical.json",
+        "sha256": "5e2fbbac624308b2def5dea7e01afdc5aceb6e348fd2ca6955b2e0b18c080289"
+      }
+    },
+    {
+      "slot": 7,
+      "seed": "394799548",
+      "seat": 1,
+      "gameId": 907137583,
+      "coreMapHash": "a1e5b960b6f50e6aeccaada6bc2b9ae58407e5bff80766234ac117c2961d7eaa",
+      "mapHash": "03992f5fd76094d077a905ffa62f1571e7fbb67d5c9f76b0d20487a26428c5f0",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0007/canonical.json",
+        "sha256": "ade29947f6f851f5df184018e87501e3eb5f6be3bc51f365bfa33d0356226038"
+      }
+    },
+    {
+      "slot": 8,
+      "seed": "201301522",
+      "seat": 1,
+      "gameId": 907137650,
+      "coreMapHash": "5dff37914b6b11d85ea4cfdbd2d9be98b1e7e58a295eb04c8ab7d247f1a0aa3b",
+      "mapHash": "fdf48c1193fe12bf870a2361b082de8a2db29a24d9f165f1b7f50e6b0fa780c5",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0008/canonical.json",
+        "sha256": "d2ccbf309f7d70512ff27bfe409b26e5053fd623fe51568aedcf95a6789d6423"
+      }
+    },
+    {
+      "slot": 9,
+      "seed": "1510175706",
+      "seat": 1,
+      "gameId": 907137717,
+      "coreMapHash": "3674d629aee3910bee102e3b64869a43e672afdd12f3bcf7f503d7e740dd3c46",
+      "mapHash": "96fc177a43ff0858f72f26fb2cc10148dc1ebccaf08f59f1c91939efd74e6a41",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0009/canonical.json",
+        "sha256": "07fd43b084f3c35a9c2852d60659600ccca44b7353297696a5e372e7560e7fdb"
+      }
+    },
+    {
+      "slot": 10,
+      "seed": "1501693354",
+      "seat": 0,
+      "gameId": 907137789,
+      "coreMapHash": "02b774ce77c7173a4a68e8aad1a57b34a38aad4fc69b60ca185af32bc4af1f0f",
+      "mapHash": "db7bc9f8f1c397452f187c7620fb6d2af3ed67e616f4993eba80e79d2b162c68",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0010/canonical.json",
+        "sha256": "2264c4df7e786819d2b19dac4c3f3330f6075f902b73646c213a8dc9bddf3104"
+      }
+    },
+    {
+      "slot": 11,
+      "seed": "1146225649",
+      "seat": 0,
+      "gameId": 907137875,
+      "coreMapHash": "2cf923d31d1b0a131b8ff41fccdb8228b0753b54dcf31a7762527bd1dcc3b5d9",
+      "mapHash": "406f6e4383ccaa283f945d58787c0884d360a2ea8bd2e4be67694757c4ab2c8d",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0011/canonical.json",
+        "sha256": "37d5266acf7e8a0e4154966f4d820c657811de671c32ad65255bebafe7eb7bd5"
+      }
+    },
+    {
+      "slot": 12,
+      "seed": "1433502919",
+      "seat": 1,
+      "gameId": 907137985,
+      "coreMapHash": "d9151a11949b8486fb00dd95e76b0e5ab9d97a1e8929b8e747c4c0134ec8447d",
+      "mapHash": "3cf10779c50533edf90b2f4109c57ada41a31833e87bdf77d2023263514779f1",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0012/canonical.json",
+        "sha256": "afcaa19b999cd117ea413cf12725e1a483e9c91821e849d05b9071710adf72a6"
+      }
+    },
+    {
+      "slot": 13,
+      "seed": "13570675",
+      "seat": 1,
+      "gameId": 907138091,
+      "coreMapHash": "ccddc04f178ec3391bda3d2f2cb5f55223d32b2eeb0427c3214865f8c4831c02",
+      "mapHash": "e34070a58328178c00255d3a2a0a6b6cb851286c5756570a9a54b08e2af86b2e",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0013/canonical.json",
+        "sha256": "82bec6241a1b1e105a2402bd19a6d192f4f6b311621563072cc85c0562c9bc0b"
+      }
+    },
+    {
+      "slot": 14,
+      "seed": "1227206493",
+      "seat": 0,
+      "gameId": 907138166,
+      "coreMapHash": "6d154ebe9216dedb50d855a78f4f6585bf4f8149d607e5d691d06614340d3426",
+      "mapHash": "e31a808ad54a5994ecc66e301d3659bb9440131b055ae4424d7ad0e23ab4b217",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0014/canonical.json",
+        "sha256": "d5c155749b5ee8735130f86d7f6a4c9039a693a2106f56f11bae3bfeb0826df7"
+      }
+    },
+    {
+      "slot": 15,
+      "seed": "684048739",
+      "seat": 1,
+      "gameId": 907138249,
+      "coreMapHash": "cb553b6d2249cdae169c3dfe52efafa562b515efa73ef658ab6bff99268f51d6",
+      "mapHash": "27c3ad34f4cdd425e5eca2aa423f5c7c4f188530f7c3d3b26cb30674949a237f",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0015/canonical.json",
+        "sha256": "7f2c234b20f8cb0ad7ac7502b308200bbd41db5c2b9db4eb90144b0b1979a73f"
+      }
+    },
+    {
+      "slot": 16,
+      "seed": "1750497074",
+      "seat": 0,
+      "gameId": 907138357,
+      "coreMapHash": "97cd257b8ae8c51aab24642fed6ba3d1d0d23c958d3c44a79907c903e566eeed",
+      "mapHash": "e757993bf873ebbd21cb44a829dd929e2ee04d95a7945bd465e998f4bdff3cad",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0016/canonical.json",
+        "sha256": "0e3a38cb9fccc2c393c73b7605421870cf9aacdfa889595f8bb986aa84b38180"
+      }
+    },
+    {
+      "slot": 17,
+      "seed": "1651172222",
+      "seat": 1,
+      "gameId": 907138437,
+      "coreMapHash": "156c279d07d0020d7343262af1fe7af1a5424647930d2dc1895d51ebb7831c03",
+      "mapHash": "2d2011178579cd1e77a7cf767b27b9d23a269aabf4ef5dbf0ba854cfa10555e4",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0017/canonical.json",
+        "sha256": "f0d7edac0ee74badfb81a3861a95a0614a5eb3220f399388365db093757819bd"
+      }
+    },
+    {
+      "slot": 18,
+      "seed": "1032699762",
+      "seat": 0,
+      "gameId": 907138496,
+      "coreMapHash": "54356a9fb12ec0ec909574640021d44c814ad43c2ec185faf269b740f7b3115d",
+      "mapHash": "db22d9d4db6732f63ba99ded25afec03a798db8133c7688b778ecd391a60255c",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0018/canonical.json",
+        "sha256": "b371bc0f2a2068f9fe197d28993628cdc9dd38268593b4cea1c5179b21a516a6"
+      }
+    },
+    {
+      "slot": 19,
+      "seed": "2018977198",
+      "seat": 0,
+      "gameId": 907138573,
+      "coreMapHash": "ff9baeb930a5965c2deddf1764f95368b0bf21ad0d70ca313de98fae982690b5",
+      "mapHash": "c85f91631d3e6ae3bf186daef5917687f437a205140ae5dac78cdfb6be4e9638",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0019/canonical.json",
+        "sha256": "cfc95e2fd358598f558d5dd8b046d8f7d3ae30ec49a378c864a978c971f6b957"
+      }
+    },
+    {
+      "slot": 20,
+      "seed": "1786595067",
+      "seat": 1,
+      "gameId": 907138661,
+      "coreMapHash": "e2a3957128e3d27adfcf7089537ceba3cde676247826a6307b4a0487908a0fbd",
+      "mapHash": "9b32925ea40bad4be852f72f83a6563674480ba1a4e6e0d92826644515f1c2e8",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0020/canonical.json",
+        "sha256": "9608f3f7caa587d84d4866956c39893c28dd07b7e4687af6f6c823e204f9bf8f"
+      }
+    },
+    {
+      "slot": 21,
+      "seed": "667185904",
+      "seat": 0,
+      "gameId": 907138737,
+      "coreMapHash": "bd671a98423d1b640134e63d3afa5a69cd292a2acd64c169df1319f284c0e84f",
+      "mapHash": "1ac810c476980b27b8eb89e1f2998fef8ee2c2130ddbf02e2e636b37cc9e122e",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0021/canonical.json",
+        "sha256": "eaa28e542699d15544b7963a639d41ab15300dd262fe187340b151eb726e0391"
+      }
+    },
+    {
+      "slot": 22,
+      "seed": "337728484",
+      "seat": 1,
+      "gameId": 907138801,
+      "coreMapHash": "d63ac2413e18ae10ac10e1054f246c6c844f0e0b0ac56be933808faa2d9ea74a",
+      "mapHash": "aa628a29464bce9786da4302ecbf33375a5c130e92af490554abd7e7d626d34f",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0022/canonical.json",
+        "sha256": "a88cccfc0abd55abfecdee85527200b2ffe3cafb2c095b169ed036cae50ac350"
+      }
+    },
+    {
+      "slot": 23,
+      "seed": "1711033168",
+      "seat": 0,
+      "gameId": 907138879,
+      "coreMapHash": "101fec182818e07d499a2e3f379d59c622731ef4c195861a2a32b66edc522e88",
+      "mapHash": "12d8648e66924037cbca053bb79c7a7648c53c11582792ecda8dfdf514ab7ea8",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0023/canonical.json",
+        "sha256": "934ec0c06f157ae68220a9762b827b1fdf71a87680510a52ad9b90c6becc502f"
+      }
+    },
+    {
+      "slot": 24,
+      "seed": "1909924015",
+      "seat": 0,
+      "gameId": 907138976,
+      "coreMapHash": "5bd745227a619dc3bf311efeee4310585111272c7160a10e15f4172697bea4d5",
+      "mapHash": "c147f2f2c98434e43cfb4e5f4a0186562816148e57831832eeebe8c153c44410",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0024/canonical.json",
+        "sha256": "b54ef2e2c1b4e94b567c182df578b02bb98350f0c24acef22a608f851352336b"
+      }
+    },
+    {
+      "slot": 25,
+      "seed": "530545186",
+      "seat": 0,
+      "gameId": 907139032,
+      "coreMapHash": "4c8bb027396a408eba53bacc5b749bfa6d4137bf3f1e77d3d0080cbb198f960b",
+      "mapHash": "f28e880c8df855b7654fbd18e599c3e31efc08293df38e40fc95261d2d6349ab",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0025/canonical.json",
+        "sha256": "6a39d7811211384f9621c3d39b69e1aede3aba797e8c418c7dde96c6ae96cac3"
+      }
+    },
+    {
+      "slot": 26,
+      "seed": "1607207703",
+      "seat": 0,
+      "gameId": 907139107,
+      "coreMapHash": "dc2cb01b9f3d7c8677839f11083446a1bdfc123ea4ffd2bf70767beb5044ab25",
+      "mapHash": "c3fa61721c3cdfc2e41ced380774cb33e3b785040b07aa2f5eb14f7ba225448d",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0026/canonical.json",
+        "sha256": "b2748ba7f72ae90c14d83b48661467c5402c66d53fa7a71805694db42ff0fa52"
+      }
+    },
+    {
+      "slot": 27,
+      "seed": "1943204462",
+      "seat": 0,
+      "gameId": 907139200,
+      "coreMapHash": "98ee926a41590e10844cd7c2854241d06005cdc625574b24fd71b7c8fc0e8927",
+      "mapHash": "7dac69a427ee9e944f417d54562bfbac6c97779bbf72c70d3350ddcb498ab268",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0027/canonical.json",
+        "sha256": "e9e84033ffe52ba1e19ddd9cf61bf49e804ebe4424e287a9a52a3d49cf0fe10c"
+      }
+    },
+    {
+      "slot": 28,
+      "seed": "856416997",
+      "seat": 0,
+      "gameId": 907139275,
+      "coreMapHash": "3acec7962465584a9aaad34b22fdfa771fff01178cde64f8d36680853ce5f33d",
+      "mapHash": "a10164bdc15a5208179585d36a1e50461936710e11c8b1530e161d527f02786c",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0028/canonical.json",
+        "sha256": "1545f53a8c21f97b978821280bc47720e43686510c4b90729a0226639237f28f"
+      }
+    },
+    {
+      "slot": 29,
+      "seed": "1464998972",
+      "seat": 1,
+      "gameId": 907139350,
+      "coreMapHash": "22613ede538a7c93245a585142d7c653dfa309f527c4156b6e44d07230fd6f9c",
+      "mapHash": "1da1342d82e0c3c21be1709aea2aeb8e7dc4aa8ac7021ef9d8b007a274655e1e",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0029/canonical.json",
+        "sha256": "0d5a63015f03a2a4ec3308e5fe37cbff0b6c589f9c5fa6c2a83f7431b4831033"
+      }
+    },
+    {
+      "slot": 30,
+      "seed": "387677199",
+      "seat": 1,
+      "gameId": 907139400,
+      "coreMapHash": "c192b45034706faf3661359fd2f9cb4f41b548ba842990426a52f744634c691a",
+      "mapHash": "7c30f73fbe50817b1ff9fb17f973872852a27997ed63dbb595457a469fdbdb44",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0030/canonical.json",
+        "sha256": "b91bbf08d2acea7feec3291e9f9e67dc7e5f1fe84bcf3aa26dc36f8ceb35fdf8"
+      }
+    },
+    {
+      "slot": 31,
+      "seed": "819848558",
+      "seat": 1,
+      "gameId": 907139440,
+      "coreMapHash": "95ebab7dbe70c94f61a087563d601bae0a7a885da301806786b5c00c64d8039a",
+      "mapHash": "ec9628a66e0c6a5c4a75fa4d6d9b455027233e4c4b8e9d143316cf9226dfb148",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0031/canonical.json",
+        "sha256": "8fc321e5c5e6bc7600b5846a9e1a7b2180a76f32dd1ff3e37b47dd633ae0daa7"
+      }
+    },
+    {
+      "slot": 32,
+      "seed": "351683031",
+      "seat": 1,
+      "gameId": 907139499,
+      "coreMapHash": "c9c9ee02d4dd58bb205c44b3d61fe2101e82106c04cb90ee67ed3ecc43868cc3",
+      "mapHash": "c796a31afdb94688cc03a295888338edfa98e0b20c73923b5a5147ed27b6cd64",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0032/canonical.json",
+        "sha256": "6f1552d82d535ee7fa42934a9553e3dde81826a3e32453ba1c2bffcca6e57b16"
+      }
+    },
+    {
+      "slot": 33,
+      "seed": "569531092",
+      "seat": 1,
+      "gameId": 907139559,
+      "coreMapHash": "28c8ca4d97a5b5eb081f6ed9597707d05032f78691be833c6c8870003693d93b",
+      "mapHash": "fa8d4ba1b017ad653bdc925de6d39d5c07e7c08295c5a76c6584026d0ccbc6c1",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0033/canonical.json",
+        "sha256": "16e061872b9c559363f40a12876dcd7987b87f073aa4138a3c4d1ad243579633"
+      }
+    },
+    {
+      "slot": 34,
+      "seed": "289450674",
+      "seat": 0,
+      "gameId": 907139595,
+      "coreMapHash": "afcfc22bc543492544e5c8b5cd16199af828fd2bd3c63e33a903c55fba2b52bf",
+      "mapHash": "66745b26025d68fd5e6744961eb2fdce5b6352638b90a895c5888576f2847b2f",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0034/canonical.json",
+        "sha256": "af703b00c321a9c2983008fc6a4244e397c9fd0fc375c52680c0691cb06984be"
+      }
+    },
+    {
+      "slot": 35,
+      "seed": "670550059",
+      "seat": 0,
+      "gameId": 907139641,
+      "coreMapHash": "1ca1a748932293e85142f31ec0e5e87dfbf81207534ec5bbe1c799d93f6dd763",
+      "mapHash": "2fec2f6fa69a9f8b28cf2cd9f8837d8fffccf1ed3e7038e0a656118a3774dd15",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0035/canonical.json",
+        "sha256": "555961cb4ea1244867a9c1146395038364319212b7e9539fec43e242937a3b42"
+      }
+    },
+    {
+      "slot": 36,
+      "seed": "1399097446",
+      "seat": 0,
+      "gameId": 907139873,
+      "coreMapHash": "e2a32cd0ae93ff45e5baecbb31db6bd1c8186e4d4a58b388460c6d0402e0ff8b",
+      "mapHash": "b7535df87b8d2bb50d2bc42badd49e77c46587370a2f31410569aeae16712472",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0036/canonical.json",
+        "sha256": "ee266be15d2685af86f280a2eca8e9297e6b72e24133c714b48ae51b1087e015"
+      }
+    },
+    {
+      "slot": 37,
+      "seed": "1336237340",
+      "seat": 1,
+      "gameId": 907139920,
+      "coreMapHash": "84b286768fd940058209fb75e623b30c60f11954cbfdde5bf08e675c3a99577c",
+      "mapHash": "d5426cc7e92ccd8cf678dad96b960ee8a974fe64a7b721c1d3d67d7bfe3d68ed",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0037/canonical.json",
+        "sha256": "d7c260af4bb8a0398649ec41c7fcdd48a3644582ba3147944a4f47afa4a19993"
+      }
+    },
+    {
+      "slot": 38,
+      "seed": "2113633959",
+      "seat": 0,
+      "gameId": 907139960,
+      "coreMapHash": "398dcc3f3f452441c9392c13f950e6155f0ce0b86fb7b9b24888bba2a9b6cb6d",
+      "mapHash": "93d7c3a939bce25545822ef1f167679351b9e53efa614578701e909cb7404d9e",
+      "result": "W",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0038/canonical.json",
+        "sha256": "3c82d396e75c44f03938e0051e811b437df968c8ec9fbe82e3ec5b2e4a94b971"
+      }
+    },
+    {
+      "slot": 39,
+      "seed": "302004334",
+      "seat": 1,
+      "gameId": 907139999,
+      "coreMapHash": "9c15c49dd11bdfba1de3f24ad26cb914e76aa3181bdf2cac7adec3a2ec61e94f",
+      "mapHash": "d4d9d315691b21b0c1bd6b139da86f208c2cc5c9696235274aba3dac58fef09d",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0039/canonical.json",
+        "sha256": "caa34904a9387bedce84c26b0b1d358b017a4ced1a2ff698f443a6bc13daef82"
+      }
+    },
+    {
+      "slot": 40,
+      "seed": "852448672",
+      "seat": 1,
+      "gameId": 907140035,
+      "coreMapHash": "f835ede2b7cb0fe03f601e3eb0efd5ff6385362f9c49de4ddf538a1b8c7c5843",
+      "mapHash": "7e0515ff26b8ea8d69097cf059e2e2d8f74deaa70095bdce849e830d53df474e",
+      "result": "L",
+      "canonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0040/canonical.json",
+        "sha256": "33560763890ffc5ab551eb9a7265fe1639100590f6793488b0b2b6724959e2da"
+      }
+    }
+  ],
+  "actualMapsMatchProspective": true,
+  "summary": {
+    "all": {
+      "games": 40,
+      "wins": 14,
+      "losses": 26,
+      "draws": 0,
+      "allTurns": {
+        "boss": {
+          "turns": 2697,
+          "nominalPaintCapacity": 8091,
+          "acceptedPaint": 5647,
+          "acceptedCells": 4508,
+          "paintHistogram": [
+            801,
+            9,
+            23,
+            1864
+          ],
+          "fractionOfNominalPaintCapacity": 0.6979359782474355,
+          "disruptTurns": 2419,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 2697,
+          "nominalPaintCapacity": 8091,
+          "acceptedPaint": 7779,
+          "acceptedCells": 5887,
+          "paintHistogram": [
+            40,
+            67,
+            58,
+            2532
+          ],
+          "fractionOfNominalPaintCapacity": 0.9614386355209492,
+          "disruptTurns": 2665,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 132,
+          "warningLinesWithShortPaint": 107,
+          "warningsAtLeast50Ms": 4,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      },
+      "turns0Through19": {
+        "boss": {
+          "turns": 800,
+          "nominalPaintCapacity": 2400,
+          "acceptedPaint": 2394,
+          "acceptedCells": 2073,
+          "paintHistogram": [
+            2,
+            0,
+            0,
+            798
+          ],
+          "fractionOfNominalPaintCapacity": 0.9975,
+          "disruptTurns": 660,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 800,
+          "nominalPaintCapacity": 2400,
+          "acceptedPaint": 2276,
+          "acceptedCells": 2017,
+          "paintHistogram": [
+            2,
+            43,
+            32,
+            723
+          ],
+          "fractionOfNominalPaintCapacity": 0.9483333333333334,
+          "disruptTurns": 797,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 82,
+          "warningLinesWithShortPaint": 65,
+          "warningsAtLeast50Ms": 2,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      }
+    },
+    "heightBelow18": {
+      "games": 16,
+      "wins": 8,
+      "losses": 8,
+      "draws": 0,
+      "allTurns": {
+        "boss": {
+          "turns": 855,
+          "nominalPaintCapacity": 2565,
+          "acceptedPaint": 1811,
+          "acceptedCells": 1480,
+          "paintHistogram": [
+            246,
+            3,
+            10,
+            596
+          ],
+          "fractionOfNominalPaintCapacity": 0.7060428849902534,
+          "disruptTurns": 760,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 855,
+          "nominalPaintCapacity": 2565,
+          "acceptedPaint": 2447,
+          "acceptedCells": 1935,
+          "paintHistogram": [
+            36,
+            3,
+            4,
+            812
+          ],
+          "fractionOfNominalPaintCapacity": 0.9539961013645224,
+          "disruptTurns": 829,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 9,
+          "warningLinesWithShortPaint": 4,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      },
+      "turns0Through19": {
+        "boss": {
+          "turns": 320,
+          "nominalPaintCapacity": 960,
+          "acceptedPaint": 954,
+          "acceptedCells": 821,
+          "paintHistogram": [
+            2,
+            0,
+            0,
+            318
+          ],
+          "fractionOfNominalPaintCapacity": 0.99375,
+          "disruptTurns": 277,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 320,
+          "nominalPaintCapacity": 960,
+          "acceptedPaint": 955,
+          "acceptedCells": 826,
+          "paintHistogram": [
+            0,
+            1,
+            3,
+            316
+          ],
+          "fractionOfNominalPaintCapacity": 0.9947916666666666,
+          "disruptTurns": 320,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 8,
+          "warningLinesWithShortPaint": 4,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      }
+    },
+    "height18Through20": {
+      "games": 24,
+      "wins": 6,
+      "losses": 18,
+      "draws": 0,
+      "allTurns": {
+        "boss": {
+          "turns": 1842,
+          "nominalPaintCapacity": 5526,
+          "acceptedPaint": 3836,
+          "acceptedCells": 3028,
+          "paintHistogram": [
+            555,
+            6,
+            13,
+            1268
+          ],
+          "fractionOfNominalPaintCapacity": 0.6941730003619254,
+          "disruptTurns": 1659,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 1842,
+          "nominalPaintCapacity": 5526,
+          "acceptedPaint": 5332,
+          "acceptedCells": 3952,
+          "paintHistogram": [
+            4,
+            64,
+            54,
+            1720
+          ],
+          "fractionOfNominalPaintCapacity": 0.9648932319942092,
+          "disruptTurns": 1836,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 123,
+          "warningLinesWithShortPaint": 103,
+          "warningsAtLeast50Ms": 3,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      },
+      "turns0Through19": {
+        "boss": {
+          "turns": 480,
+          "nominalPaintCapacity": 1440,
+          "acceptedPaint": 1440,
+          "acceptedCells": 1252,
+          "paintHistogram": [
+            0,
+            0,
+            0,
+            480
+          ],
+          "fractionOfNominalPaintCapacity": 1.0,
+          "disruptTurns": 383,
+          "skippedActions": 0,
+          "serverFailureTurns": 0
+        },
+        "us": {
+          "turns": 480,
+          "nominalPaintCapacity": 1440,
+          "acceptedPaint": 1321,
+          "acceptedCells": 1191,
+          "paintHistogram": [
+            2,
+            42,
+            29,
+            407
+          ],
+          "fractionOfNominalPaintCapacity": 0.9173611111111111,
+          "disruptTurns": 477,
+          "skippedActions": 0,
+          "serverFailureTurns": 0,
+          "warningLines": 74,
+          "warningLinesWithShortPaint": 61,
+          "warningsAtLeast50Ms": 1,
+          "warningsOutsideTrace": 0,
+          "maxWarningWallMs": 52
+        }
+      }
+    }
+  },
+  "cachedComparison": {
+    "policy": "practical-300-1000-boss-cache-v3",
+    "complete": true,
+    "bossStage": "NOT_PASSED",
+    "candidate": {
+      "spec": "neural-v7",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NEURAL_DEADLINE_RESERVE_MS": "2",
+        "NEURAL_FALLBACK_MAX_INSTABILITY": "0",
+        "NOISE": "0.1",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_NEURAL_FALLBACK": "true",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "false",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "false",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "false",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "false",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "false",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "buildId": "9e53ce4a2eccbd7ba0c1044460ec928fac0954e857455b16d6d374da81bc626f",
+      "sourceSha256": "53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8",
+      "games": 40,
+      "wins": 14,
+      "losses": 26,
+      "draws": 0,
+      "halfWins": 28
+    },
+    "control": {
+      "spec": "v09",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "buildId": "b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2",
+      "sourceSha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "games": 40,
+      "wins": 15,
+      "losses": 25,
+      "draws": 0,
+      "halfWins": 30
+    },
+    "pairs": [
+      {
+        "mapHash": "93cfa8df889eccd6fa1277fb6b89e3049776701ae096084e3aa616d409d0cb37",
+        "seed": "931928174",
+        "seat": 1,
+        "candidateGameId": 907137159,
+        "controlGameId": 907134258
+      },
+      {
+        "mapHash": "a1e1e70f61e77bf0fc2ecc5b36f77959239eb5c40da2666efd76c3b77e65da75",
+        "seed": "1441995785",
+        "seat": 1,
+        "candidateGameId": 907137243,
+        "controlGameId": 907134324
+      },
+      {
+        "mapHash": "a74f666c8dbfefc4adfccee17e548fa9a35d5d16f05481e5e4ff91966e88be05",
+        "seed": "1834379172",
+        "seat": 0,
+        "candidateGameId": 907137291,
+        "controlGameId": 907134409
+      },
+      {
+        "mapHash": "733d305dc7b92d3d040c6b7f07b394a096875a62cbcc43e8edfc6ad351821a98",
+        "seed": "455750181",
+        "seat": 0,
+        "candidateGameId": 907137380,
+        "controlGameId": 907134469
+      },
+      {
+        "mapHash": "9560b31e76123bab485dc38e0f2c34ea0abaf765b194e684647475b186bd4dc8",
+        "seed": "743446929",
+        "seat": 1,
+        "candidateGameId": 907137452,
+        "controlGameId": 907134529
+      },
+      {
+        "mapHash": "d3e32d70778d5727dc8099783cb10992286b6c1a327b2e9cb025fc0be5c134b1",
+        "seed": "577146896",
+        "seat": 0,
+        "candidateGameId": 907137517,
+        "controlGameId": 907134581
+      },
+      {
+        "mapHash": "03992f5fd76094d077a905ffa62f1571e7fbb67d5c9f76b0d20487a26428c5f0",
+        "seed": "394799548",
+        "seat": 1,
+        "candidateGameId": 907137583,
+        "controlGameId": 907134651
+      },
+      {
+        "mapHash": "fdf48c1193fe12bf870a2361b082de8a2db29a24d9f165f1b7f50e6b0fa780c5",
+        "seed": "201301522",
+        "seat": 1,
+        "candidateGameId": 907137650,
+        "controlGameId": 907134720
+      },
+      {
+        "mapHash": "96fc177a43ff0858f72f26fb2cc10148dc1ebccaf08f59f1c91939efd74e6a41",
+        "seed": "1510175706",
+        "seat": 1,
+        "candidateGameId": 907137717,
+        "controlGameId": 907134780
+      },
+      {
+        "mapHash": "db7bc9f8f1c397452f187c7620fb6d2af3ed67e616f4993eba80e79d2b162c68",
+        "seed": "1501693354",
+        "seat": 0,
+        "candidateGameId": 907137789,
+        "controlGameId": 907134857
+      },
+      {
+        "mapHash": "406f6e4383ccaa283f945d58787c0884d360a2ea8bd2e4be67694757c4ab2c8d",
+        "seed": "1146225649",
+        "seat": 0,
+        "candidateGameId": 907137875,
+        "controlGameId": 907134958
+      },
+      {
+        "mapHash": "3cf10779c50533edf90b2f4109c57ada41a31833e87bdf77d2023263514779f1",
+        "seed": "1433502919",
+        "seat": 1,
+        "candidateGameId": 907137985,
+        "controlGameId": 907135053
+      },
+      {
+        "mapHash": "e34070a58328178c00255d3a2a0a6b6cb851286c5756570a9a54b08e2af86b2e",
+        "seed": "13570675",
+        "seat": 1,
+        "candidateGameId": 907138091,
+        "controlGameId": 907135121
+      },
+      {
+        "mapHash": "e31a808ad54a5994ecc66e301d3659bb9440131b055ae4424d7ad0e23ab4b217",
+        "seed": "1227206493",
+        "seat": 0,
+        "candidateGameId": 907138166,
+        "controlGameId": 907135221
+      },
+      {
+        "mapHash": "27c3ad34f4cdd425e5eca2aa423f5c7c4f188530f7c3d3b26cb30674949a237f",
+        "seed": "684048739",
+        "seat": 1,
+        "candidateGameId": 907138249,
+        "controlGameId": 907135339
+      },
+      {
+        "mapHash": "e757993bf873ebbd21cb44a829dd929e2ee04d95a7945bd465e998f4bdff3cad",
+        "seed": "1750497074",
+        "seat": 0,
+        "candidateGameId": 907138357,
+        "controlGameId": 907135394
+      },
+      {
+        "mapHash": "2d2011178579cd1e77a7cf767b27b9d23a269aabf4ef5dbf0ba854cfa10555e4",
+        "seed": "1651172222",
+        "seat": 1,
+        "candidateGameId": 907138437,
+        "controlGameId": 907135435
+      },
+      {
+        "mapHash": "db22d9d4db6732f63ba99ded25afec03a798db8133c7688b778ecd391a60255c",
+        "seed": "1032699762",
+        "seat": 0,
+        "candidateGameId": 907138496,
+        "controlGameId": 907135490
+      },
+      {
+        "mapHash": "c85f91631d3e6ae3bf186daef5917687f437a205140ae5dac78cdfb6be4e9638",
+        "seed": "2018977198",
+        "seat": 0,
+        "candidateGameId": 907138573,
+        "controlGameId": 907135538
+      },
+      {
+        "mapHash": "9b32925ea40bad4be852f72f83a6563674480ba1a4e6e0d92826644515f1c2e8",
+        "seed": "1786595067",
+        "seat": 1,
+        "candidateGameId": 907138661,
+        "controlGameId": 907135607
+      },
+      {
+        "mapHash": "1ac810c476980b27b8eb89e1f2998fef8ee2c2130ddbf02e2e636b37cc9e122e",
+        "seed": "667185904",
+        "seat": 0,
+        "candidateGameId": 907138737,
+        "controlGameId": 907135646
+      },
+      {
+        "mapHash": "aa628a29464bce9786da4302ecbf33375a5c130e92af490554abd7e7d626d34f",
+        "seed": "337728484",
+        "seat": 1,
+        "candidateGameId": 907138801,
+        "controlGameId": 907135707
+      },
+      {
+        "mapHash": "12d8648e66924037cbca053bb79c7a7648c53c11582792ecda8dfdf514ab7ea8",
+        "seed": "1711033168",
+        "seat": 0,
+        "candidateGameId": 907138879,
+        "controlGameId": 907135769
+      },
+      {
+        "mapHash": "c147f2f2c98434e43cfb4e5f4a0186562816148e57831832eeebe8c153c44410",
+        "seed": "1909924015",
+        "seat": 0,
+        "candidateGameId": 907138976,
+        "controlGameId": 907135823
+      },
+      {
+        "mapHash": "f28e880c8df855b7654fbd18e599c3e31efc08293df38e40fc95261d2d6349ab",
+        "seed": "530545186",
+        "seat": 0,
+        "candidateGameId": 907139032,
+        "controlGameId": 907135871
+      },
+      {
+        "mapHash": "c3fa61721c3cdfc2e41ced380774cb33e3b785040b07aa2f5eb14f7ba225448d",
+        "seed": "1607207703",
+        "seat": 0,
+        "candidateGameId": 907139107,
+        "controlGameId": 907135928
+      },
+      {
+        "mapHash": "7dac69a427ee9e944f417d54562bfbac6c97779bbf72c70d3350ddcb498ab268",
+        "seed": "1943204462",
+        "seat": 0,
+        "candidateGameId": 907139200,
+        "controlGameId": 907135984
+      },
+      {
+        "mapHash": "a10164bdc15a5208179585d36a1e50461936710e11c8b1530e161d527f02786c",
+        "seed": "856416997",
+        "seat": 0,
+        "candidateGameId": 907139275,
+        "controlGameId": 907136033
+      },
+      {
+        "mapHash": "1da1342d82e0c3c21be1709aea2aeb8e7dc4aa8ac7021ef9d8b007a274655e1e",
+        "seed": "1464998972",
+        "seat": 1,
+        "candidateGameId": 907139350,
+        "controlGameId": 907136095
+      },
+      {
+        "mapHash": "7c30f73fbe50817b1ff9fb17f973872852a27997ed63dbb595457a469fdbdb44",
+        "seed": "387677199",
+        "seat": 1,
+        "candidateGameId": 907139400,
+        "controlGameId": 907136161
+      },
+      {
+        "mapHash": "ec9628a66e0c6a5c4a75fa4d6d9b455027233e4c4b8e9d143316cf9226dfb148",
+        "seed": "819848558",
+        "seat": 1,
+        "candidateGameId": 907139440,
+        "controlGameId": 907136228
+      },
+      {
+        "mapHash": "c796a31afdb94688cc03a295888338edfa98e0b20c73923b5a5147ed27b6cd64",
+        "seed": "351683031",
+        "seat": 1,
+        "candidateGameId": 907139499,
+        "controlGameId": 907136287
+      },
+      {
+        "mapHash": "fa8d4ba1b017ad653bdc925de6d39d5c07e7c08295c5a76c6584026d0ccbc6c1",
+        "seed": "569531092",
+        "seat": 1,
+        "candidateGameId": 907139559,
+        "controlGameId": 907136344
+      },
+      {
+        "mapHash": "66745b26025d68fd5e6744961eb2fdce5b6352638b90a895c5888576f2847b2f",
+        "seed": "289450674",
+        "seat": 0,
+        "candidateGameId": 907139595,
+        "controlGameId": 907136431
+      },
+      {
+        "mapHash": "2fec2f6fa69a9f8b28cf2cd9f8837d8fffccf1ed3e7038e0a656118a3774dd15",
+        "seed": "670550059",
+        "seat": 0,
+        "candidateGameId": 907139641,
+        "controlGameId": 907136555
+      },
+      {
+        "mapHash": "b7535df87b8d2bb50d2bc42badd49e77c46587370a2f31410569aeae16712472",
+        "seed": "1399097446",
+        "seat": 0,
+        "candidateGameId": 907139873,
+        "controlGameId": 907136629
+      },
+      {
+        "mapHash": "d5426cc7e92ccd8cf678dad96b960ee8a974fe64a7b721c1d3d67d7bfe3d68ed",
+        "seed": "1336237340",
+        "seat": 1,
+        "candidateGameId": 907139920,
+        "controlGameId": 907136694
+      },
+      {
+        "mapHash": "93d7c3a939bce25545822ef1f167679351b9e53efa614578701e909cb7404d9e",
+        "seed": "2113633959",
+        "seat": 0,
+        "candidateGameId": 907139960,
+        "controlGameId": 907136767
+      },
+      {
+        "mapHash": "d4d9d315691b21b0c1bd6b139da86f208c2cc5c9696235274aba3dac58fef09d",
+        "seed": "302004334",
+        "seat": 1,
+        "candidateGameId": 907139999,
+        "controlGameId": 907136832
+      },
+      {
+        "mapHash": "7e0515ff26b8ea8d69097cf059e2e2d8f74deaa70095bdce849e830d53df474e",
+        "seed": "852448672",
+        "seat": 1,
+        "candidateGameId": 907140035,
+        "controlGameId": 907136891
+      }
+    ],
+    "planId": "b6a0d8aca4f3e684a817fa7694ca0091b7152c7e66a59fd70f439116fd291d85",
+    "issues": [],
+    "mapHashScheme": "cg-global-graphics-utf8-sha256-v1",
+    "readinessPassed": true,
+    "promotion": false,
+    "controlEvidenceSha256": null,
+    "collectionDates": {
+      "control": {
+        "firstCompletedAt": "2026-10-04T12:05:09.419691+00:00",
+        "lastCompletedAt": "2026-10-04T12:28:12.164229+00:00",
+        "recordedDates": 40
+      },
+      "candidate": {
+        "firstCompletedAt": "2026-10-04T12:30:51.811623+00:00",
+        "lastCompletedAt": "2026-10-04T12:56:16.932648+00:00",
+        "recordedDates": 40
+      }
+    },
+    "historicalProtocolStatus": "original fixed",
+    "historicalAmendments": [],
+    "historicalExcludedAttempts": [],
+    "interpretation": "Practical score filter on reused known maps; no claim of statistical improvement.",
+    "limitations": [
+      "Unchanged public boss/league IDs do not prove unchanged hidden boss implementation or execution conditions.",
+      "Known map/control outcomes can influence development; this panel is not fresh confirmation."
+    ]
+  },
+  "limitations": [
+    "Paint and timing warnings are descriptive; neither by itself proves strength, abort phase or missed legal moves.",
+    "Replay build marker matches exact locally retained source/config but is not independent remote executable attestation.",
+    "Both sides are replayed exactly; no alternate actions, policy updates, games or network calls are made."
+  ]
+}

@@ -1,0 +1,1072 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v7",
+  "phase": "live",
+  "complete": true,
+  "finalEvidence": {
+    "path": "docs/evidence/neural-v7-final.json",
+    "sha256": "6abd7ac8b71d71dffc8f5f4385c73c02c4e277f5b7e972d80a762f8eb6fa6116"
+  },
+  "verdict": "NOT_PASSED",
+  "localArchive": {
+    "archive": {
+      "path": "docs/evidence/neural-v7-local-artifacts.zip",
+      "sha256": "adcb1b967ce4e8c10e7144c163c3c8b914a9ccc7e0ed50be1ff31787b6a29ca5"
+    },
+    "index": {
+      "path": "docs/evidence/neural-v7-local-artifacts.json",
+      "sha256": "44d6b52b97210b5e3360a7d74e9f5ad9208e2a640cc4c8c32e0f2e4caf86e839"
+    },
+    "filesVerified": 998
+  },
+  "archive": "docs/evidence/neural-v7-live-artifacts.zip",
+  "sha256": "384ca48d3f4e287605ca17c57e3c26af5a34a9ac256d0ab5f5a839270010af66",
+  "bytes": 657157,
+  "files": [
+    {
+      "path": "build/analysis/neural-v7/archive_live_evidence.py",
+      "sha256": "c9328bfcea8af0e2b00b8bfdbcf6836e1e01fca3d50ddda8d128f402e0a76127",
+      "bytes": 4858
+    },
+    {
+      "path": "build/analysis/neural-v7/audit_boss_stage.py",
+      "sha256": "e8e085ca12d4ef8dff51a8d1ca9f5a6d6c3d285a91008ea04214ef76e685f346",
+      "bytes": 9473
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-authorization.json",
+      "sha256": "443d20fc99a3f56ef1fcf2e0bbfdaf9364b85e9d02142d9a387c103d23c88d38",
+      "bytes": 1401
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/cached-assessment.json",
+      "sha256": "93f57790cf7b9167601029eeee421b228268e495af010e2524a396c26fbd86c8",
+      "bytes": 19252
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/intent.json",
+      "sha256": "da32cfcf04a993da8c4c66c3099231344488b0781c0830301288320600714aad",
+      "bytes": 39155
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/java-result.json",
+      "sha256": "60f6726270e0bd2f512e20e1450f7569f16064e4d2de4658100a758572fdbe5f",
+      "bytes": 1132801
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/java.log",
+      "sha256": "8320e62a40bdda23a45127a18422ff135b44f28dacf19a523a1ac594ffadaed7",
+      "bytes": 1951
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-actual-audit/strict-snapshot.json",
+      "sha256": "82e8c13a60db8f640c9458327073330442c04d587fffe10445864b7f47d44b23",
+      "bytes": 60223
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-before-play.json",
+      "sha256": "53c4292937452aa5f327a1ef4b11f74d8e6303baa4c2372c006fde1120120c41",
+      "bytes": 680
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-plan-ready.json",
+      "sha256": "de69cb10e4ae4aa08e175c10c2a17303ca0519c5b5991af406f1299459a8a450",
+      "bytes": 435
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-run-intent.json",
+      "sha256": "485ea529318ebf23c2923e32804adf79e7ffd43c62a13a760d98b94331131f4f",
+      "bytes": 1798
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-run-result.json",
+      "sha256": "0b329f102578ec110ca7ba6419ef223223c60bfdaaf595d03d49e2cd0a592b7c",
+      "bytes": 586
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-candidate-run.log",
+      "sha256": "ee21cbc60d21c440ce3a0025e988b805cb5e55191f5735511799a656894aae5d",
+      "bytes": 20803
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-actual-audit/intent.json",
+      "sha256": "53eaaa0c858a974888d23c2c0dcda097a52f19f3d0c0b38c917d9b946ded3f2a",
+      "bytes": 39074
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-actual-audit/java-result.json",
+      "sha256": "9a281e94faa258b9742859bf144729d5bf3fd03cdb8b331659a4f347b95a1398",
+      "bytes": 1389220
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-actual-audit/java.log",
+      "sha256": "72d5675dd1d6c98d85c6e2f628f722b4cbcd22d1b8c3c0bcde9964c155caead9",
+      "bytes": 1871
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-actual-audit/strict-snapshot.json",
+      "sha256": "d7d28e5fde0be254d40c770911c4daea60bba85fde2509ccc4f073306bd63794",
+      "bytes": 60189
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-before-play.json",
+      "sha256": "99aa4b0dc819bfe292a0a622d0c32cbf917ec31b1b374dab8fdcc09a3496f3c1",
+      "bytes": 680
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-run-intent.json",
+      "sha256": "10d3766b8ee1be1d8ff12635968a6be23b9bf04c5ac75bf3bcdf9d455fb6f9d6",
+      "bytes": 1653
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-run-result.json",
+      "sha256": "f3d1db72d500e48c8ce43dbb8ae6d594af7fa6984416973a8409c01076adc7ca",
+      "bytes": 580
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-control-run.log",
+      "sha256": "ac54e836a3f568c67db252983600e1ba53ab8e80906fc74d9f0d3e2872b54aea",
+      "bytes": 6960
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-discovery-first.json",
+      "sha256": "39cf2c3c92da86b66344457c7226d91712686bef85e5f6ed86e0b0bc3510475c",
+      "bytes": 1667
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-map-preflight.json",
+      "sha256": "ce42957f8561f4c7cafa40364f07d86c08a43e641b966826ed3dacd2388f05dc",
+      "bytes": 36184
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-map-preflight.log",
+      "sha256": "d49e0914b55f90dd258e6aafa07f88a7d043375817bcdb0e452ca733c418c985",
+      "bytes": 75
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-plan-ready.json",
+      "sha256": "ca7839eceb2855e07ef2c9e301d63d8372acbd0ff7de05ffe3ee00ee2abe25c0",
+      "bytes": 9096
+    },
+    {
+      "path": "build/analysis/neural-v7/BossActualAudit.java",
+      "sha256": "1c16eee43a0ec459fbde6a5b9922fdaa2e5a7e9b0404f3906ccc1df079e0f352",
+      "bytes": 16632
+    },
+    {
+      "path": "build/analysis/neural-v7/candidate-audit.json",
+      "sha256": "544c2d54f7db20e83fa4308bcd3ed030c291f329d9583d010ceec9285e21eb6c",
+      "bytes": 50452
+    },
+    {
+      "path": "build/analysis/neural-v7/control-audit.json",
+      "sha256": "bad756d65fbc1cb8d02f29e94b777bc2eae06cf0ea21a4977629dc48c1325981",
+      "bytes": 29929
+    },
+    {
+      "path": "build/analysis/neural-v7/finish-evidence-intent.json",
+      "sha256": "30a241f693034de625b736593bfb1ac81f078c99eda9e02803b4379dfd61cf40",
+      "bytes": 66462
+    },
+    {
+      "path": "build/analysis/neural-v7/finish_evidence.py",
+      "sha256": "94d1e0e80ef2875eb2b00541f7b508d31a4963919933c192475a37deaafd7978",
+      "bytes": 15107
+    },
+    {
+      "path": "build/analysis/neural-v7/ide-after-boss-intent.json",
+      "sha256": "49b47e1112469022fc9513a14e15e525716c77c17e30144f21589be4c1529c27",
+      "bytes": 1053
+    },
+    {
+      "path": "build/analysis/neural-v7/ide-after-boss.json",
+      "sha256": "4edc4786de49b362662a4083f8807f85acd541ea66e2f9f6733d01540052fb74",
+      "bytes": 934
+    },
+    {
+      "path": "build/analysis/neural-v7/prepare_boss.py",
+      "sha256": "a40e6807685e72b402778fee93ece9cc975272cd830aeb67ab116a554e19ef55",
+      "bytes": 14134
+    },
+    {
+      "path": "build/analysis/neural-v7/run_boss_stage.py",
+      "sha256": "91c9e2f2e7f36b94beb9db6eac1b12ec5200e416a2a46b4750acf801bff156d3",
+      "bytes": 14180
+    },
+    {
+      "path": "build/analysis/neural-v7/verify_ide_after_boss.py",
+      "sha256": "9fb657120ac8736a7f898e7a9be66733dbe5563adef480f73648679f87896fb9",
+      "bytes": 3520
+    },
+    {
+      "path": "build/bench/neural-v7-boss-regression-maps.json",
+      "sha256": "e95b50055934f7a3105f6e16dfdfc00d6c91fd65e7def93780588f326c5d17a6",
+      "bytes": 3780
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0001/intent.json",
+      "sha256": "6d2c20c7d6411b2a81234c12a4d568b40509bcb13583d7f28d12b65f48ae9d44",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0001/result.json",
+      "sha256": "1f097487b18adce84670d6eaed8e1980f4a114ced5cdd8da334620ae44793728",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0002/intent.json",
+      "sha256": "271c113529251995fbc77ab73badc5ede84bbaa936f7bea1d6ab1fb4479f0d13",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0002/result.json",
+      "sha256": "bc76536c0778a12aad9720f9cdf44de2da1ea9232b600074736d8489765da870",
+      "bytes": 2252
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0003/intent.json",
+      "sha256": "6b64239707201e5b259a2b8442263066653ecd1eea3bdb463fe06f039597a761",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0003/result.json",
+      "sha256": "c3cfeace96b80902103ded0a39ba86d9ca282831c104969300886cda7f734b6d",
+      "bytes": 2252
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0004/intent.json",
+      "sha256": "c47186bdddd3b9c2911608f0ff7569a948d8cb788e2951fa7dba4a7fb47cad42",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0004/result.json",
+      "sha256": "fde9462c7b53808e3e5893af6f514f4f4b0642527407cdfe05d909e1bc776ea9",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0005/intent.json",
+      "sha256": "a0b4584c4daf53dfd8cb0162ae57eac980c02d9604ff0af0968af468a3079bbc",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0005/result.json",
+      "sha256": "86a27d3c81c09bce854f0d7c803d3cc0e7b73e11299a68b7aecbb62fa9e6261a",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0006/intent.json",
+      "sha256": "2dc5faaa31799e6b69db74f038ae320c1e98850294f8295451d9e9ecbaa4d071",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0006/result.json",
+      "sha256": "93de9132ae82d5c98fe98b92671fa45901c2c5d18313b70569a10b8e28d44821",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0007/intent.json",
+      "sha256": "d1965bad0d174ac0403ef921e4bb5a9ee68d56b41acf89a272fda544e237d057",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0007/result.json",
+      "sha256": "cafe57d3ebe06cc3834acf154aad037ae17f17c31c69fa850b65d4584bc48faa",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0008/intent.json",
+      "sha256": "0091bb2425a2572bc58b60618af4c7a53064437b9d28086184df5447d603d14d",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0008/result.json",
+      "sha256": "cd1022adc5943be3d84841af18215f91cb0ef7b278eea2ff5b10ee2d829caab6",
+      "bytes": 2248
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0009/intent.json",
+      "sha256": "c78079d1c2215c610bcbb52e7ca6a43aff0dc7b9fbbb5956fd912f536ff7b072",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0009/result.json",
+      "sha256": "574c8ccd9db0b6aacde084ba1dd17e0a9bc6d077b8ddd4d0be8f8372fd98fb5a",
+      "bytes": 2252
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0010/intent.json",
+      "sha256": "68102365003644d205c1b2e607ac5ca91065074b638199b8d6c874930cb848d5",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0010/result.json",
+      "sha256": "50e926bce381c745854e8e49035d75fb555a9d4b12de2fe5ef406192a54b4c14",
+      "bytes": 2252
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0011/intent.json",
+      "sha256": "bf5be075f4e5df00e678d1757e2b9c8634e5aae1bf7d626fe90870d6c6d515d9",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0011/result.json",
+      "sha256": "820163244452b7cde0dd7f2f4f3c45870d7c04edcaa909bcead1720bcc0f363a",
+      "bytes": 2253
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0012/intent.json",
+      "sha256": "f93807be1f0e8f04093944d8fe9e56eeb41519697f677b69d499ba9bd1ffc0e0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0012/result.json",
+      "sha256": "d6f187b7760cbc451b16f8a8405f1a0d00370f29c8f96594b2e5e804f6877815",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0013/intent.json",
+      "sha256": "93fafb448fda391b857128db767384043db976a597f0792d0b8b941e4e2a9d80",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0013/result.json",
+      "sha256": "86839d105cdebab95a3a9f751ed9e8b1aac8a28147dfe6a98bd832ed8f4cee3a",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0014/intent.json",
+      "sha256": "50e3069e4094b3086b5fc3614ea1c5486d5ca17226011c38f1b8dc85c9dddee5",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0014/result.json",
+      "sha256": "c6a4745fc358fad1be0d178cd8692fed3e9d4fc057a872f5c20cfb7e66b62685",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0015/intent.json",
+      "sha256": "aede637cf74b263cd9a614520d4a7b2127b1fcd0d7ae61250dd4079d3006f3d1",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0015/result.json",
+      "sha256": "8337cb54e9fe00eb91712305c3b2a973a59e136c630e74e8a127d9f63b6278fa",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0016/intent.json",
+      "sha256": "51ed9f3679f16625a6355d11391a00afe9583cc7c4b39ff1cd6ec4bc90d5544a",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0016/result.json",
+      "sha256": "cd978bed6b02eb7fce52ab8034fc29bf3c9a0c8040166c77820b54f3b2483051",
+      "bytes": 2253
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0017/intent.json",
+      "sha256": "ed20b8d3903a9a71633e8c1436623c44f7b21411eba4a383dfaa881668bec3a6",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0017/result.json",
+      "sha256": "ec3573c5b4a31ae27904400d46a4e625908565f42b711df74e5b701dc2121020",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0018/intent.json",
+      "sha256": "f69f9643ce62e7be132dd064baca2aeab460aeea20ce0c4a624d82d93ab06ab8",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0018/result.json",
+      "sha256": "747a789b46c6805cbd392143b59a0b3afdf84b8bf2a38e98acd74afffbeb9ca8",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0019/intent.json",
+      "sha256": "9c4fe1e2889514912ea300e86e5d863cb5bcfa640d71f645ea455545d02c9e16",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0019/result.json",
+      "sha256": "f41ac716ae9d19986c352a9009aef429977702eaf559fd89b7748b749158fe38",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0020/intent.json",
+      "sha256": "5c112e7da2a6b598ecedd1a8de3d7d2d6c589d08bc2b642d1836cca6b385c1de",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0020/result.json",
+      "sha256": "4e9e8af83e066d1e71cf402ba90e6beb5836f911cb69159d81bb96be44615265",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0021/intent.json",
+      "sha256": "5dfdf47ba38c0c48980deba37de8d9c2db85206b9bdb265ef31cc6700c421ab2",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0021/result.json",
+      "sha256": "3d5739e7b19f3ce7455bc204d1423108812c33ff2b42c1631f3b65bc52e5d776",
+      "bytes": 2250
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0022/intent.json",
+      "sha256": "f0eb2f255613edd98dd63f21b2c149856bee2bf4e15bc292c44d64f3f25d011b",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0022/result.json",
+      "sha256": "6f8c0784008574ec26087d7172bb7d8fc7764b341b1dbe0daca6cd7f6869a245",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0023/intent.json",
+      "sha256": "10df1ed6714443663c1f17c69aad682f56e3e980934202bc5456fc8c245e18fd",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0023/result.json",
+      "sha256": "c9ba80e08a192468ec12d0a8b8898be2cdb5da99c5cf190c9e2a9ed1ab0c69ee",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0024/intent.json",
+      "sha256": "a01dabf376d59ec082f794adaeee32e4f6384987b3ab27290e3540783d866efe",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0024/result.json",
+      "sha256": "8313db9fb21feb2785665ea30a7a4f2a85ceb7acbdcfd1d5be2b7501297dc719",
+      "bytes": 2253
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0025/intent.json",
+      "sha256": "f8bbc90e23502b2cdc2a8f27226da4733f3d6a6c33b51fad96e5169ebe4ad697",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0025/result.json",
+      "sha256": "8c11fc3b71e0d93c5fd4c83552613524645c1c016de854380712fecbfb9d4360",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0026/intent.json",
+      "sha256": "32336504381fe157ed3e96a30c2e7b8c9b85631af11dc99ceddd9b8b4f271b23",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0026/result.json",
+      "sha256": "7f2b5064b3480b771cbbfe4eb241954e85f91140ccd8a9681e87df4a6f616adb",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0027/intent.json",
+      "sha256": "50a3f2cf5bedb200f6229548faf6b22f7d38657c625a8860e261895c4efcaf7e",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0027/result.json",
+      "sha256": "c5c62aa82a9e42ccbec3c23cab6c48dac281453bab40f85a03f97eb80a40d1e6",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0028/intent.json",
+      "sha256": "99990fee43746700ff9192755e92a924fc11d5db37672a18a8aa469f68a8df76",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0028/result.json",
+      "sha256": "34bccb0eb70f6a3b020de5d7bfa3d8eb2c5f3eabf82d74a147a0189ee56f120b",
+      "bytes": 2252
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0029/intent.json",
+      "sha256": "5af7d1e065b62014173464fb6a9300718922e23e77e7e24443c20852320e1303",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0029/result.json",
+      "sha256": "6922340ce3833056c996613c95fad9d94f65545c35c7bfc8ab52b2dad20a457e",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0030/intent.json",
+      "sha256": "0bccb6d1e358c91ba23f8e460d49fa596ef906453c8f5557b2715dc6b1d55487",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0030/result.json",
+      "sha256": "ec7264873430a43e2c4f75fa97251eaf1853ab6e4f910c58a4ab7c5c3b8ddee4",
+      "bytes": 2250
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0031/intent.json",
+      "sha256": "21f4ba98031ad7fb665bade5d422478dc1b8194ae7bc476243a28b7e3d246600",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0031/result.json",
+      "sha256": "84e3d29fe68ac8184aba8da3f818a7e462deb6a3ebfa33bc08038276b1d40aa4",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0032/intent.json",
+      "sha256": "31e370a9e3b3085784f71e001656425be6474e3de71dccc5b41708184bcb6dc9",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0032/result.json",
+      "sha256": "28fbf053664b6f6c9fec3c9b776e08219bfa658220036eb8d382b907b951c36d",
+      "bytes": 2250
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0033/intent.json",
+      "sha256": "9d3520f2ca9178cda52580499e4edeefbeb79b475b134d7a558e029200ea3649",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0033/result.json",
+      "sha256": "f1916cd805172604de2a618643f2422f32d5dc6f23dfba4879d6a2ba225a36d3",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0034/intent.json",
+      "sha256": "c1c701b6fbfa34371685394ea5dab277151fd18236f64d5e5b385b889680701d",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0034/result.json",
+      "sha256": "034a4e0f79145e76139ab0a599946f4a3a0aa0006b10bb25c582cb7c458bf691",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0035/intent.json",
+      "sha256": "261211c517045a1deddff252b4fecc01801887c2e511ecb9745450ea46de65d3",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0035/result.json",
+      "sha256": "a6206df72ce234ae6ea43d160176d4a4fd20311798e280109536c5dfdb4f65c5",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0036/intent.json",
+      "sha256": "c615868d833850de5e957af975e572d3366e25e8f76ee22db1d5bb1196751167",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0036/result.json",
+      "sha256": "c40588663952a3f40a2b17695e4cf76f6023e8076a2271428d3a06aa3251378f",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0037/intent.json",
+      "sha256": "9e1ba7669a5f97566112994f1ad648ad02d8c6dc769aa1fbb6fd8918f1f6bf57",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0037/result.json",
+      "sha256": "0568233233bd58ba75fa126615529b685dabc5518e0d320898f989c1d23281b1",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0038/intent.json",
+      "sha256": "24a194b03c71dec0d0e9036d3ed7ec7be2dfbb34b02d24d4fe4b3980419e222e",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0038/result.json",
+      "sha256": "3f362bdd44f45263501666c92875c8f7f183fc1117d9bdff2cf401cac35298bc",
+      "bytes": 2254
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0039/intent.json",
+      "sha256": "258a95da3bd4c0db0e650a04fa39cb6e9b2086678f0b58dea1a38741033ee9bc",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0039/result.json",
+      "sha256": "1d424cd55a4059c9774e60e5157158e611c1dba82f6a48ddd486ff7f4d2d0c96",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0040/intent.json",
+      "sha256": "877e403c92dd83a712d547356a2c68abc17c94c21ac092720c197309e6e5cdd5",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/0040/result.json",
+      "sha256": "e17cf2fc98e19b4dbb3d65c3dafb75e898e4e311009647e31a17e6556bb829c7",
+      "bytes": 2251
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/owner-lookup.json",
+      "sha256": "778d7e21ff4296be9b854e33dd77fc5138354c30b7a16a3e8d7faa46d3f508e7",
+      "bytes": 1061
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-cached-40/plan.json",
+      "sha256": "b8db642363a2b9ea898dc04c3dd4ebb022f8b8d735076dc01ae11e7629f3cbe3",
+      "bytes": 98925
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0001/intent.json",
+      "sha256": "280a9d10377232cd0a20565edb2fb9fe2b2ee2aa5e72d15e705400b2221e9dcd",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0001/result.json",
+      "sha256": "27e09a5d36c49a5c066d66f804edd44e4676c372843141451d2b2a40a12b1cd5",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0002/intent.json",
+      "sha256": "aecfef7c2dc1087534a99498425587b8d07e087944e6c227924f4abef4f12443",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0002/result.json",
+      "sha256": "c1c4a3c309f3019ed693ec70ff8b6551c13adde2b727e87f53f36187513cabf6",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0003/intent.json",
+      "sha256": "6462e88db423d1a6f1761ed6c656c3291b5be2fcc59024a125fe20040429009a",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0003/result.json",
+      "sha256": "4d02ee38a4618d81e97689aa3c01d964017e5590b4be449acd0aa74dd3624b33",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0004/intent.json",
+      "sha256": "982886fc2bbf3fc39e4a54874d38b0d6e83f74c44c88d20d104eba2f652e3ea0",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0004/result.json",
+      "sha256": "7caf217e69d65b68ac6f458b73134a79f64a2455896bc676195eca6b425b2cce",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0005/intent.json",
+      "sha256": "2a358d90ab638e67a2b6eb432d056fe5ac0f33607147c0c3bc46e6a13b16f5b9",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0005/result.json",
+      "sha256": "ae7107f9a7516c8d11b94782a5753ff12254bbe3195a7e36add34457c1ae8618",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0006/intent.json",
+      "sha256": "9ff1e6513285a2d5915dde08cb20fb0ecee46f757630853e391a7a21415f1308",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0006/result.json",
+      "sha256": "35c992c97891fecb741bdf73f7c32057d5eb63b58d46127ceac96744302cbb68",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0007/intent.json",
+      "sha256": "d7c41674fb06a7502af0e9d5c0350618f7ccf95c26a274c869b0143e58ee470e",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0007/result.json",
+      "sha256": "82c0112b837b094851874f169e1eacf6102fdc45fbe44c9914915ee69f9d6db3",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0008/intent.json",
+      "sha256": "8fea941b3e2829f70c65e0b2e974bbc10fc28dc458fa4d39ede7796304b5216e",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0008/result.json",
+      "sha256": "2e0636d29e8d2fd2a4c19b222d1998fe15a2f7a59f23b3091c59d848ef6ac63d",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0009/intent.json",
+      "sha256": "5a48e15fe5899372ecc6494d1584c075825ceaa6d2f0964ea8fd024bad2c67f9",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0009/result.json",
+      "sha256": "5b3ca3264a2d0a8a3de31433ecb0ad678c54dcde393a008dc8b34aada15fb243",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0010/intent.json",
+      "sha256": "8cde1a6d755d6612203a910c24af2596d3d0cc71cb4a9064b5e6519b0f02c60d",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0010/result.json",
+      "sha256": "5426aaaddf7db920efbefb0a076edbd1c95323b5fe8c774d40fa5738760aeed4",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0011/intent.json",
+      "sha256": "4ab9f2cfeedddaab3240453aa11955838e1a3eeb1ed4a3ce17c0c105c8a8fedc",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0011/result.json",
+      "sha256": "b78be39bdbc2a9a4f5b9e97c5c32fa75935a98404951aa04a7617e11926ec0af",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0012/intent.json",
+      "sha256": "dd8eb1cdaeec20ed233078e39752729a282b38d64dcea09967f90dfdfdb74545",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0012/result.json",
+      "sha256": "372bf898c36998d8d69902d593aaaac7aedd1da7f998b8d543990ae69061ccab",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0013/intent.json",
+      "sha256": "099d82b4bd6d3d9ebd09e63a990109943b63aa3f1fcc6f548d32cbddf5ba4c53",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0013/result.json",
+      "sha256": "d0b93ab02aa8a8dc05a22c1c3b0b0ced05fd49e3228e2385a63bb049541ea06a",
+      "bytes": 2230
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0014/intent.json",
+      "sha256": "7a395960460c3e1eede1896c4b9f4a4a58d7fb6d63fc98d6827f7f40bfebbf38",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0014/result.json",
+      "sha256": "7fd62293be0619c13b8e65687d7037e9f8ef3c456790bd7983940d1aaf82633a",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0015/intent.json",
+      "sha256": "cbf1e4c14d3f18a104fa2c90ee591165c5b4c312c70f919d924923db2a16d5d0",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0015/result.json",
+      "sha256": "fb6db11c4fbf7b6101239d216967217483a7cd881a4ff227b62a6b2875016c05",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0016/intent.json",
+      "sha256": "77c2d04c4f39bff92386abdf64be9b52485ac3cfa682edd61f0d330915fbd232",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0016/result.json",
+      "sha256": "8812e230a9305f83f3db850532f5b248c4dde9b2db218aa542cc92a165886df3",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0017/intent.json",
+      "sha256": "9d783f44be82d1d681db307f5ac6dbf6cbde25dfe60b9d80d1e892321d36baa0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0017/result.json",
+      "sha256": "9fd7a6a706b32e7358a6409ae628618c0c22120bb87c6947ac36d3dfafa7615d",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0018/intent.json",
+      "sha256": "15d61d90840c1835187fd9e2f70b9d3a4f0d3b5dd77b22dc33de0cd3d54c7c02",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0018/result.json",
+      "sha256": "8d97eebac77c51527a26b5d3a6e23e094a155566aeccffdd5ea024d2db38ad91",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0019/intent.json",
+      "sha256": "497f06e53b60f9112c419ca058fb399d2b29db107fb80ab15c7edd7b06c9dab0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0019/result.json",
+      "sha256": "c2ff0db66a1ded49ef46428afacb242c3181d2beb4239db1b6b642a370bef3b2",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0020/intent.json",
+      "sha256": "a33ff036b487c6fb6ede836f270db168aad99a20502be1667b718a3aaa95cb13",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0020/result.json",
+      "sha256": "36bfdd80b5c30758036dc87df82dc00fbde3a7a3712421467f71e46907955195",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0021/intent.json",
+      "sha256": "c08be42c9929c1fc17e8dedbaff54b3b1908eb8fa7181171325d29f5c78b81a5",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0021/result.json",
+      "sha256": "6fdee4f0b3a6aa21c710581ae7c01168e99f33478ac517f05fee5a1cf8e90b74",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0022/intent.json",
+      "sha256": "4be8408ded4d42c0d605dc3edbaa11f9c6c4be6ee8da9f5574ac9380327b3ffb",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0022/result.json",
+      "sha256": "7f4c4dfab3a7fea383c57fd5d01a5db9c889dd9d7df06a9a15ca895492f7b84b",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0023/intent.json",
+      "sha256": "311d7e850afdb7cd47e21b5c7b71635e962469dd5d79ac773fa3c645a0c6bee4",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0023/result.json",
+      "sha256": "56eacd5bce7142c2c0b1920814a25de5ee3461c4c8e720f84d5fd232efe98c34",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0024/intent.json",
+      "sha256": "a2bd578a3a1fc6368817146f51cb2093e6472f42925ca6df245eb66cba8d67ba",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0024/result.json",
+      "sha256": "adc204868236749e4a339872910c6faf0cc8a5dbe42cb60a09e56343841afae6",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0025/intent.json",
+      "sha256": "1100a107368be321d99b6a2fbde011f0e7d38033282979a6af44eb293681a8e1",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0025/result.json",
+      "sha256": "144af2864eb246ad6b7e8df7018311a7efb73fa9fd0a9e656ebe13c4720af3cc",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0026/intent.json",
+      "sha256": "746ee7df2d4e3ee91240e0dc32f9a551c2defdb02be7252a15418c094e4cb0c0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0026/result.json",
+      "sha256": "0a18afe8d66e12ee56a3393d7b2c612e790e5d1aa854b69d0a29b1e5b38afccc",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0027/intent.json",
+      "sha256": "1d27a87565d2a277dde411d94616a4f1619a16c0c2c56f4acd6917d1569640b1",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0027/result.json",
+      "sha256": "2fad0d2b662eaed9b1a58746f38084c4a4cca5189a547e4708a24f27280455ed",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0028/intent.json",
+      "sha256": "fde6be71d0d4af8b03b0cb5542712237bca093f9fb452719a25a6cf5a6a4f2ba",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0028/result.json",
+      "sha256": "990ac70511e3c12dff7a54a3052f235cc9a0d0c222c3f2bf4467ead43fd783b8",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0029/intent.json",
+      "sha256": "9281737da87dd9dfa24ec0ab6a8c46c739412407b65a30806eeab613840dd8fc",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0029/result.json",
+      "sha256": "99414e292280f28baa9f873e0b653411b67c81120c52107696cb499009ac2ef0",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0030/intent.json",
+      "sha256": "1e439a13aeb7af64fa950956aec6570c002699f0ed1c3e64e027f331803161b8",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0030/result.json",
+      "sha256": "a02ee4daf25f45c4988f9efd49341943f63588fe7be68cfeec8df7e1e5a06ed3",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0031/intent.json",
+      "sha256": "9510648e37cff3a73c06d53f32658b1d85b68702e179130fb88d88a6ec6cab27",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0031/result.json",
+      "sha256": "654b6d1d3930dfb735bbd1ed225d8f3ec367e0fbca16c81a1e39997a22fad286",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0032/intent.json",
+      "sha256": "5d7ddadb601b53c60197bc935c591bcc22c7b0850ad04454e85121bac95da065",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0032/result.json",
+      "sha256": "4383664d90079e1eddae4956d3eafbd7646b5dd765dfdf17358590790106774d",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0033/intent.json",
+      "sha256": "77f5b111022e9e6dd42eb9ca5d14f3ecb21ffd45e1da9d8b02772b2fb987f5b1",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0033/result.json",
+      "sha256": "eae9116b7a24f7f2521960a4003116875ec3a83b49f1ea77bf0eb6eb8cf86687",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0034/intent.json",
+      "sha256": "709fd94eb60934888295f9a8fcab951c76ce784a130c02ac89a314d7bc0549e6",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0034/result.json",
+      "sha256": "ebcdff9fb9075b967d93d8f7c100c0628e8f96be8bd1d3a411016fd592361de8",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0035/intent.json",
+      "sha256": "3a2f4e5d982372587aed1f99d9841b7f56840a2f4ad4753292766d7e1d7065d1",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0035/result.json",
+      "sha256": "087d4b239689524d36a5d83be538c19dac2818cebc2b4937966376a62c9dca52",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0036/intent.json",
+      "sha256": "d31d288947960456f4db7e7acf4e97d0425697acf48c8c877c927a8172170a5d",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0036/result.json",
+      "sha256": "34ab86ac818962b365ba5ed5482d0e4e11687b60f8f8c6f1d999d24b5da28368",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0037/intent.json",
+      "sha256": "d802b0fd1d31ad775069640506990ea1dd963bb10d856d3b122f55510afb0816",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0037/result.json",
+      "sha256": "61208ac61eb6deab5b00939c3734e671c6f486176ad668d3a4cab796263fafb5",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0038/intent.json",
+      "sha256": "875812891a5b25513005c9f8e48700272a028f86e9d82071cebe2b227cfeae2f",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0038/result.json",
+      "sha256": "af3e7854a4675e26c76b1e6d43bbb961d5d6fd8e93f1c7bc40eddb6e3217c027",
+      "bytes": 2236
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0039/intent.json",
+      "sha256": "9e593eda6e719c76673dc015e923b5569def156603ef5f8d7f25f0ae00d2890b",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0039/result.json",
+      "sha256": "0fc1c0e9bfe647c18c2a0f360dd54ea2a2ce352b5db7f511553260141ef1a7ac",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0040/intent.json",
+      "sha256": "b354a59c1300e3bb14435e42e425f517f326cd4324ee01a44c0aad0cd9866620",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0040/result.json",
+      "sha256": "c49ee0a264196937b6604ec8ca764d369a7f03289bf94f39885e41af83a89f54",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/owner-lookup.json",
+      "sha256": "c6d19146faffb703c6d5ef3fef020cdbad4b47633d90339ec677aa0e198e8121",
+      "bytes": 1061
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/plan.json",
+      "sha256": "3bb6635489d3b6fad417678afa14018bff6fa0422f8132d992d6a5e4e4816774",
+      "bytes": 37163
+    },
+    {
+      "path": "docs/evidence/neural-v7-boss-paint.json",
+      "sha256": "2bbd42c71c2f60e000c1eed2d6344ae3bcbb82053040e68b4ae4674c79ad0677",
+      "bytes": 14999
+    },
+    {
+      "path": "docs/evidence/neural-v7-boss.json",
+      "sha256": "93f57790cf7b9167601029eeee421b228268e495af010e2524a396c26fbd86c8",
+      "bytes": 19252
+    },
+    {
+      "path": "docs/evidence/neural-v7-candidate-boss.json",
+      "sha256": "544c2d54f7db20e83fa4308bcd3ed030c291f329d9583d010ceec9285e21eb6c",
+      "bytes": 50452
+    },
+    {
+      "path": "docs/evidence/neural-v7-control-boss.json",
+      "sha256": "bad756d65fbc1cb8d02f29e94b777bc2eae06cf0ea21a4977629dc48c1325981",
+      "bytes": 29929
+    },
+    {
+      "path": "docs/evidence/neural-v7-decision.json",
+      "sha256": "8e0de4dd10e6b7caa4826d4645686f0bbeaf0af8cc677764cb589d4c077568f5",
+      "bytes": 1059250
+    },
+    {
+      "path": "docs/evidence/neural-v7-final.json",
+      "sha256": "6abd7ac8b71d71dffc8f5f4385c73c02c4e277f5b7e972d80a762f8eb6fa6116",
+      "bytes": 337581
+    },
+    {
+      "path": "docs/evidence/neural-v7-local-artifacts.json",
+      "sha256": "44d6b52b97210b5e3360a7d74e9f5ad9208e2a640cc4c8c32e0f2e4caf86e839",
+      "bytes": 198665
+    }
+  ],
+  "newGames": 0,
+  "arenaPublicationPerformed": false,
+  "promotionPerformed": false,
+  "scope": "Public eighty-game plans, one-attempt intents/outcomes, independent actual-map/core audits, traces and warnings, authorization, readback hashes, final gate and future exclusion registry.",
+  "excluded": [
+    "All private credentials/session/bootstrap/IDE backups",
+    "Raw canonical replays",
+    "Raw play responses"
+  ],
+  "canonicalCorpus": "Retained locally outside ZIP; each actual canonical file is hash-pinned by stage/final audits."
+}

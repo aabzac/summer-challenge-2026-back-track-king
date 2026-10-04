@@ -141,16 +141,21 @@ The retained schedule is `python tools/neural/run_outcome_v4.py`;
 for time, retaining V6 features and V2 weights. All800 ample-time actions match V6;
 the actual-prefix diagnostic fills96/96 unused paint, without proving a payoff gain.
 All466 tests and strict process8/8 pass. Fresh practical-v4 versus v09 scores
-**653/1000 (65.3%)**, zero errors. The required fresh40+40 boss stage is pending;
-no automatic promotion or arena upload. [Protocol](docs/neural-policy-v7.md),
-[local evidence](docs/evidence/neural-v7-v4.json).
+**653/1000 (65.3%)**, zero errors. The fresh matched boss stage finishes **14W26L
+versus v09 15W25L**: combined **NOT_PASSED**, all 80 replays exact. Early paint is
+94.83% overall and 91.74% on 24 tall maps. This does not demonstrate that under-spending
+is resolved, or establish a gain over V6 on different maps. IDE contains exact V7; default
+remains v09, with no promotion or arena upload. This bounded experiment is closed;
+the separate Indrill representation diagnostic remains next. [Protocol](docs/neural-policy-v7.md),
+[final evidence](docs/evidence/neural-v7-final.json),
+[live archive](docs/evidence/neural-v7-live-artifacts.json).
 
 `neural-v6` reuses exact feature path searches within preparation, with unchanged
 V5/V3 policy and V2 weights.800 actions and11.8million feature values match exactly;
 one local measurement reduced play time22.73% overall/30.82% on tall maps.452 tests,
 strict process8/8, fresh practical-v4 vs v09 **643/1000 (64.3%)**, live boss **20/40
-versus cached v09 11/40**: combined PASS. All40 new CG replays are exact. IDE contains
-V6; default/local selection remains v09 and no arena upload was performed. CG still
+versus cached v09 11/40**: combined PASS. All40 new CG replays are exact. At completion,
+IDE contained V6; default/local selection remained v09 and no arena upload was performed. CG still
 spends only88.33% of nominal early paint on tall maps and emits some wall warnings;
 this is not proof of complete timing safety or a paired strength gain over V3/V5.
 [Protocol](docs/neural-policy-v6.md), [final evidence](docs/evidence/neural-v6-final.json).

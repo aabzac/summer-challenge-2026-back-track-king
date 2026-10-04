@@ -4757,3 +4757,41 @@ input outside replays/ reached the explicit deny guard. Preserved the original h
 and repair manifest; corrected only evidence-file selection, kept every input hash
 check and final deny guard. No games or outcomes changed. Subsequent ZIP entry/hash
 verification passes. Future live evidence uses a separate archive; this one is immutable.
+
+### 2026-10-04 — neural-v7 completed fresh live gate: NOT_PASSED
+
+Completed exactly the authorized40 fresh v09 control games and40 matched neural-v7
+candidate games, one request each and no replacements. V7 scores14W26L0D against
+control15W25L0D; the predeclared candidate>=control criterion fails. Local653/1000
+and strict process8/8 cannot rescue this result. Retain V7 as a rejected candidate;
+selected/current remains v09, with no promotion, push or arena publication.
+
+All80 canonical replays validate exactly with the shared core, with zero technical
+failures/skipped commands,80 unique game IDs and40 unique actual map hashes matching
+the prospective schedule. Every matched pair has the same seed/map/seat, all40 maps
+are disjoint from18,800 prior/local maps. Final read-only IDE check confirms exact
+V7 source53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8;
+the prior V6 backup is retained. IDE still contains V7 as explicitly authorized.
+
+Under-spending was NOT eliminated. V7 early accepted paint2276/2400=94.8333%; on
+24 tall maps1321/1440=91.7361%,6W18L, versus8W8L on16 smaller maps. There are77
+short-paint early turns,73 on tall maps. Early self-reported wall warnings82,
+including65 coincident with short paint; full-game warnings132, max52ms. These
+warnings do not establish official timeouts or identify the abort phase. All-game
+paint7779/8091=96.1439%. The fresh pool differs from V6's historical pool; these
+paint/win numbers are not a paired V7-vs-V6 improvement or regression estimate.
+
+Final evidence docs/evidence/neural-v7-final.json SHA
+6abd7ac8b71d71dffc8f5f4385c73c02c4e277f5b7e972d80a762f8eb6fa6116.
+Separate live archive207 files/657,157 bytes SHA
+384ca48d3f4e287605ca17c57e3c26af5a34a9ac256d0ab5f5a839270010af66.
+The998-file local archive remains unchanged. Archive contains public plans,
+one-attempt intents/outcomes, actual core-map/replay audits and traces; raw canonical
+and private session/IDE data remain locally retained and hash-pinned outside it.
+Future fresh strength pools exclude the40 new maps via the retained registry.
+
+Decision: close this bounded neural follow-up without claiming the original
+under-building problem solved. Preserve V6 as the previously qualified neural
+baseline and remaining timing/fallback questions as future work. Continue the
+user-authorized return to the separate fixed Indrill supervised representation
+and optimization diagnostic; no further neural tuning in this experiment.

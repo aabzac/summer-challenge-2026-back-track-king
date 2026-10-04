@@ -135,7 +135,7 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
-## Candidate: neural-v7 Deadline Extension (2026-10-04, LOCAL_PASS_BOSS_PENDING)
+## Candidate: neural-v7 Deadline Extension (2026-10-04, NOT_PASSED / NOT_PROMOTED)
 
 One follow-up to V6's remaining CG under-spending before returning to Indrill.
 Same V6 features and V2 weights; only deadline/reserve cutoffs enable a bounded
@@ -164,17 +164,32 @@ pooled653W347L0D/1000 (65.30%), PASS_1000, two workers, zero errors. All500 maps
 from4200000/4300000/4400000 match the prospective registry and are disjoint from
 18,300 prior maps. P0score65.4%, P1score65.2%; source/runtime/artifact pins remain
 stable. This is qualification versus v09, not direct superiority over V6.
-The live stage requires fresh40 v09 controls plus40 matched V7 games because the
-previous boss games now guide development. No live games or promotion yet.
-The exact v09 control also passes its separately declared strict8 checks (max later
-41.4440ms). The new forty-map schedule is frozen and disjoint from all18,800 prior
-and V7-local maps. Current V6 IDE source is backed up; the user has authorized the
-new80-game action. Actual CG map identities and engine fidelity remain to be checked.
+The authorized live stage completes 40 fresh v09 controls and 40 matched V7 games:
+**V7 14W26L0D versus v09 15W25L0D**, below the required control score. Combined
+practical-v4 verdict **NOT_PASSED**. The exact v09 control passes its separately
+declared strict 8 checks (max later 41.4440ms). All 80 unique replays reproduce exactly,
+and all 40 actual core-map hashes/seats match the prospective schedule, disjoint
+from 18,800 prior and V7-local maps. Zero technical failures, skipped commands,
+uncertain requests or retries; losses were not replaced.
+
+Actual first 20 turns spend 2276/2400 paint (94.8333%) overall and 1321/1440 (91.7361%)
+on 24 height 18-20 maps, where the outcome is 6W18L. Own stderr contains 132 WARN lines
+over full games and 82 in the first 20 turns; these wall warnings are not official
+timeouts. These results do not demonstrate that under-spending is resolved. Historical
+V6 used different maps, so these descriptive metrics and scores do not establish V7>V6.
+
+Final readback confirms exact V7 in IDE; the original V6 source backup is retained.
+Selected/default strategy remains v09, with no promotion or arena publication.
+This bounded neural experiment is closed; the Indrill representation diagnostic remains
+next. The immutable live archive retains 207 public files/657,157 bytes separately
+from the sealed local archive; canonical/private responses remain hash-pinned outside it.
 [Protocol](neural-policy-v7.md), [prefix evidence](evidence/neural-v7-prefix.json),
 [production mechanism](evidence/neural-v7-mechanism.json),
 [strict verification](evidence/neural-v7-verification.json),
 [audited local gate](evidence/neural-v7-v4.json),
-[prepared live comparison](evidence/neural-v7-boss-preparation.json).
+[prepared live comparison](evidence/neural-v7-boss-preparation.json),
+[final audit](evidence/neural-v7-final.json), [combined gate](evidence/neural-v7-decision.json),
+[CG paint](evidence/neural-v7-boss-paint.json), [live archive](evidence/neural-v7-live-artifacts.json).
 
 ## Candidate: neural-v6 Resumable Feature Paths (2026-10-04, PASS / NOT_PROMOTED)
 
@@ -199,7 +214,7 @@ pinned. Completed40 new games:20W20L versus cached11W29L, PASS, no technical
 failures, retries or replacement outcomes. All40 new replays reproduce exactly;
 the descriptive audit also validates all40 cached controls. The unchanged default
 corpus separately remains292/292 exact. Final combined practical-v4 verdict PASS;
-this is eligibility, not automatic promotion. IDE now contains the exact V6 source;
+this is eligibility, not automatic promotion. At completion, IDE contained the exact V6 source;
 no arena publication or local selected-strategy change was performed.
 
 Actual CG first20turns:2304/2400paint (96.0%) overall,583/660 (88.33%) on11 tall

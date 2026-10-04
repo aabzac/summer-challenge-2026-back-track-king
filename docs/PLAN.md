@@ -632,7 +632,7 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       games. Record `evidence/indrill-reward-audit-v1.json` and the Q-v2 follow-up review.
 - [ ] First separate representation from outcome learning with a fixed supervised
       teacher-set/ink diagnostic on the existing Q observations (map/game-grouped split).
-      Resume this direction after the bounded neural under-spending follow-up below.
+      This is the next step after the completed bounded neural-v7 follow-up below.
 - [x] The previously proposed neural-v1 outcome fine-tuning was completed as neural-v2;
       its trained weights are retained by neural-v3/v5/v6. It is not a new pending proposal.
 - [ ] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
@@ -744,13 +744,17 @@ then return to Indrill. Preserve the completed V6 experiment and its frozen arti
 - [x] Complete the fixed practical-v4 local strength gate against selected v09:
       653W347L0D/1000,65.30%,PASS_1000,two workers,500 fresh maps,zero errors;
       all prospective map/source/runtime/artifact pins independently verified.
-- [ ] Complete the authorized fresh40-control +40-candidate boss regression.
-      Outcome-guided boss maps are development data; refresh the matched control pool
-      before any subsequent boss gate. V6's prior IDE authorization is version-specific.
-      Exact v09 strict8 PASS; fresh forty-map schedule prepared, current V6 IDE backed
-      up and new80-game authorization received. No CG games have been started.
-- [ ] Record and commit the accepted or rejected result, then resume the separate
-      Indrill representation diagnostic; retain unfinished ideas as future work.
+- [x] Complete the authorized fresh40-control +40-candidate boss regression:
+      V7 14W26L versus v09 15W25L, combined NOT_PASSED; all80 replays exact,
+      all40 actual maps/seats match the prospective fresh pool, zero technical failures
+      or retries. Exact V7 remains in IDE; default v09 and arena are unchanged.
+- [x] Record and retain the rejected experiment with its completed evidence and
+      separate immutable live archive (207 files/657,157 bytes); commit this result.
+      Early paint 2276/2400 overall,1321/1440 on 24 tall maps does not demonstrate
+      resolved under-spending or superiority over V6's different historical maps.
+      See evidence/neural-v7-final.json; retain unfinished ideas as future work.
+- [ ] Resume the separate Indrill representation diagnostic above; no new training
+      or further neural tuning is part of this completed experiment.
 
 ## neural-v5: exact hypothetical completion income (2026-10-04)
 
