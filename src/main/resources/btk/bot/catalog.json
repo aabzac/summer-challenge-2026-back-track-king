@@ -135,6 +135,13 @@
       "description": "Exact neural-v5 weights, features, candidate order and cooperative deadline with resumable Dijkstra per source town and semantic block mask. No retraining or policy change; separate unpromoted runtime experiment."
     },
     {
+      "id": "neural-v7",
+      "title": "Neural Deadline Extension",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Frozen V6 policy and V2 weights with bounded stable own-network construction only after a neural deadline cutoff; completed choices and ample-time behavior are preserved."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

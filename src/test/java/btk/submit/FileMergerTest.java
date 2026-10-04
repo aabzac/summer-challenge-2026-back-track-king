@@ -480,6 +480,22 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("neural-v5")));
     }
 
+    @Test void neuralV7BoundedFillShipsOnlyForV7AndPreservesFrozenArtifacts() throws Exception {
+        String source = FileMerger.merge("neural-v7");
+        assertTrue(source.contains("USE_NEURAL_FALLBACK=true"));
+        assertTrue(source.contains("NEURAL_FALLBACK_MAX_INSTABILITY=0"));
+        assertFalse(source.contains("NeuralV7Bot"));
+        assertFalse(source.contains("NeuralV6Features"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("neural-v7", true);
+        assertEquals("0597d5b7fba6fed69313c313f422616784d18acc7219c6d4b7835a7abd90b155",
+                FileMerger.sha256(FileMerger.merge("neural-v6")));
+        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "neural-v5", "neural-v6", "indrill-q-v1", "indrill-q-v2"}) {
+            assertFalse(FileMerger.merge(prior).contains("USE_NEURAL_FALLBACK"), prior);
+            assertFalse(FileMerger.merge(prior).contains("NEURAL_FALLBACK_MAX_INSTABILITY"), prior);
+        }
+    }
+
     @Test void indrillSubmissionShipsOnlyTheActionValuePolicyAndMatchesDecisions() throws Exception {
         String source = FileMerger.merge("indrill-q-v1");
         assertTrue(source.contains("static final class IndrillFeatures"));

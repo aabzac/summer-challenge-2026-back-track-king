@@ -73,7 +73,7 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 2, fields, "only the independent later policy and V3-only deadline fields are absent from the v09 record");
+        assertEquals(expected.size() + 4, fields, "only the independent later policy, neural deadline and two V7 fallback fields are absent from the v09 record");
         FrozenParams.applyTo("v09", dirty);
         assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())

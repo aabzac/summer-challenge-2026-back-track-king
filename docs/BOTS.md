@@ -135,6 +135,47 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Candidate: neural-v7 Deadline Extension (2026-10-04, LOCAL_PASS_BOSS_PENDING)
+
+One follow-up to V6's remaining CG under-spending before returning to Indrill.
+Same V6 features and V2 weights; only deadline/reserve cutoffs enable a bounded
+stable/protected extension next to own rails. Completed neural choices and target
+remain intact, and completed empty-candidate decisions do not trigger fill.
+Earning membership is frozen at the accepted prefix; no path recomputation in fill.
+
+The fixed actual-prefix diagnostic validates all40 V6 boss replays and800 early
+states. All70 underpaint turns have legal and V6-eligible continuations (96 paint,
+77 on tall maps). Its exploratory fill spends all96 but changes immediate net
+income in3 positive/2 negative states (65 neutral; min -3, total +2). More paint is
+not a strength result. Production fill on those same70 prefixes also recovers96/96
+paint; all800 ample-time actions match V6. Fixed-clock and real-clock fill actions
+match in70/70 calls; local max0.2768ms, p95 0.2145ms. This ample-time diagnostic
+does not establish recovery under CG's actual remaining budget.
+
+All466 Java tests pass, baseline engine292/292 exact; the separate diagnostics
+validate40/40 V6 games. Exact artifact99,358/100,000 characters, source53551d0e...e7ea8;
+regenerated V6/V3/v09 are unchanged. Strict8-game zero-grace process panel PASS8/8,
+max first711.7606ms and later36.8594ms, no retries. The original three failures in
+old parameter-count assertions and a repaired diagnostic assertion are retained;
+neither required a candidate-policy change.
+
+Fixed practical-v4 against selected v09 completes178W122L/136W64L/339W161L,
+pooled653W347L0D/1000 (65.30%), PASS_1000, two workers, zero errors. All500 maps
+from4200000/4300000/4400000 match the prospective registry and are disjoint from
+18,300 prior maps. P0score65.4%, P1score65.2%; source/runtime/artifact pins remain
+stable. This is qualification versus v09, not direct superiority over V6.
+The live stage requires fresh40 v09 controls plus40 matched V7 games because the
+previous boss games now guide development. No live games or promotion yet.
+The exact v09 control also passes its separately declared strict8 checks (max later
+41.4440ms). The new forty-map schedule is frozen and disjoint from all18,800 prior
+and V7-local maps. Current V6 IDE source is backed up; the user has authorized the
+new80-game action. Actual CG map identities and engine fidelity remain to be checked.
+[Protocol](neural-policy-v7.md), [prefix evidence](evidence/neural-v7-prefix.json),
+[production mechanism](evidence/neural-v7-mechanism.json),
+[strict verification](evidence/neural-v7-verification.json),
+[audited local gate](evidence/neural-v7-v4.json),
+[prepared live comparison](evidence/neural-v7-boss-preparation.json).
+
 ## Candidate: neural-v6 Resumable Feature Paths (2026-10-04, PASS / NOT_PROMOTED)
 
 Frozen V5 policy and V2 weights; the sole change reuses feature Dijkstra searches

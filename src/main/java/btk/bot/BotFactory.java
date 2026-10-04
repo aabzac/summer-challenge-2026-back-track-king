@@ -9,6 +9,7 @@ import btk.bot.neural.NeuralV3Bot;
 import btk.bot.neural.NeuralV4Bot;
 import btk.bot.neural.NeuralV5Bot;
 import btk.bot.neural.NeuralV6Bot;
+import btk.bot.neural.NeuralV7Bot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
 import btk.bot.reference.PressureBot;
@@ -76,7 +77,7 @@ public final class BotFactory {
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
         if (version.equals("pressure-v1") || version.equals("leader-v1") || version.equals("leader-v2")
                 || version.equals("neural-v1") || version.equals("neural-v2") || version.equals("neural-v3")
-                || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("neural-v6")
+                || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("neural-v6") || version.equals("neural-v7")
                 || version.equals("indrill-q-v1")
                 || version.equals("indrill-q-v2")) FrozenParams.applyTo(version, params);
         return params.apply(query);
@@ -89,10 +90,13 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
-                // Only v3/v4/v5/v6 consume this deadline; historical effective configurations stay exact.
+                // Only deadline-aware neural bots consume this field; historical configurations stay exact.
                 if (field.getName().equals("NEURAL_DEADLINE_RESERVE_MS")
                         && !version(spec).equals("neural-v3") && !version(spec).equals("neural-v4")
-                        && !version(spec).equals("neural-v5") && !version(spec).equals("neural-v6")) continue;
+                        && !version(spec).equals("neural-v5") && !version(spec).equals("neural-v6")
+                        && !version(spec).equals("neural-v7")) continue;
+                if ((field.getName().equals("USE_NEURAL_FALLBACK") || field.getName().equals("NEURAL_FALLBACK_MAX_INSTABILITY"))
+                        && !version(spec).equals("neural-v7")) continue;
                 if (version(spec).startsWith("exp-") && !BotCatalog.parameterNames(version(spec)).contains(field.getName())) continue;
                 if (!Modifier.isStatic(field.getModifiers())) values.put(field.getName(), String.valueOf(field.get(params)));
             }
@@ -131,6 +135,7 @@ public final class BotFactory {
             case "neural-v4": return NeuralV4Bot::new;
             case "neural-v5": return NeuralV5Bot::new;
             case "neural-v6": return NeuralV6Bot::new;
+            case "neural-v7": return NeuralV7Bot::new;
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
             default:

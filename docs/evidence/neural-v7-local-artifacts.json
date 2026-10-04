@@ -1,0 +1,5017 @@
+{
+  "schemaVersion": 1,
+  "experiment": "neural-v7",
+  "phase": "local",
+  "localEvidence": {
+    "path": "docs/evidence/neural-v7-v4.json",
+    "sha256": "1ac22254089b7122f00be713ae814b8e43a1bf48a55c32f1b1ce35c4acf57707"
+  },
+  "stageStatus": "LOCAL_PASS_BOSS_PENDING",
+  "archive": "docs/evidence/neural-v7-local-artifacts.zip",
+  "sha256": "adcb1b967ce4e8c10e7144c163c3c8b914a9ccc7e0ed50be1ff31787b6a29ca5",
+  "bytes": 5786395,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "f414b276a2e77501ba570773c06cf068a6fb8b2996376e2e5ff3613498110654",
+      "bytes": 5701
+    },
+    {
+      "path": "bench/pools/neural-v7-block1.json",
+      "sha256": "df33fba1b7fb73abf4f05f1e07183180bd461d303f797f7abdf6dfda467f5536",
+      "bytes": 160
+    },
+    {
+      "path": "bench/pools/neural-v7-block2.json",
+      "sha256": "c2e39ab57424a7d84bf7bc42c3fe104b5d7e37aeeec8148dad1cd7bfd7ade00e",
+      "bytes": 160
+    },
+    {
+      "path": "bench/pools/neural-v7-block3.json",
+      "sha256": "9349e5eeb079374ebc9e4bfb16f08188f3a595314018cb60fa052c7c88488464",
+      "bytes": 160
+    },
+    {
+      "path": "build/analysis/neural-v7/archive-canonical-filter-repair.json",
+      "sha256": "993a4cf92e76b678ff903d5c39efa3df236b85ea7717e03dba4f0b641af16348",
+      "bytes": 53239
+    },
+    {
+      "path": "build/analysis/neural-v7/archive-plan.txt",
+      "sha256": "863a1e3bfc868c666bff0a1e7e730d95830507a8eb667454c8e3b6d26a69dcd9",
+      "bytes": 3353
+    },
+    {
+      "path": "build/analysis/neural-v7/archive_local_evidence.before-canonical-filter-fix.py",
+      "sha256": "14e5446bb9d0086814b62681899b7d08316aa20f5aa53ad6c14ed1306b49faea",
+      "bytes": 4936
+    },
+    {
+      "path": "build/analysis/neural-v7/archive_local_evidence.py",
+      "sha256": "34f8531edcf74491242252511608b4928714b603acdd7caa9f2d6ffe8172fb3c",
+      "bytes": 5156
+    },
+    {
+      "path": "build/analysis/neural-v7/audit_strength_result.py",
+      "sha256": "ba47022793679d2e9ca6eedc3c5c16504330d2cd0acd17fefcf22bdb6deae3e8",
+      "bytes": 9785
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-authorization.json",
+      "sha256": "443d20fc99a3f56ef1fcf2e0bbfdaf9364b85e9d02142d9a387c103d23c88d38",
+      "bytes": 1401
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-discovery-first.json",
+      "sha256": "39cf2c3c92da86b66344457c7226d91712686bef85e5f6ed86e0b0bc3510475c",
+      "bytes": 1667
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-map-preflight.json",
+      "sha256": "ce42957f8561f4c7cafa40364f07d86c08a43e641b966826ed3dacd2388f05dc",
+      "bytes": 36184
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-map-preflight.log",
+      "sha256": "d49e0914b55f90dd258e6aafa07f88a7d043375817bcdb0e452ca733c418c985",
+      "bytes": 75
+    },
+    {
+      "path": "build/analysis/neural-v7/boss-plan-ready.json",
+      "sha256": "ca7839eceb2855e07ef2c9e301d63d8372acbd0ff7de05ffe3ee00ee2abe25c0",
+      "bytes": 9096
+    },
+    {
+      "path": "build/analysis/neural-v7/BossMapPreflight.java",
+      "sha256": "366a3ce27b2b9343b9b74295ec57b40d932a522fd5d997ef4990b355ffd2c2ca",
+      "bytes": 4197
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/index.json",
+      "sha256": "b3abd57582b8dea4038afb7ee36fc954604b31e06d88ba2bf40e6e1b5d61522e",
+      "bytes": 1424
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/intent.json",
+      "sha256": "da0eef11af8bcf943bd81271e0eb60933c9a3e3bfc8d51805256285cebd62564",
+      "bytes": 5867
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-903510176-intent.json",
+      "sha256": "21c171a4862108f1939e712a855955f2d66b174853b87044c9ee920ee353e149",
+      "bytes": 293
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-903510176.json",
+      "sha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26",
+      "bytes": 37179
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-903510176.log",
+      "sha256": "d5f0fac6f7d05697badadaf4cb877d291e45322a384108e0edc9bfdf4ddb6985",
+      "bytes": 2399
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904146009-intent.json",
+      "sha256": "4be6e7a765a143a26c2d69ec35433dbad0ada605e92aaaffcefbe891321ba9ad",
+      "bytes": 298
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904146009.json",
+      "sha256": "40d9c996c62367adef01c99934fda1d5d998ecda289fe9fa7b70a7c42dc15fa7",
+      "bytes": 45123
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904146009.log",
+      "sha256": "0906c6c79036e38b8863c503275ebbddf60859ba6aba331c134eb4fcb1d2abb5",
+      "bytes": 3121
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904147739-intent.json",
+      "sha256": "28a0fdbd15d202b5a40ca14e2c4986d05281b8b893d370d79cfff03919c4c009",
+      "bytes": 298
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904147739.json",
+      "sha256": "d95b84413b0f7d56e90d9e53bac566aa329fcd183065e0687a0929d4587e989d",
+      "bytes": 44632
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904147739.log",
+      "sha256": "9ec66eb6beb424554d8468056eb5f2153cb9f92f45e21c9752ae9ac74ad7eefa",
+      "bytes": 2849
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904148181-intent.json",
+      "sha256": "f2217efa16f63c084b7d5a55f99ff7b9fa645e5f1440f19f8a49f7a5955505d6",
+      "bytes": 298
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904148181.json",
+      "sha256": "5c6861a32c9992dfae40c87fd2215375fff0398adfe1cc30693d1bec8328aa58",
+      "bytes": 52812
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904148181.log",
+      "sha256": "08b5a6ce6fd305988e428040d4e1f2b5e27003f32d28ff311427f784931ef301",
+      "bytes": 3168
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/summary.json",
+      "sha256": "fbb057cb8b7d7e890da98740fa5014721211465d860c9739c58b6faae137b2e1",
+      "bytes": 4642
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process-protocol.json",
+      "sha256": "fb4caa94a9cb8aec62e27a4c124f397ae13accb9d33a2d4988adb0ad0b8986c6",
+      "bytes": 1406
+    },
+    {
+      "path": "build/analysis/neural-v7/fresh-map-preflight.json",
+      "sha256": "42f460aee95b0b2d2e41ad48c3c62fbec65263e2cd59c527eb9944fccb0a3474",
+      "bytes": 107678
+    },
+    {
+      "path": "build/analysis/neural-v7/fresh-map-preflight.log",
+      "sha256": "920e5cecb58139387ebbc1ca94edb76573bfd22dd368db99a81c8664699d0531",
+      "bytes": 57
+    },
+    {
+      "path": "build/analysis/neural-v7/FreshMapPreflight.java",
+      "sha256": "94812b902d8ace0e252a27b5e5822ecac5c15660432574eea776d55c142b867b",
+      "bytes": 3882
+    },
+    {
+      "path": "build/analysis/neural-v7/frozen-preflight.json",
+      "sha256": "1f2d556133089028d033f3ebc17bd2e5d75dbeb78e7cb9f064018b284e439afb",
+      "bytes": 355282
+    },
+    {
+      "path": "build/analysis/neural-v7/frozen-source-baseline.json",
+      "sha256": "c6212d56d26447da7a2cb6bc24efaae9542b7981502cf0a70001e966345b5d46",
+      "bytes": 30685
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/classes/NeuralV7SavedStateCheck$Filled.class",
+      "sha256": "ad484a9da2b0ac21f523d9f125395900ded109edbbb512f21e96a801e7dd5d72",
+      "bytes": 1730
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/classes/NeuralV7SavedStateCheck$Input.class",
+      "sha256": "cc3f590a3b1fde1ceab7b9055dc7c55f2111291296746800d41b60e39b25b058",
+      "bytes": 1811
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/classes/NeuralV7SavedStateCheck$PrefixCase.class",
+      "sha256": "f0bf237672a8406de5d9a3817e6583c29c35ad14808fb6517d6dfde165842a61",
+      "bytes": 2244
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/classes/NeuralV7SavedStateCheck.class",
+      "sha256": "ecff12a64eaa021333476c75b201695b27091c5329d986965fbfce6a608ee4b7",
+      "bytes": 30215
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/classes/NeuralV7SavedStateCheck$Filled.class",
+      "sha256": "b2541ab357a96bfb7bfa549de2e309a7f4b7a6631b4c3cb02da740df54258108",
+      "bytes": 1730
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/classes/NeuralV7SavedStateCheck$Input.class",
+      "sha256": "107a162f13188c2816465973d5b45f9991dea9f5f43f12af03762e30cc798f4c",
+      "bytes": 1811
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/classes/NeuralV7SavedStateCheck$PrefixCase.class",
+      "sha256": "41997f4da7fecbf347cdce0b3fb1e05efea6c2699284d2b404c2305bd4f91221",
+      "bytes": 2244
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/classes/NeuralV7SavedStateCheck.class",
+      "sha256": "ce9d0a2975797354d51df7c7e29b6b282496a560f2b937cc8f08f7a3aadbb8f6",
+      "bytes": 29524
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/intent.json",
+      "sha256": "3a287fbc1913dd408888d1f567c700fa42be169f18cabf22fd0c1712a42998a5",
+      "bytes": 95848
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/NeuralV7SavedStateCheck.java",
+      "sha256": "d4fe0343eaf2d95bb6b5d4b2d6e360dc07443a034174ffb1d66ab5a2f176dfdd",
+      "bytes": 23379
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/repair.json",
+      "sha256": "56d4f4a74afaa2a9bae86acf113857b871754c448f26e00ee758134c80bd1955",
+      "bytes": 2614
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/failed-overlay-assumption/run.log",
+      "sha256": "9a46dca49bcfb78e686bbccd6523e12b4428a6bf86cffc59f3498dc6bcd4fd72",
+      "bytes": 520
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/intent.json",
+      "sha256": "0896f89bd467ae67d991c67349e0c97f66d4b48086860d705eed94e13e138510",
+      "bytes": 98032
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/result.json",
+      "sha256": "15b16fecf94707a976f24098f71f353743a809132f6898e87fc9757c86278be0",
+      "bytes": 438928
+    },
+    {
+      "path": "build/analysis/neural-v7/mechanism/run.log",
+      "sha256": "479480e1bd7443d3003cc6629683e2596c0457eee8e83c0b77e2c1513b9acff8",
+      "bytes": 3818
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$1.class",
+      "sha256": "0ce579f2c8954cdd7beab1fd6995bffdcb49d6a569de6e4a6ff63eaa3b1e2df3",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Action$Type.class",
+      "sha256": "d9c53856a12c91448c4ddc18b536ab8e6f2d8a57176072b7661e16016629f303",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Action.class",
+      "sha256": "a47cc8034ba91f73a196e3516d1e719a5e029dacbef209636fd0efd85b673faa",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Bot.class",
+      "sha256": "c330d9e469f006b9c5c1d150e718e733a3a5e6d728150f5c3b4190ca363285b9",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$CGRunner.class",
+      "sha256": "b21d92481060db934f52b50a20e42ece071da00780718174ec159852fc4d3a73",
+      "bytes": 5997
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$EvalBot.class",
+      "sha256": "d2c8ffebbe91454c69e9a8dbaa8f3834834abc6c79b3c75d53acce96cf1db66d",
+      "bytes": 21509
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$GameState.class",
+      "sha256": "4edcefe8913e9d1d8616a08e5a30f5a9abe25be070f1b99a9cac77f652a54011",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$MainBot.class",
+      "sha256": "1b5bab8ba04d9ada26408af6e6826b4a7e90221ee7534b98d92714e73537e144",
+      "bytes": 5612
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$NetworkCells.class",
+      "sha256": "322a77478cc3b28cac7171744faef95a687621d07743bdb48c62f2ba6f617476",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$NetworkChords.class",
+      "sha256": "52ded9a39cec3002b7201cebefb2da067124d853b35b864454a4d2a0be8035e9",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$NeuralFeatures$Deadline.class",
+      "sha256": "a81a6a3380039834f969df27ed335b468b21abf48d0198a916e27733a2929863",
+      "bytes": 266
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$NeuralFeatures.class",
+      "sha256": "a71e70ae549ffc1d5fa73e67c987c34da3cc578e8e480905f661beb2fe7f939c",
+      "bytes": 19955
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$NeuralNet.class",
+      "sha256": "ce7b5cc16ed215b0bbb05fe10f981615d2f629412cefc52af7d7c5081dcbc294",
+      "bytes": 2493
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$NeuralWeights.class",
+      "sha256": "9238b8252a3aa98d6190d5e89ea518b80b0ed5826d4e40c02db265a02852d09f",
+      "bytes": 14275
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Params.class",
+      "sha256": "95f4d455186c847b067b8aa388333c53f72d18e001bb5d3d6a2c0547cb159319",
+      "bytes": 11127
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Pathing.class",
+      "sha256": "d5b738bf282797225b3ee1eda37048f53c4344b72ec1b0e029977e2456d23c6e",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Protocol$Init.class",
+      "sha256": "a990a2098d3607b97b246f3213bfb0db3e09f68157624dc0ed06a6c675b88903",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Protocol$TokenReader.class",
+      "sha256": "669aff68a535b7011660ddaf881747ebf3ad7ce7273cb564136086a66c668ec6",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "bfea2444fee9ed7df764c4690e58723e0207a105e498b6ac72676368a5733c70",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Protocol.class",
+      "sha256": "28ff2b69875bebbea7ac7add5efc606b3c8292888a6c98c1689e0fef723f4674",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "fc377da89c76728c10d42899de3ba8f4f1e748fd8ade4b8831a61bfc61b8945e",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Rules$TurnResult.class",
+      "sha256": "3a06a2a1f41d698fd009b7ffcfcc05d3148a0ffcd803f4be559209ce93c89126",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Rules.class",
+      "sha256": "7ea8264f5afde41a5e884a100634e0d46ecd032f7a1c6d886e68aac17584a102",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$SearchState.class",
+      "sha256": "eb5dd805a078a378942379675bb037f6bd11540c63ee00cdad6043c611315833",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player$Timer.class",
+      "sha256": "6b2aa124a78257415eec037da2738b8a5be3f3ecbd0bb648cd615c8c39d7898c",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/classes/Player.class",
+      "sha256": "170b68d908fb6c7b10283bdeed9cd99a474a0090489baf17b1a60e56c5191fa4",
+      "bytes": 1427
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/manifest.json",
+      "sha256": "e66cac953febaeab86ab1fb8b83795f08f8227bbb68c89853110d7684446b11d",
+      "bytes": 4812
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v3/Player.java",
+      "sha256": "2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+      "bytes": 92497
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$1.class",
+      "sha256": "0ce579f2c8954cdd7beab1fd6995bffdcb49d6a569de6e4a6ff63eaa3b1e2df3",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Action$Type.class",
+      "sha256": "d9c53856a12c91448c4ddc18b536ab8e6f2d8a57176072b7661e16016629f303",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Action.class",
+      "sha256": "a47cc8034ba91f73a196e3516d1e719a5e029dacbef209636fd0efd85b673faa",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Bot.class",
+      "sha256": "f8a6446251a930704ab537c325d558bfea3ca2f19bedc01f3e5a6365dc5ba02f",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$CGRunner.class",
+      "sha256": "aac061b410e7eee64dfb16e022d80b6fd5f9a892fd3bed9373952b27ce1190f3",
+      "bytes": 5997
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$EvalBot.class",
+      "sha256": "f8936ada8a953fa7faf232a0420b72d99355957926fccda67280fe9caa5b9747",
+      "bytes": 21509
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$FeaturePaths.class",
+      "sha256": "8a7586301935ac70501a0a2ac9a5556aa9a84c06ed47c75bbe9d93bb43fc1c76",
+      "bytes": 2778
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$GameState.class",
+      "sha256": "4edcefe8913e9d1d8616a08e5a30f5a9abe25be070f1b99a9cac77f652a54011",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$HypotheticalIncome.class",
+      "sha256": "ebf6e2fb8d81a514c4886c78a9b0db3af0ac38ff976015c808b916731ef0799f",
+      "bytes": 2773
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$MainBot.class",
+      "sha256": "17ad870ad9fe998802d2ba4cfd928d76b6e0307b5a380bad872cf0f253ffe85b",
+      "bytes": 5612
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$NetworkCells.class",
+      "sha256": "322a77478cc3b28cac7171744faef95a687621d07743bdb48c62f2ba6f617476",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$NetworkChords.class",
+      "sha256": "52ded9a39cec3002b7201cebefb2da067124d853b35b864454a4d2a0be8035e9",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$NeuralFeatures$Deadline.class",
+      "sha256": "a81a6a3380039834f969df27ed335b468b21abf48d0198a916e27733a2929863",
+      "bytes": 266
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$NeuralFeatures.class",
+      "sha256": "3f0beaa13686b8f7b828f7548b6ae2537ebd66b79a248f203fa761834d6e4bde",
+      "bytes": 18796
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$NeuralNet.class",
+      "sha256": "73696acc27a18b4c3a20e47e6a8d26adce8707df3cdacd0df80de56524d68ac9",
+      "bytes": 2493
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$NeuralWeights.class",
+      "sha256": "50275528f564d6642a3c2ce39dbe850cce544f903b3e280091fbaaa1cd43be57",
+      "bytes": 14275
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Params.class",
+      "sha256": "41a85fd423f096a643738e67d4b3cba6872ac9ca478fb081b6320b4606dafe02",
+      "bytes": 11127
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Pathing.class",
+      "sha256": "d5b738bf282797225b3ee1eda37048f53c4344b72ec1b0e029977e2456d23c6e",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Protocol$Init.class",
+      "sha256": "a990a2098d3607b97b246f3213bfb0db3e09f68157624dc0ed06a6c675b88903",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Protocol$TokenReader.class",
+      "sha256": "669aff68a535b7011660ddaf881747ebf3ad7ce7273cb564136086a66c668ec6",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "bfea2444fee9ed7df764c4690e58723e0207a105e498b6ac72676368a5733c70",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Protocol.class",
+      "sha256": "28ff2b69875bebbea7ac7add5efc606b3c8292888a6c98c1689e0fef723f4674",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "fc377da89c76728c10d42899de3ba8f4f1e748fd8ade4b8831a61bfc61b8945e",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Rules$TurnResult.class",
+      "sha256": "3a06a2a1f41d698fd009b7ffcfcc05d3148a0ffcd803f4be559209ce93c89126",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Rules.class",
+      "sha256": "7ea8264f5afde41a5e884a100634e0d46ecd032f7a1c6d886e68aac17584a102",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$SearchState.class",
+      "sha256": "eb5dd805a078a378942379675bb037f6bd11540c63ee00cdad6043c611315833",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player$Timer.class",
+      "sha256": "aa4ede3c87180ed35b1099ef2465e2b6f3c61f59e475b561495cd786b78a6348",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/classes/Player.class",
+      "sha256": "e25f283a481a52a0c56e87d10e148c2cf6e6001052f25376a435dc3ab1bb4b92",
+      "bytes": 1539
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/manifest.json",
+      "sha256": "42b7532d7d63f556a8f88b9ce7ad9bd2d6975a640ad2ab85c252e0671be5f738",
+      "bytes": 4812
+    },
+    {
+      "path": "build/analysis/neural-v7/original-neural-v6/Player.java",
+      "sha256": "0597d5b7fba6fed69313c313f422616784d18acc7219c6d4b7835a7abd90b155",
+      "bytes": 96619
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$CGRunner.class",
+      "sha256": "cdbaf238e07f987ac8e0ba3dd4883ee4011ca160fb802e5c36dee99b5fc84aae",
+      "bytes": 5991
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$EvalBot.class",
+      "sha256": "2727ab8aa610f8c4f2546a7479b0cdcc9f47104d2f249d3839e730fa46998708",
+      "bytes": 31630
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$MainBot.class",
+      "sha256": "8c2c925f8aa6f9110735a399d463e711a72487ef6b7fb6f5b9b959e3b1b6f315",
+      "bytes": 5578
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Params.class",
+      "sha256": "da0deb3ec092489de6198f2184b7f7e95fa9af346f997d7ad06fb6b5d59c976f",
+      "bytes": 11062
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player$Timer.class",
+      "sha256": "654e8a8fc607e2116cf1c4e57b2c946c90d4e91ab8ab67c935e6609012ea485f",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/classes/Player.class",
+      "sha256": "d23537f96e1340b83f0a2a77655250683a55b6d276159425f9e11b192b345cb7",
+      "bytes": 1278
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/manifest.json",
+      "sha256": "cbeb750db1f7e09b9106d7e0d75be8a4de52310c8ae67e6c231ffd0c401e122a",
+      "bytes": 4750
+    },
+    {
+      "path": "build/analysis/neural-v7/original-v09/Player.java",
+      "sha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "bytes": 95312
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/V07PromotionTest.java",
+      "sha256": "e75be5597198b5d0a0c107a05d2eab2c1f891d226e8b7389d3e0cdf897e55caa",
+      "bytes": 6195
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/V08PromotionTest.java",
+      "sha256": "59490995df979949f3ada02b270aa275625eec18dd2b2c5c3d23f5bb1fa2d1fd",
+      "bytes": 11376
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/V09PromotionTest.java",
+      "sha256": "0f11a2b0b480c41b57edf4a77edbd14255a7834c5588cadbd921e46cedb25f06",
+      "bytes": 10985
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.BotCatalogTest.xml",
+      "sha256": "de02378d80128a9a19b1e728dcdcdd1134a1eeea46fe7d75eb7c750e61511343",
+      "bytes": 1075
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.BuildDirectionTest.xml",
+      "sha256": "c91a60f21147f1731ef795e083b35e9232fea02022b6de9d14b6e0962a6f4fba",
+      "bytes": 997
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.BuildIncomeGuardTest.xml",
+      "sha256": "55f272893d0e63f46dc55fe887b63cc195ad011288f48c5e7c19af13b52d48fe",
+      "bytes": 576
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.DefensePriorityTest.xml",
+      "sha256": "384e9217bf2a25798d7d50f3ab8edf04403ea4f2234c47e04ab34bd0e430eb9a",
+      "bytes": 1234
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.EarlyDisruptFallbackTest.xml",
+      "sha256": "9ea2aecc06563c998fb667b12c35ed9a176ad09e7f44977ec671c765f6b74cca",
+      "bytes": 583
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.EvalBotTest.xml",
+      "sha256": "cc25c3540a9049722da2f2e06c01cb88d0c5c05d848ae16757a4f68e33fd3112",
+      "bytes": 1172
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.HeuristicBaselineTest.xml",
+      "sha256": "d73ce2a797b72101bfa3a7fcc8041ca07a2fe60918ce366df3577e941ca867e2",
+      "bytes": 459
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.HeuristicBotTest.xml",
+      "sha256": "26946e5d8b94ab07ed0e089b9411f2fefd43728f018e0f7b0e1557efe6af3b98",
+      "bytes": 1124
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.HeuristicDetourTest.xml",
+      "sha256": "68f31f9bc5a8e31dbe28bca7862197b28269500b120a1f8c0772edde461d83ab",
+      "bytes": 1178
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.InterruptedEvalTest.xml",
+      "sha256": "07b17d1bb2edeafb8278697e15f964a7488eab5bad0a29a84a8522890dada175",
+      "bytes": 734
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.OwnBuildPlanTest.xml",
+      "sha256": "d4215030025d275472847ef2d751c49c497725a579cf378f9b64cb359065a42a",
+      "bytes": 1428
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.ProtectedOpeningTest.xml",
+      "sha256": "c695aa887d35717def75dbf46e0144b4b87e812ceadaf6a3ac2e2a0389ccdc04",
+      "bytes": 1626
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.ReplyRerankTest.xml",
+      "sha256": "e060b199dc9bc28ccde98bbacfbe02b7e57bae086ecf50c3856aec58f5160f5e",
+      "bytes": 568
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutBotTest.xml",
+      "sha256": "9ad820495c0667b5aeeab89a82bf7e725383bddf00f3a7e84a3d01f7d80adb8d",
+      "bytes": 1578
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutDiverseRepliesTest.xml",
+      "sha256": "7a15f8113ccfecc1b3f67b7da89d456588858f5a27b44d66a008a5955775c81c",
+      "bytes": 637
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutFillTest.xml",
+      "sha256": "9e78ec8e01cc4f0b1f7d8f8ae1c54675a4867487b0002e4c9da9c99cf12c28ae",
+      "bytes": 764
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutLiveTargetTest.xml",
+      "sha256": "261b5a2317e2af27050b117a06746db4533d1f117da7a038f070ae8f19ab654b",
+      "bytes": 633
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml",
+      "sha256": "5b326de1a75c493045f00b24957373ca42b3b6859ab50149a93eed6b82a920d1",
+      "bytes": 1404
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutNetworkChordsTest.xml",
+      "sha256": "1336f3b09fd5882e78b93c25c92962e1eb5f5821e4a6b213917bfa809f2c6bd0",
+      "bytes": 1065
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutNetworkTest.xml",
+      "sha256": "93f71962439378bcbf6edd66bee062249822cce72757a3928e7e1bc612bc8a2f",
+      "bytes": 1206
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutOpeningIntegrationTest.xml",
+      "sha256": "6925737f681896dac003ebb61ac00d30b0624fde37c68a18f8439cead6c62e7e",
+      "bytes": 813
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutQuickRouteTest.xml",
+      "sha256": "d8538188fc71672ebd65bac45f7bdee4f52a4c998eca2f5fc1b6b98a1aec6ff2",
+      "bytes": 1361
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutReplanTest.xml",
+      "sha256": "23258b6281ba68d4366a8535498fd63a060872504b52ce907f6b45c527f183b0",
+      "bytes": 605
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutRouteDependenciesTest.xml",
+      "sha256": "71be0c727ddd5f12d640d8a3e21631b2df5466df85d35fc22354bd8537d35844",
+      "bytes": 1286
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutSecondTargetTest.xml",
+      "sha256": "483342f0cf988ee43139307124b993a71f34809464a5cb505b0a31ad1b68ca20",
+      "bytes": 632
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutSpreadTest.xml",
+      "sha256": "31af786c32ab1f3fa728ee9570eb4549c7d022656b4424ba6a36868a6384beaa",
+      "bytes": 1006
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.RolloutTrackValueTest.xml",
+      "sha256": "2bd0a6f7de858130d81a82d0e28862463cd0922647a081585aaf0ba08a5e45e9",
+      "bytes": 768
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.current.SabotageRegressionTest.xml",
+      "sha256": "518e0e5cd7606edce7cca68a99a3a989e44cab2fe8adc5fc0fb55a6209c5e8c0",
+      "bytes": 468
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.FrozenParamsTest.xml",
+      "sha256": "0a2468a665437572757741bfba54ce5de5d3ff34c5b23c73a96bf2154df7314d",
+      "bytes": 2296
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.IndrillBotTest.xml",
+      "sha256": "6ff125793b306812174f4c0e920079b4c4ab5bae4161075214b9438a8a3803c4",
+      "bytes": 1005
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.IndrillV2BotTest.xml",
+      "sha256": "a14a7e3472a6d54e6571c06b2b5b2f22dbbbf90eee74e055028090a6270cbaee",
+      "bytes": 1135
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.LeaderBot2Test.xml",
+      "sha256": "34c9ff8df255182dbf6a12cdb4f5fca18b0a5b80126f06bf35d4932c441f57f2",
+      "bytes": 833
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.LeaderBotTest.xml",
+      "sha256": "4ac65b25923bf2df377f9d3912f5d8bb306e1fada143f671df9f61aea23c52f9",
+      "bytes": 1007
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralBotTest.xml",
+      "sha256": "a3d10c7eb2175e3aa50002c2c59791360980fd0df20718c0d6755e55301addad",
+      "bytes": 1053
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV2BotTest.xml",
+      "sha256": "7597bbb9b31de8f76050704f1fbab16bd7a718d0be143bc2680f593958c97d47",
+      "bytes": 853
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV3BotTest.xml",
+      "sha256": "972c9bd6ec046b2e7cd87387f8d240a8a278cc8b7d7fe744db425c44b2a5e08f",
+      "bytes": 853
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV3FeaturesTest.xml",
+      "sha256": "e7bf63c1609f53d86484bbfa5dc4bc5af661273b9ba6a27305c5a35a390c8474",
+      "bytes": 1032
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV4BotTest.xml",
+      "sha256": "776c849a53e7030f5b3c01fb0a9101944ec2847f5f27966330b7f2bd6502497c",
+      "bytes": 598
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV5BotTest.xml",
+      "sha256": "dc510a70b8956d8398d2334d504882bd1e8edaa664c250ce2b9979ecdb9b29f4",
+      "bytes": 988
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV5FeaturesTest.xml",
+      "sha256": "fec54d1497911dc50a8457c2e13bad0d85b4ac30c24375d8075499a1c563466a",
+      "bytes": 1031
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV6BotTest.xml",
+      "sha256": "1e3381cfd49c5ebfaaf8ff53ef0002ceaa7b6bcd6a15abf3d2068cb2b9bb3dff",
+      "bytes": 987
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV6FeaturesTest.xml",
+      "sha256": "b1ebeecf91d1d0d818737ec89bfb372fdd3324a4f10f6d77123de758cfc83c1f",
+      "bytes": 1330
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.NeuralV7BotTest.xml",
+      "sha256": "f8441fa067a302fbf8b5dcce0209217930a1459aa448adba2fcf87aeb1662889",
+      "bytes": 2039
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.PressureBotTest.xml",
+      "sha256": "1e327323354e69913d941781d9ab4827a91b9c5e11170d79ded186b7b217f29f",
+      "bytes": 839
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.RouteWarmupTest.xml",
+      "sha256": "2cfeee7f3db8052ae868b78529d368281c0d0f7776b338bf24a53cf4e47fadca",
+      "bytes": 910
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.TimerTest.xml",
+      "sha256": "9688f44b7970dd44268bb180876d33611d61d0937c46079700ee04216fb6bb6a",
+      "bytes": 526
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.V06PromotionTest.xml",
+      "sha256": "e239213cd80529656cf1b1f3f7845e113933cd1649e302a6f2f669327c20f7e0",
+      "bytes": 577
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.V07PromotionTest.xml",
+      "sha256": "367eb95430ab5a97267ca9f8ee215d745cbb0074d8f6815c07892d459c5aeaef",
+      "bytes": 1953
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.V08PromotionTest.xml",
+      "sha256": "3104a5d77b446fd33a56dea12ab8eed06ca4fda8a7538fa08e520c815d815c7e",
+      "bytes": 2282
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.bot.V09PromotionTest.xml",
+      "sha256": "fad0d0fc2c3eee5bf6c48c7842416d48c0cc403404481162aee48ff23499fb76",
+      "bytes": 2222
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.FeaturePathsTest.xml",
+      "sha256": "6fe97e3d521c602cd5d81c0201c11cda68cd17233e17ebe64b1d693806e246f6",
+      "bytes": 1268
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.HypotheticalIncomeTest.xml",
+      "sha256": "070398045389b2b543a1e260842015884ff6787d95697db95666c42a9c2ecc85",
+      "bytes": 1289
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.InkAllProjectionTest.xml",
+      "sha256": "92484e0dc3d50ec6c764b25e470541b7ecae20034a4c11f96ce284d89670f283",
+      "bytes": 859
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.InkTest.xml",
+      "sha256": "2b1e1bcd35695196c6e6ca19f97a866a3a6529ad78fc2ebd1e768cb89a1e66a1",
+      "bytes": 799
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.NetworkChordsTest.xml",
+      "sha256": "98a58550d46fe3f2fa246bd9f430fa6cef82b0c41e8f198a5dca541971626576",
+      "bytes": 594
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.PathingTest.xml",
+      "sha256": "5ba5f086938cb3831d42c36be795498b6820eb796b290b5067c0f930c1f5f21b",
+      "bytes": 822
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.ProtocolTest.xml",
+      "sha256": "f5ca11971825506bdd06b49e1045f2a7965a2a72e50a8db47ead3a5b2c8b9d66",
+      "bytes": 506
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.RulesTest.xml",
+      "sha256": "1337009a284983932f6b9acb89b1c84a1fdff11e1d1f116cc55a79eab8af5466",
+      "bytes": 1331
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.SearchStateTest.xml",
+      "sha256": "19a9db6c797523a3a997a07c827d3cc92ed9d7c6cdd567d0788c3dbc09723eea",
+      "bytes": 838
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.SingleCellConnectionsTest.xml",
+      "sha256": "4c250b9082d08e34dc2924f316911117a7c9e36b087a95587d40931bb9a85f25",
+      "bytes": 1298
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.core.WeightedDistancesTest.xml",
+      "sha256": "4a23f800e60eaa13dfa914b07b1b3ae64fb0d4f58fb7b4cf0e198c331d2fb6b4",
+      "bytes": 1246
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.referee.MapGeneratorTest.xml",
+      "sha256": "fc46e83f7d1d09119ab36ddc88c9b86b293e3a3929b442b10a6e37e8be61b5e7",
+      "bytes": 1604
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.referee.ReplayTest.xml",
+      "sha256": "8df585679e4ec22c4e335d98ec6de59db48318e37bc2ce7f400e42c8c60b56fb",
+      "bytes": 658
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.BehaviorMetricsTest.xml",
+      "sha256": "43c3befbc47ef04d2c054761d135524f6a6403c521bc22c0037d3d8114276e2c",
+      "bytes": 449
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.BenchmarkRunnerTest.xml",
+      "sha256": "965f2d684de3042190cd5d9c79bba1e31f86e66d5a95e3c6bfa734d65d57b6a8",
+      "bytes": 1322
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.BenchmarkSuiteTest.xml",
+      "sha256": "f834133e6f7425dea385a0af7fe7698454e0a271db13e3a62921cfbe652fe106",
+      "bytes": 1693
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.BenchPoolTest.xml",
+      "sha256": "1a5d7525abac2f312244cb076e22ad39c9a5866c1c2b7b1cdfa98b5352d68449",
+      "bytes": 789
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.ProcessBotTest.xml",
+      "sha256": "3fd0d966dab016ccc08e4c5be41bbd6656f6962819d9b1b28806d3780a478faa",
+      "bytes": 1697
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.ProcessCheckTest.xml",
+      "sha256": "749a866d5a6155cf07aa7f78c3547ef2ace77c99c33748954dc49ce43c317159",
+      "bytes": 1200
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.runner.TimingProfileTest.xml",
+      "sha256": "c4831ad50f2e0f8c80b8673684181428f15fba1f19166cabc55c94cf5df0104d",
+      "bytes": 751
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.submit.BuildProvenanceTest.xml",
+      "sha256": "b09f6c5f6e04e7d896e99ff4d6b1b6c1d246671c4a16bcaf0312ec31ad67d841",
+      "bytes": 869
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.submit.FileMergerTest.xml",
+      "sha256": "2f985c1c41113e71b8c2c74f5f8599a9bb598eec547325a9d9bd557cb8fa0d33",
+      "bytes": 4243
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgBossDefenseStudyTest.xml",
+      "sha256": "2be12264b553c10c10ffa80bf6f17183098ed60ddfb3cfab4a5e5cad3ceb05a8",
+      "bytes": 861
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgDisruptStudyTest.xml",
+      "sha256": "e4e076e92cc83dba39305ecfc90222c507bd94c0d6052a117eb5651bb05cc454",
+      "bytes": 1228
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgPlayerStudyTest.xml",
+      "sha256": "33208f0dcb299a9aa5d58fd82b12e33be8fc03ff4f9c4caf96fc1c7cf5971234",
+      "bytes": 970
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgRenderSeedTest.xml",
+      "sha256": "a912cd68749a152c3241d7c8487d331fcaac57f773b9efa8eed6382002f79cd3",
+      "bytes": 1230
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgReplayPlayersTest.xml",
+      "sha256": "31d6fb2684258ed2e08683bfbe144a555f0800d17486023369d832ac001e0764",
+      "bytes": 829
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgReplaySeedTest.xml",
+      "sha256": "2a793f66b1f51c7d76b92026260a0939ef2ae95cfe7a03b0b875855c1a341dc7",
+      "bytes": 564
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgRolloutBossProbeTest.xml",
+      "sha256": "b91dceff238a2b69b73017f941b59382441ec186fb7b6d687c6ff167905e2834",
+      "bytes": 758
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.CgValidateTest.xml",
+      "sha256": "24ffe1c037eb54e79507e45bfceedb975d5dd2469e51d4e7eb0f919eb4a8896b",
+      "bytes": 1278
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.JointActionTest.xml",
+      "sha256": "37b91cf5012b913a20b6dbae07a30a0d738f8ca5c6cde362ef4655f6c2a50383",
+      "bytes": 840
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.JointReplyStudyTest.xml",
+      "sha256": "27a5d4bb38c5a812437e4d52e421ffc598642da3b528d0444d7659e66f23322a",
+      "bytes": 1200
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.NeuralV2CollectTest.xml",
+      "sha256": "d94b654d37cdd8784d151e4562714e1222f2c6abe60e7ed085da6a8bd0cff436",
+      "bytes": 702
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.NeuralV2VerifyTest.xml",
+      "sha256": "fea660eb42126046dde8af79a59416303cd22f2367f1f9574f240703e568f899",
+      "bytes": 695
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.NeuralV4CollectTest.xml",
+      "sha256": "a5ae77a4744c08c502d7f6bddfc2ab6643aea4bddcf3e3f75de2fd36e0925d10",
+      "bytes": 706
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.NeuralV4VerifyTest.xml",
+      "sha256": "cd07fbbb0f097b76fff70e5ea64cf2f62edc686a033fbe9bd0d518f55b29a707",
+      "bytes": 694
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.ReplayPathsTest.xml",
+      "sha256": "95f9ab773ea1ee2e6f96fcc039f3b072586a2327668d896e569953677487b991",
+      "bytes": 1085
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.ReplyStudyTest.xml",
+      "sha256": "d51362e0e8cf9982464ec82a69d00c7e7491031b7a5594814db1b9a1032bb016",
+      "bytes": 1416
+    },
+    {
+      "path": "build/analysis/neural-v7/pre-fix-tests/xml/TEST-btk.tools.SabotageForecastTest.xml",
+      "sha256": "2f0a48ad6e8d71b3ea974fb587578075b6db968fc5f850559e559d5924290cbc",
+      "bytes": 990
+    },
+    {
+      "path": "build/analysis/neural-v7/prepare_boss.py",
+      "sha256": "a40e6807685e72b402778fee93ece9cc975272cd830aeb67ab116a554e19ef55",
+      "bytes": 14134
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$1.class",
+      "sha256": "0ce579f2c8954cdd7beab1fd6995bffdcb49d6a569de6e4a6ff63eaa3b1e2df3",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Action$Type.class",
+      "sha256": "d9c53856a12c91448c4ddc18b536ab8e6f2d8a57176072b7661e16016629f303",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Action.class",
+      "sha256": "a47cc8034ba91f73a196e3516d1e719a5e029dacbef209636fd0efd85b673faa",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Bot.class",
+      "sha256": "c330d9e469f006b9c5c1d150e718e733a3a5e6d728150f5c3b4190ca363285b9",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$CGRunner.class",
+      "sha256": "b21d92481060db934f52b50a20e42ece071da00780718174ec159852fc4d3a73",
+      "bytes": 5997
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$EvalBot.class",
+      "sha256": "d2c8ffebbe91454c69e9a8dbaa8f3834834abc6c79b3c75d53acce96cf1db66d",
+      "bytes": 21509
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$GameState.class",
+      "sha256": "4edcefe8913e9d1d8616a08e5a30f5a9abe25be070f1b99a9cac77f652a54011",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$MainBot.class",
+      "sha256": "1b5bab8ba04d9ada26408af6e6826b4a7e90221ee7534b98d92714e73537e144",
+      "bytes": 5612
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$NetworkCells.class",
+      "sha256": "322a77478cc3b28cac7171744faef95a687621d07743bdb48c62f2ba6f617476",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$NetworkChords.class",
+      "sha256": "52ded9a39cec3002b7201cebefb2da067124d853b35b864454a4d2a0be8035e9",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$NeuralFeatures$Deadline.class",
+      "sha256": "a81a6a3380039834f969df27ed335b468b21abf48d0198a916e27733a2929863",
+      "bytes": 266
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$NeuralFeatures.class",
+      "sha256": "a71e70ae549ffc1d5fa73e67c987c34da3cc578e8e480905f661beb2fe7f939c",
+      "bytes": 19955
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$NeuralNet.class",
+      "sha256": "ce7b5cc16ed215b0bbb05fe10f981615d2f629412cefc52af7d7c5081dcbc294",
+      "bytes": 2493
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$NeuralWeights.class",
+      "sha256": "9238b8252a3aa98d6190d5e89ea518b80b0ed5826d4e40c02db265a02852d09f",
+      "bytes": 14275
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Params.class",
+      "sha256": "95f4d455186c847b067b8aa388333c53f72d18e001bb5d3d6a2c0547cb159319",
+      "bytes": 11127
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Pathing.class",
+      "sha256": "d5b738bf282797225b3ee1eda37048f53c4344b72ec1b0e029977e2456d23c6e",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Protocol$Init.class",
+      "sha256": "a990a2098d3607b97b246f3213bfb0db3e09f68157624dc0ed06a6c675b88903",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Protocol$TokenReader.class",
+      "sha256": "669aff68a535b7011660ddaf881747ebf3ad7ce7273cb564136086a66c668ec6",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "bfea2444fee9ed7df764c4690e58723e0207a105e498b6ac72676368a5733c70",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Protocol.class",
+      "sha256": "28ff2b69875bebbea7ac7add5efc606b3c8292888a6c98c1689e0fef723f4674",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "fc377da89c76728c10d42899de3ba8f4f1e748fd8ade4b8831a61bfc61b8945e",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Rules$TurnResult.class",
+      "sha256": "3a06a2a1f41d698fd009b7ffcfcc05d3148a0ffcd803f4be559209ce93c89126",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Rules.class",
+      "sha256": "7ea8264f5afde41a5e884a100634e0d46ecd032f7a1c6d886e68aac17584a102",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$SearchState.class",
+      "sha256": "eb5dd805a078a378942379675bb037f6bd11540c63ee00cdad6043c611315833",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player$Timer.class",
+      "sha256": "6b2aa124a78257415eec037da2738b8a5be3f3ecbd0bb648cd615c8c39d7898c",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/classes/Player.class",
+      "sha256": "170b68d908fb6c7b10283bdeed9cd99a474a0090489baf17b1a60e56c5191fa4",
+      "bytes": 1427
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/manifest.json",
+      "sha256": "e66cac953febaeab86ab1fb8b83795f08f8227bbb68c89853110d7684446b11d",
+      "bytes": 4812
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3/Player.java",
+      "sha256": "2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+      "bytes": 92497
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v3.log",
+      "sha256": "02a6517ded07422b872523cf45aa23217c9d072a7609fa51d11e41c404f94868",
+      "bytes": 543
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$1.class",
+      "sha256": "0ce579f2c8954cdd7beab1fd6995bffdcb49d6a569de6e4a6ff63eaa3b1e2df3",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Action$Type.class",
+      "sha256": "d9c53856a12c91448c4ddc18b536ab8e6f2d8a57176072b7661e16016629f303",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Action.class",
+      "sha256": "a47cc8034ba91f73a196e3516d1e719a5e029dacbef209636fd0efd85b673faa",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Bot.class",
+      "sha256": "f8a6446251a930704ab537c325d558bfea3ca2f19bedc01f3e5a6365dc5ba02f",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$CGRunner.class",
+      "sha256": "aac061b410e7eee64dfb16e022d80b6fd5f9a892fd3bed9373952b27ce1190f3",
+      "bytes": 5997
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$EvalBot.class",
+      "sha256": "f8936ada8a953fa7faf232a0420b72d99355957926fccda67280fe9caa5b9747",
+      "bytes": 21509
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$FeaturePaths.class",
+      "sha256": "8a7586301935ac70501a0a2ac9a5556aa9a84c06ed47c75bbe9d93bb43fc1c76",
+      "bytes": 2778
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$GameState.class",
+      "sha256": "4edcefe8913e9d1d8616a08e5a30f5a9abe25be070f1b99a9cac77f652a54011",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$HypotheticalIncome.class",
+      "sha256": "ebf6e2fb8d81a514c4886c78a9b0db3af0ac38ff976015c808b916731ef0799f",
+      "bytes": 2773
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$MainBot.class",
+      "sha256": "17ad870ad9fe998802d2ba4cfd928d76b6e0307b5a380bad872cf0f253ffe85b",
+      "bytes": 5612
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$NetworkCells.class",
+      "sha256": "322a77478cc3b28cac7171744faef95a687621d07743bdb48c62f2ba6f617476",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$NetworkChords.class",
+      "sha256": "52ded9a39cec3002b7201cebefb2da067124d853b35b864454a4d2a0be8035e9",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$NeuralFeatures$Deadline.class",
+      "sha256": "a81a6a3380039834f969df27ed335b468b21abf48d0198a916e27733a2929863",
+      "bytes": 266
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$NeuralFeatures.class",
+      "sha256": "3f0beaa13686b8f7b828f7548b6ae2537ebd66b79a248f203fa761834d6e4bde",
+      "bytes": 18796
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$NeuralNet.class",
+      "sha256": "73696acc27a18b4c3a20e47e6a8d26adce8707df3cdacd0df80de56524d68ac9",
+      "bytes": 2493
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$NeuralWeights.class",
+      "sha256": "50275528f564d6642a3c2ce39dbe850cce544f903b3e280091fbaaa1cd43be57",
+      "bytes": 14275
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Params.class",
+      "sha256": "41a85fd423f096a643738e67d4b3cba6872ac9ca478fb081b6320b4606dafe02",
+      "bytes": 11127
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Pathing.class",
+      "sha256": "d5b738bf282797225b3ee1eda37048f53c4344b72ec1b0e029977e2456d23c6e",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Protocol$Init.class",
+      "sha256": "a990a2098d3607b97b246f3213bfb0db3e09f68157624dc0ed06a6c675b88903",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Protocol$TokenReader.class",
+      "sha256": "669aff68a535b7011660ddaf881747ebf3ad7ce7273cb564136086a66c668ec6",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "bfea2444fee9ed7df764c4690e58723e0207a105e498b6ac72676368a5733c70",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Protocol.class",
+      "sha256": "28ff2b69875bebbea7ac7add5efc606b3c8292888a6c98c1689e0fef723f4674",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "fc377da89c76728c10d42899de3ba8f4f1e748fd8ade4b8831a61bfc61b8945e",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Rules$TurnResult.class",
+      "sha256": "3a06a2a1f41d698fd009b7ffcfcc05d3148a0ffcd803f4be559209ce93c89126",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Rules.class",
+      "sha256": "7ea8264f5afde41a5e884a100634e0d46ecd032f7a1c6d886e68aac17584a102",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$SearchState.class",
+      "sha256": "eb5dd805a078a378942379675bb037f6bd11540c63ee00cdad6043c611315833",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player$Timer.class",
+      "sha256": "aa4ede3c87180ed35b1099ef2465e2b6f3c61f59e475b561495cd786b78a6348",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/classes/Player.class",
+      "sha256": "e25f283a481a52a0c56e87d10e148c2cf6e6001052f25376a435dc3ab1bb4b92",
+      "bytes": 1539
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/manifest.json",
+      "sha256": "42b7532d7d63f556a8f88b9ce7ad9bd2d6975a640ad2ab85c252e0671be5f738",
+      "bytes": 4812
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6/Player.java",
+      "sha256": "0597d5b7fba6fed69313c313f422616784d18acc7219c6d4b7835a7abd90b155",
+      "bytes": 96619
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-neural-v6.log",
+      "sha256": "a5c6f80690cccc14c068838620d64d15463d812cb9a915d65e8658f4568a05ff",
+      "bytes": 543
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$CGRunner.class",
+      "sha256": "cdbaf238e07f987ac8e0ba3dd4883ee4011ca160fb802e5c36dee99b5fc84aae",
+      "bytes": 5991
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$EvalBot.class",
+      "sha256": "2727ab8aa610f8c4f2546a7479b0cdcc9f47104d2f249d3839e730fa46998708",
+      "bytes": 31630
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$MainBot.class",
+      "sha256": "8c2c925f8aa6f9110735a399d463e711a72487ef6b7fb6f5b9b959e3b1b6f315",
+      "bytes": 5578
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Params.class",
+      "sha256": "da0deb3ec092489de6198f2184b7f7e95fa9af346f997d7ad06fb6b5d59c976f",
+      "bytes": 11062
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player$Timer.class",
+      "sha256": "654e8a8fc607e2116cf1c4e57b2c946c90d4e91ab8ab67c935e6609012ea485f",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/classes/Player.class",
+      "sha256": "d23537f96e1340b83f0a2a77655250683a55b6d276159425f9e11b192b345cb7",
+      "bytes": 1278
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/manifest.json",
+      "sha256": "cbeb750db1f7e09b9106d7e0d75be8a4de52310c8ae67e6c231ffd0c401e122a",
+      "bytes": 4750
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09/Player.java",
+      "sha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "bytes": 95312
+    },
+    {
+      "path": "build/analysis/neural-v7/preserved-v09.log",
+      "sha256": "4ea7846fd1c3aaef1a27873be2b98dca8e6f68328c44cb3c68717c17c0396b92",
+      "bytes": 525
+    },
+    {
+      "path": "build/analysis/neural-v7/process-903510176-intent.json",
+      "sha256": "face8cba369c8a3f32ee5525af30f4edb208e5bb6b3455c1de77a8965d9cca12",
+      "bytes": 262
+    },
+    {
+      "path": "build/analysis/neural-v7/process-903510176.json",
+      "sha256": "fc9e5ef83eca2f15a1fb1b348be298a8373bab28c743e0a1ca65d8241c517e2d",
+      "bytes": 44676
+    },
+    {
+      "path": "build/analysis/neural-v7/process-903510176.log",
+      "sha256": "faf9527766210ff9d72f165fc537cdf2153dce9dd2f51a3632336220f059b6af",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904146009-intent.json",
+      "sha256": "29b321b76cc905fdcdad902cf08c2768092693850523aee2a75cf5defa9bfdc3",
+      "bytes": 267
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904146009.json",
+      "sha256": "95773bfff2b7626ab91d04fe61186c4584fffaf3d509df0e8216d8d52a8f22e7",
+      "bytes": 33790
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904146009.log",
+      "sha256": "0578f70546fdbc477209c83935c6765ad6cd67ea64c70607ec6d23c2a032ab31",
+      "bytes": 808
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904147739-intent.json",
+      "sha256": "6ef0b5d1d85de2e1eccda8eaa934360806f6fbdcb888194b076ab202b6ac849e",
+      "bytes": 267
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904147739.json",
+      "sha256": "4b27461669051f4d502dc81c37ca9f6e609b0333460dfbe28b43f1ca337efba8",
+      "bytes": 43331
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904147739.log",
+      "sha256": "8e54df5976f403bf7a3bc33f25ff6006426f243ab1b6d87ade6fa34ad407c25f",
+      "bytes": 811
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904148181-intent.json",
+      "sha256": "6ecd2dd6d606f0b9a2400661106f7126635ea9ddd524cb3b04621cda2e9d807d",
+      "bytes": 267
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904148181.json",
+      "sha256": "e220204c7d045644f30e0aa55fe1a6737e76db2344531fff5922060433e328f8",
+      "bytes": 42417
+    },
+    {
+      "path": "build/analysis/neural-v7/process-904148181.log",
+      "sha256": "87ea05b0321a2f417b9e14828666dffa1a7cb1bf61ed8c79f7bb15c905691e3e",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/neural-v7/process-panel-index.json",
+      "sha256": "0dfc148d0cab4e4cf639d70da2dac9dd65eb41f5c71a8f1d211e1a46ab8765ce",
+      "bytes": 1296
+    },
+    {
+      "path": "build/analysis/neural-v7/readiness-inputs.json",
+      "sha256": "7e010cfbe90d88c1dcb42577dc11c0086f9c19a861fe22d547f8e31a04a92224",
+      "bytes": 33420
+    },
+    {
+      "path": "build/analysis/neural-v7/readiness-result.json",
+      "sha256": "50227fae61c3b5fbb8382eb74194d4e8572682cf9e11515d188a7e139ba3bdf8",
+      "bytes": 230874
+    },
+    {
+      "path": "build/analysis/neural-v7/record_boss_authorization.py",
+      "sha256": "4615b71a4f04df3224df553cf0d0572787199e5a297024ed57309b573ea0ebf2",
+      "bytes": 1441
+    },
+    {
+      "path": "build/analysis/neural-v7/run_boss_stage.py",
+      "sha256": "91c9e2f2e7f36b94beb9db6eac1b12ec5200e416a2a46b4750acf801bff156d3",
+      "bytes": 14180
+    },
+    {
+      "path": "build/analysis/neural-v7/run_control_readiness.py",
+      "sha256": "e45c94dc7da3ea66f08a40fc26143cc090c72c06d82aae6255efdfe7b86d4b54",
+      "bytes": 6995
+    },
+    {
+      "path": "build/analysis/neural-v7/run_readiness.py",
+      "sha256": "529171a8afbe78441417b3c921e6b93ffc544424bbbeb58847d50e8386048ed3",
+      "bytes": 16735
+    },
+    {
+      "path": "build/analysis/neural-v7/tests-engine-submit.before-parameter-count-fix.log",
+      "sha256": "fa054d9514eb9e90855894a41a97b4c775ee01faca33790f73c1812732235f3b",
+      "bytes": 3240
+    },
+    {
+      "path": "build/analysis/neural-v7/tests-engine-submit.log",
+      "sha256": "67d040e238bd91fcb0890a946e0578ada96109f38ec3bf77c09a5d005622446c",
+      "bytes": 664
+    },
+    {
+      "path": "build/analysis/neural-v7/tests-engine-submit.sandbox-before-start.log",
+      "sha256": "739ea37ef36c85d1eb27d35e3344ba6c034ecbcc82423acc4ff5a0709336955e",
+      "bytes": 530
+    },
+    {
+      "path": "build/analysis/neural-v7-prefix/classes/NeuralV6PrefixAudit$Choice.class",
+      "sha256": "660929a142bc89fd22859ff10370bf9cbdc50c00ea3d9465761cd6950c41e2de",
+      "bytes": 1439
+    },
+    {
+      "path": "build/analysis/neural-v7-prefix/classes/NeuralV6PrefixAudit$Input.class",
+      "sha256": "b7fad28f4d27587596bf5d4aaf65947d3e1b0698ec503b8459e5051b4c5a1723",
+      "bytes": 1787
+    },
+    {
+      "path": "build/analysis/neural-v7-prefix/classes/NeuralV6PrefixAudit.class",
+      "sha256": "ca1a71406502c42a7740163db4b09e038659b7375ad5d048c903e328436854c1",
+      "bytes": 26739
+    },
+    {
+      "path": "build/analysis/neural-v7-prefix/intent.json",
+      "sha256": "39aaf05557ce3bf25e5ca464cb341035f465de550c4ca3a84de1045a795ddef7",
+      "bytes": 91887
+    },
+    {
+      "path": "build/analysis/neural-v7-prefix/result.json",
+      "sha256": "719c7183e29548d90947b4dfaf1213dacbba23289a96c38261fa589e55a87968",
+      "bytes": 994557
+    },
+    {
+      "path": "build/analysis/neural-v7-prefix/run.log",
+      "sha256": "9952e083f9b1e1877e82e98f68280b8b1c3630f79b60f5670d4b32e1ed0fd9da",
+      "bytes": 5003
+    },
+    {
+      "path": "build/bench/neural-v7/block1-decision.json",
+      "sha256": "e27cd4ed12f5623e047842b79d1b53eb327d357599eee60e28d94f674d76efcb",
+      "bytes": 223358
+    },
+    {
+      "path": "build/bench/neural-v7/block1-excluded.json",
+      "sha256": "912e0e7f6e4988b22cd74bdefdf0094a5ae3777da689a7a83f9115ee18249712",
+      "bytes": 1391565
+    },
+    {
+      "path": "build/bench/neural-v7/block1.json",
+      "sha256": "b8381c5c20ba7f1571c10d4966ca4901be8e6059a052fd9fd131a96aa5fcf195",
+      "bytes": 284878
+    },
+    {
+      "path": "build/bench/neural-v7/block1.log",
+      "sha256": "a529005cfdc71ff8bc7af7c000e4aabb02638e5fe8738a43eda212e4bc4eeb78",
+      "bytes": 2063
+    },
+    {
+      "path": "build/bench/neural-v7/block2-decision.json",
+      "sha256": "29ccc42d312afca41bd0804724b8b58fc868153d6064b95a536cf009860ab73f",
+      "bytes": 374678
+    },
+    {
+      "path": "build/bench/neural-v7/block2-excluded.json",
+      "sha256": "421cb854c01205a9a6d96bdd4066773a9e1269dbf7fc834b90ebab83748a35a4",
+      "bytes": 1402257
+    },
+    {
+      "path": "build/bench/neural-v7/block2.json",
+      "sha256": "82c4376e3e7b57cd1005125612330226319b605811fe19669e14fdfccd66b8e9",
+      "bytes": 195285
+    },
+    {
+      "path": "build/bench/neural-v7/block2.log",
+      "sha256": "7d1ef3263141d80567d8da684d8e04aeb20a3667d44a322fad830d8abacac0ee",
+      "bytes": 2014
+    },
+    {
+      "path": "build/bench/neural-v7/block3-decision.json",
+      "sha256": "fc5c5768ee511cc957464e04f8965b81630a69a5b0428d129f21812e16e98072",
+      "bytes": 739052
+    },
+    {
+      "path": "build/bench/neural-v7/block3-excluded.json",
+      "sha256": "0f28e168106240b1ad218d214d1747e4637797aae1ee82f4cdfcc8fe0b43ddbb",
+      "bytes": 1409399
+    },
+    {
+      "path": "build/bench/neural-v7/block3.json",
+      "sha256": "e56222ef61ae4298bd2c7e8b7b4ebd1e28fc6c9bb9c203547e22b66aa2f351eb",
+      "bytes": 464033
+    },
+    {
+      "path": "build/bench/neural-v7/block3.log",
+      "sha256": "7ac7a565c189586487bdd8b2e7836373513040164c2073a5fcfbc8a9d035f955",
+      "bytes": 2138
+    },
+    {
+      "path": "build/cg-boss/neural-v7-v09-fresh-control-40/plan.json",
+      "sha256": "3bb6635489d3b6fad417678afa14018bff6fa0422f8132d992d6a5e4e4816774",
+      "bytes": 37163
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/Bot.class",
+      "sha256": "52f1ac25a70b6321022905646d62698a6b9bfa12cca9259cd8f19d068b09e144",
+      "bytes": 1031
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/BotCatalog$Engine.class",
+      "sha256": "68dc432921f4972677935a24ab1979fd97cc7d17ca1b3bb3ede0070cb57850f3",
+      "bytes": 2515
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/BotCatalog$Entry.class",
+      "sha256": "513003433f1fcc2390932634824264fb1744d931566c245ebc66c34c75a29d87",
+      "bytes": 2485
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/BotCatalog$Identity.class",
+      "sha256": "6ad79c1eff3d4fcd1e9d8c71264e932b3407e5695470159c8fabbc4d618976de",
+      "bytes": 2540
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/BotCatalog.class",
+      "sha256": "c98bddf61565a4158337a4f784fc32171336431b44bbeda2deeaae3c041bd1f7",
+      "bytes": 13032
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/BotFactory$1.class",
+      "sha256": "2658a99bcb8324cf43035fe0cb17912f1994686365dac82d0240a9202e6a334d",
+      "bytes": 1250
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/BotFactory.class",
+      "sha256": "f07766b893e2daf9e146dfe8c3f712058bcac3286c05ccb1f0ca4af6367c0c3e",
+      "bytes": 8181
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/EvalBot.class",
+      "sha256": "0578f61a8e32fd0e9ebea035ccbfded7c443b36709c64ed82bc6a00b6cae6560",
+      "bytes": 37288
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/HeuristicBot.class",
+      "sha256": "f35a612fb7000ede218df689e70bc8f441b3185a98e62bd35b695d25ef0602e3",
+      "bytes": 13404
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillBot.class",
+      "sha256": "5f85607c96543e1aed911e71aa96092b5d56aa551b8171e1bb43eb6c63313094",
+      "bytes": 3140
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillFeatures.class",
+      "sha256": "e499a576bea0bb4ed4c97a448aa685ef82ef657b9335bdff1523c3e517d49554",
+      "bytes": 6807
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillNet.class",
+      "sha256": "523c455612fd421f538e085a8c3823b8f56ec4a0de53f837c54f440825b90885",
+      "bytes": 4401
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillV2Bot.class",
+      "sha256": "b2c3fc7c77bf11a263e626dcdf2a6f2c72dc795af859762edfc60d5535d2b096",
+      "bytes": 3347
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillV2Net.class",
+      "sha256": "abcf306cc9afe546093136fa7413ef044ba3483602862a785df6d2f8800e13bb",
+      "bytes": 4909
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillV2Weights.class",
+      "sha256": "db0832ab3488c21bf9c588228e33f02ce29860ef6c3106dc3f0b7eac8a383839",
+      "bytes": 19567
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/IndrillWeights.class",
+      "sha256": "b0fde6f51d252cc8b95008d3f4de168baaec7a47c61805676ef0b18657051727",
+      "bytes": 19343
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/ProtectedOpening.class",
+      "sha256": "9cb90166cdfe2fbe50ef7352c296fb9f808e884cd135891e6e71e24bf64668a7",
+      "bytes": 4345
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/current/RolloutBot.class",
+      "sha256": "94ba3dac57ce3bec346bef9e5fd8b1f1db19492f2c36462ab639848c401f7e19",
+      "bytes": 37197
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/FrozenParams.class",
+      "sha256": "98afeef102e5eec67006be0c83d286adb14fa9355f029f38c653a6ab1765229a",
+      "bytes": 2812
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/MainBot.class",
+      "sha256": "825b2b9f77efdaed7867826ca07b74d937660014dff2950f5743fe58abd7c60b",
+      "bytes": 3490
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralBot.class",
+      "sha256": "ece5b1765d9677a2867bc1800d911108f749fa42b07ffdddc5843716c42b2787",
+      "bytes": 19899
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralFeatures.class",
+      "sha256": "b0780ddceb792dcd0bef733e6c4f40285e0c58d7e5c0961408182406a5b3e666",
+      "bytes": 21124
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralNet.class",
+      "sha256": "6e4e7b9336d295f80291c03c900ce06f4f940f0ef7a7351e690d3a409e18e167",
+      "bytes": 3043
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV2Bot$DecisionChooser.class",
+      "sha256": "c905bc1aa1c9fb192a354d6db5472ea5721110cf8d30e2bb76f4cd37cfd328d8",
+      "bytes": 268
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV2Bot.class",
+      "sha256": "a170a1a60c8db9701c151f38c2d7fa62e0254d7e40b2760de52019fe9924cfee",
+      "bytes": 20949
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV2Weights.class",
+      "sha256": "9140901dfef064d4a5c134e19c9ee4c67614547e8457bcb9e1af5d665ec100e4",
+      "bytes": 14280
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV3Bot.class",
+      "sha256": "5129e49fe9741bd824186074f0fbffe7ce39990a22a605dc55c365c879abd78b",
+      "bytes": 22369
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV3Features$Deadline.class",
+      "sha256": "86914bcea254c9d53648e6549295fe5e6362f2d16900c9afc4d7e484c0db6735",
+      "bytes": 259
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV3Features.class",
+      "sha256": "b0d29dc1136d74202df9942dc9e3b721615bee556381b17346da5d336915c08f",
+      "bytes": 23568
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV4Bot.class",
+      "sha256": "92326ca4e7759f6b63f2c8158d1cb78079717503c852def9298b2cb52b2d96d7",
+      "bytes": 22369
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV4Weights.class",
+      "sha256": "a0c7f1133f5c2c9adfb1b749d34bb40f9dfa8b325db784976a8981da20d57d98",
+      "bytes": 14301
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV5Bot.class",
+      "sha256": "83885ac4cbb72a30e4dd160de1408320262a0141d41787cc774691a86ce5b32a",
+      "bytes": 22369
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV5Features$Deadline.class",
+      "sha256": "4896e5904ee561c40909419628b95407c4519d4318a56817bb008245f5b47890",
+      "bytes": 259
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV5Features.class",
+      "sha256": "a34b575ffd6d312c076724292392927c019ded34aee8acc645524421c5b1814e",
+      "bytes": 23649
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV6Bot.class",
+      "sha256": "074eafbeab26e4f53e0ffe228874e35980f94a5f148ab15cd95461e7e01f0858",
+      "bytes": 22369
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV6Features$Deadline.class",
+      "sha256": "84a8997e638470e7f96617b2ec3514f8f162191fcc3e054c0db4b511b952a402",
+      "bytes": 259
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV6Features.class",
+      "sha256": "3c9b54681454f74f004a94a536260da38478935642d2de9949bb371e5241a330",
+      "bytes": 21924
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralV7Bot.class",
+      "sha256": "15811239b009962147f1d1308dedc38336391a90b13623db2357abee3293f633",
+      "bytes": 24884
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/neural/NeuralWeights.class",
+      "sha256": "56601d127feab392cc5946432fa7db6d736f69e60f55307b1e5d21d6dd3653d1",
+      "bytes": 14316
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/Params.class",
+      "sha256": "8e92648dd004305b601cdb5b42083b4dcee478118c580375311b408b1d8ce978",
+      "bytes": 11912
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/reference/LeaderBot.class",
+      "sha256": "e01fedd144c6dd52230870e4c6053975be03ec40f5f2a0cad23aaca568cc6856",
+      "bytes": 6809
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/reference/LeaderBot2.class",
+      "sha256": "2d2fbb0fa53450213fded9a08c2346bae3ea7fe106e4873d0f11af6de6eda558",
+      "bytes": 9247
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/reference/PressureBot.class",
+      "sha256": "962690fee1a1b571d3dbbe0a1e6da3395c06e408211d89d892128a66754ba89f",
+      "bytes": 6532
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/RetainedEngine.class",
+      "sha256": "0eb5e17bf162305a30b68d10170cd0af64390dcc4d9f5758aaf6373f33ad77e3",
+      "bytes": 6979
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/Timer.class",
+      "sha256": "3974fa6f1d0586291011ddcdf97c71b5dcb6dd7a74ec380b6b37358be3424235",
+      "bytes": 936
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v00/AutoplaceBot.class",
+      "sha256": "0f0a22773150d6cbea4231dca9d40c0d846fa923c0b73e544265597f46c24132",
+      "bytes": 1203
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v01/GreedyBotV01.class",
+      "sha256": "91ffacce62b6e63be04f793b64eea379358bf7b681d731a4d8972b097a6704d8",
+      "bytes": 4765
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v02/EvalBotV02.class",
+      "sha256": "072c2f8a39a3bd0dc26d9a0a56892db9fc940b2f811e41e46d72c7811fb2dce3",
+      "bytes": 7347
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v03/EvalBotV03.class",
+      "sha256": "6b508f4a9a2c09871d795cc38988dd45ca91d599dd62c8a48c14cd4991daad9d",
+      "bytes": 10466
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v04/EvalBotV04.class",
+      "sha256": "264d09722952812d28b76c5a9d438f5fa241402e3e2ab54875e6b0545f5e2da6",
+      "bytes": 11694
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v05/EvalBotV05.class",
+      "sha256": "65b35b05dee3a117c40e58bd3922697776335b2a1946509d1f2e735c5cf9d3d3",
+      "bytes": 11909
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v06/RolloutBotV06.class",
+      "sha256": "f2e8a39e8c22ecdb5b83c433b41d1dd4f19501552d40577bd8d60e25512a7773",
+      "bytes": 13822
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v07/RolloutBotV07.class",
+      "sha256": "8d0ed44ddedc3e2bd362d34578a6768ac92bbf2a75cfa3eefc7036d8a08924a1",
+      "bytes": 27064
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v08/ProtectedOpeningV08.class",
+      "sha256": "9fcd5fab04cc8b855bc3705fbeaadab34249041c79644172ed810af9cf8bb2fc",
+      "bytes": 4346
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v08/RolloutBotV08.class",
+      "sha256": "73f0c2e0566b80ab30fa6ee6e0f2e767aebea18d759bb3364b14d481726a0fb3",
+      "bytes": 37287
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v09/ProtectedOpeningV09.class",
+      "sha256": "76933b58fd38f9b46a6000b34472ccd22598068c2b5096690f7b9970e899d439",
+      "bytes": 4346
+    },
+    {
+      "path": "build/classes/java/main/btk/bot/v09/RolloutBotV09.class",
+      "sha256": "d8975db83169b1b1c8de3670c1e571b48dccd7017b83309557186d29eb4404d7",
+      "bytes": 36730
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Action$1.class",
+      "sha256": "89bdc7c66c45a26122e2a2dffbba8052d1bf2270bb30007ccf5f76fe8051e4de",
+      "bytes": 766
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Action$Type.class",
+      "sha256": "e3d8498fe4d62a036c2c9253362c0194c4a07ed35ebc4430499ee16946ff91ba",
+      "bytes": 1214
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Action.class",
+      "sha256": "49f57987fbed37b1e9b0dc6e42d40d97a300c1f4745172f87cc8dc5ca7a6dd85",
+      "bytes": 5491
+    },
+    {
+      "path": "build/classes/java/main/btk/core/FeaturePaths.class",
+      "sha256": "9fcfeee422d5a1a055397c13d00667edc1c6ecb6aac7fd54418b95256a7c60fd",
+      "bytes": 3473
+    },
+    {
+      "path": "build/classes/java/main/btk/core/GameState.class",
+      "sha256": "ddca4768bf211f2f23928a1c81a4caf735067d3e22ef6caeb6c1ce48cc1f6edb",
+      "bytes": 5830
+    },
+    {
+      "path": "build/classes/java/main/btk/core/HypotheticalIncome.class",
+      "sha256": "c02be7f252e806c888bd5906b3c8306c6ceae0bacfb2a7b7666c0597c81c574b",
+      "bytes": 3380
+    },
+    {
+      "path": "build/classes/java/main/btk/core/InkProjection.class",
+      "sha256": "ce0215727153879797fb5b3da312015f5840598409c6357c86535c9b0005d989",
+      "bytes": 1505
+    },
+    {
+      "path": "build/classes/java/main/btk/core/NetworkCells.class",
+      "sha256": "2b3f0717742d7589ff9e03de4e5030a61a535040398f350fc7234cbf7c877936",
+      "bytes": 1255
+    },
+    {
+      "path": "build/classes/java/main/btk/core/NetworkChords.class",
+      "sha256": "8b69fcb6ceb678972d0e44aefcf3bf4e6192ff22537226775ae4d568db2a6fd7",
+      "bytes": 1763
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Pathing.class",
+      "sha256": "6f09c8bdeb0c3ceb9018647d4cf6e5b02506ac99f15ee4e3292c3f8a49163f45",
+      "bytes": 9132
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Protocol$Init.class",
+      "sha256": "d134f205fa01049bf7e73650748b76f0737f581cf04fa4ea616679e27089e954",
+      "bytes": 415
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Protocol$TokenReader.class",
+      "sha256": "7fb36d045abf3e38858781648f08b74ede8dba9429fce3ba9bc6c9cd84145fde",
+      "bytes": 1734
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Protocol$TurnInfo.class",
+      "sha256": "a8c4a3e16b7b38de62da547a6ebfe222b319a6c43340cbbaa433a4882a74f4cc",
+      "bytes": 452
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Protocol.class",
+      "sha256": "b40541a05e98bf2ad6ea2f909dbba21da0b2d69d180bdff95312c48fdb5d721d",
+      "bytes": 5911
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Rules$1.class",
+      "sha256": "64797d2e221dbde0123a47af66e77cb167ab2a40b9afddf744b42e998afc99f4",
+      "bytes": 829
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Rules$PlayerMoves.class",
+      "sha256": "cedd6e7bf303f5b122c0d11c24a92fd905dcece5a3aa6c04ad4dbfda041d3062",
+      "bytes": 1155
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Rules$TurnResult.class",
+      "sha256": "04f6591cd35d73a4485fe98354d05f279c5f72289baee3a17c8f9a0b01477603",
+      "bytes": 991
+    },
+    {
+      "path": "build/classes/java/main/btk/core/Rules.class",
+      "sha256": "195db7e02620cd0d4f562ac4280714fa7b7fd7703aa039af8f0d6b64aec64ac3",
+      "bytes": 9522
+    },
+    {
+      "path": "build/classes/java/main/btk/core/SearchState.class",
+      "sha256": "701464854c6818ee889333f5853aeaffd75725a1e10efb2c465ec99a8ef335c8",
+      "bytes": 2291
+    },
+    {
+      "path": "build/classes/java/main/btk/core/TacticalPathing.class",
+      "sha256": "c9b7e9ddf14f546c49fd85c8f64d95f1cbefa5625f8ac9f90791371b0cf4eb02",
+      "bytes": 4273
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$1.class",
+      "sha256": "3f0d8c1a723379cb0c28ad554924cec607fe46c471a34323f071a2903af74413",
+      "bytes": 866
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$Coord.class",
+      "sha256": "f9dd2fe1f4aaf78c4bf8a0bc734897b2d8a96d8633f9546779850085ab9901be",
+      "bytes": 1522
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$Direction.class",
+      "sha256": "c46fc728e8910ccd6b84fe0fa18ec7a3c41caae43f87479c0de0be3bf6606dc4",
+      "bytes": 2200
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$Grid.class",
+      "sha256": "70ea5916c5c8698c96d00e27f67061440c1e5a0c6aaaaba8b17280f995039a62",
+      "bytes": 5023
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$River.class",
+      "sha256": "5b743a23a1bbed7d867a0d4f10929446ba2553ca5d1e36bc5c5942fe543b28d8",
+      "bytes": 1418
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$Tile.class",
+      "sha256": "c6e96ed24dac5ca21885d3b81ba65e8bcc7c4e90d228d46da6e66f23ba262410",
+      "bytes": 1213
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$Town.class",
+      "sha256": "ba1a44a5e3ee665665108845a4443b61ed037224d47178363fd6c0d8de5cb1d7",
+      "bytes": 774
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker$Zone.class",
+      "sha256": "4e7738879b76a83b5eb628639f77c427e598ae70d25237317b6a2fe7269e29de",
+      "bytes": 1666
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/GridMaker.class",
+      "sha256": "3f0f3ee253b4dfd13edff5078f549a59f83ce6711376c1455a291a663b142aa7",
+      "bytes": 21879
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/MapGenerator.class",
+      "sha256": "e632e443e4ef291de72b39fe71c499c17ea22b95d1a0e21e20aa1e1a59f6f30a",
+      "bytes": 1256
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/Referee$Result.class",
+      "sha256": "c76ae8a73ea86010c99044befb13637f2d6b0bbe617f4f63c66c80c49907918a",
+      "bytes": 2119
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/Referee.class",
+      "sha256": "c502fa63b64a493ccc58904f8f26668c801110949df27825be2f288513b19246",
+      "bytes": 4599
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/Replay$MapDoc.class",
+      "sha256": "1bba2ebab6fdca44c057abba960abe3f62bb8ea335e15ca120dc9b6bc95e1097",
+      "bytes": 732
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/Replay$Meta.class",
+      "sha256": "fd30875344e632fe06f45e91cd707d39316280a48dd2e2f299f287ac35ef9eb1",
+      "bytes": 742
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/Replay$Turn.class",
+      "sha256": "d1a92012d715b9da2b39a2db53ff0aa3eb959a66f8cdc9e4baf19cb483fc19e0",
+      "bytes": 875
+    },
+    {
+      "path": "build/classes/java/main/btk/referee/Replay.class",
+      "sha256": "e9ed0eff9eece8d3d1942962dc934c055e622fcb4019c40b424ba1bd8bf7e3b2",
+      "bytes": 6470
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchmarkRunner$PairResult.class",
+      "sha256": "a44b11c9a3bb2bdc4b4218568b5a5a782d8d42bd90838052ec4256982489297c",
+      "bytes": 2881
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchmarkRunner$Stats.class",
+      "sha256": "25239e37ac9dbee59a04105792b7f2c6f06c1a9b6b92500f6138721151ed84f4",
+      "bytes": 13917
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchmarkRunner$Stratum.class",
+      "sha256": "09ca1ca3a4d415296a597c126c71c1abe64c619032a545810172f06bd9b6cc8a",
+      "bytes": 3406
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchmarkRunner.class",
+      "sha256": "4838a696f14b2de736f29ca1b47922f4d7a6ec81432f5f176bad345018bb736c",
+      "bytes": 12947
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchmarkSuite.class",
+      "sha256": "c9f533d204224d2b5b9bcc2638bab0c07d56454e4a87e412d25d20ac46e0107d",
+      "bytes": 9135
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchPool$Exclusions.class",
+      "sha256": "062b69ba3a5190205b7db55f4f26dd5660528c624fd9dcc371a6be82bae83ab9",
+      "bytes": 2081
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/BenchPool.class",
+      "sha256": "bc8739c6cb7ef2d97df7dbf5cbc7ded4f13b46846ed18dfca76b8a79f8eb2b14",
+      "bytes": 7763
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/LocalRunner.class",
+      "sha256": "f12a5262e560d79fa5ad110aa94c3076eb13d1e9630864166d91e63121f036ab",
+      "bytes": 4107
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/Maps.class",
+      "sha256": "667c736c311fdc068113932d09201fe00d0f6682c2da470d384e277dfd4d976b",
+      "bytes": 3441
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessBot$HostCounters.class",
+      "sha256": "a228821e19bff269eac8e0dd4b74824656c0a486436d850df9ea6a62ba4bb3d7",
+      "bytes": 1665
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessBot$IoTiming.class",
+      "sha256": "604b9c42c180a094a71fd46645e26f8f9e27a8edb22e71b9798ff296985df29f",
+      "bytes": 2419
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessBot$Response.class",
+      "sha256": "29bf30bff6a2ef8a336502be989a9136b572d2dd8cc864789fa382645f82abcc",
+      "bytes": 1605
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessBot$TurnTiming.class",
+      "sha256": "c30e4f073bf809b6ecf8d1e4c50fabafe048ac9f70dac69ff458288a113baaa2",
+      "bytes": 2624
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessBot.class",
+      "sha256": "fafb62457116a2bb2c8d7bbbb8ad919f95af30f96c29ce58bcb8a00b53f4e096",
+      "bytes": 11274
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessCheck$GameCheck.class",
+      "sha256": "f6f11eccfe4f4d78ace5f63d76da0546bd92d198309cd210ed1e584a66782045",
+      "bytes": 3016
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/ProcessCheck.class",
+      "sha256": "9b231cfb37ca3dbebf358fd35d5a8c77775eb4a2d0959b69f2ebae092530b7a3",
+      "bytes": 13636
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/TimingProfile$1.class",
+      "sha256": "ca72a05af9a77c95369dda0bf1534844892076fa5512d37399e41e9682c044f8",
+      "bytes": 1443
+    },
+    {
+      "path": "build/classes/java/main/btk/runner/TimingProfile.class",
+      "sha256": "d1222ebdc3e4421047d6b6652ba3af9a9ece4f669d608b4e73bc51254a18ebbd",
+      "bytes": 2201
+    },
+    {
+      "path": "build/classes/java/main/btk/submit/ArtifactCheck.class",
+      "sha256": "84f7392daa03eddeff6ff48ef092ec80e71da907c95134de57a48821601f5f8c",
+      "bytes": 2888
+    },
+    {
+      "path": "build/classes/java/main/btk/submit/CGRunner.class",
+      "sha256": "c919d1760a296bbf7750b265a8b3e4de667171dafc68babd0951a6782229f1a4",
+      "bytes": 6703
+    },
+    {
+      "path": "build/classes/java/main/btk/submit/FileMerger.class",
+      "sha256": "842200a130972fda3c906dde709d26cd682c722639946d0291102087aa9724ff",
+      "bytes": 21153
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/BotCatalogTool.class",
+      "sha256": "46a98838a02e7dfd6e11614c8f7dba52327750b0b114a0853fb191d22f830b96",
+      "bytes": 4033
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossDefenseStudy$Boss.class",
+      "sha256": "16ecbf396451a4288eb50f552f14a1c0c28a28e0bae7be2c095451988844f118",
+      "bytes": 1746
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossDefenseStudy$Game.class",
+      "sha256": "969081d2823a441afd90fc259e9dbaf58394fa20a0db80e2bd38b8b9e55507c6",
+      "bytes": 1293
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossDefenseStudy$PairCost.class",
+      "sha256": "86d9c6e150ba7f23cb7bf8ee35e6495d351c8aa9c5b83bd02ceddcb380dbd4a7",
+      "bytes": 2239
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossDefenseStudy$Threat.class",
+      "sha256": "945c943c4a3cdbd1837924911827a238833b0cef081a3ce865550f255b676a2c",
+      "bytes": 795
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossDefenseStudy$Turn.class",
+      "sha256": "21a69ae66c58a74df8bb27ad22743c5ee6144c9cdec80f68909b33936891c736",
+      "bytes": 842
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossDefenseStudy.class",
+      "sha256": "c4457587098c1012a9af3d40da3b4998518c2ceebc47aa7853421d84964c6633",
+      "bytes": 15567
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossLossStudy$Entry.class",
+      "sha256": "d7247d56f70b97c41cd499d30e589e2b5c9ae9eafa91af24d0f6ccdd3948ae29",
+      "bytes": 2401
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossLossStudy$Input.class",
+      "sha256": "0d935099ffbeade0bfdd5824a9858c3962e448505c05e051b9f199f1571ee1a2",
+      "bytes": 2183
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgBossLossStudy.class",
+      "sha256": "1cadf1d2009d1805c2b6a68d88eb8b41cf149d62d7c022fed405b5dea2dc98da",
+      "bytes": 7860
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgCellStudy$GameRun.class",
+      "sha256": "e188026e2e9a4f3d8226c78c1afbbe97df29f7b189255d552ed6e2eae0a853cd",
+      "bytes": 17556
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgCellStudy$Track.class",
+      "sha256": "01e95a4d250f19c2c18416bfc481bad741e521042cbbd7448aab451a14cc15d9",
+      "bytes": 1510
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgCellStudy.class",
+      "sha256": "f9a789b0512d1e095266fae6fee06bb1e5f422290b64dc3bd4a1025e1db6e9dd",
+      "bytes": 3663
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgDisruptStudy$Evaluation.class",
+      "sha256": "4877aada0caf1dc8dac60e6dfc9c590f9cc93f6ed7bda273afaea58aa9d4f3b3",
+      "bytes": 1961
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgDisruptStudy$Sample.class",
+      "sha256": "5bf0d1ba02702c27153296a1b35d12112e34868bd5fecc24f2984c3144f96613",
+      "bytes": 2996
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgDisruptStudy$Target.class",
+      "sha256": "b5d5006b11cc7ee77103a9934847f1a56306ef3c9dbb1440edd35d100933ed78",
+      "bytes": 2761
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgDisruptStudy.class",
+      "sha256": "d601cda13d3cd3b658c69d1436bb35111af112fe614501f0bdf5ba0fc03775eb",
+      "bytes": 12862
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgFetch.class",
+      "sha256": "585b9f3c20ff8d5842b5da5fa102c3b8f0b26e8406a4e4e374867d4f2feaa644",
+      "bytes": 12626
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgForecastStudy$Game.class",
+      "sha256": "0b8bcff0fcadf520104426e8bc3894d362610a14551643c79b8a4bb3ffc4eab6",
+      "bytes": 1864
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgForecastStudy$Metric.class",
+      "sha256": "5f7314e8e304f8da8c25038269551fbdd560b1b212fdb80afa2ad67f2f31eaed",
+      "bytes": 1300
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgForecastStudy$Report.class",
+      "sha256": "1d80b67d66b107eb46e68666fc707842a20305f8038822951ea9559935fa5f73",
+      "bytes": 1421
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgForecastStudy$Turn.class",
+      "sha256": "9139f8b6b99713827aba84e94dcb8f931505b6deb07a4c7ecfc92198218f9c83",
+      "bytes": 617
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgForecastStudy.class",
+      "sha256": "a4728f3033acb4a9a35432e808f571e8e4ebee3f1b6b581968c7611fd21aa24a",
+      "bytes": 15725
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgInkStudy.class",
+      "sha256": "338a455e19954228e5349aa09b4210763d4fc42e2d5c6bb85247b2cbe82ea21a",
+      "bytes": 11090
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgLeaderStudy$GameRun.class",
+      "sha256": "e5886501721b73782667c4fd777e934e5e9217a319aeae5e2849b4299c5ddee8",
+      "bytes": 18500
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgLeaderStudy.class",
+      "sha256": "a4587025e0841617d2e0d5ef47ae5c6cc589b457855cf3d843f8ab49b5db54e2",
+      "bytes": 4714
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgMapValidate.class",
+      "sha256": "ddecf903118ac44e5168c667ce9b38ce28a2a6a7ca65c9daed48e6d91b6ee507",
+      "bytes": 5203
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgNeuralExport$BinWriter.class",
+      "sha256": "462aa4a78d01ebe047c2d229a2e37261f06b41a0a143e22aa6dc1d7dd58fd452",
+      "bytes": 2207
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgNeuralExport$Exporter.class",
+      "sha256": "cc2064338eec89a16cd51150cf01cc339fb49c0a1fb76c0dddc0319af6ee2ba0",
+      "bytes": 7014
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgNeuralExport$Stats.class",
+      "sha256": "ab77160a4ddfc7377c904c4b5dd202bece141cf2e3a495df37096be469b5fc6a",
+      "bytes": 655
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgNeuralExport.class",
+      "sha256": "359534c9ef02b9d6073c7ab7b4c46c3f6c33b7ef045dcbb4fdcc04b2aa2de0fa",
+      "bytes": 8737
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPlayerStudy$Branch.class",
+      "sha256": "31df2b4fe35fd3a76fb6c7ec35fa844456e4cb969f415fb5ec3c885aa318c1b8",
+      "bytes": 1914
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPlayerStudy$Game.class",
+      "sha256": "b8053121410ebf4b18c7fd671a3d67624565035f77f7af80b8f2e87fc2596be3",
+      "bytes": 1269
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPlayerStudy$Report.class",
+      "sha256": "a7c979d2d37a47a9838518e01939f423715db0ceaa0c31687e9980eaa327be44",
+      "bytes": 1247
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPlayerStudy$Turn.class",
+      "sha256": "70fbd1ffc983378722414ae45fc90bed329b688398884fd4df13f051e7aea4a0",
+      "bytes": 1203
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPlayerStudy.class",
+      "sha256": "c5d3d769414ee8315fe343e41be7efa0b6986b142e979df669ec7e6fbc1d2e4c",
+      "bytes": 16114
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPolicyStudy$PlacementStats.class",
+      "sha256": "3a28ee2976a569eef5d262b6a828af4641d13181b533ca380d7ddcdaa9ca1d3d",
+      "bytes": 4356
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgPolicyStudy.class",
+      "sha256": "d100bbb5048808751fdba448cbdcdaaf822917744345f2db3991a53023770d24",
+      "bytes": 12534
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgRender.class",
+      "sha256": "d82cfc1c2b978afb59d0d200c6542afa15c5e40c968293bff288434a49cac43a",
+      "bytes": 4708
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgReplay$Event.class",
+      "sha256": "e139eeb0dc0c9b2256183ed6232a6f872d8aac3593068e1e16dc2a0c841d0bd5",
+      "bytes": 1019
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgReplay.class",
+      "sha256": "7df418dc51fcea28ec7555bef290579e6597247433a066e69d5c6ba278e9e8ff",
+      "bytes": 13006
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgRolloutBossProbe$Prediction.class",
+      "sha256": "b58f6a82fe255858089a224011dd14b85a78c52f6d79f6e71d8c115442f884df",
+      "bytes": 1755
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgRolloutBossProbe$Route.class",
+      "sha256": "3275dbacf55ed7181be5d9527b8300d898a1f446745c3907121ab6e9996065f3",
+      "bytes": 1880
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgRolloutBossProbe.class",
+      "sha256": "69bd4b8970a9503d268a9d7671dbe278bd97ee718de8418a68130f040ee50733",
+      "bytes": 15629
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgTimingStudy$Sample.class",
+      "sha256": "32b44446c7e43a446a6f3a6fab70ed0638dc845b07c1c3ef8e966b4eba882c67",
+      "bytes": 2634
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgTimingStudy$Warmup.class",
+      "sha256": "706920e865cac7b09dc537b1ceb8321ee8d58b574989f41177262bde74b8e158",
+      "bytes": 1850
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgTimingStudy.class",
+      "sha256": "7119e864f9180a130213291cdd9f59078dc6cdfc7e6bbd0a13a72e6f98387815",
+      "bytes": 9061
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgValidate$Outcome.class",
+      "sha256": "e7557e03610065d1c72faf0b427a1eb03855c93ab9e2d4a99f471fda8cef1ddf",
+      "bytes": 581
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/CgValidate.class",
+      "sha256": "2979e7d17cef635d1e3d8e60e825e247a0dbd93d054f2e80e13f928c990b0075",
+      "bytes": 14261
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/IndrillCollect.class",
+      "sha256": "c67287f2c0d0a7e7f3e58340a4996638df7370430bb00ae86a79f90b9fe90f2a",
+      "bytes": 13549
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/IndrillProbe.class",
+      "sha256": "785083017b6b1a38dc4b642eabfc91578f122129f91424a33db57bd56823a2b9",
+      "bytes": 12281
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/IndrillV2Collect.class",
+      "sha256": "5548510dd0c7d4284dea00eb8c9144d33bed959045522d162ba7f88f266daa88",
+      "bytes": 13584
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/IndrillV2Probe.class",
+      "sha256": "551aad6b178df59a500d9e18e419f1ce96b1520033eec3b70bfd7b9b2a8c19bf",
+      "bytes": 12542
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointActionCheck$Play.class",
+      "sha256": "07301fec8bda36b179c1f3bcd63623ff35170a176c37350a2896ef222c0560ad",
+      "bytes": 2039
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointActionCheck$Sample.class",
+      "sha256": "7670bc0a244fdd0610b0edfb2d54e65fa34a49abd51caa22a3bf30c4e18e7c2e",
+      "bytes": 2493
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointActionCheck.class",
+      "sha256": "cb250c38b0588aab11fda01d265174a307dbc04fd8880df9e77702cc1d9b8341",
+      "bytes": 8173
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy$Counts.class",
+      "sha256": "00246a21218a44530f82bab0bdae05418b619dcc2c7d62929686d061a2cbbde4",
+      "bytes": 4562
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy$Effect.class",
+      "sha256": "1ecb545ac3627f1545fcc2e7c21cfb43a65a43782e1fef30666191f1394b712b",
+      "bytes": 1877
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy$Joint.class",
+      "sha256": "27965ac2bda8c760f2baea2ffc5902d7cf65c6f76452a604c61c65597a1c606b",
+      "bytes": 2470
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy$Prior.class",
+      "sha256": "4277059af5e202aa4509d75ee2192f10cb54aea2615524bc6d0d604915c153ab",
+      "bytes": 2759
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy$Sample.class",
+      "sha256": "19918904edc59b2e9ad4c9137d72eb9976cfc6d505bc2aeb0ceab7068e0a752e",
+      "bytes": 2443
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy$Scenario.class",
+      "sha256": "966bea2f47036f9dc88e65b6f658696e7b58f346bd17091f82e6d9b083c1e68d",
+      "bytes": 2672
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/JointReplyStudy.class",
+      "sha256": "a29cc8adb4be67207fba45ddffc31a7c6296c3ff55364f8536fe5e5c61f5fdd7",
+      "bytes": 17771
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NetworkCellStudy.class",
+      "sha256": "12f2df87099668df4f1efd8cefabd55c0d7214d2f8c8d4e6da38c93e28217e8d",
+      "bytes": 36011
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV2Collect$BinaryWriter.class",
+      "sha256": "33ce48af8d67ec8130e756b6daa440d4418d0bc5a02be0fc0209e610478db8db",
+      "bytes": 2010
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV2Collect$HeadWriter.class",
+      "sha256": "3912a7ad9a2b61229aae99949ed7c64b86370ddc1259f7cb70d1e8fad2e39c97",
+      "bytes": 3268
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV2Collect$SoftmaxChooser.class",
+      "sha256": "52bab502cd70c4ec7ef04a9d7dd0c5fdead200346fe8543769d90885d8372e12",
+      "bytes": 16200
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV2Collect.class",
+      "sha256": "4d69b4218bd06803e748c86c18e23a9fbe85361ac604a93d00f7822c0f86e233",
+      "bytes": 27773
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV2Verify.class",
+      "sha256": "fae3c8b61fb59aef63fa5c7f4b0ebc7e8ce4899621148fbb85286fc7dd67bd49",
+      "bytes": 27202
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV4Collect$BinaryWriter.class",
+      "sha256": "bfec9b0f7991cfec7c184898fba2c924e02eb576b26be8b02a16c7d13d6380d0",
+      "bytes": 2010
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV4Collect$HeadWriter.class",
+      "sha256": "156b8cf01e511b82302fe79264fbd3fda7080d7a48710b3a934e023a9bada10c",
+      "bytes": 3268
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV4Collect$SoftmaxChooser.class",
+      "sha256": "3ebe1e2d615617d4744393b1c464f93c878c881d98779e63c2f586e9afc2d9f4",
+      "bytes": 16498
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV4Collect.class",
+      "sha256": "d7876616fcd928bedeb2268da44a2d284bfc4dd21a1798813c05b1954e359903",
+      "bytes": 28106
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/NeuralV4Verify.class",
+      "sha256": "6fd4651fc405d0db0009e5c4d3b7baba24dec2fe7f32cd0e7b0f055e3b17ee21",
+      "bytes": 27202
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/QuickRouteStudy.class",
+      "sha256": "015f1103b5902d0a16adcfb84cdb53520ff8ce34e854a99941c24b29ec646004",
+      "bytes": 11508
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplayPaths.class",
+      "sha256": "f0bd635d1d438ab82091a93393d8d455699ed5143be5bf3fc54928deea3364a2",
+      "bytes": 2194
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe$Choice.class",
+      "sha256": "e686671306698bbc51b8faac46911964a20851265cd46cbe42387fac2f54e1e9",
+      "bytes": 2279
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe$Inspection.class",
+      "sha256": "da47656188e556a438b9906d4ca6d5a02a313b01bef49f9ba392e5a1635aba6a",
+      "bytes": 3788
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe$Play.class",
+      "sha256": "1f3a63308017628cb57d62e50662d08b64954ed071b7dafca01de0d8a2d5804e",
+      "bytes": 1991
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe$Prepared.class",
+      "sha256": "e8426dd525eac4e2792035c3b085355ca26f54a180b45b15f0116da0f6ce6b1a",
+      "bytes": 1732
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe$Reply.class",
+      "sha256": "6ac624f043260f48c1f2bd8863b275e12527013e670e88f7403c36d28bdc1ff3",
+      "bytes": 1546
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe$Value.class",
+      "sha256": "2bee78ff04a0d9dab8a1d7999791572f05fa146bc426b007fcc986464368c08b",
+      "bytes": 1616
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyProbe.class",
+      "sha256": "12bda71d6aeaf6bc426819094b47d2f9099d75a22f2f371d4d435b3606e0989f",
+      "bytes": 14147
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy$Captured.class",
+      "sha256": "80e48f94a94c404a00d77910be897ab85092b35774b90756a42af9ffea725d8f",
+      "bytes": 2051
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy$Entry.class",
+      "sha256": "b960f92e25fa8017954dd7466f8a42e8fa06f3adaff93fd6e4c2fab7f58912a5",
+      "bytes": 1580
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy$Manifest.class",
+      "sha256": "a75c41785da341daf088c4d4e174f725adcde55229cfef48cc63cda2673c143e",
+      "bytes": 1952
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy$Position.class",
+      "sha256": "f4afbbfb701d9fa91de1bfdf459af0970ab8e9a1f5368db2518e1da006bd87f1",
+      "bytes": 2337
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy$Sample.class",
+      "sha256": "9608eb4821e8ce3b9b5d555f57a9535f04ed41acc2ddbc3115a7183f0a9edc73",
+      "bytes": 2897
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy$Summary.class",
+      "sha256": "bdb4f80cd7a51ab813c14a61b6d83167d820f9fec0d50939f5d0f56b3fa18eae",
+      "bytes": 4646
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/ReplyStudy.class",
+      "sha256": "9f7c9ce0fdcb48090adcc08f834a5c90fdde2b27b8084889997d2002cfa22d69",
+      "bytes": 16495
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/RolloutCheck.class",
+      "sha256": "40d5bbfb5cd507e39af66317bcbf32ee46d81ba3317ba4ba5eed63bc9ec5c795",
+      "bytes": 6706
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/RolloutFollowupStudy.class",
+      "sha256": "76f88fefb5cc1a7c37c6c8a0551e2d533eb2f78be9c305e7eb354d2e7deb97a6",
+      "bytes": 11186
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/SabotageForecast.class",
+      "sha256": "67a2a658d39ec95ae406bc161c5b8254e8ee5423cf1f8fe7711c26336a93b43a",
+      "bytes": 5219
+    },
+    {
+      "path": "build/classes/java/main/btk/tools/SearchExperimentStudy.class",
+      "sha256": "4d4ee71716a5dae819b60a38a7469f4ab0a7aad36ea43030dc85d7004507910e",
+      "bytes": 17268
+    },
+    {
+      "path": "build/resources/main/btk/bot/catalog.json",
+      "sha256": "256dbd710907f8b526e4c25c31523b71546d731f5076161a571bd790550699b5",
+      "bytes": 10065
+    },
+    {
+      "path": "build/resources/main/btk/bot/experiment-engine-v1-classes.json",
+      "sha256": "79fc2d11d6aa403edab9ff9475cb3bb6741efd62e46a566566f14e9c659bca95",
+      "bytes": 44740
+    },
+    {
+      "path": "build/resources/main/btk/bot/experiment-engine-v1.json",
+      "sha256": "b0a2d36b31779bc628248387695b4dc7d533c83c231054e8ac58ac525226c3c5",
+      "bytes": 3314
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/indrill-q-v1.properties",
+      "sha256": "a928876278b2e9693ef1bf9f069df896a15892fae897195f6bc711dbc4c2008e",
+      "bytes": 304
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/indrill-q-v2.properties",
+      "sha256": "56a27cdd605157f77bedfdf7e5c68ae6c189c1b32da78c2dfaf485403a2cc9d4",
+      "bytes": 115
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/leader-v1.properties",
+      "sha256": "e8c092ea83658f2602b38a09f8afe03a87549178d028281c1fe06302fec636c4",
+      "bytes": 290
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/leader-v2.properties",
+      "sha256": "4632d7955999ac8b2c07c3cbbabf67abc5c1ef4a121ca9ecd564937095290218",
+      "bytes": 341
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v1.properties",
+      "sha256": "0727fa41a86c767273a745a3cfd6c0528663e7946b949c38c247a7a0ec0b119f",
+      "bytes": 392
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v2.properties",
+      "sha256": "853346d9f2a6bfbac91e890db451f85cbe961d10b6fb5bea924c1e70dd6c3746",
+      "bytes": 323
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v3.properties",
+      "sha256": "ae052f679ae581eb386b30f6aac517e9def83e1384db7062d6a6b1a0b345173f",
+      "bytes": 164
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v4.properties",
+      "sha256": "4c28621eb2c4f784daaf8ee1da41313b2502a42e35c80623f42d000adea3a8b2",
+      "bytes": 160
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v5.properties",
+      "sha256": "b8f3823249adb36e49eef8e3411470db58ffa41399445929a2edef29f1770332",
+      "bytes": 178
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v6.properties",
+      "sha256": "daa1401c7114e4e0efba3b01a87e5d3fbcc359dfee8c2b18a6f740d0aa59be20",
+      "bytes": 163
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/neural-v7.properties",
+      "sha256": "829e62eeff9f70747ec070544e7fec841ff7e4670e0e6ad357a59127ceeb2c2a",
+      "bytes": 222
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/pressure-v1.properties",
+      "sha256": "b92484bc1d21262fe6b5211358922934bfe4fc7538e316196e075b321fcf4fb9",
+      "bytes": 258
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v01.properties",
+      "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "bytes": 584
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v02.properties",
+      "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "bytes": 584
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v03.properties",
+      "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "bytes": 584
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v04.properties",
+      "sha256": "06ddf3ae46849e334a627b74d9b5b9c868957459d89418300226386197918414",
+      "bytes": 498
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v05.properties",
+      "sha256": "1f0869e4c1d4e76b249b496eb173d2cafa3930dd21864738d662d6a6aa3b739c",
+      "bytes": 508
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v06.properties",
+      "sha256": "5ae783d32083178d0b43c4b0472d7580135d0aad5fa3f7e7e453948906f430eb",
+      "bytes": 1897
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v07.properties",
+      "sha256": "8ac645d621537d1de419ed9398fef411446dbce4f8d89062fef4f6cd53f97e11",
+      "bytes": 2332
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v08.properties",
+      "sha256": "03168c7c0c09a7d43dd0f7b3bb82773448a726617ebeaa4b94504a6be1fe90ed",
+      "bytes": 2600
+    },
+    {
+      "path": "build/resources/main/btk/bot/versions/v09.properties",
+      "sha256": "93a6f0ab512f0d914ce98c1e554653b131dc8d4dc5702a5cd0402958c5fca5bf",
+      "bytes": 2935
+    },
+    {
+      "path": "build/submit/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/submit/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/submit/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/submit/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/submit/classes/Player$CGRunner.class",
+      "sha256": "a4f720466ca5a9f8863143f90089ee773dd7b72d390bfb56ff37f4b4844dddb6",
+      "bytes": 5995
+    },
+    {
+      "path": "build/submit/classes/Player$EvalBot.class",
+      "sha256": "aefce312c8d191326ceb714170374bebeb2900f80cfe5af35b95e0da9f383456",
+      "bytes": 32080
+    },
+    {
+      "path": "build/submit/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/submit/classes/Player$GreedyBot.class",
+      "sha256": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739",
+      "bytes": 3936
+    },
+    {
+      "path": "build/submit/classes/Player$MainBot.class",
+      "sha256": "32879603176d6c602999ea52b9b5d4be23ed78568f8dd1a83e105b7d7c9d58ee",
+      "bytes": 5556
+    },
+    {
+      "path": "build/submit/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/submit/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/submit/classes/Player$Params.class",
+      "sha256": "40654dfc37cde3ac7c0cc405e993930e8f2edbe521c11911bdf708b51cd4f2e4",
+      "bytes": 11004
+    },
+    {
+      "path": "build/submit/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/submit/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/submit/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/submit/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/submit/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/submit/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/submit/classes/Player$Timer.class",
+      "sha256": "66743249743708aaa23b8a742d25c7a6620b5af592b5f91f183f32786b8eebbc",
+      "bytes": 809
+    },
+    {
+      "path": "build/submit/classes/Player.class",
+      "sha256": "ad594943bb12ee2c52e308cc07a94fdffbc223f07df77f8646d72875abeafd17",
+      "bytes": 1278
+    },
+    {
+      "path": "build/submit/manifest.json",
+      "sha256": "38d5e05227a7ffb621124641d0743dd861f96cec70193b8134aeb5ed1c2765c5",
+      "bytes": 4730
+    },
+    {
+      "path": "build/submit/Player.java",
+      "sha256": "1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19",
+      "bytes": 95278
+    },
+    {
+      "path": "build/submit/PlayerQuickIncome.java",
+      "sha256": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+      "bytes": 57404
+    },
+    {
+      "path": "build/submit/PlayerQuickIncome.manifest.json",
+      "sha256": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3",
+      "bytes": 3221
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$1.class",
+      "sha256": "0ce579f2c8954cdd7beab1fd6995bffdcb49d6a569de6e4a6ff63eaa3b1e2df3",
+      "bytes": 792
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Action$Type.class",
+      "sha256": "d9c53856a12c91448c4ddc18b536ab8e6f2d8a57176072b7661e16016629f303",
+      "bytes": 1137
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Action.class",
+      "sha256": "a47cc8034ba91f73a196e3516d1e719a5e029dacbef209636fd0efd85b673faa",
+      "bytes": 4768
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Bot.class",
+      "sha256": "b20a39c5066b1e8d1c166452de549f92a464ef8be3850c9822a4b2623e4b04cf",
+      "bytes": 921
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$CGRunner.class",
+      "sha256": "b9a9fce922b02d2d592223abfb0269a3807845242e94918892fe03d78025854f",
+      "bytes": 5997
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$EvalBot.class",
+      "sha256": "fbe6b128d0ffb52c150564ad3f4e572853cf27201d1aa074f2f46fe64cb7722a",
+      "bytes": 23594
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$FeaturePaths.class",
+      "sha256": "8a7586301935ac70501a0a2ac9a5556aa9a84c06ed47c75bbe9d93bb43fc1c76",
+      "bytes": 2778
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$GameState.class",
+      "sha256": "4edcefe8913e9d1d8616a08e5a30f5a9abe25be070f1b99a9cac77f652a54011",
+      "bytes": 5094
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$HypotheticalIncome.class",
+      "sha256": "ebf6e2fb8d81a514c4886c78a9b0db3af0ac38ff976015c808b916731ef0799f",
+      "bytes": 2773
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$MainBot.class",
+      "sha256": "7289e164c12f64bc78d05657054b136a09f86a43f8f316ccd46b4426748b5c0d",
+      "bytes": 5671
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$NetworkCells.class",
+      "sha256": "322a77478cc3b28cac7171744faef95a687621d07743bdb48c62f2ba6f617476",
+      "bytes": 1048
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$NetworkChords.class",
+      "sha256": "52ded9a39cec3002b7201cebefb2da067124d853b35b864454a4d2a0be8035e9",
+      "bytes": 1393
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$NeuralFeatures$Deadline.class",
+      "sha256": "a81a6a3380039834f969df27ed335b468b21abf48d0198a916e27733a2929863",
+      "bytes": 266
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$NeuralFeatures.class",
+      "sha256": "2342c7837c2eb6dbc8db2711249a96ac2f7ce561bb386a99286014af89476aa1",
+      "bytes": 18796
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$NeuralNet.class",
+      "sha256": "8d97fe6dc6dc2ddc257d5f87dba15f0136c2880d096aa65700611bc40060e4b0",
+      "bytes": 2493
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$NeuralWeights.class",
+      "sha256": "d183d1c0ee8fd74c06ddcdbf2d430ab0961ea9be2568ebe6860d3d23e158fae9",
+      "bytes": 14275
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Params.class",
+      "sha256": "0c8a2f29b27e607193145928ef8f2b49ae66616ff6312172c925aa3476c274e9",
+      "bytes": 11255
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Pathing.class",
+      "sha256": "d5b738bf282797225b3ee1eda37048f53c4344b72ec1b0e029977e2456d23c6e",
+      "bytes": 7012
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Protocol$Init.class",
+      "sha256": "a990a2098d3607b97b246f3213bfb0db3e09f68157624dc0ed06a6c675b88903",
+      "bytes": 407
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Protocol$TokenReader.class",
+      "sha256": "669aff68a535b7011660ddaf881747ebf3ad7ce7273cb564136086a66c668ec6",
+      "bytes": 1525
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "bfea2444fee9ed7df764c4690e58723e0207a105e498b6ac72676368a5733c70",
+      "bytes": 400
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Protocol.class",
+      "sha256": "28ff2b69875bebbea7ac7add5efc606b3c8292888a6c98c1689e0fef723f4674",
+      "bytes": 4856
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "fc377da89c76728c10d42899de3ba8f4f1e748fd8ade4b8831a61bfc61b8945e",
+      "bytes": 1054
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Rules$TurnResult.class",
+      "sha256": "3a06a2a1f41d698fd009b7ffcfcc05d3148a0ffcd803f4be559209ce93c89126",
+      "bytes": 895
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Rules.class",
+      "sha256": "7ea8264f5afde41a5e884a100634e0d46ecd032f7a1c6d886e68aac17584a102",
+      "bytes": 7907
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$SearchState.class",
+      "sha256": "eb5dd805a078a378942379675bb037f6bd11540c63ee00cdad6043c611315833",
+      "bytes": 1977
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player$Timer.class",
+      "sha256": "8880daa44c014c853dfd7b30e50e40693775efc6ccb9921c41d9e1bb6431299f",
+      "bytes": 809
+    },
+    {
+      "path": "build/submit-neural-v7/classes/Player.class",
+      "sha256": "780706d3d003db08a9c1490568a3060d0feebcb892bc8c621d748f45bfd04f6e",
+      "bytes": 1539
+    },
+    {
+      "path": "build/submit-neural-v7/manifest.json",
+      "sha256": "5864f0a34052a59d329ee224bc074f80062c7d9db43bf8c9f5c0a791c378bfef",
+      "bytes": 4891
+    },
+    {
+      "path": "build/submit-neural-v7/Player.java",
+      "sha256": "53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8",
+      "bytes": 99358
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.BotCatalogTest.xml",
+      "sha256": "ce7cdd3021586251c6dcd94a746ed63d4c935e31ddc503758df15888532ec1f9",
+      "bytes": 1075
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.BuildDirectionTest.xml",
+      "sha256": "d41202ee0139ef08465539468d55662d52341f052ce9e7adad990e5b4a8a982f",
+      "bytes": 997
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.BuildIncomeGuardTest.xml",
+      "sha256": "155d2563932077265bf87881550298155a29819d38baa0ee6ee32bb1d7d144dd",
+      "bytes": 577
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.DefensePriorityTest.xml",
+      "sha256": "22288e40e90bd65585920ab486f10a3ff9eff955f9ed64915f976af7e525f076",
+      "bytes": 1234
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.EarlyDisruptFallbackTest.xml",
+      "sha256": "92db253aad4a42ccd6e6733f3116b14fb62f292858db96cb97fed64c06464c1f",
+      "bytes": 580
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.EvalBotTest.xml",
+      "sha256": "367192d73e24181b78ecf4bcab08d83247478d655cc3702ac5285a1800448d3b",
+      "bytes": 1172
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.HeuristicBaselineTest.xml",
+      "sha256": "9dcfb8b44e4a207eca73b695f140b87d09d223f762f0437d60b94b37fa50029c",
+      "bytes": 459
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.HeuristicBotTest.xml",
+      "sha256": "83bd9b238e33081490314c941eb05d7dd99137ee0bf6a289030c6e60a717ef60",
+      "bytes": 1124
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.HeuristicDetourTest.xml",
+      "sha256": "4d460226d959516674fe4d4c65a570a08d3fe31a4e9ec939ba1c63dd8d0d7463",
+      "bytes": 1177
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.InterruptedEvalTest.xml",
+      "sha256": "d0207ce1e56a80c9556e75521f6f9467a2bee63677d90391ff50364f1d273172",
+      "bytes": 734
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.OwnBuildPlanTest.xml",
+      "sha256": "9bda89fcac9c8df3de5b036b9c596eb0686fea352aa7e2403ef34d45daf4f310",
+      "bytes": 1428
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.ProtectedOpeningTest.xml",
+      "sha256": "4765c42ae09e6e786e55d79f7c542f425e7406b11a8335179e4ea71cd5d0688d",
+      "bytes": 1632
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.ReplyRerankTest.xml",
+      "sha256": "5e154f62623d2175d07764b92379d3326fcdb97f412cf6f103a310a44d6ad4ca",
+      "bytes": 566
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutBotTest.xml",
+      "sha256": "9f9065f35e3460668fc0b9493bf3dcfe440539497ea83a3334590bd13a30f659",
+      "bytes": 1576
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutDiverseRepliesTest.xml",
+      "sha256": "53f57f034700669a919a9f190a279c6266502331ee17761386bbccedbe87bb2a",
+      "bytes": 637
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutFillTest.xml",
+      "sha256": "6bd89d19e483712514b164a37f36f5c972e609ccc6863e188c839c65af15339f",
+      "bytes": 764
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutLiveTargetTest.xml",
+      "sha256": "eefa76537f0aaa8b2116d9d0909ff057898026f32afeeee37a9c00ea8f04e9bb",
+      "bytes": 633
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml",
+      "sha256": "07674e51ad8db1f8dda2be02ee37007a5fcb4c637e8678a4bcf709f8be6a6dec",
+      "bytes": 1404
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutNetworkChordsTest.xml",
+      "sha256": "dfcc84d30c2e833db62f4c3078b58e36594f3a42e5db5dcd191057f8780e988b",
+      "bytes": 1065
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutNetworkTest.xml",
+      "sha256": "1d9a91c663105fe02a466e3c99f9cc2b22ec7da2c648448f4472add14ca62e84",
+      "bytes": 1206
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutOpeningIntegrationTest.xml",
+      "sha256": "b8d747a68526bfb3a3a99a28000478015a3082c1850922067556d7fc02ee2cf2",
+      "bytes": 814
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutQuickRouteTest.xml",
+      "sha256": "ce214226f98cd06538471913afc5808c3f233f933c227a77ce186b768593a22a",
+      "bytes": 1362
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutReplanTest.xml",
+      "sha256": "26bbaf43a4230be2b108f783643f0d6e46b527ff5da8e795c6a14cf19078cab7",
+      "bytes": 605
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutRouteDependenciesTest.xml",
+      "sha256": "81f5a27d2a04b7d2eefadf1cc79b83f546e4048e4d5b28a4dabb5f685a226eee",
+      "bytes": 1287
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutSecondTargetTest.xml",
+      "sha256": "4366d480ba307ee959d266f03e6e70866f69d99bb2d1b306c46e174f2761d6a6",
+      "bytes": 632
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutSpreadTest.xml",
+      "sha256": "eb730e8778cf7e4985056b93b516c849aaf8b80e174ae0cb2f4b3cee0ba41b05",
+      "bytes": 1010
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.RolloutTrackValueTest.xml",
+      "sha256": "cb24fff6e856e94d2eba610748b10b22f0d3833e498dbf2b1e5698a9218b3556",
+      "bytes": 769
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.current.SabotageRegressionTest.xml",
+      "sha256": "cb48b3c6982b86aa51e67f7f0edc3045b6ca143e06f577fa957e9d4b6c01cdc1",
+      "bytes": 468
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.FrozenParamsTest.xml",
+      "sha256": "8f4e89e964a2cc3821b235b339ce8fd4ce296edd8526b70925b962e5ea51d0b8",
+      "bytes": 2296
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.IndrillBotTest.xml",
+      "sha256": "ef68e391662ba1cbaf2282dc0199017aa6d224a998693c87d302c7dedf84b552",
+      "bytes": 1005
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.IndrillV2BotTest.xml",
+      "sha256": "de6e1a7a06691828f09bab72db02444da188574c3dae9f9ba7fb32c2c3516afd",
+      "bytes": 1135
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.LeaderBot2Test.xml",
+      "sha256": "f7424a1ddb3fcb7059a94be31c49218960494d855400554d58e472403f5086eb",
+      "bytes": 833
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.LeaderBotTest.xml",
+      "sha256": "c1984df2f7221cc1416677ee9e3cf09ea9d7a2d1fe3bbb5e813f339535bb4420",
+      "bytes": 1007
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralBotTest.xml",
+      "sha256": "356c4e43998a25bba1676c6daa45464b584600e276b96bc28b78cbd7cb130611",
+      "bytes": 1052
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV2BotTest.xml",
+      "sha256": "603827ed780248e4bcb5be96ec4a914e9ed8b5c7c59539a16de44d0cb5fc84bd",
+      "bytes": 853
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV3BotTest.xml",
+      "sha256": "62c962045d3284fe4a0869525a5cbabbc0d13912909e70ecd0b773e3fac226d6",
+      "bytes": 854
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV3FeaturesTest.xml",
+      "sha256": "5a864572c054bca3b3b3fbd7bf1a1d6323c6ebea9d6c2bf59c3749c442f060f6",
+      "bytes": 1031
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV4BotTest.xml",
+      "sha256": "20f73368fd4e8f85a9cd6bbf4514a9a30f5160a0831b400353ca08228e783a29",
+      "bytes": 598
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV5BotTest.xml",
+      "sha256": "8eadce75d36b1bab64a031c1c7118bddebb233ad20ea12261d2592fb2656027a",
+      "bytes": 987
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV5FeaturesTest.xml",
+      "sha256": "91dcb2eeab6a07a54f2044ab6c9154fed8d42476825ed07c7496490ccfcf50a9",
+      "bytes": 1032
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV6BotTest.xml",
+      "sha256": "b47977daca70bee6d6f8334995317b01da3d77c46d8f86985c14ce5a5bd7f3a1",
+      "bytes": 988
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV6FeaturesTest.xml",
+      "sha256": "dc8fae5dfe8dfe79a913accd9154d970dd68309fe8cb707cd3a2893ed1d7ff7d",
+      "bytes": 1329
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.NeuralV7BotTest.xml",
+      "sha256": "ce3be38cbdd3ff8061e8311b6efcb4dc77c2bf1594500bbee99a861ca669c454",
+      "bytes": 2040
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.PressureBotTest.xml",
+      "sha256": "e626ac35bcb8b4a3fa92cf6810b583771c4fca59235e8afae62a6174e2b6f33e",
+      "bytes": 839
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.RouteWarmupTest.xml",
+      "sha256": "55d19b761015bb17f89a9937ed654e23e81c41189ff070a63497078de9eece3e",
+      "bytes": 910
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.TimerTest.xml",
+      "sha256": "c661856fc18cf99a428f05b55f28da2d47e87c62371b5f6b7bcbbb6c18f3a3ab",
+      "bytes": 528
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V06PromotionTest.xml",
+      "sha256": "39c11d89410f235aab2a690da6c896f9c34de0d965a2c4892ab97cfd370b8d92",
+      "bytes": 578
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V07PromotionTest.xml",
+      "sha256": "931ded20b68e32054a2c2d1bc65d992c1e3c34baef370c5f9afdd1c5c17e5678",
+      "bytes": 700
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V08PromotionTest.xml",
+      "sha256": "5d23e2b05adeff9bd26338dceae8468aae6e2e8965c7e16ce080c63ee01c7dba",
+      "bytes": 1016
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.bot.V09PromotionTest.xml",
+      "sha256": "dadbb991d34c4bebf86982ef871cee3e1599b23b9c7e8c83d054d14ab20f2922",
+      "bytes": 990
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.FeaturePathsTest.xml",
+      "sha256": "4fa55f20a262ae6be8ba937369b653674a88355070cd237001efc397cc9bab47",
+      "bytes": 1266
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.HypotheticalIncomeTest.xml",
+      "sha256": "cd08103f567a29e59e61055d6e31017637b726ed5c3262a1efb8543f4f44849a",
+      "bytes": 1283
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.InkAllProjectionTest.xml",
+      "sha256": "ac5b125502586ff08054f3b9a5d7c756c24ebaf811c7e7261a7d470e297665ad",
+      "bytes": 856
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.InkTest.xml",
+      "sha256": "6baac97b13da0e60019f80fb5d050c936e342f2c321b03666ca1c48f232ae124",
+      "bytes": 793
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.NetworkChordsTest.xml",
+      "sha256": "47acfa9c871c232e484e8d44cd4817a6c5f9210c40f714ac3ffbcf907079ac18",
+      "bytes": 594
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.PathingTest.xml",
+      "sha256": "8be86c0def59f6bfe37ba5ce7a9e6d8cb37174c906c3e20d305f84b7c7daf62f",
+      "bytes": 828
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.ProtocolTest.xml",
+      "sha256": "00b7733adefa54352894bedf4130f63df59d2f7a1f45d053e3ede5b97b97da67",
+      "bytes": 506
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.RulesTest.xml",
+      "sha256": "659459538b39501d64363e98ea0c9dbfccd0db6df39df8731e721c3306d82125",
+      "bytes": 1331
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.SearchStateTest.xml",
+      "sha256": "218fc34d147e75c166178ea8a116252f7aa7ea4d35e926a30bf1f10b9368412d",
+      "bytes": 844
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.SingleCellConnectionsTest.xml",
+      "sha256": "1e42ccfaa87acd27d5877bb58d8f3ef83c76cbd91a2291c489db70e1bb8fe2c7",
+      "bytes": 1297
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.core.WeightedDistancesTest.xml",
+      "sha256": "b1aa0fe5f61ddfcb01974b58e461e27cb56c5bd12feaa0bb1d9c50e1da1aeebc",
+      "bytes": 1248
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.referee.MapGeneratorTest.xml",
+      "sha256": "98b9cca2d6074e695c2251c7f7366aff368acfdf617be167a3bdc846a71aab2d",
+      "bytes": 1605
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.referee.ReplayTest.xml",
+      "sha256": "2755711b458d00a34053465836ac45ce3491f9990644412c9d21a65a1826a551",
+      "bytes": 658
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BehaviorMetricsTest.xml",
+      "sha256": "3a0f987627310915e96d1e6f195c4e243a9f94309ffec932df1c634c68ca4bcf",
+      "bytes": 449
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BenchmarkRunnerTest.xml",
+      "sha256": "d3055d2cd0b6cc704b8ecfe3d2fa798a5dd79c7b457ea130e69882aa4a0cee69",
+      "bytes": 1321
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BenchmarkSuiteTest.xml",
+      "sha256": "cb3fb7c3a01715c23f9ee08f02fd9a895cb8c8c53d04e2b6e397d0d68b26fa13",
+      "bytes": 1693
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.BenchPoolTest.xml",
+      "sha256": "cd2b0c629b285b1a628820210bbffcc6de7c37d82b830a8a6b422c4251da2780",
+      "bytes": 790
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.ProcessBotTest.xml",
+      "sha256": "1e516d899b9e1028181df29f201ee19c1ce1b69f9e69c605aa16c255b005bee1",
+      "bytes": 1695
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.ProcessCheckTest.xml",
+      "sha256": "a928a7eef40744377b7977860c3ccd2bc335cac4fd151740266a6ee64f4aab09",
+      "bytes": 1200
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.runner.TimingProfileTest.xml",
+      "sha256": "d4c0bc0247c803abdea6ee3b88283969c11a492e9becb1dfa8fcbb985f4d8dd7",
+      "bytes": 751
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.submit.BuildProvenanceTest.xml",
+      "sha256": "de64b466b28b2b455015636fe4544ed3e37c01d42936a99a9a716167960251f0",
+      "bytes": 867
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.submit.FileMergerTest.xml",
+      "sha256": "5e76623a11759b9e36da17f2ab90295b6244ffb2f9957d64f4a906cdeb8cbfdf",
+      "bytes": 4243
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgBossDefenseStudyTest.xml",
+      "sha256": "f7111686a22d958cfcb57a425af2ff2d535fd3f272b8e790407dcacc2b1ce6bb",
+      "bytes": 860
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgDisruptStudyTest.xml",
+      "sha256": "7a7183809f6d4be4d71fa2c5584027cce1202807d8ddee1f4952f2e037aeab88",
+      "bytes": 1225
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgPlayerStudyTest.xml",
+      "sha256": "56a7aa03faa63accbc82bc6f13bf0935ae5aae3b69c5b7532f9baefc5bf09dad",
+      "bytes": 970
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgRenderSeedTest.xml",
+      "sha256": "61f21211d593e1191537d6e84c1772a5b5cd1944eec7c25cb0dc4c03ea2b2857",
+      "bytes": 1230
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgReplayPlayersTest.xml",
+      "sha256": "02e1da71feb188c3d60c3dc19c7909b0f0b44eec9ab358c5f7bb1ebd069d868d",
+      "bytes": 831
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgReplaySeedTest.xml",
+      "sha256": "578c3a575f1d31ed917dae2d99d42e48bc4259db019488f15bc6ba4c868ff2ef",
+      "bytes": 564
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgRolloutBossProbeTest.xml",
+      "sha256": "382537fc908c239859358b5460f0cbaa76f13a64617a434f9e0c39908052b356",
+      "bytes": 758
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.CgValidateTest.xml",
+      "sha256": "8b01fda0e96986f927891b6c2217f29afbbace12346d8d6c725b68a7845ff0fc",
+      "bytes": 1279
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.JointActionTest.xml",
+      "sha256": "0106b99ed34c7b458ac48ddfbf641ac642b5e8705c1230d439e7a55df4c49bc2",
+      "bytes": 840
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.JointReplyStudyTest.xml",
+      "sha256": "bbf4d24e157877e1b63dd2981fa3b1fc5b06063e2c27689d544ba0c50cbaa8a2",
+      "bytes": 1200
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV2CollectTest.xml",
+      "sha256": "c954e6b5084bcca9557f55f47fcda3c9b17fc1260a9cfb5fcc0669b0af596c3d",
+      "bytes": 702
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV2VerifyTest.xml",
+      "sha256": "24beafd80bd43378c1a47d11e8b971e28219dbd240279da37f10b7705650015c",
+      "bytes": 693
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV4CollectTest.xml",
+      "sha256": "62807310be43034aa04a64cc9f51822732c40197f1f57223ccf97c0dbe52be7d",
+      "bytes": 706
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.NeuralV4VerifyTest.xml",
+      "sha256": "186a36c8b1610c55c5746bc5fa3c92acd8cde553dc7169130ffb95ef9e97eb11",
+      "bytes": 693
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.ReplayPathsTest.xml",
+      "sha256": "4063df9eb91e3be89b5ccd08cd0ade79e6a7772357f36f9e5134011f2bf2a556",
+      "bytes": 1085
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.ReplyStudyTest.xml",
+      "sha256": "581a06af454db6b56ed0603393bbb687a10dff61c6805933d57bb4418cb1ebd9",
+      "bytes": 1418
+    },
+    {
+      "path": "build/test-results/test/TEST-btk.tools.SabotageForecastTest.xml",
+      "sha256": "6f61f2641c2987f2650db1c6b723e5b2c8cd07b5e9ba2769b2ba7bba60d05285",
+      "bytes": 990
+    },
+    {
+      "path": "build.gradle.kts",
+      "sha256": "40eb43d2dafab78d521d3b2958afdba5b1d8dfd49be7f120cd791f0822fe8500",
+      "bytes": 18344
+    },
+    {
+      "path": "docs/benchmarking.md",
+      "sha256": "ff9367b30e5dbd1c1cac6bc458df26e50443aa726571f29ce1109541f6a9a58c",
+      "bytes": 26795
+    },
+    {
+      "path": "docs/boss-cache-policy-v3.md",
+      "sha256": "2e39893842af8404ef597c91d5d58323a75a4d5b6832557a07d58c564351db6c",
+      "bytes": 8022
+    },
+    {
+      "path": "docs/evidence/neural-v7-boss-preparation.json",
+      "sha256": "ca7839eceb2855e07ef2c9e301d63d8372acbd0ff7de05ffe3ee00ee2abe25c0",
+      "bytes": 9096
+    },
+    {
+      "path": "docs/evidence/neural-v7-mechanism.json",
+      "sha256": "15b16fecf94707a976f24098f71f353743a809132f6898e87fc9757c86278be0",
+      "bytes": 438928
+    },
+    {
+      "path": "docs/evidence/neural-v7-prefix.json",
+      "sha256": "719c7183e29548d90947b4dfaf1213dacbba23289a96c38261fa589e55a87968",
+      "bytes": 994557
+    },
+    {
+      "path": "docs/evidence/neural-v7-v4.json",
+      "sha256": "1ac22254089b7122f00be713ae814b8e43a1bf48a55c32f1b1ce35c4acf57707",
+      "bytes": 251297
+    },
+    {
+      "path": "docs/evidence/neural-v7-verification.json",
+      "sha256": "50227fae61c3b5fbb8382eb74194d4e8572682cf9e11515d188a7e139ba3bdf8",
+      "bytes": 230874
+    },
+    {
+      "path": "docs/neural-policy-v7.md",
+      "sha256": "f51b3601e330224315a448cce026615053e4240a6cfc904a71d80393035a61c5",
+      "bytes": 5800
+    },
+    {
+      "path": "src/main/java/btk/bot/Bot.java",
+      "sha256": "21eb774e67a8ee5a3523b75be50fb11d61fcf36ce2d51975e6f5e97ce9162810",
+      "bytes": 1204
+    },
+    {
+      "path": "src/main/java/btk/bot/BotCatalog.java",
+      "sha256": "5204172a3385e8c60a9ff704d19e62de735881b9bdf77e2544393f465eb5cf63",
+      "bytes": 8220
+    },
+    {
+      "path": "src/main/java/btk/bot/BotFactory.java",
+      "sha256": "3de5e7c9b59549902c6c690b55e52e559a364dd426176566a1414c7b69d0db23",
+      "bytes": 7128
+    },
+    {
+      "path": "src/main/java/btk/bot/current/EvalBot.java",
+      "sha256": "4ca4f89ba8772b2144dd25511561fe8d90ec913ee55f8e5b9a2edc9cb0c757bc",
+      "bytes": 60020
+    },
+    {
+      "path": "src/main/java/btk/bot/current/HeuristicBot.java",
+      "sha256": "1d18dec99a5f516f8e42c81fc85da71a3475bb9bab588e5a3e31b073ba21d78a",
+      "bytes": 16026
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillBot.java",
+      "sha256": "0acabb20e52a2e18b20937abc3a36903a52a03f1311c57daa3adae1ea089b923",
+      "bytes": 1999
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillFeatures.java",
+      "sha256": "558ec06510a35f9bed94e2b95348331ab9875666f7648d6d94a5342cfee8ebbb",
+      "bytes": 6752
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillNet.java",
+      "sha256": "cca6393e9f7955c1cce652a4ccdcdc54fcc11026c964d655485886d51fa957ea",
+      "bytes": 5269
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillV2Bot.java",
+      "sha256": "e2ad3d7a0b3c25e446bdc3d0b5386f6f0af54fdbd36d585c923094fb0837581e",
+      "bytes": 2369
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillV2Net.java",
+      "sha256": "ce9c36ba252bc82b23740e58ac88fdbf1946d1aee000038d50a6005b14ca5415",
+      "bytes": 6039
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillV2Weights.java",
+      "sha256": "e8f5bc21ca62983884ab4bb1a68e2489ec272a211cb820100882dbfd94b05451",
+      "bytes": 19353
+    },
+    {
+      "path": "src/main/java/btk/bot/current/IndrillWeights.java",
+      "sha256": "be34ddd0ee48087a213934877ee7d4f3121a96fd1732ddb7c62349d377cea0fe",
+      "bytes": 19110
+    },
+    {
+      "path": "src/main/java/btk/bot/current/ProtectedOpening.java",
+      "sha256": "96c2de3a843439a57e2d12e63c5e83d3b5fc0b6278d875e36b4587d2424613d3",
+      "bytes": 6066
+    },
+    {
+      "path": "src/main/java/btk/bot/current/RolloutBot.java",
+      "sha256": "fd0c8023720dd71c03da75cab27f13d39d25b3919f722c365cca25cc10951464",
+      "bytes": 56776
+    },
+    {
+      "path": "src/main/java/btk/bot/FrozenParams.java",
+      "sha256": "b33f396c7adb74c88cf2ab81aa2a9ed42f83ff68f95f59a07b40ed5e61366d81",
+      "bytes": 2123
+    },
+    {
+      "path": "src/main/java/btk/bot/MainBot.java",
+      "sha256": "b4e94791c92a0452fc1fbc7f3172aaa820ed67e6fa0f04d7b4d56ad92086b584",
+      "bytes": 2953
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralBot.java",
+      "sha256": "d22fe4d3970cd380f3bb569a5abb3d630c71c9f526fd9c3c1bd1ae6d23992a11",
+      "bytes": 6726
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralFeatures.java",
+      "sha256": "532ca3757bb0bfe4a1ae5fdbb476c25bc1d3440eb74238d573aec52fb170fdc9",
+      "bytes": 31192
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralNet.java",
+      "sha256": "ed09d83ad4e0a532f24ad54d2fa873bbb323be2f7ecb4548455ed22e0c87a814",
+      "bytes": 3443
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV2Bot.java",
+      "sha256": "51a84df44c332ac00d15aebd257373a8ba89bd41e91798d96d7a6f6284c92cba",
+      "bytes": 6983
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV2Weights.java",
+      "sha256": "bf650f1102323d73f77bb9e98a1a8c1472a20b11e599e5c145499cc9e4fa93e2",
+      "bytes": 14075
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV3Bot.java",
+      "sha256": "2a80412294734d6a1e56a6b05a9de14e4f47c39235fa3e293d98f1f0fd76b362",
+      "bytes": 7960
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV3Features.java",
+      "sha256": "d173b8f282ca5b0d877fabcb84cf6cd76658166afd1706bb7232d2b16c4398c6",
+      "bytes": 34681
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV4Bot.java",
+      "sha256": "a4b90d2ade9377f4adfdf91af69adeb2378cd2ad93011b3074a461066ad29751",
+      "bytes": 7948
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV4Weights.java",
+      "sha256": "3d444a32d6db7ddb84e4eb94cebad4f15e91702541d8bbd1ff7c1674ae97c3d0",
+      "bytes": 14096
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV5Bot.java",
+      "sha256": "97ec8f5937dddfaf944d5ad2cfa3f4c315db48258ee28bbddae26318ed4ce6f9",
+      "bytes": 8131
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV5Features.java",
+      "sha256": "5fd304b04de65188030bcb1aa3fc873c5ac5d77e893f5f8b999f0ee5babcf7e3",
+      "bytes": 34010
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV6Bot.java",
+      "sha256": "ebc4bcc0ad2b701a8264cabe9592a49c536fec934a69f01335362c36b0819951",
+      "bytes": 7963
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV6Features.java",
+      "sha256": "fccd4bd6f690a227744730dedd94638f4ca8252a189bbd26292fcea3581d0a8d",
+      "bytes": 31727
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralV7Bot.java",
+      "sha256": "22d11b022c047531ac51f870e0ce4cf51b90160316b1a0eb2881085e0f1438a5",
+      "bytes": 11627
+    },
+    {
+      "path": "src/main/java/btk/bot/neural/NeuralWeights.java",
+      "sha256": "6f7c0ea74be444e03f25444ccc51b37aaa8ed1c6588c112788659c95d62d3b29",
+      "bytes": 14222
+    },
+    {
+      "path": "src/main/java/btk/bot/Params.java",
+      "sha256": "0e8831c2215f6051149c960c613ec226bea711ee564afae017f07a023bb79afc",
+      "bytes": 14643
+    },
+    {
+      "path": "src/main/java/btk/bot/reference/LeaderBot.java",
+      "sha256": "d9e779ab7aebd23e1a0461d35e50cb1fac60c7df12567056e513ad662fad4b5e",
+      "bytes": 9130
+    },
+    {
+      "path": "src/main/java/btk/bot/reference/LeaderBot2.java",
+      "sha256": "aa332c7e74e33d9524ede5e45d6ddf795e7a5dde48d5ddeb8792a2a01ab98db3",
+      "bytes": 13020
+    },
+    {
+      "path": "src/main/java/btk/bot/reference/PressureBot.java",
+      "sha256": "2df3e14f7f3affbb52fdebce430c1901575b9a7d13ca671d9bce80f2225d2243",
+      "bytes": 6795
+    },
+    {
+      "path": "src/main/java/btk/bot/RetainedEngine.java",
+      "sha256": "17fa7401a08693435da4c6161a3ec8f57d2ba16ed9095535282918854ae06eb0",
+      "bytes": 3273
+    },
+    {
+      "path": "src/main/java/btk/bot/Timer.java",
+      "sha256": "d18aadb0f092b1b4ef00aacde6cc76df4eaa9871e79f854bf9639f1b2fbe0bdd",
+      "bytes": 786
+    },
+    {
+      "path": "src/main/java/btk/bot/v00/AutoplaceBot.java",
+      "sha256": "a5604bf9996db03d0cfc48614713ef3c9b4c42f48ba6299e5f64310814ac26e9",
+      "bytes": 733
+    },
+    {
+      "path": "src/main/java/btk/bot/v01/GreedyBotV01.java",
+      "sha256": "4aba45f93963d1f75759ccbc2a3d56b1611e0bb3f0d8925a1004723566f9f67d",
+      "bytes": 4530
+    },
+    {
+      "path": "src/main/java/btk/bot/v02/EvalBotV02.java",
+      "sha256": "4b7f316c1f23ccc29ae5fa2500ad9a16cf19a08a58b4f701f9dfd274c40aadc7",
+      "bytes": 8229
+    },
+    {
+      "path": "src/main/java/btk/bot/v03/EvalBotV03.java",
+      "sha256": "fa9f71f7f943aaf4849d5020aa8da70f04ecbd6cd2308edb6a3349d0d5ced0b6",
+      "bytes": 14060
+    },
+    {
+      "path": "src/main/java/btk/bot/v04/EvalBotV04.java",
+      "sha256": "8359b8e4f4c9045ca51d5d8336d2236ecf81231e7a9d7dc1bfb152fb744f61df",
+      "bytes": 16366
+    },
+    {
+      "path": "src/main/java/btk/bot/v05/EvalBotV05.java",
+      "sha256": "ab63ab08f7574919594cad51bce89a9eb05cc46e6d637d042bf214347ec8ab38",
+      "bytes": 16456
+    },
+    {
+      "path": "src/main/java/btk/bot/v06/RolloutBotV06.java",
+      "sha256": "c917311ebda80a013eab1fadfc6a45853eda926bd738bba05ee16098dd9b148c",
+      "bytes": 17561
+    },
+    {
+      "path": "src/main/java/btk/bot/v07/RolloutBotV07.java",
+      "sha256": "eed64af714e5a1ec68211c749b0801c29a5cad15604bc3a3f9215578b2a6250c",
+      "bytes": 40499
+    },
+    {
+      "path": "src/main/java/btk/bot/v08/ProtectedOpeningV08.java",
+      "sha256": "b25add5c88c37dc382ea7f1a9382c5c5ecc59a3bef5c1d5baf57997ecf028009",
+      "bytes": 6071
+    },
+    {
+      "path": "src/main/java/btk/bot/v08/RolloutBotV08.java",
+      "sha256": "381df6f7c86ad11bba408e27342d5fd4abb41c70d80a1f9cc0e452e55bb5b9d3",
+      "bytes": 58131
+    },
+    {
+      "path": "src/main/java/btk/bot/v09/ProtectedOpeningV09.java",
+      "sha256": "8e41de9439fe078fab59a1d29ffb1d86439ac16ad74a7d4334780719fc109049",
+      "bytes": 6071
+    },
+    {
+      "path": "src/main/java/btk/bot/v09/RolloutBotV09.java",
+      "sha256": "2eff39dea3a9bf1dd9f4e69bc3cc61a8133da812dc494f3fe3e282ce1714e4b7",
+      "bytes": 56768
+    },
+    {
+      "path": "src/main/java/btk/core/Action.java",
+      "sha256": "d6ec211f4e4ccb559de9b3420519749de1bde1e423932bd65a70a37278f9ac07",
+      "bytes": 4461
+    },
+    {
+      "path": "src/main/java/btk/core/FeaturePaths.java",
+      "sha256": "9f1e5e94ffd8a299da687666f512fb55a86975a614683a56df36334afbbfef51",
+      "bytes": 4443
+    },
+    {
+      "path": "src/main/java/btk/core/GameState.java",
+      "sha256": "96dfeb45b10a90517d8eec93dc0b9ce5624d2239348c237346f7ad1cc9162943",
+      "bytes": 8198
+    },
+    {
+      "path": "src/main/java/btk/core/HypotheticalIncome.java",
+      "sha256": "cfa68235ab1463edd6f2dfb32c37163e7b334e56a614c48dbc5320df58b3ad23",
+      "bytes": 5615
+    },
+    {
+      "path": "src/main/java/btk/core/InkProjection.java",
+      "sha256": "32ced1f6f9a41650ab679c897248ba522839ed9d5110f0d154053747784e1785",
+      "bytes": 1684
+    },
+    {
+      "path": "src/main/java/btk/core/NetworkCells.java",
+      "sha256": "8f253d578b56e30de3ea246514f6cafd501222767a67c600a1ba78e63d7f246b",
+      "bytes": 2174
+    },
+    {
+      "path": "src/main/java/btk/core/NetworkChords.java",
+      "sha256": "9a0ddd5d6b8782e663d78d59742797c237a871ed0420b8072bd9d308fe6fea70",
+      "bytes": 2725
+    },
+    {
+      "path": "src/main/java/btk/core/Pathing.java",
+      "sha256": "93f0ab4cf9f90f2a37d9794a69a60488183cb9f51c7458b4bbcd000e69f689f5",
+      "bytes": 15284
+    },
+    {
+      "path": "src/main/java/btk/core/Protocol.java",
+      "sha256": "e98d8fbc901cf4a94b83017cd321411f39e3f72d915c524bd88d7db6aa1d1b26",
+      "bytes": 8928
+    },
+    {
+      "path": "src/main/java/btk/core/Rules.java",
+      "sha256": "c05c75ccb105b5bb3eb2640a89ba29605e3fb2b89601635c41cd6ef91a122162",
+      "bytes": 13694
+    },
+    {
+      "path": "src/main/java/btk/core/SearchState.java",
+      "sha256": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b",
+      "bytes": 2287
+    },
+    {
+      "path": "src/main/java/btk/core/TacticalPathing.java",
+      "sha256": "b0b1e6b2e57e48e353b88b92583171bde3fbd8131e9892e2878238cc5af0b22a",
+      "bytes": 6476
+    },
+    {
+      "path": "src/main/java/btk/referee/GridMaker.java",
+      "sha256": "53eabc2e7b4b40a641c3f9906bdc7a9f3025e8b4183766d2753ee01c09a387f6",
+      "bytes": 25053
+    },
+    {
+      "path": "src/main/java/btk/referee/MapGenerator.java",
+      "sha256": "373a5c72b93e0ff93f6d645413af99535a91ce9f2d5d7b14ef069f6e733638f9",
+      "bytes": 1274
+    },
+    {
+      "path": "src/main/java/btk/referee/Referee.java",
+      "sha256": "f49014760a6726bf202143f0d5bb69ca3824806e94ac99df9fa75a5c8cf59074",
+      "bytes": 4497
+    },
+    {
+      "path": "src/main/java/btk/referee/Replay.java",
+      "sha256": "d09e72710c6b1130cdde49702ef346bdecb158f4705c34baa30efbcbbac63dba",
+      "bytes": 5884
+    },
+    {
+      "path": "src/main/java/btk/runner/BenchmarkRunner.java",
+      "sha256": "88e71cdb95a64477e186fadc6e385dc24d5e15939d2a5a655d2fcf5386ac00cc",
+      "bytes": 19700
+    },
+    {
+      "path": "src/main/java/btk/runner/BenchmarkSuite.java",
+      "sha256": "633a7e220e860066c74b85b947068ebfcb8bfa799b2fa4625120e8a71c25e5af",
+      "bytes": 3721
+    },
+    {
+      "path": "src/main/java/btk/runner/BenchPool.java",
+      "sha256": "5a9bbcf3a052ce900dd4554e94cb3204e50ac63594d9fc5e73580af6becf10ca",
+      "bytes": 4120
+    },
+    {
+      "path": "src/main/java/btk/runner/LocalRunner.java",
+      "sha256": "c0723b39f5ed16115a34b15c713092c76114faf2f444b61408979dfa0bb866ba",
+      "bytes": 2004
+    },
+    {
+      "path": "src/main/java/btk/runner/Maps.java",
+      "sha256": "38e0a77d5e20cbc158d2bc6988fe3f7b00539868c6a2b30dc1d19c3520454f99",
+      "bytes": 1881
+    },
+    {
+      "path": "src/main/java/btk/runner/ProcessBot.java",
+      "sha256": "e8b186986f2475f767efd00c7d5a230c93e5adae16ad4ad866cfe14ef2230b36",
+      "bytes": 9826
+    },
+    {
+      "path": "src/main/java/btk/runner/ProcessCheck.java",
+      "sha256": "00cc32bb2158056587eeabdf432b7181666788d4f2659887eda45ac5e4063700",
+      "bytes": 8997
+    },
+    {
+      "path": "src/main/java/btk/runner/TimingProfile.java",
+      "sha256": "2b2c67ec16e6de77c2c093cc57e389a30d41e51ca04b041fe443d7dda0b07abd",
+      "bytes": 1633
+    },
+    {
+      "path": "src/main/java/btk/submit/ArtifactCheck.java",
+      "sha256": "ec85425d5a8ba05502d0202c5a6205335b993856a3ad155bc32be9449fb250d2",
+      "bytes": 1381
+    },
+    {
+      "path": "src/main/java/btk/submit/CGRunner.java",
+      "sha256": "531b2e46fffee3a947d31d71ce0c59bd33df8c6c6862d29b995ffc7e546f56d9",
+      "bytes": 5578
+    },
+    {
+      "path": "src/main/java/btk/submit/FileMerger.java",
+      "sha256": "d555c9cafd06055451aec0a41b90a2238ec42b9e55c53126bfef5f1fc7cb2954",
+      "bytes": 21293
+    },
+    {
+      "path": "src/main/java/btk/tools/BotCatalogTool.java",
+      "sha256": "0af2c9609f98e97207aac615c0304224a7be0dcfa69ecf8dc6e3635fa356daf2",
+      "bytes": 1891
+    },
+    {
+      "path": "src/main/java/btk/tools/CgBossDefenseStudy.java",
+      "sha256": "2388320e0c644aea86087d41df6331157b09f2eac38ed6ddc3a08f777c2c3d20",
+      "bytes": 11094
+    },
+    {
+      "path": "src/main/java/btk/tools/CgBossLossStudy.java",
+      "sha256": "b147d459dc7a26cad9099a6a1a350cbb52eb8e70340d5e0542edc170c6bf7434",
+      "bytes": 4116
+    },
+    {
+      "path": "src/main/java/btk/tools/CgCellStudy.java",
+      "sha256": "93da53747ffbf172e1842a00548c0664357c206d9e6fcdffbd10c85229317846",
+      "bytes": 27052
+    },
+    {
+      "path": "src/main/java/btk/tools/CgDisruptStudy.java",
+      "sha256": "c3a676d4460c59c072347f89f7f8877ca926fbb780930aba7708937b188cda62",
+      "bytes": 9192
+    },
+    {
+      "path": "src/main/java/btk/tools/CgFetch.java",
+      "sha256": "723c4aa58dec256ff9c7b4eab27fd646215cd82ded1113364d05abd07af2bd06",
+      "bytes": 9595
+    },
+    {
+      "path": "src/main/java/btk/tools/CgForecastStudy.java",
+      "sha256": "b9709d456072742a05093178c6167a148b9d01d03c9e441c2dae959a0f4af7c5",
+      "bytes": 11157
+    },
+    {
+      "path": "src/main/java/btk/tools/CgInkStudy.java",
+      "sha256": "5807d4849b6d91bc6cd51537a65e8579cb532234dbf687b5d7c113b012d4d1e7",
+      "bytes": 8828
+    },
+    {
+      "path": "src/main/java/btk/tools/CgLeaderStudy.java",
+      "sha256": "f73b2c906b7b84b6ac8a925e4339bcad89634514356831fa7e7ccdc025a027ab",
+      "bytes": 23823
+    },
+    {
+      "path": "src/main/java/btk/tools/CgMapValidate.java",
+      "sha256": "80fae1d728f6192962b882365ae2c968260d01145e82d06295f7617832a0afe5",
+      "bytes": 3136
+    },
+    {
+      "path": "src/main/java/btk/tools/CgNeuralExport.java",
+      "sha256": "b7a1ec5ea0a1d74ac37ade6e5bc821a88e86f8943f3f7424cce171d9019d5282",
+      "bytes": 14160
+    },
+    {
+      "path": "src/main/java/btk/tools/CgPlayerStudy.java",
+      "sha256": "788d3997e27d6e2a5021b932b4d578325c8bdb8e17e6e0b1a97b6cf1a65f64ee",
+      "bytes": 13676
+    },
+    {
+      "path": "src/main/java/btk/tools/CgPolicyStudy.java",
+      "sha256": "8925af2385d3f8ee0af0d7493b8f154a020fd8500767223ea59bb29457a5efad",
+      "bytes": 13156
+    },
+    {
+      "path": "src/main/java/btk/tools/CgRender.java",
+      "sha256": "3d1df611e77958721838fa3f45a11ce8a1bec31e2617a74a2713ccd151789453",
+      "bytes": 2519
+    },
+    {
+      "path": "src/main/java/btk/tools/CgReplay.java",
+      "sha256": "ff45521b97bfebdd1a4ab8eaf2e68002c59308cbb01273bd3c2017ac6c1a0822",
+      "bytes": 12548
+    },
+    {
+      "path": "src/main/java/btk/tools/CgRolloutBossProbe.java",
+      "sha256": "741c84735026b2451618c7b6c67d8c6ef85fed0871239fad61f96997d96652f6",
+      "bytes": 10093
+    },
+    {
+      "path": "src/main/java/btk/tools/CgTimingStudy.java",
+      "sha256": "96edcbe4716acacbec3793e20425ba675e46f2ce8bbd98770b1a0f1e0d6e735b",
+      "bytes": 4639
+    },
+    {
+      "path": "src/main/java/btk/tools/CgValidate.java",
+      "sha256": "98251180703753818ab4aebcec86e9dc06bc5331c9f46c7ffa74a6eca2b0bf06",
+      "bytes": 11489
+    },
+    {
+      "path": "src/main/java/btk/tools/IndrillCollect.java",
+      "sha256": "46f2b2fa2aec9c30058d0e37228b350bcffd9d6abac4b9f40de92cec4d7875bc",
+      "bytes": 9617
+    },
+    {
+      "path": "src/main/java/btk/tools/IndrillProbe.java",
+      "sha256": "7af15e70d93de92b80386242bad7b6bd8ccdbb6874e612e546797b8746837740",
+      "bytes": 9289
+    },
+    {
+      "path": "src/main/java/btk/tools/IndrillV2Collect.java",
+      "sha256": "8431fdb9a9430d740926949fe64b4a2b42a37eec500ca534fd2cc2fcfce387f1",
+      "bytes": 9656
+    },
+    {
+      "path": "src/main/java/btk/tools/IndrillV2Probe.java",
+      "sha256": "3619526ae295ce4b9106f823d247bbd1b523de6deec0cf82da1b72e38584ab32",
+      "bytes": 9477
+    },
+    {
+      "path": "src/main/java/btk/tools/JointActionCheck.java",
+      "sha256": "535bfff29f51982ee0272c6569ff71b3a1a1ca1ae3c13b843734ff52ecb85e23",
+      "bytes": 5340
+    },
+    {
+      "path": "src/main/java/btk/tools/JointReplyStudy.java",
+      "sha256": "4685a191ff7e13a2626cd8621f9a8c2447d46497c47429257b74ca213cf930b3",
+      "bytes": 15398
+    },
+    {
+      "path": "src/main/java/btk/tools/NetworkCellStudy.java",
+      "sha256": "7259f586c882f0f16a33045ff530f27f8cd29865900d13ec7c78989d140bf9da",
+      "bytes": 37127
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralV2Collect.java",
+      "sha256": "eae43e75cd58c28366e30b96f9ea19348d639dda102919f866effba17c38cd1e",
+      "bytes": 14904
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralV2Verify.java",
+      "sha256": "9052e3baa892e58b2925b011d4da089d9c00bf31bc9ad4f7267bc96920b7e4c6",
+      "bytes": 8837
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralV4Collect.java",
+      "sha256": "87e73c4ff54bd2f0ac0e33ef21109eeb238c2384d81c25de7f90ad355b2ff6a7",
+      "bytes": 15902
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralV4Verify.java",
+      "sha256": "c7e1f47ba5445cbb4949ab2ccfc1de872f7ecd407c163381e8e0e3e04a112461",
+      "bytes": 8837
+    },
+    {
+      "path": "src/main/java/btk/tools/QuickRouteStudy.java",
+      "sha256": "3391e43ba406bb33aec66e1a0659adcacbd343d5cb2c465858f4f84a922891a0",
+      "bytes": 7070
+    },
+    {
+      "path": "src/main/java/btk/tools/ReplayPaths.java",
+      "sha256": "d6915cb6cb0a9c88cfcd12e3c45c3b90bfb86ddea991bce6f66b718da7ec11c2",
+      "bytes": 2125
+    },
+    {
+      "path": "src/main/java/btk/tools/ReplyProbe.java",
+      "sha256": "ec17769f5a20dc86bfcd1586fde05dfae32f77c6e9041eeb476cb8645cfce324",
+      "bytes": 13152
+    },
+    {
+      "path": "src/main/java/btk/tools/ReplyStudy.java",
+      "sha256": "8bf976cede2ca502f85623c8d55423507c1a00033b5a287b4b13cf516d537b82",
+      "bytes": 15299
+    },
+    {
+      "path": "src/main/java/btk/tools/RolloutCheck.java",
+      "sha256": "689d6d68c57416832b33a8c961dccf30b221d83474dcbf9b118c35b563053fcd",
+      "bytes": 3544
+    },
+    {
+      "path": "src/main/java/btk/tools/RolloutFollowupStudy.java",
+      "sha256": "d4f72051da0cee8d3e3cbc8b2943ac4f488f34c76ae453336e95f32795eec5f9",
+      "bytes": 6922
+    },
+    {
+      "path": "src/main/java/btk/tools/SabotageForecast.java",
+      "sha256": "b7192b2d91a792f8777a11e1f7975ff60d06b63d844db3f35b69e9908d139fd1",
+      "bytes": 7129
+    },
+    {
+      "path": "src/main/java/btk/tools/SearchExperimentStudy.java",
+      "sha256": "e4cb5549807970b44342b8b7d31073a6c6b5a2d3be60e03f7c8ccc2e7a353e95",
+      "bytes": 10718
+    },
+    {
+      "path": "src/main/resources/btk/bot/catalog.json",
+      "sha256": "256dbd710907f8b526e4c25c31523b71546d731f5076161a571bd790550699b5",
+      "bytes": 10065
+    },
+    {
+      "path": "src/main/resources/btk/bot/experiment-engine-v1-classes.json",
+      "sha256": "79fc2d11d6aa403edab9ff9475cb3bb6741efd62e46a566566f14e9c659bca95",
+      "bytes": 44740
+    },
+    {
+      "path": "src/main/resources/btk/bot/experiment-engine-v1.json",
+      "sha256": "b0a2d36b31779bc628248387695b4dc7d533c83c231054e8ac58ac525226c3c5",
+      "bytes": 3314
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/indrill-q-v1.properties",
+      "sha256": "a928876278b2e9693ef1bf9f069df896a15892fae897195f6bc711dbc4c2008e",
+      "bytes": 304
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/indrill-q-v2.properties",
+      "sha256": "56a27cdd605157f77bedfdf7e5c68ae6c189c1b32da78c2dfaf485403a2cc9d4",
+      "bytes": 115
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/leader-v1.properties",
+      "sha256": "e8c092ea83658f2602b38a09f8afe03a87549178d028281c1fe06302fec636c4",
+      "bytes": 290
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/leader-v2.properties",
+      "sha256": "4632d7955999ac8b2c07c3cbbabf67abc5c1ef4a121ca9ecd564937095290218",
+      "bytes": 341
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v1.properties",
+      "sha256": "0727fa41a86c767273a745a3cfd6c0528663e7946b949c38c247a7a0ec0b119f",
+      "bytes": 392
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v2.properties",
+      "sha256": "853346d9f2a6bfbac91e890db451f85cbe961d10b6fb5bea924c1e70dd6c3746",
+      "bytes": 323
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v3.properties",
+      "sha256": "ae052f679ae581eb386b30f6aac517e9def83e1384db7062d6a6b1a0b345173f",
+      "bytes": 164
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v4.properties",
+      "sha256": "4c28621eb2c4f784daaf8ee1da41313b2502a42e35c80623f42d000adea3a8b2",
+      "bytes": 160
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v5.properties",
+      "sha256": "b8f3823249adb36e49eef8e3411470db58ffa41399445929a2edef29f1770332",
+      "bytes": 178
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v6.properties",
+      "sha256": "daa1401c7114e4e0efba3b01a87e5d3fbcc359dfee8c2b18a6f740d0aa59be20",
+      "bytes": 163
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/neural-v7.properties",
+      "sha256": "829e62eeff9f70747ec070544e7fec841ff7e4670e0e6ad357a59127ceeb2c2a",
+      "bytes": 222
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/pressure-v1.properties",
+      "sha256": "b92484bc1d21262fe6b5211358922934bfe4fc7538e316196e075b321fcf4fb9",
+      "bytes": 258
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v01.properties",
+      "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "bytes": 584
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v02.properties",
+      "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "bytes": 584
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v03.properties",
+      "sha256": "eeeb63b18974044caff55845cbaabdf1bfad1585d9247701030947836d04f57f",
+      "bytes": 584
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v04.properties",
+      "sha256": "06ddf3ae46849e334a627b74d9b5b9c868957459d89418300226386197918414",
+      "bytes": 498
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v05.properties",
+      "sha256": "1f0869e4c1d4e76b249b496eb173d2cafa3930dd21864738d662d6a6aa3b739c",
+      "bytes": 508
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v06.properties",
+      "sha256": "5ae783d32083178d0b43c4b0472d7580135d0aad5fa3f7e7e453948906f430eb",
+      "bytes": 1897
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v07.properties",
+      "sha256": "8ac645d621537d1de419ed9398fef411446dbce4f8d89062fef4f6cd53f97e11",
+      "bytes": 2332
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v08.properties",
+      "sha256": "03168c7c0c09a7d43dd0f7b3bb82773448a726617ebeaa4b94504a6be1fe90ed",
+      "bytes": 2600
+    },
+    {
+      "path": "src/main/resources/btk/bot/versions/v09.properties",
+      "sha256": "93a6f0ab512f0d914ce98c1e554653b131dc8d4dc5702a5cd0402958c5fca5bf",
+      "bytes": 2935
+    },
+    {
+      "path": "src/test/java/btk/bot/BotCatalogTest.java",
+      "sha256": "e18857f8709155bb34204b86b8f30606d9c0d68c64f869f1d5c2dce545eca59a",
+      "bytes": 11888
+    },
+    {
+      "path": "src/test/java/btk/bot/current/BuildDirectionTest.java",
+      "sha256": "eed7fe0e915ef5cf994d85149d06f4d6376146f99a8a47e39f8d8559b6e10bec",
+      "bytes": 6999
+    },
+    {
+      "path": "src/test/java/btk/bot/current/BuildIncomeGuardTest.java",
+      "sha256": "8c077c2456bfc76bd49c617e6d17b5499540170eace1770b05df9e1489a04edb",
+      "bytes": 3550
+    },
+    {
+      "path": "src/test/java/btk/bot/current/DefensePriorityTest.java",
+      "sha256": "fe0e84d2e50c118fee22a1dee0ddbe52612d28d74c5b74ec0a2a93848eed17b6",
+      "bytes": 6703
+    },
+    {
+      "path": "src/test/java/btk/bot/current/EarlyDisruptFallbackTest.java",
+      "sha256": "591e73fcd80c9ed3e6e6aa2f6384bf86f487cfb22a0030d7be55ed2da8a04bce",
+      "bytes": 2853
+    },
+    {
+      "path": "src/test/java/btk/bot/current/EvalBotTest.java",
+      "sha256": "bb10b78a1fba722f3cefc336a4751bc7eaf5b322ec53a74bd7993f31eba75a84",
+      "bytes": 5773
+    },
+    {
+      "path": "src/test/java/btk/bot/current/HeuristicBaselineTest.java",
+      "sha256": "730401e3ad6b026101f888474043c7b193f98bc33215e2fd4f8f7756c871ee03",
+      "bytes": 1607
+    },
+    {
+      "path": "src/test/java/btk/bot/current/HeuristicBotTest.java",
+      "sha256": "2452a19ba3c4f2a38c0f286f59cf6f4fb315c6788e0e581302b42778665da830",
+      "bytes": 6200
+    },
+    {
+      "path": "src/test/java/btk/bot/current/HeuristicDetourTest.java",
+      "sha256": "98a92d85ebc6e2a666561c46e79bf391586d319301de38717220ebf77fb67efc",
+      "bytes": 8354
+    },
+    {
+      "path": "src/test/java/btk/bot/current/InterruptedEvalTest.java",
+      "sha256": "8da4a9f5098bca490e4c89a5ba87e1ac3638c6fb90b1d22413786ca27d1e4109",
+      "bytes": 2905
+    },
+    {
+      "path": "src/test/java/btk/bot/current/OwnBuildPlanTest.java",
+      "sha256": "21cfceba28875e2a1e0ff0aac75f33aa9944e13d7d077d0ebb893f4939fe54a1",
+      "bytes": 9687
+    },
+    {
+      "path": "src/test/java/btk/bot/current/ProtectedOpeningTest.java",
+      "sha256": "760d0c8a1c6e093f147af0cf22bf4e95abddc961e40dc607835e5d34f183f62d",
+      "bytes": 10563
+    },
+    {
+      "path": "src/test/java/btk/bot/current/ReplyRerankTest.java",
+      "sha256": "3f4c54f48ecf155d02d06dd691307cffe4ff8faa5ee69b6af7e6205c4344a2aa",
+      "bytes": 1775
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutBotTest.java",
+      "sha256": "af8eea7872190b5379614e3fccff13ca05134842384987ef842288bb2240b65a",
+      "bytes": 7363
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutDiverseRepliesTest.java",
+      "sha256": "b2e4c5ed2ea106fcae735faccef5e25587efcb4a641b3b250293120eead06270",
+      "bytes": 3725
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutFillTest.java",
+      "sha256": "c7ec8a2ee095a76c066a8999546136feec3861f104caeacb74fb5ca2f435e421",
+      "bytes": 5383
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutLiveTargetTest.java",
+      "sha256": "eab123cf76fb9b472ff005d0ddbc6e68b532e52347d90533937fbbfaaff0cd06",
+      "bytes": 4342
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutNetworkAfterBaseTest.java",
+      "sha256": "f42d0f4070c0bc9b2859965c687b919a4600babc7db6c4461e4f7a5092d581d5",
+      "bytes": 11008
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutNetworkChordsTest.java",
+      "sha256": "afce3e678763ce2c8e8def776fd74c44f37fce457796edba099305f3f7bfb963",
+      "bytes": 7698
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutNetworkTest.java",
+      "sha256": "aaa9d8e531ebd8838d4d155a86216dc8d4ae3c7912d39d25c9c02aae82961c6b",
+      "bytes": 7836
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutOpeningIntegrationTest.java",
+      "sha256": "83722f01dc65228aecb4ed61438718230af2d2162e35bd1a7936f004d5717100",
+      "bytes": 4770
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutQuickRouteTest.java",
+      "sha256": "1f2ff0491d1348690143e44584e7c9cc748483f1cd5f229bbe886a9148ac953d",
+      "bytes": 8700
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutReplanTest.java",
+      "sha256": "9381c055a3094957b127caa4fe1a4e01b0613626b73620f91862c1570ab7cd77",
+      "bytes": 3413
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutRouteDependenciesTest.java",
+      "sha256": "62d1900efdaa6d69357a55fa8c3c34cc81fd356bcf04ead962944964c1878e09",
+      "bytes": 7933
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutSecondTargetTest.java",
+      "sha256": "f6a960a52ab0c1751123e822a62b11af4d1abbed8d0b7cce0fac94cad9ea88c5",
+      "bytes": 4245
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutSpreadTest.java",
+      "sha256": "8b4970190704fff46295b685a0074b4538e785bd6e1ec81448ec5a655c5b66f3",
+      "bytes": 5781
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutTestParams.java",
+      "sha256": "8190eca540f5deb8928c03f1dddd6ae3dfae41d72be6fabe17a879ba16ad4984",
+      "bytes": 509
+    },
+    {
+      "path": "src/test/java/btk/bot/current/RolloutTrackValueTest.java",
+      "sha256": "28be03e8f193ebf5419ac0a6d760b58f2ddd0d06d2c60ba18e94b306cdb63a02",
+      "bytes": 5342
+    },
+    {
+      "path": "src/test/java/btk/bot/current/SabotageRegressionTest.java",
+      "sha256": "0b3bfa39bdca0b59244d1a31481153a064ba02341e91ee7ab817754e6c216003",
+      "bytes": 2840
+    },
+    {
+      "path": "src/test/java/btk/bot/FrozenParamsTest.java",
+      "sha256": "0b65cf9c33ce22f21db5f00f3f322d69e5cb295776630af31f26e62463780d38",
+      "bytes": 11487
+    },
+    {
+      "path": "src/test/java/btk/bot/IndrillBotTest.java",
+      "sha256": "83471aeba759cbfcc740c0ea2bb4419cca12ad4dfc5c11034ac1c2e666451e50",
+      "bytes": 6174
+    },
+    {
+      "path": "src/test/java/btk/bot/IndrillV2BotTest.java",
+      "sha256": "0f15c51cffde65db59c58ec8b837626e1a543677c10fe3f444884c2d7e98d79e",
+      "bytes": 7630
+    },
+    {
+      "path": "src/test/java/btk/bot/LeaderBot2Test.java",
+      "sha256": "a39f9c41eb5917e588f422c8a75ca5e76ce4a6504621f67b974a8c4d511d1ab3",
+      "bytes": 4608
+    },
+    {
+      "path": "src/test/java/btk/bot/LeaderBotTest.java",
+      "sha256": "b8e3bbc5f86eebc4a7dcfd049ae70b38ee1a00447cdc019f9b3969b7ed38d878",
+      "bytes": 5397
+    },
+    {
+      "path": "src/test/java/btk/bot/LiveTargetExperimentParams.java",
+      "sha256": "41d49b09b453d1876d9fa2c0e82fd7a70a3c257ea92278986e77c95c2b382ab1",
+      "bytes": 1364
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralBotTest.java",
+      "sha256": "3dd5614f888ba6717b9ebbaaee8f54eb80d495e594b8bfdb416e5e2afc075d05",
+      "bytes": 12953
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV2BotTest.java",
+      "sha256": "3b550ceee46cc5f86e562d396b7c805a3d43f5ec2f77cb39ca7223eb4089f429",
+      "bytes": 8243
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV3BotTest.java",
+      "sha256": "47ff180a6bd5f343c2646b5f89a0ad4109543b8dea385626d07edded6650e997",
+      "bytes": 6701
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV3FeaturesTest.java",
+      "sha256": "9052f245af2db6baee1b93878f171d4885a97cf73a58622ae0a0abb26d9f8627",
+      "bytes": 9432
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV4BotTest.java",
+      "sha256": "1692a0e25214220aa6c702d685a3ada446da4cf0582b9f338c7caa9961df4c62",
+      "bytes": 3822
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV5BotTest.java",
+      "sha256": "af2c62a85b86b71d7f23baf30648ed534a62042cf379f48c8f4ae32a39fbb1d0",
+      "bytes": 8516
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV5FeaturesTest.java",
+      "sha256": "12f50e1118f7939318ce51e71120958327bf14c71d5f0aef7e5b434f9bdad681",
+      "bytes": 9450
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV6BotTest.java",
+      "sha256": "9db8412c4d8c8fcc1194dbb4b1ebeb74dc637ae5fae04fde1986cecf51ed1d52",
+      "bytes": 8375
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV6FeaturesTest.java",
+      "sha256": "80c47fe0a5ad5580c32422a1272f3eed602466b7724f4ab1b0fadbf204762042",
+      "bytes": 14655
+    },
+    {
+      "path": "src/test/java/btk/bot/NeuralV7BotTest.java",
+      "sha256": "71aa54e14a6c9fe42e305e835401eabd9b2eb5fdf96bd1ad4b9d46c192be96e3",
+      "bytes": 15835
+    },
+    {
+      "path": "src/test/java/btk/bot/PressureBotTest.java",
+      "sha256": "b19129c69f481f9414406ff83ed75cbbd09994bc448beed9c2dca73c1b8303bf",
+      "bytes": 3626
+    },
+    {
+      "path": "src/test/java/btk/bot/RouteWarmupTest.java",
+      "sha256": "92fc2a80b80426fe22f4edbb6c06b609b9939b2f583f80131e87e92ccf6ab318",
+      "bytes": 3826
+    },
+    {
+      "path": "src/test/java/btk/bot/SearchExperimentParams.java",
+      "sha256": "58aadd9ae2bec4ace5373fc9ce0a7c03c9cdd87f34ebf8b93ee9b0644f07b591",
+      "bytes": 764
+    },
+    {
+      "path": "src/test/java/btk/bot/TimerTest.java",
+      "sha256": "895b7cbe7f7340dc187f90f69b4a55ec4e7f9a1fea22eee0911bea8319e10f80",
+      "bytes": 706
+    },
+    {
+      "path": "src/test/java/btk/bot/V06PromotionTest.java",
+      "sha256": "3c859d11095c2985dfd942252cf6cc6a525deabbe4da8c0425a480250eb300b0",
+      "bytes": 4731
+    },
+    {
+      "path": "src/test/java/btk/bot/V07PromotionTest.java",
+      "sha256": "366777ff2088fabe71f6c2f237b03082fea05a31ee563888d6fd90b4c825e65f",
+      "bytes": 6204
+    },
+    {
+      "path": "src/test/java/btk/bot/V08PromotionTest.java",
+      "sha256": "212ddd134b8d458376c216c6f04ec41c177a2caa44daa7da8906e6c4a7f5b3af",
+      "bytes": 11385
+    },
+    {
+      "path": "src/test/java/btk/bot/V09PromotionTest.java",
+      "sha256": "c3996f959db552060a50a6b786fd70031ad15a5854f7c3a934e2d47c17457dbb",
+      "bytes": 11001
+    },
+    {
+      "path": "src/test/java/btk/core/FeaturePathsTest.java",
+      "sha256": "fae0664d19444c4fce1c41e19ea87170c73f1ada8f7acd17d4624d0ef337d438",
+      "bytes": 8672
+    },
+    {
+      "path": "src/test/java/btk/core/HypotheticalIncomeTest.java",
+      "sha256": "e84f0c3981e058c7a84f5bc41ec1a809b0fb70ed7edc060d92a4446f6cd98549",
+      "bytes": 9658
+    },
+    {
+      "path": "src/test/java/btk/core/InkAllProjectionTest.java",
+      "sha256": "36e2968df3c271493538c36e4bf2d885fa6b421d02dca8f4f72d104fbae1206d",
+      "bytes": 4747
+    },
+    {
+      "path": "src/test/java/btk/core/InkTest.java",
+      "sha256": "742fa382addbf1b808139b8bb609bceda933982e7edbcf289c505fde6c562061",
+      "bytes": 4403
+    },
+    {
+      "path": "src/test/java/btk/core/NetworkChordsTest.java",
+      "sha256": "cf1c1bc9efc0cfb66528632cad3a497cc49ed9ea8aac8d41cad2392acda281a6",
+      "bytes": 4740
+    },
+    {
+      "path": "src/test/java/btk/core/PathingTest.java",
+      "sha256": "2b09c39b17b367722a5ab6ecce37b43447745dc337bb40dc0cad44f7c50ecb94",
+      "bytes": 3378
+    },
+    {
+      "path": "src/test/java/btk/core/ProtocolTest.java",
+      "sha256": "1e77602876edc3e2ec9ada89a507417de3a9fc265479c7c5b3d069dacf082f2a",
+      "bytes": 2172
+    },
+    {
+      "path": "src/test/java/btk/core/RulesTest.java",
+      "sha256": "df088f3d90c63fa932772a1c02e282699b5572363f0fd7fdc0656b65cb66521b",
+      "bytes": 8273
+    },
+    {
+      "path": "src/test/java/btk/core/SearchStateTest.java",
+      "sha256": "1ac3044131ace5a27aab26f80c5a3135947287dc06b55c130f44ba6b9678022c",
+      "bytes": 5521
+    },
+    {
+      "path": "src/test/java/btk/core/SingleCellConnectionsTest.java",
+      "sha256": "d6f73879682941c078ce1a520d5efb85ec428dee2d084993a4332f2a234e2ae8",
+      "bytes": 7294
+    },
+    {
+      "path": "src/test/java/btk/core/TestMaps.java",
+      "sha256": "e6bdb0c43f2122f9c61b74e6962b201689d006f7d4c5212e8e4dc8de650da29f",
+      "bytes": 1503
+    },
+    {
+      "path": "src/test/java/btk/core/WeightedDistancesTest.java",
+      "sha256": "cd6d5ff5af303a33e0d2b5fe24c384919b3ac932525148852a19099f374323ab",
+      "bytes": 8468
+    },
+    {
+      "path": "src/test/java/btk/referee/MapGeneratorTest.java",
+      "sha256": "204e7b4fb38366bb173f6d2a0cf116fd9775f90114ab5f769fb0a4c13115105a",
+      "bytes": 4919
+    },
+    {
+      "path": "src/test/java/btk/referee/ReplayTest.java",
+      "sha256": "8cfc258bd297fcc2fb84fc9f0c3a1816efe722838d819a9770f26d1f50348396",
+      "bytes": 2913
+    },
+    {
+      "path": "src/test/java/btk/runner/BehaviorMetricsTest.java",
+      "sha256": "9ce85ca1c2efb187e427badc2022636791af3db5d7e4ab0247d0057d8c1d8a19",
+      "bytes": 1493
+    },
+    {
+      "path": "src/test/java/btk/runner/BenchmarkRunnerTest.java",
+      "sha256": "5f47711f0fec4974c89fb91d68346364861807fdf76776c8724c4852b0c5c16e",
+      "bytes": 11282
+    },
+    {
+      "path": "src/test/java/btk/runner/BenchmarkSuiteTest.java",
+      "sha256": "e271d1db16f3305c6911ad8845b715c4e9cced02f3d88223e7d7660bc0b54915",
+      "bytes": 1748
+    },
+    {
+      "path": "src/test/java/btk/runner/BenchPoolTest.java",
+      "sha256": "a9f9d1de46c3105993b9f591574bcf1c4a5575101a936d3293e84c9945481188",
+      "bytes": 3371
+    },
+    {
+      "path": "src/test/java/btk/runner/ProcessBotTest.java",
+      "sha256": "49aa2a1bf387834aa4be928f2ee8ccd384638c85039def82197d0dcd182b7c76",
+      "bytes": 9987
+    },
+    {
+      "path": "src/test/java/btk/runner/ProcessCheckTest.java",
+      "sha256": "ee3ffb67114214fdd262c5058efa6d20fb587e922dea1c626dfca81bcaab102a",
+      "bytes": 3929
+    },
+    {
+      "path": "src/test/java/btk/runner/TimingProfileTest.java",
+      "sha256": "2847722176cc4707097089a9cc28f8b46e48fd0d93bbfbf69e3b27c044b5161c",
+      "bytes": 3145
+    },
+    {
+      "path": "src/test/java/btk/submit/BuildProvenanceTest.java",
+      "sha256": "7143e3ba57878ed2321c4139ed6b80ca19ee79c23e51c1c0031db2dc24e09976",
+      "bytes": 3526
+    },
+    {
+      "path": "src/test/java/btk/submit/FileMergerTest.java",
+      "sha256": "32e23b108c4bb736e9eeeb1946f0d64a0f7994f70ed5ae9d7f750445a0378950",
+      "bytes": 33525
+    },
+    {
+      "path": "src/test/java/btk/tools/CgBossDefenseStudyTest.java",
+      "sha256": "96d678413de4b74a442349504f208ab669634e3685aa7193b01a6ecef88a3faa",
+      "bytes": 3475
+    },
+    {
+      "path": "src/test/java/btk/tools/CgDisruptStudyTest.java",
+      "sha256": "74491ec2492259b10964a65219499f041d6cea183ef80e56ef32e0d49f8a2be0",
+      "bytes": 7703
+    },
+    {
+      "path": "src/test/java/btk/tools/CgPlayerStudyTest.java",
+      "sha256": "fa2378ff9d7d975223ffd553397a35f926e90c5df19ea7de38ce9d5bf591996c",
+      "bytes": 4020
+    },
+    {
+      "path": "src/test/java/btk/tools/CgRenderSeedTest.java",
+      "sha256": "f1c26b68960db0c81560d3596b93f2c770bc3a479f3a3485b69633baae1348f1",
+      "bytes": 3941
+    },
+    {
+      "path": "src/test/java/btk/tools/CgReplayPlayersTest.java",
+      "sha256": "0c5173e79d8bdb08dc6dafff1d667c548e06ed84c47cdcac8f2dcacac2f8a133",
+      "bytes": 4946
+    },
+    {
+      "path": "src/test/java/btk/tools/CgReplaySeedTest.java",
+      "sha256": "5029f58cf747a097ea7e23bebcae1b799b1e8a8c843f0cb58a6d745da70adf6a",
+      "bytes": 1056
+    },
+    {
+      "path": "src/test/java/btk/tools/CgRolloutBossProbeTest.java",
+      "sha256": "7d3ea105c590008c73f03864a309063f8fa5a66a6450aef6f1ddb4939ea21680",
+      "bytes": 3158
+    },
+    {
+      "path": "src/test/java/btk/tools/CgValidateTest.java",
+      "sha256": "69d4e4417137a5b7eee5bde5e7d79726acdb28bc0eb09f70e24642a9b0aff44a",
+      "bytes": 4531
+    },
+    {
+      "path": "src/test/java/btk/tools/JointActionTest.java",
+      "sha256": "99a5af761f61a9b78c273088575a2c440251dd5ac12f96149fe349e0d3618efc",
+      "bytes": 7524
+    },
+    {
+      "path": "src/test/java/btk/tools/JointReplyStudyTest.java",
+      "sha256": "135c67a6e55134ae0a8a93319b1cf92eae1ed0c9157c045072180596454fd90a",
+      "bytes": 9185
+    },
+    {
+      "path": "src/test/java/btk/tools/NeuralV2CollectTest.java",
+      "sha256": "a8828a41d10a541fc8430e2dc015d7f5a16d359dc92309ddc5e7460539dfb73f",
+      "bytes": 3524
+    },
+    {
+      "path": "src/test/java/btk/tools/NeuralV2VerifyTest.java",
+      "sha256": "b97f41305294236132f066c11e067481e2455b65f0e85c4890633bf94ab63bdd",
+      "bytes": 4497
+    },
+    {
+      "path": "src/test/java/btk/tools/NeuralV4CollectTest.java",
+      "sha256": "b98f2082e34feb3646777e511f5a496b5416197c8fbcb066ade7197b4653de9b",
+      "bytes": 4397
+    },
+    {
+      "path": "src/test/java/btk/tools/NeuralV4VerifyTest.java",
+      "sha256": "1ef175503933fafbc3a88fc6f3d665b13a3b11e4513f0b5568db5fbf677d5b8b",
+      "bytes": 4497
+    },
+    {
+      "path": "src/test/java/btk/tools/ReplayPathsTest.java",
+      "sha256": "7fa4cd32e0ba9511bf05b230d5e61b21912424045c679753678e98c94dae7f2e",
+      "bytes": 4854
+    },
+    {
+      "path": "src/test/java/btk/tools/ReplyStudyTest.java",
+      "sha256": "ecb9b2c7fdbaa990b961d70322f0bc6ddd3e41e3c7b50acb5e789de6a0198701",
+      "bytes": 10289
+    },
+    {
+      "path": "src/test/java/btk/tools/SabotageForecastTest.java",
+      "sha256": "026b0124525fc30e96f8206e6525ec2684f533eaa7493d54851f3d29435045a2",
+      "bytes": 4457
+    },
+    {
+      "path": "src/test/resources/btk/bot/build-income-guard.json",
+      "sha256": "f73dd97bec4046785c619b9e4dab3483c0d07015513b0edecaf729e00478d3a4",
+      "bytes": 14862
+    },
+    {
+      "path": "src/test/resources/btk/bot/defense-priority.json",
+      "sha256": "fbf6d1e14bfa54f15c444eebf7b827f4baecab3ea5737e55343580a36e1aa07e",
+      "bytes": 1103
+    },
+    {
+      "path": "src/test/resources/btk/bot/disrupt-valuation.json",
+      "sha256": "de1e08103da81f7404db8b5cfe26467a468595a44545b03abfe51a892f1741b5",
+      "bytes": 21501
+    },
+    {
+      "path": "src/test/resources/btk/bot/joint-reply-study.json",
+      "sha256": "f9bace2d16809406d34df1ac3a8aa660fde0e458d6c29554022f2f6b58fba71e",
+      "bytes": 13283
+    },
+    {
+      "path": "src/test/resources/btk/bot/network-chord-boss-position.json",
+      "sha256": "55b49c34f4288819f046d61a849ee453f59a21d285a6df9a948ce080f4f6c8b8",
+      "bytes": 12814
+    },
+    {
+      "path": "src/test/resources/btk/bot/README.md",
+      "sha256": "34f1424b4eadb6327ece81e17ae8170c0269fdf5ca5cf39d9cecaf95c3c0039f",
+      "bytes": 1913
+    },
+    {
+      "path": "src/test/resources/btk/bot/reply-study.json",
+      "sha256": "076c9412651ad089cf3808de761a4ad4fc73fc91762d9db9b34bb008663ebbd8",
+      "bytes": 19656
+    },
+    {
+      "path": "src/test/resources/btk/bot/rollout-boss-positions.json",
+      "sha256": "60b197eb31ed1a8fff323ce70fb4c1b8195a453c1476bfe31c5f6a1f23066385",
+      "bytes": 11166
+    },
+    {
+      "path": "src/test/resources/btk/bot/sabotage-starvation.json",
+      "sha256": "e3fb37befa2c71126bd6e03db348b3e246608b8a5b198369501363d5ac356d19",
+      "bytes": 9584
+    },
+    {
+      "path": "src/test/resources/btk/referee/cg-maps.json",
+      "sha256": "5b8a602b84d0dd84ff7ed26049fad5e8f554453d68966d68e58a41f61aa07bda",
+      "bytes": 16520
+    },
+    {
+      "path": "src/test/resources/v06-confirmed.properties",
+      "sha256": "5ae783d32083178d0b43c4b0472d7580135d0aad5fa3f7e7e453948906f430eb",
+      "bytes": 1897
+    },
+    {
+      "path": "src/test/resources/v07-confirmed.properties",
+      "sha256": "7b71d5050825e2000e86d3dddef9eaed5139da49a539be3309e792126e0de347",
+      "bytes": 2447
+    },
+    {
+      "path": "src/test/resources/v08-confirmed.properties",
+      "sha256": "924e172e7f1c97fc2c5553eb4392dfb25c6f55b8f8b87718ba01d686e89a202e",
+      "bytes": 2695
+    },
+    {
+      "path": "src/test/resources/v08-historical-pins.properties",
+      "sha256": "919dbaec6c85f9632640ef077283c7a14daa4b59441b2056d37c9f1181561c02",
+      "bytes": 1788
+    },
+    {
+      "path": "src/test/resources/v09-confirmed.properties",
+      "sha256": "93a6f0ab512f0d914ce98c1e554653b131dc8d4dc5702a5cd0402958c5fca5bf",
+      "bytes": 2935
+    },
+    {
+      "path": "src/test/resources/v09-historical-pins.properties",
+      "sha256": "71eb3d7d82c69427900d2a3f315b5ec64c3e5bc74ad7a47fdddd547a9de7f47f",
+      "bytes": 2108
+    },
+    {
+      "path": "tools/boss_api.py",
+      "sha256": "4eaacfa946a80a58bb59c645b8a70244896657ea0a3c6c4139f22eecd8d5410c",
+      "bytes": 21355
+    },
+    {
+      "path": "tools/boss_batch.py",
+      "sha256": "7fc6d56669bcdcc1c382a674b5d713b6aa8b4dea041100c79a2c0685d54f834b",
+      "bytes": 45351
+    },
+    {
+      "path": "tools/boss_cached.py",
+      "sha256": "4bad58e9f446cd522e8d4b22197c7b9a3aa1439cb5700aa6950b4037dd4c4a46",
+      "bytes": 22135
+    },
+    {
+      "path": "tools/boss_practical_gate.py",
+      "sha256": "4ab6ba8f1345ab4eb1a9a0af843fb5a1a7c186ab4eb5bbe628729616891e763e",
+      "bytes": 9025
+    },
+    {
+      "path": "tools/diagnostics/NeuralV6PrefixAudit.java",
+      "sha256": "cf9e9b850928ff3611e9957e5231c39001c7a5f5ce0bb964081583d123419e4c",
+      "bytes": 24169
+    },
+    {
+      "path": "tools/diagnostics/NeuralV7SavedStateCheck.java",
+      "sha256": "fda255fe68607df022f5a844aa56bab6639e4ed168d5ec85726d61c148bb14d8",
+      "bytes": 24108
+    },
+    {
+      "path": "tools/practical_gate.py",
+      "sha256": "b9d8707cf5d41774b0812b179ae410c975708bc48a4f9de8196a23052b9d652a",
+      "bytes": 9389
+    },
+    {
+      "path": "tools/practical_gate_v4.py",
+      "sha256": "1b632549cf8bad373db1d8244d6d5b8c80249435c4553e803967659a5d6479f7",
+      "bytes": 11150
+    },
+    {
+      "path": "tools/replay_capture.py",
+      "sha256": "5a2b14c38dc30a5bf5687cfb00c1c27203d8db964adbbcf164ba48552c0fd2a4",
+      "bytes": 14012
+    },
+    {
+      "path": "tools/run_practical_v4.py",
+      "sha256": "620bf892a46aa1aa1f1a65b034510c6eac188fab21e22de3caaf530c7127d136",
+      "bytes": 6545
+    }
+  ],
+  "newGames": 0,
+  "arenaUploaded": false,
+  "promotionPerformed": false,
+  "localPhaseComplete": true,
+  "bossStageComplete": false,
+  "scope": "Verified local evaluation and public preparation evidence present at sealing. Exact sources, runtime, submission, tests, pools, diagnostics and raw local reports retained; canonical CG corpus is pinned externally.",
+  "excluded": [
+    "Private credentials/session/bootstrap/IDE backups",
+    "Raw canonical CG corpus",
+    "Raw play responses"
+  ],
+  "continuation": "Never overwrite this archive/index after authorization. A separate neural-v7-live-artifacts archive must reference both hashes and retain later eighty-game evidence. Local pass is not completion of the required live stage."
+}

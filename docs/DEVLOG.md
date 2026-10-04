@@ -4644,3 +4644,116 @@ Archive index records every member hash; ZIP integrity and all member hashes ver
 Private session material and raw CG responses are excluded; replay corpus is pinned
 and retained locally. Completed experiment recorded for the authorized local commit;
 practical-v4 PASS / NOT_PROMOTED, IDE contains V6, arena and default v09 unchanged.
+
+## 2026-10-04 - bounded neural under-spending follow-up, then Indrill
+
+User clarified the direction explicitly: finish the remaining large-map neural
+under-spending before returning to Indrill. V6 remains frozen; no new training,
+strategy promotion or arena upload is included. First audit the actual accepted
+prefix on all first20 states of the existing40 V6 boss games, rather than replaying
+a different bot/RNG choice and calling its full paint a recovered move. Count legal
+and neural-eligible continuation, then inspect one declared cheap filler and its
+exact immediate income impact. Select one candidate mechanism before process and
+strength checks. These observed boss maps become development data; a later live
+regression needs a fresh matched control pool and appropriate source authorization.
+
+V7 pre-freeze implementation checks:466 Java tests completed; only3 historical
+parameter-field-count assertions failed because two V7-only fields were added to
+Params. All13 V7 behavior tests and the old artifact/config checks passed. Updated
+only those old field-count expectations; their recorded parameter-value assertions
+remain unchanged. Original test sources, XML and failed log retained. A first
+sandboxed Gradle launch was blocked at its dependency-cache lock before compilation;
+that log is preserved separately. No process/strength games have started.
+
+V7 candidate built after466/466 Java tests and292/292 baseline engine replays.
+Source99358/100000 chars, SHA53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8;
+build9e53ce4a2eccbd7ba0c1044460ec928fac0954e857455b16d6d374da81bc626f.
+Two read-only production reviews found no blocking issue. Protocol clarified that
+fill has one initialization scan plus at most3 candidate scans and active-path
+traversal, all under the existing total budget; no new time allowance.
+
+The first V7 saved-state helper stopped before completing its diagnostic: it
+incorrectly expected production fill to mutate its input board. V7 deliberately
+uses a private overlay and emits actions, preserving that board. Correct the helper
+to assert input immutability and resolve emitted actions independently through core;
+preserve the first source/classes/intent/log. No candidate change, strength games,
+process retries or result selection is involved; the timed70-case phase had not run.
+
+### 2026-10-04 — neural-v7 saved-state completion and strict readiness
+
+The repaired helper completed all40 V6 games/800 early states: engine40/40 exact,
+800/800 ample-time V6/V7 actions match, and production fill on all70 actual accepted
+prefixes spends96/96 unused paint (77 on tall maps). Fixed-clock and real-clock fill
+commands match70/70. After the fixed warmup, fill timing totals8.9947ms, mean0.128496ms,
+p95 0.2145ms, max0.2768ms locally. These are ample-budget mechanism measurements,
+not proof of CG budget recovery or future payoff; two immediate net-income losses
+remain. The initial helper failed after four complete games, before a completed result;
+its source/log and the correction are retained. No candidate-policy change followed.
+
+Readiness froze source/runtime/submission/tests/protocol and diagnostic evidence.
+All466 tests and292 baseline engine replays pass. Old V6/V3/v09 merged sources
+remain byte-exact. Prospective500 maps are unique and disjoint from18,300 prior maps.
+The one strict panel completes8/8 games with zero grace/no retries: maximum first
+response711.7606ms, later36.8594ms. Candidate source53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8,
+build9e53ce4a2eccbd7ba0c1044460ec928fac0954e857455b16d6d374da81bc626f,
+99,358 characters. Started the predeclared practical-v4 run versus selected v09,
+seeds4200000/4300000/4400000, two workers; no gate outcome yet. V6 superiority and
+CG under-spending recovery are not established by these checks.
+
+### 2026-10-04 — neural-v7 fixed local gate completed, live stage pending
+
+Practical-v4 against selected v09 completes all predeclared blocks:
+178W122L/300 (59.3333%),136W64L/200 (68.0%),339W161L/500 (67.8%).
+Pooled653W347L0D/1000=65.30%, PASS_1000; no futility stop, retries, tuning or early
+pass. Both sides report zero errors. Candidate P0=327/500 (65.4%),P1=326/500 (65.2%).
+Independent audit recomputes every outcome and exclusion union, matches all500
+actual maps to the prospective registry, finds zero overlap with18,300 prior maps,
+and verifies all frozen source/runtime/artifact/test/diagnostic pins unchanged.
+Evidence: docs/evidence/neural-v7-v4.json (1ac22254089b7122f00be713ae814b8e43a1bf48a55c32f1b1ce35c4acf57707).
+Verdict LOCAL_PASS_BOSS_PENDING; this comparison does not establish V7>V6.
+
+Fresh live regression remains40 exact v09 control games followed by40 matched V7
+candidate games. The old V6 boss pool is now development data. Offline review found
+old v09 process reports bind different source bytes; therefore separately predeclared
+exact preserved-v09 strict8 checks on the same four process maps, zero grace/no retries,
+after the completed strength test. This is control readiness, not extra strength games.
+The new80-game IDE action needs authorization; previous consent covered V6 only.
+
+### 2026-10-04 — neural-v7 fresh boss comparison prepared; awaiting authorization
+
+The exact regenerated v09 control (sourceaca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac)
+passes its single predeclared strict8 panel, zero grace/no retries. Maximum first
+response655.1211ms, later41.4440ms. This is separate control readiness evidence.
+Read-only CG bootstrap confirms owner1172955, league6/3/0, Boss4 agent6767608;
+current IDE is the exact V6 source0597d5b7...90b155, privately backed up byte-for-byte.
+No code was sent and no CG game was created.
+
+The offline fresh-control plan freezes40 new seeds/maps,20 per seat, followed by
+exactly40 V7 games on the same schedule via cached-control tools. Shared-core map
+preflight finds no overlap with18,800 old plus V7 local maps. Plan identity
+d2240d38b8804b7048b16a9d181274ab8d0e5b81ace6aadec42f4384dedde052,
+plan SHA3bb6635489d3b6fad417678afa14018bff6fa0422f8132d992d6a5e4e4816774.
+Actual canonical CG maps must still match each prospective core hash, and all80
+replays must validate; seed equality alone is insufficient. Separate helper review
+added the missing frozen-local-map-manifest pin before any preparation execution.
+Asked the user for this exact new80-game IDE action; prior V6-only consent is not
+reused. Arena publication and strategy promotion remain outside that request.
+The local phase is complete; the neural follow-up and boss gate remain pending.
+
+### 2026-10-04 — explicit authorization for neural-v7 fresh40+40 IDE comparison
+
+The user answered: "Да, запускай 40+40 игр" to the request identifying exact verified
+v09 and neural-v7 builds, the40 fresh matched maps/seats, preserved V6 backup and
+final IDE V7. Recorded this actual human approval against prepared-plan/source/build
+and schedule hashes in build/analysis/neural-v7/boss-authorization.json. Scope is
+exactly80 IDE games; no arena publication or strategy promotion. Proceed with the
+control stage, then independently validate all40 actual core-map identities/replays
+before preparing and launching the fixed candidate stage. Do not tune or replace losses.
+
+Local phase archive sealed and verified:998 files/5,786,395 bytes,
+SHAadcb1b967ce4e8c10e7144c163c3c8b914a9ccc7e0ed50be1ff31787b6a29ca5.
+Its first packaging attempt stopped before creating a ZIP because a raw canonical
+input outside replays/ reached the explicit deny guard. Preserved the original helper
+and repair manifest; corrected only evidence-file selection, kept every input hash
+check and final deny guard. No games or outcomes changed. Subsequent ZIP entry/hash
+verification passes. Future live evidence uses a separate archive; this one is immutable.

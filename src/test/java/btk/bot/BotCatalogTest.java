@@ -78,6 +78,16 @@ class BotCatalogTest {
         assertEquals(BotFactory.configuration("neural-v5"), BotFactory.configuration("neural-v6"));
         assertEquals(4, BotFactory.parameters("neural-v6?NEURAL_DEADLINE_RESERVE_MS=4").NEURAL_DEADLINE_RESERVE_MS);
         assertEquals(0.1, BotFactory.parameters("neural-v6").NOISE);
+        assertEquals("candidate", BotCatalog.describe("neural-v7").category());
+        assertEquals("local_only", BotCatalog.describe("neural-v7").status());
+        assertInstanceOf(btk.bot.neural.NeuralV7Bot.class, BotFactory.create("neural-v7"));
+        assertTrue(BotFactory.parameters("neural-v7").USE_NEURAL_FALLBACK);
+        assertFalse(BotFactory.parameters("neural-v7?USE_NEURAL_FALLBACK=0").USE_NEURAL_FALLBACK);
+        var v7Configuration = new java.util.TreeMap<>(BotFactory.configuration("neural-v7"));
+        assertEquals("true", v7Configuration.remove("USE_NEURAL_FALLBACK"));
+        assertEquals("0", v7Configuration.remove("NEURAL_FALLBACK_MAX_INSTABILITY"));
+        assertEquals(BotFactory.configuration("neural-v6"), v7Configuration);
+        assertFalse(BotFactory.configuration("neural-v6").containsKey("USE_NEURAL_FALLBACK"));
         assertEquals("indrill-q-v1 - Indrill Action Values", BotCatalog.displayName("indrill-q-v1"));
         assertEquals("candidate", BotCatalog.describe("indrill-q-v1").category());
         assertEquals("local_only", BotCatalog.describe("indrill-q-v1").status());

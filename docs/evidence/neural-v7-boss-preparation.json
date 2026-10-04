@@ -1,0 +1,363 @@
+{
+  "status": "PREPARED_NOT_AUTHORIZED_NOT_STARTED",
+  "games": 80,
+  "controlGames": 40,
+  "candidateGames": 40,
+  "controlPlan": {
+    "path": "build/cg-boss/neural-v7-v09-fresh-control-40/plan.json",
+    "sha256": "3bb6635489d3b6fad417678afa14018bff6fa0422f8132d992d6a5e4e4816774"
+  },
+  "controlPlanId": "d2240d38b8804b7048b16a9d181274ab8d0e5b81ace6aadec42f4384dedde052",
+  "candidate": {
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\submit-neural-v7",
+    "buildId": "9e53ce4a2eccbd7ba0c1044460ec928fac0954e857455b16d6d374da81bc626f",
+    "strategy": "neural-v7",
+    "sourceSha256": "53551d0edb0f57c96a679060e5185876b803bea1994cee27f51165c9d04e7ea8",
+    "classesSha256": "13d18531f240eac9e992017d0189ca1bcb25f4d16821cdd5a8978ced6af64667",
+    "configSha256": "648af4bdff492d2a2a48985e8c802e319c40ba839e32159f5f4f794834f8cacf",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v7\\process-903510176.json",
+    "processCheckSha256": "fc9e5ef83eca2f15a1fb1b348be298a8373bab28c743e0a1ca65d8241c517e2d"
+  },
+  "control": {
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v7\\preserved-v09",
+    "buildId": "b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2",
+    "strategy": "v09",
+    "sourceSha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+    "classesSha256": "e1eaf5d0aad126d46bbdcf2649d7d103cf21345cd1422e2e23226aea2706940d",
+    "configSha256": "fb58180584ec9d79938e4332861e5d3c018fb7333a5ecf4ecc3ce6494ee1830a",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v7\\control-process\\process-903510176.json",
+    "processCheckSha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26"
+  },
+  "candidateProcessPanel": {
+    "path": "build/analysis/neural-v7/readiness-result.json",
+    "sha256": "50227fae61c3b5fbb8382eb74194d4e8572682cf9e11515d188a7e139ba3bdf8"
+  },
+  "controlProcessPanel": {
+    "path": "build/analysis/neural-v7/control-process/summary.json",
+    "sha256": "fbb057cb8b7d7e890da98740fa5014721211465d860c9739c58b6faae137b2e1"
+  },
+  "localEvidence": {
+    "path": "docs/evidence/neural-v7-v4.json",
+    "sha256": "1ac22254089b7122f00be713ae814b8e43a1bf48a55c32f1b1ce35c4acf57707"
+  },
+  "frozenPreflight": {
+    "path": "build/analysis/neural-v7/frozen-preflight.json",
+    "sha256": "1f2d556133089028d033f3ebc17bd2e5d75dbeb78e7cb9f064018b284e439afb"
+  },
+  "prospectiveMaps": {
+    "path": "build/analysis/neural-v7/boss-map-preflight.json",
+    "sha256": "ce42957f8561f4c7cafa40364f07d86c08a43e641b966826ed3dacd2388f05dc"
+  },
+  "mapHelper": {
+    "path": "build/analysis/neural-v7/BossMapPreflight.java",
+    "sha256": "366a3ce27b2b9343b9b74295ec57b40d932a522fd5d997ef4990b355ffd2c2ca"
+  },
+  "helper": {
+    "path": "build/analysis/neural-v7/prepare_boss.py",
+    "sha256": "a40e6807685e72b402778fee93ece9cc975272cd830aeb67ab116a554e19ef55"
+  },
+  "discovery": {
+    "path": "build/analysis/neural-v7/boss-discovery-first.json",
+    "sha256": "39cf2c3c92da86b66344457c7226d91712686bef85e5f6ed86e0b0bc3510475c"
+  },
+  "ownerBinding": {
+    "schemaVersion": 1,
+    "ownerUserId": 1172955,
+    "bootstrapSha256": "3c0bc2609cf2ccce28bbd3ba66297eb9ff6768105bb8513a973652f8cf89c69e",
+    "sessionBindingSha256": "3704577dd25346340d59ec9693d49cf5a7a05677021bbc1eb89da77a8e522d5b",
+    "sourceBackupSha256": "0597d5b7fba6fed69313c313f422616784d18acc7219c6d4b7835a7abd90b155",
+    "service": "gameResult/findByGameId",
+    "change": "null second argument to authenticated owner user ID",
+    "playRequestsUnchanged": true,
+    "canonicalChecksUnchanged": true
+  },
+  "candidateSchedule": [
+    {
+      "slot": 1,
+      "pair": 1,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "931928174"
+    },
+    {
+      "slot": 2,
+      "pair": 2,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1441995785"
+    },
+    {
+      "slot": 3,
+      "pair": 3,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1834379172"
+    },
+    {
+      "slot": 4,
+      "pair": 4,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "455750181"
+    },
+    {
+      "slot": 5,
+      "pair": 5,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "743446929"
+    },
+    {
+      "slot": 6,
+      "pair": 6,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "577146896"
+    },
+    {
+      "slot": 7,
+      "pair": 7,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "394799548"
+    },
+    {
+      "slot": 8,
+      "pair": 8,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "201301522"
+    },
+    {
+      "slot": 9,
+      "pair": 9,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1510175706"
+    },
+    {
+      "slot": 10,
+      "pair": 10,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1501693354"
+    },
+    {
+      "slot": 11,
+      "pair": 11,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1146225649"
+    },
+    {
+      "slot": 12,
+      "pair": 12,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1433502919"
+    },
+    {
+      "slot": 13,
+      "pair": 13,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "13570675"
+    },
+    {
+      "slot": 14,
+      "pair": 14,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1227206493"
+    },
+    {
+      "slot": 15,
+      "pair": 15,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "684048739"
+    },
+    {
+      "slot": 16,
+      "pair": 16,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1750497074"
+    },
+    {
+      "slot": 17,
+      "pair": 17,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1651172222"
+    },
+    {
+      "slot": 18,
+      "pair": 18,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1032699762"
+    },
+    {
+      "slot": 19,
+      "pair": 19,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "2018977198"
+    },
+    {
+      "slot": 20,
+      "pair": 20,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1786595067"
+    },
+    {
+      "slot": 21,
+      "pair": 21,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "667185904"
+    },
+    {
+      "slot": 22,
+      "pair": 22,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "337728484"
+    },
+    {
+      "slot": 23,
+      "pair": 23,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1711033168"
+    },
+    {
+      "slot": 24,
+      "pair": 24,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1909924015"
+    },
+    {
+      "slot": 25,
+      "pair": 25,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "530545186"
+    },
+    {
+      "slot": 26,
+      "pair": 26,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1607207703"
+    },
+    {
+      "slot": 27,
+      "pair": 27,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1943204462"
+    },
+    {
+      "slot": 28,
+      "pair": 28,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "856416997"
+    },
+    {
+      "slot": 29,
+      "pair": 29,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1464998972"
+    },
+    {
+      "slot": 30,
+      "pair": 30,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "387677199"
+    },
+    {
+      "slot": 31,
+      "pair": 31,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "819848558"
+    },
+    {
+      "slot": 32,
+      "pair": 32,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "351683031"
+    },
+    {
+      "slot": 33,
+      "pair": 33,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "569531092"
+    },
+    {
+      "slot": 34,
+      "pair": 34,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "289450674"
+    },
+    {
+      "slot": 35,
+      "pair": 35,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "670550059"
+    },
+    {
+      "slot": 36,
+      "pair": 36,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "1399097446"
+    },
+    {
+      "slot": 37,
+      "pair": 37,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "1336237340"
+    },
+    {
+      "slot": 38,
+      "pair": 38,
+      "arm": "candidate",
+      "seat": 0,
+      "seed": "2113633959"
+    },
+    {
+      "slot": 39,
+      "pair": 39,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "302004334"
+    },
+    {
+      "slot": 40,
+      "pair": 40,
+      "arm": "candidate",
+      "seat": 1,
+      "seed": "852448672"
+    }
+  ],
+  "candidateScheduleRule": "Exactly these forty control seeds/seats; derive cached plan only after all control outcomes are verified.",
+  "refreshReason": "The previous V6 boss pool guided this fallback development; refresh before further comparison.",
+  "liveAuthorized": false,
+  "arenaPublicationAuthorized": false,
+  "sourceSent": false,
+  "gamesStarted": 0,
+  "nextAction": "Obtain user authorization for exact v09 and V7 sources and80 IDE games. Recheck live IDE backup/owner/boss/league immediately before play. This helper cannot play."
+}

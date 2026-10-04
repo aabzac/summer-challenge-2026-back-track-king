@@ -15,6 +15,9 @@ public class Params {
 
     /** V3-only cooperative deadline; excluded from other bots' config and emitted Params to preserve their artifacts. */
     public int NEURAL_DEADLINE_RESERVE_MS = 2;
+    /** V7-only bounded construction on deadline cutoff; historical artifacts omit these fields. */
+    public boolean USE_NEURAL_FALLBACK = false;
+    public int NEURAL_FALLBACK_MAX_INSTABILITY = 0;
 
     /** Independent Indrill-style action-value policy: extra route cost per instability level. */
     public int INDRILL_INK_PENALTY = 2;

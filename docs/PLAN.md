@@ -632,8 +632,9 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       games. Record `evidence/indrill-reward-audit-v1.json` and the Q-v2 follow-up review.
 - [ ] First separate representation from outcome learning with a fixed supervised
       teacher-set/ink diagnostic on the existing Q observations (map/game-grouped split).
-      Preferred neural strength follow-up: outcome fine-tuning from retained neural-v1;
-      freeze its action/features and predeclare reward, regularization, opponents and budget.
+      Resume this direction after the bounded neural under-spending follow-up below.
+- [x] The previously proposed neural-v1 outcome fine-tuning was completed as neural-v2;
+      its trained weights are retained by neural-v3/v5/v6. It is not a new pending proposal.
 - [ ] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
       saved threatened states before implementing a default-off proposal experiment.
 
@@ -720,9 +721,36 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       Actual CG early paint96.0% overall/88.33% tall, with22 early wall warnings.
 - [x] Record actual result, preserve evidence
       and commit without changing the selected strategy or arena submission.
-- [ ] Separate follow-up: inspect remaining CG tall-map under-spending and useful
+- [x] Separate follow-up: inspect remaining CG tall-map under-spending and useful
       construction fallbacks using frozen V6. Do not infer missed legal moves or
       server timeouts solely from paint totals/self-reported wall warnings.
+
+## Neural under-spending follow-up before returning to Indrill (2026-10-04)
+
+User explicitly chose to finish the remaining large-map under-spending work first,
+then return to Indrill. Preserve the completed V6 experiment and its frozen artifact.
+
+- [x] Audit all first20 states of the existing40 V6 boss games; replay the actual
+      accepted own prefix before measuring affordable candidates and a cheap fill.
+      Separate legal availability, immediate income and unknown future strength.
+      All70 underpaint turns have legal/V6-eligible moves;96 unused paint. Exploratory
+      fill spends all96 but has2 negative immediate net-income cases; no win inference.
+- [x] Use that diagnostic to predeclare one new candidate, with unchanged V2 weights,
+      complete-choice preservation and bounded runtime; do not start a tuning series.
+      V7 adds timeout-only stable own-network extension; see neural-policy-v7.md.
+- [x] Verify correctness, ample-time parity where the fallback is inactive, injected
+      cutoff behavior and exact submission/process checks:466 tests,800 matching
+      actions,96/96 diagnostic fill paint,292+40 exact replays,strict8/8 PASS.
+- [x] Complete the fixed practical-v4 local strength gate against selected v09:
+      653W347L0D/1000,65.30%,PASS_1000,two workers,500 fresh maps,zero errors;
+      all prospective map/source/runtime/artifact pins independently verified.
+- [ ] Complete the authorized fresh40-control +40-candidate boss regression.
+      Outcome-guided boss maps are development data; refresh the matched control pool
+      before any subsequent boss gate. V6's prior IDE authorization is version-specific.
+      Exact v09 strict8 PASS; fresh forty-map schedule prepared, current V6 IDE backed
+      up and new80-game authorization received. No CG games have been started.
+- [ ] Record and commit the accepted or rejected result, then resume the separate
+      Indrill representation diagnostic; retain unfinished ideas as future work.
 
 ## neural-v5: exact hypothetical completion income (2026-10-04)
 

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "neural-v7-block2",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 4300000,
+  "pairs": 100
+}

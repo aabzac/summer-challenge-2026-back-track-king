@@ -110,13 +110,14 @@ public class FileMerger {
         boolean neuralV4 = version.equals("neural-v4");
         boolean neuralV5 = version.equals("neural-v5");
         boolean neuralV6 = version.equals("neural-v6");
-        boolean neuralDeadline = neuralV3 || neuralV4 || neuralV5 || neuralV6;
+        boolean neuralV7 = version.equals("neural-v7");
+        boolean neuralDeadline = neuralV3 || neuralV4 || neuralV5 || neuralV6 || neuralV7;
         boolean neural = version.equals("neural-v1") || neuralV2 || neuralDeadline;
         boolean indrillV2 = version.equals("indrill-q-v2");
         boolean indrill = version.equals("indrill-q-v1") || indrillV2;
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
                 && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural && !indrill) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, indrill-q-v1 or indrill-q-v2");
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1 or indrill-q-v2");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
@@ -128,6 +129,7 @@ public class FileMerger {
                 : version.equals("v07") ? "bot/v07/RolloutBotV07.java"
                 : version.equals("v08") ? "bot/v08/RolloutBotV08.java"
                 : version.equals("v09") ? "bot/v09/RolloutBotV09.java"
+                : neuralV7 ? "bot/neural/NeuralV7Bot.java"
                 : neuralV6 ? "bot/neural/NeuralV6Bot.java"
                 : neuralV5 ? "bot/neural/NeuralV5Bot.java"
                 : neuralV4 ? "bot/neural/NeuralV4Bot.java"
@@ -147,16 +149,16 @@ public class FileMerger {
             }
         }
         if (indrill) files.add(SRC_ROOT.resolve("core/TacticalPathing.java"));
-        if (neuralV5 || neuralV6) files.add(SRC_ROOT.resolve("core/HypotheticalIncome.java"));
-        if (neuralV6) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
+        if (neuralV5 || neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/HypotheticalIncome.java"));
+        if (neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
         files.add(SRC_ROOT.resolve(policy));
         if (neural) {
-            files.add(SRC_ROOT.resolve(neuralV6 ? "bot/neural/NeuralV6Features.java"
+            files.add(SRC_ROOT.resolve(neuralV6 || neuralV7 ? "bot/neural/NeuralV6Features.java"
                     : neuralV5 ? "bot/neural/NeuralV5Features.java"
                     : neuralDeadline ? "bot/neural/NeuralV3Features.java" : "bot/neural/NeuralFeatures.java"));
             files.add(SRC_ROOT.resolve("bot/neural/NeuralNet.java"));
             files.add(SRC_ROOT.resolve(neuralV4 ? "bot/neural/NeuralV4Weights.java"
-                    : neuralV2 || neuralV3 || neuralV5 || neuralV6 ? "bot/neural/NeuralV2Weights.java" : "bot/neural/NeuralWeights.java"));
+                    : neuralV2 || neuralV3 || neuralV5 || neuralV6 || neuralV7 ? "bot/neural/NeuralV2Weights.java" : "bot/neural/NeuralWeights.java"));
         }
         if (indrill) {
             files.add(SRC_ROOT.resolve("bot/current/IndrillFeatures.java"));
@@ -179,6 +181,8 @@ public class FileMerger {
             for (String line : Files.readAllLines(file)) {
                 // Do not alter existing submissions that do not consume the neural deadline.
                 if (!neuralDeadline && file.endsWith("Params.java") && line.contains("public int NEURAL_DEADLINE_RESERVE_MS =")) continue;
+                if (!neuralV7 && file.endsWith("Params.java") && (line.contains("public boolean USE_NEURAL_FALLBACK =")
+                        || line.contains("public int NEURAL_FALLBACK_MAX_INSTABILITY ="))) continue;
                 if (neuralV3) line = line.replaceAll("\\bNeuralV3Bot\\b", "EvalBot")
                         .replaceAll("\\bNeuralV3Features\\b", "NeuralFeatures")
                         .replaceAll("\\bNeuralV2Weights\\b", "NeuralWeights");
@@ -189,6 +193,9 @@ public class FileMerger {
                         .replaceAll("\\bNeuralV5Features\\b", "NeuralFeatures")
                         .replaceAll("\\bNeuralV2Weights\\b", "NeuralWeights");
                 if (neuralV6) line = line.replaceAll("\\bNeuralV6Bot\\b", "EvalBot")
+                        .replaceAll("\\bNeuralV6Features\\b", "NeuralFeatures")
+                        .replaceAll("\\bNeuralV2Weights\\b", "NeuralWeights");
+                if (neuralV7) line = line.replaceAll("\\bNeuralV7Bot\\b", "EvalBot")
                         .replaceAll("\\bNeuralV6Features\\b", "NeuralFeatures")
                         .replaceAll("\\bNeuralV2Weights\\b", "NeuralWeights");
                 // This line-based merger cannot preserve text-block indentation/comment contents.
