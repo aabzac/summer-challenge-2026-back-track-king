@@ -182,11 +182,26 @@ for joint training versus **0.05434280** for build-only. This establishes fittin
 on these 64 development observations under the retained representation; the old
 2,000-update failure did not establish an inability to learn the full labels.
 All 158/158 construction cells match; final audit and archive verification pass.
-No Stage B, holdout scoring,
-new games or promotion follows. A separately scoped larger training panel and
-map-separated holdout is the suggested, unstarted next diagnostic before RL or
-strength testing. [Protocol](docs/indrill-joint64-12k-v1.md),
+No Stage B, holdout scoring, new games or promotion followed from that experiment.
+The separately authorized larger-panel follow-up is recorded below; the original
+capacity-v1 Stage B remains closed. [Protocol](docs/indrill-joint64-12k-v1.md),
 [evidence](docs/evidence/indrill-joint64-12k-v1.json).
+
+`indrill-generalization-v1` completes a fresh **12,000-update / 384,000-visit**
+joint imitation run on **2,048 positions from 128 maps**. Final training agreement
+is **231/2,048 build (11.28%), 892/2,048 ink (43.55%) and 105/2,048 joint (5.13%)**.
+On the fixed research holdout (1,020 positions / 51 other maps), the final model
+scores **111 build (10.88%), 424 ink (41.57%) and 42 joint (4.12%)**, versus frozen
+Q-v2's **29 / 8 / 1**. Both predeclared paired-map difference intervals are above
+zero: **TRANSFER_EVIDENCE**, an imitation diagnostic rather than arena strength.
+The small train/holdout gap accompanies low absolute training accuracy; this does
+not isolate optimization budget from model/feature limitations. Multi-cell builds
+are exact in only **3.02% of training and 3.34% of held-out rows**. Preserve the
+fixed run and investigate training fit before a separately designed RL/strength
+experiment. No Java export, new games or promotion. Final evidence verification
+is recorded in [the experiment entry](docs/BOTS.md).
+[Protocol](docs/indrill-generalization-v1.md),
+[evidence](docs/evidence/indrill-generalization-v1.json).
 
 `neural-v2` continues from the retained `neural-v1` imitation weights with terminal
 win/draw/loss policy-gradient updates and a fixed teacher prior. The feature definitions,

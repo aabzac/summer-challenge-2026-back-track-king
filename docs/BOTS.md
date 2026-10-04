@@ -135,6 +135,59 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-generalization-v1 (2026-10-04, TRANSFER_EVIDENCE)
+
+Separate user-authorized larger-panel imitation experiment, fresh model seed
+2026100402 and sampler 2026100412, unchanged compact network/joint subset+ink
+objective, batch 32 and exactly 12,000 updates. The 2,048 training observations
+cover 128 maps; 384,000 visits give 1,024 rows 187 visits and 1,024 rows 188 visits.
+No fitted 64-row model weights or optimizer state were inherited. Original capacity-v1
+Stage B and all historical verdicts remain closed and unchanged.
+
+Training curve at 0/4k/8k/12k: exact build 32/206/224/231; ink 0/775/815/892;
+joint 0/87/94/105, out of 2,048. Mean joint NLL 17.05155459 -> 9.95451873 ->
+9.58018708 -> 9.33998860. Final agreement: build 11.2793%, ink 43.5547%,
+joint 5.1270%; cell precision 22.4447% / recall 21.7122%. Final build/ink NLL
+7.42589894/1.91408965. Training accuracy improves slowly after the first 4k.
+
+Final-only holdout: 1,020 observations from 51 disjoint research maps. Candidate
+build 111/1020 (10.8824%), ink 424/1020 (41.5686%), joint 42/1020 (4.1176%);
+frozen Q-v2: 29/1020 (2.8431%), 8/1020 (0.7843%), 1/1020 (0.0980%). Candidate
+cell precision 21.8301% / recall 21.2745%, paint 2.94510 versus teacher 2.94412,
+joint NLL 9.76911484. Q-v2 joint NLL 17.44010432 is descriptive only because its
+reward-trained scores are not calibrated imitation probabilities.
+
+Map-paired candidate-minus-Q-v2 agreement differences: build +8.0392 percentage
+points, percentile 95% interval [+6.0784,+10.0025]; ink +40.7843 points,
+interval [+38.0392,+43.5294]. Both lower bounds exceed zero under the fixed
+10,000-resample/51-map convention: TRANSFER_EVIDENCE. These are development
+holdouts and a weak control, not pristine confirmation or evidence of arena wins.
+
+Cohorts: old40 (800 rows) build 10.625%, ink 40.375%, joint 4.0%; later11 (220 rows)
+build 11.8182%, ink 45.9091%, joint 4.5455%. Holdout-minus-training differences are
+build -0.3969, ink -1.9861 and joint -1.0093 percentage points. The low training
+agreement already limits current imitation quality; the small gap does not prove
+universal generalization or an architecture ceiling. Budget/optimization and
+representation remain unresolved. Investigate training fit before a separately
+designed RL or strength experiment; do not simply extend this closed run.
+
+Saved subgroup metrics locate the main weakness in multi-cell construction:
+training 49/1,622 (3.02%), holdout 28/838 (3.34%). Of the 111 exact held-out builds,
+83 are empty or single-cell sets. Three-cell sets alone score 18/1,135 (1.59%)
+on training and 11/573 (1.92%) on holdout. This is descriptive, not a new gate or
+proof that the additive head causes the problem. Q-v2 also selects ink NONE in
+767/1,020 held-out rows, versus zero for both teacher and candidate, underscoring
+the weakness of that comparator.
+
+Independent saved-state audit: PASS. All 12,001 checkpoints, fresh initialization,
+sampler/RNG and 12,000 Adam parameter steps verify exactly (maximum difference 0);
+249 updates use clipping. Audit reaggregates saved predictions and metrics without
+new learned forward passes or gradients. The verified compact archive contains
+24,062 files / 31,692,635 bytes, including four scheduled NPZ checkpoints;
+all other full states remain locally retained and hash-pinned. No new Java/core,
+production weights, games, submission, arena upload or promotion.
+[Protocol](indrill-generalization-v1.md), [evidence](evidence/indrill-generalization-v1.json).
+
 ## Diagnostic: indrill-joint64-12k-v1 (2026-10-04, JOINT_FIT_ESTABLISHED)
 
 The separate joint continuation completes exactly **10,000 new updates / 12,000

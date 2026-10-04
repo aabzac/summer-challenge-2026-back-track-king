@@ -5290,3 +5290,96 @@ Audit helper and archive helper received independent source reviews; their paire
 report schema also passed a saved-only contract check before the audit. All
 previous experiments, Java/core sources, submission and selected v09 unchanged.
 This closes the authorized fitting experiment; no next experiment has started.
+
+## 2026-10-04 - Indrill generalization-v1 predeclared
+
+User authorized the proposed larger 2,048-position training plus map-separated
+holdout evaluation. Hypothesis: the unchanged network and joint imitation
+objective may learn transferable teacher-action preferences across 128 maps.
+This is a new development diagnostic, not a reopening of old capacity-v1 Stage B.
+Reuse the fixed export and exact B/holdout selections, with no new replay export
+or outcome-driven row selection. Holdout remains 1,020 rows/51 research maps,
+old40/later11 reported separately, not pristine independent confirmation.
+
+Fresh model2026100402/sampler2026100412, batch32, original Adam .0003/clip10,
+exactly 12,000 updates/384,000 visits (187 or 188 per row). No warm start from the
+fitted64 model. Train metrics only0/4k/8k/12k, final-only holdout once per candidate
+and frozen Q-v2, original paired-map transfer convention. Fixed budget chosen
+prospectively after small-panel learning curves; neither a train-fit threshold
+nor a budget extension follows from scores. Protocol: indrill-generalization-v1.md.
+Preparation/checks/freeze precede gradients; current v09, Java/core and CG unchanged.
+
+Generalization-v1 preflight completed. Independent source/protocol review and
+synthetic persistence/boundary checks pass. The first synthetic invocation failed
+only an expected-error-message fixture; its files were retained. A final explicit
+map-exclusion-registry pin correction overlapped the first preparation. Its stale
+proof was detected before any real run/evaluation/gradient; unused freeze/intent
+are retained under setup/rejected-preparation-1 with preparation-repair.json.
+Final proof checks-final/result.json SHA531f262d...fe71c6 and accepted freeze
+0ce61b3be9e49dd64cbaa3aeb36562338f2ce5a9ed501dc080578cbdc19ecf1a match
+stable sources/runtime. The one fixed training run is now starting; no old model
+weights or optimizer state are inherited. All source, data and policy settings
+remain frozen during training.
+Generalization-v1 completed its single fixed fresh run: 12,000 updates,
+384,000 visits; 1,024 training observations have 187 visits and 1,024 have 188.
+At 0/4k/8k/12k, build exact is 32/206/224/231, ink 0/775/815/892 and joint
+0/87/94/105, all out of 2,048. Mean-of-map-means joint NLL decreases from
+17.05155459 to 9.95451873, 9.58018708 and 9.33998860. Final train agreement
+is 11.2793% build, 43.5547% ink and 5.1270% joint.
+
+The one final held-out comparison covers 1,020 observations on 51 other maps:
+candidate 111 build (10.8824%), 424 ink (41.5686%), 42 joint (4.1176%);
+frozen Q-v2 29 (2.8431%), 8 (0.7843%), 1 (0.0980%). Candidate joint NLL
+9.76911484, cell precision/recall 21.8301%/21.2745%, predicted/teacher paint
+2.94510/2.94412. Cross-model NLL remains descriptive only. Old40 counts are
+85/323/32 of 800 and later11 counts 26/101/10 of 220 (build/ink/joint).
+
+The predeclared paired-map differences are build +8.0392 percentage points,
+percentile95% interval [+6.0784,+10.0025], and ink +40.7843 points, interval
+[+38.0392,+43.5294], using 10,000 bootstrap resamples and seed2026100421.
+Decision: TRANSFER_EVIDENCE under the development diagnostic convention.
+Q-v2 is a weak control: it predicts ink NONE on 767/1,020 holdout observations,
+where neither the teacher nor candidate chooses NONE. This is not evidence of
+arena strength or champion-quality imitation; these are research holdouts.
+
+Train-to-holdout agreement drops are only 0.3969/1.9861/1.0093 percentage
+points, but absolute training fit is low. Saved cardinality breakdowns locate
+the weakness already on training: multi-cell exact 49/1,622 (3.02%) train,
+28/838 (3.34%) holdout. Three-cell exact is 18/1,135 and 11/573. Of 111 exact
+held-out constructions, 83 are empty or single-cell sets. These are descriptive
+subgroups, not additional gates or evidence proving an additive-head limitation.
+
+Independent saved-state audit: PASS. All 12,001 boundaries, fresh initializer,
+sampler/RNG/order/exposure and 12,000 saved Adam parameter updates are exact;
+maximum parameter difference 0, 249 clipped steps, inactive value head and
+moments remain zero. Saved prediction/label bindings, legality, aggregations and
+bootstrap arithmetic verify without new learned predictions or gradients.
+The audit does not independently reconstruct the gradients or prediction logits.
+A saved-only audit schema/contract check passed before the full audit; report
+setup/audit-contract.json SHA467e90b755f20b140c0a0f37c81bbc948425a9cc19fb2157a5c08717c7fac1f9
+is retained locally. The rejected pre-gradient preparation is explicitly retained
+as historical bytes and never treated as the active freeze or a training retry.
+
+Public evidence SHA5381fe762c3144c2a2b2abea550a6fc97623fb6ddf72fee97020155f107bb892;
+chain SHAbc00d78ab7fe4ebed6b68ab6d448f90dc865fe9b411a895ce97d9649a541ade3;
+final checkpoint SHAfea5f1ef73ebbc1f7955bf6e21b756cb325492e5c8491982c8c38b9db432e85c.
+Compact archive verification passed: 24,062 files / 31,692,635 bytes, including
+all production metadata, saved metrics, four scheduled NPZ snapshots and pins
+for all other full states retained locally. ZIP SHA
+26ea06a6a0fd5d0b45e927585c05fe6c70907a1d83efc973f8a71861238c6a9d.
+
+Decision: close the authorized fixed generalization experiment and preserve its
+result. Before RL or strength testing, separately diagnose the weak training fit.
+A next proposed probe is a fixed train-only continuation to 24k total with the
+same complete optimizer/sampler state, data and objective, tracking overall and
+multi-cell training accuracy without another holdout selection. This proposal
+has not started. Budget and representation remain unresolved: each B row had
+only 187/188 visits, versus 3,000 on the earlier small fitted panel, and training
+loss is still falling. A weak future budget response would not prove a capacity
+ceiling. Original Stage B, Java/core, production weights, v09, submission and CG
+remain unchanged; no new games, RL, export, upload or promotion.
+
+Independent final review also passed: six saved metric reports, result/chain
+pins and every one of the 24,062 archived files agree with the index, including
+24,022 production metadata files, four scheduled NPZ and six prior archives.
+No learned scoring or gradients were added by this verification.

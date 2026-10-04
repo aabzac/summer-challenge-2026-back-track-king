@@ -3,6 +3,31 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Indrill generalization-v1 (2026-10-04)
+
+- [x] Predeclare a separate larger-panel diagnostic after joint64-12k-v1's pass:
+      fixed 2,048 training rows/128 maps and 1,020 research-holdout rows/51 maps;
+      fresh original B seeds, unchanged joint objective/network, batch 32,
+      exactly 12,000 updates. Preserve original capacity-v1 Stage B as unexecuted.
+      [Protocol](indrill-generalization-v1.md).
+- [x] Review and verify the separate wrapper, synthetic checks, original data and
+      runtime/source bindings; freeze before gradients.
+- [x] Complete the one fixed training run and final-only candidate/Q-v2 holdout
+      comparison. Report training curve, map-aggregated absolute accuracy and gaps,
+      old40/later11 cohorts, and the predeclared diagnostic transfer decision.
+      Final train build/ink/joint 231/892/105 of 2048; holdout 111/424/42 of 1020,
+      Q-v2 control 29/8/1. TRANSFER_EVIDENCE versus this weak control; absolute
+      imitation remains low and this is not arena-strength evidence.
+- [x] Audit retained states/results, preserve compact evidence/archive, update
+      documentation and commit. No new games, CG export/upload or promotion.
+      PASS: 12,001 checkpoints, exact saved Adam arithmetic and sampler; archived
+      24,062 files including four scheduled checkpoints.
+- [ ] Separately diagnose low training agreement on the larger panel before RL or
+      strength testing. Distinguish optimizer/budget and representation limitations;
+      no additional training, altered architecture or game run is started by this result.
+      Next proposed probe: a separately fixed train-only continuation to 24k total,
+      tracking multi-cell build fit (currently 3.02% train / 3.34% holdout).
+
 ## Phase 1 â€” infrastructure (done 2026-09-13)
 
 - [x] Gradle/Java 17 skeleton, package layout, `AGENTS.md`, Cursor rules
