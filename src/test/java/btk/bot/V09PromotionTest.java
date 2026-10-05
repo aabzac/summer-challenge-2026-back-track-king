@@ -73,8 +73,9 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 4, fields, "only the independent later policy, neural deadline and two V7 fallback fields are absent from the v09 record");
+        assertEquals(expected.size() + 5, fields, "later independent policy, neural deadline, two V7 fallback fields and default-off risk experiment");
         FrozenParams.applyTo("v09", dirty);
+        assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);
         assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
@@ -106,8 +107,11 @@ class V09PromotionTest {
                     .replace("ProtectedOpeningV09", "ProtectedOpening")
                     .replace("return \"v09\";", "return \"current?\" + p.diff();");
             assertEquals(item[1], sha(measured), "measured source " + item[0]);
-            assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
-                    "current source " + item[0]);
+            // RolloutBot now contains a default-off risk proposal. The frozen measured source
+            // stays pinned above; the existing evolving/saved-state tests retain OFF parity.
+            if (item[0].equals("ProtectedOpening"))
+                assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
+                        "current source " + item[0]);
         }
     }
 

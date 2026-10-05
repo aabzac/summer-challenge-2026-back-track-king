@@ -20,6 +20,21 @@ numerical, artifact and practical-v4 strength checks. The still-open v09
 all-cell-risk route-candidate idea below is the recommended next strategy
 direction for discussion; no new strategy experiment was launched in this review.
 
+## Return to v09: rollout-risk-v1 (2026-10-06)
+
+- [x] Audit all-cell instability-cost bypasses on 64 saved threatened positions:
+      30 retained new construction sets in 15 positions, matched controls zero.
+      Mechanism evidence only. [Protocol and result](rollout-risk-v1.md).
+- [x] Implement one default-off route proposal with the existing evaluator and
+      budgets. Check actual actions (6/64 changed), default-off parity, engine
+      fidelity (292/292), tests and exact submission (99,733 chars; strict 8/8).
+- [x] Complete the fixed 300/+200/+500 practical-v4 comparison against v09 on
+      500 fresh paired maps: 518 wins / 434 losses / 48 draws, 54.2% overall.
+      Zero game errors; two workers throughout. Final NOT_PASSED (<55%).
+- [x] Close the experiment, preserve evidence and record the rejected result.
+      Boss stage skipped after local failure; flag stays OFF, selected v09 and
+      saved default submission unchanged. No further neural training or promotion.
+
 ## Indrill fit512-v1 (2026-10-04/05)
 
 - [x] Predeclare the user-authorized intermediate panel: first 32 ranked B maps,
@@ -700,8 +715,10 @@ v08 is selected locally; timing readiness remains OPEN. No retries or arena uplo
       Complete Stage A with FIT_NOT_ESTABLISHED; details and bounded next step below.
 - [x] The previously proposed neural-v1 outcome fine-tuning was completed as neural-v2;
       its trained weights are retained by neural-v3/v5/v6. It is not a new pending proposal.
-- [ ] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
-      saved threatened states before implementing a default-off proposal experiment.
+- [x] Independent v09 opportunity: audit all-cell instability-cost bypass candidates on
+      saved threatened states, then implement one default-off proposal experiment.
+      Completed as [rollout-risk-v1](rollout-risk-v1.md): 54.2% over 1000 paired
+      games versus v09; NOT_PASSED, flag OFF and boss stage skipped.
 
 ## Indrill capacity-v1: supervised fitting diagnostic (2026-10-04)
 

@@ -43,8 +43,12 @@ class V06PromotionTest {
         expected.put("ROLLOUT_NETWORK_ROOTS", "2");
         expected.put("ROLLOUT_NETWORK_RESERVE_MS", "12");
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
-        for (var spec : new String[]{CURRENT_V06, "v06"})
-            assertEquals(expected, BotFactory.configuration(spec), spec);
+        for (var spec : new String[]{CURRENT_V06, "v06"}) {
+            var actual = new TreeMap<>(BotFactory.configuration(spec));
+            if (actual.containsKey("USE_ROLLOUT_ALL_CELL_RISK"))
+                assertEquals("false", actual.remove("USE_ROLLOUT_ALL_CELL_RISK"));
+            assertEquals(expected, actual, spec);
+        }
         Params dirty = new Params();
         for (var field : Params.class.getFields()) {
             if (Modifier.isStatic(field.getModifiers())) continue;

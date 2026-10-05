@@ -5619,3 +5619,52 @@ existing evaluator and game-strength checks. This is distinct from the rejected
 forced-defense experiment. Further imitation variants and a new interaction-aware
 network are not automatically launched. This review changed only planning/history;
 no training, games, source/weights, CG upload or historical evidence was changed.
+## 2026-10-06 - rollout-risk-v1: return to v09, NOT_PASSED
+
+Hypothesis: v09 can miss useful bypasses because instability is charged only on
+newly painted cells. Audit one all-cell-risk route proposal for our live earning
+connections crossing unstable unprotected regions, then retain the existing
+portfolio, evaluation and timing budgets. Neural imitation work is paused; these
+results do not establish that neural approaches are a dead end.
+
+The bounded saved-state audit selected 64 of 91 eligible / 110 available states
+using board-only criteria. It found 30 retained new filled construction sets in
+15 positions; matched empty-only-risk controls found zero. Five isolated roots
+beat the baseline model value (four unique inputs), a mechanism signal only.
+Integrated risk-ON vs frozen v09 changed actual ample-time actions in 6/64 states.
+All diagnostic actions were legal and input-isolated; no new games were needed.
+
+Implemented USE_ROLLOUT_ALL_CELL_RISK=false in Params, opt-in for current rollout.
+Variant 3 uses existing core TacticalPathing and the existing instability weight;
+only our qualifying pairs receive it, within the unchanged total query cap.
+Ordinary route continuation is preserved. Core, frozen bots and weights unchanged.
+Extra queries may displace other proposals under the shared time/query budget.
+
+Readiness: cgValidate 292/292 exact. Full suite 474 tests: 471 pass, three old
+parameter-inventory expectations fail on the new default-off flag. Correct those
+expectations; all ten tests in the three affected classes pass on the rerun.
+Frozen/default-off parity, merger and new route tests passed in the full run.
+Independent read-only review found no blocking issues. Exact merged candidate:
+99,733 chars, source SHA256
+51280c1993f4fd5f41ef905a1e012aa3823377c3a5bb33d9f564d49425cb2a38.
+Strict process panel: 8/8 pass, zero timeouts or nominal overruns; maximum first
+response 649.096401 ms, maximum later response 43.969299 ms. Original saved default
+submission was preserved; candidate output is build/submit-rollout-risk-v1.
+
+Fixed practical-v4 vs v09, two workers, CG 486/36 ms search budgets:
+- seed 4500000, 300 games: 154W/136L/10D, 53.0%.
+- seed 4600000, 200 games: 104W/80L/16D, 56.0%; pooled 500 score 54.2%.
+- seed 4700000, 500 games: 260W/218L/22D, 54.2%.
+Total 518W/434L/48D, 542/1000 points = 54.2%; zero reported game errors.
+All 500 paired maps are distinct across blocks and excluded from the prior local
+index (18,851 maps / 190 reports). Both futility looks clear; final score misses
+55%. No tuning, retries, extension, boss games, CG write or arena promotion.
+
+Decision: NOT_PASSED, bossUsage SKIPPED_LOCAL_FAILURE. Keep the new flag OFF,
+selected v09 and saved default artifact unchanged. The observed local score is
+not established arena improvement. Protocol/results: docs/rollout-risk-v1.md;
+public evidence: docs/evidence/rollout-risk-v1.json. The evidence ZIP has 55
+members, 2,706,798 bytes, SHA256
+f8fd71093913d911b357ad5a2b35642003087626cdd197b400d26c78a8117cd0.
+It preserves preflight registration, reports/pools, candidate/control submissions
+and supporting sources. Fixed experiment closed and recorded for local commit.

@@ -148,7 +148,7 @@ public class FileMerger {
                         .sorted().forEach(files::add);
             }
         }
-        if (indrill) files.add(SRC_ROOT.resolve("core/TacticalPathing.java"));
+        if (indrill || version.equals("current") && rollout) files.add(SRC_ROOT.resolve("core/TacticalPathing.java"));
         if (neuralV5 || neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/HypotheticalIncome.java"));
         if (neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
         files.add(SRC_ROOT.resolve(policy));
@@ -179,6 +179,8 @@ public class FileMerger {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
+                if (!(version.equals("current") && rollout) && file.endsWith("Params.java")
+                        && line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")) continue;
                 // Do not alter existing submissions that do not consume the neural deadline.
                 if (!neuralDeadline && file.endsWith("Params.java") && line.contains("public int NEURAL_DEADLINE_RESERVE_MS =")) continue;
                 if (!neuralV7 && file.endsWith("Params.java") && (line.contains("public boolean USE_NEURAL_FALLBACK =")

@@ -10,6 +10,7 @@ import btk.core.NetworkCells;
 import btk.core.NetworkChords;
 import btk.core.Rules;
 import btk.core.SearchState;
+import btk.core.TacticalPathing;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +21,7 @@ public final class RolloutBot implements Bot {
     private final Params p;
     private final Timer timer = new Timer();
     private Pathing pathing;
+    private TacticalPathing tactical;
     private SearchState work, completion, targetBoard, inkBoard;
     private int[][][] routes;
     private int[][] lengths;
@@ -133,6 +135,7 @@ public final class RolloutBot implements Bot {
 
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
+        if (p.USE_ROLLOUT_ALL_CELL_RISK) tactical = new TacticalPathing(s.size);
         work = new SearchState(s); completion = new SearchState(s);
         targetBoard = new SearchState(s); inkBoard = new SearchState(s);
         routes = new int[2][p.ROLLOUT_WIDTH][s.size];
@@ -230,10 +233,12 @@ public final class RolloutBot implements Bot {
         int reserve = (int) Math.min(p.ROLLOUT_RESERVE_MS, budgetMs / 2);
         for (int k = 0; k < s.pairCount && routeQueries < 2 * p.ROLLOUT_MAX_ROUTES; k++) {
             int pair = (start + k) % s.pairCount;
-            for (int variant = 0; variant < 3; variant++) {
+            for (int variant = 0; variant < (p.USE_ROLLOUT_ALL_CELL_RISK ? 4 : 3); variant++) {
                 if (timer.up(reserve) || routeQueries >= 2 * p.ROLLOUT_MAX_ROUTES) break;
                 propose(s, me, pair, variant);
-                if (!timer.up(reserve)) propose(s, 1 - me, pair, variant);
+                if (variant < 3 && !timer.up(reserve)
+                        && (!p.USE_ROLLOUT_ALL_CELL_RISK || routeQueries < 2 * p.ROLLOUT_MAX_ROUTES))
+                    propose(s, 1 - me, pair, variant);
             }
             if (timer.up(reserve)) break;
         }
@@ -456,12 +461,23 @@ public final class RolloutBot implements Bot {
 
     private void propose(GameState s, int me, int pair, int variant) {
         if (variant == 2 && threats[me] < 0) return;
+        if (variant == 3) {
+            boolean own = false, risk = false;
+            for (int i = 0; i < s.pairPathLen[pair]; i++) {
+                int c = s.pairPath[pair][i], r = s.regionId[c];
+                own |= s.owner[c] == me;
+                risk |= s.regionInstability[r] > 0 && !s.regionHasTown(r);
+            }
+            if (!own || !risk) return;
+        }
         for (int c = 0; c < s.size; c++) {
             extra[c] = (int) Math.round(p.UNSTABLE_COST * s.instability[c]);
+            if (variant == 3 && !s.passable(c)) extra[c] += s.placeCost(c);
             blocked[c] = variant == 1 ? s.owner[c] == 1 - me
                     : variant == 2 && s.regionId[c] == threats[me];
         }
-        int n = pathing.cheapestPath(s, s.townCell[s.pairFrom[pair]], s.townCell[s.pairTo[pair]],
+        int n = variant == 3 ? tactical.weightedPath(s, s.townCell[s.pairFrom[pair]], s.townCell[s.pairTo[pair]], extra, path)
+                : pathing.cheapestPath(s, s.townCell[s.pairFrom[pair]], s.townCell[s.pairTo[pair]],
                 path, variant == 0 ? null : blocked, extra);
         routeQueries++;
         if (n <= 0) return;

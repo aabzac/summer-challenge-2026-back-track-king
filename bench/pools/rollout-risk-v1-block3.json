@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "rollout-risk-v1-block3",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 4700000,
+  "pairs": 250
+}

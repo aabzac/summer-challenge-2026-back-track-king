@@ -179,7 +179,7 @@ class FileMergerTest {
                 "frozen v08 must ship the approved policy bytes");
     }
 
-    @Test void selectedAndFrozenV09ShipTheSameNeverIdlePolicyAndFullConfiguration() throws Exception {
+    @Test void frozenV09KeepsMeasuredPolicyAndCurrentKeepsItsDisabledRiskBaseline() throws Exception {
         String current = FileMerger.merge("current"), frozen = FileMerger.merge("v09");
         FileMerger.checkSourceSize(current);
         FileMerger.checkSourceSize(frozen);
@@ -192,9 +192,11 @@ class FileMergerTest {
         String normalized = FileMerger.normalizeMarker(frozen)
                 .replace("public String name() { return \"v09\"; }",
                         "public String name() { return \"current?\" + p.diff(); }");
-        assertEquals(policySection(FileMerger.normalizeMarker(current)), policySection(normalized),
-                "frozen v09 must ship the selected policy bytes");
-        assertEquals(BotFactory.configuration("current"), BotFactory.configuration("v09"));
+        assertEquals("2a9c84029cde47c9e2378a28a6dd0eb7c0d882ec85d85af0138b4160a9d74fe3",
+                FileMerger.sha256(policySection(normalized)), "measured frozen v09 policy bytes");
+        var currentParams = new TreeMap<>(BotFactory.configuration("current"));
+        assertEquals("false", currentParams.remove("USE_ROLLOUT_ALL_CELL_RISK"));
+        assertEquals(currentParams, BotFactory.configuration("v09"));
         checkFrozenDecisions("v09", true, false, true);
         checkFrozenDecisions("current", true, false, true);
     }
@@ -408,10 +410,8 @@ class FileMergerTest {
         assertFalse(FileMerger.merge("neural-v2").contains("NEURAL_DEADLINE_RESERVE_MS"));
         assertFalse(FileMerger.merge("current").contains("NEURAL_DEADLINE_RESERVE_MS"));
         assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9", FileMerger.sha256(FileMerger.merge("neural-v2")));
-        // The retained default artifact 1df7c131... predates d8bd6bd's INDRILL_INK_PENALTY.
-        // Current already embeds that unused declaration/config entry at the V2 baseline;
-        // removing only those two fragments reproduces the retained normalized source exactly.
-        assertEquals("66559817e09dc2b3cfcf5e8ede8709a7c71797eb1eb2bdb41741470f372706a1", FileMerger.sha256(FileMerger.merge("current")));
+        // Current can gain default-off experiments; its immutable v09 reference stays exact.
+        assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac", FileMerger.sha256(FileMerger.merge("v09")));
     }
 
     @Test void neuralV4ShipsNewWeightsAndUnchangedDeadlineFeaturesWithoutDriftingV3() throws Exception {
@@ -455,8 +455,8 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("neural-v3")));
         assertEquals("0b124a2d1e17d2b1b0448c26accca5bb63065672cb24318228733159105b5163",
                 FileMerger.sha256(FileMerger.merge("neural-v4")));
-        assertEquals("66559817e09dc2b3cfcf5e8ede8709a7c71797eb1eb2bdb41741470f372706a1",
-                FileMerger.sha256(FileMerger.merge("current")));
+        assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+                FileMerger.sha256(FileMerger.merge("v09")));
     }
 
     @Test void neuralV6ResumablePathsShipInIsolationAndKeepEveryFrozenArtifactExact() throws Exception {
@@ -512,13 +512,25 @@ class FileMergerTest {
         assertTrue(source.contains("INDRILL_INK_PENALTY=2"));
         checkFrozenDecisions("indrill-q-v1", true);
         assertFalse(FileMerger.merge("current").contains("IndrillFeatures"));
-        assertFalse(FileMerger.merge("current").contains("class TacticalPathing"));
+        assertTrue(FileMerger.merge("current").contains("class TacticalPathing"));
         assertFalse(FileMerger.merge("v09").contains("class InkProjection"));
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("indrill-q-v3"));
     }
 
     @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
         checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
+    }
+
+    @Test void allCellRiskShipsOnlyForCurrentRolloutAndMatchesCompiledDecisions() throws Exception {
+        String spec = "current?USE_ROLLOUT_ALL_CELL_RISK=1";
+        String source = FileMerger.merge(spec);
+        assertTrue(source.contains("USE_ROLLOUT_ALL_CELL_RISK=true"));
+        assertTrue(source.contains("class TacticalPathing"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions(spec, true, false, true);
+        for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
+                "current?USE_ROLLOUT_POLICY=0"})
+            assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ALL_CELL_RISK"), old);
     }
     @Test void v2SubmissionKeepsItsBaselineAndPreservesFrozenV1Artifact() throws Exception {
         String source = FileMerger.merge("indrill-q-v2");

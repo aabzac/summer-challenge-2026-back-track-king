@@ -284,6 +284,24 @@ tasks.register<JavaExec>("jointActionCheck") {
         prop("out", "build/analysis/joint-action-v1/cost.json"))
 }
 
+tasks.register<JavaExec>("rolloutRiskStudy") {
+    group = "game"
+    description = "Bounded saved-position audit of all-cell-risk route candidates"
+    mainClass.set("btk.tools.RolloutRiskStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
+        prop("out", "build/analysis/rollout-risk-v1/mechanism.json"))
+}
+
+tasks.register<JavaExec>("rolloutRiskPolicyCheck") {
+    group = "game"
+    description = "Check actual risk-candidate policy coverage on the same saved positions"
+    mainClass.set("btk.tools.RolloutRiskPolicyCheck")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
+        prop("out", "build/analysis/rollout-risk-v1/policy-check.json"))
+}
+
 tasks.register<JavaExec>("rolloutCheck") {
     group = "game"
     description = "Serial work-cost and legality audit of the independent rollout policy on saved states"

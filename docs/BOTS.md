@@ -135,6 +135,29 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Experiment: rollout-risk-v1 (2026-10-06, NOT_PASSED)
+
+Candidate `current?USE_ROLLOUT_ALL_CELL_RISK=1` adds one route proposal for our live
+earning connections crossing unstable unprotected regions. Existing rails/towns
+also pay the instability surcharge in this proposal's search cost. Canonical game
+pathing, evaluation weights, opponent model and search budgets are unchanged;
+extra proposals compete for the same portfolio and budget. The flag defaults OFF.
+
+Saved-state mechanism check: 30 retained new construction sets in 15/64 positions;
+matched empty-only-risk controls zero. Actual integrated actions changed in 6/64
+ample-time positions. These are diagnostics, not win rates. Engine validation
+292/292; test coverage and frozen/default-off checks pass after updating three
+old parameter-inventory expectations. Exact candidate 99,733 characters; strict
+process panel 8/8, no timeout/nominal overrun, maximum later response 43.969299 ms.
+
+Fixed practical-v4 against frozen v09: block scores 53.0% / 56.0% / 54.2%,
+pooled **518 wins / 434 losses / 48 draws = 54.2% over 1000 games** on 500 fresh
+paired maps, two workers, zero game errors. **NOT_PASSED** at the final 55% gate;
+boss stage skipped after local failure. No tuning, extension, CG upload or
+promotion. Selected v09 and its saved default submission remain unchanged.
+[Protocol/result](rollout-risk-v1.md), [evidence](evidence/rollout-risk-v1.json),
+[55-member archive](evidence/rollout-risk-v1-artifacts.zip).
+
 ## Diagnostic: indrill-fit512-v1 (2026-10-04/05, FIT70_NOT_ESTABLISHED)
 
 User-authorized intermediate fitting diagnostic, separate from the closed A64
