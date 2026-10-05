@@ -34,6 +34,12 @@ direction for discussion; no new strategy experiment was launched in this review
 - [x] Close the experiment, preserve evidence and record the rejected result.
       Boss stage skipped after local failure; flag stays OFF, selected v09 and
       saved default submission unchanged. No further neural training or promotion.
+- [x] User-requested follow-up (October 6): exactly 40 live boss games of the
+      unchanged risk candidate on the October 4 v09 cache (15/40). Separate
+      diagnostic; original local NOT_PASSED remains. Candidate 10W30L vs v09
+      15W25L; four maps improve, nine worsen, 27 equal. All 40 replays exact,
+      no technical failures. Final IDE contains verified risk candidate; local
+      selected v09 unchanged. [Evidence](evidence/rollout-risk-v1-boss.json).
 
 ## Indrill fit512-v1 (2026-10-04/05)
 

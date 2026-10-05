@@ -5668,3 +5668,41 @@ members, 2,706,798 bytes, SHA256
 f8fd71093913d911b357ad5a2b35642003087626cdd197b400d26c78a8117cd0.
 It preserves preflight registration, reports/pools, candidate/control submissions
 and supporting sources. Fixed experiment closed and recorded for local commit.
+
+## 2026-10-06 - user-requested rollout-risk-v1 boss diagnostic, 10/40 vs v09 15/40
+
+After the completed local rejection, the user explicitly requested games of the
+v09 candidate against the bot. Run a separate fixed40 live IDE diagnostic of the
+unchanged rollout-risk-v1 candidate. This request permits this additional series;
+it does not change the original 54.2% / NOT_PASSED local decision or authorize an
+arena submission or strategy promotion. No local strength games were repeated.
+
+Preflight reused all four exact-artifact strict process reports, verified the
+October4 v09 control cache (40 unique maps,20 seats each,15W25L), and refreshed
+current authenticated IDE/boss discovery. Same Boss4 agent6767608, league6/3/0.
+The actual current neural-v7 source53551d0...04e7ea8 was privately backed up exactly.
+Public plan e3f7894e5a120d85b3fb0257e9e3c190eaf9b11a72cb2d6447caf7f901cef32a
+pins candidate source51280c1993f4fd5f41ef905a1e012aa3823377c3a5bb33d9f564d49425cb2a38
+and frozen v09 sourceaca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac.
+Independent read-only review confirmed the exact schedule and artifact bindings.
+
+Completed exactly40 candidate games, one request per slot,20-second spacing,
+no tuning, errors, uncertain requests or replacement games. Outcome10W30L0D,
+25.0%, against cached control15W25L0D,37.5%: -5 points / -12.5 percentage points.
+Four maps become candidate-only wins, nine become control-only wins,27 are equal.
+Every canonical seed/map/seat/boss/league/build marker matches. cgValidate40/40
+reproduced exactly; no recorded technical failure. Final read-only IDE source
+matches the unchanged risk candidate byte-for-byte; previous V7 backup retained.
+
+Decision: boss diagnostic NOT_PASSED; no support for replacing v09 with this
+proposal. Original local failure remains unchanged. Keep local selected v09 and
+risk flag OFF; saved default artifact unchanged. IDE contains the tested risk
+candidate, with no arena publication or promotion. This is a reused regression
+pool with a two-day-old control, not fresh simultaneous confirmation.
+
+Evidence: docs/evidence/rollout-risk-v1-boss.json and the separate ZIP containing
+both40-game canonical sets plus public provenance/verification,263 members,
+1,300,017 bytes, SHA256
+2e656ac6256992cb1c041f8d0545e5d28a91826bda25cb46078c58a4f137342e.
+Private session files and play-response bodies are excluded. Original local
+experiment evidence remains immutable. PLAN/BOTS/protocol updated for local commit.

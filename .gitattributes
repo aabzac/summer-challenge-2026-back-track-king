@@ -29,4 +29,5 @@
 /docs/evidence/indrill-fit512-v1*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve the recorded rollout-risk evidence and map-pool byte identities.
 /docs/evidence/rollout-risk-v1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/evidence/rollout-risk-v1-boss.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /bench/pools/rollout-risk-v1-block*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -158,6 +158,15 @@ promotion. Selected v09 and its saved default submission remain unchanged.
 [Protocol/result](rollout-risk-v1.md), [evidence](evidence/rollout-risk-v1.json),
 [55-member archive](evidence/rollout-risk-v1-artifacts.zip).
 
+Subsequent user-requested boss diagnostic (October 6), exactly 40 games:
+**candidate 10W30L (25.0%) vs cached v09 15W25L (37.5%)**, same October 4 control
+maps/seats, Boss 4 agent 6767608. Four candidate-only wins, nine control-only wins,
+27 equal outcomes. All 40 replays exact; no technical failures, retries or missing
+provenance. Separate boss result NOT_PASSED; original local verdict unchanged.
+Final IDE contains this exact risk candidate (source 51280c19...cb2a38); previous
+neural-v7 is privately backed up. Local selected/default v09 unchanged, no arena
+publication or promotion. [Boss evidence](evidence/rollout-risk-v1-boss.json).
+
 ## Diagnostic: indrill-fit512-v1 (2026-10-04/05, FIT70_NOT_ESTABLISHED)
 
 User-authorized intermediate fitting diagnostic, separate from the closed A64

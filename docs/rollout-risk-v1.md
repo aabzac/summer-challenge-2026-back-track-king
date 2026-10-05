@@ -113,3 +113,48 @@ the final decision. The [evidence archive](evidence/rollout-risk-v1-artifacts.zi
 contains 55 members (2,706,798 bytes): the fixed reports, preflight registration,
 map pools, exact candidate/control submissions and supporting sources. Its SHA256
 is `f8fd71093913d911b357ad5a2b35642003087626cdd197b400d26c78a8117cd0`.
+
+## User-requested boss diagnostic (2026-10-06)
+
+After the completed local rejection the user requested: "давай прогоним с ботом
+игры кандидата v09". This authorizes a separate 40-game IDE diagnostic of the
+unchanged `rollout-risk-v1` candidate. It does not revise the original local
+NOT_PASSED decision or authorize promotion/arena publication.
+
+Use the verified v09 arm (`candidate`) of
+`build/cg-boss/neural-v7-v09-fresh-control-40/plan.json`: 15 wins / 25 losses,
+40 unique maps, 20 games per seat, collected October 4. Current read-only discovery
+confirms the same Boss 4 agent 6767608 and league 6/3/0. Reuse is a diagnostic;
+the stable public identity cannot prove unchanged hidden implementation/conditions.
+The risk candidate was developed on separate local saved states.
+
+The original candidate source and all four strict process reports still match.
+Current IDE neural-v7 source is privately backed up exactly before any play.
+Run precisely the cached 40 seeds/maps/seats with 20-second spacing, no tuning,
+extensions or automatic uncertain-play retries. Preserve all outcomes. The runner
+checks canonical map/seat/seed/boss and build markers; validate all collected
+replays through the shared engine afterwards. Final IDE will contain this candidate.
+
+Plan: `build/cg-boss/rollout-risk-v1-boss-40/plan.json`.
+
+Completed exactly 40 candidate games, one request per slot, with no replacements:
+**10 wins / 30 losses / 0 draws (25.0%)**, versus cached v09's **15 wins / 25
+losses / 0 draws (37.5%)**. Difference: -5 points out of 40, or -12.5 percentage
+points. Four maps changed from a control loss to a candidate win; nine changed
+from a control win to a candidate loss; 27 outcomes were equal. This sample does
+not support replacing v09 with this risk proposal.
+
+All 40 replays reproduce exactly through `cgValidate`; zero recorded technical
+failures or provenance issues. All maps, seeds, seats, boss/league and build
+markers match. The final read-only IDE check confirms the exact risk candidate
+source `51280c1993f4fd5f41ef905a1e012aa3823377c3a5bb33d9f564d49425cb2a38`.
+The preceding neural-v7 source remains privately backed up. Local selected v09,
+default flag OFF and saved default submission are unchanged; no arena publication.
+
+The separate boss score check is also **NOT_PASSED**. The original 54.2% local
+NOT_PASSED verdict and its archived evidence remain unchanged. This is one reused
+regression pool with an October 4 control, not fresh simultaneous confirmation.
+[Boss evidence](evidence/rollout-risk-v1-boss.json) includes all paired outcomes;
+the [1.30 MB archive](evidence/rollout-risk-v1-boss-artifacts.zip) preserves both
+40-game canonical sets, identities and verification records. Archive SHA256:
+`2e656ac6256992cb1c041f8d0545e5d28a91826bda25cb46078c58a4f137342e`.
