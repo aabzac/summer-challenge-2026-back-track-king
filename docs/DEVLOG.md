@@ -5590,3 +5590,32 @@ JSON files, then restage and compare all nine immutable files byte-for-byte by
 SHA256 against their staged blobs. This preserves both current reports and
 future checkout source identities without changing any audited working bytes or
 old experiment attributes. The archive and its reviewed contents are unchanged.
+## 2026-10-06 - objective and efficiency reassessment after user correction
+
+User clarification: 70% was an illustrative question, not a requested success
+criterion. The assistant turned it into an arbitrary fitting screen and imposed
+excessive persistence/auditing. Preserve historical frozen results, but remove
+that percentage as a prospective goal. Arena strength remains the actual aim.
+
+Read-only code review confirms 144,022 production files for the 48k fit: 48,001
+NPZ states, 48,001 receipts, 48,000 update intents and 20 other metadata files.
+The archive retained 96,058 members because only five full NPZ states were packed.
+This persistence policy was not a requirement of learning or the CG skill. Future
+exploration should retain a few recoverable checkpoints, one compact log, source/
+data/split identities and final metrics, without a full per-update disk ledger.
+
+Other optimization candidates are repeated padded-batch allocation/copying and
+Python loops in the exact budget-three subset-loss DP. Exported game features
+are already precomputed; the decoder is not called on every training visit.
+No profile was run, so runtime shares and speedup factors are unmeasured. Measure
+a short bounded workload before choosing caching, vectorization/compiled loss or
+a framework migration. Keep numerical and engine correctness checks and the
+existing practical-v4 strength policy; exploratory fit is not promotion evidence.
+
+Recommended strategy direction for discussion: the still-unstarted v09 extra
+route candidate with instability cost on existing rails. Check candidate coverage
+on a small saved-state set first, then consider one default-off change with the
+existing evaluator and game-strength checks. This is distinct from the rejected
+forced-defense experiment. Further imitation variants and a new interaction-aware
+network are not automatically launched. This review changed only planning/history;
+no training, games, source/weights, CG upload or historical evidence was changed.

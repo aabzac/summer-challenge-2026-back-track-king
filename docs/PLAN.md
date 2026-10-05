@@ -3,6 +3,23 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Objective clarification (2026-10-06)
+
+The user clarified that 70% was an illustrative question, not a requested target.
+The assistant imposed that fitting screen; retain its historical result below,
+but do not carry it forward as a requirement. The objective is arena strength,
+and exact teacher-action agreement is only a diagnostic. No further imitation
+training is automatically scheduled by the completed fitting experiments.
+
+Future exploratory training should use a compact log and a handful of atomic
+checkpoints, retaining settings, data/split identities, optimizer/RNG recovery and
+final metrics. Per-update full NPZ plus two JSON files and auditing every Adam
+step are not the default. Profile a bounded run before choosing batching,
+compiled loss code or a framework migration. Preserve the existing engine,
+numerical, artifact and practical-v4 strength checks. The still-open v09
+all-cell-risk route-candidate idea below is the recommended next strategy
+direction for discussion; no new strategy experiment was launched in this review.
+
 ## Indrill fit512-v1 (2026-10-04/05)
 
 - [x] Predeclare the user-authorized intermediate panel: first 32 ranked B maps,
