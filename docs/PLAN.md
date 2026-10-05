@@ -3,6 +3,29 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Indrill fit512-v1 (2026-10-04/05)
+
+- [x] Predeclare the user-authorized intermediate panel: first 32 ranked B maps,
+      16 positions per map, fixed 512 rows; fresh B initializer, unchanged model
+      and objective. Exactly 48,000 updates with batch 32 gives 3,000 visits per
+      row. Final fitting target is at least 359/512 exact full actions (70%).
+      [Protocol](indrill-fit512-v1.md). No automatic extension or promotion.
+- [x] Independently review orchestration, run synthetic checks and freeze source,
+      runtime, exact selection, original corpus/provenance and predecessor evidence.
+      Final proof and freeze pass; 512 unique inputs, no conflicting labels,
+      no map/input overlap with the fixed 1,020-row holdout.
+- [x] Complete fixed training measurements at 0/3k/12k/24k/48k and final-only
+      descriptive holdout evaluation. Report multi-cell construction explicitly.
+      Train build/ink/joint 107/299/59 of 512: FIT70_NOT_ESTABLISHED (59 < 359).
+      Holdout 85/396/25 of 1020, below saved B2048's 111/424/42; multi-cell
+      builds exact in 41/404 training and 25/838 held-out rows. Fixed run closed.
+- [x] Audit saved state/metrics without new learned scoring: PASS for all 48,001
+      checkpoints, exact sampler exposures and saved Adam parameter arithmetic.
+- [x] Preserve the compact evidence archive, finish documentation and commit locally.
+      Packaging and independent streaming review PASS: 96,058 files, five scheduled
+      full states, all member hashes and gzip integrity checked. The other 47,996
+      full states remain locally retained. No further training or game run follows.
+
 ## Indrill generalization-v1 (2026-10-04)
 
 - [x] Predeclare a separate larger-panel diagnostic after joint64-12k-v1's pass:
@@ -25,8 +48,8 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [ ] Separately diagnose low training agreement on the larger panel before RL or
       strength testing. Distinguish optimizer/budget and representation limitations;
       no additional training, altered architecture or game run is started by this result.
-      Next proposed probe: a separately fixed train-only continuation to 24k total,
-      tracking multi-cell build fit (currently 3.02% train / 3.34% holdout).
+      The proposed B2048 continuation to 24k was not run. User chose the separate
+      fit512-v1 diagnostic above after discussing its purpose and sample size.
 
 ## Phase 1 â€” infrastructure (done 2026-09-13)
 

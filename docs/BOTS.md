@@ -135,6 +135,53 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Diagnostic: indrill-fit512-v1 (2026-10-04/05, FIT70_NOT_ESTABLISHED)
+
+User-authorized intermediate fitting diagnostic, separate from the closed A64
+and B2048 runs. Fixed first 32 B maps by original hash ranking, 16 rows per map;
+same fresh initializer as B2048, unchanged network/features/objective/optimizer.
+Exactly 48,000 updates at batch 32 gives 3,000 visits per position, matching
+A64's exposure count. Training metrics at 0/3k/12k/24k/48k; final joint exact
+>=359/512 is the new 70% operational fitting target. Multi-cell construction is
+reported separately. Final candidate-only holdout is descriptive; no new Q-v2
+scoring, game, export or promotion. [Protocol](indrill-fit512-v1.md).
+
+Training curve at 0/3k/12k/24k/48k: exact build **5/52/69/82/107**, ink
+**0/208/248/272/299**, joint **0/25/28/42/59**, out of 512. Final agreement is
+**20.90% build / 58.40% ink / 11.52% joint**; **59 < 359**, so the 70% fitting
+target is not established. Final mean build/ink/joint NLL is
+**5.89206582 / 1.39088312 / 7.28294893**. Multi-cell construction is exact in
+**41/404 (10.15%)** rows, including **24/281 (8.54%)** three-cell rows.
+
+The final-only holdout has **85/1020 build (8.33%), 396/1020 ink (38.82%) and
+25/1020 joint (2.45%)**. Mean build/ink/joint NLL is
+**9.26619495 / 2.34977481 / 11.61596977**; multi-cell builds match in
+**25/838 (2.98%)** rows, three-cell builds in **7/573 (1.22%)**. These subgroup
+percentages are row rates, not the separately recorded subgroup map means.
+
+Saved B2048 predictions on the same 512 training positions give **54/229/20**,
+versus this run's **107/299/59**; on the same holdout they give **111/424/42**,
+versus **85/396/25**. Fitting improved while held-out imitation worsened.
+The final post-hoc A64 subset is **15/37/8 of 64** (remaining 448: **92/262/51**).
+Matching 3,000 visits per row does not make this a size-only comparison with A64:
+seed, batch size, update count and accompanying examples also differ. Low training
+fit and a larger train/holdout gap do not identify an architectural ceiling or a
+single optimization cause. Close the fixed diagnostic without extension or a
+strength claim; construction remains the main unresolved fitting problem.
+
+Saved-state audit PASS: all **48,001 checkpoints / 48,000 updates**, exact fresh
+initializer and sampler, **1,536,000 visits / 3,000 per observation**, finite
+tensors and zero inactive value state. Adam parameter arithmetic is bit-exact
+from the stored moments; no gradients or learned predictions were reconstructed.
+Saved labels, predictions and metric arithmetic were checked independently.
+The verified compact archive contains **96,058 files / 48,479,500 bytes**,
+including all production metadata and five scheduled full NPZ states. The other
+47,996 full states remain locally retained and hash-pinned. A separately reviewed
+packaging-only helper avoids repeated Windows path resolution; its source and
+amendment are identified in the index. Training and frozen audit were not restarted.
+[Audited evidence](evidence/indrill-fit512-v1.json),
+[archive index](evidence/indrill-fit512-v1-artifacts.json).
+
 ## Diagnostic: indrill-generalization-v1 (2026-10-04, TRANSFER_EVIDENCE)
 
 Separate user-authorized larger-panel imitation experiment, fresh model seed

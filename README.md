@@ -187,6 +187,24 @@ The separately authorized larger-panel follow-up is recorded below; the original
 capacity-v1 Stage B remains closed. [Protocol](docs/indrill-joint64-12k-v1.md),
 [evidence](docs/evidence/indrill-joint64-12k-v1.json).
 
+`indrill-fit512-v1` completes the user-authorized intermediate diagnostic: **512 positions
+from 32 maps**, unchanged model/objective, fresh B initializer and **48,000 updates**
+at batch 32. This gives **3,000 visits per position**, matching the successful
+64-position run's exposure count. Final training agreement is **107/512 build
+(20.90%), 299/512 ink (58.40%) and 59/512 joint (11.52%)**: the **359/512 (70%)**
+target is not reached, **FIT70_NOT_ESTABLISHED**. Multi-cell builds match in only
+**41/404** training rows. On the fixed 1,020-position / 51-map research holdout,
+agreement is **85 build (8.33%), 396 ink (38.82%) and 25 joint (2.45%)**, below
+the previous B2048 model's saved **111 / 424 / 42** on those same positions.
+The smaller panel and longer training improve fitting on the selected rows, but
+not held-out imitation; this does not isolate an architectural limit. The fixed
+experiment is closed without extension, new games or promotion.
+The saved-state audit passes for all **48,001 checkpoints** and exact sampler
+exposure; saved Adam parameter arithmetic is bit-exact.
+[Protocol](docs/indrill-fit512-v1.md), [results](docs/BOTS.md),
+[audited evidence](docs/evidence/indrill-fit512-v1.json),
+[verified archive index](docs/evidence/indrill-fit512-v1-artifacts.json).
+
 `indrill-generalization-v1` completes a fresh **12,000-update / 384,000-visit**
 joint imitation run on **2,048 positions from 128 maps**. Final training agreement
 is **231/2,048 build (11.28%), 892/2,048 ink (43.55%) and 105/2,048 joint (5.13%)**.

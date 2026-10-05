@@ -5383,3 +5383,210 @@ Independent final review also passed: six saved metric reports, result/chain
 pins and every one of the 24,062 archived files agree with the index, including
 24,022 production metadata files, four scheduled NPZ and six prior archives.
 No learned scoring or gradients were added by this verification.
+
+## 2026-10-04 - Indrill fit512-v1 predeclared
+
+After discussing the difference between memorization, transfer and game strength,
+the user authorized an intermediate 512-position diagnostic. The previously
+suggested B2048 continuation to 24k was not run. Hypothesis: the unchanged compact
+model may learn an intermediate panel more effectively when each position receives
+the same 3,000 training visits as the successful A64 experiment.
+
+Fixed selection is first 32 B map groups by the original SHA256 rank, with all
+16 B observations per map in original export order; not the first 512 exported
+rows. Keep all A64 rows, original legal targets, complete source/provenance pins
+and disjoint research holdout. Fresh same-B initializer/sampling seeds, batch32,
+unchanged joint objective and Adam. Exactly48,000 updates/1,536,000 visits; training
+measurements0/3k/12k/24k/48k, final operational target>=359/512 exact full actions.
+No early pass, outcome-dependent exclusions, new seeds or automatic extension.
+
+The larger budget specifically addresses the earlier exposure confound (A64 had
+3,000 visits/row, B2048 only187/188). It does not make all comparisons causal:
+updates, data difficulty and A64 batch/initializer differ. Predicted training time
+from saved B2048 timestamps is2.5-3hours plus preparation/audit. Final candidate
+holdout1020/51maps is once-only and descriptive regardless of fitting verdict;
+no Q-v2 reevaluation, bootstrap gate, RL, new games, CG changes or promotion.
+Protocol: docs/indrill-fit512-v1.md. Review/synthetic checks/freeze precede all real
+learned evaluation and gradients. Every result, including failure, will be retained.
+Fit512 setup passed independent source/protocol review and canonical synthetic
+checks (proof SHA6703be4882906b5d3d73e6bb93f436b605f98c85a45f9af5aa76b5ca7eb541a5).
+The earlier passing development proof is retained under setup/checks-first; its
+source binding predates the final predecessor-metric pin key rename. No real
+preparation or training was attempted against that old proof. Canonical checks,
+prepare and launch were sequential after the author declared learner sources stable.
+
+Accepted freeze SHAbd7bf0509f4b2f1a3ea56af457a430cc8b799a960d2c9723d6248c70253be008;
+selection SHA18c8bf2b81ca2f5168b56374de39c1b968398cae5b7cb1e3bf22a99fc4e43954.
+Exactly512 unique inputs/32maps, zero conflicting-label groups, all64 A rows
+included, map/input overlap with holdout both0. Teacher cardinalities0/1/2/3
+are5/103/123/281;404 rows require multi-cell construction. Saved B2048 final
+predictions on these same512 rows give54 build,229 ink,20 joint and13/404 exact
+multi-cell builds. These counts were derived from saved rows, without new model
+scoring, and do not change the prospective359 threshold. The fixed run command
+has started with all learner/protocol/data bindings frozen.
+Training started and step0 was recorded. Audit/archive helper passed independent
+source review (SHA c2d726415cec985a880193fc532ff87b615c9f68701eacac6795301813991e4d).
+Saved-only step0 contract also PASS: raw selected512 rows, source SHA, exactlabels,
+metrics, legal predictions, precision/recall, NLL sums and construction subgroups
+match the independently checked report. Contract setup/audit-contract.json SHA
+a971ec9042649e77387790cee7e568226d7631a4fbfe44af13fa550cafa856e5 is retained locally.
+This check made zero new learned predictions or gradients. Helper and learner
+sources are now stable for the remainder of the fixed run and final verification.
+FIT512 scheduled step3000: build52/512 (10.15625%), ink208/512 (40.625%),
+joint25/512 (4.8828125%). Joint NLL9.899208140541134; multi-cell builds10/404,
+three-cell2/281. At this boundary each row has187/188 visits, matching B2048's
+final exposure count. Saved B2048 on the same512 rows was54/229/20. This interim
+point shows no large accuracy jump at that exposure; it neither selects a model
+nor changes the fixed48k schedule. The next scheduled measurement is12k.
+## 2026-10-04 - indrill-fit512-v1 scheduled 12k observation
+
+Saved scheduled metrics only, at update 12,000 of the fixed 48,000: build 69/512 (13.4765625%), ink 248/512 (48.4375%), joint 28/512 (5.46875%). Mean build/ink/joint NLL: 7.0628309425679845 / 1.6768604369243345 / 8.73969137949232. Exact construction: multi-cell 18/404; three-cell 8/281. No verdict, tuning, new model evaluation or schedule change: the fixed 48,000-update run continues; final holdout and audit remain pending.
+
+Post-hoc descriptive split of the saved 12k metrics: original A64 build/ink/joint counts 11/33/2; remaining 448 counts 58/215/26. Current exposure is 750 visits per position, versus 3,000 in the successful original A64 run; seed and batch also differ. The groups share maps. This does not isolate a causal effect of panel size or establish a capacity limit.
+
+## 2026-10-05 - indrill-fit512-v1 scheduled 24k observation
+
+Independently checked the saved 24k training metric rows and summary: build 82/512 (16.015625%), ink 272/512 (53.125%), joint 42/512 (8.203125%). Mean build/ink/joint NLL: 6.51388486833911 / 1.5418432219142886 / 8.055728090253398. Exact construction: multi-cell 22/404; three-cell 9/281. Exposure: 1,500 visits per position. No new model evaluation, tuning or early decision: the fixed 48,000-update run continues; final verdict, holdout and audit remain pending.
+
+## 2026-10-05 - indrill-fit512-v1 fixed run completed; saved-metric review
+
+Predeclared and started October 4; completed October 5, Europe/Bucharest. Hypothesis: the unchanged compact joint model may learn an intermediate fixed panel of 512 positions at the same 3,000 visits per position as the successful A64 diagnostic. Selection was fixed before training: 32 ranked original B maps, 16 rows each, preserving export order. Fresh model seed 2026100402 and sampling seed 2026100412; batch 32; unchanged objective and Adam. Completed exactly 48,000 updates / 1,536,000 sample visits, 3,000 per row, without an early decision or extension.
+
+Scheduled training counts, build / ink / joint, out of 512: step 0 = 5 / 0 / 0; 3,000 = 52 / 208 / 25; 12,000 = 69 / 248 / 28; 24,000 = 82 / 272 / 42; 48,000 = 107 / 299 / 59. Final row rates: 20.8984375% / 58.3984375% / 11.5234375%. Final mean build / ink / joint NLL: 5.892065816240759 / 1.3908831187374162 / 7.282948934978175. Final exact construction: multi-cell 41/404 (10.1485% of rows), three-cell 24/281 (8.5409%); corresponding joint counts 21/404 and 16/281. FIT70_NOT_ESTABLISHED: final 59 joint actions is below the predeclared 359/512 threshold. Intermediate observations did not affect this decision.
+
+The unconditional final candidate evaluation on the retained 1,020-row, 51-map research holdout produced build / ink / joint 85 / 396 / 25 (8.3333% / 38.8235% / 2.4510%). Mean NLL: 9.266194954825146 / 2.349774813884554 / 11.6159697687097. Exact construction: multi-cell 25/838 (2.9833% of rows), three-cell 7/573 (1.2216%); joint counts 5/838 and 0/573. Old40 cohort: 54 / 308 / 17 out of 800; later11: 31 / 88 / 8 out of 220. These descriptive holdout results cannot rescue the fitting decision. No Q-v2 scoring or new bootstrap test was run.
+
+Independent saved-only review recomputed counts, per-row exactness, NLL sums and summary agreement without model calls. Saved B2048 predictions on the SAME 512 training positions were 54 / 229 / 20 versus 107 / 299 / 59 now. Build / ink / joint gained-lost pairs were 64-11 / 95-25 / 48-9. On the SAME 1,020 holdout positions, the saved B2048 reference was 111 / 424 / 42 versus 85 / 396 / 25 now; gained-lost pairs were 22-48 / 87-115 / 11-28. Training-subset joint NLL improved from 9.54634447419272 to 7.282948934978175, while holdout joint NLL worsened from 9.769114842454265 to 11.6159697687097. Overall row rates equal map means because full-panel map sizes are equal; cardinality subgroup percentages above are row rates, not equally weighted map means.
+
+Post-hoc original A64 subset: build / ink / joint 15 / 37 / 8, including joint 8/64 (12.5%); remaining 448: 92 / 262 / 51. The original A64 IDs were taken from frozen preflight metadata. Both experiments now have 3,000 visits per row, but seed, batch, number of optimizer updates and surrounding training data differ. The subsets also share maps. This is not a fair size-only comparison and does not establish a causal architecture capacity limit. Fitting improved on this selected panel but remains weak; transfer to the already inspected holdout is worse than B2048. Optimization versus representation remains unresolved.
+
+Final checkpoint SHA256: 9cc4a5e8c94543bc3f853485ba74212ee1617a7b179307437d78f8f42b447824. Final training metric SHA256: 07ab3bb374f6cf64d56c133614d11394cd000c0df142e90d949cda1c4890fdf3. Final holdout metric SHA256: 3e7b018c23fdc44e393169c186327f3c623b76b2edd17b6271aac5a6296ca61f.
+
+Decision: close this fixed run as FIT70_NOT_ESTABLISHED; no extension, games, upload or promotion. The independent check above covers saved metrics only. Full checkpoint/Adam-chain audit and compact archive are still running or pending; no chain or archive PASS is claimed here. Root documentation and completion recording follow those checks.
+
+## 2026-10-05 - fit512 packaging-only operational amendment (audit pending)
+
+The fixed training and final-only holdout are complete. Checkpoint timestamps span
+2026-10-04T18:49:54.8918397Z to 2026-10-04T22:58:01.6972899Z: 4h08m06.8s for
+step 0 through step 48000, excluding preparation, final holdout and saved-state
+audit. The original 2.5-3h training estimate was optimistic.
+
+The frozen saved-state auditor remains the original uninterrupted process. One
+requested 45-second terminal wait returned after 70,808.5 wall seconds; across
+that interval the same process/start time was retained and CPU advanced only
+about 38 seconds. This is an observed external wait gap, not 19h40m of audit
+computation; its cause was not established. Later CPU and I/O counters continued
+to advance. No audit restart, source mutation or learned rerun was performed.
+
+Inspection found repeated Windows canonical-path resolution over roughly 144k
+pinned files and 96k archive inputs. To avoid repeating that overhead in the
+not-yet-started packaging phase, add a separate post-training archive_saved.py;
+do not alter the frozen runner, protocol or audit_result.py. It caches canonical
+ancestors with identity revalidation, checks every leaf/opened-file identity,
+retains every audited content hash and inventory check, preserves the original
+sorted tar/gzip layout and frozen member list, and verifies every member plus the
+full gzip trailer. Its index explicitly pins the new packager and describes this
+packaging-only amendment. The existing slow archive command remains reproducible.
+
+New packager SHA256:
+372a3ad372bcab2592376723476d17a58d4f90972d6b1bc9b6c8e7d1d87243cd.
+Frozen audit helper remains:
+c2d726415cec985a880193fc532ff87b615c9f68701eacac6795301813991e4d.
+Root and independent reviewer found no blockers. The small synthetic fixture
+confirmed byte-identical original tar.gz output; complete hashes/members/CRC;
+rejection of existing outputs, corruption, changed metadata, aliases and replaced
+cached directories. Symlink creation was explicitly SKIPPED due to Windows
+permissions; no claim of an executed symlink test or protection against hostile
+concurrent filesystem changes is made. The first temporary-directory fixture
+failed at mkdir with WinError 5 before calling the packager; it was retained and
+a normal explicitly created fixture passed. Neither fixture read real evidence.
+
+Synthetic proof, retained locally outside the frozen archive:
+build/analysis/indrill-fit512-v1/setup/archive-packager-synthetic-20261005-a/result.json
+SHA256: 73299e02c947cd96c16c248916153381b94009dd0494aa803153df3eea464856.
+
+Decision: use the reviewed separate packager once after the original audit
+finishes PASS. At this entry both completed audit and real archive are pending.
+The training decision, metrics, dataset, frozen evidence and model are unchanged.
+## 2026-10-06 - fit512 saved-state audit PASS; packaging repair
+
+The original saved-state audit completed once with exit 0 and PASS. All 48,001
+checkpoints / 48,000 updates were verified: fixed fresh initialization, exact
+sampler/RNG/exposure (1,536,000 visits, exactly 3,000 per row), finite tensors,
+zero inactive value state, and bit-exact Adam parameter arithmetic from saved
+moments. Saved labels/predictions/metric arithmetic agree; no learned forward or
+gradients were reconstructed. Final train 107/299/59 of 512; held-out 85/396/25
+of 1020. FIT70_NOT_ESTABLISHED, 59 < 359. No training or audit restart occurred.
+A later requested 55-second terminal wait also returned after 654.6 wall seconds;
+the same auditor process/start time persisted. Do not interpret all wall-clock
+waiting as compute time.
+
+Public evidence SHA256:
+ebaa91c19d4b1896d3f4be9a22101d636029ee2c41480e0b9d18ee65942f0409.
+Completed checkpoint-chain manifest SHA256:
+314c58659f40b6791373b081d4214b368ed0c25e1b1d0c041d4669a7df489daf.
+
+The first real invocation of the new packager stopped before creating either
+archive or index. Pin #5 was the unchanged Python executable: Windows lstat
+reported mode 0o100777, while fstat of the same file reported 0o100666. Device,
+inode, file type, size, mtime, attributes/reparse flags and required content SHA
+matched. This was a cross-API permission-mode discrepancy, not changed evidence.
+The failed source and receipt remain in setup/packaging-attempt-1; receipt SHA:
+ca0d8d384fe561cb70321807d243c640cff6798143293f0346fe783a04e31f1f.
+
+Repair only the post-training packager: compare stable opened-object identity
+(device/inode/type/attributes/reparse) across APIs, retain full same-API lstat
+identity checks and all mandatory content hashes. Frozen audit/learner/protocol
+bytes remain unchanged. Corrected packager SHA256:
+ef4ff85f4b0de4ecd5246a477a31e180d816961227310ad58abf9b7336c7a7cd.
+Root and independent narrow review PASS. The synthetic .exe regression reproduces
+the discrepancy, accepts the exact pinned file, and rejects changed SHA, replaced
+same-byte leaf, full leaf-mode changes and directory replacement. Original
+byte-identical tar layout/member/CRC checks still pass. Proof retained locally:
+setup/archive-packager-synthetic-repair-1/result.json, SHA256
+f95de7bf36fe89c88038bda81bf659b04aca8f9414b3540e5de8f78d52bd1a5f.
+
+The corrected packaging invocation has started after review. Archive completion
+and final verification are still pending at this entry. This is an operational
+packaging repair, not another model evaluation, training attempt or audit retry.
+## 2026-10-06 - fit512 archive verified and experiment closed
+
+Corrected packaging completed with exit 0. Verified 144,899 audited input pins
+and exactly 96,021 production metadata files. The compact tar.gz contains 96,058
+members / 48,479,500 bytes, including exactly the five scheduled full NPZ states
+(step 0 / 3000 / 12000 / 24000 / 48000). The other 47,996 full states remain
+locally retained and individually hash-pinned. Frozen archive membership and
+training/audit sources are unchanged; the index explicitly identifies the
+reviewed post-training packager and its operational amendment. The first failed
+packaging attempt and both synthetic proof versions remain preserved locally.
+
+Archive: docs/evidence/indrill-fit512-v1-artifacts.tar.gz
+SHA256: 5580014516224bf25f432673224e0e7df76651cb9813809fab208ef56aa80c16.
+Index: docs/evidence/indrill-fit512-v1-artifacts.json
+SHA256: 007d7de209b9dba9eedb957eb81f7c2f17e976715b77705c838ebcfc68ced920.
+
+A separate reviewer performed one independent standard-library streaming pass:
+report/chain/index bindings and integrity contract, all five saved metric
+summaries, exact member inventory/order/type/size/SHA, whole archive SHA and
+complete gzip trailer PASS. Confirmed 59 < 359 training joint matches and 25/1020
+holdout joint matches; exactly five scheduled NPZ, no raw/private/runtime binary
+members. This review did not reconstruct Adam again, reread all full checkpoints,
+call a model, rerun the completed audit or extract all files.
+Independent report retained locally:
+build/analysis/indrill-fit512-v1/setup/independent-final-archive-review.json
+SHA256: b43d50b959381b6fdd35d600f536d456784c30f59da56c38a931307536ec4a77.
+
+Decision: FIT70_NOT_ESTABLISHED. Final train build/ink/joint 107/299/59 of 512;
+research holdout 85/396/25 of 1020 versus saved B2048's 111/424/42 on the same
+holdout. Fitting selected examples improved, held-out imitation worsened, and
+multi-cell construction remains weak. Neither architecture capacity nor a single
+optimization cause is established. Close the fixed diagnostic without extension,
+new games, Java/production export, CG upload or promotion. README/BOTS/PLAN/DEVLOG
+and the complete public evidence are ready for the authorized local commit.
+Commit preparation found that Git autocrlf normalized the two public JSON reports
+in the index, changing their audited SHA256 values. Add narrowly scoped -text
+attributes for this experiment's frozen protocol, source folder and evidence
+JSON files, then restage and compare all nine immutable files byte-for-byte by
+SHA256 against their staged blobs. This preserves both current reports and
+future checkout source identities without changing any audited working bytes or
+old experiment attributes. The archive and its reviewed contents are unchanged.
