@@ -1,0 +1,868 @@
+{
+  "experiment": "rollout-fill-root-v1",
+  "purpose": "Separate user-requested boss diagnostic after local failure",
+  "recordedAtUtc": "2026-10-06T18:38:29.949087+00:00",
+  "plan": {
+    "path": "build/cg-boss/rollout-fill-root-v1-boss-40/plan.json",
+    "sha256": "e4de2d9378e738b3232180661a550c2ed8bcaffb523af5d0f83a2ada59fe1734"
+  },
+  "planId": "bb08e172797c368e0db0edad727288227f7b83d41102e2564d555eb8d6c152fd",
+  "complete": true,
+  "readinessPassed": true,
+  "issues": [],
+  "promotion": false,
+  "localDecision": {
+    "status": "NOT_PASSED",
+    "games": 1000,
+    "score": 0.541,
+    "evidence": {
+      "path": "docs/evidence/rollout-fill-root-v1.json",
+      "sha256": "6a4159d07ac4dc3f7aca427433ee379dd1bbaf95458ed95abc0e4d8f74aa0855"
+    }
+  },
+  "bossStageDiagnosticOnly": "PASS",
+  "boss": {
+    "agentId": 6767608,
+    "arenaBoss": {
+      "league": {
+        "divisionCount": 6,
+        "divisionIndex": 3,
+        "divisionOffset": 0
+      },
+      "nickname": "Boss 4"
+    }
+  },
+  "candidate": {
+    "spec": "current?USE_ROLLOUT_ROOT_FILL=1",
+    "buildId": "907238f108da380d21ddcbea59925d1e23f8515e3b8d44456e0bf445c30d7343",
+    "sourceSha256": "57753e5b615f6df823aa61030f9df518b38f34428583ba3f963b7a82cb417ccb",
+    "games": 40,
+    "wins": 16,
+    "losses": 24,
+    "draws": 0,
+    "halfWins": 32
+  },
+  "control": {
+    "spec": "v09",
+    "buildId": "b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2",
+    "sourceSha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+    "games": 40,
+    "wins": 15,
+    "losses": 25,
+    "draws": 0,
+    "halfWins": 30
+  },
+  "paired": {
+    "candidateBetter": 8,
+    "controlBetter": 7,
+    "equal": 25,
+    "totalPointDifference": 1.0
+  },
+  "collectionDates": {
+    "control": {
+      "firstCompletedAt": "2026-10-04T12:05:09.419691+00:00",
+      "lastCompletedAt": "2026-10-04T12:28:12.164229+00:00",
+      "recordedDates": 40
+    },
+    "candidate": {
+      "firstCompletedAt": "2026-10-06T18:13:39.334131+00:00",
+      "lastCompletedAt": "2026-10-06T18:37:32.875229+00:00",
+      "recordedDates": 40
+    }
+  },
+  "games": [
+    {
+      "slot": 1,
+      "seed": "931928174",
+      "seat": 1,
+      "mapHash": "93cfa8df889eccd6fa1277fb6b89e3049776701ae096084e3aa616d409d0cb37",
+      "candidateGameId": 907491334,
+      "controlGameId": 907134258,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0001/canonical.json",
+        "sha256": "f1c108b6d9f00be559e209a7371ed8e5f44d0f8f10ad65cbc80f9d8993ea4541"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0001/canonical.json",
+        "sha256": "3aebd42fc140e86f8f1bd02652a9ed2266a506e29cfadabc7747edcffb5d7abc"
+      }
+    },
+    {
+      "slot": 2,
+      "seed": "1441995785",
+      "seat": 1,
+      "mapHash": "a1e1e70f61e77bf0fc2ecc5b36f77959239eb5c40da2666efd76c3b77e65da75",
+      "candidateGameId": 907491378,
+      "controlGameId": 907134324,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0002/canonical.json",
+        "sha256": "093454d67b0b821510a688830f92d884a7749f71263df27cf717301bc54dcab3"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0002/canonical.json",
+        "sha256": "0677b0be84f5c2d5525039fca3129b3ef8c3311c6010f4bf96c50cc50f55d00e"
+      }
+    },
+    {
+      "slot": 3,
+      "seed": "1834379172",
+      "seat": 0,
+      "mapHash": "a74f666c8dbfefc4adfccee17e548fa9a35d5d16f05481e5e4ff91966e88be05",
+      "candidateGameId": 907491418,
+      "controlGameId": 907134409,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0003/canonical.json",
+        "sha256": "7ed2b272c080c8ef17bd2cedf10adf2262486d0f120bc94cf956b3c6db3be949"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0003/canonical.json",
+        "sha256": "467e6989863373dba90288363a8cd1d1539920e04893d878be45ec169c266b1f"
+      }
+    },
+    {
+      "slot": 4,
+      "seed": "455750181",
+      "seat": 0,
+      "mapHash": "733d305dc7b92d3d040c6b7f07b394a096875a62cbcc43e8edfc6ad351821a98",
+      "candidateGameId": 907491464,
+      "controlGameId": 907134469,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0004/canonical.json",
+        "sha256": "0c0136ab31a5c3eb9550d74c43a70e1c3689d0c37974dfd2bc9e7c6fb268951e"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0004/canonical.json",
+        "sha256": "c3ab44cf4d518a5ba2f3f8fccab8b1ff1321c56fb6e991dd0344f9c918e54602"
+      }
+    },
+    {
+      "slot": 5,
+      "seed": "743446929",
+      "seat": 1,
+      "mapHash": "9560b31e76123bab485dc38e0f2c34ea0abaf765b194e684647475b186bd4dc8",
+      "candidateGameId": 907491510,
+      "controlGameId": 907134529,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0005/canonical.json",
+        "sha256": "c680abbf0ee7037fa54a17c8238c2f315def322d675bf71311920f1989080117"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0005/canonical.json",
+        "sha256": "ad5c7285b7280b7bc04ae59db2afbd71654ea9bc6eb829c76d028471c0535067"
+      }
+    },
+    {
+      "slot": 6,
+      "seed": "577146896",
+      "seat": 0,
+      "mapHash": "d3e32d70778d5727dc8099783cb10992286b6c1a327b2e9cb025fc0be5c134b1",
+      "candidateGameId": 907491550,
+      "controlGameId": 907134581,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0006/canonical.json",
+        "sha256": "e106ae7ed4414a6ce987b8cd4b6266b2b67d9bdb865a1fad44c44758f9236fc8"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0006/canonical.json",
+        "sha256": "eaa326db7421b2d6493c4424252bfb37dab3cefd3694820c4e7803bbc5851e78"
+      }
+    },
+    {
+      "slot": 7,
+      "seed": "394799548",
+      "seat": 1,
+      "mapHash": "03992f5fd76094d077a905ffa62f1571e7fbb67d5c9f76b0d20487a26428c5f0",
+      "candidateGameId": 907491609,
+      "controlGameId": 907134651,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0007/canonical.json",
+        "sha256": "cee48f8adedba85930e0259293937a79afcb2bde6e648d2799ca3d88ff62d885"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0007/canonical.json",
+        "sha256": "dfc2f465234611103a3852342c060638fa73c96131db3325c8942c2ceb89c8f3"
+      }
+    },
+    {
+      "slot": 8,
+      "seed": "201301522",
+      "seat": 1,
+      "mapHash": "fdf48c1193fe12bf870a2361b082de8a2db29a24d9f165f1b7f50e6b0fa780c5",
+      "candidateGameId": 907491652,
+      "controlGameId": 907134720,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0008/canonical.json",
+        "sha256": "ae27a4c742eb6434c2be095bb61c2ebb580f0a748c70701876bcc0343a78d8ab"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0008/canonical.json",
+        "sha256": "dc5b6fa4d40cd892ce43cb808df8bacede45f5e5638d7a177c501094dd948dc9"
+      }
+    },
+    {
+      "slot": 9,
+      "seed": "1510175706",
+      "seat": 1,
+      "mapHash": "96fc177a43ff0858f72f26fb2cc10148dc1ebccaf08f59f1c91939efd74e6a41",
+      "candidateGameId": 907491695,
+      "controlGameId": 907134780,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0009/canonical.json",
+        "sha256": "d45c8423b8faf73eeaa3a27d596ebb901e16684e47562b35111c6eb386f7918a"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0009/canonical.json",
+        "sha256": "b6a54f7d1c3aa307ef10cc58ea5d87674d45f9bafd32d46b8e72e26800eab583"
+      }
+    },
+    {
+      "slot": 10,
+      "seed": "1501693354",
+      "seat": 0,
+      "mapHash": "db7bc9f8f1c397452f187c7620fb6d2af3ed67e616f4993eba80e79d2b162c68",
+      "candidateGameId": 907491751,
+      "controlGameId": 907134857,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0010/canonical.json",
+        "sha256": "64a51885e4a81163f73b331faaf5a0c86867099acc9233edc72c6d5adf9e63e4"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0010/canonical.json",
+        "sha256": "9f31ecd21a2438ac96139553127cafe1694090b8b298239a2ee0263ebf87fcc6"
+      }
+    },
+    {
+      "slot": 11,
+      "seed": "1146225649",
+      "seat": 0,
+      "mapHash": "406f6e4383ccaa283f945d58787c0884d360a2ea8bd2e4be67694757c4ab2c8d",
+      "candidateGameId": 907491793,
+      "controlGameId": 907134958,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0011/canonical.json",
+        "sha256": "07e30d8955d320102ecd78515a3d9e8b8de3d3e24b9f905df01565c930559b04"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0011/canonical.json",
+        "sha256": "25116853fd01e2ba40b9d5eb2e9ab42eabc21a0239011515f7bfd62ba5499404"
+      }
+    },
+    {
+      "slot": 12,
+      "seed": "1433502919",
+      "seat": 1,
+      "mapHash": "3cf10779c50533edf90b2f4109c57ada41a31833e87bdf77d2023263514779f1",
+      "candidateGameId": 907491827,
+      "controlGameId": 907135053,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0012/canonical.json",
+        "sha256": "423e7e85f0f1200914938c580375655e92744e470380faab0df4f1fa8ec76ca3"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0012/canonical.json",
+        "sha256": "6d85d186fda5b40ff32223b93b44b4486edf336ed659623cd235ef3af48238d2"
+      }
+    },
+    {
+      "slot": 13,
+      "seed": "13570675",
+      "seat": 1,
+      "mapHash": "e34070a58328178c00255d3a2a0a6b6cb851286c5756570a9a54b08e2af86b2e",
+      "candidateGameId": 907491870,
+      "controlGameId": 907135121,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0013/canonical.json",
+        "sha256": "a1c5f8e7d03bc9bfa68f1da6a8ef87d2229b22369cfc707664314baff1fcc64b"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0013/canonical.json",
+        "sha256": "4e9e462b15b42059d2310574901921f7ea7088bd7b5af3806915890baaf8434f"
+      }
+    },
+    {
+      "slot": 14,
+      "seed": "1227206493",
+      "seat": 0,
+      "mapHash": "e31a808ad54a5994ecc66e301d3659bb9440131b055ae4424d7ad0e23ab4b217",
+      "candidateGameId": 907491909,
+      "controlGameId": 907135221,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0014/canonical.json",
+        "sha256": "6fd27829f19230d3f562f88637fb6e6f735b7fcab008319f2641ac452302578d"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0014/canonical.json",
+        "sha256": "bc323940905e48929302626c8e94b4c84332b08adfae9c71c3d8f196ca2248a7"
+      }
+    },
+    {
+      "slot": 15,
+      "seed": "684048739",
+      "seat": 1,
+      "mapHash": "27c3ad34f4cdd425e5eca2aa423f5c7c4f188530f7c3d3b26cb30674949a237f",
+      "candidateGameId": 907491956,
+      "controlGameId": 907135339,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0015/canonical.json",
+        "sha256": "557e5cbb196850b7ea9d1eff51cb1849e5c38df495480a9c6cb167d18c065ee4"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0015/canonical.json",
+        "sha256": "9ca983e3ea0545382e457e4b261a444c454c01c9b268c32299867459ceaa05e0"
+      }
+    },
+    {
+      "slot": 16,
+      "seed": "1750497074",
+      "seat": 0,
+      "mapHash": "e757993bf873ebbd21cb44a829dd929e2ee04d95a7945bd465e998f4bdff3cad",
+      "candidateGameId": 907492044,
+      "controlGameId": 907135394,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0016/canonical.json",
+        "sha256": "33a7b1b106a3b6df4c7ddf9801be739b28c90ff4188cabb5310179201e38267d"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0016/canonical.json",
+        "sha256": "59fbd531d19153a19f71a6e15e88b892540c568f9e80c91cb564006819a99c43"
+      }
+    },
+    {
+      "slot": 17,
+      "seed": "1651172222",
+      "seat": 1,
+      "mapHash": "2d2011178579cd1e77a7cf767b27b9d23a269aabf4ef5dbf0ba854cfa10555e4",
+      "candidateGameId": 907492082,
+      "controlGameId": 907135435,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0017/canonical.json",
+        "sha256": "cf3761c3fcb268b6b4e44cb0e26f110a130cbbe6b22427d77f608accd6f61009"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0017/canonical.json",
+        "sha256": "1d6a2b66fa1664aa43260197bae00e2ff3980eeea2a0fe792e684c6d0ab686e4"
+      }
+    },
+    {
+      "slot": 18,
+      "seed": "1032699762",
+      "seat": 0,
+      "mapHash": "db22d9d4db6732f63ba99ded25afec03a798db8133c7688b778ecd391a60255c",
+      "candidateGameId": 907492123,
+      "controlGameId": 907135490,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0018/canonical.json",
+        "sha256": "742ad795ba51961401a2e6ddf2dd93cec310191280ca1115602ab3fb4bb46ab3"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0018/canonical.json",
+        "sha256": "caafd3b3e72cf360212a260ba1efb73625932eae516908760e1115dea18a148c"
+      }
+    },
+    {
+      "slot": 19,
+      "seed": "2018977198",
+      "seat": 0,
+      "mapHash": "c85f91631d3e6ae3bf186daef5917687f437a205140ae5dac78cdfb6be4e9638",
+      "candidateGameId": 907492154,
+      "controlGameId": 907135538,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0019/canonical.json",
+        "sha256": "44a082e1ce3b67a30c8accea09c055ea4ee22824b95fadb6237864baa2b31486"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0019/canonical.json",
+        "sha256": "1ba3ca8387414c96e2c578fbd778acb39cefd73621598d9425249051db05a391"
+      }
+    },
+    {
+      "slot": 20,
+      "seed": "1786595067",
+      "seat": 1,
+      "mapHash": "9b32925ea40bad4be852f72f83a6563674480ba1a4e6e0d92826644515f1c2e8",
+      "candidateGameId": 907492185,
+      "controlGameId": 907135607,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0020/canonical.json",
+        "sha256": "20e6a55d1209ad0619b66e94e20d8ea397040a9d36a258ee14060b66e8f2a1ba"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0020/canonical.json",
+        "sha256": "386c6b0abb569e9ffeaee58500a1bb76ba711e77a298026faad2aac232901923"
+      }
+    },
+    {
+      "slot": 21,
+      "seed": "667185904",
+      "seat": 0,
+      "mapHash": "1ac810c476980b27b8eb89e1f2998fef8ee2c2130ddbf02e2e636b37cc9e122e",
+      "candidateGameId": 907492231,
+      "controlGameId": 907135646,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0021/canonical.json",
+        "sha256": "4c54840fc1d2745e74268b6441f81d9ce2e7a991279ae3593c2513bf3e042b86"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0021/canonical.json",
+        "sha256": "6ed68ce8c3038d16fd23ffb2978e50e3b5283555621383e3fc0f53d4c311e2e5"
+      }
+    },
+    {
+      "slot": 22,
+      "seed": "337728484",
+      "seat": 1,
+      "mapHash": "aa628a29464bce9786da4302ecbf33375a5c130e92af490554abd7e7d626d34f",
+      "candidateGameId": 907492282,
+      "controlGameId": 907135707,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0022/canonical.json",
+        "sha256": "c7742c9fdeb8d541a858ba1961b73b60587f4070e815875ee32a1c0d1195ef5f"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0022/canonical.json",
+        "sha256": "e98d97f6d8c4f9dd2cf7ae040a5a6e19c6f010ca8828adb8ab52e8ae4ddd27dc"
+      }
+    },
+    {
+      "slot": 23,
+      "seed": "1711033168",
+      "seat": 0,
+      "mapHash": "12d8648e66924037cbca053bb79c7a7648c53c11582792ecda8dfdf514ab7ea8",
+      "candidateGameId": 907492322,
+      "controlGameId": 907135769,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0023/canonical.json",
+        "sha256": "786795dde29b54d8d90bc7d31dbfdd6f304b3cdb504c221d88e85df47a606a94"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0023/canonical.json",
+        "sha256": "94f21562e647f72810d6d77ac5d4e6527bb055ee1283d58de9e0c198607ca539"
+      }
+    },
+    {
+      "slot": 24,
+      "seed": "1909924015",
+      "seat": 0,
+      "mapHash": "c147f2f2c98434e43cfb4e5f4a0186562816148e57831832eeebe8c153c44410",
+      "candidateGameId": 907492361,
+      "controlGameId": 907135823,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0024/canonical.json",
+        "sha256": "3c72ded28dbdae411bdad9e6b7126518fc8fe5c304422da9da6fbcb87747055c"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0024/canonical.json",
+        "sha256": "e32be1bb243a40bb3c8247c9f955f91a67dc193861fe857cf712227db00138a7"
+      }
+    },
+    {
+      "slot": 25,
+      "seed": "530545186",
+      "seat": 0,
+      "mapHash": "f28e880c8df855b7654fbd18e599c3e31efc08293df38e40fc95261d2d6349ab",
+      "candidateGameId": 907492400,
+      "controlGameId": 907135871,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0025/canonical.json",
+        "sha256": "a5d712ac67d52104a46b03ea461428d6016992e0502f93d4f5909fd251b57241"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0025/canonical.json",
+        "sha256": "650e61e6ebfa4921c8cb2015697a4c59a9bf9f023ecbae25898b554a05f0339c"
+      }
+    },
+    {
+      "slot": 26,
+      "seed": "1607207703",
+      "seat": 0,
+      "mapHash": "c3fa61721c3cdfc2e41ced380774cb33e3b785040b07aa2f5eb14f7ba225448d",
+      "candidateGameId": 907492456,
+      "controlGameId": 907135928,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0026/canonical.json",
+        "sha256": "85cf7b80c04e221ea799221238338640db58c0d12cdbd44d5d5dcdd9778cf921"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0026/canonical.json",
+        "sha256": "e2f2e157252abc5825fbce8684d0bf9627db5cb081259e298ca24f97c2377ac9"
+      }
+    },
+    {
+      "slot": 27,
+      "seed": "1943204462",
+      "seat": 0,
+      "mapHash": "7dac69a427ee9e944f417d54562bfbac6c97779bbf72c70d3350ddcb498ab268",
+      "candidateGameId": 907492518,
+      "controlGameId": 907135984,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0027/canonical.json",
+        "sha256": "e004e674d0fede360983daf890691331743350de0bf82a3a7eac0847136dcf2f"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0027/canonical.json",
+        "sha256": "4212d3139a25e375b91c462d573d2c811a05f76bc8400a1536d71deaaff5ffad"
+      }
+    },
+    {
+      "slot": 28,
+      "seed": "856416997",
+      "seat": 0,
+      "mapHash": "a10164bdc15a5208179585d36a1e50461936710e11c8b1530e161d527f02786c",
+      "candidateGameId": 907492571,
+      "controlGameId": 907136033,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0028/canonical.json",
+        "sha256": "9d771ea520d28e543965c3f4d68b722953f37e0bc31c33ae7b29fdffe28b47af"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0028/canonical.json",
+        "sha256": "9dad81fba5b56535d89bde66a81a95b511730ec7958817a727bf5b910736522d"
+      }
+    },
+    {
+      "slot": 29,
+      "seed": "1464998972",
+      "seat": 1,
+      "mapHash": "1da1342d82e0c3c21be1709aea2aeb8e7dc4aa8ac7021ef9d8b007a274655e1e",
+      "candidateGameId": 907492632,
+      "controlGameId": 907136095,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0029/canonical.json",
+        "sha256": "b02c815023abe8887f41cb12b6ce1bbfe02dff82987c13657c1e5e5f1c4597f1"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0029/canonical.json",
+        "sha256": "0f0dce5d6862c2f3cb0076c63ae88cd627506bddf2473d883d9e5186694a773a"
+      }
+    },
+    {
+      "slot": 30,
+      "seed": "387677199",
+      "seat": 1,
+      "mapHash": "7c30f73fbe50817b1ff9fb17f973872852a27997ed63dbb595457a469fdbdb44",
+      "candidateGameId": 907492701,
+      "controlGameId": 907136161,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0030/canonical.json",
+        "sha256": "86f58be71f1a89c0ae85ca5d2b38d17aeff717bd7ba86d4c6912a272496a53e2"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0030/canonical.json",
+        "sha256": "ad19782d5a155cdbd907114af825ba060d7f3e6a17068b18d4ae2fe470a8dffb"
+      }
+    },
+    {
+      "slot": 31,
+      "seed": "819848558",
+      "seat": 1,
+      "mapHash": "ec9628a66e0c6a5c4a75fa4d6d9b455027233e4c4b8e9d143316cf9226dfb148",
+      "candidateGameId": 907492757,
+      "controlGameId": 907136228,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0031/canonical.json",
+        "sha256": "232006143ae3f084159c885ad7d4d321b70ae203d03041bb638b5031ec048052"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0031/canonical.json",
+        "sha256": "a8ec7bac1911d42eb7288d134885610ed9bb7238f1ecbb37b6634bce90c86e7b"
+      }
+    },
+    {
+      "slot": 32,
+      "seed": "351683031",
+      "seat": 1,
+      "mapHash": "c796a31afdb94688cc03a295888338edfa98e0b20c73923b5a5147ed27b6cd64",
+      "candidateGameId": 907492816,
+      "controlGameId": 907136287,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0032/canonical.json",
+        "sha256": "49f7f8a0d2d253b2ba8007377760ca0c4bd4b4c3b72bcf6e67709cf4c978a47e"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0032/canonical.json",
+        "sha256": "fbb54e3696353d1e672450d07cda455bac79a37a45035324274243014853b97e"
+      }
+    },
+    {
+      "slot": 33,
+      "seed": "569531092",
+      "seat": 1,
+      "mapHash": "fa8d4ba1b017ad653bdc925de6d39d5c07e7c08295c5a76c6584026d0ccbc6c1",
+      "candidateGameId": 907492916,
+      "controlGameId": 907136344,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0033/canonical.json",
+        "sha256": "df88b7b5082cdf2a7afda4bf856ed9be887bc981cd1f4c0cc8112f3c8448632a"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0033/canonical.json",
+        "sha256": "42d7ef097cce4819ef9541ebc1668f0cea85ff3ed1563e793a6f1e051bc4ae58"
+      }
+    },
+    {
+      "slot": 34,
+      "seed": "289450674",
+      "seat": 0,
+      "mapHash": "66745b26025d68fd5e6744961eb2fdce5b6352638b90a895c5888576f2847b2f",
+      "candidateGameId": 907492982,
+      "controlGameId": 907136431,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0034/canonical.json",
+        "sha256": "459fdfd141cee3fc1f20ed128b1fc0fadac30626f23c3b6b084bff4d8bfe2d55"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0034/canonical.json",
+        "sha256": "81b669c68525fdfba8c10a161f8c63a3e64a53f8f77cd85bf2557d85bb8d30a4"
+      }
+    },
+    {
+      "slot": 35,
+      "seed": "670550059",
+      "seat": 0,
+      "mapHash": "2fec2f6fa69a9f8b28cf2cd9f8837d8fffccf1ed3e7038e0a656118a3774dd15",
+      "candidateGameId": 907493061,
+      "controlGameId": 907136555,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0035/canonical.json",
+        "sha256": "be784d030f88247f05596604455e25e5efceedb0af4de6864578309c28a87270"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0035/canonical.json",
+        "sha256": "a5b5779fd56e576f0365705bd809884897e0909460c4c12d281455933375b5ae"
+      }
+    },
+    {
+      "slot": 36,
+      "seed": "1399097446",
+      "seat": 0,
+      "mapHash": "b7535df87b8d2bb50d2bc42badd49e77c46587370a2f31410569aeae16712472",
+      "candidateGameId": 907493139,
+      "controlGameId": 907136629,
+      "candidateResult": "L",
+      "controlResult": "L",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0036/canonical.json",
+        "sha256": "662fec04ec9777dcc1f7404261b28607f69032f7508bf05cbd561fc6fe5f11d5"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0036/canonical.json",
+        "sha256": "8778f5b289b9e574a8dacbd324a40e35619995404caaf0fe84a2e43c9c18ba7e"
+      }
+    },
+    {
+      "slot": 37,
+      "seed": "1336237340",
+      "seat": 1,
+      "mapHash": "d5426cc7e92ccd8cf678dad96b960ee8a974fe64a7b721c1d3d67d7bfe3d68ed",
+      "candidateGameId": 907493257,
+      "controlGameId": 907136694,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0037/canonical.json",
+        "sha256": "23baeda73bc6ee770541419cb355e929bf19e981a4d05065505677b280dabe07"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0037/canonical.json",
+        "sha256": "7bdb52a0d7ec73b03a0494337a016a6caa79784a60fc883ee1a737e36b2c9e37"
+      }
+    },
+    {
+      "slot": 38,
+      "seed": "2113633959",
+      "seat": 0,
+      "mapHash": "93d7c3a939bce25545822ef1f167679351b9e53efa614578701e909cb7404d9e",
+      "candidateGameId": 907493346,
+      "controlGameId": 907136767,
+      "candidateResult": "L",
+      "controlResult": "W",
+      "pointDifference": -1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0038/canonical.json",
+        "sha256": "39871ef631c89eee589150a634668dcf32042cd8ab0b9f6683de38dddc5b8151"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0038/canonical.json",
+        "sha256": "910e5f2893fad98c1149c67b81fb9e7edbf1e3f3fabf2299f4be233e9a9aa68c"
+      }
+    },
+    {
+      "slot": 39,
+      "seed": "302004334",
+      "seat": 1,
+      "mapHash": "d4d9d315691b21b0c1bd6b139da86f208c2cc5c9696235274aba3dac58fef09d",
+      "candidateGameId": 907493428,
+      "controlGameId": 907136832,
+      "candidateResult": "W",
+      "controlResult": "W",
+      "pointDifference": 0.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0039/canonical.json",
+        "sha256": "b34487d804e9dea97e973f2a21e168f5cf64cbdaeeae54b60cc3b2d3246c4875"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0039/canonical.json",
+        "sha256": "d57a90b1386dd5dac3d9774b8ecaea423a5e9d1d0711a19647eda45ebeb5421c"
+      }
+    },
+    {
+      "slot": 40,
+      "seed": "852448672",
+      "seat": 1,
+      "mapHash": "7e0515ff26b8ea8d69097cf059e2e2d8f74deaa70095bdce849e830d53df474e",
+      "candidateGameId": 907493529,
+      "controlGameId": 907136891,
+      "candidateResult": "W",
+      "controlResult": "L",
+      "pointDifference": 1.0,
+      "candidateCanonical": {
+        "path": "build/cg-boss/rollout-fill-root-v1-boss-40/0040/canonical.json",
+        "sha256": "d058a19b6c8f2207a68cb9ae6bd4520542d68c2fadebf9bd0a695f55f95c17a7"
+      },
+      "controlCanonical": {
+        "path": "build/cg-boss/neural-v7-v09-fresh-control-40/0040/canonical.json",
+        "sha256": "ad179ee36b362b28c5c05232e2142bc93275f3837f3d7a64768d6d08d1e27e0d"
+      }
+    }
+  ],
+  "engine": {
+    "exact": 40,
+    "total": 40,
+    "log": {
+      "path": "build/analysis/rollout-fill-root-v1/boss-engine.log",
+      "sha256": "e1898d50534d420b400c431f97720033911f0b1554bd0d27d60d47b083f5d5d1"
+    }
+  },
+  "ideReadback": {
+    "path": "build/analysis/rollout-fill-root-v1/boss-ide-after.json",
+    "sha256": "fabb2aa44958285e3311d55b31561e37a9da51b25d641b48092959c68fd5ef61"
+  },
+  "protocolBeforePlay": {
+    "path": "build/analysis/rollout-fill-root-v1/boss-protocol-before-play.md",
+    "sha256": "27a667545d03facac22717239f8ac0323714b4ddb27ddad0a4c397fbcf2db1e4"
+  },
+  "protocolAfterExplicitUploadApproval": {
+    "path": "build/analysis/rollout-fill-root-v1/boss-protocol-authorized.md",
+    "sha256": "9ecb1adf804ea7ea2ce63549ba23faccea5ccdbe5d2448e7e91307282fed7d28"
+  },
+  "originalIdeSourceBackupSha256": "a7771129318eb53ec752c0bea45292a4bc90fc2e582a3102109661eff8c55a45",
+  "limitations": [
+    "Unchanged public boss/league IDs do not prove unchanged hidden boss implementation or execution conditions.",
+    "Known map/control outcomes can influence development; this panel is not fresh confirmation.",
+    "Boss results cannot rescue the failed local strength gate.",
+    "Same known pool reused after the risk diagnostic; ROOT_FILL was developed on separate local states."
+  ],
+  "archive": {
+    "path": "docs/evidence/rollout-fill-root-v1-boss-artifacts.zip",
+    "members": 268,
+    "sha256": "d6eb707de1660a014377fb71c47a0b4c21095f24fb5afcbc828825d0fd6a9423",
+    "bytes": 1339760
+  }
+}

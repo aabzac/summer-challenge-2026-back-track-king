@@ -124,3 +124,64 @@ previously tested risk candidate from the separate user-requested boss diagnosti
 prospective protocol, source/class/artifact identities, mechanism and actual-policy
 reports, original/corrected test logs, strict process reports, fixed pools and full
 strength reports. Experiment closed for local commit.
+
+## User-requested boss diagnostic (2026-10-06)
+
+After the completed local rejection, the user requested: "А запусти с боссом игры".
+This authorizes a separate fixed 40-game IDE diagnostic of the same ROOT_FILL
+artifact above. Preserve the original 54.1% / NOT_PASSED local verdict; no arena
+publication or strategy promotion is authorized by this diagnostic.
+
+Control: verified `candidate` arm of
+`build/cg-boss/neural-v7-v09-fresh-control-40/plan.json`, exact frozen v09 source
+`aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac`.
+The October 4 cache contains 15W25L, 40 distinct maps and 20 games per seat.
+Fresh read-only discovery confirms Boss 4 agent 6767608, league 6/3/0. Reuse after
+the risk diagnostic is intentional regression testing; ROOT_FILL was developed
+on separate local states. The two-day-old control and unchanged public identity
+cannot prove unchanged hidden boss implementation or execution conditions.
+
+Revalidated the candidate against all four exact-source/executable strict process
+reports (eight games, zero problems). Preserve the current IDE source privately
+before any play; its actual source hash is
+`a7771129318eb53ec752c0bea45292a4bc90fc2e582a3102109661eff8c55a45`.
+This fresh read supersedes earlier assumptions about the IDE's current contents.
+
+Run exactly the cached 40 seeds/maps/seats, 20-second spacing, one request per
+slot, no tuning, extensions or automatic uncertain-play retries. Retain every
+executed outcome, verify canonical map/seat/seed/boss/build attribution, and validate
+all 40 replays through the shared engine. Final IDE will contain the ROOT_FILL
+candidate; the previous code is backed up. Local selected/default v09 stays unchanged.
+
+Plan: `build/cg-boss/rollout-fill-root-v1-boss-40/plan.json`, plan ID
+`bb08e172797c368e0db0edad727288227f7b83d41102e2564d555eb8d6c152fd`.
+
+Initial execution status: the automatic approval reviewer rejected process launch before
+any play request. Its stated reason is that the request for boss games did not
+explicitly authorize sending this candidate source to the third-party IDE.
+No game was created and no IDE code was changed. Exact source, private backup,
+40-slot plan and independent binding review were ready. The user then explicitly
+confirmed uploading this ROOT_FILL candidate to the IDE for the fixed 40 boss games
+("подтверждаю"). Resume the same approved action and plan; no game needs replacement.
+
+Completed exactly 40 candidate games, one request per slot, no replacements:
+**16W24L0D (40.0%)**, versus cached v09 **15W25L0D (37.5%)**. Difference +1
+point / +2.5 percentage points. Eight maps change from control losses to candidate
+wins, seven from control wins to candidate losses, and 25 have equal outcomes.
+The separate boss score check is **PASS**, with zero provenance/technical issues.
+The one-win advantage on this reused 40-map pool does not establish stronger arena
+performance. Original local **54.1%, NOT_PASSED** remains unchanged; no promotion.
+
+All 40 canonical replays reproduce exactly through `cgValidate`. Final read-only
+IDE check matches the candidate source `57753e5b...417ccb` byte-for-byte; Java is
+selected, and the pre-series source `a7771129...c55a45` remains privately backed up.
+No new control games, tuning, extra candidate games or arena publication. Local
+flags remain OFF, selected/default v09 source unchanged.
+
+[Boss evidence](evidence/rollout-fill-root-v1-boss.json) retains every paired
+outcome and the original local verdict. The separate
+[1.34 MB archive](evidence/rollout-fill-root-v1-boss-artifacts.zip) contains both
+40-game canonical sets, exact identities, process/engine/readback evidence and both
+protocol snapshots, 268 members. SHA256:
+`d6eb707de1660a014377fb71c47a0b4c21095f24fb5afcbc828825d0fd6a9423`.
+Private session files, original IDE source and raw play responses are excluded.

@@ -5763,3 +5763,43 @@ JSON 4,982 bytes; archive80 members, 2,766,556 bytes, SHA256
 Archive retains prospective registration, exact sources/artifacts, original and
 corrected test logs, diagnostic/process/strength reports and pools. Experiment
 closed for authorized local commit; no external push.
+
+## 2026-10-06 - user-requested ROOT_FILL boss diagnostic: 16/40 vs v09 15/40
+
+After the completed local54.1% rejection, the user requested boss games. The
+initial automatic approval review blocked process launch before any request,
+requiring explicit upload consent. The user then confirmed sending exactly
+rollout-fill-root-v1 into the CG IDE for40boss games. Same unchanged plan/artifact;
+zero games/source writes preceded this confirmation. No arena or promotion consent.
+
+Revalidated all4 exact-artifact strict process reports and cached control40games.
+Live discovery confirms same Boss4 agent6767608, league6/3/0. The actual IDE source
+was a7771129318eb53ec752c0bea45292a4bc90fc2e582a3102109661eff8c55a45
+(registered current build27e0958e...), privately backed up exactly. This fresh read
+supersedes earlier assumptions that the IDE still held the risk candidate.
+Plan bb08e172797c368e0db0edad727288227f7b83d41102e2564d555eb8d6c152fd
+pins the exact ROOT_FILL source57753e5b...417ccb/build907238f1...d7343 and frozenv09
+sourceaca0be45...88fac. Independent plan/artifact/cache audit passed before execution.
+
+Completed exactly40candidate games,20per seat,20-second spacing, one request per
+slot, no failures, uncertain requests, retries or replacements. Candidate16W24L0D
+(40.0%) vs cached Oct4 v0915W25L0D(37.5%), +1point/+2.5percentage points. Eight maps
+become candidate-only wins, seven control-only wins,25equal outcomes. Boss score
+check PASS; the one-win edge on this reused pool does not establish arena strength.
+Original local54.1% NOT_PASSED and its archived evidence remain unchanged. No tuning,
+extra games, local rerun or automatic promotion. Control cache reused after the risk
+diagnostic; unchanged public boss identity cannot prove unchanged hidden runtime.
+
+All40canonical replays reproduce exactly through shared cgValidate. Seed/map/seat/
+boss/league/build bindings match, zero technical issues. Read-only final IDE check
+confirms exact ROOT_FILL source; previous actual IDE code remains privately backed
+up. Selected localv09 and saved defaultsource1df7c131...6be19 unchanged; both flags
+OFF. Arena not updated. Candidate is now the code in the webIDE.
+
+Public evidence docs/evidence/rollout-fill-root-v1-boss.json preserves all40paired
+outcomes and localverdict. Separate archive268members,1,339,760bytes,SHA256
+ d6eb707de1660a014377fb71c47a0b4c21095f24fb5afcbc828825d0fd6a9423
+contains both canonical40sets, source/plan/identity/process/engine/readback evidence
+and pre-play/explicitly-authorized protocol snapshots. Private sessions, original
+IDE backup and raw play-response bodies excluded. BOTS/PLAN/protocol updated; final
+independent evidence audit requested before authorized local commit.

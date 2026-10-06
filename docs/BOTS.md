@@ -161,6 +161,17 @@ risk candidate. [Protocol/result](rollout-fill-root-v1.md),
 [compact evidence](evidence/rollout-fill-root-v1.json),
 [80-member archive](evidence/rollout-fill-root-v1-artifacts.zip).
 
+Subsequent explicitly confirmed boss diagnostic, exactly 40 candidate IDE games:
+**16W24L (40.0%) vs cached v09 15W25L (37.5%)**, same October 4 maps/seats,
+Boss 4 agent6767608. Eight candidate-only wins, seven control-only wins, 25 equal
+outcomes: +1 point. Separate boss score **PASS**; this small difference on a known
+pool does not establish arena improvement or override the local NOT_PASSED verdict.
+All 40 replays exact, no technical/provenance errors, retries or replacement games.
+Final IDE source is the exact ROOT_FILL candidate `57753e5b...417ccb`; the actual
+preceding source `a7771129...c55a45` is privately backed up. Selected/default local
+v09 unchanged, both experiment flags OFF; no arena upload or promotion.
+[Boss evidence](evidence/rollout-fill-root-v1-boss.json).
+
 ## Experiment: rollout-risk-v1 (2026-10-06, NOT_PASSED)
 
 Candidate `current?USE_ROLLOUT_ALL_CELL_RISK=1` adds one route proposal for our live

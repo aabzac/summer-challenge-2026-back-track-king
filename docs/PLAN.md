@@ -31,6 +31,13 @@ direction for discussion; no new strategy experiment was launched in this review
       agreement, frozen/off parity, packaging and strict eight-game process panel.
 - [x] Run the fixed practical-v4 comparison against clean frozen v09; record and
       commit the result, including rejection. No automatic IDE write or promotion.
+- [x] User-requested follow-up: exactly 40 ROOT_FILL candidate IDE games on the
+      pinned v09 boss maps/seats; verify all replays and preserve the local failure.
+      Current IDE source backed up; no arena upload or strategy promotion.
+      Preflight complete; after the initial approval-review rejection, the user
+      explicitly confirmed sending this exact candidate source into the IDE.
+      Finished 16W24L vs cached v09 15W25L; boss score PASS, 40/40 replays exact.
+      Local 54.1% NOT_PASSED unchanged. IDE contains ROOT_FILL; local v09 unchanged.
 
 ## Return to v09: rollout-risk-v1 (2026-10-06)
 
