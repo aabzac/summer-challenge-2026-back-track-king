@@ -135,6 +135,32 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Experiment: rollout-fill-root-v1 (2026-10-06, NOT_PASSED)
+
+Candidate `current?USE_ROLLOUT_ROOT_FILL=1` evaluates the existing leftover-paint
+fill as part of each root/target's first action and emits that same completed
+action. Based on clean v09, ALL_CELL_RISK OFF. Future construction, opponent model,
+weights and route generation unchanged. New flag defaults OFF.
+
+Fixed development diagnosis: 45/110 selected baseline actions had unmodelled fill;
+seven unique inputs change to strictly better filled-model full actions. Actual
+policy reproduces all 110 predicted choices/values with ample time. This is
+mechanism evidence, not strength. Engine 292/292 exact; 479 tests initially pass,
+one new fixture corrected and its targeted test passes (480 covered in total).
+Candidate 98,708 characters; safe current-only newline compaction preserves frozen
+artifacts and compiled decisions. Eight strict process games, zero problems,
+maximum later response 44.3567 ms.
+
+Practical-v4 against frozen v09: **157W/141L/2D**, **110W/90L/0D**,
+**273W/227L/0D**; pooled **540W/458L/2D = 54.1% over 1000 games**.
+500 fresh paired maps, two workers, zero game errors, unchanged source/params.
+Both futility looks clear, final 55% gate missed: **NOT_PASSED**;
+boss SKIPPED_LOCAL_FAILURE. Keep the feature OFF and selected/default v09 unchanged.
+No tuning, retries, CG write, arena upload or promotion. IDE remains the prior
+risk candidate. [Protocol/result](rollout-fill-root-v1.md),
+[compact evidence](evidence/rollout-fill-root-v1.json),
+[80-member archive](evidence/rollout-fill-root-v1-artifacts.zip).
+
 ## Experiment: rollout-risk-v1 (2026-10-06, NOT_PASSED)
 
 Candidate `current?USE_ROLLOUT_ALL_CELL_RISK=1` adds one route proposal for our live

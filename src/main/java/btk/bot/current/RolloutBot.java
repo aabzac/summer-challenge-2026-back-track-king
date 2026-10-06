@@ -71,6 +71,10 @@ public final class RolloutBot implements Bot {
     public int chordEligible, chordEvaluated, chordRoots, chordComparisons;
     public boolean selectedChord, networkPhaseComplete, chordSearchStarted;
     private int bestCount;
+    private int[] filledRoot;
+    private byte[] fillMarks;
+    private int filledRootCount;
+    private boolean selectedRootFilled;
     private double best;
     public boolean ordinarySearchComplete, networkSearchStarted;
     public int ordinaryComparisons, ordinarySelectedRoute, ordinarySelectedTarget, ordinarySelectedCount;
@@ -107,6 +111,12 @@ public final class RolloutBot implements Bot {
                     || p.USE_ROLLOUT_DIVERSE_REPLIES || p.USE_ROLLOUT_QUICK_EARLY
                     || p.USE_ROLLOUT_QUICK_VALUE || p.USE_ROLLOUT_QUICK_SAFE)
                 || p.USE_ROLLOUT_NETWORK && p.USE_ROLLOUT_NETWORK_AFTER_BASE
+                || p.USE_ROLLOUT_ROOT_FILL && (!p.USE_ROLLOUT_FILL || p.USE_ROLLOUT_ALL_CELL_RISK
+                    || p.USE_ROLLOUT_SECOND_TARGET || p.USE_ROLLOUT_SPREAD || p.USE_ROLLOUT_NETWORK
+                    || p.USE_ROLLOUT_NETWORK_CHORDS || p.USE_ROLLOUT_ROUTE_DEPENDENCIES
+                    || p.USE_ROLLOUT_REPLAN || p.USE_ROLLOUT_DIVERSE_REPLIES
+                    || p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE || p.USE_ROLLOUT_QUICK_SAFE
+                    || p.USE_ROLLOUT_LIVE_TARGET || p.ROLLOUT_ALWAYS_DISRUPT || p.USE_ROLLOUT_TRACK_VALUE)
                 || p.USE_ROLLOUT_NETWORK_CHORDS && !p.USE_ROLLOUT_NETWORK_AFTER_BASE
                 || (p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_AFTER_BASE)
                     && (p.USE_ROLLOUT_QUICK_EARLY || p.USE_ROLLOUT_QUICK_VALUE
@@ -154,6 +164,7 @@ public final class RolloutBot implements Bot {
                 + (p.USE_ROLLOUT_NETWORK_CHORDS ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
         rootCounts = new int[roots.length]; rootTargets = new int[roots.length];
         prefix = new int[GameState.PAINT_PER_TURN]; bestCells = new int[GameState.PAINT_PER_TURN];
+        if (p.USE_ROLLOUT_ROOT_FILL) { filledRoot = new int[GameState.PAINT_PER_TURN]; fillMarks = new byte[s.size]; }
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         realPlayer = me;
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
@@ -185,6 +196,8 @@ public final class RolloutBot implements Bot {
 
     public List<Action> play(GameState s, int me, long budgetMs) {
         timer.start(budgetMs);
+        selectedRootFilled = false;
+        if (p.USE_ROLLOUT_ROOT_FILL) fillCells = 0;
         routeQueries = completedComparisons = simulatedTurns = 0;
         replanCalls = replanChanges = 0;
         extraTargetComparisons = 0; selectedExtraTarget = false;
@@ -305,7 +318,7 @@ public final class RolloutBot implements Bot {
     }
 
     private List<Action> actions(GameState s) {
-        if (p.USE_ROLLOUT_FILL) fill(s, realPlayer);
+        if (p.USE_ROLLOUT_FILL && !selectedRootFilled) fill(s, realPlayer);
         List<Action> result = new ArrayList<>(4);
         for (int i = 0; i < bestCount; i++) result.add(Action.place(s.x(bestCells[i]), s.y(bestCells[i])));
         if (selectedTarget >= 0) result.add(Action.disrupt(selectedTarget));
@@ -317,22 +330,28 @@ public final class RolloutBot implements Bot {
 
     /** USE_ROLLOUT_FILL: leftover paint on stable/protected free cells next to own rails; search and target untouched. */
     private void fill(GameState s, int me) {
-        fillCells = 0;
+        int count = bestCount;
+        bestCount = fill(s, me, bestCells, count, selectedTarget);
+        fillCells = bestCount - count;
+    }
+
+    private int fill(GameState s, int me, int[] cells, int count, int target) {
         int paint = GameState.PAINT_PER_TURN, n = s.size;
-        for (int i = 0; i < bestCount; i++) paint -= s.placeCost(bestCells[i]);
-        if (paint <= 0) return;
-        byte[] m = new byte[n]; // 1 own track, 3 own earning track, 4 proposed-route cell; once per turn
+        for (int i = 0; i < count; i++) paint -= s.placeCost(cells[i]);
+        if (paint <= 0) return count;
+        byte[] m = p.USE_ROLLOUT_ROOT_FILL ? fillMarks : new byte[n]; // 1 own, 3 earning, 4 proposed route
+        if (p.USE_ROLLOUT_ROOT_FILL) Arrays.fill(m, (byte) 0);
         for (int c = 0; c < n; c++) if (s.owner[c] == me) m[c] = 1;
         for (int q = 0; q < s.pairCount; q++)
             for (int i = 0; s.pairPath[q] != null && i < s.pairPathLen[q]; i++) if (m[s.pairPath[q][i]] == 1) m[s.pairPath[q][i]] = 3;
         for (int r = 0; r < counts[me]; r++)
             for (int i = 0; i < lengths[me][r]; i++) if (m[routes[me][r][i]] == 0) m[routes[me][r][i]] = 4;
-        for (int i = 0; i < bestCount; i++) m[bestCells[i]] = 1;
-        while (paint > 0 && bestCount < GameState.PAINT_PER_TURN && !timer.up()) {
+        for (int i = 0; i < count; i++) m[cells[i]] = 1;
+        while (paint > 0 && count < GameState.PAINT_PER_TURN && !timer.up()) {
             int bestCell = -1, bestScore = 0;
             for (int c = 0; c < n; c++) {
                 int g = s.regionId[c], adj = 0;
-                if ((m[c] & 1) != 0 || !s.canBuild(c) || s.placeCost(c) > paint || g == selectedTarget
+                if ((m[c] & 1) != 0 || !s.canBuild(c) || s.placeCost(c) > paint || g == target
                         || !s.regionHasTown(g) && s.regionInstability[g] > p.ROLLOUT_FILL_MAX_INSTABILITY) continue;
                 for (int d = 0; d < 4; d++) {
                     int x = s.x(c) + GameState.DX[d], y = s.y(c) + GameState.DY[d];
@@ -343,8 +362,9 @@ public final class RolloutBot implements Bot {
                 if (score > bestScore) { bestScore = score; bestCell = c; }
             }
             if (bestCell < 0) break;
-            bestCells[bestCount++] = bestCell; paint -= s.placeCost(bestCell); fillCells++; m[bestCell] = 1;
+            cells[count++] = bestCell; paint -= s.placeCost(bestCell); m[bestCell] = 1;
         }
+        return count;
     }
 
     /** Complete comparisons only; preserves the saved answer when a reply cannot finish. */
@@ -359,6 +379,12 @@ public final class RolloutBot implements Bot {
             for (int attack = 0; attack < 2; attack++) {
                 int target = attack == 0 ? rootTargets[root] : -1;
                 if (attack == 1 && rootTargets[root] < 0) continue;
+                if (p.USE_ROLLOUT_ROOT_FILL) {
+                    if (timer.up()) return false;
+                    System.arraycopy(roots[root], 0, filledRoot, 0, rootCounts[root]);
+                    filledRootCount = fill(s, me, filledRoot, rootCounts[root], target);
+                    if (timer.up()) return false; // never score a deadline-truncated fill
+                }
                 double sum = 0, worst = Double.MAX_VALUE;
                 for (int reply = 0; reply < replies; reply++) {
                     double value = rollout(s, me, root, target,
@@ -381,8 +407,9 @@ public final class RolloutBot implements Bot {
                             && root >= ordinaryRootSize && root < chordRootStart;
                     selectedChord = root >= chordRootStart;
                     selectedNetworkCell = selectedNetwork ? roots[root][0] : -1;
-                    bestCount = rootCounts[root];
-                    System.arraycopy(roots[root], 0, bestCells, 0, bestCount);
+                    bestCount = p.USE_ROLLOUT_ROOT_FILL ? filledRootCount : rootCounts[root];
+                    System.arraycopy(p.USE_ROLLOUT_ROOT_FILL ? filledRoot : roots[root], 0, bestCells, 0, bestCount);
+                    if (p.USE_ROLLOUT_ROOT_FILL) { selectedRootFilled = true; fillCells = bestCount - rootCounts[root]; }
                 }
             }
         }
@@ -902,8 +929,9 @@ public final class RolloutBot implements Bot {
             }
             for (int player = 0; player < 2; player++) {
                 if (turn == 0 && player == me) {
-                    moveCounts[player] = rootCounts[root];
-                    System.arraycopy(roots[root], 0, moves[player], 0, rootCounts[root]);
+                    moveCounts[player] = p.USE_ROLLOUT_ROOT_FILL ? filledRootCount : rootCounts[root];
+                    System.arraycopy(p.USE_ROLLOUT_ROOT_FILL ? filledRoot : roots[root], 0,
+                            moves[player], 0, moveCounts[player]);
                     targets[player] = ownTarget;
                 } else {
                     int first = player == me ? ownFirst : reply;

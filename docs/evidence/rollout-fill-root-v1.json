@@ -1,0 +1,154 @@
+{
+  "experiment": "rollout-fill-root-v1",
+  "candidate": "current?USE_ROLLOUT_ROOT_FILL=1",
+  "control": "v09",
+  "localDecision": {
+    "policy": "practical-1000-futility-boss-cache-v4",
+    "directStage": "NOT_PASSED",
+    "strengthStatus": "NOT_PASSED",
+    "bossStage": "NOT_STARTED",
+    "bossUsage": "SKIPPED_LOCAL_FAILURE",
+    "pooledGames": 1000,
+    "pooledScore": 0.541
+  },
+  "wins": 540,
+  "losses": 458,
+  "draws": 2,
+  "points": 541.0,
+  "blocks": [
+    {
+      "index": 1,
+      "games": 300,
+      "wins": 157,
+      "losses": 141,
+      "draws": 2,
+      "score": 0.5266666666666666,
+      "confidence95": [
+        0.4157781422511689,
+        0.6375551910821644
+      ],
+      "poolId": "rollout-fill-root-v1-block1",
+      "poolSha256": "84f33b5bb7aefb248f2ae93906090c7c2c9dd0b7de6c17a1e83f818beb79bb7d",
+      "reportSha256": "20d1950c66ff8db9ce017b7c1c319adedf0a9295160249e2370bbe746ed8c9aa"
+    },
+    {
+      "index": 2,
+      "games": 200,
+      "wins": 110,
+      "losses": 90,
+      "draws": 0,
+      "score": 0.55,
+      "confidence95": [
+        0.4141898484259381,
+        0.685810151574062
+      ],
+      "poolId": "rollout-fill-root-v1-block2",
+      "poolSha256": "0e013cff155a355fc97745bfa2f290669539144bdc2b26acdf6633ba587ac90e",
+      "reportSha256": "bf4c80c971868e8ba559a28444815c0eb8ac5735e7f94bf8ee87072a7f38f7ca"
+    },
+    {
+      "index": 3,
+      "games": 500,
+      "wins": 273,
+      "losses": 227,
+      "draws": 0,
+      "score": 0.546,
+      "confidence95": [
+        0.4601061183306526,
+        0.6318938816693475
+      ],
+      "poolId": "rollout-fill-root-v1-block3",
+      "poolSha256": "97fd9c66aed3c48a04aa5beadca0e4b6209bec2fde39a56ca07122980d32a1e8",
+      "reportSha256": "9502220566b664b84cfc402313b007b0ceee5bb988f6c7e1ec4cb6e2e7e0d7a2"
+    }
+  ],
+  "freshness": {
+    "priorMaps": 19351,
+    "priorReports": 196,
+    "freshPairedMaps": 500,
+    "disjointFromPriorAndOtherBlocks": true,
+    "fullParamsMatchRegisteredArtifacts": true,
+    "workers": 2,
+    "firstSearchMs": 486,
+    "turnSearchMs": 36,
+    "errors": 0
+  },
+  "mechanism": {
+    "positions": 110,
+    "uniqueInputs": 108,
+    "summary": {
+      "baselineSelectedAddsFill": 45,
+      "selectedTupleChanged": 9,
+      "fullActionChanged": 7,
+      "filledTuples": 527,
+      "changedValueTuples": 272,
+      "immediateIncomeChangedTuples": 90,
+      "pairwiseRankingChangesIncludingTies": 573,
+      "positionsWithAnyFilledTuple": 110,
+      "positionsWithRankingChange": 58
+    },
+    "strictFullActionChanges": 7,
+    "uniqueStrictChanges": 7
+  },
+  "actualPolicy": {
+    "positions": 110,
+    "allAmpleActionsAndValuesMatchMechanism": true,
+    "summary": {
+      "ampleActionChanged": 7,
+      "nominalActionsDiffer": 8,
+      "nominalOnDiffersFromAmple": 45,
+      "nominalOffDiffersFromAmple": 44,
+      "nominalOnOrdinaryComplete": 49,
+      "nominalOffOrdinaryComplete": 50,
+      "nominalOnMeanMs": 27.4566290909091,
+      "nominalOffMeanMs": 27.42478090909092,
+      "nominalOnMaxMs": 36.3583,
+      "nominalOffMaxMs": 36.3094
+    },
+    "caveat": "Old development inputs; nominal paired timings are descriptive only, not process or strength claims."
+  },
+  "verification": {
+    "engine": {
+      "exact": 292,
+      "total": 292,
+      "log": "build/rollout-fill-study.log"
+    },
+    "tests": {
+      "tests": 480,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "initial": {
+        "failures": 1.0,
+        "errors": 0.0,
+        "skipped": 0.0,
+        "tests": 480.0
+      },
+      "correction": "Only new compiled-parity fixture needed a completed protected connection to actually invoke filler; targeted corrected test passed. Production unchanged after full run."
+    },
+    "compiledClassPins": 217,
+    "strictProcessGames": 8,
+    "problems": 0,
+    "firstResponseMaxMs": 658.3361,
+    "laterResponseMaxMs": 44.3567,
+    "savedDefaultUnchanged": true
+  },
+  "artifact": {
+    "strategy": "current?USE_ROLLOUT_ROOT_FILL=1",
+    "charactersUtf16": 98708,
+    "sourceLimit": 100000,
+    "sha256": "57753e5b615f6df823aa61030f9df518b38f34428583ba3f963b7a82cb417ccb",
+    "buildId": "907238f108da380d21ddcbea59925d1e23f8515e3b8d44456e0bf445c30d7343",
+    "configSha256": "d8cb17c6ee264594236d7010338f3993de47af8e8d32141c2ea7aa7cec015b97"
+  },
+  "bossGames": 0,
+  "promotion": false,
+  "arenaUpload": false,
+  "archive": {
+    "path": "docs/evidence/rollout-fill-root-v1-artifacts.zip",
+    "members": 80,
+    "sha256": "4bc635b783b401aaf3aaf80b916abe1c8aefdc23ea0aa35fcfa5b5cff199694b",
+    "bytes": 2766556
+  },
+  "scope": "One registered candidate with fixed v4 stages, no tuning or retries. A local pass still requires the separate boss stage. Confidence intervals are descriptive; selected v09 and saved default submission are unchanged. Both experiment flags default false. Initial full test run had one new fixture assertion failure; only that fixture was corrected and its test rerun successfully; logs retained."
+}

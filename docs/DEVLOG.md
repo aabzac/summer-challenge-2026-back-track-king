@@ -5706,3 +5706,60 @@ both40-game canonical sets plus public provenance/verification,263 members,
 2e656ac6256992cb1c041f8d0545e5d28a91826bda25cb46078c58a4f137342e.
 Private session files and play-response bodies are excluded. Original local
 experiment evidence remains immutable. PLAN/BOTS/protocol updated for local commit.
+
+## 2026-10-06 - rollout-fill-root-v1, full-action evaluation: 54.1%, NOT_PASSED
+
+User authorized trying the complete-first-action idea on clean selected v09.
+The rejected ALL_CELL_RISK experiment stays OFF. Hypothesis: the old search scores
+construction prefixes but emits extra filler afterwards, potentially ranking the
+wrong action. Diagnose the omission, then evaluate exactly the filled action.
+
+Bounded diagnosis uses all 110 existing reply-study development rows (108 unique
+inputs), with ample-time fresh v09/current parity. Baseline actions add filler in
+45 rows; 527 candidate tuples receive filler, 272 model values and 90 immediate
+own-vs-WAIT income outcomes change. Nine winning tuples change; only seven change
+full actions and all seven strictly improve the filled model score. These are old
+v05-family development positions, not an arena sample or recovered wins.
+
+Implement USE_ROLLOUT_ROOT_FILL=false. Fill each root/target into reusable primitive
+buffers before its replies, inject those cells only on our first simulated turn,
+and emit the selected completed cells without refilling. Preserve opening/fallback,
+raw-root deduplication, target generation, future construction, opponent and weights.
+Actual ample policy matches all 110 saved filled winners and scores. Descriptive
+36-ms ON/OFF check: 8 differing outputs, ordinary completion 49 vs 50, mean time
+27.457 vs 27.425 ms; no process or strength conclusion from that check.
+
+No core edits; cgValidate 292/292 exact. Full test run: 479 pass, one new compiled-
+parity fixture failed because it consumed all paint before fill; fix only that
+fixture to a completed protected connection and its targeted rerun passes. Logs
+preserved, production unchanged after full run. Frozen/default-off parity passes;
+two independent read-only reviews found no blocker. Current-rollout-only safe
+newline compaction fits the source limit and retains historical artifact bytes;
+compiled decision tests cover current ROOT_FILL and the prior risk variant.
+
+Freeze sources, 217 compiled class hashes, full parameters, protocol and separate
+candidate artifact before gameplay. Source 98,708 characters, SHA256
+57753e5b615f6df823aa61030f9df518b38f34428583ba3f963b7a82cb417ccb,
+build 907238f108da380d21ddcbea59925d1e23f8515e3b8d44456e0bf445c30d7343.
+Exactly eight strict process games on the four registered maps/both seats: zero
+problems, timeouts or nominal overruns. First response max658.3361ms, later44.3567ms.
+
+Fixed practical-v4, two workers, CG486/36ms, against frozen v09:
+- 4800000 / 300 games: 157W141L2D, 52.6667%.
+- 4900000 / 200 games: 110W90L0D, 55.0%; pooled500 = 53.6%.
+- 5000000 / 500 games: 273W227L0D, 54.6%.
+Total540W458L2D, 541/1000 points = 54.1%, zero game errors. Both futility looks
+clear, final55% gate missed. All500 paired maps are distinct and excluded from
+19,351 previous local maps / 196 reports; source/classes/params unchanged through
+the run. No tuning, retries or extension. Local NOT_PASSED, boss SKIPPED_LOCAL_FAILURE.
+Observed local advantage is insufficient under the agreed rule, not proven arena
+improvement. ROOT_FILL and ALL_CELL_RISK stay OFF; selected v09 and its saved
+95,278-character default artifact remain unchanged. No IDE write/boss games/arena
+publication/promotion. IDE still contains prior user-tested risk candidate.
+
+Recorded in BOTS/PLAN and docs/rollout-fill-root-v1.md. Compact public evidence
+JSON 4,982 bytes; archive80 members, 2,766,556 bytes, SHA256
+4bc635b783b401aaf3aaf80b916abe1c8aefdc23ea0aa35fcfa5b5cff199694b.
+Archive retains prospective registration, exact sources/artifacts, original and
+corrected test logs, diagnostic/process/strength reports and pools. Experiment
+closed for authorized local commit; no external push.

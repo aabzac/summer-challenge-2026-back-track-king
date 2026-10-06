@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "rollout-fill-root-v1-block1",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 4800000,
+  "pairs": 150
+}

@@ -169,7 +169,7 @@ class FileMergerTest {
         String previousDefault = "public boolean USE_PROTECTED_OPENING = false;\n";
         assertEquals(approved.indexOf(previousDefault), approved.lastIndexOf(previousDefault));
         assertTrue(approved.contains(previousDefault));
-        assertTrue(FileMerger.merge("current").contains("public boolean USE_PROTECTED_OPENING = true;\n"));
+        assertTrue(FileMerger.merge("current").contains("public boolean USE_PROTECTED_OPENING = true;"));
         // Later default-off Params fields changed the shipped source outside the policy classes;
         // the frozen v08 policy itself must still be the approved bytes apart from its label.
         String frozen = FileMerger.normalizeMarker(FileMerger.merge("v08"))
@@ -196,6 +196,7 @@ class FileMergerTest {
                 FileMerger.sha256(policySection(normalized)), "measured frozen v09 policy bytes");
         var currentParams = new TreeMap<>(BotFactory.configuration("current"));
         assertEquals("false", currentParams.remove("USE_ROLLOUT_ALL_CELL_RISK"));
+        assertEquals("false", currentParams.remove("USE_ROLLOUT_ROOT_FILL"));
         assertEquals(currentParams, BotFactory.configuration("v09"));
         checkFrozenDecisions("v09", true, false, true);
         checkFrozenDecisions("current", true, false, true);
@@ -287,6 +288,15 @@ class FileMergerTest {
                     s = new GameState(9, 1, new int[]{0, 0, 1, 2, 2, 2, 3, 4, 4}, new int[9],
                             new int[]{0, 4, 8}, new int[3], new int[][]{{1, 2}, {2}, {}});
                 }
+                if (spec.contains("USE_ROLLOUT_ROOT_FILL=1")) {
+                    // A completed protected connection leaves the ordinary wait root to fill.
+                    // An unfinished connection can instead pack several proposal prefixes and
+                    // consume all paint before the feature under test is reached.
+                    s = new GameState(5, 2, new int[]{0, 0, 0, 0, 4, 5, 6, 7, 8, 9}, new int[10],
+                            new int[]{0, 4}, new int[2], new int[][]{{1}, {}});
+                    s.owner[1] = s.owner[2] = s.owner[3] = me; s.turn = 10;
+                    btk.core.Rules.updateConnections(s, new btk.core.Pathing(s.size));
+                }
                 if (networkFixture) {
                     int[] regions = new int[63];
                     for (int cell = 0; cell < regions.length; cell++) regions[cell] = cell;
@@ -346,6 +356,9 @@ class FileMergerTest {
                 Bot frozen = BotFactory.create(spec); frozen.init(s, me);
                 var expectedActions = frozen.play(s.copy(), me, 60_000);
                 String expected = Action.format(expectedActions);
+                if (spec.contains("USE_ROLLOUT_ROOT_FILL=1"))
+                    assertTrue(frozen.getClass().getField("fillCells").getInt(frozen) > 0,
+                            "compiled parity fixture must actually score a filled root");
                 if (openingFixture) {
                     assertEquals(3, expectedActions.stream().filter(a -> a.type == Action.Type.PLACE).count());
                     for (var action : expectedActions) if (action.type == Action.Type.PLACE)
@@ -531,6 +544,17 @@ class FileMergerTest {
         for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
                 "current?USE_ROLLOUT_POLICY=0"})
             assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ALL_CELL_RISK"), old);
+    }
+    @Test void rootFillShipsOnlyForCurrentRolloutAndMatchesCompiledDecisions() throws Exception {
+        String spec = "current?USE_ROLLOUT_ROOT_FILL=1";
+        String source = FileMerger.merge(spec);
+        assertTrue(source.contains("USE_ROLLOUT_ROOT_FILL=true"));
+        assertTrue(source.contains("USE_ROLLOUT_ALL_CELL_RISK=false"));
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions(spec, true);
+        for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
+                "current?USE_ROLLOUT_POLICY=0"})
+            assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ROOT_FILL"), old);
     }
     @Test void v2SubmissionKeepsItsBaselineAndPreservesFrozenV1Artifact() throws Exception {
         String source = FileMerger.merge("indrill-q-v2");

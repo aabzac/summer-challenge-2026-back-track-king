@@ -45,8 +45,7 @@ class V06PromotionTest {
         expected.put("ROLLOUT_QUICK_MAX_PAINT", "6");
         for (var spec : new String[]{CURRENT_V06, "v06"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
-            if (actual.containsKey("USE_ROLLOUT_ALL_CELL_RISK"))
-                assertEquals("false", actual.remove("USE_ROLLOUT_ALL_CELL_RISK"));
+            LiveTargetExperimentParams.removeCurrentOnlyAndCheck(actual);
             assertEquals(expected, actual, spec);
         }
         Params dirty = new Params();

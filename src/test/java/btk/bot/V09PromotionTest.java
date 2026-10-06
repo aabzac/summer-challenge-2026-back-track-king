@@ -73,9 +73,10 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 5, fields, "later independent policy, neural deadline, two V7 fallback fields and default-off risk experiment");
+        assertEquals(expected.size() + 6, fields, "later independent policy, neural deadline, two V7 fallback fields and two current-only experiments");
         FrozenParams.applyTo("v09", dirty);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);
+        assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
         assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());

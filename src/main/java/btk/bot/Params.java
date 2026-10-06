@@ -26,6 +26,8 @@ public class Params {
     public boolean USE_ROLLOUT_POLICY = true;
     /** Current-only route proposal: charge instability on existing tracks as well as free cells. */
     public boolean USE_ROLLOUT_ALL_CELL_RISK = false;
+    /** Current-only experiment: score and emit the same filled first action. */
+    public boolean USE_ROLLOUT_ROOT_FILL = false;
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;

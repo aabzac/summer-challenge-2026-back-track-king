@@ -180,7 +180,8 @@ public class FileMerger {
             boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
                 if (!(version.equals("current") && rollout) && file.endsWith("Params.java")
-                        && line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")) continue;
+                        && (line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")
+                        || line.contains("public boolean USE_ROLLOUT_ROOT_FILL ="))) continue;
                 // Do not alter existing submissions that do not consume the neural deadline.
                 if (!neuralDeadline && file.endsWith("Params.java") && line.contains("public int NEURAL_DEADLINE_RESERVE_MS =")) continue;
                 if (!neuralV7 && file.endsWith("Params.java") && (line.contains("public boolean USE_NEURAL_FALLBACK =")
@@ -269,8 +270,12 @@ public class FileMerger {
                 if (pt.find()) {
                     line = pt.group(1) + "static " + pt.group(2) + pt.group(3) + " " + line.substring(pt.end());
                 }
-                // Keep line/token boundaries and string literals; discard only surrounding indentation.
-                body.append(line.strip()).append('\n');
+                // Current rollout has optional experiments; punctuation already separates these tokens.
+                // Keep newlines around line comments. Historical artifacts retain their original bytes.
+                String code = line.strip();
+                body.append(code);
+                if (!(version.equals("current") && rollout && !code.contains("//")
+                        && (code.endsWith(";") || code.endsWith("{") || code.endsWith("}")))) body.append('\n');
             }
         }
 

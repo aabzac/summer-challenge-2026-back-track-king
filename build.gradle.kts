@@ -302,6 +302,26 @@ tasks.register<JavaExec>("rolloutRiskPolicyCheck") {
         prop("out", "build/analysis/rollout-risk-v1/policy-check.json"))
 }
 
+tasks.register<JavaExec>("rolloutFillStudy") {
+    group = "diagnostics"
+    description = "Audit first-turn leftover fill in the existing rollout on saved development states"
+    dependsOn("classes")
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("btk.tools.RolloutFillStudy")
+    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
+        prop("out", "build/analysis/rollout-fill-root-v1/mechanism.json"))
+}
+
+tasks.register<JavaExec>("rolloutFillPolicyCheck") {
+    group = "diagnostics"
+    description = "Verify the first-turn fill policy against the saved mechanism check"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("btk.tools.RolloutFillPolicyCheck")
+    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
+        prop("mechanism", "build/analysis/rollout-fill-root-v1/mechanism.json"),
+        prop("out", "build/analysis/rollout-fill-root-v1/policy-check.json"))
+}
+
 tasks.register<JavaExec>("rolloutCheck") {
     group = "game"
     description = "Serial work-cost and legality audit of the independent rollout policy on saved states"

@@ -20,6 +20,18 @@ numerical, artifact and practical-v4 strength checks. The still-open v09
 all-cell-risk route-candidate idea below is the recommended next strategy
 direction for discussion; no new strategy experiment was launched in this review.
 
+## Clean v09: rollout-fill-root-v1 (2026-10-06)
+
+- [x] Audit the complete first action including leftover fill on the fixed 110
+      development positions. Seven unique positions change to strictly better
+      filled-model choices; 45 baseline actions add unmodelled fill. Mechanism
+      evidence only. [Protocol](rollout-fill-root-v1.md).
+- [x] Implement one default-off first-turn-only evaluation change; keep risk OFF,
+      future construction/opponent/evaluation unchanged. Verify actual-policy
+      agreement, frozen/off parity, packaging and strict eight-game process panel.
+- [x] Run the fixed practical-v4 comparison against clean frozen v09; record and
+      commit the result, including rejection. No automatic IDE write or promotion.
+
 ## Return to v09: rollout-risk-v1 (2026-10-06)
 
 - [x] Audit all-cell instability-cost bypasses on 64 saved threatened positions:

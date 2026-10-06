@@ -90,7 +90,7 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
-                if (field.getName().equals("USE_ROLLOUT_ALL_CELL_RISK")
+                if ((field.getName().equals("USE_ROLLOUT_ALL_CELL_RISK") || field.getName().equals("USE_ROLLOUT_ROOT_FILL"))
                         && (!(version(spec).equals("current") || version(spec).equals("main"))
                         || !params.USE_ROLLOUT_POLICY)) continue;
                 // Only deadline-aware neural bots consume this field; historical configurations stay exact.

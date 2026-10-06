@@ -14,19 +14,19 @@ public final class LiveTargetExperimentParams {
             Map.entry("INDRILL_INK_PENALTY", "2"));
 
     public static void removeAndCheck(Map<String, String> values) {
-        removeRiskAndCheck(values);
+        removeCurrentOnlyAndCheck(values);
         for (var entry : DEFAULTS.entrySet())
             assertEquals(entry.getValue(), values.remove(entry.getKey()), entry.getKey());
     }
 
     /** v09 already contains the earlier fields, so remove only the independent later policy field. */
     public static void removeIndrillAndCheck(Map<String, String> values) {
-        removeRiskAndCheck(values);
+        removeCurrentOnlyAndCheck(values);
         assertEquals("2", values.remove("INDRILL_INK_PENALTY"), "INDRILL_INK_PENALTY");
     }
 
-    private static void removeRiskAndCheck(Map<String, String> values) {
-        if (values.containsKey("USE_ROLLOUT_ALL_CELL_RISK"))
-            assertEquals("false", values.remove("USE_ROLLOUT_ALL_CELL_RISK"));
+    public static void removeCurrentOnlyAndCheck(Map<String, String> values) {
+        for (String key : new String[]{"USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL"})
+            if (values.containsKey(key)) assertEquals("false", values.remove(key), key);
     }
 }
