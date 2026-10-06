@@ -91,6 +91,9 @@ class BotCatalogTest {
         assertEquals("indrill-q-v1 - Indrill Action Values", BotCatalog.displayName("indrill-q-v1"));
         assertEquals("candidate", BotCatalog.describe("indrill-q-v1").category());
         assertEquals("local_only", BotCatalog.describe("indrill-q-v1").status());
+        assertEquals("indrill-forum-v1 - Indrill Forum Readout", BotCatalog.displayName("indrill-forum-v1"));
+        assertEquals("candidate", BotCatalog.describe("indrill-forum-v1").category());
+        assertInstanceOf(btk.bot.forum.IndrillForumBot.class, BotFactory.create("indrill-forum-v1"));
         assertEquals("indrill-q-v2 - Learned Position Value", BotCatalog.displayName("indrill-q-v2"));
         assertEquals("candidate", BotCatalog.describe("indrill-q-v2").category());
         assertEquals("local_only", BotCatalog.describe("indrill-q-v2").status());

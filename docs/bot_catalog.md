@@ -31,7 +31,9 @@ accept the original ids; the labels do not rename frozen Java classes or change 
   networks trained on the arena leader's replays choose the DISRUPT region and each placement
   cell; only the closing-ink guard is hand-written. Its weights are a generated file
   (`NeuralWeights`), so a retrained model is a new candidate, not a parameter override. See
-  [neural-policy-v1.md](neural-policy-v1.md).
+  [neural-policy-v1.md](neural-policy-v1.md). `indrill-forum-v1` is a separate local candidate:
+  a hand readout of Indrill's published route features, not a trained network. See
+  [indrill-forum-v1.md](indrill-forum-v1.md).
 - **Experiments**: named, reproducible configurations of the shared experimental engine. A failed
   promotion gate does not make them useless as opponents. Their status is `not_promoted`.
 

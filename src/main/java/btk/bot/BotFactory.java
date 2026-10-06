@@ -3,6 +3,7 @@ package btk.bot;
 import btk.bot.current.EvalBot;
 import btk.bot.current.IndrillBot;
 import btk.bot.current.IndrillV2Bot;
+import btk.bot.forum.IndrillForumBot;
 import btk.bot.neural.NeuralBot;
 import btk.bot.neural.NeuralV2Bot;
 import btk.bot.neural.NeuralV3Bot;
@@ -141,6 +142,7 @@ public final class BotFactory {
             case "neural-v7": return NeuralV7Bot::new;
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
+            case "indrill-forum-v1": return IndrillForumBot::new;
             default:
                 if (version.startsWith("exp-") && BotCatalog.entry(version).category().equals("experiment")) return EvalBot::new;
                 return null;

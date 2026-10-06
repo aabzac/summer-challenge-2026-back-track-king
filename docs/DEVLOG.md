@@ -2659,7 +2659,7 @@ Completed outcome (fixed sample, no retuning):
   No new games or upload by the agent. These failure-free boss records do not explain or erase
   the separate local packaging timeout; keep that investigation open. Commit the diagnostic work.
 
-## 2026-09-16 — corrected boss cohorts and rendered collection
+## 2026-09-16 ï¿½ corrected boss cohorts and rendered collection
 
 - User corrected the boundary: **16 v05 / 14 v06**, first v06 **904146009**; game 904125321
   belongs to v05. The preceding entry used the initial 15/15 report and is superseded for all
@@ -2684,7 +2684,7 @@ Completed outcome (fixed sample, no retuning):
 - Quick-income experiment protocol, default-off implementation and checks are documented in
   `docs/quick-income-experiment.md`; results will be appended after the fixed samples.
 
-## 2026-09-16 — quick-income route-slot experiment, not promoted
+## 2026-09-16 ï¿½ quick-income route-slot experiment, not promoted
 
 - **Hypothesis:** retain one cheap positive-own/net-income completion among existing six routes
   at zero own income; the rollout decides whether to build it. Default-off
@@ -2696,10 +2696,10 @@ Completed outcome (fixed sample, no retuning):
   timing, RNG SEED=1. Exclusion index covers 4074 previous map identities; second sample also
   excludes the first. All 250 new maps distinct. No parameter adjustment, extension or reserve use.
   A PowerShell unquoted pool argument failed before any game; quoted the path and started once.
-- **Main result:** **160-134-6 (54.33%) vs v06**, map-grouped CI **43.24–65.42%**, zero errors.
+- **Main result:** **160-134-6 (54.33%) vs v06**, map-grouped CI **43.24ï¿½65.42%**, zero errors.
   P0/P1 wins 75/150 and 85/150; avg score difference +153.6. Neither practical nor confidence
   gate passed. A/B average search 16.71/16.72 ms, maxima 58/40 ms, slow moves 2/0, retained.
-- **Older check:** **124-76 (62.0%) vs v05**, CI **48.42–75.58%**, zero errors; P0/P1 wins
+- **Older check:** **124-76 (62.0%) vs v05**, CI **48.42ï¿½75.58%**, zero errors; P0/P1 wins
   68/100 and 56/100. A/B averages 18.29/5.17 ms, maxima 96/36 ms, slow 2/0. This separate panel
   does not estimate an improvement over v06 against v05; no matched control was declared.
 - **Mechanism and safety:** captured 904148181 t0 now retains a 4-paint candidate on both sides
@@ -5803,3 +5803,28 @@ contains both canonical40sets, source/plan/identity/process/engine/readback evid
 and pre-play/explicitly-authorized protocol snapshots. Private sessions, original
 IDE backup and raw play-response bodies excluded. BOTS/PLAN/protocol updated; final
 independent evidence audit requested before authorized local commit.
+
+## 2026-10-06 â€” indrill-forum-v1 hand readout, rejected at 14/300
+
+Context: the user asked for a clean-sheet strategy from Indrill's rank-1 post, then a bench.
+The post describes a trained Q network (Beyond The Rainbow / KataGo-style) with no search.
+The weights and trainer are unpublished. Earlier trained prototypes q-v1 and q-v2 remain
+0/300.
+
+Hypothesis: a frozen linear readout of the published observation â€” path/good/best prospect,
+urgency, connector rings, exact paint-3 knapsack, mean region ink â€” would play legal
+full-quota moves and be a measurable opponent for v09. It was not expected to reproduce
+the arena leader.
+
+What was done: new local bot `indrill-forum-v1` in `btk.bot.forum`, reusing `IndrillFeatures`.
+v09/`current` untouched. Weights frozen before games. Practical-v4 vs v09, seed 9300000,
+two workers, CG budgets. Tests cover legality, the opening corridor, knapsack parity with
+the earlier exact builder, and a 36 ms later-turn bound.
+
+Result: 14W/286L/0D, 4.7%, mean score difference âˆ’2791, zero errors, zero slow moves,
+max later call 32 ms. Placement 50.2% of turns and 1.49 paint/turn against v09's 95.9%
+and 2.83. Disrupt 99.8% vs 71.0%. STOP_FUTILITY_300. Boss not started.
+
+Decision: reject. Do not retune the linear weights against this sample. The missing piece
+in the post is the trained network, not another hand coefficient. Selected v09 unchanged.
+No upload or promotion.

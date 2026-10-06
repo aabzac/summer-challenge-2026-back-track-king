@@ -3,6 +3,14 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Indrill forum readout (2026-10-06)
+
+- [x] Write `indrill-forum-v1`: greedy readout of the published route observation
+      (priority path, good cells, exact paint-3 knapsack, mean region ink).
+      No learned weights. Selected v09 unchanged. [Protocol](indrill-forum-v1.md).
+- [x] Practical-v4 against frozen v09, seed 9300000: 14/300 (4.7%),
+      STOP_FUTILITY_300. Boss skipped. v09 stays selected. No retune.
+
 ## Objective clarification (2026-10-06)
 
 The user clarified that 70% was an illustrative question, not a requested target.

@@ -135,6 +135,18 @@ On 200 matched games each vs aggressive v02, candidate **73.3%** (146-53-1), v05
 116 tests / 264 exact replays; candidate and restored frozen-v05 process samples each 0/4 failures.
 Full protocol, source/artifact hashes and reports are in DEVLOG and `sabotage-valuation.md`.
 
+## Experiment: indrill-forum-v1 (2026-10-06, STOP_FUTILITY_300)
+
+Hand readout of Indrill's published route observation, id `indrill-forum-v1`.
+No learned weights. Priority-path and good-cell scores, exact paint-3 knapsack,
+mean region ink. Selected v09 and `current` unchanged.
+
+Practical-v4 vs frozen v09, seed 9300000, 150 fresh paired maps, two workers,
+CG 486/36 ms: **14W/286L/0D = 4.7% over 300 games**. Zero errors, zero slow moves.
+Mean score difference −2791. Candidate paint 1.49/turn on 50.2% of turns; v09
+2.83/turn on 95.9%. **STOP_FUTILITY_300**; boss skipped. Not promoted.
+[Protocol/result](indrill-forum-v1.md), [evidence](evidence/indrill-forum-v1.json).
+
 ## Experiment: rollout-fill-root-v1 (2026-10-06, NOT_PASSED)
 
 Candidate `current?USE_ROLLOUT_ROOT_FILL=1` evaluates the existing leftover-paint

@@ -156,6 +156,13 @@
       "description": "Q-learning follow-up: learned board-value baseline and WAIT plus additive construction/ink advantages. Fixed 960-game/14,000-update training; rejected locally (0/300 vs v09), not promoted. docs/indrill-q-v2.md."
     },
     {
+      "id": "indrill-forum-v1",
+      "title": "Indrill Forum Readout",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Hand readout of Indrill's published route observation: priority-path and good-cell scores, exact paint-3 knapsack, mean region ink. No learned weights. Rejected locally (14/300 vs v09). docs/indrill-forum-v1.md."
+    },
+    {
       "id": "current",
       "title": "Working Copy",
       "category": "working",
