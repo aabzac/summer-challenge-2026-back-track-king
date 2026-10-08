@@ -114,6 +114,14 @@ The generated `btk.bot.neural.SpatialWeights` is frozen by the completed experim
 new training requires a new weight artifact and bench. Existing `Neural*` weights
 are unchanged.
 
+`spatial-ppo-v2` uses the same model and execution with a separate fixed
+complete-game self-play run: 8,192 environment turns, fresh maps and three
+checkpoints. `spatial-ppo-v2-init` preserves its exact untrained initializer for
+the learning diagnostic. Both remain local candidates/references. Settings,
+late-position checks and comparison results: [spatial-ppo-v2](docs/spatial-ppo-v2.md).
+Completed: 92 training games; final beats its initializer 96/100, but wins 0/300
+against v09 (STOP_FUTILITY_300). Candidate rejected for strength; v09 stays selected.
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

@@ -1,0 +1,40 @@
+{
+  "recordedAt": "2026-10-08T21:31:07.967236+00:00",
+  "reviewer": "source_review",
+  "verdict": "PASSED",
+  "archive": "docs/evidence/spatial-ppo-v2-artifacts.zip",
+  "archiveSha256": "943519fafc4ba84b563a6c3a6cbff26c833b1831b75401c6a6d5ff1b71fb8206",
+  "archiveBytes": 5811468,
+  "indexSha256": "be7e1b53a6f653d9e3456082c07e141c12efe6b199a8b6d0839cc24714d82aa4",
+  "members": 271,
+  "crcPassed": true,
+  "memberSetExact": true,
+  "allMemberHashesAndSizesPassed": true,
+  "prospectiveProtocolSha256": "2986a0c1bbcf716709fe320bf802e1435cf2a2f5cc1f38898bde2944a7460f6c",
+  "protocolMatchesPretrainingFreezeAndTrainingConfig": true,
+  "checkpointHashes": {
+    "initial": "2a45611c56ecde32cc5379494008a51e3132a4ee3c084aec792270dc5ccb49b2",
+    "midpoint": "c751508fe4ada90d020ab8d6a92f3f2fa84e755ccb298d0923b373d25a749492",
+    "final": "7c77bfa52e25a466b2503d9a65c4388969a5109c212466a38392e0cc8dcd4f26"
+  },
+  "checkpointBytesMatchPriorIndependentTensorAudit": true,
+  "exactPlayerSha256": "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
+  "playerMatchesProcessReportAndSummary": true,
+  "embeddedFinalWeightsSha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+  "summaryConsistency": {
+    "trainingIterations": 64,
+    "environmentTurns": 8192,
+    "seatSamples": 16384,
+    "optimizerSteps": 1024,
+    "completedGames": 92,
+    "unfinishedGames": 8,
+    "initializerComparison": "96W/4L/0D of100",
+    "v09Comparison": "0W/300L/0D of300",
+    "gate": "STOP_FUTILITY_300",
+    "selected": "v09",
+    "promoted": false
+  },
+  "independentAuditsIncluded": true,
+  "unrelatedBeamOrProbeMembers": [],
+  "scope": "Archive integrity and key provenance/summary assertions only; no games, tests, training, checkpoint tensor loading or sealed archive changes."
+}

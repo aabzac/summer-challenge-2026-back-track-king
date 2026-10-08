@@ -5887,3 +5887,71 @@ no extra training is launched here. Protocol, metrics, checkpoints, executable,
 reports, maps and audit manifests retained under docs/evidence/spatial-ppo-v1*.
 Record in BOTS/PLAN and commit locally under the working agreement. No push,
 upload or promotion; selected v09 unchanged.
+
+## 2026-10-09 — spatial-ppo-v2: learning against initializer, still 0/300 vs v09
+
+Hypothesis: complete-game self-play exposure can improve the compact spatial
+policy beyond its exact untrained initializer. User authorized the next stage.
+The fixed protocol was recorded before gradients: same model, observations,
+PPO math and Java execution; 64 iterations x 8 environments x 16 real turns,
+then a separate 100-game initializer diagnostic and practical-v4 versus v09.
+Final iteration fixed in advance, no checkpoint selection or recipe tuning.
+
+One completed run: 8,192 environment turns, 16,384 seat samples, 65,536 legal
+conditional decisions and 1,024 optimizer steps. Actual terminal coverage:
+92 completed games / 7,902 turns, plus eight unfinished / 290 turns; exactly
+1,024 turns per environment. Seeds 10000000..10000099, 100 unique maps, no overlap
+with 20,311 prior hashes. Time 726.008 s (collection 644.859, optimization 71.324),
+Python peak working set about 540 MiB. Initial/midpoint/final checkpoints retained
+with optimizer/settings/RNG but without live environment states for exact resume.
+Final payload b8cdd34b...eca1d; weight L2 change 1.29804. Same-rollout last critic
+MSE 0.781802 -> 0.757391 is a fitting diagnostic, not strength evidence.
+
+V1 implementation and weights frozen. New named v2/initializer variants delegate
+the existing runtime; generated payloads export separately. Fifteen spatial
+Python tests pass. Initial scoped Java 519 tests had one new stale expected-hash
+failure. The first targeted retry started before its correction and failed again.
+Isolated previous-commit/current merger outputs proved byte-identical, so only
+the regression expectation changed. Corrected targeted five tests and trained
+artifact five tests pass. Six unrelated pre-existing untracked Pduhard tests were
+excluded; original XML/logs retained. Engine 292/292 exact, repeated after final
+export. Core, selected v09 and saved default artifact are unchanged.
+
+Training parity covers 88 saved observations for each model. Separate fixed
+late panel captures 16/20 requested positions, with four slots absent because
+reference games ended; no replacements. Both initial/final policies pass all
+128 conditional observations, zero greedy mismatches, final max error 8.92e-7.
+Both have 32/32 identical traced/ample/nominal actions and zero cuts/errors/skips.
+Final nominal mean 16.429 ms, p95 22.228 ms, max 22.752 ms; finite local evidence.
+Exact Player 84,315 chars, SHA a3d0fdb7...107a1, build da1e2265...704ae. Strict
+zero-grace process 8/8 clean, first max 669.1594 ms and later 26.6249 ms.
+
+Initializer comparison: **96W/4L/0D / 100**, 48/50 wins each seat, mean score
+difference +731.98; map-grouped Hoeffding95% [76.79%,100%] diagnostic interval.
+Fifty fresh paired maps, seeds 10200000..10200049, two workers, CG timing,
+zero errors, slow calls 2/0, 109.643 s. This demonstrates learning versus that
+exact weak initializer, not overall competitive strength.
+
+Independent practical-v4 versus v09: **0W/300L/0D**, mean score difference
+-11,081.06; zero errors, slow calls 3/6, 396.546 s. Seeds10300000..10300149,
+150 fresh paired maps, two workers, CG timing. Mandatory STOP_FUTILITY_300;
+no second/third block or boss games. All 200 evaluation maps are distinct and
+exclude prior/training/panel maps; the v09 index also excludes initializer maps.
+
+The first initializer launch failed before any comparison game: recursively
+summed historical exclusion counts exceeded Java's integer range. Preserved
+original index/log and normalized its exact same map-key set to presence counts1.
+Fixed v4 index builder to union membership and reject invalid original counts;
+two regression tests pass. Initial test harness failed on temporary-directory
+permissions before assertions; isolated workspace directories resolved it.
+No model, seeds or thresholds changed; historical reports and frozen v2/v3 tools
+stay unchanged. Added six-file runner amendment before any comparison games.
+Post-comparison verification passed all 625+6=631 frozen file hashes.
+
+Decision: retain the complete-game training pipeline and measured improvement
+over initialization, reject v2 for strength. No automatic extension of training,
+promotion, upload or push. The result does not decide whether much larger
+self-play training can succeed. Opponent pools, teacher training and search
+remain separate future stages. Full evidence/checkpoints/raw outcomes/tests,
+prospective protocol and audits retained under docs/evidence/spatial-ppo-v2*;
+BOTS/PLAN updated and completed experiment committed locally.

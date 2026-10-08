@@ -47,7 +47,7 @@ def ensure_pool(name, block, pairs, seed_start):
 
 
 def build_exclusion_index(folder, block):
-    """Union of gamesPerMap over every prior benchmark report, plus this run's earlier blocks."""
+    """Presence-only map union over prior reports/indices and this run's earlier blocks."""
     merged, sources = {}, {}
     reports = []
     for path in sorted(BENCH.rglob('*.json')):
@@ -67,7 +67,10 @@ def build_exclusion_index(folder, block):
         if not isinstance(maps, dict) or not maps:
             continue
         for key, value in maps.items():
-            merged[key] = merged.get(key, 0) + int(value)
+            if type(value) is not int or value <= 0:
+                raise SystemExit(f'expected positive integer map count in {path}: {key}={value!r}')
+            # Prior indices overlap: exclusion needs membership, not recursive game totals.
+            merged[key] = 1
         sources[path.relative_to(ROOT).as_posix()] = len(maps)
     out = folder / f'{block}-excluded.json'
     if out.exists():

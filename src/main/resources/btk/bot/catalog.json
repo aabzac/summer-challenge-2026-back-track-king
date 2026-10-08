@@ -2,6 +2,20 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v2",
+      "title": "Spatial PPO Longer Training",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "New generated weights from a longer fixed PPO run using the unchanged spatial-v1 observation, network and runtime; not promoted. docs/spatial-ppo-v2.md."
+    },
+    {
+      "id": "spatial-ppo-v2-init",
+      "title": "Spatial PPO Untrained Initializer",
+      "category": "reference",
+      "status": "local_only",
+      "description": "Frozen seed-20261008 initializer, before gradients, in the unchanged spatial-v1 runtime. Matched learning diagnostic control for spatial-ppo-v2; not a selected policy."
+    },
+    {
       "id": "spatial-ppo-v1",
       "title": "Spatial PPO Prototype",
       "category": "candidate",

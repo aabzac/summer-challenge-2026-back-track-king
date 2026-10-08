@@ -13,6 +13,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-09: **spatial-ppo-v2**, same compact model/runtime, fixed
+8,192-turn self-play run: 92 completed games, eight unfinished, 1,024 optimizer
+steps. Final versus exact initializer: **96W/4L/0D (96%)** on 50 fresh paired maps.
+Practical-v4 versus v09: **0W/300L/0D**, 150 separate fresh paired maps,
+`STOP_FUTILITY_300`, zero game errors. Late-panel numerical parity and 32/32
+nominal/ample plans agree; strict process 8/8 clean; 292 engine replays exact.
+Learning against the weak initializer is established; competitive strength is not.
+Candidate rejected, boss skipped, selected v09 unchanged.
+[Protocol, checks and retained evidence](spatial-ppo-v2.md).
+
 Completed 2026-10-08: **spatial-ppo-v1**, first complete compact spatial CNN/PPO
 pipeline inspired by Pduhard. Fixed smoke training: 256 environment turns,
 512 seat samples, 32 optimizer steps, 3,439 weights; all 2,048 internal decisions
@@ -1028,6 +1038,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v2 | 2026-10-09 | Same spatial model; fixed 8,192-turn self-play, 92 completed training games, separate final/initializer weights. | Initializer: **96W/4L/0D / 100**. Practical-v4 vs v09: **0W/300L/0D**, STOP_FUTILITY_300. Zero errors; strict process 8/8 clean. | Not uploaded; strength rejected, no promotion. [Evidence](spatial-ppo-v2.md). |
 | spatial-ppo-v1 | 2026-10-08 | Separate 3,439-weight spatial policy/value CNN; simultaneous exact-core self-play, full-plan PPO, generated Java inference. Fixed 256-turn technical training run. | Practical-v4 vs v09: **0W/300L/0D (0%)**, 150 fresh paired maps, STOP_FUTILITY_300. Zero errors; strict process 8/8 clean. | Not uploaded; no promotion. [Evidence](spatial-ppo-v1.md). |
 | v00 Autoplace | 2026-09-13 | `AUTOPLACE` towards the first inactive desired pair. Wood 2 exit. | ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ | not submitted |
 | v01 Greedy Routes | 2026-09-13 | Dijkstra cheapest path per inactive pair; rank by `(free + own - opp) * turnsEarning / (turnsToFinish+1)`; spend 3 paint along the best path, leftover to next pair. Idles (`WAIT`) once every pair is connected. No DISRUPT. | vs v00: 66% [56-75], n=100, CG maps (Wood rules) | not submitted separately |

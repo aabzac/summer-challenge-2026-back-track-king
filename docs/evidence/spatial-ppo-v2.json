@@ -1,0 +1,319 @@
+{
+  "experiment": "spatial-ppo-v2",
+  "recordedAt": "2026-10-08T21:23:12.269144+00:00",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "NOT_RUN",
+  "training": {
+    "iterations": 64,
+    "optimizerSteps": 1024,
+    "environmentTurns": 8192,
+    "seatSamples": 16384,
+    "legalDecisions": 65536,
+    "completedGames": 92,
+    "unfinishedGames": 8,
+    "trainingMaps": 100,
+    "seconds": 726.007929999847,
+    "pythonPeakWorkingSetBytes": 566030336,
+    "initialWeightsSha256": "a60252899a6ebed8e599fc7ba9a22a53798bc38c1375329c4ecda81f25d96708",
+    "finalWeightsSha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+    "weightL2Change": 1.2980372905731201,
+    "lastIteration": {
+      "iteration": 64,
+      "environment_turns": 8192,
+      "seat_samples": 256,
+      "completed_games": 92,
+      "terminal_seat_samples": 4,
+      "collection_seconds": 9.30853380006738,
+      "learning_seconds": 0.9712722999975085,
+      "collection_forward_seconds": 0.623792702332139,
+      "policy_and_bootstrap_forward_seconds": 0.3731181025505066,
+      "logprob_recheck_forward_seconds": 0.2506745997816324,
+      "transport": {
+        "encode_seconds": 0.00376110034994781,
+        "write_seconds": 0.0031298997346311808,
+        "wait_read_seconds": 4.381548000499606,
+        "decode_seconds": 2.799794199410826,
+        "audit_seconds": 0.011922299163416028
+      },
+      "collection_other_seconds": 1.484585598576814,
+      "reward_mean": 0.0,
+      "reward_abs_mean": 0.06617187708616257,
+      "return_mean": -0.23250077664852142,
+      "value_mse_before": 0.7818024158477783,
+      "logprob_recompute_max_error": 0.0,
+      "value_recompute_max_error": 0.0,
+      "value_mse_after": 0.7573907375335693,
+      "value_mse_units": "squared normalized return (reward /100)",
+      "return_variance": 1.247607707977295,
+      "value_mse_div_return_variance": 0.6070744294787196,
+      "policy_loss": -0.0007224385626614094,
+      "value_mse": 0.8055603019893169,
+      "entropy": 14.84623271226883,
+      "approx_kl": 0.0003344360738992691,
+      "clip_fraction": 0.001953125,
+      "gradient_norm": 1.8235295079648495
+    },
+    "initialParity": {
+      "observations": 64,
+      "max_abs_error": {
+        "build": 8.940696716308594e-08,
+        "disrupt": 1.1920928955078125e-07,
+        "value": 7.450580596923828e-08
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true
+    },
+    "initialExtendedParity": {
+      "observations": 88,
+      "max_abs_error": {
+        "build": 8.940696716308594e-08,
+        "disrupt": 1.1920928955078125e-07,
+        "value": 7.450580596923828e-08
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true
+    },
+    "finalExtendedParity": {
+      "observations": 88,
+      "max_abs_error": {
+        "build": 4.76837158203125e-07,
+        "disrupt": 3.5762786865234375e-07,
+        "value": 5.066394805908203e-07
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true
+    }
+  },
+  "latePanel": {
+    "capturedPositions": 16,
+    "requestedPositions": 20,
+    "profile": [
+      {
+        "label": "initial",
+        "weightsSha256": "a60252899a6ebed8e599fc7ba9a22a53798bc38c1375329c4ecda81f25d96708",
+        "seatSamples": 32,
+        "actionMatches": 32,
+        "actionMismatches": 0,
+        "uninterruptedActionMismatches": 0,
+        "ampleParityTraceMismatches": 0,
+        "ampleInterrupted": 0,
+        "nominalInterrupted": 0,
+        "nominalCallsOver36Ms": 0,
+        "errors": 0,
+        "skippedActions": 0,
+        "amplePlayMs": {
+          "samples": 32,
+          "min": 6.9268,
+          "mean": 15.07995,
+          "p95": 20.3882,
+          "max": 20.8966
+        },
+        "nominalPlayMs": {
+          "samples": 32,
+          "min": 10.1015,
+          "mean": 17.297978124999997,
+          "p95": 22.8681,
+          "max": 25.6477
+        }
+      },
+      {
+        "label": "final",
+        "weightsSha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+        "seatSamples": 32,
+        "actionMatches": 32,
+        "actionMismatches": 0,
+        "uninterruptedActionMismatches": 0,
+        "ampleParityTraceMismatches": 0,
+        "ampleInterrupted": 0,
+        "nominalInterrupted": 0,
+        "nominalCallsOver36Ms": 0,
+        "errors": 0,
+        "skippedActions": 0,
+        "amplePlayMs": {
+          "samples": 32,
+          "min": 7.7806,
+          "mean": 17.3166125,
+          "p95": 21.4065,
+          "max": 23.5633
+        },
+        "nominalPlayMs": {
+          "samples": 32,
+          "min": 7.3693,
+          "mean": 16.428925000000003,
+          "p95": 22.2277,
+          "max": 22.7515
+        }
+      }
+    ],
+    "initialParity": {
+      "label": "initial",
+      "weights_sha256": "a60252899a6ebed8e599fc7ba9a22a53798bc38c1375329c4ecda81f25d96708",
+      "observations": 128,
+      "seeds": [
+        10100000,
+        10100001,
+        10100002,
+        10100003
+      ],
+      "turns": [
+        0,
+        25,
+        50,
+        75,
+        99
+      ],
+      "observations_by_turn": {
+        "0": 32,
+        "25": 32,
+        "50": 32,
+        "75": 24,
+        "99": 8
+      },
+      "max_abs_error": {
+        "build": 1.341104507446289e-07,
+        "disrupt": 1.4901161193847656e-07,
+        "value": 1.2383895875434092e-07
+      },
+      "tolerance": 0.0001,
+      "greedy_mismatches": [],
+      "passed": true
+    },
+    "finalParity": {
+      "label": "final",
+      "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+      "observations": 128,
+      "seeds": [
+        10100000,
+        10100001,
+        10100002,
+        10100003
+      ],
+      "turns": [
+        0,
+        25,
+        50,
+        75,
+        99
+      ],
+      "observations_by_turn": {
+        "0": 32,
+        "25": 32,
+        "50": 32,
+        "75": 24,
+        "99": 8
+      },
+      "max_abs_error": {
+        "build": 5.960464477539062e-07,
+        "disrupt": 7.152557373046875e-07,
+        "value": 8.920745848683964e-07
+      },
+      "tolerance": 0.0001,
+      "greedy_mismatches": [],
+      "passed": true
+    }
+  },
+  "checks": {
+    "javaInitialScoped": {
+      "tests": 519,
+      "failures": 1,
+      "cause": "new regression test used stale saved-default hash"
+    },
+    "javaCorrectedTargeted": {
+      "tests": 5,
+      "failures": 0
+    },
+    "javaFinalTrainedArtifact": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "pythonTests": 15,
+    "pythonFailures": 0,
+    "engineExactReplays": 292,
+    "exclusionRunnerTests": 2,
+    "exclusionRunnerFailures": 0,
+    "oldUntrackedPduhardTestsExcluded": 6,
+    "prematureTargetedRerun": "same stale expectation ran before correction landed; retained separately",
+    "historicalPreservation": "previous-commit and new current merge byte-identical; saved default artifact untouched"
+  },
+  "artifact": {
+    "characters": 84315,
+    "sourceSha256": "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
+    "buildId": "da1e22650d73cddb469f8f0dfd74bdecf4520943c495977e4c0e3f9f361704ae",
+    "processGames": 8,
+    "processProblems": 0,
+    "firstResponseMaxMs": 669.1594,
+    "laterResponseMaxMs": 26.6249
+  },
+  "initializerComparison": {
+    "games": 100,
+    "wins": 96,
+    "losses": 4,
+    "draws": 0,
+    "scoreRate": 0.96,
+    "meanScoreDifference": 731.98,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      2,
+      0
+    ],
+    "maps": 50,
+    "elapsedMs": 109643,
+    "workers": 2,
+    "confidence95": [
+      0.7679354417360158,
+      1.0
+    ],
+    "confidenceMethod": "map-grouped Hoeffding 95%; assumes independent representative maps",
+    "role": "learning diagnostic, not promotion"
+  },
+  "v09Comparison": {
+    "games": 300,
+    "wins": 0,
+    "losses": 300,
+    "draws": 0,
+    "scoreRate": 0.0,
+    "meanScoreDifference": -11081.06,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      3,
+      6
+    ],
+    "maps": 150,
+    "elapsedMs": 396546,
+    "workers": 2,
+    "verdict": "STOP_FUTILITY_300"
+  },
+  "freshness": {
+    "distinctEvaluationMaps": 200,
+    "priorPlusDevelopmentExclusions": 20415,
+    "intersection": 0
+  },
+  "freezeAudit": {
+    "recordedAt": "2026-10-08T21:23:11.048981+00:00",
+    "unchangedFiles": 631,
+    "changedFiles": [],
+    "originalFrozenFilesUnchanged": 625,
+    "additionalExclusionRunnerFilesFrozenBeforeGames": 6
+  },
+  "exclusionPreflightCorrection": {
+    "recordedAt": "2026-10-08T21:08:51.152242+00:00",
+    "playedComparisonGames": 0,
+    "policyAndMapSeedsChanged": false,
+    "originalExclusionSha256": "78b03cf6e2c4d90ac387bf9d81aee3e2ffe4ab7cc2421f8278b771a762f17da9",
+    "normalizedExclusionSha256": "205e55d4d4fcc74f4d6cb2dafcdd28930bc68eeae3fa8e3c83bf5068d418c2da",
+    "mapIdentities": 20415,
+    "identitiesUnchanged": true,
+    "maximumOriginalCount": 3321888768,
+    "entriesOverSignedInt32": 3616,
+    "failure": "BenchPool.exclusions rejected integer overflow before game execution; earlier exclusion indices recursively accumulated counts",
+    "fix": "Use presence1 for same union of map hashes; original reports remain untouched"
+  }
+}

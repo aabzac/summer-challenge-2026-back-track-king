@@ -50,3 +50,31 @@ are verified separately by tests. Policy logits and value are compared within
 The serial `btk.tools.spatial.SpatialProfile` main class profiles four fixed
 diagnostic maps separately from process deadlines and strength matches. It refuses
 to overwrite its report. Timing is a local measurement, not a CG-host guarantee.
+
+## Complete-game follow-up: v2
+
+`run_v2_training.py` imports the unchanged v1 model, collector and PPO code. Its
+fixed recipe is 64 iterations x 8 environments x 16 real turns, with fresh maps
+and actual terminal resets. See [the protocol and results](../../docs/spatial-ppo-v2.md).
+The initial, midpoint and final checkpoints are retained; the final checkpoint
+is the tested candidate, without checkpoint selection from match results.
+
+The new generated classes are `SpatialInitialWeights` and `SpatialV2Weights`.
+The named bots `spatial-ppo-v2-init` and `spatial-ppo-v2` select these weights while
+delegating to the unchanged v1 Java inference. All v1 artifacts stay frozen.
+
+```powershell
+# Historical fixed-run command; existing output directories are deliberately rejected.
+python tools/spatial/run_v2_training.py --java-command-json build/spatial-java.json
+# Tests include terminal/reset accounting, initial-weight identity and instrumentation neutrality.
+python -m unittest discover -s tools/spatial -p 'test_*.py' -v
+.\gradlew.bat submit '-PsubmitVersion=spatial-ppo-v2' '-PsubmitOut=build/submit-spatial-v2'
+```
+
+`SpatialLatePanel` captures one fixed v09-v09 trajectory per map and saves staged
+observations plus Java outputs before comparing ample/nominal calls serially.
+Its positional arguments are initial Base64 file, final Base64 file and a fresh
+output directory. `compare_v2_panel.py --checkpoint ... --panel ... --out ...`
+checks those saved outputs against the selected Python checkpoint without games.
+Missing positions after an actual terminal are preserved as missing. Reports
+refuse replacement; a new training experiment needs new weights, recipe and bench.

@@ -47,6 +47,41 @@ class FileMergerTest {
         }
     }
 
+    @Test void spatialV2WeightVariantsShipOnlySelectedPayloadAndMatchLocalRuntime() throws Exception {
+        for (String version : new String[]{"spatial-ppo-v2", "spatial-ppo-v2-init"}) {
+            String source = FileMerger.merge(version);
+            String expected = version.endsWith("-init") ? btk.bot.neural.SpatialInitialWeights.DATA
+                    : btk.bot.neural.SpatialV2Weights.DATA;
+            var declaration = java.util.regex.Pattern.compile("String DATA\\s*=\\s*([^;]+);").matcher(source);
+            assertTrue(declaration.find());
+            var chunks = java.util.regex.Pattern.compile("\"([A-Za-z0-9+/=]+)\"").matcher(declaration.group(1));
+            StringBuilder actual = new StringBuilder();
+            while (chunks.find()) actual.append(chunks.group(1));
+            assertEquals(expected, actual.toString(), version);
+            assertFalse(declaration.find(), "only one generated payload may ship");
+            assertTrue(source.contains("return \"" + version + "\";"));
+            assertTrue(source.contains("static final class SpatialWeights"));
+            assertFalse(source.contains("SpatialVariantBot"));
+            assertFalse(source.contains("SpatialV2Weights"));
+            assertFalse(source.contains("SpatialInitialWeights"));
+            assertFalse(source.contains("SpatialBridge"));
+            FileMerger.checkSourceSize(source);
+            checkFrozenDecisions(version, true);
+        }
+    }
+
+    @Test void spatialV2RegistrationPreservesPriorExactSubmissionBytes() throws Exception {
+        assertEquals("d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7",
+                FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
+        // Measured from the pre-v2 HEAD merger; the saved default Player.java is an older export.
+        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                FileMerger.sha256(FileMerger.merge("current")));
+        assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+                FileMerger.sha256(FileMerger.merge("v09")));
+        assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9",
+                FileMerger.sha256(FileMerger.merge("neural-v2")));
+    }
+
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
         String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);

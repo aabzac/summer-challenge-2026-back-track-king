@@ -115,10 +115,13 @@ public class FileMerger {
         boolean neural = version.equals("neural-v1") || neuralV2 || neuralDeadline;
         boolean indrillV2 = version.equals("indrill-q-v2");
         boolean indrill = version.equals("indrill-q-v1") || indrillV2;
-        boolean spatial = version.equals("spatial-ppo-v1");
+        boolean spatialV2 = version.equals("spatial-ppo-v2");
+        boolean spatialInitial = version.equals("spatial-ppo-v2-init");
+        boolean spatial = version.equals("spatial-ppo-v1") || spatialV2 || spatialInitial;
+        String spatialWeights = spatialV2 ? "SpatialV2Weights" : spatialInitial ? "SpatialInitialWeights" : "SpatialWeights";
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
                 && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural && !indrill && !spatial) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2 or spatial-ppo-v1");
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2, spatial-ppo-v1, spatial-ppo-v2 or spatial-ppo-v2-init");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
@@ -157,7 +160,7 @@ public class FileMerger {
         if (spatial) {
             files.add(SRC_ROOT.resolve("bot/neural/SpatialObservation.java"));
             files.add(SRC_ROOT.resolve("bot/neural/SpatialNet.java"));
-            files.add(SRC_ROOT.resolve("bot/neural/SpatialWeights.java"));
+            files.add(SRC_ROOT.resolve("bot/neural/" + spatialWeights + ".java"));
         }
         if (neural) {
             files.add(SRC_ROOT.resolve(neuralV6 || neuralV7 ? "bot/neural/NeuralV6Features.java"
@@ -188,6 +191,10 @@ public class FileMerger {
             for (String line : Files.readAllLines(file)) {
                 if (!spatial && file.endsWith("Params.java") && line.contains("public int SPATIAL_RESERVE_MS =")) continue;
                 if (spatial && file.endsWith("SpatialBot.java")) line = line.replaceAll("\\bSpatialBot\\b", "EvalBot");
+                if ((spatialV2 || spatialInitial) && file.endsWith("SpatialBot.java"))
+                    line = line.replace("\"spatial-ppo-v1\"", "\"" + version + "\"");
+                if ((spatialV2 || spatialInitial) && file.endsWith(spatialWeights + ".java"))
+                    line = line.replaceAll("\\b" + spatialWeights + "\\b", "SpatialWeights");
                 if (!(version.equals("current") && rollout) && file.endsWith("Params.java")
                         && (line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")
                         || line.contains("public boolean USE_ROLLOUT_ROOT_FILL ="))) continue;

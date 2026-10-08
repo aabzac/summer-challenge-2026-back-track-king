@@ -15,8 +15,15 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       STOP_FUTILITY_300; preserve evidence and commit the completed first stage.
       Pipeline verified; zero completed training games, no strength established.
       Selected v09 unchanged. [Results](spatial-ppo-v1.md).
-- [ ] Design the next bounded learning experiment from this stage's evidence;
-      opponent pools, distillation and value-guided search remain later stages.
+- [x] Design the next bounded learning experiment from this stage's evidence:
+      [spatial-ppo-v2](spatial-ppo-v2.md), user-authorized complete-game training.
+- [x] Train the unchanged spatial model for the fixed 8,192 real-turn budget:
+      92 completed games, eight unfinished, 1,024 optimizer steps; retain checkpoints.
+- [x] Verify late-position parity/timing, historical artifact preservation and
+      exact v2 submission (strict process 8/8 clean). Final vs initializer: 96W/4L.
+- [x] Complete practical-v4 vs v09: 0W/300L, STOP_FUTILITY_300, zero errors;
+      archive evidence and commit v2. Learning observed; strength rejected, no promotion.
+- [ ] Opponent pools, distillation and value-guided search remain later stages.
 
 ## Indrill forum readout (2026-10-06)
 
