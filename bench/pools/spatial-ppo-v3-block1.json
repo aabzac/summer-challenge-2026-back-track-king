@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "spatial-ppo-v3-block1",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 11300000,
+  "pairs": 150
+}

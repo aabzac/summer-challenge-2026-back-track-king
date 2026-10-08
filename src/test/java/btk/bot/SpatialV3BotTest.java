@@ -1,0 +1,69 @@
+package btk.bot;
+
+import btk.bot.neural.SpatialBot;
+import btk.bot.neural.SpatialNet;
+import btk.bot.neural.SpatialV3Bot;
+import btk.bot.neural.SpatialV3Weights;
+import btk.core.Action;
+import btk.core.GameState;
+import btk.core.Pathing;
+import btk.core.Rules;
+import org.junit.jupiter.api.Test;
+
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.util.HexFormat;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class SpatialV3BotTest {
+    @Test void factorySelectsExactV3WeightsAndUnchangedFrozenParameters() throws Exception {
+        Bot bot = BotFactory.create("spatial-ppo-v3");
+        assertInstanceOf(SpatialV3Bot.class, bot);
+        assertEquals("spatial-ppo-v3", bot.name());
+        assertEquals(BotFactory.configuration("spatial-ppo-v2"), BotFactory.configuration("spatial-ppo-v3"));
+        Params dirty = new Params("SPATIAL_RESERVE_MS=999,NOISE=0.8");
+        FrozenParams.applyTo("spatial-ppo-v3", dirty);
+        assertEquals(2, dirty.SPATIAL_RESERVE_MS);
+        assertEquals(.1, dirty.NOISE);
+        assertEquals(5, BotFactory.parameters("spatial-ppo-v3?SPATIAL_RESERVE_MS=5").SPATIAL_RESERVE_MS);
+        assertEquals("candidate", BotCatalog.describe("spatial-ppo-v3").category());
+        assertEquals("local_only", BotCatalog.describe("spatial-ppo-v3").status());
+        var delegateField = SpatialV3Bot.class.getDeclaredField("delegate"); delegateField.setAccessible(true);
+        var netField = SpatialBot.class.getDeclaredField("net"); netField.setAccessible(true);
+        var weightsField = SpatialNet.class.getDeclaredField("weights"); weightsField.setAccessible(true);
+        assertArrayEquals((float[]) weightsField.get(new SpatialNet(SpatialV3Weights.DATA)),
+                (float[]) weightsField.get(netField.get(delegateField.get(bot))), 0f);
+    }
+
+    @Test void wrapperMatchesFrozenRuntimeForBothSeatsAndExhaustedBudget() {
+        GameState state = new GameState(5, 2, new int[]{0,1,2,3,4,5,6,7,8,9}, new int[10],
+                new int[]{0,4}, new int[]{0,0}, new int[][]{{1},{0}});
+        state.owner[1] = 0; state.owner[2] = 1; state.turn = 17;
+        Rules.disrupt(state, 2); Rules.updateConnections(state, new Pathing(state.size));
+        for (int me = 0; me < 2; me++) {
+            Bot actual = BotFactory.create("spatial-ppo-v3");
+            SpatialBot expected = new SpatialBot(BotFactory.parameters("spatial-ppo-v3"),
+                    new SpatialNet(SpatialV3Weights.DATA), () -> 0);
+            actual.init(state, me); expected.init(state, me);
+            assertEquals(Action.format(expected.play(state.copy(), me, 60_000)),
+                    Action.format(actual.play(state.copy(), me, 60_000)), "seat=" + me);
+            assertEquals("WAIT", Action.format(actual.play(state.copy(), me, 2)));
+        }
+    }
+
+    @Test void frozenV2WeightAndWrapperSourcesRemainIdenticalAcrossLineEndings() throws Exception {
+        Map<String, String> frozen = Map.of(
+                "SpatialV2Weights.java", "63bd3bfb477bd585c8c2a4bbaa3a284666685b79e47b05da400f54f793f3ed50",
+                "SpatialInitialWeights.java", "17cd3f6e4076c406f23c2e71fd8201e457914e594c6a5b3dff6d42431f3dba19",
+                "SpatialVariantBot.java", "0d4253a1770138dcd32082d065f312711fe78c1164b031a6386e502c5c2a038a");
+        for (var entry : frozen.entrySet()) {
+            byte[] source = Files.readString(Path.of("src/main/java/btk/bot/neural", entry.getKey()))
+                    .replace("\r\n", "\n").getBytes(StandardCharsets.UTF_8);
+            assertEquals(entry.getValue(), HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(source)), entry.getKey());
+        }
+    }
+}

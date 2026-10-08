@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v3",
+      "title": "Spatial PPO Fixed Opponent Pool",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Warm-started from frozen spatial-ppo-v2 weights, with one learner seat against a fixed opponent pool. Unchanged spatial-v1 observation, network and runtime; separate generated SpatialV3Weights and no promotion. docs/spatial-ppo-v3.md."
+    },
+    {
       "id": "spatial-ppo-v2",
       "title": "Spatial PPO Longer Training",
       "category": "candidate",

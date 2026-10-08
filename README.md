@@ -122,6 +122,13 @@ late-position checks and comparison results: [spatial-ppo-v2](docs/spatial-ppo-v
 Completed: 92 training games; final beats its initializer 96/100, but wins 0/300
 against v09 (STOP_FUTILITY_300). Candidate rejected for strength; v09 stays selected.
 
+`spatial-ppo-v3` is the separate follow-up using v2 weights and a fixed pool of
+four opponents, with equal learner turns on both sides. The learner-only collector
+keeps the previous model and PPO objective. Recipe and results:
+[spatial-ppo-v3](docs/spatial-ppo-v3.md).
+Completed: 183 training games; final wins 6/100 against v2 and 0/300 against v09
+(STOP_FUTILITY_300). Rejected for strength; selected v09 unchanged.
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

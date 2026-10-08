@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "spatial-ppo-v3-vs-v2",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 11200000,
+  "pairs": 50,
+  "notes": "Predeclared progress diagnostic: pool-trained v3 versus exact starting v2; not a promotion gate."
+}

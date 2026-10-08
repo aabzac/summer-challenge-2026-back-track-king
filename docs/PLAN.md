@@ -23,7 +23,14 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       exact v2 submission (strict process 8/8 clean). Final vs initializer: 96W/4L.
 - [x] Complete practical-v4 vs v09: 0W/300L, STOP_FUTILITY_300, zero errors;
       archive evidence and commit v2. Learning observed; strength rejected, no promotion.
-- [ ] Opponent pools, distillation and value-guided search remain later stages.
+- [x] Predeclare [spatial-ppo-v3](spatial-ppo-v3.md): warm-start v2, fixed four-opponent
+      pool balanced across both seats, 16,384 learner turns and 1,024 optimizer steps.
+- [x] Implement and verify learner-only pool collection, simultaneous opponent plans
+      and preserved historical runtime/artifacts; complete 16,384 turns, 183 games.
+- [x] Verify v3 export/parity/process (strict 8/8 clean); final vs v2: 6W/94L/100.
+      Practical-v4 vs v09: 0W/300L, STOP_FUTILITY_300, zero game errors. Archive and
+      commit rejected v3; regression against v2, selected v09 unchanged.
+- [ ] Distillation and value-guided search remain later stages.
 
 ## Indrill forum readout (2026-10-06)
 

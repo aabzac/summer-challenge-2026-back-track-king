@@ -78,3 +78,32 @@ output directory. `compare_v2_panel.py --checkpoint ... --panel ... --out ...`
 checks those saved outputs against the selected Python checkpoint without games.
 Missing positions after an actual terminal are preserved as missing. Reports
 refuse replacement; a new training experiment needs new weights, recipe and bench.
+
+## Fixed opponent pool: v3
+
+`SpatialPoolBridge` wraps the frozen bridge. Eight fixed slots cover four frozen
+opponents (`spatial-ppo-v2-init`, `spatial-ppo-v2`, `v01`, `v09`) and both learner
+seats. Opponents choose once from pre-turn state before learner sampling; only
+learner trajectories enter the unchanged PPO objective. See the
+[fixed protocol](../../docs/spatial-ppo-v3.md).
+
+V3 loads v2 final weights with a fresh Adam state and RNG, then collects exactly
+16,384 learner turns. The initial/midpoint/final checkpoints are retained and
+only the final weights export to `SpatialV3Weights`. This is not exact resumption
+of v2, and existing output directories/evidence are rejected.
+
+```powershell
+# The command JSON has the same classpath as spatialRuntime, with main SpatialPoolBridge.
+python tools/spatial/run_v3_training.py --java-command-json build/spatial-v3-java.json
+python -m unittest discover -s tools/spatial -p 'test_*.py' -v
+.\gradlew.bat submit '-PsubmitVersion=spatial-ppo-v3' '-PsubmitOut=build/submit-spatial-v3'
+```
+
+The archived experiment contains the exact command JSON, exclusion manifests,
+settings, checkpoint lineage, test evidence and generated submission. The v3
+late-position regression reuses v2's diagnostic maps/tool; exact payload hashes
+and new output paths identify the tested weights, not the tool's old v2 label.
+
+Completed fixed run: 183 terminal games, 16,384 learner turns, 1,024 Adam steps.
+Final versus v2: 6W/94L/0D; versus v09: 0W/300L/0D, STOP_FUTILITY_300. Technical
+checks passed, but strength regressed; this v3 payload is not selected or promoted.

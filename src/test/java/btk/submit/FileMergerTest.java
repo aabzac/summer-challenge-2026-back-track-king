@@ -82,6 +82,35 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("neural-v2")));
     }
 
+    @Test void spatialV3ShipsOnlySelectedPayloadAndMatchesLocalRuntime() throws Exception {
+        String source = FileMerger.merge("spatial-ppo-v3");
+        var declaration = java.util.regex.Pattern.compile("String DATA\\s*=\\s*([^;]+);").matcher(source);
+        assertTrue(declaration.find());
+        var chunks = java.util.regex.Pattern.compile("\"([A-Za-z0-9+/=]+)\"").matcher(declaration.group(1));
+        StringBuilder payload = new StringBuilder();
+        while (chunks.find()) payload.append(chunks.group(1));
+        assertEquals(btk.bot.neural.SpatialV3Weights.DATA, payload.toString());
+        assertFalse(declaration.find(), "only one generated payload may ship");
+        assertTrue(source.contains("return \"spatial-ppo-v3\";"));
+        assertTrue(source.contains("static final class SpatialWeights"));
+        for (String omitted : new String[]{"SpatialV3Bot", "SpatialVariantBot", "SpatialV3Weights",
+                "SpatialV2Weights", "SpatialInitialWeights", "SpatialBridge"})
+            assertFalse(source.contains(omitted), omitted);
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("spatial-ppo-v3", true);
+    }
+
+    @Test void spatialV3RegistrationPreservesFrozenSpatialAndSelectedArtifactBytes() throws Exception {
+        assertEquals("d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7",
+                FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
+        assertEquals("a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
+                FileMerger.sha256(FileMerger.merge("spatial-ppo-v2")));
+        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                FileMerger.sha256(FileMerger.merge("current")));
+        assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+                FileMerger.sha256(FileMerger.merge("v09")));
+    }
+
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
         String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);

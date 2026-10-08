@@ -5955,3 +5955,73 @@ self-play training can succeed. Opponent pools, teacher training and search
 remain separate future stages. Full evidence/checkpoints/raw outcomes/tests,
 prospective protocol and audits retained under docs/evidence/spatial-ppo-v2*;
 BOTS/PLAN updated and completed experiment committed locally.
+
+## 2026-10-09 — spatial-ppo-v3: fixed opponent pool, completed and rejected
+
+Hypothesis: additional PPO experience against diverse frozen opponents may improve
+the exact v2 policy beyond its narrow self-play behavior. User requested the next
+planned stage. Predeclared 128 iterations, eight fixed learner slots against the
+initializer, v2, v01 and v09, both seats equally, 16,384 real learner turns and
+1,024 Adam steps. V2 weights only, fresh Adam/RNG, unchanged compact architecture,
+observations, reward and PPO objective. This is not a pool-only causal ablation.
+
+Added an independent Java pool wrapper and Python learner-only collector; native
+opponents commit once from pre-turn state before learner sampling. The unchanged
+core resolves simultaneous plans; opponent actions never enter PPO. V3 has separate
+generated weights, registration, frozen parameters and submission selector. Old
+spatial model/runtime/bridge/trainers, frozen vNN opponents, core and selected v09
+are unchanged. Native opponents use a serial ample-budget training regime, distinct
+from the CG-budget strength tests.
+
+Before gradients, fixed null-field serialization in the new wrapper: v01/v09
+have no neural weight hash, but Python expects an explicit null field. Added an
+exact-wire regression. The full scoped Java preflight passed 531 tests, followed
+by eight targeted bridge tests after the fix. Python passed 21 tests. One declared
+64-turn WAIT smoke passed, and all eight smoke maps joined exclusions. Six known
+untracked Pduhard tests remain excluded; do not call this an unqualified suite pass.
+
+Training completed 183 games plus eight unfinished trajectories on 191 fresh maps:
+16,384 learner rows, zero opponent rows, 65,536 legal choices. Each slot contributed
+2,048 turns, each opponent 4,096 completed legal decisions with no failed calls.
+Independent checks reconciled every reward, terminal, reset and map identity.
+Checkpoints at 0/64/128 retain Adam steps 0/512/1,024; only final was evaluated.
+Total 1,260.24 s; collection 1,181.82 s, learning 67.94 s; native opponent time
+349.07 s is included in collection. Final raw payload SHA da267469...5f98bd matches
+the checkpoint, Base64 and Java export exactly.
+
+A coordination incident added one test-only method 15 seconds after the source
+freeze. It was never imported or run by training. Preserved the expanded file and
+restored the exact original six-test bytes, verifying all 573 frozen files. No
+production/optimizer/weights/config change or training restart occurred; original
+freeze retained. The expanded seven-test copy passed separately after training.
+The first final Java command failed before any task because of misplaced --tests;
+its log is retained. Corrected declared checks passed: five Java tests, 21 regular
+Python tests and 292/292 engine replays. These were not strength/timing retries.
+
+Training numerical parity: 72 initial/final observations, zero greedy mismatches,
+final max error 6.104e-5. Exposed late regression: 16/20 positions, 128 conditional
+observations/model, zero greedy mismatches, 32/32 traced/ample/nominal plans agree.
+No cuts/errors/skips; final nominal mean 8.622 ms, p95 14.953 ms, max 18.153 ms.
+Strict process 8/8 clean, first response max 579.756 ms, later max 29.237 ms.
+Exact Player is 84,315 characters, SHA 2e873833...7dfc7. Prior artifact identities
+remain intact; this finite local panel is not a CG-host timing guarantee.
+
+Fixed progress test versus exact v2: **6W/94L/0D / 100**, 3/50 wins from each seat,
+mean score difference -404.05, zero errors/slow calls on either side, 101.023 s.
+Fifty fresh paired maps, seeds 11200000..11200049, two workers, CG budgets;
+map-grouped Hoeffding diagnostic 95% interval [0%,25.21%]. The candidate regressed.
+
+Independent practical-v4 versus v09: **0W/300L/0D**, mean difference -11,820.94,
+zero errors, slow calls 0/1, 484.535 s. Two workers, CG budgets, 150 fresh paired
+maps from seed 11300000. Mandatory **STOP_FUTILITY_300**; no blocks 2/3 or boss.
+All 200 evaluation maps are distinct, disjoint from prior/training/smoke/regression
+maps. The v09 exclusion index also includes all 50 progress maps. All eight archived
+process maps were already excluded. Post-comparison verification passed all 641
+evaluation-frozen file hashes; no tuning, checkpoint selection or retries.
+
+Decision: reject v3 for strength, retain the pool implementation and full evidence,
+keep selected v09. The source of regression is not established; this does not
+invalidate larger training recipes or reproduce the full top-3 system. Distillation
+and value-guided search remain future stages. Updated BOTS/PLAN and retained raw
+reports, checkpoints, prospective protocol, test logs/XML, incidents and audits
+under docs/evidence/spatial-ppo-v3*. Commit locally; no promotion, upload or push.
