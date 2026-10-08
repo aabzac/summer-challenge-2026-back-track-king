@@ -115,9 +115,10 @@ public class FileMerger {
         boolean neural = version.equals("neural-v1") || neuralV2 || neuralDeadline;
         boolean indrillV2 = version.equals("indrill-q-v2");
         boolean indrill = version.equals("indrill-q-v1") || indrillV2;
+        boolean spatial = version.equals("spatial-ppo-v1");
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
-                && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural && !indrill) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1 or indrill-q-v2");
+                && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural && !indrill && !spatial) {
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2 or spatial-ppo-v1");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
@@ -129,6 +130,7 @@ public class FileMerger {
                 : version.equals("v07") ? "bot/v07/RolloutBotV07.java"
                 : version.equals("v08") ? "bot/v08/RolloutBotV08.java"
                 : version.equals("v09") ? "bot/v09/RolloutBotV09.java"
+                : spatial ? "bot/neural/SpatialBot.java"
                 : neuralV7 ? "bot/neural/NeuralV7Bot.java"
                 : neuralV6 ? "bot/neural/NeuralV6Bot.java"
                 : neuralV5 ? "bot/neural/NeuralV5Bot.java"
@@ -152,6 +154,11 @@ public class FileMerger {
         if (neuralV5 || neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/HypotheticalIncome.java"));
         if (neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
         files.add(SRC_ROOT.resolve(policy));
+        if (spatial) {
+            files.add(SRC_ROOT.resolve("bot/neural/SpatialObservation.java"));
+            files.add(SRC_ROOT.resolve("bot/neural/SpatialNet.java"));
+            files.add(SRC_ROOT.resolve("bot/neural/SpatialWeights.java"));
+        }
         if (neural) {
             files.add(SRC_ROOT.resolve(neuralV6 || neuralV7 ? "bot/neural/NeuralV6Features.java"
                     : neuralV5 ? "bot/neural/NeuralV5Features.java"
@@ -179,6 +186,8 @@ public class FileMerger {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
+                if (!spatial && file.endsWith("Params.java") && line.contains("public int SPATIAL_RESERVE_MS =")) continue;
+                if (spatial && file.endsWith("SpatialBot.java")) line = line.replaceAll("\\bSpatialBot\\b", "EvalBot");
                 if (!(version.equals("current") && rollout) && file.endsWith("Params.java")
                         && (line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")
                         || line.contains("public boolean USE_ROLLOUT_ROOT_FILL ="))) continue;

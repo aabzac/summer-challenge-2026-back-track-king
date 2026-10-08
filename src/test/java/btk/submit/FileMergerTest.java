@@ -30,6 +30,23 @@ class FileMergerTest {
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("exp-income-guard"));
     }
 
+    @Test void spatialPpoShipsOnlyItsPolicyAndPreservesExistingConfigurations() throws Exception {
+        assertEquals("candidate", btk.bot.BotCatalog.describe("spatial-ppo-v1").category());
+        String source = FileMerger.merge("spatial-ppo-v1");
+        FileMerger.checkSourceSize(source);
+        assertTrue(source.contains("static final class SpatialNet"));
+        assertTrue(source.contains("static final class SpatialWeights"));
+        assertTrue(source.contains("SPATIAL_RESERVE_MS=2"));
+        assertFalse(source.contains("SpatialBridge"));
+        assertFalse(source.contains("com.google.gson"));
+        checkFrozenDecisions("spatial-ppo-v1", true);
+        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v6", "indrill-q-v2"}) {
+            assertFalse(FileMerger.merge(prior).contains("SPATIAL_RESERVE_MS"), prior);
+            assertFalse(FileMerger.merge(prior).contains("class SpatialNet"), prior);
+            assertFalse(BotFactory.configuration(prior).containsKey("SPATIAL_RESERVE_MS"), prior);
+        }
+    }
+
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
         String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);

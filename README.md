@@ -96,6 +96,24 @@ are described in [heuristic-policy.md](docs/heuristic-policy.md).
 Add `USE_HEURISTIC_DETOUR=1` to that spec for the optional bounded recovery-paint sabotage
 experiment. It is off by default and does not change construction rules.
 
+`spatial-ppo-v1` is a separate compact spatial policy/value prototype inspired by
+Pduhard's final self-play architecture. Its first fixed four-update run exercises
+the complete Java-engine/Python-PPO/Java-export pipeline, with no search. The
+3,439-weight network has 24 board planes, a town table and residual/global layers.
+It is a technical prototype; selected v09 remains unchanged. Exact settings,
+checks, strength verdict and limitations: [spatial-ppo-v1](docs/spatial-ppo-v1.md).
+Training/runtime instructions: [tools/spatial](tools/spatial/README.md).
+
+```powershell
+.\gradlew.bat spatialRuntime --offline --console=plain
+.\gradlew.bat submit '-PsubmitVersion=spatial-ppo-v1' '-PsubmitOut=build/submit-spatial-v1'
+.\gradlew.bat procCheck '-PsubmitOut=build/submit-spatial-v1' '-Pbot=v09' '-Pgames=8'
+```
+
+The generated `btk.bot.neural.SpatialWeights` is frozen by the completed experiment;
+new training requires a new weight artifact and bench. Existing `Neural*` weights
+are unchanged.
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

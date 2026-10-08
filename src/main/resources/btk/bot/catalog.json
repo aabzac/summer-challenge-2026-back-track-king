@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v1",
+      "title": "Spatial PPO Prototype",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Independent 3439-weight spatial policy/value, four-update PPO technical run; no search or promotion. docs/spatial-ppo-v1.md."
+    },
+    {
       "id": "v00",
       "title": "Autoplace",
       "category": "version",

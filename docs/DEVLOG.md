@@ -5828,3 +5828,62 @@ and 2.83. Disrupt 99.8% vs 71.0%. STOP_FUTILITY_300. Boss not started.
 Decision: reject. Do not retune the linear weights against this sample. The missing piece
 in the post is the trained network, not another hand coefficient. Selected v09 unchanged.
 No upload or promotion.
+
+## 2026-10-08 — spatial-ppo-v1: complete pipeline, 0/300 strength rejection
+
+Hypothesis: a small fresh spatial policy/value CNN can train with complete-plan
+PPO through the shared Java rules, export exactly to Java, and run as a legal
+submission. This is the first authorized stage of the independent Pduhard plan;
+earlier untracked beam/linear-probe work is outside this change.
+
+Implemented 24 padded spatial planes, town features, an 8-channel residual CNN
+with global broadcast, build/STOP/disrupt/value heads and 3,439 weights. Three
+conditional construction choices and one disruption form one plan likelihood.
+Both players choose before one simultaneous core resolve; gamma/reward advance
+once per real turn. Java supplies observations and legal masks; no core changes.
+Python CPU PyTorch owns PPO. Generated Java inference uses reusable arrays and
+cooperative interruption, preserving the completed action prefix. Registered the
+separate candidate/frozen configuration and exact submission packaging; historical
+artifacts and selected v09 remain unchanged.
+
+The one predeclared run used four maps, four 16-turn rollouts, two PPO epochs:
+256 environment turns, 512 seat samples, 32 optimizer steps in 16.60 seconds.
+All 2,048 internal decisions legal. Four games reached turn 64; none finished.
+Weight L2 change 0.16576; last-rollout critic MSE 3.05554 -> 3.04436. These establish
+parameter updates, not useful value or playing strength. Collection 13.31 seconds
+includes network/serialization/transport/environment; optimization 1.49 seconds.
+Initial/final checkpoints retained with optimizer/settings/RNG, without live
+environment state or exact-resume support.
+
+Initial and final parity on 64 early observations passed, masked greedy actions
+identical, final max absolute error 1.79e-7. Seven Python tests and 510 scoped Java
+tests pass; 292/292 CG replays exact. Initial full test run 516/9 failures: six
+pre-existing untracked beam tests request an absent factory bot, three new
+parameter-count expectations were corrected. The scoped rerun excluded only
+that old class. Catalog/spatial packaging targeted checks passed after preflight.
+
+Submission 84,315 chars, source SHA256
+d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7.
+Strict exact-artifact process 8/8 clean, zero grace, first max 983.8379 ms and
+later 36.5099 ms. Serial profile 128 seat samples: 125 identical nominal/ample plans,
+three disruption cutoffs but all 384 paint units preserved, no errors/skips or
+uninterrupted mismatches. Nominal mean 18.985 ms / p95 32.021 ms / max 38.823 ms. First-turn
+margin is narrow, and early-position profiling does not cover dense late games.
+
+Practical-v4 block1, seed 9800000, two workers: **0W/300L/0D**, mean difference
+-16,393.08, zero game errors, slow calls 14 candidate / 10 control, 510.979 seconds.
+150 distinct paired maps exclude 20,161 prior maps including all 8 training/profile
+maps. Mandatory STOP_FUTILITY_300; no additional block or boss games.
+Two initial setup failures (exclusion-count schema, missing catalog metadata)
+occurred before any games and changed no model/recipe/seeds. Both logs retained.
+All 432 source/artifact hashes matched the pre-game manifest plus its catalog-only
+amendment after play; effective configs and exact process artifact also matched.
+
+Decision: retain the working technical pipeline and reject this candidate for
+strength. The short smoke never saw a terminal and cannot judge the full Pduhard
+approach. A separate next experiment should collect complete games and evaluate
+learning against an untrained baseline, with fresh maps and a declared budget;
+no extra training is launched here. Protocol, metrics, checkpoints, executable,
+reports, maps and audit manifests retained under docs/evidence/spatial-ppo-v1*.
+Record in BOTS/PLAN and commit locally under the working agreement. No push,
+upload or promotion; selected v09 unchanged.

@@ -13,6 +13,18 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-08: **spatial-ppo-v1**, first complete compact spatial CNN/PPO
+pipeline inspired by Pduhard. Fixed smoke training: 256 environment turns,
+512 seat samples, 32 optimizer steps, 3,439 weights; all 2,048 internal decisions
+legal, but zero completed training games. Initial/final Java/Python parity 64/64;
+510 scoped Java tests, 7 Python tests, 292 exact replays, strict process 8/8 clean.
+The full suite still includes six failing tests from the pre-existing untracked
+beam prototype. Local timing has occasional cooperative cutoffs/slow calls.
+Practical-v4 vs v09, seed 9800000, two workers: **0W/300L/0D (0%)** on 150 fresh
+paired maps, zero game errors, `STOP_FUTILITY_300`. Boss skipped. Technical
+pipeline retained; candidate rejected for strength, selected v09 unchanged.
+[Protocol, evidence and limits](spatial-ppo-v1.md).
+
 Verified arena snapshot (2026-10-04, Europe/Bucharest): user-uploaded **neural-v3**,
 agent6779375, Silver **134/712**, score22.4, placement100%, inProgress=false.
 The fixed latest40 games give20W20L across22 opponent agents; all40 reproduce exactly,
@@ -1016,6 +1028,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v1 | 2026-10-08 | Separate 3,439-weight spatial policy/value CNN; simultaneous exact-core self-play, full-plan PPO, generated Java inference. Fixed 256-turn technical training run. | Practical-v4 vs v09: **0W/300L/0D (0%)**, 150 fresh paired maps, STOP_FUTILITY_300. Zero errors; strict process 8/8 clean. | Not uploaded; no promotion. [Evidence](spatial-ppo-v1.md). |
 | v00 Autoplace | 2026-09-13 | `AUTOPLACE` towards the first inactive desired pair. Wood 2 exit. | ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ | not submitted |
 | v01 Greedy Routes | 2026-09-13 | Dijkstra cheapest path per inactive pair; rank by `(free + own - opp) * turnsEarning / (turnsToFinish+1)`; spend 3 paint along the best path, leftover to next pair. Idles (`WAIT`) once every pair is connected. No DISRUPT. | vs v00: 66% [56-75], n=100, CG maps (Wood rules) | not submitted separately |
 | v02 Route Evaluation | 2026-09-13 | Simulation-evaluated candidates: per pair, cheapest route (any tracks) + own route avoiding opponent tracks (steal); value = income delta after completion (mine ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ opp) ÃÂÃÂÃÂÃÂ turns earning ÃÂÃÂÃÂÃÂ instability risk / (turnsToFinish+1). Free DISRUPT chosen by simulating ink of each region (opp income lost ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ 1.2 ÃÂÃÂÃÂÃÂ own loss, + not-yet-earning tracks) / disrupts needed. Routing surcharge for unstable regions. `NOISE` param to break self-play mirrors. | vs v01: 100% (300-0), +29k pts. Ablations (both sides NOISE=0.2, n=300): no DISRUPT 97.3%, no STEAL 87.5%, no instability avoidance 54.8% [49-60]. | not submitted separately |

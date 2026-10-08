@@ -1,0 +1,221 @@
+{
+  "config": {
+    "schema": "spatial-ppo-v1",
+    "initialization_seed": 20261008,
+    "map_seed_start": 9700000,
+    "iterations": 4,
+    "environments": 4,
+    "rollout_turns": 16,
+    "epochs": 2,
+    "minibatch": 32,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip": 0.2,
+    "entropy_coefficient": 0.01,
+    "value_coefficient": 0.5,
+    "reward_scale": 100.0,
+    "terminal_bonus": 30.0,
+    "gradient_clip": 0.5,
+    "torch_threads": 2,
+    "opponents": "current/current-both-seats",
+    "torch_version": "2.8.0+cpu",
+    "numpy_version": "2.3.5",
+    "java_command": [
+      "C:\\Program Files\\Java\\jdk-17\\bin\\java.exe",
+      "-Xmx1g",
+      "-cp",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\classes\\java\\main;C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\resources\\main;C:\\Users\\garus\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.gson\\gson\\2.11.0\\527175ca6d81050b53bdd4c457a6d6e017626b0e\\gson-2.11.0.jar;C:\\Users\\garus\\.gradle\\caches\\modules-2\\files-2.1\\com.google.errorprone\\error_prone_annotations\\2.27.0\\91b2c29d8a6148b5e2e4930f070d4840e2e48e34\\error_prone_annotations-2.27.0.jar",
+      "btk.tools.spatial.SpatialBridge"
+    ],
+    "source_sha256": {
+      "src/main/java/btk/bot/neural/SpatialBot.java": "72fa785972751c2e0b10d7cc3628e386692564d997c3363d46135c06eb087494",
+      "src/main/java/btk/bot/neural/SpatialNet.java": "c66935366d8aac3f7775c5d09546c71b349fdfd86aca380fe71168cdb541d8cb",
+      "src/main/java/btk/bot/neural/SpatialObservation.java": "10dc8e80edf7c97cd87b88f018f5588546618b7a8a86207687d9c26595e4b6e0",
+      "src/main/java/btk/core/Action.java": "d6ec211f4e4ccb559de9b3420519749de1bde1e423932bd65a70a37278f9ac07",
+      "src/main/java/btk/core/FeaturePaths.java": "9f1e5e94ffd8a299da687666f512fb55a86975a614683a56df36334afbbfef51",
+      "src/main/java/btk/core/GameState.java": "96dfeb45b10a90517d8eec93dc0b9ce5624d2239348c237346f7ad1cc9162943",
+      "src/main/java/btk/core/HypotheticalIncome.java": "cfa68235ab1463edd6f2dfb32c37163e7b334e56a614c48dbc5320df58b3ad23",
+      "src/main/java/btk/core/InkProjection.java": "32ced1f6f9a41650ab679c897248ba522839ed9d5110f0d154053747784e1785",
+      "src/main/java/btk/core/NetworkCells.java": "8f253d578b56e30de3ea246514f6cafd501222767a67c600a1ba78e63d7f246b",
+      "src/main/java/btk/core/NetworkChords.java": "9a0ddd5d6b8782e663d78d59742797c237a871ed0420b8072bd9d308fe6fea70",
+      "src/main/java/btk/core/Pathing.java": "93f0ab4cf9f90f2a37d9794a69a60488183cb9f51c7458b4bbcd000e69f689f5",
+      "src/main/java/btk/core/Protocol.java": "e98d8fbc901cf4a94b83017cd321411f39e3f72d915c524bd88d7db6aa1d1b26",
+      "src/main/java/btk/core/Rules.java": "c05c75ccb105b5bb3eb2640a89ba29605e3fb2b89601635c41cd6ef91a122162",
+      "src/main/java/btk/core/SearchState.java": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b",
+      "src/main/java/btk/core/TacticalPathing.java": "b0b1e6b2e57e48e353b88b92583171bde3fbd8131e9892e2878238cc5af0b22a",
+      "src/main/java/btk/tools/spatial/SpatialBridge.java": "8f82118ed49123e5cc6cc620d591beae028e506f328f9abd05eac8c0a9930a20",
+      "tools/spatial/bridge.py": "c6f4d698d2024366a665935319e916dee3b9586d8fcc0496b437553a7d2f2ac2",
+      "tools/spatial/model.py": "5f8b18849358f5be4322f80f73c9f2d3ee5e10269a030866c41a0a34b8035a7f",
+      "tools/spatial/ppo.py": "3c181bb1e61f975bbf857622f636ad562d6548eea5e23f265523e8bfe4c57500",
+      "tools/spatial/test_spatial.py": "d7c9f968fceb7c62264f618306db939b17be2d7418af7fe00a52a539e41f1ae2",
+      "tools/spatial/train_spatial.py": "18000ab966c251fa61c214a19ca34e70dbe01fc8395bf63d8b32dfa0d04ed7e4"
+    }
+  },
+  "iterations": [
+    {
+      "iteration": 1,
+      "environment_turns": 64,
+      "seat_samples": 128,
+      "collection_seconds": 3.9270026001613587,
+      "learning_seconds": 0.4286967997904867,
+      "reward_mean": 0.0,
+      "reward_abs_mean": 0.0,
+      "return_mean": 0.2902355194091797,
+      "return_variance": 0.00015261401131283492,
+      "value_mse_before": 2.8885375286336057e-05,
+      "value_mse_after": 6.909533112775534e-05,
+      "logprob_recompute_max_error": 0.0,
+      "value_recompute_max_error": 5.960464477539063e-08,
+      "policy_loss": -0.0019093600567430258,
+      "value_mse": 4.050081361128832e-05,
+      "entropy": 18.264386892318726,
+      "approx_kl": 7.432978600263596e-05,
+      "clip_fraction": 0.0,
+      "gradient_norm": 0.45643511414527893
+    },
+    {
+      "iteration": 2,
+      "environment_turns": 128,
+      "seat_samples": 128,
+      "collection_seconds": 3.2005203999578953,
+      "learning_seconds": 0.3215481999795884,
+      "reward_mean": 0.0,
+      "reward_abs_mean": 0.007968749850988388,
+      "return_mean": 0.35001620650291443,
+      "return_variance": 0.0069162240251898766,
+      "value_mse_before": 0.005867346189916134,
+      "value_mse_after": 0.005832974798977375,
+      "logprob_recompute_max_error": 0.0,
+      "value_recompute_max_error": 2.9802322387695312e-08,
+      "policy_loss": -0.0011333662550896406,
+      "value_mse": 0.005849460605531931,
+      "entropy": 17.148335456848145,
+      "approx_kl": 2.556620165705681e-05,
+      "clip_fraction": 0.0,
+      "gradient_norm": 0.4350387267768383
+    },
+    {
+      "iteration": 3,
+      "environment_turns": 192,
+      "seat_samples": 128,
+      "collection_seconds": 3.2491016001440585,
+      "learning_seconds": 0.3697208999656141,
+      "reward_mean": 0.0,
+      "reward_abs_mean": 0.030781254172325134,
+      "return_mean": 0.4289051592350006,
+      "return_variance": 0.10441291332244873,
+      "value_mse_before": 0.1033209040760994,
+      "value_mse_after": 0.10275636613368988,
+      "logprob_recompute_max_error": 1.9073486328125e-06,
+      "value_recompute_max_error": 2.9802322387695312e-08,
+      "policy_loss": -0.0014966614544391632,
+      "value_mse": 0.10325660090893507,
+      "entropy": 15.648778080940247,
+      "approx_kl": 2.5148270651698112e-05,
+      "clip_fraction": 0.0,
+      "gradient_norm": 0.44267579540610313
+    },
+    {
+      "iteration": 4,
+      "environment_turns": 256,
+      "seat_samples": 128,
+      "collection_seconds": 2.932958299992606,
+      "learning_seconds": 0.36692410008981824,
+      "reward_mean": 0.0,
+      "reward_abs_mean": 0.24984371662139893,
+      "return_mean": 0.5054824948310852,
+      "return_variance": 3.0950982570648193,
+      "value_mse_before": 3.0555360317230225,
+      "value_mse_after": 3.0443613529205322,
+      "logprob_recompute_max_error": 0.0,
+      "value_recompute_max_error": 5.960464477539063e-08,
+      "policy_loss": -0.0006870473735034466,
+      "value_mse": 3.051534801721573,
+      "entropy": 11.911376953125,
+      "approx_kl": 1.1238502338528633e-05,
+      "clip_fraction": 0.0,
+      "gradient_norm": 1.0163349471986294
+    }
+  ],
+  "initial_weights_sha256": "a60252899a6ebed8e599fc7ba9a22a53798bc38c1375329c4ecda81f25d96708",
+  "initial_parity": {
+    "observations": 64,
+    "max_abs_error": {
+      "build": 8.940696716308594e-08,
+      "disrupt": 1.1920928955078125e-07,
+      "value": 5.960464477539063e-08
+    },
+    "tolerance": 0.0001,
+    "greedy_equal": true
+  },
+  "final_parity": {
+    "observations": 64,
+    "max_abs_error": {
+      "build": 1.341104507446289e-07,
+      "disrupt": 1.7881393432617188e-07,
+      "value": 8.940696716308594e-08
+    },
+    "tolerance": 0.0001,
+    "greedy_equal": true
+  },
+  "environment_turns": 256,
+  "seat_samples": 512,
+  "legal_decisions": 2048,
+  "total_decisions": 2048,
+  "finished_games": [],
+  "last_scores": [
+    [
+      1443,
+      1189
+    ],
+    [
+      1299,
+      2180
+    ],
+    [
+      1191,
+      1291
+    ],
+    [
+      1408,
+      1406
+    ]
+  ],
+  "next_map_seed": 9700004,
+  "maps": [
+    {
+      "seed": 9700000,
+      "id": 0,
+      "width": 23,
+      "height": 15,
+      "mapSha256": "02de6523d1bd1e5bdd95cab59c7d97519bd6fd7899be642dce509d0baa151d66"
+    },
+    {
+      "seed": 9700001,
+      "id": 1,
+      "width": 24,
+      "height": 16,
+      "mapSha256": "4b40fb96bd994b0d6ac99dc6d78b61d6853a34bfaa9dda03ed49d795a4a68b54"
+    },
+    {
+      "seed": 9700002,
+      "id": 2,
+      "width": 24,
+      "height": 16,
+      "mapSha256": "e1849efd513ab4c15e4d03d1e82d499a753bfd7bddf479b80d933348d581567d"
+    },
+    {
+      "seed": 9700003,
+      "id": 3,
+      "width": 26,
+      "height": 17,
+      "mapSha256": "112a634c4c0f124ac32d84b16afcb2c9af2f0d07e31a310dfdfdce8d4ca95269"
+    }
+  ],
+  "bridge_calls": 259,
+  "weight_l2_change": 0.1657586246728897,
+  "weight_max_abs_change": 0.008491989225149155,
+  "total_seconds": 16.599502600030974,
+  "final_weights_sha256": "bdac3d79ac5965c08f04a98b4e59e07ec19760f81b917ca2a941027ec0b32a69"
+}

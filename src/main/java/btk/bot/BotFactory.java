@@ -11,6 +11,7 @@ import btk.bot.neural.NeuralV4Bot;
 import btk.bot.neural.NeuralV5Bot;
 import btk.bot.neural.NeuralV6Bot;
 import btk.bot.neural.NeuralV7Bot;
+import btk.bot.neural.SpatialBot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
 import btk.bot.reference.PressureBot;
@@ -80,7 +81,7 @@ public final class BotFactory {
                 || version.equals("neural-v1") || version.equals("neural-v2") || version.equals("neural-v3")
                 || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("neural-v6") || version.equals("neural-v7")
                 || version.equals("indrill-q-v1")
-                || version.equals("indrill-q-v2")) FrozenParams.applyTo(version, params);
+                || version.equals("indrill-q-v2") || version.equals("spatial-ppo-v1")) FrozenParams.applyTo(version, params);
         return params.apply(query);
     }
 
@@ -91,6 +92,7 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
+                if (field.getName().equals("SPATIAL_RESERVE_MS") && !version(spec).equals("spatial-ppo-v1")) continue;
                 if ((field.getName().equals("USE_ROLLOUT_ALL_CELL_RISK") || field.getName().equals("USE_ROLLOUT_ROOT_FILL"))
                         && (!(version(spec).equals("current") || version(spec).equals("main"))
                         || !params.USE_ROLLOUT_POLICY)) continue;
@@ -140,6 +142,7 @@ public final class BotFactory {
             case "neural-v5": return NeuralV5Bot::new;
             case "neural-v6": return NeuralV6Bot::new;
             case "neural-v7": return NeuralV7Bot::new;
+            case "spatial-ppo-v1": return SpatialBot::new;
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
             case "indrill-forum-v1": return IndrillForumBot::new;

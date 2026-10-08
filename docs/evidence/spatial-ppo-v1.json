@@ -1,0 +1,140 @@
+{
+  "experiment": "spatial-ppo-v1",
+  "date": "2026-10-08",
+  "technicalStage": "COMPLETE",
+  "strengthVerdict": "STOP_FUTILITY_300",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "NOT_RUN",
+  "training": {
+    "updates": 4,
+    "optimizerSteps": 32,
+    "environmentTurns": 256,
+    "seatSamples": 512,
+    "finishedGames": 0,
+    "legalDecisions": 2048,
+    "totalDecisions": 2048,
+    "seconds": 16.599502600030974,
+    "weightsSha256": "bdac3d79ac5965c08f04a98b4e59e07ec19760f81b917ca2a941027ec0b32a69",
+    "parityInitial": {
+      "observations": 64,
+      "max_abs_error": {
+        "build": 8.940696716308594e-08,
+        "disrupt": 1.1920928955078125e-07,
+        "value": 5.960464477539063e-08
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true
+    },
+    "parityFinal": {
+      "observations": 64,
+      "max_abs_error": {
+        "build": 1.341104507446289e-07,
+        "disrupt": 1.7881393432617188e-07,
+        "value": 8.940696716308594e-08
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true
+    }
+  },
+  "checks": {
+    "scopedJavaTests": 510,
+    "scopedJavaFailures": 0,
+    "pythonTests": 7,
+    "engineReplaysExact": 292,
+    "fullSuiteInitialTests": 516,
+    "fullSuiteInitialFailures": 9,
+    "threeNewFieldCountAssertionsCorrected": true,
+    "preexistingUntrackedExcludedTests": {
+      "class": "PduhardBeamBotTest",
+      "count": 6,
+      "reason": "unknown bot pduhard-beam-v1 already absent from factory at task start"
+    },
+    "catalogAndSpatialPackagingTargetedRerun": "PASS"
+  },
+  "profile": {
+    "maps": 4,
+    "positions": 64,
+    "seatSamples": 128,
+    "actionMatches": 125,
+    "actionMismatches": 3,
+    "uninterruptedActionMismatches": 0,
+    "ampleInterrupted": 0,
+    "nominalInterrupted": 3,
+    "nominalCallsOver36Ms": 1,
+    "errors": 0,
+    "skippedActions": 0,
+    "amplePaintUsed": 384,
+    "nominalPaintUsed": 384,
+    "ampleZeroPaintSamples": 0,
+    "nominalZeroPaintSamples": 0,
+    "amplePlayMs": {
+      "samples": 128,
+      "min": 6.0284,
+      "mean": 19.346866406249998,
+      "p95": 34.8549,
+      "max": 55.4926
+    },
+    "nominalPlayMs": {
+      "samples": 128,
+      "min": 6.4661,
+      "mean": 18.984755468750002,
+      "p95": 32.0214,
+      "max": 38.8227
+    },
+    "prepareMs": {
+      "samples": 128,
+      "min": 0.0671,
+      "mean": 0.41228281250000004,
+      "p95": 1.2885,
+      "max": 1.6769
+    },
+    "standaloneForwardMs": {
+      "samples": 128,
+      "min": 2.3529,
+      "mean": 5.002545312499999,
+      "p95": 8.3293,
+      "max": 15.0075
+    }
+  },
+  "artifact": {
+    "characters": 84315,
+    "sha256": "d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7",
+    "buildId": "c1de9231c122016b7e28e2a2a7bb09cdfdd1ccd602781ecaf4c45992ef8e3d41",
+    "processGames": 8,
+    "processProblems": 0,
+    "firstResponseMaxMs": 983.8379,
+    "laterResponseMaxMs": 36.5099
+  },
+  "bench": {
+    "games": 300,
+    "wins": 0,
+    "losses": 300,
+    "draws": 0,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      14,
+      10
+    ],
+    "maps": 150,
+    "developmentMapsExcluded": 8,
+    "allPriorMapsExcluded": 20161,
+    "workers": 2,
+    "baseSeed": 9800000,
+    "meanScoreDifference": -16393.076666666668,
+    "elapsedMs": 510979
+  },
+  "freezeAudit": {
+    "unchangedFiles": 432,
+    "catalogOnlyAmendmentBeforeGames": true,
+    "preflightFailuresBeforeAnyGames": [
+      "positive exclusion exposure count required",
+      "missing local catalog entry"
+    ],
+    "trainingSourceHashesCapturedBeforeGradients": true,
+    "broaderManifestCapturedAfterTraining": true
+  }
+}

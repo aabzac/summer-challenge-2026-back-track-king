@@ -3,6 +3,21 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Spatial PPO first complete pipeline (2026-10-08)
+
+- [x] Independently review Pduhard's final policy/value/self-play architecture and
+      agree a staged implementation with the user; predeclare `spatial-ppo-v1`.
+- [x] Implement compact CNN, exact-core simultaneous environment bridge, complete-plan
+      PPO and generated Java weights; verify masks, rewards and numerical parity.
+- [x] Complete the fixed four-update technical training run, profile collection,
+      learning and Java inference, and validate the exact packaged artifact.
+- [x] Run and record the one fixed practical-v4 comparison: 0W/300L/0D,
+      STOP_FUTILITY_300; preserve evidence and commit the completed first stage.
+      Pipeline verified; zero completed training games, no strength established.
+      Selected v09 unchanged. [Results](spatial-ppo-v1.md).
+- [ ] Design the next bounded learning experiment from this stage's evidence;
+      opponent pools, distillation and value-guided search remain later stages.
+
 ## Indrill forum readout (2026-10-06)
 
 - [x] Write `indrill-forum-v1`: greedy readout of the published route observation

@@ -67,6 +67,29 @@ tasks.register<JavaExec>("botCatalog") {
     args = listOf(prop("bot", ""))
 }
 
+/** Persistent exact-core interface; Python starts it directly using spatialRuntime metadata. */
+tasks.register<JavaExec>("spatialBridge") {
+    group = "game"
+    mainClass.set("btk.tools.spatial.SpatialBridge")
+    classpath = sourceSets["main"].runtimeClasspath
+    standardInput = System.`in`
+}
+
+tasks.register("spatialRuntime") {
+    group = "game"
+    dependsOn("classes")
+    doLast {
+        val out = layout.buildDirectory.file("spatial-runtime.json").get().asFile
+        fun quoted(s: String) = "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
+        val javaName = if (System.getProperty("os.name").startsWith("Windows")) "java.exe" else "java"
+        val executable = file(System.getProperty("java.home") + "/bin/" + javaName).absolutePath
+        out.writeText("{\"java\":" + quoted(executable) + ",\"classpath\":" + quoted(sourceSets["main"].runtimeClasspath.asPath) + "}")
+        val command = listOf(executable, "-Xmx1g", "-cp", sourceSets["main"].runtimeClasspath.asPath,
+            "btk.tools.spatial.SpatialBridge")
+        layout.buildDirectory.file("spatial-java.json").get().asFile.writeText(command.joinToString(",", "[", "]") { quoted(it) })
+    }
+}
+
 /** Merge core + bot.current into build/submit/Player.java and compile-check it. */
 tasks.register<JavaExec>("submit") {
     group = "game"
