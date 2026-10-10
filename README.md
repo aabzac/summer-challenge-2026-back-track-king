@@ -181,6 +181,14 @@ full-plan agreement, and observed exact-input contradictions are rare. The main
 same-example fitting gap remains unresolved; selected v09 is unchanged.
 [Protocol, results and reproduction](docs/spatial-label-audit-v1.md).
 
+`spatial-fit-probe-v1` tests whether unchanged V4 can learn a fixed small TRAIN
+subset. One 3,072-step run improves 118/192 decisions to 192/192; actual Java
+full plans and semantic successors improve from 8/48 to 48/48. Agreement on the
+remaining training examples and previously exposed validation worsens. This
+establishes subset trainability, without a new candidate or strength claim.
+Selected v09 and original stage-3 status remain unchanged.
+[Protocol, results and reproduction](docs/spatial-fit-probe-v1.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

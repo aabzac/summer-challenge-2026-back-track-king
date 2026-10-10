@@ -1,0 +1,472 @@
+{
+  "recordedAt": "2026-10-10T21:02:32.576827+00:00",
+  "experiment": "spatial-fit-probe-v1",
+  "archiveSha256": "58bea96e5fcf9994549e235136920187a2ef78edd6bb23c470cae968673f0432",
+  "archiveBytes": 1616009,
+  "dependencies": {
+    "docs/evidence/spatial-ppo-v4-artifacts.zip": "773b31e6c37b08549d879af9f63e8e35f57ca45607805d534d48d6362b1fba09",
+    "docs/evidence/spatial-label-audit-v1-artifacts.zip": "c2d7a1cd999e8a1c2ecd88cb141961eb9ca3dc3cc182619e97cabc1f1d0f2371"
+  },
+  "files": {
+    "build/analysis/spatial-fit-probe-v1/engine-preflight-command.json": {
+      "sha256": "d6be74e2a38b59ff1b0be293307250fc8835998b4bd2023bffd6807a4638e9de",
+      "bytes": 216
+    },
+    "build/analysis/spatial-fit-probe-v1/engine-preflight-exit.json": {
+      "sha256": "9b8b648999ef6daa84d7615a1e5b32c2b2c3fbb5882226644f10c08889be2a46",
+      "bytes": 162
+    },
+    "build/analysis/spatial-fit-probe-v1/engine-preflight.log": {
+      "sha256": "2abbd401fcdbf5110d32f9606823dbee01785cfb2bc986f1608e5373e35c5422",
+      "bytes": 229
+    },
+    "build/analysis/spatial-fit-probe-v1/evaluation-freeze.json": {
+      "sha256": "b896626f5cfadde9263c43d453f45212f0b5ef8896a3ed0bd5f81077d9f37fdf",
+      "bytes": 110998
+    },
+    "build/analysis/spatial-fit-probe-v1/final-identity-check.json": {
+      "sha256": "c410df691b1d7d8398d26155f3b4d444e39c04195ad5232b900d1ff3ae22740e",
+      "bytes": 131
+    },
+    "build/analysis/spatial-fit-probe-v1/history.json": {
+      "sha256": "f7780529dad3ced8b2404e2ce88637c8c8952e6a9086c760a828f6e8de1b75d4",
+      "bytes": 146877
+    },
+    "build/analysis/spatial-fit-probe-v1/java-command.json": {
+      "sha256": "3e32c483246aef0f318d1baa5013c6dff904a5a9cffd36147c81ae708f656f19",
+      "bytes": 653
+    },
+    "build/analysis/spatial-fit-probe-v1/java-fit-tests.xml": {
+      "sha256": "17b1d8641e84affcd8e0f5483e9dcf87fa655087ea3dc558c6e8e8a4c0871764",
+      "bytes": 955
+    },
+    "build/analysis/spatial-fit-probe-v1/java-label-tests.xml": {
+      "sha256": "9df04fe9a7758f10a2593c6ea0a7543ecc02699f102add8e2fb7d983571261ef",
+      "bytes": 1433
+    },
+    "build/analysis/spatial-fit-probe-v1/java-preflight-command.json": {
+      "sha256": "6123a196edbb42a4c6185f4045bfbd6fb08332a0547ee451d5c9a1a8759ce7ad",
+      "bytes": 332
+    },
+    "build/analysis/spatial-fit-probe-v1/java-preflight-exit.json": {
+      "sha256": "6535f752760e0e8ef1a411ceaed5590ee3f0d23abb4be6feb6e26cece97e8897",
+      "bytes": 162
+    },
+    "build/analysis/spatial-fit-probe-v1/java-preflight.log": {
+      "sha256": "6ea04dac1a55cbc7c4c967cc40ab1c12f58a7c1cb9c5885214db518eb7cfc0ad",
+      "bytes": 248
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-00-p0.json": {
+      "sha256": "4c5d19fe314e4a420dcfe69a2388441e4bcae07a145ae992417f177055dc792e",
+      "bytes": 3881
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-00-p1.json": {
+      "sha256": "6b96a4bfc9b488a3af722d3dd0e664862037d63cc89d96d843e2a0a243adbfd4",
+      "bytes": 4863
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-01-p0.json": {
+      "sha256": "20dca144a76fb9d272ca73b91a30dd2157c65c9dc4b4d2f3d11290fb1e4c0837",
+      "bytes": 4892
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-01-p1.json": {
+      "sha256": "0bf850139b7571b6f2b3a36c0677324901d9e8ff50742fca2af430f18b070d48",
+      "bytes": 3875
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-02-p0.json": {
+      "sha256": "ea8b05e74fd7d2d347fe471bf39adcede406270301f2bb5d0030902a7658eff6",
+      "bytes": 4888
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-02-p1.json": {
+      "sha256": "3dc5930fce166e652a8a3ddf0590b25370fee81e79029b63006bc27e8fb37df7",
+      "bytes": 3889
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-03-p0.json": {
+      "sha256": "2963a16b06490f895e2e5b929157bd71e0de2667853968b76fc89ab581398291",
+      "bytes": 3496
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-03-p1.json": {
+      "sha256": "04b3a9aba471cad7fed212c6e280d647ed19ae4c5262546919e5695387433675",
+      "bytes": 3523
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-04-p0.json": {
+      "sha256": "4d29f591fc3acb0c7f98e61dc64bf23800bdb5c7c310738513b50ce4b68bc505",
+      "bytes": 4881
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-04-p1.json": {
+      "sha256": "f24899c886095370abb12123d576ebd1c2367daea1d0d6da15e76756b5e75a39",
+      "bytes": 4929
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-05-p0.json": {
+      "sha256": "471fea015e74e0c33f5d000c4dd4e54b8403a1b129d0fb6451f7a14c56537fa6",
+      "bytes": 3444
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-05-p1.json": {
+      "sha256": "b99c64a39fc28217792684e11144213f77cee06814428333e2823e1fd3062348",
+      "bytes": 3441
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-06-p0.json": {
+      "sha256": "83cee307790ad376dfea16d2731efc439e3c8c536834ee994720688778b5464d",
+      "bytes": 3850
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-06-p1.json": {
+      "sha256": "8e3b2e453e4f12b02194b8a0fb3fbfefd2c6a4c122f685445dedca48fb2d0106",
+      "bytes": 3886
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-07-p0.json": {
+      "sha256": "a7ad23e895aca841338e3e3a5f56e767717969d67f909443d485814eb1717df5",
+      "bytes": 4913
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-07-p1.json": {
+      "sha256": "2467cf39ee8808aa69f70ec78b4ea7a91b6503ec83d5f1fe843c548936b70446",
+      "bytes": 3401
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-08-p0.json": {
+      "sha256": "5f689ecfa5129102ef98dae5813f64b94921d8b119b4baad2a78d3b897384846",
+      "bytes": 4917
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-08-p1.json": {
+      "sha256": "e327f147265d95180527dc3f8d1cb0dbe570f6d18b8c0c1c36ef83c2134627f1",
+      "bytes": 3510
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-09-p0.json": {
+      "sha256": "3b7d95da9ed456631eb9b5d4376fb4472192a77a169314aa3db46debadc07299",
+      "bytes": 4924
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-09-p1.json": {
+      "sha256": "12067fd3b84d15c4925bff16a776d2946e9a5daf78eb1883077248c8253caa76",
+      "bytes": 3869
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-10-p0.json": {
+      "sha256": "9f601dbda6c08a55d875e71ebaf69cc34ae180a1fe8db3f5eee090e4e4b1d013",
+      "bytes": 3472
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-10-p1.json": {
+      "sha256": "cb487e0fe40e13db44bcdfe7e6bb0485b08332a155546d2fe4a9e974a64b6556",
+      "bytes": 3911
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-11-p0.json": {
+      "sha256": "a07245652fd4eb31c54dc751b70f0e596af13d587571530851c20af14971ea03",
+      "bytes": 3535
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-11-p1.json": {
+      "sha256": "5b6458b8c8d76c93faf9b3782e36c7c0767484e3d314492548311923f40f9dba",
+      "bytes": 4851
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-12-p0.json": {
+      "sha256": "0712b2197ea876e7c5c6ca2c304ba1cc4555ef7cd38d111c43130568e648c443",
+      "bytes": 4891
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-12-p1.json": {
+      "sha256": "4fbefaa4373940d1dc6fa7acddf920506538d7f48221d7dcf28102b802f09c85",
+      "bytes": 4832
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-13-p0.json": {
+      "sha256": "49b2f0991ef720aabfc3472a256283e203e66438c2834e5766c75a2b3c60d7a1",
+      "bytes": 4831
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-13-p1.json": {
+      "sha256": "ef63e115d018d86564cba18e6200045acac95b8d54e9586d807d78539b658029",
+      "bytes": 3380
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-14-p0.json": {
+      "sha256": "00666b62b766e26592f8707e8fc4cb4620cb707b2ee80b8966bee3f09a67b7b3",
+      "bytes": 3859
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-14-p1.json": {
+      "sha256": "032fdb83e53b90abb004d8df14b7bce5d4c47a7f347f0fb821a1e347439700bd",
+      "bytes": 4935
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-15-p0.json": {
+      "sha256": "5740ffae4121da0fefd1d5833b3a700f65484c8faed4056993e6b73dca7d662b",
+      "bytes": 4850
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-15-p1.json": {
+      "sha256": "13017bea782f6aad22733682e03f22a9932387597ae7052f337169cd1e478ab0",
+      "bytes": 4852
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-16-p0.json": {
+      "sha256": "7031f5d5500f5c023c00eec56db6028ce796678e5de89a423da40a25630f587d",
+      "bytes": 3904
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-16-p1.json": {
+      "sha256": "40fcbb4b4cae917e3574485774dee1bda5860539ba5fa4be7ab004b002a77f36",
+      "bytes": 4843
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-17-p0.json": {
+      "sha256": "b9feb15a63bab73b2973aeaa8a389a87e1c68fa297044bb599fb2694986854c3",
+      "bytes": 4885
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-17-p1.json": {
+      "sha256": "6f34822c9f5977037e9404ee038ce55a090a981efaa357bff9a4bd7250291b50",
+      "bytes": 3500
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-18-p0.json": {
+      "sha256": "ef922ebf512b5bb7b7160874d65160a8c2fbee25111cac655e7d6566764c2e2e",
+      "bytes": 3839
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-18-p1.json": {
+      "sha256": "3d5192722a3c8e522c393a089633bfee61b162ecd851424334fe8b176373bd52",
+      "bytes": 3847
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-19-p0.json": {
+      "sha256": "90cc53e47fecb02d71cbbf8a33c5c842daabfea9fea1c1af76bb9a8c6ea83fae",
+      "bytes": 3555
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-19-p1.json": {
+      "sha256": "a7c6c293744d152ad03b6bfc1f68b9a17021ceb96796053fb19b21eb22ef0fa6",
+      "bytes": 3548
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-20-p0.json": {
+      "sha256": "696ed94867af1ed764aaeaf0e96745ba3fa160f97da7aaad8ef2dcb103d34717",
+      "bytes": 4898
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-20-p1.json": {
+      "sha256": "95ec395040569d52bc1aaa54c86cc7b7b4121cc46318eaee1df436c9de4f4f91",
+      "bytes": 4910
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-21-p0.json": {
+      "sha256": "5ad3a8114dd453604379b37bac06958093ac06150bf55f0a8b3f1229fde0e2fc",
+      "bytes": 4946
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-21-p1.json": {
+      "sha256": "cd53a838ea811f09493bf10faeab62020040e41869d9d3c9b2f7e15d316a7f54",
+      "bytes": 3554
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-22-p0.json": {
+      "sha256": "5fc5ff8295a6b6cbeaacfb225580f7545e3dbb227a42e559b06e77e34a02ab27",
+      "bytes": 3443
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-22-p1.json": {
+      "sha256": "ed6768deea5033784e1bbd0b68a8363d62903c8c844b4d0746ef2502860409b2",
+      "bytes": 3375
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-23-p0.json": {
+      "sha256": "594fa1419eabb3a38e28b02dc5371748853d40b9a13c3ddf1f097f5a08421fe8",
+      "bytes": 3492
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/games/train-23-p1.json": {
+      "sha256": "6b0307a19df14d88d89786bb87429e9cf2a1151d70b5d026b64791f42af6db3f",
+      "bytes": 4917
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/intent.json": {
+      "sha256": "623cd3e056eeb05bca84ea3a0bed1bbc389a7a00757c54a43eefa61c35f4e23d",
+      "bytes": 435
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/manifest.json": {
+      "sha256": "b9193cbd92baace33c29e7dcdad573c1b109064e32bbecbf9cbf80d8b6282919",
+      "bytes": 28393
+    },
+    "build/analysis/spatial-fit-probe-v1/panel/preflight.json": {
+      "sha256": "c160852301c68df3ba84e4dbb71b71eefd7725e92291d111ddda7ceb32fa8922",
+      "bytes": 4152
+    },
+    "build/analysis/spatial-fit-probe-v1/panel-command.json": {
+      "sha256": "03ff930a5ac8a6402587f8d12be73b24479ebabce2e920e5c1be7ee24d9fa0f2",
+      "bytes": 1020
+    },
+    "build/analysis/spatial-fit-probe-v1/panel-exit.json": {
+      "sha256": "38771e21e2d37bf477225562ed232b99e5156dca38bb30f52a6c676383656e11",
+      "bytes": 162
+    },
+    "build/analysis/spatial-fit-probe-v1/panel-reduction-command.json": {
+      "sha256": "f414ab0531b6a16cd9896814a17d3989475cc92437e615279ef388f0f8bd6a54",
+      "bytes": 602
+    },
+    "build/analysis/spatial-fit-probe-v1/panel-reduction-exit.json": {
+      "sha256": "56e3f8212eae9836a9af25e1e1b9d510e45ebf03d8715b2fe4f9ef8fbbc62cac",
+      "bytes": 151
+    },
+    "build/analysis/spatial-fit-probe-v1/panel-reduction.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "build/analysis/spatial-fit-probe-v1/panel-summary.json": {
+      "sha256": "3b858b8f40b3288f3d51c663be83abb65f54690960921f45344fd56747eb8279",
+      "bytes": 91837
+    },
+    "build/analysis/spatial-fit-probe-v1/panel.log": {
+      "sha256": "9843bd6456849136aaca1b8efdd1df1de39d5a93c17e854b6629fc8d43899f06",
+      "bytes": 2158
+    },
+    "build/analysis/spatial-fit-probe-v1/prepare-command.json": {
+      "sha256": "eeb83f17f4a2b5057558136d7443ce653d6ae564902637d9b48ee5c636d5d228",
+      "bytes": 299
+    },
+    "build/analysis/spatial-fit-probe-v1/prepare-exit.json": {
+      "sha256": "2d327fd055684c6ca21e1e39cc2e02c4268a9a52f82deb04206fc0e69c9b0909",
+      "bytes": 163
+    },
+    "build/analysis/spatial-fit-probe-v1/prepare.log": {
+      "sha256": "5adff8d39a45878fcfd06603a9acd76a85e8221aca3998767fd3c52d2888ca80",
+      "bytes": 180
+    },
+    "build/analysis/spatial-fit-probe-v1/protocol-before-results.md": {
+      "sha256": "fb8b04afdb0b2d2bc882ca5cacdcec2e4c5522c372b07f8f8e604a3645b1f370",
+      "bytes": 6501
+    },
+    "build/analysis/spatial-fit-probe-v1/python-panel-preflight-command.json": {
+      "sha256": "9b3caf0ac1ca6955221de8117f7601924c77aa8848899d6e03a9860731962daa",
+      "bytes": 374
+    },
+    "build/analysis/spatial-fit-probe-v1/python-panel-preflight-exit.json": {
+      "sha256": "c48ad352910a643dfa0568089077076612d9a3b7a1799a11256048ba7e521418",
+      "bytes": 163
+    },
+    "build/analysis/spatial-fit-probe-v1/python-panel-preflight.log": {
+      "sha256": "dceddae159667872ba8429b66458bf09e0585898dd8c7bbf83b7b25c4258896b",
+      "bytes": 715
+    },
+    "build/analysis/spatial-fit-probe-v1/python-probe-preflight-command.json": {
+      "sha256": "60b1cc585d9c97c7cc216598c8c8d1a06c3c3139db73d05a8df3b209fb2857f9",
+      "bytes": 368
+    },
+    "build/analysis/spatial-fit-probe-v1/python-probe-preflight-exit.json": {
+      "sha256": "9a89603070c028abdc6c375b040a648deb7f59303f5553f69e2b7f4213dd6001",
+      "bytes": 163
+    },
+    "build/analysis/spatial-fit-probe-v1/python-probe-preflight.log": {
+      "sha256": "6c4b1b903fe40624df22471f3cc025be1b4d4ccb233bd4c102f156ed9ccf2380",
+      "bytes": 2016
+    },
+    "build/analysis/spatial-fit-probe-v1/result-review.json": {
+      "sha256": "f38ba80ea1d16437aa94d716439efb450d280a7bb378ee3ba474cd25d74dacc4",
+      "bytes": 731
+    },
+    "build/analysis/spatial-fit-probe-v1/review.json": {
+      "sha256": "0bf82825fffd628425ba9f4c8883ab7a2d0f8f5b2693f01b158edc7ec8bb6d6b",
+      "bytes": 1396
+    },
+    "build/analysis/spatial-fit-probe-v1/selection/selected-rows.bin": {
+      "sha256": "85d87499af326737c3981525a618a777bece2488227cc7da7bfe459c4765e37b",
+      "bytes": 12218496
+    },
+    "build/analysis/spatial-fit-probe-v1/selection/selection.json": {
+      "sha256": "43819b10e4e58e4837b32654c0983b699edb17c388697e7a0a3994b04793eb57",
+      "bytes": 75896
+    },
+    "build/analysis/spatial-fit-probe-v1/sources-freeze.json": {
+      "sha256": "641cece1707f5583a6ef28a11ed85993adfe12f31309c4e1b3ecf0c2a93859f8",
+      "bytes": 81627
+    },
+    "build/analysis/spatial-fit-probe-v1/training-command.json": {
+      "sha256": "6b9a93d247c3ff5ca459d0ad60adbe6f3cc641de5749cf06684c851a17948f2a",
+      "bytes": 297
+    },
+    "build/analysis/spatial-fit-probe-v1/training-exit.json": {
+      "sha256": "432f28e27a006636bc61adbbfa57b7dffcb41dc0ab258d39c7babedc7a659887",
+      "bytes": 163
+    },
+    "build/analysis/spatial-fit-probe-v1/training-report.json": {
+      "sha256": "07e4fa08a5bb6415cd9019f3098b2b1b237da6059ca78ebd498cce4a982b3a7e",
+      "bytes": 262108
+    },
+    "build/analysis/spatial-fit-probe-v1/training.log": {
+      "sha256": "39ac838f07a5e90ef8834a22339be3f9fb2ea3a84c3f5d56071ad73e5b6617b4",
+      "bytes": 32330
+    },
+    "build/spatial-fit-probe-v1/config.json": {
+      "sha256": "316cd337764ecf7782af53ff65b420fade8c0627e0946ef69eb23413b09a34fb",
+      "bytes": 182756
+    },
+    "build/spatial-fit-probe-v1/final-weights.base64": {
+      "sha256": "5e947e2a1bea748c5eecaa9c38ae36b956446d6f9ad3b3db42a317178e026159",
+      "bytes": 18344
+    },
+    "build/spatial-fit-probe-v1/final.pt": {
+      "sha256": "cbb7c0b26815a02c1f6a07fe28c2cc0a88f5a118f4ccc09eeadbffe64755564c",
+      "bytes": 245075
+    },
+    "build/spatial-fit-probe-v1/initial-weights.base64": {
+      "sha256": "df81ac08d2f0da93af5c495522f2ab56aa8ee05387cd72d17f5066ba4f6092f0",
+      "bytes": 18344
+    },
+    "build/spatial-fit-probe-v1/initial.pt": {
+      "sha256": "3b6e34d278f3849f9f53f0f1251280c32c20fc14447b1c3d718d0bff4827fa6a",
+      "bytes": 204149
+    },
+    "build/spatial-fit-probe-v1/metrics.json": {
+      "sha256": "07e4fa08a5bb6415cd9019f3098b2b1b237da6059ca78ebd498cce4a982b3a7e",
+      "bytes": 262108
+    },
+    "build/spatial-fit-probe-v1/midpoint.pt": {
+      "sha256": "23e0b1f61fc2be4f1f99d8d4859ee16dc5aac302e83606d25c055fd7394554ed",
+      "bytes": 245318
+    },
+    "build/spatial-fit-probe-v1/parity-final.json": {
+      "sha256": "58a9ef6f0d4efb08f817f6f6f6e1bba6401a5cb139acd1ba2fc605c66de0f40d",
+      "bytes": 320
+    },
+    "build/spatial-fit-probe-v1/parity-initial.json": {
+      "sha256": "18f2b6100c35420ea1dfd2f74a861717d51d49bc780a06d2000f213f453ea635",
+      "bytes": 324
+    },
+    "build/spatial-fit-probe-v1/parity-observations.json": {
+      "sha256": "59927e82b5798123e6d0cb15de0475b64c8244acdb4b7a79068a087177ea29c4",
+      "bytes": 5821190
+    },
+    "build/spatial-fit-probe-v1/parity-row-lineage.json": {
+      "sha256": "2b681cd435ee9e83326752d1c7e0b999cbb017743341c5545eb19d317d964ec1",
+      "bytes": 17241
+    },
+    "build/spatial-fit-probe-v1/run.log": {
+      "sha256": "39ac838f07a5e90ef8834a22339be3f9fb2ea3a84c3f5d56071ad73e5b6617b4",
+      "bytes": 32330
+    },
+    "build/spatial-ppo-v4-cache/cache.json": {
+      "sha256": "a72b59e45fe81bc333e51fb07d59ff49b81fd61bd0f50d09c05af611336b26d8",
+      "bytes": 74667
+    },
+    "build/spatial_fit_probe_evidence.py": {
+      "sha256": "2b35bbc2f76d5ae2a8d7b6af943b8b520d6a420f36dcbba7965846c3dbe843da",
+      "bytes": 6517
+    },
+    "docs/BOTS.md": {
+      "sha256": "7cae605797ae937a3bccd619e07f69813b1075325ebb6556460d92f6309fa609",
+      "bytes": 149718
+    },
+    "docs/DEVLOG.md": {
+      "sha256": "241f5f2f06d715810b84b88e165158103297a1b77197fc9c06d0ddc69b105360",
+      "bytes": 512647
+    },
+    "docs/evidence/spatial-fit-probe-v1.json": {
+      "sha256": "9af1e9702ffd1f2a67fb5a3784b3b2ab61b8d609137c3437996a2a69667ba200",
+      "bytes": 139057
+    },
+    "docs/PLAN.md": {
+      "sha256": "6bfde0903aaccd22e236b4ded143e6a44ffb5873b642dd886a9d2bafb2b56e20",
+      "bytes": 91634
+    },
+    "docs/spatial-fit-probe-v1.md": {
+      "sha256": "a318e68be1cebf3ca70d5778bc8aa66f52df432e74f6c03224b099cba70bfcf1",
+      "bytes": 13414
+    },
+    "README.md": {
+      "sha256": "4a674349d55f9816ae02a1074c6a62a11183461999988ccd9adca450398ab74d",
+      "bytes": 51317
+    },
+    "src/main/java/btk/tools/spatial/SpatialFitPanel.java": {
+      "sha256": "5491095a8abb421d619eb253f8303ed1eecc8f66cd6e6f07cda4eab77e16e41b",
+      "bytes": 18555
+    },
+    "src/test/java/btk/tools/spatial/SpatialFitPanelTest.java": {
+      "sha256": "3f78008b149b6844a0eaf6c60a6bc365d26ad3510f4175ea7fd382d29773ed63",
+      "bytes": 11274
+    },
+    "tools/spatial/fit_probe.py": {
+      "sha256": "63f52ad06d514e026900f003a42744f090b262c0f60690273960dec88a84bfb1",
+      "bytes": 29511
+    },
+    "tools/spatial/fit_probe_panel.py": {
+      "sha256": "d39571bb2a6000b4773563e6985366fe356c41aec0c5cae5e8564b7860f48aa5",
+      "bytes": 13975
+    },
+    "tools/spatial/test_fit_probe.py": {
+      "sha256": "4b2ae789acba7339317330b28dde5debd3ae412a8a15fe44eb7088de66218b9d",
+      "bytes": 10394
+    },
+    "tools/spatial/test_fit_probe_panel.py": {
+      "sha256": "2fd6c69f9dc29a9c78c2d01bf536469f1abd3c6e47c612cf8b68fc4eac55122f",
+      "bytes": 6954
+    }
+  }
+}

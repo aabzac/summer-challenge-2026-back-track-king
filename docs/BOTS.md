@@ -13,6 +13,14 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-10: **spatial-fit-probe-v1**, no registered candidate
+or strength bench. Unchanged V4, 48 fixed TRAIN roots / 192 rows, exactly 1,024
+epochs / 3,072 updates. Decisions 118→192/192; actual Java ordered/unordered full
+plans and semantic successors 8→48/48. Unforced agreement on the TRAIN complement
+43.264%→30.108%, exposed validation 39.543%→26.048%: narrow fitting, no strength
+claim. 23 focused tests pass, 292 exact engine replays; selected v09 unchanged,
+original stage 3 open. [Protocol/evidence](spatial-fit-probe-v1.md).
+
 Completed diagnostic 2026-10-10: **spatial-label-audit-v1**, no new model or bench.
 All 60 original teacher games / 5,660 roots / 22,640 rows reproduced exactly.
 All 21,702 teacher construction permutations preserve the full next state, but

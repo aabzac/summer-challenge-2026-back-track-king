@@ -41,10 +41,16 @@ completed experiments do not automatically complete their parent stage.
       Ordering is equivalent, but validation full-plan matches only change 77→80
       (V4) and 63→65 (V9). Exact-input conflicts force 37/22,640 label errors;
       these measured effects do not explain most of the fitting gap. No new model.
-- [ ] Proposed next stage-3 diagnostic: a fixed small TRAIN subset without detected
-      exact-input conflicts, unchanged V4 architecture/loss and a bounded fitting
-      budget; separate same-example trainability from broader optimization/capacity
-      questions. No training launched by the label audit, no strength claim.
+- [x] Complete [spatial-fit-probe-v1](spatial-fit-probe-v1.md): unchanged V4 fits
+      a deterministic 48-root/192-row TRAIN subset in one fixed 3,072-step run.
+      Decisions 118→192/192; actual Java full plans and semantic successors
+      8→48/48. Complement/exposed-validation agreement worsens; this establishes
+      subset trainability only. No candidate or strength bench; stage 3 stays open.
+- [ ] Proposed next stage-3 experiment: one bounded full-corpus continuation from
+      original V4, with unchanged architecture/loss, fixed endpoint and recorded
+      train/validation curves. Predeclare optimizer/RNG handling and extra budget;
+      do not start from the memorized probe or select checkpoints by results.
+      Test broader fitting before changing capacity; agreement is not a strength gate.
 
 ## Spatial PPO first complete pipeline (2026-10-08)
 

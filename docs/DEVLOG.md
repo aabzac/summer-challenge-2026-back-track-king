@@ -6576,3 +6576,40 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   remain unchanged; no submission, boss, promotion, arena upload or push.
   [Protocol/results](spatial-label-audit-v1.md),
   [report](evidence/spatial-label-audit-v1.json).
+
+
+## 2026-10-10 — spatial-fit-probe-v1: small-set fitting works, broader agreement worsens
+
+- Hypothesis: unchanged V4 can learn a small fixed set of its teacher examples
+  with repeated exposure. Select one root per original TRAIN game by a declared
+  SHA-256 ranking, excluding 58 roots involved in TRAIN exact-input conflicts.
+  Retain all four rows: 48 roots / 192 rows, both seats on all 24 training maps.
+- One run from original V4, fresh Adam, same architecture and hard-label loss,
+  15 frozen value coefficients: exactly 1,024 epochs / 3,072 optimizer steps /
+  196,608 row exposures. Total 279.746 s including checks, no restart, extension
+  or checkpoint selection. Final standalone diagnostic payload retained.
+- Selected decisions 118/192→192/192; unforced 72/146→146/146; unforced BUILD
+  39/98→98/98. Mean all-row cross entropy 1.517398→0.000181729. First recorded
+  exact fit at epoch 192, retained at every recorded point through epoch 1,024.
+- Independent Java own-prefix plans improve 8/48→48/48, for ordered/unordered
+  full plans and full semantic successors. All 48 original trajectories /
+  4,548 turns / 18,192 rows reproduce byte-exactly. All 15 teacher-prefix slice
+  counts and all-four counts agree between the trainer and Java panel.
+- Context: TRAIN complement unforced agreement 43.264%→30.108%, all-row loss
+  1.743708→9.714891; exposed validation 39.543%→26.048%, loss 2.033353→11.219319.
+  Complement was already used by the initializer; validation is development data,
+  not fresh confirmation. This is narrow memorization with worse broader fitting.
+- Verification: 11 Java (4 new) and 12 Python tests pass; 292/292 CG replays exact.
+  Initial/final Python–Java parity passes on 24 rows each, exact greedy choices,
+  final max absolute error 0.0000724793 < 0.0001. One harmless test warning is
+  retained. Source review found no blocker; all 903 historical and 642 frozen
+  evaluation file identities pass. Core and shipped artifacts are unchanged.
+- Decision: complete this trainability diagnostic, preserve v09 and open stage 3.
+  The existing pipeline can fit these examples; full-corpus capacity, useful
+  value and competitive learning remain unresolved. Propose one fixed longer
+  full-corpus continuation from original V4, with explicit optimizer/RNG handling
+  and train/validation curves, before changing architecture/loss. Do not continue
+  from probe weights or use agreement as a strength gate. No new strength games,
+  submission, boss calls, promotion, arena upload or push.
+  [Protocol/results](spatial-fit-probe-v1.md),
+  [report](evidence/spatial-fit-probe-v1.json).
