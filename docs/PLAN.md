@@ -13,9 +13,16 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Verify native/frozen selection and all full-action comparisons; 68 focused
       tests, 292 baseline +8 source replays exact, 581 frozen files preserved.
       Archive evidence and record the diagnostic; selected v09 unchanged.
-- [ ] Proposed separately, not started: cross construction/disruption components
-      on this same panel. Seven of eight positives change both; isolate the cause
-      before selecting a bounded v09 change. No automatic hybrid or training run.
+- [x] Complete [neural-component-audit-v1](neural-component-audit-v1.md): reproduce
+      all 51 old rows, then cross construction/disruption without refilling. Target
+      replacement beats the best existing action in 7/51, construction in 3/51.
+      Original eight positives: five target-only, two construction-only, one either;
+      none needs both to exceed the comparison score. 75 tests, 292+8 exact
+      replays, 595 frozen files +4 runtime files preserved. Archive and record.
+- [ ] Proposed next, not started: one target-only adapter with frozen neural-v3
+      sabotage weights, unchanged complete v09 construction and paired E/D scoring.
+      First check exact features, source size and remaining time; keep baseline on
+      tie/cutoff, stop if infeasible. No automatic training, strength run or promotion.
 
 This direction does not complete the unresolved original spatial stages below.
 

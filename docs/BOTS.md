@@ -13,6 +13,17 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-11: **neural-component-audit-v1**, no registered
+candidate or strength bench. All 51 prior rows reproduced exactly, then four
+construction/target combinations evaluated without refill. Versus the best
+complete v09 action: target-only **7 better /24 equal /20 worse**;
+construction-only **3 better /15 equal /33 worse**. Original eight positives:
+five only-target, two only-construction, one either, none needing both to clear
+the proxy threshold. 75 focused tests, 292+8 exact replays, 595 frozen files
+and four runtime files unchanged. Prioritize target-only adapter feasibility;
+size/time and strength remain unproved, v09 selected.
+[Protocol/evidence](neural-component-audit-v1.md).
+
 Completed diagnostic 2026-10-11: **neural-proposal-audit-v1**, no registered
 candidate or strength bench. Recorded historical neural-v3 full actions on
 51 live positions / eight games; 13 terminal omissions. Forty-eight new full

@@ -6696,3 +6696,44 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary and all action rows](evidence/neural-proposal-audit-v1.json),
   [archive index](evidence/neural-proposal-audit-v1-artifacts.json),
   [retained archive](evidence/neural-proposal-audit-v1-artifacts.zip).
+
+## 2026-10-11 — neural-component-audit-v1: target proposals are the first reuse priority
+
+- Hypothesis: the prior full-action advantage can be separated into construction,
+  disruption and their interaction before choosing a v09 change. Fixed complete
+  51-state/eight-game panel, same 13 terminal omissions; the eight prior positives
+  are a conditional subgroup, not the measurement sample.
+- Preserved prior tool and production code. New tools-only study first reproduces
+  every old row exactly, then scores E=(v09 build/target), C=(NN build/v09 target),
+  D=(v09 build/NN target), N=(NN build/target). No refill, repair or new target
+  selection. Shared retained route0/replies, full parameter and portfolio parity;
+  H is still the best complete existing v09 action. No future replay replies.
+- Checks: 75 focused tests pass first attempt, 292/292 baseline CG replays and
+  8/8 source games exact; all 51 old rows and E/N/H scores match. All 204 full
+  actions legal. Independent source and report review clean; 595 frozen files
+  plus four runtime/dependency files unchanged after the single completed panel.
+- Versus H, C **3 better /15 equal /33 worse** across 51; D **7 better /24 equal
+  /20 worse**, positive on six games. All ten improving C/D actions are new
+  complete proposals (one position improves with either). Against emitted E,
+  C=8/18/25 and D=9/33/9: blindly using the neural target is not justified.
+- Original eight positives: onlyC2 /onlyD5 /bothSeparately1 /neither0. None needs
+  both replacements to beat H, but arithmetic interaction still has positive1,
+  zero4, negative3. Robust aggregation and threshold crossing are different facts.
+  One additional D-positive lies outside the old subgroup: game907064062/turn30,
+  +81.5 over H versus full N -23.5. Old game907063898/turn30's +1,000,015 gap
+  is construction-driven under the proxy and still dominated by terminal bonus.
+- Decision: keep v09, prioritize one target-only adapter hypothesis. Retain full
+  v09 construction and original target, obtain one frozen-neural target proposal,
+  use paired equal-context E/D evaluation with unchanged fallback on tie/cutoff.
+  First prove source-size/feature parity/time feasibility; no new inference or
+  adapter was implemented in this diagnostic. Encoded target weights already use
+  4,340 chars of roughly 4,722 retained-v09 headroom, so direct full reuse cannot
+  fit; removing BUILD-only feature work still leaves substantial route/ink work.
+  Historical noise/history differ from a deterministic hybrid, which is a new
+  policy. Do not revive old SECOND_TARGET/live-target/track-value flags by fiat.
+- No new training, games, submission, upload, promotion or push. Original spatial
+  stages remain unresolved. Completed experiment retained and committed locally.
+  [Protocol/results](neural-component-audit-v1.md),
+  [summary](evidence/neural-component-audit-v1.json),
+  [archive index](evidence/neural-component-audit-v1-artifacts.json),
+  [archive](evidence/neural-component-audit-v1-artifacts.zip).

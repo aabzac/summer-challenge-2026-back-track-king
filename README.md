@@ -203,6 +203,13 @@ beat v09's best complete action under a shared rollout continuation; 12 tie and
 construction contribution remains unresolved. No new model, strength bench or
 production change. [Protocol and results](docs/neural-proposal-audit-v1.md).
 
+`neural-component-audit-v1` separates those recorded actions on the same 51
+positions: swapping only the target beats the best existing v09 action in seven
+cases, swapping only construction in three. Of the original eight positives,
+five need only the target replacement, two only construction, and one accepts
+either. This prioritizes a bounded target-only adapter feasibility check, with
+no new production candidate yet. [Protocol and results](docs/neural-component-audit-v1.md).
+
 
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a

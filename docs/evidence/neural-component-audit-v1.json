@@ -1,0 +1,7185 @@
+{
+  "schema": "neural-component-audit-v1-summary",
+  "status": "DIAGNOSTIC_COMPLETE_TARGET_PROPOSAL_PRIORITY",
+  "baseRevision": "d39ed96e9ce0849cf8c36a22210407c9507c0be3",
+  "selectedBot": "v09",
+  "candidateRegistered": false,
+  "actionLegend": {
+    "E": "v09 construction / v09 target",
+    "C": "neural construction / v09 target",
+    "D": "v09 construction / neural target",
+    "N": "neural construction / neural target",
+    "H": "best complete existing v09 action under the same retained route-0 continuation"
+  },
+  "sourcePolicy": "recorded historical neural-v3 MLP actions",
+  "executionIdentityIndependentlyVerified": false,
+  "priorReportSha256": "33abb017aa31c408ae148b30aff9f2cc38eff9e609daeb6b424bc4dc7e14ad1d",
+  "priorSummarySha256": "db7dcb204a5a32bd226eebb31c40eafbee48da1380fee944c960cf50af4e571e",
+  "selectionSha256": "84b51a4bfd92b9e5150bdeb5611a377e8ddd92bc6fdf36674637dbc9d342967a",
+  "requestedPositions": 64,
+  "positions": 51,
+  "priorRowsExactlyReproduced": 51,
+  "omissions": [
+    {
+      "slot": 1,
+      "turn": 50,
+      "me": 1,
+      "terminalTurn": 49,
+      "gameId": 907063775,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 1,
+      "turn": 60,
+      "me": 1,
+      "terminalTurn": 49,
+      "gameId": 907063775,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 1,
+      "turn": 70,
+      "me": 1,
+      "terminalTurn": 49,
+      "gameId": 907063775,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 2,
+      "turn": 50,
+      "me": 0,
+      "terminalTurn": 41,
+      "gameId": 907063844,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 2,
+      "turn": 60,
+      "me": 0,
+      "terminalTurn": 41,
+      "gameId": 907063844,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 2,
+      "turn": 70,
+      "me": 0,
+      "terminalTurn": 41,
+      "gameId": 907063844,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 4,
+      "turn": 60,
+      "me": 0,
+      "terminalTurn": 51,
+      "gameId": 907063965,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 4,
+      "turn": 70,
+      "me": 0,
+      "terminalTurn": 51,
+      "gameId": 907063965,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 5,
+      "turn": 60,
+      "me": 1,
+      "terminalTurn": 51,
+      "gameId": 907064014,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 5,
+      "turn": 70,
+      "me": 1,
+      "terminalTurn": 51,
+      "gameId": 907064014,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 8,
+      "turn": 50,
+      "me": 1,
+      "terminalTurn": 44,
+      "gameId": 907064176,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 8,
+      "turn": 60,
+      "me": 1,
+      "terminalTurn": 44,
+      "gameId": 907064176,
+      "reason": "recorded game already terminal"
+    },
+    {
+      "slot": 8,
+      "turn": 70,
+      "me": 1,
+      "terminalTurn": 44,
+      "gameId": 907064176,
+      "reason": "recorded game already terminal"
+    }
+  ],
+  "allPositions": {
+    "positions": 51,
+    "CVsEmittedE": {
+      "equal": 18,
+      "better": 8,
+      "missing": 0,
+      "worse": 25
+    },
+    "CVsBestExistingH": {
+      "equal": 15,
+      "better": 3,
+      "missing": 0,
+      "worse": 33
+    },
+    "DVsEmittedE": {
+      "equal": 33,
+      "better": 9,
+      "missing": 0,
+      "worse": 9
+    },
+    "DVsBestExistingH": {
+      "equal": 24,
+      "better": 7,
+      "missing": 0,
+      "worse": 20
+    },
+    "thresholdCategories": {
+      "onlyCExceedsH": 2,
+      "onlyDExceedsH": 6,
+      "bothSeparatelyExceedH": 1,
+      "neitherSeparatelyExceedsH": 42,
+      "unavailable": 0
+    }
+  },
+  "originalEightPositiveSubgroup": {
+    "positions": 8,
+    "CVsEmittedE": {
+      "equal": 1,
+      "better": 3,
+      "missing": 0,
+      "worse": 4
+    },
+    "CVsBestExistingH": {
+      "equal": 1,
+      "better": 3,
+      "missing": 0,
+      "worse": 4
+    },
+    "DVsEmittedE": {
+      "equal": 2,
+      "better": 6,
+      "missing": 0,
+      "worse": 0
+    },
+    "DVsBestExistingH": {
+      "equal": 1,
+      "better": 6,
+      "missing": 0,
+      "worse": 1
+    },
+    "thresholdCategories": {
+      "onlyCExceedsH": 2,
+      "onlyDExceedsH": 5,
+      "bothSeparatelyExceedH": 1,
+      "neitherSeparatelyExceedsH": 0,
+      "unavailable": 0
+    }
+  },
+  "perGame": [
+    {
+      "positions": 5,
+      "CVsEmittedE": {
+        "equal": 1,
+        "better": 0,
+        "missing": 0,
+        "worse": 4
+      },
+      "CVsBestExistingH": {
+        "equal": 1,
+        "better": 0,
+        "missing": 0,
+        "worse": 4
+      },
+      "DVsEmittedE": {
+        "equal": 4,
+        "better": 1,
+        "missing": 0,
+        "worse": 0
+      },
+      "DVsBestExistingH": {
+        "equal": 4,
+        "better": 1,
+        "missing": 0,
+        "worse": 0
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 0,
+        "onlyDExceedsH": 1,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 4,
+        "unavailable": 0
+      },
+      "gameId": 907063775
+    },
+    {
+      "positions": 5,
+      "CVsEmittedE": {
+        "equal": 3,
+        "better": 0,
+        "missing": 0,
+        "worse": 2
+      },
+      "CVsBestExistingH": {
+        "equal": 3,
+        "better": 0,
+        "missing": 0,
+        "worse": 2
+      },
+      "DVsEmittedE": {
+        "equal": 2,
+        "better": 0,
+        "missing": 0,
+        "worse": 3
+      },
+      "DVsBestExistingH": {
+        "equal": 1,
+        "better": 0,
+        "missing": 0,
+        "worse": 4
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 0,
+        "onlyDExceedsH": 0,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 5,
+        "unavailable": 0
+      },
+      "gameId": 907063844
+    },
+    {
+      "positions": 8,
+      "CVsEmittedE": {
+        "equal": 4,
+        "better": 1,
+        "missing": 0,
+        "worse": 3
+      },
+      "CVsBestExistingH": {
+        "equal": 4,
+        "better": 1,
+        "missing": 0,
+        "worse": 3
+      },
+      "DVsEmittedE": {
+        "equal": 8,
+        "better": 0,
+        "missing": 0,
+        "worse": 0
+      },
+      "DVsBestExistingH": {
+        "equal": 8,
+        "better": 0,
+        "missing": 0,
+        "worse": 0
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 1,
+        "onlyDExceedsH": 0,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 7,
+        "unavailable": 0
+      },
+      "gameId": 907063898
+    },
+    {
+      "positions": 6,
+      "CVsEmittedE": {
+        "equal": 1,
+        "better": 2,
+        "missing": 0,
+        "worse": 3
+      },
+      "CVsBestExistingH": {
+        "equal": 1,
+        "better": 1,
+        "missing": 0,
+        "worse": 4
+      },
+      "DVsEmittedE": {
+        "equal": 3,
+        "better": 2,
+        "missing": 0,
+        "worse": 1
+      },
+      "DVsBestExistingH": {
+        "equal": 2,
+        "better": 2,
+        "missing": 0,
+        "worse": 2
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 0,
+        "onlyDExceedsH": 1,
+        "bothSeparatelyExceedH": 1,
+        "neitherSeparatelyExceedsH": 4,
+        "unavailable": 0
+      },
+      "gameId": 907063965
+    },
+    {
+      "positions": 6,
+      "CVsEmittedE": {
+        "equal": 1,
+        "better": 0,
+        "missing": 0,
+        "worse": 5
+      },
+      "CVsBestExistingH": {
+        "equal": 1,
+        "better": 0,
+        "missing": 0,
+        "worse": 5
+      },
+      "DVsEmittedE": {
+        "equal": 3,
+        "better": 2,
+        "missing": 0,
+        "worse": 1
+      },
+      "DVsBestExistingH": {
+        "equal": 3,
+        "better": 1,
+        "missing": 0,
+        "worse": 2
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 0,
+        "onlyDExceedsH": 1,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 5,
+        "unavailable": 0
+      },
+      "gameId": 907064014
+    },
+    {
+      "positions": 8,
+      "CVsEmittedE": {
+        "equal": 5,
+        "better": 1,
+        "missing": 0,
+        "worse": 2
+      },
+      "CVsBestExistingH": {
+        "equal": 4,
+        "better": 0,
+        "missing": 0,
+        "worse": 4
+      },
+      "DVsEmittedE": {
+        "equal": 5,
+        "better": 1,
+        "missing": 0,
+        "worse": 2
+      },
+      "DVsBestExistingH": {
+        "equal": 4,
+        "better": 1,
+        "missing": 0,
+        "worse": 3
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 0,
+        "onlyDExceedsH": 1,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 7,
+        "unavailable": 0
+      },
+      "gameId": 907064062
+    },
+    {
+      "positions": 8,
+      "CVsEmittedE": {
+        "equal": 2,
+        "better": 2,
+        "missing": 0,
+        "worse": 4
+      },
+      "CVsBestExistingH": {
+        "equal": 0,
+        "better": 0,
+        "missing": 0,
+        "worse": 8
+      },
+      "DVsEmittedE": {
+        "equal": 4,
+        "better": 2,
+        "missing": 0,
+        "worse": 2
+      },
+      "DVsBestExistingH": {
+        "equal": 1,
+        "better": 1,
+        "missing": 0,
+        "worse": 6
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 0,
+        "onlyDExceedsH": 1,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 7,
+        "unavailable": 0
+      },
+      "gameId": 907064114
+    },
+    {
+      "positions": 5,
+      "CVsEmittedE": {
+        "equal": 1,
+        "better": 2,
+        "missing": 0,
+        "worse": 2
+      },
+      "CVsBestExistingH": {
+        "equal": 1,
+        "better": 1,
+        "missing": 0,
+        "worse": 3
+      },
+      "DVsEmittedE": {
+        "equal": 4,
+        "better": 1,
+        "missing": 0,
+        "worse": 0
+      },
+      "DVsBestExistingH": {
+        "equal": 1,
+        "better": 1,
+        "missing": 0,
+        "worse": 3
+      },
+      "thresholdCategories": {
+        "onlyCExceedsH": 1,
+        "onlyDExceedsH": 1,
+        "bothSeparatelyExceedH": 0,
+        "neitherSeparatelyExceedsH": 3,
+        "unavailable": 0
+      },
+      "gameId": 907064176
+    }
+  ],
+  "additionalCounts": {
+    "C": {
+      "positiveGames": 3,
+      "novelPreferred": 3
+    },
+    "D": {
+      "positiveGames": 6,
+      "novelPreferred": 7
+    }
+  },
+  "checks": {
+    "focusedTests": {
+      "tests": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "focusClass": "btk.tools.NeuralComponentStudyTest",
+      "focused": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "baselineReplays": "292/292 exact",
+    "sourceReplays": "8/8 exact",
+    "freeze": {
+      "recordedAt": "2026-10-10T23:38:17.388172+00:00",
+      "unchangedFiles": 595,
+      "unchangedRuntimeFiles": 4,
+      "changedFiles": []
+    },
+    "fullReportReconciliation": "all rows, components, old E/N/H values, robust/per-reply effects, coverage novelty, groups and omissions pass"
+  },
+  "interpretation": [
+    "Among the original eight positives: five only-target, two only-construction, one either component separately clears H; none requires both to clear H.",
+    "Target proposals are the priority for a bounded next candidate; this does not justify blindly replacing v09 targets.",
+    "Across all states D is better/equal/worse than emitted v09 9/33/9, so preserving v09's original action and evaluating the extra target matters.",
+    "The construction-only +1000015 gap in 907063898 turn30 includes the prior terminal-bonus discontinuity; it is not real points or a recovered win."
+  ],
+  "limits": [
+    "Reused neural trajectories, ample-budget common continuation and fixed replies; no on-policy frequency, strength or runtime proof.",
+    "Robust aggregate interaction is descriptive arithmetic; threshold categories do not establish synergy.",
+    "Old SECOND_TARGET/live-target/always-disrupt/track-value failures remain recorded; no flags were re-enabled.",
+    "No new inference, training, games, production changes, submission, upload or promotion."
+  ],
+  "fullReport": {
+    "pathInArchive": "build/analysis/neural-component-audit-v1/results.json",
+    "sha256": "74e430cac5bf21bc64362136cc6fe3d9a1c7f1a362cbf8320ca6b76ad0504e6d"
+  },
+  "samples": [
+    {
+      "gameId": 907063775,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "2482aed199b7bd6996d3bef09bb0005bbae15e816bf485e6e583dec7ec6fbf3c",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          193,
+          194,
+          195
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 9 8;PLACE_TRACKS 10 8;PLACE_TRACKS 11 8;DISRUPT 22"
+      },
+      "bestExistingHScore": {
+        "value": 18.0,
+        "replyValues": [
+          57.0,
+          5.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -15.0,
+        "buildAtNeuralTarget": -15.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -74.0,
+          "buildAtNeuralTarget": -74.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 58.0,
+          "buildAtNeuralTarget": 58.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              193,
+              194,
+              195
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 9 8;PLACE_TRACKS 10 8;PLACE_TRACKS 11 8;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 18.0,
+            "replyValues": [
+              57.0,
+              5.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              155,
+              132,
+              133
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 17 6;PLACE_TRACKS 17 5;PLACE_TRACKS 18 5;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 3.0,
+            "replyValues": [
+              -17.0,
+              63.0
+            ]
+          },
+          "gapFromEmittedE": -15.0,
+          "gapFromBestExistingH": -15.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              193,
+              194,
+              195
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 9 8;PLACE_TRACKS 10 8;PLACE_TRACKS 11 8;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 18.0,
+            "replyValues": [
+              57.0,
+              5.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              155,
+              132,
+              133
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 17 6;PLACE_TRACKS 17 5;PLACE_TRACKS 18 5;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 3.0,
+            "replyValues": [
+              -17.0,
+              63.0
+            ]
+          },
+          "gapFromEmittedE": -15.0,
+          "gapFromBestExistingH": -15.0
+        }
+      }
+    },
+    {
+      "gameId": 907063775,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "99510f401edf20eff6bfdc10e4493fd9ffe79dba653bb88c14f1a604e7fc4ede",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          112,
+          135,
+          158
+        ],
+        "target": 5,
+        "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 20 5;PLACE_TRACKS 20 6;DISRUPT 5"
+      },
+      "bestExistingHScore": {
+        "value": 358.0,
+        "replyValues": [
+          358.0,
+          358.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -84.0,
+        "buildAtNeuralTarget": -52.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 32.0,
+        "interaction": 32.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -84.0,
+          "buildAtNeuralTarget": -52.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 32.0,
+          "interaction": 32.0
+        },
+        {
+          "buildAtBaselineTarget": -84.0,
+          "buildAtNeuralTarget": -52.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 32.0,
+          "interaction": 32.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              112,
+              135,
+              158
+            ],
+            "target": 5,
+            "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 20 5;PLACE_TRACKS 20 6;DISRUPT 5"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 358.0,
+            "replyValues": [
+              358.0,
+              358.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              66,
+              209,
+              208
+            ],
+            "target": 5,
+            "action": "PLACE_TRACKS 20 2;PLACE_TRACKS 2 9;PLACE_TRACKS 1 9;DISRUPT 5"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 274.0,
+            "replyValues": [
+              274.0,
+              274.0
+            ]
+          },
+          "gapFromEmittedE": -84.0,
+          "gapFromBestExistingH": -84.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              112,
+              135,
+              158
+            ],
+            "target": 16,
+            "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 20 5;PLACE_TRACKS 20 6;DISRUPT 16"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 358.0,
+            "replyValues": [
+              358.0,
+              358.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              66,
+              209,
+              208
+            ],
+            "target": 16,
+            "action": "PLACE_TRACKS 20 2;PLACE_TRACKS 2 9;PLACE_TRACKS 1 9;DISRUPT 16"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 306.0,
+            "replyValues": [
+              306.0,
+              306.0
+            ]
+          },
+          "gapFromEmittedE": -52.0,
+          "gapFromBestExistingH": -52.0
+        }
+      }
+    },
+    {
+      "gameId": 907063775,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "a94259f65ac647ececcf503812cf0a00bdf8f6e8b654fa890df5e5e12f624c61",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          240
+        ],
+        "target": 5,
+        "action": "PLACE_TRACKS 10 10;DISRUPT 5"
+      },
+      "bestExistingHScore": {
+        "value": 411.5,
+        "replyValues": [
+          407.0,
+          425.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -0.5,
+        "buildAtNeuralTarget": -0.5,
+        "targetAtBaselineBuild": 34.0,
+        "targetAtNeuralBuild": 34.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 34.0,
+          "targetAtNeuralBuild": 34.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -2.0,
+          "buildAtNeuralTarget": -2.0,
+          "targetAtBaselineBuild": 34.0,
+          "targetAtNeuralBuild": 34.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "onlyDExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              240
+            ],
+            "target": 5,
+            "action": "PLACE_TRACKS 10 10;DISRUPT 5"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 411.5,
+            "replyValues": [
+              407.0,
+              425.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              241
+            ],
+            "target": 5,
+            "action": "PLACE_TRACKS 11 10;DISRUPT 5"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 411.0,
+            "replyValues": [
+              407.0,
+              423.0
+            ]
+          },
+          "gapFromEmittedE": -0.5,
+          "gapFromBestExistingH": -0.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              240
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 10 10;DISRUPT 33"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 445.5,
+            "replyValues": [
+              441.0,
+              459.0
+            ]
+          },
+          "gapFromEmittedE": 34.0,
+          "gapFromBestExistingH": 34.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              241
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 11 10;DISRUPT 33"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 445.0,
+            "replyValues": [
+              441.0,
+              457.0
+            ]
+          },
+          "gapFromEmittedE": 33.5,
+          "gapFromBestExistingH": 33.5
+        }
+      }
+    },
+    {
+      "gameId": 907063775,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "2b87f6a4d45d034dcd2b756927bcdbfcb18bd3773b2ad75960304ee275f31674",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          159,
+          233,
+          235
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 3 10;PLACE_TRACKS 5 10;DISRUPT 39"
+      },
+      "bestExistingHScore": {
+        "value": -298.0,
+        "replyValues": [
+          -298.0,
+          -298.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -16.0,
+        "buildAtNeuralTarget": -16.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -16.0,
+          "buildAtNeuralTarget": -16.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -16.0,
+          "buildAtNeuralTarget": -16.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              159,
+              233,
+              235
+            ],
+            "target": 39,
+            "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 3 10;PLACE_TRACKS 5 10;DISRUPT 39"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -298.0,
+            "replyValues": [
+              -298.0,
+              -298.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              24,
+              25,
+              92
+            ],
+            "target": 39,
+            "action": "PLACE_TRACKS 1 1;PLACE_TRACKS 2 1;PLACE_TRACKS 0 4;DISRUPT 39"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -314.0,
+            "replyValues": [
+              -314.0,
+              -314.0
+            ]
+          },
+          "gapFromEmittedE": -16.0,
+          "gapFromBestExistingH": -16.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              159,
+              233,
+              235
+            ],
+            "target": 39,
+            "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 3 10;PLACE_TRACKS 5 10;DISRUPT 39"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -298.0,
+            "replyValues": [
+              -298.0,
+              -298.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              24,
+              25,
+              92
+            ],
+            "target": 39,
+            "action": "PLACE_TRACKS 1 1;PLACE_TRACKS 2 1;PLACE_TRACKS 0 4;DISRUPT 39"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -314.0,
+            "replyValues": [
+              -314.0,
+              -314.0
+            ]
+          },
+          "gapFromEmittedE": -16.0,
+          "gapFromBestExistingH": -16.0
+        }
+      }
+    },
+    {
+      "gameId": 907063775,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "97f2d3f0623f4551ce648c705db30fc16dfbc236112260e82cdcbffae079ed64",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          235,
+          234,
+          233
+        ],
+        "target": 7,
+        "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 7"
+      },
+      "bestExistingHScore": {
+        "value": -396.0,
+        "replyValues": [
+          -396.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              235,
+              234,
+              233
+            ],
+            "target": 7,
+            "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 7"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -396.0,
+            "replyValues": [
+              -396.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              80,
+              173
+            ],
+            "target": 7,
+            "action": "PLACE_TRACKS 11 3;PLACE_TRACKS 12 7;DISRUPT 7"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -396.0,
+            "replyValues": [
+              -396.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              235,
+              234,
+              233
+            ],
+            "target": 7,
+            "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 7"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -396.0,
+            "replyValues": [
+              -396.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              80,
+              173
+            ],
+            "target": 7,
+            "action": "PLACE_TRACKS 11 3;PLACE_TRACKS 12 7;DISRUPT 7"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -396.0,
+            "replyValues": [
+              -396.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907063844,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "88f682df8286a70579599dfc6c39b4b37cddb1de55b817f08a44220b0b05e250",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          146,
+          147,
+          148
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 6;PLACE_TRACKS 10 6"
+      },
+      "bestExistingHScore": {
+        "value": 356.0,
+        "replyValues": [
+          356.0,
+          356.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -239.0,
+        "buildAtNeuralTarget": -43.0,
+        "targetAtBaselineBuild": -196.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 196.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -239.0,
+          "buildAtNeuralTarget": -43.0,
+          "targetAtBaselineBuild": -196.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 196.0
+        },
+        {
+          "buildAtBaselineTarget": -239.0,
+          "buildAtNeuralTarget": -43.0,
+          "targetAtBaselineBuild": -196.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 196.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              146,
+              147,
+              148
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 6;PLACE_TRACKS 10 6"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 356.0,
+            "replyValues": [
+              356.0,
+              356.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              182,
+              202,
+              203
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 21 7;PLACE_TRACKS 18 8;PLACE_TRACKS 19 8"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 117.0,
+            "replyValues": [
+              117.0,
+              117.0
+            ]
+          },
+          "gapFromEmittedE": -239.0,
+          "gapFromBestExistingH": -239.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              146,
+              147,
+              148
+            ],
+            "target": 26,
+            "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 6;PLACE_TRACKS 10 6;DISRUPT 26"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 160.0,
+            "replyValues": [
+              160.0,
+              160.0
+            ]
+          },
+          "gapFromEmittedE": -196.0,
+          "gapFromBestExistingH": -196.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              182,
+              202,
+              203
+            ],
+            "target": 26,
+            "action": "PLACE_TRACKS 21 7;PLACE_TRACKS 18 8;PLACE_TRACKS 19 8;DISRUPT 26"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 117.0,
+            "replyValues": [
+              117.0,
+              117.0
+            ]
+          },
+          "gapFromEmittedE": -239.0,
+          "gapFromBestExistingH": -239.0
+        }
+      }
+    },
+    {
+      "gameId": 907063844,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "0d83efa590633ac4e71ece7593ab2c36193262d43060987ceacf463f89d13a1c",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          134,
+          133,
+          132
+        ],
+        "target": 10,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 18 5;PLACE_TRACKS 17 5;DISRUPT 10"
+      },
+      "bestExistingHScore": {
+        "value": 162.0,
+        "replyValues": [
+          210.0,
+          146.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -7.0,
+        "buildAtNeuralTarget": -7.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -7.0,
+          "buildAtNeuralTarget": -7.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -7.0,
+          "buildAtNeuralTarget": -7.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              43,
+              44,
+              134
+            ],
+            "target": 10,
+            "action": "PLACE_TRACKS 20 1;PLACE_TRACKS 21 1;PLACE_TRACKS 19 5;DISRUPT 10"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 106.75,
+            "replyValues": [
+              106.0,
+              109.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -55.25
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              271,
+              66,
+              270
+            ],
+            "target": 10,
+            "action": "PLACE_TRACKS 18 11;PLACE_TRACKS 20 2;PLACE_TRACKS 17 11;DISRUPT 10"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 99.75,
+            "replyValues": [
+              99.0,
+              102.0
+            ]
+          },
+          "gapFromEmittedE": -7.0,
+          "gapFromBestExistingH": -62.25
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              43,
+              44,
+              134
+            ],
+            "target": 10,
+            "action": "PLACE_TRACKS 20 1;PLACE_TRACKS 21 1;PLACE_TRACKS 19 5;DISRUPT 10"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 106.75,
+            "replyValues": [
+              106.0,
+              109.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -55.25
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              271,
+              66,
+              270
+            ],
+            "target": 10,
+            "action": "PLACE_TRACKS 18 11;PLACE_TRACKS 20 2;PLACE_TRACKS 17 11;DISRUPT 10"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 99.75,
+            "replyValues": [
+              99.0,
+              102.0
+            ]
+          },
+          "gapFromEmittedE": -7.0,
+          "gapFromBestExistingH": -62.25
+        }
+      }
+    },
+    {
+      "gameId": 907063844,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "c1850bb7f1195fe33ee8c30f24f2451e79eee0ec542841f43bdd9e5a54dae708",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          296,
+          319,
+          318
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 20 12;PLACE_TRACKS 20 13;PLACE_TRACKS 19 13"
+      },
+      "bestExistingHScore": {
+        "value": 386.0,
+        "replyValues": [
+          431.0,
+          371.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": -242.5,
+        "targetAtNeuralBuild": -242.5,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -208.0,
+          "targetAtNeuralBuild": -208.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -254.0,
+          "targetAtNeuralBuild": -254.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              296,
+              319,
+              318
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 20 12;PLACE_TRACKS 20 13;PLACE_TRACKS 19 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 386.0,
+            "replyValues": [
+              431.0,
+              371.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              292,
+              291,
+              268
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 16 12;PLACE_TRACKS 15 12;PLACE_TRACKS 15 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 386.0,
+            "replyValues": [
+              431.0,
+              371.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              296,
+              319,
+              318
+            ],
+            "target": 25,
+            "action": "PLACE_TRACKS 20 12;PLACE_TRACKS 20 13;PLACE_TRACKS 19 13;DISRUPT 25"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 143.5,
+            "replyValues": [
+              223.0,
+              117.0
+            ]
+          },
+          "gapFromEmittedE": -242.5,
+          "gapFromBestExistingH": -242.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              292,
+              291,
+              268
+            ],
+            "target": 25,
+            "action": "PLACE_TRACKS 16 12;PLACE_TRACKS 15 12;PLACE_TRACKS 15 11;DISRUPT 25"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 143.5,
+            "replyValues": [
+              223.0,
+              117.0
+            ]
+          },
+          "gapFromEmittedE": -242.5,
+          "gapFromBestExistingH": -242.5
+        }
+      }
+    },
+    {
+      "gameId": 907063844,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "a0f89e53069ec6721d1ed82e976d68cfe7275278d437e391022143ef65778c9a",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          38
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 15 1"
+      },
+      "bestExistingHScore": {
+        "value": 285.0,
+        "replyValues": [
+          285.0,
+          285.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": -33.0,
+        "targetAtNeuralBuild": -33.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -33.0,
+          "targetAtNeuralBuild": -33.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -33.0,
+          "targetAtNeuralBuild": -33.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              38
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 15 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 285.0,
+            "replyValues": [
+              285.0,
+              285.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              38
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 15 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 285.0,
+            "replyValues": [
+              285.0,
+              285.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              38
+            ],
+            "target": 23,
+            "action": "PLACE_TRACKS 15 1;DISRUPT 23"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 252.0,
+            "replyValues": [
+              252.0,
+              252.0
+            ]
+          },
+          "gapFromEmittedE": -33.0,
+          "gapFromBestExistingH": -33.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              38
+            ],
+            "target": 23,
+            "action": "PLACE_TRACKS 15 1;DISRUPT 23"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 252.0,
+            "replyValues": [
+              252.0,
+              252.0
+            ]
+          },
+          "gapFromEmittedE": -33.0,
+          "gapFromBestExistingH": -33.0
+        }
+      }
+    },
+    {
+      "gameId": 907063844,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "3f45442e39368c579a41170ff827cefb4b70879af69e17e108db5872407bd8c4",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          16,
+          68,
+          91
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 16 0;PLACE_TRACKS 22 2;PLACE_TRACKS 22 3;DISRUPT 31"
+      },
+      "bestExistingHScore": {
+        "value": 1000152.0,
+        "replyValues": [
+          1000152.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              16,
+              68,
+              91
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 16 0;PLACE_TRACKS 22 2;PLACE_TRACKS 22 3;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000152.0,
+            "replyValues": [
+              1000152.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              238,
+              60
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 8 10;PLACE_TRACKS 14 2;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000152.0,
+            "replyValues": [
+              1000152.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              16,
+              68,
+              91
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 16 0;PLACE_TRACKS 22 2;PLACE_TRACKS 22 3;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000152.0,
+            "replyValues": [
+              1000152.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              238,
+              60
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 8 10;PLACE_TRACKS 14 2;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000152.0,
+            "replyValues": [
+              1000152.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "8d28acaf28cef7240ae503bc971823eb48502887da66b0cd0d035614ca2346c0",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          33,
+          56,
+          79
+        ],
+        "target": 37,
+        "action": "PLACE_TRACKS 10 1;PLACE_TRACKS 10 2;PLACE_TRACKS 10 3;DISRUPT 37"
+      },
+      "bestExistingHScore": {
+        "value": 92.25,
+        "replyValues": [
+          89.0,
+          102.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -60.25,
+        "buildAtNeuralTarget": -60.25,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -63.0,
+          "buildAtNeuralTarget": -63.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -52.0,
+          "buildAtNeuralTarget": -52.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              33,
+              56,
+              79
+            ],
+            "target": 37,
+            "action": "PLACE_TRACKS 10 1;PLACE_TRACKS 10 2;PLACE_TRACKS 10 3;DISRUPT 37"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 92.25,
+            "replyValues": [
+              89.0,
+              102.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              96,
+              78,
+              55
+            ],
+            "target": 37,
+            "action": "PLACE_TRACKS 4 4;PLACE_TRACKS 9 3;PLACE_TRACKS 9 2;DISRUPT 37"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 32.0,
+            "replyValues": [
+              26.0,
+              50.0
+            ]
+          },
+          "gapFromEmittedE": -60.25,
+          "gapFromBestExistingH": -60.25
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              33,
+              56,
+              79
+            ],
+            "target": 37,
+            "action": "PLACE_TRACKS 10 1;PLACE_TRACKS 10 2;PLACE_TRACKS 10 3;DISRUPT 37"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 92.25,
+            "replyValues": [
+              89.0,
+              102.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              96,
+              78,
+              55
+            ],
+            "target": 37,
+            "action": "PLACE_TRACKS 4 4;PLACE_TRACKS 9 3;PLACE_TRACKS 9 2;DISRUPT 37"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 32.0,
+            "replyValues": [
+              26.0,
+              50.0
+            ]
+          },
+          "gapFromEmittedE": -60.25,
+          "gapFromBestExistingH": -60.25
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "fd70bb341bebf9f1ae4ea38e8552305c56894aa20ab7372e634852950cd820d9",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          35,
+          36
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 12 1;PLACE_TRACKS 13 1;DISRUPT 24"
+      },
+      "bestExistingHScore": {
+        "value": -22.0,
+        "replyValues": [
+          -23.0,
+          -19.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -234.75,
+        "buildAtNeuralTarget": -234.75,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -203.0,
+          "buildAtNeuralTarget": -203.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -248.0,
+          "buildAtNeuralTarget": -248.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              134
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 19 5;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -22.0,
+            "replyValues": [
+              -23.0,
+              -19.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              218,
+              104
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 11 9;PLACE_TRACKS 12 4;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -256.75,
+            "replyValues": [
+              -226.0,
+              -267.0
+            ]
+          },
+          "gapFromEmittedE": -234.75,
+          "gapFromBestExistingH": -234.75
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              134
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 19 5;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -22.0,
+            "replyValues": [
+              -23.0,
+              -19.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              218,
+              104
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 11 9;PLACE_TRACKS 12 4;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -256.75,
+            "replyValues": [
+              -226.0,
+              -267.0
+            ]
+          },
+          "gapFromEmittedE": -234.75,
+          "gapFromBestExistingH": -234.75
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "6824e5e9b4481deee25d3d6f9f842d6c4006da90a0b6f15c294eb7b6f039adf3",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          11,
+          12
+        ],
+        "target": 14,
+        "action": "PLACE_TRACKS 11 0;PLACE_TRACKS 12 0;DISRUPT 14"
+      },
+      "bestExistingHScore": {
+        "value": -549.0,
+        "replyValues": [
+          -549.0,
+          -549.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -11.0,
+        "buildAtNeuralTarget": -11.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -14.0,
+          "buildAtNeuralTarget": -14.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -2.0,
+          "buildAtNeuralTarget": -2.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              134
+            ],
+            "target": 14,
+            "action": "PLACE_TRACKS 19 5;DISRUPT 14"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -549.0,
+            "replyValues": [
+              -549.0,
+              -549.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              63,
+              86,
+              85
+            ],
+            "target": 14,
+            "action": "PLACE_TRACKS 17 2;PLACE_TRACKS 17 3;PLACE_TRACKS 16 3;DISRUPT 14"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -560.0,
+            "replyValues": [
+              -563.0,
+              -551.0
+            ]
+          },
+          "gapFromEmittedE": -11.0,
+          "gapFromBestExistingH": -11.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              134
+            ],
+            "target": 14,
+            "action": "PLACE_TRACKS 19 5;DISRUPT 14"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -549.0,
+            "replyValues": [
+              -549.0,
+              -549.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              63,
+              86,
+              85
+            ],
+            "target": 14,
+            "action": "PLACE_TRACKS 17 2;PLACE_TRACKS 17 3;PLACE_TRACKS 16 3;DISRUPT 14"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -560.0,
+            "replyValues": [
+              -563.0,
+              -551.0
+            ]
+          },
+          "gapFromEmittedE": -11.0,
+          "gapFromBestExistingH": -11.0
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "2c79bc110be45a1c5bbe13e30b80b1e6122bea2a26c64b891254c0ef0aec5f2d",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          226,
+          203,
+          249
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 19 9;PLACE_TRACKS 19 8;PLACE_TRACKS 19 10;DISRUPT 12"
+      },
+      "bestExistingHScore": {
+        "value": -1000505.0,
+        "replyValues": [
+          -1000505.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 1000015.0,
+        "buildAtNeuralTarget": 1000015.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 1000015.0,
+          "buildAtNeuralTarget": 1000015.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "onlyCExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              203,
+              226,
+              249
+            ],
+            "target": 12,
+            "action": "PLACE_TRACKS 19 8;PLACE_TRACKS 19 9;PLACE_TRACKS 19 10;DISRUPT 12"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1000505.0,
+            "replyValues": [
+              -1000505.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              297,
+              298,
+              275
+            ],
+            "target": 12,
+            "action": "PLACE_TRACKS 21 12;PLACE_TRACKS 22 12;PLACE_TRACKS 22 11;DISRUPT 12"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -490.0,
+            "replyValues": [
+              -490.0
+            ]
+          },
+          "gapFromEmittedE": 1000015.0,
+          "gapFromBestExistingH": 1000015.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              203,
+              226,
+              249
+            ],
+            "target": 20,
+            "action": "PLACE_TRACKS 19 8;PLACE_TRACKS 19 9;PLACE_TRACKS 19 10;DISRUPT 20"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1000505.0,
+            "replyValues": [
+              -1000505.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              297,
+              298,
+              275
+            ],
+            "target": 20,
+            "action": "PLACE_TRACKS 21 12;PLACE_TRACKS 22 12;PLACE_TRACKS 22 11;DISRUPT 20"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -490.0,
+            "replyValues": [
+              -490.0
+            ]
+          },
+          "gapFromEmittedE": 1000015.0,
+          "gapFromBestExistingH": 1000015.0
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "8c73df68ba85c8f539240ae2b3dc8374c26cf57af72273a11bec98102dc05f5c",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          183,
+          194,
+          198
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 22 7;PLACE_TRACKS 10 8;PLACE_TRACKS 14 8;DISRUPT 21"
+      },
+      "bestExistingHScore": {
+        "value": -559.0,
+        "replyValues": [
+          -559.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              183,
+              194,
+              198
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 22 7;PLACE_TRACKS 10 8;PLACE_TRACKS 14 8;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -559.0,
+            "replyValues": [
+              -559.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              289,
+              288,
+              287
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 13 12;PLACE_TRACKS 12 12;PLACE_TRACKS 11 12;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -559.0,
+            "replyValues": [
+              -559.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              183,
+              194,
+              198
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 22 7;PLACE_TRACKS 10 8;PLACE_TRACKS 14 8;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -559.0,
+            "replyValues": [
+              -559.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              289,
+              288,
+              287
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 13 12;PLACE_TRACKS 12 12;PLACE_TRACKS 11 12;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -559.0,
+            "replyValues": [
+              -559.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 50,
+      "me": 0,
+      "stateSha256": "6144ccec2fabc18ce63d160ce2f91c2262c1038dcb8594f5abf155e60ba4490a",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          250,
+          249,
+          20
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 0;DISRUPT 12"
+      },
+      "bestExistingHScore": {
+        "value": -579.0,
+        "replyValues": [
+          -579.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              250,
+              249,
+              20
+            ],
+            "target": 12,
+            "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 0;DISRUPT 12"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -579.0,
+            "replyValues": [
+              -579.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              68
+            ],
+            "target": 12,
+            "action": "PLACE_TRACKS 22 2;DISRUPT 12"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -579.0,
+            "replyValues": [
+              -579.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              250,
+              249,
+              20
+            ],
+            "target": 35,
+            "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 0;DISRUPT 35"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -579.0,
+            "replyValues": [
+              -579.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              68
+            ],
+            "target": 35,
+            "action": "PLACE_TRACKS 22 2;DISRUPT 35"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -579.0,
+            "replyValues": [
+              -579.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 60,
+      "me": 0,
+      "stateSha256": "821cc2c854051991016efad02a2628aa968ae81feff292517c22b3996a8d7012",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          250,
+          249,
+          311
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 12 13;DISRUPT 22"
+      },
+      "bestExistingHScore": {
+        "value": -599.0,
+        "replyValues": [
+          -599.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              250,
+              249,
+              311
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 12 13;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -599.0,
+            "replyValues": [
+              -599.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              250,
+              249,
+              273
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 11;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -599.0,
+            "replyValues": [
+              -599.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              250,
+              249,
+              311
+            ],
+            "target": 41,
+            "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 12 13;DISRUPT 41"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -599.0,
+            "replyValues": [
+              -599.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              250,
+              249,
+              273
+            ],
+            "target": 41,
+            "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 11;DISRUPT 41"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -599.0,
+            "replyValues": [
+              -599.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907063898,
+      "turn": 70,
+      "me": 0,
+      "stateSha256": "8905410df5db4d2771a4e8c32fff55641ef170b5bc7234ee687b60f6092ea381",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          320
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 21 13;DISRUPT 22"
+      },
+      "bestExistingHScore": {
+        "value": -619.0,
+        "replyValues": [
+          -619.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              320
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 21 13;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -619.0,
+            "replyValues": [
+              -619.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              318,
+              320,
+              208
+            ],
+            "target": 22,
+            "action": "PLACE_TRACKS 19 13;PLACE_TRACKS 21 13;PLACE_TRACKS 1 9;DISRUPT 22"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -619.0,
+            "replyValues": [
+              -619.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              320
+            ],
+            "target": 0,
+            "action": "PLACE_TRACKS 21 13;DISRUPT 0"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -619.0,
+            "replyValues": [
+              -619.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              318,
+              320,
+              208
+            ],
+            "target": 0,
+            "action": "PLACE_TRACKS 19 13;PLACE_TRACKS 21 13;PLACE_TRACKS 1 9;DISRUPT 0"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -619.0,
+            "replyValues": [
+              -619.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907063965,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "73ff7264e0073386afbae5499ba2b68a0e66eb5d9fd22d0e5d45f4f1d4138874",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          169,
+          167
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 8 7;PLACE_TRACKS 6 7;DISRUPT 21"
+      },
+      "bestExistingHScore": {
+        "value": 69.5,
+        "replyValues": [
+          83.0,
+          65.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 21.0,
+        "buildAtNeuralTarget": 21.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 6.0,
+          "buildAtNeuralTarget": 6.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 26.0,
+          "buildAtNeuralTarget": 26.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              141,
+              164,
+              165
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 3 6;PLACE_TRACKS 3 7;PLACE_TRACKS 4 7;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1.0,
+            "replyValues": [
+              23.0,
+              -9.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -70.5
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              141,
+              142,
+              147
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 3 6;PLACE_TRACKS 4 6;PLACE_TRACKS 9 6;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 20.0,
+            "replyValues": [
+              29.0,
+              17.0
+            ]
+          },
+          "gapFromEmittedE": 21.0,
+          "gapFromBestExistingH": -49.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              141,
+              164,
+              165
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 3 6;PLACE_TRACKS 3 7;PLACE_TRACKS 4 7;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1.0,
+            "replyValues": [
+              23.0,
+              -9.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -70.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              141,
+              142,
+              147
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 3 6;PLACE_TRACKS 4 6;PLACE_TRACKS 9 6;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 20.0,
+            "replyValues": [
+              29.0,
+              17.0
+            ]
+          },
+          "gapFromEmittedE": 21.0,
+          "gapFromBestExistingH": -49.5
+        }
+      }
+    },
+    {
+      "gameId": 907063965,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "1e0e2344901c5d5ff74b804ce05cb720a74f9d1526f342ff12d7c21856876bc2",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          97,
+          96,
+          95
+        ],
+        "target": 3,
+        "action": "PLACE_TRACKS 5 4;PLACE_TRACKS 4 4;PLACE_TRACKS 3 4;DISRUPT 3"
+      },
+      "bestExistingHScore": {
+        "value": -29.5,
+        "replyValues": [
+          -16.0,
+          -34.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -30.5,
+        "buildAtNeuralTarget": -30.5,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -32.0,
+          "buildAtNeuralTarget": -32.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -30.0,
+          "buildAtNeuralTarget": -30.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              97,
+              96,
+              95
+            ],
+            "target": 3,
+            "action": "PLACE_TRACKS 5 4;PLACE_TRACKS 4 4;PLACE_TRACKS 3 4;DISRUPT 3"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -29.5,
+            "replyValues": [
+              -16.0,
+              -34.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              153,
+              130,
+              84
+            ],
+            "target": 3,
+            "action": "PLACE_TRACKS 15 6;PLACE_TRACKS 15 5;PLACE_TRACKS 15 3;DISRUPT 3"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -60.0,
+            "replyValues": [
+              -48.0,
+              -64.0
+            ]
+          },
+          "gapFromEmittedE": -30.5,
+          "gapFromBestExistingH": -30.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              97,
+              96,
+              95
+            ],
+            "target": 3,
+            "action": "PLACE_TRACKS 5 4;PLACE_TRACKS 4 4;PLACE_TRACKS 3 4;DISRUPT 3"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -29.5,
+            "replyValues": [
+              -16.0,
+              -34.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              153,
+              130,
+              84
+            ],
+            "target": 3,
+            "action": "PLACE_TRACKS 15 6;PLACE_TRACKS 15 5;PLACE_TRACKS 15 3;DISRUPT 3"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -60.0,
+            "replyValues": [
+              -48.0,
+              -64.0
+            ]
+          },
+          "gapFromEmittedE": -30.5,
+          "gapFromBestExistingH": -30.5
+        }
+      }
+    },
+    {
+      "gameId": 907063965,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "3ea1921c6bd1c6cf94c2660fdf21a95301712b30c04cfcc8c53c96c5aff5b877",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          255,
+          62
+        ],
+        "target": 23,
+        "action": "PLACE_TRACKS 2 11;PLACE_TRACKS 16 2;DISRUPT 23"
+      },
+      "bestExistingHScore": {
+        "value": 198.25,
+        "replyValues": [
+          223.0,
+          190.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -80.0,
+        "buildAtNeuralTarget": -10.5,
+        "targetAtBaselineBuild": -27.25,
+        "targetAtNeuralBuild": 42.25,
+        "interaction": 69.5
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 19.0,
+          "buildAtNeuralTarget": 9.0,
+          "targetAtBaselineBuild": -19.0,
+          "targetAtNeuralBuild": -29.0,
+          "interaction": -10.0
+        },
+        {
+          "buildAtBaselineTarget": -113.0,
+          "buildAtNeuralTarget": -17.0,
+          "targetAtBaselineBuild": -30.0,
+          "targetAtNeuralBuild": 66.0,
+          "interaction": 96.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              255,
+              62
+            ],
+            "target": 23,
+            "action": "PLACE_TRACKS 2 11;PLACE_TRACKS 16 2;DISRUPT 23"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 198.25,
+            "replyValues": [
+              223.0,
+              190.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              194,
+              215
+            ],
+            "target": 23,
+            "action": "PLACE_TRACKS 10 8;PLACE_TRACKS 8 9;DISRUPT 23"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 118.25,
+            "replyValues": [
+              242.0,
+              77.0
+            ]
+          },
+          "gapFromEmittedE": -80.0,
+          "gapFromBestExistingH": -80.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              255,
+              62
+            ],
+            "target": 42,
+            "action": "PLACE_TRACKS 2 11;PLACE_TRACKS 16 2;DISRUPT 42"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 171.0,
+            "replyValues": [
+              204.0,
+              160.0
+            ]
+          },
+          "gapFromEmittedE": -27.25,
+          "gapFromBestExistingH": -27.25
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              194,
+              215
+            ],
+            "target": 42,
+            "action": "PLACE_TRACKS 10 8;PLACE_TRACKS 8 9;DISRUPT 42"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 160.5,
+            "replyValues": [
+              213.0,
+              143.0
+            ]
+          },
+          "gapFromEmittedE": -37.75,
+          "gapFromBestExistingH": -37.75
+        }
+      }
+    },
+    {
+      "gameId": 907063965,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "31e1dbfa6d80a5827d501269a7f1e5fc8956133f12883760b69a2962837f35b6",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          81
+        ],
+        "target": 8,
+        "action": "PLACE_TRACKS 12 3;DISRUPT 8"
+      },
+      "bestExistingHScore": {
+        "value": 211.5,
+        "replyValues": [
+          246.0,
+          200.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -2.0,
+        "buildAtNeuralTarget": -8.75,
+        "targetAtBaselineBuild": 22.5,
+        "targetAtNeuralBuild": 15.75,
+        "interaction": -6.75
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -8.0,
+          "buildAtNeuralTarget": -8.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": -9.0,
+          "targetAtBaselineBuild": 30.0,
+          "targetAtNeuralBuild": 21.0,
+          "interaction": -9.0
+        }
+      ],
+      "thresholdCategory": "onlyDExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              81
+            ],
+            "target": 8,
+            "action": "PLACE_TRACKS 12 3;DISRUPT 8"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 211.5,
+            "replyValues": [
+              246.0,
+              200.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              149
+            ],
+            "target": 8,
+            "action": "PLACE_TRACKS 11 6;DISRUPT 8"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 209.5,
+            "replyValues": [
+              238.0,
+              200.0
+            ]
+          },
+          "gapFromEmittedE": -2.0,
+          "gapFromBestExistingH": -2.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              81
+            ],
+            "target": 19,
+            "action": "PLACE_TRACKS 12 3;DISRUPT 19"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 234.0,
+            "replyValues": [
+              246.0,
+              230.0
+            ]
+          },
+          "gapFromEmittedE": 22.5,
+          "gapFromBestExistingH": 22.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              149
+            ],
+            "target": 19,
+            "action": "PLACE_TRACKS 11 6;DISRUPT 19"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 225.25,
+            "replyValues": [
+              238.0,
+              221.0
+            ]
+          },
+          "gapFromEmittedE": 13.75,
+          "gapFromBestExistingH": 13.75
+        }
+      }
+    },
+    {
+      "gameId": 907063965,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "fb120cd8a011acca5e9c4bd5cc62a7412f7c7f377274597a609ee51e08eb432b",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          192,
+          76,
+          99
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4;DISRUPT 39"
+      },
+      "bestExistingHScore": {
+        "value": -40.0,
+        "replyValues": [
+          -40.0,
+          -40.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 25.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 82.0,
+        "targetAtNeuralBuild": 57.0,
+        "interaction": -25.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 6.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 82.0,
+          "targetAtNeuralBuild": 76.0,
+          "interaction": -6.0
+        },
+        {
+          "buildAtBaselineTarget": 82.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 82.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": -82.0
+        }
+      ],
+      "thresholdCategory": "bothSeparatelyExceedH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              192,
+              76,
+              99
+            ],
+            "target": 39,
+            "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4;DISRUPT 39"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -40.0,
+            "replyValues": [
+              -40.0,
+              -40.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              294,
+              293
+            ],
+            "target": 39,
+            "action": "PLACE_TRACKS 18 12;PLACE_TRACKS 17 12;DISRUPT 39"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15.0,
+            "replyValues": [
+              -34.0,
+              42.0
+            ]
+          },
+          "gapFromEmittedE": 25.0,
+          "gapFromBestExistingH": 25.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              192,
+              76,
+              99
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 42.0,
+            "replyValues": [
+              42.0,
+              42.0
+            ]
+          },
+          "gapFromEmittedE": 82.0,
+          "gapFromBestExistingH": 82.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              294,
+              293
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 18 12;PLACE_TRACKS 17 12;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 42.0,
+            "replyValues": [
+              42.0,
+              42.0
+            ]
+          },
+          "gapFromEmittedE": 82.0,
+          "gapFromBestExistingH": 82.0
+        }
+      }
+    },
+    {
+      "gameId": 907063965,
+      "turn": 50,
+      "me": 0,
+      "stateSha256": "1e516fd817a0cbb0156f17f1f1f7735327b4cab25a4e8e55c6463be0103c3c75",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          192,
+          228,
+          205
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 21 9;PLACE_TRACKS 21 8;DISRUPT 11"
+      },
+      "bestExistingHScore": {
+        "value": 1000044.0,
+        "replyValues": [
+          1000044.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              192,
+              228,
+              205
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 21 9;PLACE_TRACKS 21 8;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000044.0,
+            "replyValues": [
+              1000044.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              337
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 15 14;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000044.0,
+            "replyValues": [
+              1000044.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              192,
+              228,
+              205
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 21 9;PLACE_TRACKS 21 8;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000044.0,
+            "replyValues": [
+              1000044.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              337
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 15 14;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000044.0,
+            "replyValues": [
+              1000044.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907064014,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "dcc6ac64b8ead89b10a15f9c38ca646c81f924d0a369dfc2c02959469c26f1b6",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          331,
+          304
+        ],
+        "target": 43,
+        "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;DISRUPT 43"
+      },
+      "bestExistingHScore": {
+        "value": -30.75,
+        "replyValues": [
+          12.0,
+          -45.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -58.25,
+        "buildAtNeuralTarget": -58.25,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -32.0,
+          "buildAtNeuralTarget": -32.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -67.0,
+          "buildAtNeuralTarget": -67.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              331,
+              304
+            ],
+            "target": 43,
+            "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;DISRUPT 43"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -30.75,
+            "replyValues": [
+              12.0,
+              -45.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              318
+            ],
+            "target": 43,
+            "action": "PLACE_TRACKS 21 11;DISRUPT 43"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -89.0,
+            "replyValues": [
+              -20.0,
+              -112.0
+            ]
+          },
+          "gapFromEmittedE": -58.25,
+          "gapFromBestExistingH": -58.25
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              331,
+              304
+            ],
+            "target": 43,
+            "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;DISRUPT 43"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -30.75,
+            "replyValues": [
+              12.0,
+              -45.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              318
+            ],
+            "target": 43,
+            "action": "PLACE_TRACKS 21 11;DISRUPT 43"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -89.0,
+            "replyValues": [
+              -20.0,
+              -112.0
+            ]
+          },
+          "gapFromEmittedE": -58.25,
+          "gapFromBestExistingH": -58.25
+        }
+      }
+    },
+    {
+      "gameId": 907064014,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "3a8b8a0deb275e6a554cc538c34f1ebdba71b79fb539b6cf2912ae0b17b1a1b5",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          74,
+          73,
+          72
+        ],
+        "target": 45,
+        "action": "PLACE_TRACKS 20 2;PLACE_TRACKS 19 2;PLACE_TRACKS 18 2;DISRUPT 45"
+      },
+      "bestExistingHScore": {
+        "value": -275.5,
+        "replyValues": [
+          -244.0,
+          -286.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -9.0,
+        "buildAtNeuralTarget": -9.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -9.0,
+          "buildAtNeuralTarget": -9.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -9.0,
+          "buildAtNeuralTarget": -9.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              57,
+              58
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 3 2;PLACE_TRACKS 4 2;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -303.5,
+            "replyValues": [
+              -272.0,
+              -314.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -28.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              57
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 3 2;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -312.5,
+            "replyValues": [
+              -281.0,
+              -323.0
+            ]
+          },
+          "gapFromEmittedE": -9.0,
+          "gapFromBestExistingH": -37.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              57,
+              58
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 3 2;PLACE_TRACKS 4 2;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -303.5,
+            "replyValues": [
+              -272.0,
+              -314.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -28.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              57
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 3 2;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -312.5,
+            "replyValues": [
+              -281.0,
+              -323.0
+            ]
+          },
+          "gapFromEmittedE": -9.0,
+          "gapFromBestExistingH": -37.0
+        }
+      }
+    },
+    {
+      "gameId": 907064014,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "4296506f6b951aadc62a74bea6d1b7765b09866181a3b8896349271558c93be3",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          186,
+          185,
+          158
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 28"
+      },
+      "bestExistingHScore": {
+        "value": -1384.0,
+        "replyValues": [
+          -1384.0,
+          -1384.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -128.0,
+        "buildAtNeuralTarget": -258.0,
+        "targetAtBaselineBuild": 250.0,
+        "targetAtNeuralBuild": 120.0,
+        "interaction": -130.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -128.0,
+          "buildAtNeuralTarget": -258.0,
+          "targetAtBaselineBuild": 250.0,
+          "targetAtNeuralBuild": 120.0,
+          "interaction": -130.0
+        },
+        {
+          "buildAtBaselineTarget": -128.0,
+          "buildAtNeuralTarget": -258.0,
+          "targetAtBaselineBuild": 250.0,
+          "targetAtNeuralBuild": 120.0,
+          "interaction": -130.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              186,
+              185,
+              158
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1634.0,
+            "replyValues": [
+              -1634.0,
+              -1634.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -250.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              261
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 18 9"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1762.0,
+            "replyValues": [
+              -1762.0,
+              -1762.0
+            ]
+          },
+          "gapFromEmittedE": -128.0,
+          "gapFromBestExistingH": -378.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              186,
+              185,
+              158
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1384.0,
+            "replyValues": [
+              -1384.0,
+              -1384.0
+            ]
+          },
+          "gapFromEmittedE": 250.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              261
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 18 9;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1642.0,
+            "replyValues": [
+              -1642.0,
+              -1642.0
+            ]
+          },
+          "gapFromEmittedE": -8.0,
+          "gapFromBestExistingH": -258.0
+        }
+      }
+    },
+    {
+      "gameId": 907064014,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "e1dea8b4e72901e8baf7fb26e012e6396653d8de00602dc12f942fce90061bad",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          385,
+          386,
+          387
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 14;PLACE_TRACKS 8 14;PLACE_TRACKS 9 14"
+      },
+      "bestExistingHScore": {
+        "value": -3395.75,
+        "replyValues": [
+          -3549.0,
+          -2936.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -108.5,
+        "buildAtNeuralTarget": -9.0,
+        "targetAtBaselineBuild": 134.5,
+        "targetAtNeuralBuild": 234.0,
+        "interaction": 99.5
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -128.0,
+          "buildAtNeuralTarget": 12.0,
+          "targetAtBaselineBuild": 222.0,
+          "targetAtNeuralBuild": 362.0,
+          "interaction": 140.0
+        },
+        {
+          "buildAtBaselineTarget": -50.0,
+          "buildAtNeuralTarget": -72.0,
+          "targetAtBaselineBuild": -128.0,
+          "targetAtNeuralBuild": -150.0,
+          "interaction": -22.0
+        }
+      ],
+      "thresholdCategory": "onlyDExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              385,
+              386,
+              387
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 7 14;PLACE_TRACKS 8 14;PLACE_TRACKS 9 14"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3395.75,
+            "replyValues": [
+              -3549.0,
+              -2936.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              105,
+              248
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 24 3;PLACE_TRACKS 5 9"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3504.25,
+            "replyValues": [
+              -3677.0,
+              -2986.0
+            ]
+          },
+          "gapFromEmittedE": -108.5,
+          "gapFromBestExistingH": -108.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              385,
+              386,
+              387
+            ],
+            "target": 52,
+            "action": "PLACE_TRACKS 7 14;PLACE_TRACKS 8 14;PLACE_TRACKS 9 14;DISRUPT 52"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3261.25,
+            "replyValues": [
+              -3327.0,
+              -3064.0
+            ]
+          },
+          "gapFromEmittedE": 134.5,
+          "gapFromBestExistingH": 134.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              105,
+              248
+            ],
+            "target": 52,
+            "action": "PLACE_TRACKS 24 3;PLACE_TRACKS 5 9;DISRUPT 52"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3270.25,
+            "replyValues": [
+              -3315.0,
+              -3136.0
+            ]
+          },
+          "gapFromEmittedE": 125.5,
+          "gapFromBestExistingH": 125.5
+        }
+      }
+    },
+    {
+      "gameId": 907064014,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "bc33f7d4bbde6471c44c86d83ea759001f6a8bdc80043a11617d9dda75da2259",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          186,
+          185,
+          158
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 11"
+      },
+      "bestExistingHScore": {
+        "value": -3096.0,
+        "replyValues": [
+          -3096.0,
+          -3096.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -18.0,
+        "buildAtNeuralTarget": -33.0,
+        "targetAtBaselineBuild": -6.0,
+        "targetAtNeuralBuild": -21.0,
+        "interaction": -15.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -18.0,
+          "buildAtNeuralTarget": -33.0,
+          "targetAtBaselineBuild": -6.0,
+          "targetAtNeuralBuild": -21.0,
+          "interaction": -15.0
+        },
+        {
+          "buildAtBaselineTarget": -18.0,
+          "buildAtNeuralTarget": -33.0,
+          "targetAtBaselineBuild": -6.0,
+          "targetAtNeuralBuild": -21.0,
+          "interaction": -15.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              186,
+              185,
+              158
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3096.0,
+            "replyValues": [
+              -3096.0,
+              -3096.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              302,
+              467
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 5 11;PLACE_TRACKS 8 17;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3114.0,
+            "replyValues": [
+              -3114.0,
+              -3114.0
+            ]
+          },
+          "gapFromEmittedE": -18.0,
+          "gapFromBestExistingH": -18.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              186,
+              185,
+              158
+            ],
+            "target": 50,
+            "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 50"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3102.0,
+            "replyValues": [
+              -3102.0,
+              -3102.0
+            ]
+          },
+          "gapFromEmittedE": -6.0,
+          "gapFromBestExistingH": -6.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              302,
+              467
+            ],
+            "target": 50,
+            "action": "PLACE_TRACKS 5 11;PLACE_TRACKS 8 17;DISRUPT 50"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -3135.0,
+            "replyValues": [
+              -3135.0,
+              -3135.0
+            ]
+          },
+          "gapFromEmittedE": -39.0,
+          "gapFromBestExistingH": -39.0
+        }
+      }
+    },
+    {
+      "gameId": 907064014,
+      "turn": 50,
+      "me": 1,
+      "stateSha256": "b04e54ae3757a690bc9d85e009294025aeb35509f66a9012e05eeba700e4cc98",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          35,
+          8,
+          7
+        ],
+        "target": 35,
+        "action": "PLACE_TRACKS 8 1;PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;DISRUPT 35"
+      },
+      "bestExistingHScore": {
+        "value": -1003099.0,
+        "replyValues": [
+          -1003099.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              35,
+              8,
+              7
+            ],
+            "target": 35,
+            "action": "PLACE_TRACKS 8 1;PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;DISRUPT 35"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1003099.0,
+            "replyValues": [
+              -1003099.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              460
+            ],
+            "target": 35,
+            "action": "PLACE_TRACKS 1 17;DISRUPT 35"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1003099.0,
+            "replyValues": [
+              -1003099.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              35,
+              8,
+              7
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 8 1;PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1003099.0,
+            "replyValues": [
+              -1003099.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              460
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 1 17;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -1003099.0,
+            "replyValues": [
+              -1003099.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "24a60ee2c0aaa83523debe2842a8a566044ead9191ea8a5fcdf804a8c806b96c",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          209,
+          177
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 15 6"
+      },
+      "bestExistingHScore": {
+        "value": -16.25,
+        "replyValues": [
+          7.0,
+          -24.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 4.5,
+        "buildAtNeuralTarget": 4.5,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 29.0,
+          "buildAtNeuralTarget": 29.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -5.0,
+          "buildAtNeuralTarget": -5.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              96,
+              123,
+              121
+            ],
+            "target": 13,
+            "action": "PLACE_TRACKS 15 3;PLACE_TRACKS 15 4;PLACE_TRACKS 13 4;DISRUPT 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -42.5,
+            "replyValues": [
+              -43.0,
+              -41.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -26.25
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              209,
+              208,
+              96
+            ],
+            "target": 13,
+            "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 19 7;PLACE_TRACKS 15 3;DISRUPT 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -38.0,
+            "replyValues": [
+              -14.0,
+              -46.0
+            ]
+          },
+          "gapFromEmittedE": 4.5,
+          "gapFromBestExistingH": -21.75
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              96,
+              123,
+              121
+            ],
+            "target": 13,
+            "action": "PLACE_TRACKS 15 3;PLACE_TRACKS 15 4;PLACE_TRACKS 13 4;DISRUPT 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -42.5,
+            "replyValues": [
+              -43.0,
+              -41.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -26.25
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              209,
+              208,
+              96
+            ],
+            "target": 13,
+            "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 19 7;PLACE_TRACKS 15 3;DISRUPT 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -38.0,
+            "replyValues": [
+              -14.0,
+              -46.0
+            ]
+          },
+          "gapFromEmittedE": 4.5,
+          "gapFromBestExistingH": -21.75
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "2b705b8363abbc636d80b221d98e64155351b47734062e1e02c3e6b8883c27f7",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          334,
+          307,
+          280
+        ],
+        "target": 30,
+        "action": "PLACE_TRACKS 10 12;PLACE_TRACKS 10 11;PLACE_TRACKS 10 10;DISRUPT 30"
+      },
+      "bestExistingHScore": {
+        "value": -18.75,
+        "replyValues": [
+          -24.0,
+          -3.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -88.0,
+        "buildAtNeuralTarget": -88.0,
+        "targetAtBaselineBuild": -46.0,
+        "targetAtNeuralBuild": -46.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -87.0,
+          "buildAtNeuralTarget": -87.0,
+          "targetAtBaselineBuild": -48.0,
+          "targetAtNeuralBuild": -48.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -91.0,
+          "buildAtNeuralTarget": -91.0,
+          "targetAtBaselineBuild": -40.0,
+          "targetAtNeuralBuild": -40.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              256
+            ],
+            "target": 30,
+            "action": "PLACE_TRACKS 13 9;DISRUPT 30"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -21.75,
+            "replyValues": [
+              -29.0,
+              0.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -3.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              123,
+              275,
+              248
+            ],
+            "target": 30,
+            "action": "PLACE_TRACKS 15 4;PLACE_TRACKS 5 10;PLACE_TRACKS 5 9;DISRUPT 30"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -109.75,
+            "replyValues": [
+              -116.0,
+              -91.0
+            ]
+          },
+          "gapFromEmittedE": -88.0,
+          "gapFromBestExistingH": -91.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              256
+            ],
+            "target": 35,
+            "action": "PLACE_TRACKS 13 9;DISRUPT 35"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -67.75,
+            "replyValues": [
+              -77.0,
+              -40.0
+            ]
+          },
+          "gapFromEmittedE": -46.0,
+          "gapFromBestExistingH": -49.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              123,
+              275,
+              248
+            ],
+            "target": 35,
+            "action": "PLACE_TRACKS 15 4;PLACE_TRACKS 5 10;PLACE_TRACKS 5 9;DISRUPT 35"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -155.75,
+            "replyValues": [
+              -164.0,
+              -131.0
+            ]
+          },
+          "gapFromEmittedE": -134.0,
+          "gapFromBestExistingH": -137.0
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "a2e79ca6f9f84742890f25708e9fff5edb02661542c1ece01de05da8c2fc55c4",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          122,
+          121
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4"
+      },
+      "bestExistingHScore": {
+        "value": 261.0,
+        "replyValues": [
+          261.0,
+          261.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": -355.0,
+        "targetAtNeuralBuild": -355.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -355.0,
+          "targetAtNeuralBuild": -355.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -355.0,
+          "targetAtNeuralBuild": -355.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              183,
+              210,
+              212
+            ],
+            "target": 42,
+            "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 21 7;PLACE_TRACKS 23 7;DISRUPT 42"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -4.0,
+            "replyValues": [
+              -4.0,
+              -4.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -265.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              212,
+              177
+            ],
+            "target": 42,
+            "action": "PLACE_TRACKS 23 7;PLACE_TRACKS 15 6;DISRUPT 42"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -4.0,
+            "replyValues": [
+              -4.0,
+              -4.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -265.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              183,
+              210,
+              212
+            ],
+            "target": 18,
+            "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 21 7;PLACE_TRACKS 23 7;DISRUPT 18"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -359.0,
+            "replyValues": [
+              -359.0,
+              -359.0
+            ]
+          },
+          "gapFromEmittedE": -355.0,
+          "gapFromBestExistingH": -620.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              212,
+              177
+            ],
+            "target": 18,
+            "action": "PLACE_TRACKS 23 7;PLACE_TRACKS 15 6;DISRUPT 18"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -359.0,
+            "replyValues": [
+              -359.0,
+              -359.0
+            ]
+          },
+          "gapFromEmittedE": -355.0,
+          "gapFromBestExistingH": -620.0
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "aa5d71f06a12e7df49e8623823e82fe2552bdf57f94527d6ad1e1a727f35deca",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          53,
+          392,
+          33
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 6 1"
+      },
+      "bestExistingHScore": {
+        "value": -485.0,
+        "replyValues": [
+          -401.0,
+          -513.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -108.0,
+        "buildAtNeuralTarget": -105.0,
+        "targetAtBaselineBuild": 81.5,
+        "targetAtNeuralBuild": 84.5,
+        "interaction": 3.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -200.0,
+          "buildAtNeuralTarget": -200.0,
+          "targetAtBaselineBuild": 86.0,
+          "targetAtNeuralBuild": 86.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -56.0,
+          "buildAtNeuralTarget": -56.0,
+          "targetAtBaselineBuild": 80.0,
+          "targetAtNeuralBuild": 80.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "onlyDExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              53,
+              392,
+              33
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 6 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -485.0,
+            "replyValues": [
+              -401.0,
+              -513.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              53,
+              392,
+              419
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 14 15"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -593.0,
+            "replyValues": [
+              -601.0,
+              -569.0
+            ]
+          },
+          "gapFromEmittedE": -108.0,
+          "gapFromBestExistingH": -108.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              53,
+              392,
+              33
+            ],
+            "target": 37,
+            "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 6 1;DISRUPT 37"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -403.5,
+            "replyValues": [
+              -315.0,
+              -433.0
+            ]
+          },
+          "gapFromEmittedE": 81.5,
+          "gapFromBestExistingH": 81.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              53,
+              392,
+              419
+            ],
+            "target": 37,
+            "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 14 15;DISRUPT 37"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -508.5,
+            "replyValues": [
+              -515.0,
+              -489.0
+            ]
+          },
+          "gapFromEmittedE": -23.5,
+          "gapFromBestExistingH": -23.5
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "4203bf93101c9ca68324c9e17fd7ffe01b9743befa86254b2d2b5adf3054cd5e",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          122,
+          121
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4"
+      },
+      "bestExistingHScore": {
+        "value": -518.25,
+        "replyValues": [
+          -495.0,
+          -526.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              122,
+              121
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -518.25,
+            "replyValues": [
+              -495.0,
+              -526.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              121,
+              122
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 13 4;PLACE_TRACKS 14 4"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -518.25,
+            "replyValues": [
+              -495.0,
+              -526.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              122,
+              121
+            ],
+            "target": 19,
+            "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4;DISRUPT 19"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -518.25,
+            "replyValues": [
+              -495.0,
+              -526.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              121,
+              122
+            ],
+            "target": 19,
+            "action": "PLACE_TRACKS 13 4;PLACE_TRACKS 14 4;DISRUPT 19"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -518.25,
+            "replyValues": [
+              -495.0,
+              -526.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 50,
+      "me": 1,
+      "stateSha256": "86c6a024d90524c046e8818fdac71d1485107c6acbbaa2245f125f7e45801395",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 1,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 1"
+      },
+      "bestExistingHScore": {
+        "value": -623.0,
+        "replyValues": [
+          -623.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              8,
+              7,
+              9
+            ],
+            "target": 1,
+            "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -623.0,
+            "replyValues": [
+              -623.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              347
+            ],
+            "target": 1,
+            "action": "PLACE_TRACKS 23 12;DISRUPT 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -623.0,
+            "replyValues": [
+              -623.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              8,
+              7,
+              9
+            ],
+            "target": 1,
+            "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -623.0,
+            "replyValues": [
+              -623.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              347
+            ],
+            "target": 1,
+            "action": "PLACE_TRACKS 23 12;DISRUPT 1"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -623.0,
+            "replyValues": [
+              -623.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 60,
+      "me": 1,
+      "stateSha256": "8716e526b01d3a01c55e416eba6dbba78a60016545886746ad0a591f52c1d562",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+      },
+      "bestExistingHScore": {
+        "value": -663.0,
+        "replyValues": [
+          -663.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              8,
+              7,
+              9
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -663.0,
+            "replyValues": [
+              -663.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              484
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 25 17;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -663.0,
+            "replyValues": [
+              -663.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              8,
+              7,
+              9
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -663.0,
+            "replyValues": [
+              -663.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              484
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 25 17;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -663.0,
+            "replyValues": [
+              -663.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907064062,
+      "turn": 70,
+      "me": 1,
+      "stateSha256": "5e094858dce7a2bc6933a6a1c68f68b94b316bf0181dd3742a5902d264bf9c07",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+      },
+      "bestExistingHScore": {
+        "value": -703.0,
+        "replyValues": [
+          -703.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              8,
+              7,
+              9
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -703.0,
+            "replyValues": [
+              -703.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              325
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 1 12;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -703.0,
+            "replyValues": [
+              -703.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              8,
+              7,
+              9
+            ],
+            "target": 52,
+            "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 52"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -703.0,
+            "replyValues": [
+              -703.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              325
+            ],
+            "target": 52,
+            "action": "PLACE_TRACKS 1 12;DISRUPT 52"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -703.0,
+            "replyValues": [
+              -703.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "032f1e176afe4916ba3a5484d225271687b55e92f9f5b98a36212dcb5f6cd7f0",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          109,
+          108,
+          107
+        ],
+        "target": 4,
+        "action": "PLACE_TRACKS 22 3;PLACE_TRACKS 21 3;PLACE_TRACKS 20 3;DISRUPT 4"
+      },
+      "bestExistingHScore": {
+        "value": -143.5,
+        "replyValues": [
+          -172.0,
+          -58.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -6.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": -13.0,
+        "targetAtNeuralBuild": -7.0,
+        "interaction": 6.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 20.0,
+          "targetAtNeuralBuild": 20.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -24.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": -112.0,
+          "targetAtNeuralBuild": -88.0,
+          "interaction": 24.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              19,
+              18,
+              16
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 19 0;PLACE_TRACKS 18 0;PLACE_TRACKS 16 0;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -213.5,
+            "replyValues": [
+              -308.0,
+              70.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -70.0
+        },
+        "C": {
+          "plan": {
+            "cells": [],
+            "target": 32,
+            "action": "DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -219.5,
+            "replyValues": [
+              -308.0,
+              46.0
+            ]
+          },
+          "gapFromEmittedE": -6.0,
+          "gapFromBestExistingH": -76.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              19,
+              18,
+              16
+            ],
+            "target": 4,
+            "action": "PLACE_TRACKS 19 0;PLACE_TRACKS 18 0;PLACE_TRACKS 16 0;DISRUPT 4"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -226.5,
+            "replyValues": [
+              -288.0,
+              -42.0
+            ]
+          },
+          "gapFromEmittedE": -13.0,
+          "gapFromBestExistingH": -83.0
+        },
+        "N": {
+          "plan": {
+            "cells": [],
+            "target": 4,
+            "action": "DISRUPT 4"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -226.5,
+            "replyValues": [
+              -288.0,
+              -42.0
+            ]
+          },
+          "gapFromEmittedE": -13.0,
+          "gapFromBestExistingH": -83.0
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "f0c15b6ec2b6d0df878194a73f3dd23da5949da8c264dc65b8dbb42c517569ff",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          65,
+          69,
+          109
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 2;PLACE_TRACKS 11 2;PLACE_TRACKS 22 3"
+      },
+      "bestExistingHScore": {
+        "value": -827.25,
+        "replyValues": [
+          -822.0,
+          -829.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -42.0,
+        "buildAtNeuralTarget": -84.0,
+        "targetAtBaselineBuild": 201.0,
+        "targetAtNeuralBuild": 159.0,
+        "interaction": -42.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -42.0,
+          "buildAtNeuralTarget": -84.0,
+          "targetAtBaselineBuild": 201.0,
+          "targetAtNeuralBuild": 159.0,
+          "interaction": -42.0
+        },
+        {
+          "buildAtBaselineTarget": -42.0,
+          "buildAtNeuralTarget": -84.0,
+          "targetAtBaselineBuild": 201.0,
+          "targetAtNeuralBuild": 159.0,
+          "interaction": -42.0
+        }
+      ],
+      "thresholdCategory": "onlyDExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              293,
+              294,
+              295
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 3 10;PLACE_TRACKS 4 10;PLACE_TRACKS 5 10;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -883.25,
+            "replyValues": [
+              -890.0,
+              -863.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -56.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              395
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 18 13;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -925.25,
+            "replyValues": [
+              -932.0,
+              -905.0
+            ]
+          },
+          "gapFromEmittedE": -42.0,
+          "gapFromBestExistingH": -98.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              293,
+              294,
+              295
+            ],
+            "target": 12,
+            "action": "PLACE_TRACKS 3 10;PLACE_TRACKS 4 10;PLACE_TRACKS 5 10;DISRUPT 12"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -682.25,
+            "replyValues": [
+              -689.0,
+              -662.0
+            ]
+          },
+          "gapFromEmittedE": 201.0,
+          "gapFromBestExistingH": 145.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              395
+            ],
+            "target": 12,
+            "action": "PLACE_TRACKS 18 13;DISRUPT 12"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -766.25,
+            "replyValues": [
+              -773.0,
+              -746.0
+            ]
+          },
+          "gapFromEmittedE": 117.0,
+          "gapFromBestExistingH": 61.0
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "4ef08321ecce7f8c3dd0a0b63ae26b7115a30ab383ab0c9398c868dcbb882a02",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          65,
+          94,
+          123
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 2;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4"
+      },
+      "bestExistingHScore": {
+        "value": -3809.0,
+        "replyValues": [
+          -3810.0,
+          -3806.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 49.0,
+        "targetAtNeuralBuild": 49.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 49.0,
+          "targetAtNeuralBuild": 49.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 49.0,
+          "targetAtNeuralBuild": 49.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              293,
+              294,
+              295
+            ],
+            "target": 13,
+            "action": "PLACE_TRACKS 3 10;PLACE_TRACKS 4 10;PLACE_TRACKS 5 10;DISRUPT 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -4054.0,
+            "replyValues": [
+              -4055.0,
+              -4051.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -245.0
+        },
+        "C": {
+          "plan": {
+            "cells": [],
+            "target": 13,
+            "action": "DISRUPT 13"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -4054.0,
+            "replyValues": [
+              -4055.0,
+              -4051.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -245.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              293,
+              294,
+              295
+            ],
+            "target": -1,
+            "action": "PLACE_TRACKS 3 10;PLACE_TRACKS 4 10;PLACE_TRACKS 5 10"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -4005.0,
+            "replyValues": [
+              -4006.0,
+              -4002.0
+            ]
+          },
+          "gapFromEmittedE": 49.0,
+          "gapFromBestExistingH": -196.0
+        },
+        "N": {
+          "plan": {
+            "cells": [],
+            "target": -1,
+            "action": "WAIT"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -4005.0,
+            "replyValues": [
+              -4006.0,
+              -4002.0
+            ]
+          },
+          "gapFromEmittedE": 49.0,
+          "gapFromBestExistingH": -196.0
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "714f2c4ae7f3c1ba04533125ccff081669f5a12c461350388cc61362405db993",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          69,
+          94,
+          454
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 11 2;PLACE_TRACKS 7 3;PLACE_TRACKS 19 15;DISRUPT 11"
+      },
+      "bestExistingHScore": {
+        "value": -11195.5,
+        "replyValues": [
+          -11236.0,
+          -11074.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 39.25,
+        "buildAtNeuralTarget": 39.25,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 40.0,
+          "buildAtNeuralTarget": 40.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 37.0,
+          "buildAtNeuralTarget": 37.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              307,
+              306,
+              305
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 17 10;PLACE_TRACKS 16 10;PLACE_TRACKS 15 10;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -11519.0,
+            "replyValues": [
+              -11561.0,
+              -11393.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -323.5
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              66
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 8 2;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -11479.75,
+            "replyValues": [
+              -11521.0,
+              -11356.0
+            ]
+          },
+          "gapFromEmittedE": 39.25,
+          "gapFromBestExistingH": -284.25
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              307,
+              306,
+              305
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 17 10;PLACE_TRACKS 16 10;PLACE_TRACKS 15 10;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -11519.0,
+            "replyValues": [
+              -11561.0,
+              -11393.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -323.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              66
+            ],
+            "target": 11,
+            "action": "PLACE_TRACKS 8 2;DISRUPT 11"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -11479.75,
+            "replyValues": [
+              -11521.0,
+              -11356.0
+            ]
+          },
+          "gapFromEmittedE": 39.25,
+          "gapFromBestExistingH": -284.25
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "20ab579e525412eb0b7a2e65edd5b27fcf61ae8ab8986e7b4b43d916b73d1e5a",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          504,
+          505,
+          506
+        ],
+        "target": 34,
+        "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 12 17;PLACE_TRACKS 13 17;DISRUPT 34"
+      },
+      "bestExistingHScore": {
+        "value": -15092.75,
+        "replyValues": [
+          -15047.0,
+          -15108.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -353.5,
+        "buildAtNeuralTarget": -353.5,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -512.0,
+          "buildAtNeuralTarget": -512.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              504,
+              505,
+              506
+            ],
+            "target": 34,
+            "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 12 17;PLACE_TRACKS 13 17;DISRUPT 34"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15092.75,
+            "replyValues": [
+              -15047.0,
+              -15108.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              268
+            ],
+            "target": 34,
+            "action": "PLACE_TRACKS 7 9;DISRUPT 34"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15446.25,
+            "replyValues": [
+              -15559.0,
+              -15108.0
+            ]
+          },
+          "gapFromEmittedE": -353.5,
+          "gapFromBestExistingH": -353.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              504,
+              505,
+              506
+            ],
+            "target": 34,
+            "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 12 17;PLACE_TRACKS 13 17;DISRUPT 34"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15092.75,
+            "replyValues": [
+              -15047.0,
+              -15108.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              268
+            ],
+            "target": 34,
+            "action": "PLACE_TRACKS 7 9;DISRUPT 34"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15446.25,
+            "replyValues": [
+              -15559.0,
+              -15108.0
+            ]
+          },
+          "gapFromEmittedE": -353.5,
+          "gapFromBestExistingH": -353.5
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 50,
+      "me": 0,
+      "stateSha256": "d59df95f7b16b33397d1278822c5b894e35c9257e9679a8e436b5710d4df9e58",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          431,
+          430,
+          459
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 25 14;PLACE_TRACKS 24 14;PLACE_TRACKS 24 15;DISRUPT 31"
+      },
+      "bestExistingHScore": {
+        "value": -16650.75,
+        "replyValues": [
+          -16834.0,
+          -16101.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 213.75,
+        "buildAtNeuralTarget": 213.75,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 298.0,
+          "buildAtNeuralTarget": 298.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -39.0,
+          "buildAtNeuralTarget": -39.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              431,
+              402,
+              373
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 25 14;PLACE_TRACKS 25 13;PLACE_TRACKS 25 12;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -16873.5,
+            "replyValues": [
+              -17121.0,
+              -16131.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -222.75
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              255
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 23 8;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -16659.75,
+            "replyValues": [
+              -16823.0,
+              -16170.0
+            ]
+          },
+          "gapFromEmittedE": 213.75,
+          "gapFromBestExistingH": -9.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              431,
+              402,
+              373
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 25 14;PLACE_TRACKS 25 13;PLACE_TRACKS 25 12;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -16873.5,
+            "replyValues": [
+              -17121.0,
+              -16131.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -222.75
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              255
+            ],
+            "target": 31,
+            "action": "PLACE_TRACKS 23 8;DISRUPT 31"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -16659.75,
+            "replyValues": [
+              -16823.0,
+              -16170.0
+            ]
+          },
+          "gapFromEmittedE": 213.75,
+          "gapFromBestExistingH": -9.0
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 60,
+      "me": 0,
+      "stateSha256": "e3c68f00fe31274f19be0711f0909235be3d369661332600294e8502567cabef",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          504,
+          11,
+          20
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 11 0;PLACE_TRACKS 20 0;DISRUPT 32"
+      },
+      "bestExistingHScore": {
+        "value": -18331.75,
+        "replyValues": [
+          -18335.0,
+          -18322.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              511
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 18 17;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -18383.75,
+            "replyValues": [
+              -18387.0,
+              -18374.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -52.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              325
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 6 11;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -18383.75,
+            "replyValues": [
+              -18387.0,
+              -18374.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -52.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              511
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 18 17;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -18383.75,
+            "replyValues": [
+              -18387.0,
+              -18374.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -52.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              325
+            ],
+            "target": 32,
+            "action": "PLACE_TRACKS 6 11;DISRUPT 32"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -18383.75,
+            "replyValues": [
+              -18387.0,
+              -18374.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -52.0
+        }
+      }
+    },
+    {
+      "gameId": 907064114,
+      "turn": 70,
+      "me": 0,
+      "stateSha256": "d39463e71ea29517f65f7a95eb6c7e83dd4a5fb79d98ed4923f8703d96f0caf3",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          249,
+          11
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 17 8;PLACE_TRACKS 11 0;DISRUPT 21"
+      },
+      "bestExistingHScore": {
+        "value": -19088.5,
+        "replyValues": [
+          -19069.0,
+          -19095.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -187.75,
+        "buildAtNeuralTarget": 8.25,
+        "targetAtBaselineBuild": -47.5,
+        "targetAtNeuralBuild": 148.5,
+        "interaction": 196.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -259.0,
+          "buildAtNeuralTarget": 117.0,
+          "targetAtBaselineBuild": -46.0,
+          "targetAtNeuralBuild": 330.0,
+          "interaction": 376.0
+        },
+        {
+          "buildAtBaselineTarget": -26.0,
+          "buildAtNeuralTarget": -28.0,
+          "targetAtBaselineBuild": -48.0,
+          "targetAtNeuralBuild": -50.0,
+          "interaction": -2.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              249,
+              11
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 17 8;PLACE_TRACKS 11 0;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -19088.5,
+            "replyValues": [
+              -19069.0,
+              -19095.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              252
+            ],
+            "target": 21,
+            "action": "PLACE_TRACKS 20 8;DISRUPT 21"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -19276.25,
+            "replyValues": [
+              -19328.0,
+              -19121.0
+            ]
+          },
+          "gapFromEmittedE": -187.75,
+          "gapFromBestExistingH": -187.75
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              249,
+              11
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 17 8;PLACE_TRACKS 11 0;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -19136.0,
+            "replyValues": [
+              -19115.0,
+              -19143.0
+            ]
+          },
+          "gapFromEmittedE": -47.5,
+          "gapFromBestExistingH": -47.5
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              252
+            ],
+            "target": 28,
+            "action": "PLACE_TRACKS 20 8;DISRUPT 28"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -19127.75,
+            "replyValues": [
+              -18998.0,
+              -19171.0
+            ]
+          },
+          "gapFromEmittedE": -39.25,
+          "gapFromBestExistingH": -39.25
+        }
+      }
+    },
+    {
+      "gameId": 907064176,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "364e4cc4b202fa6a2655909dfc4f706d60aea0cab291aeecfe520c05730f6694",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          67,
+          89,
+          135
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 17 3;PLACE_TRACKS 15 5"
+      },
+      "bestExistingHScore": {
+        "value": 35.0,
+        "replyValues": [
+          77.0,
+          21.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 9.75,
+        "buildAtNeuralTarget": 9.75,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 18.0,
+          "buildAtNeuralTarget": 18.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 5.0,
+          "buildAtNeuralTarget": 5.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              67,
+              135,
+              134
+            ],
+            "target": 29,
+            "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 15 5;PLACE_TRACKS 14 5;DISRUPT 29"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -40.25,
+            "replyValues": [
+              -41.0,
+              -38.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -75.25
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              67,
+              160,
+              149
+            ],
+            "target": 29,
+            "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 16 6;PLACE_TRACKS 5 6;DISRUPT 29"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -30.5,
+            "replyValues": [
+              -23.0,
+              -33.0
+            ]
+          },
+          "gapFromEmittedE": 9.75,
+          "gapFromBestExistingH": -65.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              67,
+              135,
+              134
+            ],
+            "target": 29,
+            "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 15 5;PLACE_TRACKS 14 5;DISRUPT 29"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -40.25,
+            "replyValues": [
+              -41.0,
+              -38.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -75.25
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              67,
+              160,
+              149
+            ],
+            "target": 29,
+            "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 16 6;PLACE_TRACKS 5 6;DISRUPT 29"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -30.5,
+            "replyValues": [
+              -23.0,
+              -33.0
+            ]
+          },
+          "gapFromEmittedE": 9.75,
+          "gapFromBestExistingH": -65.5
+        }
+      }
+    },
+    {
+      "gameId": 907064176,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "2911fab70d326024247eea2169318ba24bf7208436138347efcc32178dd264c1",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          45,
+          44
+        ],
+        "target": 17,
+        "action": "PLACE_TRACKS 21 1;PLACE_TRACKS 20 1;DISRUPT 17"
+      },
+      "bestExistingHScore": {
+        "value": 222.0,
+        "replyValues": [
+          222.0,
+          222.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -86.5,
+        "buildAtNeuralTarget": -86.5,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -102.0,
+          "buildAtNeuralTarget": -102.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -40.0,
+          "buildAtNeuralTarget": -40.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              42,
+              43
+            ],
+            "target": 17,
+            "action": "PLACE_TRACKS 18 1;PLACE_TRACKS 19 1;DISRUPT 17"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 71.0,
+            "replyValues": [
+              71.0,
+              71.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -151.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              87,
+              86,
+              45
+            ],
+            "target": 17,
+            "action": "PLACE_TRACKS 15 3;PLACE_TRACKS 14 3;PLACE_TRACKS 21 1;DISRUPT 17"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15.5,
+            "replyValues": [
+              -31.0,
+              31.0
+            ]
+          },
+          "gapFromEmittedE": -86.5,
+          "gapFromBestExistingH": -237.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              42,
+              43
+            ],
+            "target": 17,
+            "action": "PLACE_TRACKS 18 1;PLACE_TRACKS 19 1;DISRUPT 17"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 71.0,
+            "replyValues": [
+              71.0,
+              71.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -151.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              87,
+              86,
+              45
+            ],
+            "target": 17,
+            "action": "PLACE_TRACKS 15 3;PLACE_TRACKS 14 3;PLACE_TRACKS 21 1;DISRUPT 17"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -15.5,
+            "replyValues": [
+              -31.0,
+              31.0
+            ]
+          },
+          "gapFromEmittedE": -86.5,
+          "gapFromBestExistingH": -237.5
+        }
+      }
+    },
+    {
+      "gameId": 907064176,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "ae36bdf8becacf4bd9c82d8f87c2079334f9beb574dd62f9318d1fd2d582a95c",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          249,
+          273,
+          277
+        ],
+        "target": 18,
+        "action": "PLACE_TRACKS 9 10;PLACE_TRACKS 9 11;PLACE_TRACKS 13 11;DISRUPT 18"
+      },
+      "bestExistingHScore": {
+        "value": -49.5,
+        "replyValues": [
+          -30.0,
+          -56.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 32.75,
+        "buildAtNeuralTarget": 32.75,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 42.0,
+          "buildAtNeuralTarget": 42.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": 5.0,
+          "buildAtNeuralTarget": 5.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "onlyCExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              273,
+              274
+            ],
+            "target": 18,
+            "action": "PLACE_TRACKS 9 11;PLACE_TRACKS 10 11;DISRUPT 18"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -67.75,
+            "replyValues": [
+              -84.0,
+              -19.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -18.25
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              248,
+              157
+            ],
+            "target": 18,
+            "action": "PLACE_TRACKS 8 10;PLACE_TRACKS 13 6;DISRUPT 18"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -35.0,
+            "replyValues": [
+              -42.0,
+              -14.0
+            ]
+          },
+          "gapFromEmittedE": 32.75,
+          "gapFromBestExistingH": 14.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              273,
+              274
+            ],
+            "target": 18,
+            "action": "PLACE_TRACKS 9 11;PLACE_TRACKS 10 11;DISRUPT 18"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -67.75,
+            "replyValues": [
+              -84.0,
+              -19.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": -18.25
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              248,
+              157
+            ],
+            "target": 18,
+            "action": "PLACE_TRACKS 8 10;PLACE_TRACKS 13 6;DISRUPT 18"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": -35.0,
+            "replyValues": [
+              -42.0,
+              -14.0
+            ]
+          },
+          "gapFromEmittedE": 32.75,
+          "gapFromBestExistingH": 14.5
+        }
+      }
+    },
+    {
+      "gameId": 907064176,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "2d0f18fb07d5024af8b8195d77e0de359d1a98d3bd8738da44379b4c257bfefc",
+      "originalPositive": false,
+      "bestExistingH": {
+        "cells": [
+          63,
+          316,
+          18
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 15 2;PLACE_TRACKS 4 13;PLACE_TRACKS 18 0;DISRUPT 24"
+      },
+      "bestExistingHScore": {
+        "value": 334.0,
+        "replyValues": [
+          334.0,
+          334.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": -15.5,
+        "buildAtNeuralTarget": -15.5,
+        "targetAtBaselineBuild": 0.0,
+        "targetAtNeuralBuild": 0.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": -2.0,
+          "buildAtNeuralTarget": -2.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        },
+        {
+          "buildAtBaselineTarget": -20.0,
+          "buildAtNeuralTarget": -20.0,
+          "targetAtBaselineBuild": 0.0,
+          "targetAtNeuralBuild": 0.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "neitherSeparatelyExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              63,
+              316,
+              18
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 15 2;PLACE_TRACKS 4 13;PLACE_TRACKS 18 0;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 334.0,
+            "replyValues": [
+              334.0,
+              334.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              283,
+              284,
+              285
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 19 11;PLACE_TRACKS 20 11;PLACE_TRACKS 21 11;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 318.5,
+            "replyValues": [
+              332.0,
+              314.0
+            ]
+          },
+          "gapFromEmittedE": -15.5,
+          "gapFromBestExistingH": -15.5
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              63,
+              316,
+              18
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 15 2;PLACE_TRACKS 4 13;PLACE_TRACKS 18 0;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 334.0,
+            "replyValues": [
+              334.0,
+              334.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              283,
+              284,
+              285
+            ],
+            "target": 24,
+            "action": "PLACE_TRACKS 19 11;PLACE_TRACKS 20 11;PLACE_TRACKS 21 11;DISRUPT 24"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 318.5,
+            "replyValues": [
+              332.0,
+              314.0
+            ]
+          },
+          "gapFromEmittedE": -15.5,
+          "gapFromBestExistingH": -15.5
+        }
+      }
+    },
+    {
+      "gameId": 907064176,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "cbd967c89dbf17aca323a118157adac20c0c98736a4eda1281b85bf3c27f78d7",
+      "originalPositive": true,
+      "bestExistingH": {
+        "cells": [
+          18,
+          41,
+          63
+        ],
+        "target": 40,
+        "action": "PLACE_TRACKS 18 0;PLACE_TRACKS 17 1;PLACE_TRACKS 15 2;DISRUPT 40"
+      },
+      "bestExistingHScore": {
+        "value": 1000282.0,
+        "replyValues": [
+          1000282.0
+        ]
+      },
+      "effects": {
+        "buildAtBaselineTarget": 0.0,
+        "buildAtNeuralTarget": 0.0,
+        "targetAtBaselineBuild": 7.0,
+        "targetAtNeuralBuild": 7.0,
+        "interaction": 0.0
+      },
+      "perReplyEffects": [
+        {
+          "buildAtBaselineTarget": 0.0,
+          "buildAtNeuralTarget": 0.0,
+          "targetAtBaselineBuild": 7.0,
+          "targetAtNeuralBuild": 7.0,
+          "interaction": 0.0
+        }
+      ],
+      "thresholdCategory": "onlyDExceedsH",
+      "actions": {
+        "E": {
+          "plan": {
+            "cells": [
+              18,
+              41,
+              63
+            ],
+            "target": 40,
+            "action": "PLACE_TRACKS 18 0;PLACE_TRACKS 17 1;PLACE_TRACKS 15 2;DISRUPT 40"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000282.0,
+            "replyValues": [
+              1000282.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "C": {
+          "plan": {
+            "cells": [
+              326
+            ],
+            "target": 40,
+            "action": "PLACE_TRACKS 14 13;DISRUPT 40"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000282.0,
+            "replyValues": [
+              1000282.0
+            ]
+          },
+          "gapFromEmittedE": 0.0,
+          "gapFromBestExistingH": 0.0
+        },
+        "D": {
+          "plan": {
+            "cells": [
+              18,
+              41,
+              63
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 18 0;PLACE_TRACKS 17 1;PLACE_TRACKS 15 2;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000289.0,
+            "replyValues": [
+              1000289.0
+            ]
+          },
+          "gapFromEmittedE": 7.0,
+          "gapFromBestExistingH": 7.0
+        },
+        "N": {
+          "plan": {
+            "cells": [
+              326
+            ],
+            "target": 45,
+            "action": "PLACE_TRACKS 14 13;DISRUPT 45"
+          },
+          "valid": true,
+          "invalidReason": null,
+          "score": {
+            "value": 1000289.0,
+            "replyValues": [
+              1000289.0
+            ]
+          },
+          "gapFromEmittedE": 7.0,
+          "gapFromBestExistingH": 7.0
+        }
+      }
+    }
+  ]
+}
