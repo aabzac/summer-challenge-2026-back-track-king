@@ -143,6 +143,13 @@ Results: vs v4 1W/1L/98D/100; vs v09 0W/300L/0D/300 (STOP_FUTILITY_300).
 Strict process 8/8 clean; strength rejected, v09 stays selected.
 [Protocol and retained evidence](docs/spatial-ppo-v5.md).
 
+`spatial-ppo-v6` keeps the exact v4 weights and compares two last-cell construction
+plans of equal paint cost over two exact simulated turns. It ranks actual score
+changes without a learned value head. Nominal saved panel: 30/34
+comparisons complete; vs v09 1W/299L/0D/300 (STOP_FUTILITY_300).
+Strict process 8/8 clean; strength rejected, selected v09 unchanged.
+[Protocol and retained evidence](docs/spatial-ppo-v6.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

@@ -6227,3 +6227,76 @@ The compact archive retains exact features/targets/lineage, checkpoints 0/1,
 protocol/source/runtime freezes, audits/tests, saved-state panel, exact submit
 and raw bench reports. Its hashed dependency is the unchanged v4 corpus archive;
 the large raw memmap cache is not duplicated.
+
+## 2026-10-10 — spatial-ppo-v6: bounded two-turn construction search
+
+Hypothesis: the frozen v4 policy may benefit from choosing between two same-cost
+construction plans using exact short-horizon scores after the weak v5 critic.
+Predeclared after the user requested the next stage; no training or tuning.
+
+Implementation and checks: 569 scoped Java tests pass, including nine new
+synthetic v6 cases and four new packaging/registration checks. The six unrelated
+pre-existing untracked Pduhard tests remain excluded; this is not an unqualified
+full-suite claim. No core/model/training changes. All 292 archived CG replays
+reproduce exactly; prior v1-v5/current/v09/neural-v2 artifacts remain byte-identical.
+The full v4 payload is unchanged. No Python training or new numerical-parity run
+was needed for the unchanged network and observation.
+
+Saved panel: first four original training maps, teacher P0 trajectories;
+17/20 requested preturn positions, both seats,
+34 calls per phase. All recorded transitions/scores/hashes match core;
+post-terminal positions are retained as missing without replacement. Search-off
+matches v4 throughout. Ample comparisons complete 30/34,
+change 5 plans, and perform 116 core transitions.
+Nominal36ms: 30 attempts, 30 complete comparisons,
+5 changed plans, 0 search cutoffs,
+0 interrupted greedy plans, 0 calls over
+the supplied budget. All completed nominal comparisons agree with ample;
+0 nominal actions differ from ample overall.
+Nominal mean/p95/max: 15.136/20.947/23.740ms.
+Ample mean/max: 12.411/22.181ms.
+These serial warmed phases are coverage/mechanism diagnostics, not a speed
+comparison or a guarantee of CG-host timing.
+
+After all timings, independent public Rules.resolve reconstruction verifies
+60 candidate trajectories and 116
+transitions across 30 complete ample comparisons. Root-prior hashes,
+same-conditional last-cell alternatives, identical root opponent, current child
+legality, simultaneous second-turn plans, exact integer returns and terminal/depth
+boundaries all agree. Original input state, build count/cost, prefix/disruption,
+tie behavior and full-plan cutoffs are checked. This verifies the implemented
+opponent approximation; it does not establish that the predicted replies are good.
+Of the 30 complete ample comparisons,
+20 have equal returns; in
+8 both returns are zero. Short-horizon score
+often cannot distinguish these two candidates on this exposed panel. This is a
+diagnostic limitation, not an isolated causal explanation of match strength.
+
+Exact Player: 92,020 characters; source SHA
+`4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6`;
+build `c08f050fbe5f319427b0fd6c608d0505de7585bbdba56c1da2b8c484bfbad0a4`.
+One strict zero-grace process panel: 8/8 clean; maximum first response
+650.624ms, later 32.239ms. No timing retry.
+
+Practical-v4 vs selected v09: **1W/299L/0D/300**, score 0.33%,
+mean score difference -9330.59; **STOP_FUTILITY_300**.
+Errors candidate/control [0, 0], slow native calls [2, 3],
+maximum native call times [129, 60]ms. All 150 fresh paired maps
+exclude 21,447 previously used/development maps;
+two CG-budget workers throughout, base seed14300000. No mirrored spatial progress
+series, extension, tuning or retry. The local failure skips the boss stage.
+All 732 frozen files stay byte-identical through evaluation.
+
+Decision: preserve the completed tactical-search experiment; reject promotion.
+Selected current/v09 stays unchanged, with no upload or push. Construction
+branching and two exact turns are implemented in this bounded form. Broad
+conditional branching, longer-horizon search, reliable future value and competitive
+training remain open. The comparison does not separately identify the effects of
+branching, depth, score-only ranking and opponent approximation.
+
+Evidence: [summary](evidence/spatial-ppo-v6.json),
+[archive index](evidence/spatial-ppo-v6-artifacts.json),
+[retained archive](evidence/spatial-ppo-v6-artifacts.zip).
+The archive retains the original prospective protocol, source/runtime freezes,
+tests, complete saved-state panel/audit, exact submission and raw strength reports.
+Its hashed corpus dependency is the unchanged v4 archive; no new training corpus.

@@ -44,8 +44,14 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Verify bounded search: 14/34 nominal comparisons complete, strict process 8/8 clean.
       Vs v4: 1W/1L/98D/100; vs v09: 0W/300L/0D/300, STOP_FUTILITY_300.
       Retain evidence and commit rejected v5; selected v09 remains unchanged.
-- [ ] Deeper search and construction branching remain later work; v5 tests only
-      one-turn disruption selection and does not complete the full top-3 architecture.
+- [x] Predeclare [spatial-ppo-v6](spatial-ppo-v6.md): frozen v4 policy, two same-cost
+      last-placement construction candidates, two exact turns, integer score delta.
+- [x] Verify v6 fallback and 60 independently reconstructed saved trajectories;
+      30/34 nominal comparisons complete, strict process 8/8 clean.
+- [x] Complete v6 practical-v4 vs v09: 1W/299L/0D/300, STOP_FUTILITY_300;
+      retain evidence and commit rejected experiment. Selected v09 unchanged.
+- [ ] Broader conditional branching, longer search, useful long-horizon value and
+      competitive training remain open; v6 is a bounded tactical experiment.
 
 ## Indrill forum readout (2026-10-06)
 

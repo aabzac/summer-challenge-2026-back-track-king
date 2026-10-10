@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v6",
+      "title": "Spatial Construction Search",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Frozen v4 policy weights with two construction candidates and a bounded two-turn rollout using exact core score differences. No learned value, retraining or promotion; historical spatial-ppo name retained."
+    },
+    {
       "id": "spatial-ppo-v5",
       "title": "Spatial Value-Guided Search",
       "category": "candidate",

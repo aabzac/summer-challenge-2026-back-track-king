@@ -1,0 +1,151 @@
+{
+  "experiment": "spatial-ppo-v6",
+  "recordedAt": "2026-10-10T16:20:20.537774+00:00",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "SKIPPED_LOCAL_FAILURE",
+  "method": "two last-placement same-cost candidates; two exact turns with frozen root-prior continuation; integer score delta, no value/training",
+  "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+  "checks": {
+    "javaScoped": {
+      "tests": 569,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "engineExactReplays": 292,
+    "oldUntrackedPduhardTestsExcluded": 6
+  },
+  "savedPanel": {
+    "status": "complete",
+    "positions": 17,
+    "requestedPositions": 20,
+    "requestedTurns": [
+      0,
+      25,
+      50,
+      75,
+      99
+    ],
+    "summary": [
+      {
+        "phase": "baseline",
+        "calls": 34,
+        "attempted": 0,
+        "complete": 0,
+        "changed": 0,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 0,
+        "meanMs": 8.235629411764705,
+        "p95Ms": 15.0411,
+        "maxMs": 15.9922
+      },
+      {
+        "phase": "off",
+        "calls": 34,
+        "attempted": 0,
+        "complete": 0,
+        "changed": 0,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 0,
+        "meanMs": 7.514073529411765,
+        "p95Ms": 9.9569,
+        "maxMs": 10.0863
+      },
+      {
+        "phase": "ample",
+        "calls": 34,
+        "attempted": 30,
+        "complete": 30,
+        "changed": 5,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 116,
+        "meanMs": 12.411414705882354,
+        "p95Ms": 21.7921,
+        "maxMs": 22.1808
+      },
+      {
+        "phase": "nominal",
+        "calls": 34,
+        "attempted": 30,
+        "complete": 30,
+        "changed": 5,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 116,
+        "meanMs": 15.135923529411764,
+        "p95Ms": 20.9468,
+        "maxMs": 23.7401
+      }
+    ],
+    "role": "exposed v4 teacher trajectories; mechanism/timing only, not strength evidence"
+  },
+  "trajectoryAudit": {
+    "method": "Independent public Rules.resolve; no SearchState, no child network forwards",
+    "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+    "passed": true,
+    "ampleRows": 34,
+    "comparedRows": 30,
+    "candidateTrajectories": 60,
+    "coreTransitions": 116
+  },
+  "savedReturnDiagnostic": {
+    "completed": 30,
+    "equalReturns": 20,
+    "bothZero": 8
+  },
+  "artifact": {
+    "characters": 92020,
+    "sourceSha256": "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
+    "buildId": "c08f050fbe5f319427b0fd6c608d0505de7585bbdba56c1da2b8c484bfbad0a4",
+    "processGames": 8,
+    "processProblems": 0,
+    "firstResponseMaxMs": 650.6241,
+    "laterResponseMaxMs": 32.2395
+  },
+  "v09Comparison": {
+    "games": 300,
+    "maps": 150,
+    "wins": 1,
+    "losses": 299,
+    "draws": 0,
+    "scoreRate": 0.0033333333333333335,
+    "meanScoreDifference": -9330.59,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      2,
+      3
+    ],
+    "maxNativeCallMs": [
+      129,
+      60
+    ],
+    "elapsedMs": 649972,
+    "workers": 2,
+    "verdict": "STOP_FUTILITY_300"
+  },
+  "freshness": {
+    "distinctEvaluationMaps": 150,
+    "priorExclusions": 21447,
+    "intersection": 0
+  },
+  "freezeAudit": {
+    "recordedAt": "2026-10-10T16:20:20.353638+00:00",
+    "unchangedFiles": 732,
+    "changedFiles": []
+  }
+}
