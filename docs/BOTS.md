@@ -13,6 +13,13 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-10: **spatial-ppo-v8**, frozen v4 weights/v7 proposals,
+paired exact-score checkpoints at depths2/4/6/8 with deepest-complete-pair fallback.
+Nominal saved panel: 19/34 usable comparisons, 3 changes.
+Practical-v4 vs v09: **2W/298L/0D/300**, **STOP_FUTILITY_300**; errors [0, 0].
+Strict process8/8 clean, 595 scoped tests,292 exact replays. Rejected for
+strength; selected v09 unchanged. [Protocol/evidence](spatial-ppo-v8.md).
+
 Completed 2026-10-10: **spatial-ppo-v7**, frozen v4 weights, alternative first
 BUILD with a fresh conditional suffix, unchanged two-turn exact-score ranking.
 Nominal saved panel: 30 complete proposals,
@@ -1086,6 +1093,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v8 | 2026-10-10 | Frozen v4/v7 proposals; paired score checkpoints2/4/6/8, absorbing terminals and deepest completed fallback. | Practical-v4 vs v09: **2W/298L/0D/300**, STOP_FUTILITY_300. Strict process8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v8.md). |
 | spatial-ppo-v7 | 2026-10-10 | Frozen v4; root construction alternative with a fresh conditional suffix; exact two-turn ranking. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v7.md). |
 | spatial-ppo-v6 | 2026-10-10 | Frozen v4; two same-cost last-cell candidates, two exact turns, score-delta ranking; no training. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v6.md). |
 | spatial-ppo-v5 | 2026-10-10 | Fixed v4 policy; 15-coefficient teacher value fit; two-disruption one-ply search. | V4: **1W/1L/98D/100**. Practical-v4 vs v09: **0W/300L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v5.md). |

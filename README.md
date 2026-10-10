@@ -157,6 +157,12 @@ comparisons complete; vs v09 1W/299L/0D/300 (STOP_FUTILITY_300).
 Strict process 8/8 clean; strength rejected, selected v09 unchanged.
 [Protocol and evidence](docs/spatial-ppo-v7.md).
 
+`spatial-ppo-v8` extends the same construction pair to score checkpoints at
+depths2/4/6/8, using the deepest fully completed comparison when time expires.
+Nominal panel: 19/34 usable comparisons; vs v09
+2W/298L/0D/300 (STOP_FUTILITY_300). Strict process8/8 clean.
+Strength rejected; selected v09 unchanged. [Evidence](docs/spatial-ppo-v8.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

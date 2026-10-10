@@ -56,7 +56,13 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       26/34 nominal comparisons complete, strict process 8/8 clean.
 - [x] Complete v7 practical-v4 vs v09: 1W/299L/0D/300, STOP_FUTILITY_300;
       retain evidence and commit rejected experiment. Selected v09 unchanged.
-- [ ] Wider multi-branch search, longer reliable lookahead, useful long-horizon
+- [x] Predeclare [spatial-ppo-v8](spatial-ppo-v8.md): paired checkpoints at
+      depths2/4/6/8 with frozen v7 proposals/v4 weights and exact score ranking.
+- [x] Verify v8 paired checkpoints/terminal/fallback and independent saved-state
+      audit; 19/34 nominal usable pairs, strict process8/8 clean.
+- [x] Complete v8 practical-v4 vs v09: 2W/298L/0D/300, STOP_FUTILITY_300;
+      retain evidence and commit rejected experiment. Selected v09 unchanged.
+- [ ] Wider multi-branch search, reliable continuation, useful long-horizon
       value and competitive training remain open work.
 
 ## Indrill forum readout (2026-10-06)

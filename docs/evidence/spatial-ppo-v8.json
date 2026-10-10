@@ -1,0 +1,325 @@
+{
+  "experiment": "spatial-ppo-v8",
+  "recordedAt": "2026-10-10T18:11:18.109122+00:00",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "SKIPPED_LOCAL_FAILURE",
+  "method": "unchanged v7 conditional construction pair; paired checkpoints at depths2/4/6/8 with absorbing terminals and frozen root-prior continuation; deepest completed exact-score delta, no value/training",
+  "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+  "checks": {
+    "javaScoped": {
+      "tests": 595,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "engineExactReplays": 292,
+    "oldUntrackedPduhardTestsExcluded": 6
+  },
+  "savedPanel": {
+    "status": "complete",
+    "positions": 17,
+    "requestedPositions": 20,
+    "requestedTurns": [
+      0,
+      25,
+      50,
+      75,
+      99
+    ],
+    "summary": [
+      {
+        "phase": "baseline",
+        "calls": 34,
+        "attempted": 0,
+        "complete": 0,
+        "changed": 0,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmpleFinal": 0,
+        "searchTransitions": 0,
+        "reachedEnd": 0,
+        "publishedPairs": 0,
+        "committedTransitions": 0,
+        "committedHorizonCounts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0
+        },
+        "cutoffsWithCommittedPair": 0,
+        "cutoffsWithoutCommittedPair": 0,
+        "sameHorizonCompared": 0,
+        "alternativesComplete": 0,
+        "duplicates": 0,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 0,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 0,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 8.581561764705882,
+        "p95Ms": 11.3665,
+        "maxMs": 17.9276
+      },
+      {
+        "phase": "off",
+        "calls": 34,
+        "attempted": 0,
+        "complete": 0,
+        "changed": 0,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmpleFinal": 0,
+        "searchTransitions": 0,
+        "reachedEnd": 0,
+        "publishedPairs": 0,
+        "committedTransitions": 0,
+        "committedHorizonCounts": {
+          "0": 34,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0
+        },
+        "cutoffsWithCommittedPair": 0,
+        "cutoffsWithoutCommittedPair": 0,
+        "sameHorizonCompared": 0,
+        "alternativesComplete": 0,
+        "duplicates": 0,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 0,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 0,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 7.46315294117647,
+        "p95Ms": 10.768,
+        "maxMs": 12.4769
+      },
+      {
+        "phase": "ample",
+        "calls": 34,
+        "attempted": 34,
+        "complete": 30,
+        "changed": 5,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmpleFinal": 0,
+        "searchTransitions": 424,
+        "reachedEnd": 30,
+        "publishedPairs": 108,
+        "committedTransitions": 424,
+        "committedHorizonCounts": {
+          "0": 4,
+          "1": 4,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 26
+        },
+        "cutoffsWithCommittedPair": 0,
+        "cutoffsWithoutCommittedPair": 0,
+        "sameHorizonCompared": 0,
+        "alternativesComplete": 34,
+        "duplicates": 4,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 47,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 0,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 23.985220588235293,
+        "p95Ms": 40.2104,
+        "maxMs": 40.4321
+      },
+      {
+        "phase": "nominal",
+        "calls": 34,
+        "attempted": 27,
+        "complete": 19,
+        "changed": 3,
+        "cutoff": 6,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmpleFinal": 2,
+        "searchTransitions": 243,
+        "reachedEnd": 18,
+        "publishedPairs": 62,
+        "committedTransitions": 240,
+        "committedHorizonCounts": {
+          "0": 15,
+          "1": 4,
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 14
+        },
+        "cutoffsWithCommittedPair": 1,
+        "cutoffsWithoutCommittedPair": 5,
+        "sameHorizonCompared": 19,
+        "alternativesComplete": 27,
+        "duplicates": 3,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 33,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 5,
+          "base": 1,
+          "candidate": 0
+        },
+        "meanMs": 27.404341176470588,
+        "p95Ms": 34.0308,
+        "maxMs": 34.0525
+      }
+    ],
+    "role": "exposed v4 teacher trajectories; mechanism/timing only, not strength evidence"
+  },
+  "trajectoryAudit": {
+    "method": "Fresh original-state conditional alternative; independent public Rules.resolve; no SearchState or child network forwards",
+    "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+    "passed": true,
+    "ampleRows": 34,
+    "comparedRows": 30,
+    "candidateTrajectories": 60,
+    "publishedCheckpoints": 108,
+    "sameHorizonChecks": 19,
+    "sameHorizonCheckpointChecks": 62,
+    "ampleFinalChoiceDifferentFromFirstCheckpoint": 2,
+    "coreTransitions": 424
+  },
+  "savedReturnDiagnostic": {
+    "completed": 30,
+    "equalReturns": 18,
+    "bothZero": 10
+  },
+  "savedProposalDiagnostic": {
+    "completedProposals": 34,
+    "differentBuildCounts": 13,
+    "originallyStopped": 3
+  },
+  "savedNominalDiagnostic": {
+    "retainedCutoffs": [
+      {
+        "seed": 12000000,
+        "turn": 50,
+        "me": 1,
+        "attempted": true,
+        "complete": true,
+        "changed": false,
+        "cutoff": true,
+        "cutoffPhaseName": "base",
+        "committedHorizon": 4,
+        "baseScoreDelta": -384,
+        "alternativeScoreDelta": -388,
+        "baseSteps": 4,
+        "alternativeSteps": 4,
+        "baseWorkSteps": 6,
+        "alternativeWorkSteps": 5
+      }
+    ],
+    "differentFromFinalAmple": [
+      {
+        "seed": 12000000,
+        "turn": 25,
+        "me": 0,
+        "attempted": true,
+        "complete": false,
+        "changed": false,
+        "cutoff": true,
+        "cutoffPhaseName": "opponent",
+        "committedHorizon": 0,
+        "baseScoreDelta": null,
+        "alternativeScoreDelta": null,
+        "baseSteps": 0,
+        "alternativeSteps": 0,
+        "baseWorkSteps": 0,
+        "alternativeWorkSteps": 0
+      },
+      {
+        "seed": 12000003,
+        "turn": 75,
+        "me": 0,
+        "attempted": false,
+        "complete": false,
+        "changed": false,
+        "cutoff": false,
+        "cutoffPhaseName": "none",
+        "committedHorizon": 0,
+        "baseScoreDelta": null,
+        "alternativeScoreDelta": null,
+        "baseSteps": 0,
+        "alternativeSteps": 0,
+        "baseWorkSteps": 0,
+        "alternativeWorkSteps": 0
+      }
+    ]
+  },
+  "artifact": {
+    "characters": 97190,
+    "sourceSha256": "3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff",
+    "buildId": "96ac84c2a58a8000884b0aa9692ccdf168c51511d3285dce33259003a8909287",
+    "processGames": 8,
+    "processProblems": 0,
+    "firstResponseMaxMs": 605.2094,
+    "laterResponseMaxMs": 37.4495
+  },
+  "v09Comparison": {
+    "games": 300,
+    "maps": 150,
+    "wins": 2,
+    "losses": 298,
+    "draws": 0,
+    "scoreRate": 0.006666666666666667,
+    "meanScoreDifference": -9724.256666666666,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      2,
+      1
+    ],
+    "maxNativeCallMs": [
+      95,
+      52
+    ],
+    "elapsedMs": 772465,
+    "workers": 2,
+    "verdict": "STOP_FUTILITY_300"
+  },
+  "freshness": {
+    "distinctEvaluationMaps": 150,
+    "priorExclusions": 21747,
+    "intersection": 0
+  },
+  "freezeAudit": {
+    "recordedAt": "2026-10-10T18:11:15.127883+00:00",
+    "unchangedFiles": 758,
+    "changedFiles": []
+  }
+}

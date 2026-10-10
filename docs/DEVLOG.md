@@ -6381,3 +6381,90 @@ Evidence: [summary](evidence/spatial-ppo-v7.json),
 The archive contains original prospective protocol, source/runtime freezes,
 tests, full saved panel/trajectory audit, exact submission and raw bench reports.
 Its hashed corpus dependency is the unchanged v4 archive.
+
+## 2026-10-10 — spatial-ppo-v8: paired deeper score lookahead
+
+Hypothesis: longer exact lookahead may distinguish delayed construction effects
+missed by two-turn scores. One user-authorized fixed runtime experiment.
+
+Implemented two reusable simulations with paired checkpoints2/4/6/8, absorbing
+terminals and deepest-complete-pair fallback. V7 proposals and v4 weights remain
+unchanged. No new training, core, network or observation changes.
+
+Verification: 595 scoped Java tests pass, including 8 v8 tests and
+separate packaging/registration checks. The six unrelated untracked Pduhard tests
+are excluded; this is not an unqualified full-suite claim. Historical spatial
+v1-v7/current/v09/neural-v2 submission bytes are preserved. All292 archived CG
+games reproduce exactly. No new Python parity run for unchanged inference.
+Asymmetric-terminal bookkeeping is exercised by an explicitly synthetic injected
+fixture; ordinary v8 construction branches do not establish a reachable example
+of different terminal times under the identical disruption policy.
+
+Saved panel: 17/20 requested live positions,
+both seats, 34 calls per phase; missing post-terminal slots are not
+replaced. Full teacher histories/metadata/state hashes/scores match core.
+Search-off matches v4. Ample: 34 complete proposals,
+4 duplicates, 30 usable completed comparisons,
+5 changed actions. Nominal36ms: 27 attempts,
+27 complete proposals, 3 duplicates,
+19 usable comparisons, 3 changed actions,
+6 cutoffs, 0 invalid proposals and
+0 interrupted greedy calls.
+
+Nominal mean/p95/max 27.404/34.031/34.053ms;
+0 calls exceed the supplied budget. Ample mean/max
+23.985/40.432ms. These are serial warmed measurements on
+four exposed maps, not host/CG guarantees or an unbiased speed comparison.
+Committed horizon counts (0 means no checkpoint; other values are virtual
+horizons, not actual steps after terminal):
+ample {'0': 4, '1': 4, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 26}; nominal {'0': 15, '1': 4, '2': 0, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 14}.
+Reached configured depth or both terminal: ample 30, nominal
+18. Nominal cutoffs retaining a usable pair:
+1; without a pair 5.
+A usable checkpoint is not a completed depth8 search. Same-horizon comparisons:
+19; differences from the FINAL ample action:
+2 (diagnostic only). Original per-checkpoint evidence
+and actual work counts are retained in the summary and raw panel.
+The one observed retained-pair cutoff kept the greedy plan at depth4, with scores
+-384/-388; partial work at steps6/5 did not overwrite that result. Thus this panel
+does not demonstrate a cutoff retaining an alternative winner (synthetic tests
+cover that case). Both differences from final ample have no nominal checkpoint:
+one opponent-phase cutoff and one admission skip, not conflicting completed
+decisions at different horizons. The18 nominal reached-end calls include4 early
+terminal calls;14 actually reach depth8.
+
+After timing, fresh conditional forwards and public Rules.resolve independently
+reconstruct ample proposals, 60 trajectories,
+424 core transitions and 108 published
+checkpoints. Final ample choice differs from the first checkpoint in
+2 cases; this is a horizon
+diagnostic, not a match-strength claim. Original inputs,
+common-root opponent, current-child legality, simultaneous actions, exact long
+score deltas, actual step counts and absorbing terminal behavior are checked.
+Nominal outputs receive same-horizon score/action and legal fallback checks;
+their hidden simulator states are not independently replayed. Exact transitions
+do not establish an accurate continuation policy or a strength improvement.
+
+Exact Player: 97,190 characters, SHA
+`3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff`, build `96ac84c2a58a8000884b0aa9692ccdf168c51511d3285dce33259003a8909287`.
+One strict zero-grace process panel:8/8 clean; maximum first response
+605.209ms, later 37.450ms. No retry.
+
+Practical-v4 vs selected v09: **2W/298L/0D/300**, score **0.67%**;
+**STOP_FUTILITY_300**. Mean score difference -9724.26; errors
+candidate/control [0, 0], slow native calls [2, 1], maximum native
+times [95, 52]ms. Two workers, CG budgets, base seed15600000,
+150 fresh paired maps exclude 21,747
+prior/development maps. No tuning, extension or retry; local failure skips boss.
+All 758 frozen files remain unchanged through evaluation.
+
+Decision: retain the completed experiment and reject promotion; selected v09
+stays unchanged. No arena upload or push. Wider branching, better continuation,
+useful long-horizon value and competitive training remain open.
+
+Evidence: [summary](evidence/spatial-ppo-v8.json),
+[archive index](evidence/spatial-ppo-v8-artifacts.json),
+[retained archive](evidence/spatial-ppo-v8-artifacts.zip).
+Archive includes original protocol, source/runtime freezes, tests, complete panel,
+checkpoint audit, exact submission and raw games; original v4 corpus is a hashed
+dependency rather than a second copy.

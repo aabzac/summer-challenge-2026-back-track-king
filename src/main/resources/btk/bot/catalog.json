@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v8",
+      "title": "Spatial Paired Lookahead Search",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Frozen v4 policy with the v7 construction pair and exact-score comparison at matched depths 2/4/6/8. Deadline cutoff retains the deepest completed pair under fixed root-prior continuation. No learned value, retraining or promotion; historical spatial-ppo name retained."
+    },
+    {
       "id": "spatial-ppo-v7",
       "title": "Spatial Conditional Construction Search",
       "category": "candidate",

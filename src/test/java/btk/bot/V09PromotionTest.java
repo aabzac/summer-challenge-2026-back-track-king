@@ -73,7 +73,7 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 15, fields, "later independent policy, neural and spatial deadlines, two spatial v5 fields, three spatial v6 fields, three spatial v7 fields, two V7 fallback fields and two current-only experiments");
+        assertEquals(expected.size() + 18, fields, "later independent policy, neural and spatial deadlines, two spatial v5 fields, three spatial v6 fields, three spatial v7 fields, three spatial v8 fields, two V7 fallback fields and two current-only experiments");
         FrozenParams.applyTo("v09", dirty);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);
         assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
