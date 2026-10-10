@@ -168,6 +168,12 @@ diagnosis. It compares four frozen policies on matched complete games and checks
 future-value transfer and a delayed-route representation fixture, without new
 training or bot changes. [Protocol and results](docs/spatial-learning-audit-v1.md).
 
+`spatial-ppo-v9` tests one distance-weighted town-context representation change
+with the same v4 teacher data and 16-epoch recipe. The synthetic alias is removed,
+but vs v4 is 42W/58L; practical-v4 vs v09 is 0W/300L/0D / 300,
+STOP_FUTILITY_300. Strict process 8/8 clean; v09 unchanged and original
+stage 3 remains open. [Protocol and results](docs/spatial-ppo-v9.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

@@ -1,0 +1,1348 @@
+{
+  "recordedAt": "2026-10-10T20:11:38.317978+00:00",
+  "experiment": "spatial-ppo-v9",
+  "archiveSha256": "5ca8a7810fea127d8ec236fa8a419400c67d08fd3514db0ef36518c6fbf8809a",
+  "archiveBytes": 5548696,
+  "corpusDependency": {
+    "path": "docs/evidence/spatial-ppo-v4-artifacts.zip",
+    "sha256": "773b31e6c37b08549d879af9f63e8e35f57ca45607805d534d48d6362b1fba09"
+  },
+  "files": {
+    "bench/pools/spatial-ppo-v9-block1.json": {
+      "sha256": "669612dc65da6b7357b7d2133f31ffaeb57d3af9ef8240b6dded9f80acc5bb03",
+      "bytes": 166
+    },
+    "bench/pools/spatial-ppo-v9-vs-v4-run.json": {
+      "sha256": "a99fbef8c7dd98aca18ee217165427665a4483b7f55db41d6488327e185eb954",
+      "bytes": 164
+    },
+    "bench/pools/spatial-ppo-v9-vs-v4.json": {
+      "sha256": "d290928e78f999a76c4f433ef5a810d657be37e35f7a1c0b861f9c027ce3f948",
+      "bytes": 171
+    },
+    "build/analysis/spatial-ppo-v9/evaluation-addendum.json": {
+      "sha256": "be67850ec24034a93d536b61edf679d93b3707ecc0f4c4abe55eec691e8f3847",
+      "bytes": 753
+    },
+    "build/analysis/spatial-ppo-v9/evaluation-freeze.json": {
+      "sha256": "27836e4c33017e056407c342b388bf0c0dd51489b6ed4bc57a8a4146f0f920d2",
+      "bytes": 115299
+    },
+    "build/analysis/spatial-ppo-v9/history.json": {
+      "sha256": "b4ac85d13ff51c455d9f6f913d7647204ca0afe34b68a8d7b3eebf278d889002",
+      "bytes": 9584
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/final-parity.json": {
+      "sha256": "611be261f60deb00167c487fbf37a9ecd0cefab373532442f6fe131fe49c4725",
+      "bytes": 11819314
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/final-python-parity.json": {
+      "sha256": "5b2eb10d0761526267f516d0397e520b13fd0a4396fb81688bab35283d45f570",
+      "bytes": 670
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/initial-parity.json": {
+      "sha256": "c5acc39d3b84606609c30288de53275d96e644ccec3a34af8329e3d83fc4a3bc",
+      "bytes": 11845345
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/initial-python-parity.json": {
+      "sha256": "3d04c0622045c400352ce1bbbb23cb656c1f7a111e5d9f3d0c758e508912d31b",
+      "bytes": 670
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/mechanism.json": {
+      "sha256": "bd342e8416b0cfb4f79a565a97eda09915a01ca002f16ba7031adee657e9039a",
+      "bytes": 1342
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/panel.json": {
+      "sha256": "3f7ce97e7a4f78f1ca44f6979aaccc6a8bcfe8b6a0311b9d64ef88ae08f4ed80",
+      "bytes": 302168
+    },
+    "build/analysis/spatial-ppo-v9/late-panel/profile.json": {
+      "sha256": "9201417384834a6110b280536af0bdaf55cbe7a5702baf09327a133eb5ee8323",
+      "bytes": 40112
+    },
+    "build/analysis/spatial-ppo-v9/panel.log": {
+      "sha256": "19ee4973dc4618a19baf123a2a27f25fe2a57b423171753fb89b85d41fda636d",
+      "bytes": 168
+    },
+    "build/analysis/spatial-ppo-v9/post-evaluation-verification.json": {
+      "sha256": "99fdc197c1c1bbec99affbfc0481ccc474b7d05e46806cb77bd3114176e993de",
+      "bytes": 142
+    },
+    "build/analysis/spatial-ppo-v9/postexport-java.log": {
+      "sha256": "cf361b9e88c21f66a8ebb96f8f0709d00750721cf447a25e76df0d5f82a5ecc4",
+      "bytes": 648
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/counts.json": {
+      "sha256": "8b25918c20625c6bb6d401e5b5a137080e465432a573943a9aad92cd6bee6811",
+      "bytes": 72
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/TEST-btk.bot.neural.SpatialV9BotTest.xml": {
+      "sha256": "310799f1bc2220dc4580df562325c94e5f6d43a3190c68e5e6fe8f5c6f89c4bd",
+      "bytes": 592
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/TEST-btk.bot.neural.SpatialV9NetTest.xml": {
+      "sha256": "2eba30312e7ded47d24a322325ebd8d0ce47d699e3beec6448eb01bbde4a478b",
+      "bytes": 1209
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/TEST-btk.bot.SpatialV9ConfigurationTest.xml": {
+      "sha256": "2a3086a0c56888da1a85598f492fc9af55d1cf08ba5f569394caddeefd60715f",
+      "bytes": 459
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/TEST-btk.submit.FileMergerTest.xml": {
+      "sha256": "a9b5e33720a825a145f38dcd632b7f1c88188005257bdad98c62f66be32a4da3",
+      "bytes": 7957
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/TEST-btk.tools.spatial.SpatialV9BridgeTest.xml": {
+      "sha256": "b1a502f4230a5f93dd436d40bc546936f20518909561fcf1b4a4636ef5d3fe3c",
+      "bytes": 793
+    },
+    "build/analysis/spatial-ppo-v9/postexport-tests/TEST-btk.tools.spatial.SpatialV9PanelTest.xml": {
+      "sha256": "882b1ff9de0f1d07adc6d4a952b7ec9e2ff3ea7bc9907ebd7b37a653c8fde796",
+      "bytes": 598
+    },
+    "build/analysis/spatial-ppo-v9/preflight-java.log": {
+      "sha256": "96ed0c9b17bc83403521faa547966394ab408c3a3ed572326727b84b406180b5",
+      "bytes": 1741
+    },
+    "build/analysis/spatial-ppo-v9/preflight-python-local-temp.log": {
+      "sha256": "ddfd7c20d9f2180b88d9e9f11b6e12c4369d486e70fd16aa831ec54e91e4fa1d",
+      "bytes": 577
+    },
+    "build/analysis/spatial-ppo-v9/preflight-python.log": {
+      "sha256": "bee396b9d918ffc40b8e5e678169128467c71dda4d3c30e09aa8241666e12f32",
+      "bytes": 16409
+    },
+    "build/analysis/spatial-ppo-v9/preflight-serial-test/counts.json": {
+      "sha256": "12a6eaf1198568338d5cd0f62155e9fd2e89a33502125167ee562a75f51503e9",
+      "bytes": 71
+    },
+    "build/analysis/spatial-ppo-v9/preflight-serial-test/TEST-btk.bot.IndrillForumBotTest.xml": {
+      "sha256": "934637c6738482d927bad306aff6c6a7b58d123f3d99f843e60c036c5acf7d47",
+      "bytes": 423
+    },
+    "build/analysis/spatial-ppo-v9/preflight-serial-timing-and-engine.log": {
+      "sha256": "2cbf4d8688da71598c1efbb24756c28a8a48c1bc18fc5f479d8d7717cc77a696",
+      "bytes": 352
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/counts.json": {
+      "sha256": "e8cdb6c1b357894e2544236157b0a6c774eee65983fc963b9672d71bf637a366",
+      "bytes": 73
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.BotCatalogTest.xml": {
+      "sha256": "66af40d1049794907f11db4561d32eef9e27fdc2894c584d9f659b006c1d2eab",
+      "bytes": 1075
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.BuildDirectionTest.xml": {
+      "sha256": "03cb41215080fb8c936daa8a8b4f863ebe78fdf997a6e1455bc931da36290703",
+      "bytes": 993
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.BuildIncomeGuardTest.xml": {
+      "sha256": "8d45d3bf78d7bf43041cb01726dc9568d2facafabf6987842d2677d2f0ca2255",
+      "bytes": 578
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.DefensePriorityTest.xml": {
+      "sha256": "d6232fa761b132f7eb5dc9a1b563ae0178b7873fa51864eaeeff7a57c8ba35d7",
+      "bytes": 1232
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.EarlyDisruptFallbackTest.xml": {
+      "sha256": "e378b49c4c249ebd89cb783debd5c419cfbc05d63cb9197dc675b3592c8cb1df",
+      "bytes": 583
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.EvalBotTest.xml": {
+      "sha256": "2d451f3312d2e07ee89bc7db2f950140d766467c5e1e6229a42add8e57f4c844",
+      "bytes": 1170
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.HeuristicBaselineTest.xml": {
+      "sha256": "7db8f40698a7ad97337aad029cb23f0239ff8ccb5a3bc49f344229ba93a76dce",
+      "bytes": 459
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.HeuristicBotTest.xml": {
+      "sha256": "ec6c2528eb5ddaee56e625c395124842e83aae0ac19eabd7c05a3821235c14b8",
+      "bytes": 1124
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.HeuristicDetourTest.xml": {
+      "sha256": "ba8c265bbeab217223ff667cf3de444063ddb26231760ef778ca9970dc14223d",
+      "bytes": 1172
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.InterruptedEvalTest.xml": {
+      "sha256": "04fd5fd2286ac842ffe1ca67bbba71e3d5d28c749614bb9d15f8b1901c7ccb06",
+      "bytes": 734
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.OwnBuildPlanTest.xml": {
+      "sha256": "5ba5d7f4c3011c404de4d9043e14858f59e32f0e06d27f049dc2bf07202999b6",
+      "bytes": 1418
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.ProtectedOpeningTest.xml": {
+      "sha256": "46b73480de62e56fbb7a02e353b8458723d51729b4ddfa98e4836d8512099663",
+      "bytes": 1623
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.ReplyRerankTest.xml": {
+      "sha256": "c8371108cf3fc8540e88dd346165143408df0ec0ce23ea60274ed547d0154e15",
+      "bytes": 566
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutAllCellRiskTest.xml": {
+      "sha256": "80fd63c2f25ad164f67ec635e67754d228c35492f04e447f62329d3c1704b38f",
+      "bytes": 1094
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutBotTest.xml": {
+      "sha256": "0fa464ee9985ab7ab1756259405197f65744efacfcf74d2fe819a8fe18ba6d4e",
+      "bytes": 1573
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutDiverseRepliesTest.xml": {
+      "sha256": "e0ffa9d12eaaa0015aa999d8f28127a0c1aa1bf9c0fc319e8ec76cc9f123f9b7",
+      "bytes": 635
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutFillTest.xml": {
+      "sha256": "f773f3413474ddf3e5471c508452fc1da98d9e60f69e6756c85fbf29606d8fc4",
+      "bytes": 764
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutLiveTargetTest.xml": {
+      "sha256": "d14e9465574e76a2cac5e250eadcace4104a4d0cbad436c18944ec7fc42ff470",
+      "bytes": 633
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml": {
+      "sha256": "5b173a8c0c27b3de70f3f451bec0270cc75d2ebc165ee4111782b74578333658",
+      "bytes": 1396
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutNetworkChordsTest.xml": {
+      "sha256": "2047507a78d3c552952a01024d5aba72cd27b64f662ecb16358a31194320f546",
+      "bytes": 1061
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutNetworkTest.xml": {
+      "sha256": "0f53ef0d22cebea0887428b0131b6c81c2abd58dbeed5e2318b0d7668dbc0082",
+      "bytes": 1202
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutOpeningIntegrationTest.xml": {
+      "sha256": "4499a53bc5ad19a69860abe4a642ac156a1476e07a8054b70d74accd7a51b59c",
+      "bytes": 810
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutQuickRouteTest.xml": {
+      "sha256": "3870b99f6bed23a43e7783e5b82b851dae37644b388438954c8624aa6431fa4c",
+      "bytes": 1359
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutReplanTest.xml": {
+      "sha256": "4e1ed3bcf41a0f4bd34da9e8d55ca1b9468e7c8d450ce0011e8dc1cfbfa2280a",
+      "bytes": 604
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutRootFillTest.xml": {
+      "sha256": "fb59ec6fe6ccbc8c306f20410bae317d4052dfb84bea9fab1dc628227b40c9ea",
+      "bytes": 1123
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutRouteDependenciesTest.xml": {
+      "sha256": "ec6d8307db3c571d62c3ae92e65e59e9e52383c3878b69640534dbe49353fba5",
+      "bytes": 1286
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutSecondTargetTest.xml": {
+      "sha256": "38d17c565b5a6c1cbe8a52d7c46d8f0395e15e6fb661de41cb057c20c4f02847",
+      "bytes": 632
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutSpreadTest.xml": {
+      "sha256": "328fd2c23fbc650b5f374317a0609d2633312f1ca99e16a5bd4501cc24b729b6",
+      "bytes": 1006
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.RolloutTrackValueTest.xml": {
+      "sha256": "e09d5348c2d7b142a12594285319e39bf53ab946dc28469eef229c039f5467c6",
+      "bytes": 768
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.current.SabotageRegressionTest.xml": {
+      "sha256": "ed5616ee90ada6eb83b9886007ead4021229ecd1f885735bd04bf3e23bea1f64",
+      "bytes": 468
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.FrozenParamsTest.xml": {
+      "sha256": "9402651edce1adae8624b381b0ffc04d71aa7aac41ef4069a528f2dbd79e8630",
+      "bytes": 2295
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.IndrillBotTest.xml": {
+      "sha256": "1a7c9b5aab19dedd93c06e6e83d06daffeffa3a94659d4f3b766cb75ad5b940c",
+      "bytes": 1006
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.IndrillForumBotTest.xml": {
+      "sha256": "bb75d105f5f37e563cdf8fa478e0bd8a407856ad6fcbf56510869e511e8275a8",
+      "bytes": 1991
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.IndrillV2BotTest.xml": {
+      "sha256": "b32f9dfa0a956d8a8f00d1192505bcc7a5b911b16fb001f2899e7fa3e581fc4c",
+      "bytes": 1135
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.LeaderBot2Test.xml": {
+      "sha256": "547dff54657d76cce051f8962a35c35287fb83410790dcc5991eb20f004173ed",
+      "bytes": 833
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.LeaderBotTest.xml": {
+      "sha256": "c6c73b0042bd880a9ac2cfc93d3cfe1d9443b45f49ee7b516a9d4a8f1e62dc7f",
+      "bytes": 1006
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialBotTest.xml": {
+      "sha256": "b0f394cfd3ffc83a4dd1831e7db0deb4daea74c6fa609e1b6d245698a847c7c8",
+      "bytes": 967
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialNetTest.xml": {
+      "sha256": "e3d6ce7f79604b11c5a088240bbe12abe03e389ad751ce40f272359f3cda24fd",
+      "bytes": 994
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialV5BotTest.xml": {
+      "sha256": "2f0e0d13dd3176cc72adb44abc82c117828199b075e709441245394001054c18",
+      "bytes": 1589
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialV6BotTest.xml": {
+      "sha256": "e74d40c864ed433baf50f5050d4aba659714f4dd72e43d076842df75af4ff3a3",
+      "bytes": 1683
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialV7BotTest.xml": {
+      "sha256": "4fbcc9c8de8697ed484b0a834c29cf56398c5b9d760f95ecc14edc2600c87c13",
+      "bytes": 1777
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialV8BotTest.xml": {
+      "sha256": "cd614037fee06bd8f70b168f94a7516df4744061c8224b185c0829b9a2afe67c",
+      "bytes": 1490
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialV9BotTest.xml": {
+      "sha256": "d2f519d808a1149bb43408b92439f8ad24eea204a9d21c342ed781acdac41304",
+      "bytes": 593
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.neural.SpatialV9NetTest.xml": {
+      "sha256": "49c1163ea0f07e202c051c059152087d35a84d25c071b127bdf6ec153f20f0db",
+      "bytes": 1210
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralBotTest.xml": {
+      "sha256": "fcc23d1ac1a8d803ccf5b1fc706f0668a8c91798bff86f81f0d1a405edc7ebbc",
+      "bytes": 1053
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV2BotTest.xml": {
+      "sha256": "69a3308b812ebe87ed9e8ee73204f4619e4df165b8c5d36dd7058c7e99be33d5",
+      "bytes": 853
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV3BotTest.xml": {
+      "sha256": "d31bca33a042c8543dd9749d1a11ef41fa79bebc2335f9277027bdf8f45a5598",
+      "bytes": 853
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV3FeaturesTest.xml": {
+      "sha256": "f1f4d080067d80c9fb6705526a652a649b7c4b0d244f9477132d32b4dc2833e8",
+      "bytes": 1031
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV4BotTest.xml": {
+      "sha256": "2e9c783177c647c630ed1b1cb52be7bb10981b5337e855b21cb5c4331db8298e",
+      "bytes": 598
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV5BotTest.xml": {
+      "sha256": "26b48c2e6c6e883f8edac681a569138d073c13a9c55b85749f3cabf486a86446",
+      "bytes": 988
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV5FeaturesTest.xml": {
+      "sha256": "f65c1a3b243e8f5c3c156141e4a923729bc05817022ab0fa766dff3ea4a1a2de",
+      "bytes": 1030
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV6BotTest.xml": {
+      "sha256": "340d86668d652ad8d8a3440fcb033795462cb58c2b839f537ca66f70f1aeb3ff",
+      "bytes": 987
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV6FeaturesTest.xml": {
+      "sha256": "61a8d6e191b695b77d1d123976708b5738ca87cfeb6e9e25ff865053d8f4e524",
+      "bytes": 1329
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.NeuralV7BotTest.xml": {
+      "sha256": "93d7fde6bc98f07719783005c1b3375c4b959230166ecb916bd021bd05aabea9",
+      "bytes": 2040
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.PressureBotTest.xml": {
+      "sha256": "70952cfee9b8f086400937280bbb52e818f36fa0d3240768ac21772c42018a5a",
+      "bytes": 839
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.RouteWarmupTest.xml": {
+      "sha256": "979540cd4e85fcba2e96ba6f143d00ffc478feb7361c0e7b3c850211eacef3c6",
+      "bytes": 910
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.SpatialObservationTest.xml": {
+      "sha256": "6e16d7447fc5d5a4c1301c0643f3d305c38bbedcf75ee4a4ebc21a6ac515ee14",
+      "bytes": 872
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.SpatialV3BotTest.xml": {
+      "sha256": "c67fa1386c5437b4dc61b987ad8d8f516c0a23e3b9591e0c081987640ccb6d3b",
+      "bytes": 710
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.SpatialV4BotTest.xml": {
+      "sha256": "78c7a566b78de2916da0b6033e445e659d2097c0bb09623eef2231f41ab19d61",
+      "bytes": 708
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.SpatialV9ConfigurationTest.xml": {
+      "sha256": "f2eac607bf2912d1f6fafc70c69d5137358cecaf9cf3c19657729f6eaa41c330",
+      "bytes": 459
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.SpatialVariantsTest.xml": {
+      "sha256": "e88e2d1083c4c91be4922f46eee8a82e9b3394a1934df47b58803fe819b5a4b3",
+      "bytes": 752
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.TimerTest.xml": {
+      "sha256": "5d9084682639a775337044e2c9b3096f682e8d20e9ab4f6b23460059935ce036",
+      "bytes": 526
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.V06PromotionTest.xml": {
+      "sha256": "f8fdc5c55e77e5d26ac1a1583eecc600eb0aa8ed9231b1bd767d3ea9d3af4616",
+      "bytes": 578
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.V07PromotionTest.xml": {
+      "sha256": "c74c0a0b91a8cb61be87618b4a31f1796bff6d6bfaafe303b24afbbcdeca1901",
+      "bytes": 700
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.V08PromotionTest.xml": {
+      "sha256": "87f7f751fe07dfd5d8f259889c95fe9988cddb1b5a11b80fe2c199f5e81e39a3",
+      "bytes": 1016
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.bot.V09PromotionTest.xml": {
+      "sha256": "603493926371397a446e5560ccb721c2bc2fcd48bb4571884baa1663fae417a1",
+      "bytes": 989
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.FeaturePathsTest.xml": {
+      "sha256": "2edb1f3d02be29bdfeb947d7561a29a0cb5acb3add4e2e6f4b03849f2eb692e9",
+      "bytes": 1264
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.HypotheticalIncomeTest.xml": {
+      "sha256": "538f9696c29f025c4f0ab1d83f6508c3290d467933c521f928df7497e982b47b",
+      "bytes": 1279
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.InkAllProjectionTest.xml": {
+      "sha256": "7f79aced6640671cb6d1fd7097fade8f5e61700ca9f2b7896bd4989070d631c9",
+      "bytes": 856
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.InkTest.xml": {
+      "sha256": "6a4b6a9c955147ba0276f84cc434f41cf4f4e785353fb092c51fc602f2c08490",
+      "bytes": 793
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.NetworkChordsTest.xml": {
+      "sha256": "8a459c025b68ccef0e1e84b828c49faa3a54f8ee23cd042c0cb5e19c9b76fb5d",
+      "bytes": 594
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.PathingTest.xml": {
+      "sha256": "b0564dd849746ff034da7947bf4841743d5f78178b8cce6668dbff5d6d86b945",
+      "bytes": 822
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.ProtocolTest.xml": {
+      "sha256": "171a233bcba4f07372ebdb1cef43eba4bf2c181462e80d16cde333b7baff9f6d",
+      "bytes": 506
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.RulesTest.xml": {
+      "sha256": "b78fd1cd695880f200cf1d49a9cfdbedef5dcc1ee944d4f71b478602738ccbdb",
+      "bytes": 1323
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.SearchStateTest.xml": {
+      "sha256": "10b2f653e6ee0ff7d0547acfe01a5698be65e6e19f667f38d11f0e31ee2a97dc",
+      "bytes": 840
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.SingleCellConnectionsTest.xml": {
+      "sha256": "aa6f9b034bfcb220efb72d183382fe59fe328024ce39ccd78f91122d2442c9d7",
+      "bytes": 1295
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.core.WeightedDistancesTest.xml": {
+      "sha256": "4bf6e7ee25c48c0e5494e6c2e99cfd7e08dd7789f51fc78ae2026e679097cd77",
+      "bytes": 1244
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.referee.MapGeneratorTest.xml": {
+      "sha256": "109e37e3e9a31106a34741ba6501440712f376f3cfd22e8e164cacad7084e8f6",
+      "bytes": 1605
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.referee.ReplayTest.xml": {
+      "sha256": "d94ebc113fc85b0800d7e54d60126e8b0ba0e759103944a7e979fa64f330468e",
+      "bytes": 658
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.BehaviorMetricsTest.xml": {
+      "sha256": "303f98a56d9bb43ba49fd15d5b45cbc714d16f8616215bd0d08bc733caa23fff",
+      "bytes": 449
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.BenchmarkRunnerTest.xml": {
+      "sha256": "7065e56e55acd1323b826c4eb388660d98916d719a7603c448ebe416ca1c88d4",
+      "bytes": 1323
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.BenchmarkSuiteTest.xml": {
+      "sha256": "3b708b2130951aee4a1b6f4a1714e60ad3df7e6bc735a595ae2511a1d995a89f",
+      "bytes": 1694
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.BenchPoolTest.xml": {
+      "sha256": "9e7ab3be24be8297d97cec7bf547c782892115772e6b8281222f276b17d83717",
+      "bytes": 790
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.ProcessBotTest.xml": {
+      "sha256": "47c77a9516f86fe450516ef307ef095c5c120860a541c901f61f761c1a709467",
+      "bytes": 1693
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.ProcessCheckTest.xml": {
+      "sha256": "e02608ec376e0ceadb6fb867d4b2d3227f2c386700068961040b6eee96c1cc74",
+      "bytes": 1200
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.runner.TimingProfileTest.xml": {
+      "sha256": "376f9ba3dd7afea2d6e66bf839e35a7c50e58d86d7a70d26d21a889f20b5ec98",
+      "bytes": 751
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.submit.BuildProvenanceTest.xml": {
+      "sha256": "25bced970a48d05fdd7e0ec6c5346618b7d079ec3085ce5ce079b814ced85af5",
+      "bytes": 869
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.submit.FileMergerTest.xml": {
+      "sha256": "414f2c7ec7249fbd881d927e75306cae49342eedbfa5e5d427cbc8030f83bdbc",
+      "bytes": 7957
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgBossDefenseStudyTest.xml": {
+      "sha256": "477f033426ce22d12b37fc8fd2439754f72e3c0e5b62186323854486c337509e",
+      "bytes": 857
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgDisruptStudyTest.xml": {
+      "sha256": "67dcb3db73cc80905e54781893498f3efe37b5f3b07b300a5b0bd62addbd6bf4",
+      "bytes": 1227
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgPlayerStudyTest.xml": {
+      "sha256": "726e9c4b1e3447a3f0f96da2362203ae7c7bb4e45e5d041a3eaef582347371fa",
+      "bytes": 969
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgRenderSeedTest.xml": {
+      "sha256": "669d3483448c9562b52144046bceb7ec0b04a629fb6fa92bd66a3819b27972e9",
+      "bytes": 1230
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgReplayPlayersTest.xml": {
+      "sha256": "023bd89c21f51fbf8db4d7d3b33f259bc7e7aeedb8759f08bb5f9f9ab2822aa0",
+      "bytes": 831
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgReplaySeedTest.xml": {
+      "sha256": "723132a76268297f75bbad2f1334c9845e1ce614a34a4914cf815df51606ae6b",
+      "bytes": 563
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgRolloutBossProbeTest.xml": {
+      "sha256": "160ca5d50fd94404833065ec06261340756f00e934b653c3cb00001b420de855",
+      "bytes": 758
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.CgValidateTest.xml": {
+      "sha256": "f3d97c797d5395a977a39677d7d90e83bde807e31cdc4a4923ebde032da3a0cb",
+      "bytes": 1279
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.JointActionTest.xml": {
+      "sha256": "51a5b443f70a6a20cfc3635828fe43e687088d99de799d1234f6fa9de0ec2701",
+      "bytes": 840
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.JointReplyStudyTest.xml": {
+      "sha256": "5a102ae9490b09d60505522e89e54059d5922a2a409ff8b8b932de8ae572f15e",
+      "bytes": 1197
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.NeuralV2CollectTest.xml": {
+      "sha256": "59ea8a4bcc54011270ef9e7c29d484f3739f0bc36c3148a6b382667183f9b145",
+      "bytes": 702
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.NeuralV2VerifyTest.xml": {
+      "sha256": "2289f626b3c516cafd433c9db125da38fd8e1c9b33e95ebb7813123fa62bc093",
+      "bytes": 694
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.NeuralV4CollectTest.xml": {
+      "sha256": "f91bf9e1dceffa4fa29665f74daae8e5cecdd087eb6b8708f9198b9e177b6ab4",
+      "bytes": 707
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.NeuralV4VerifyTest.xml": {
+      "sha256": "251167581dde4040ad469bea08020a3e139d29e579cc8dc3bbf35178c12722e3",
+      "bytes": 695
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.ppo.PpoProbeTest.xml": {
+      "sha256": "307917e901c8db35ea0e740a5b25cc9cc7d78f0b364158aa9bd79a0cd7daf91b",
+      "bytes": 983
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.ReplayPathsTest.xml": {
+      "sha256": "0a3af5838c0006082be398a918d68a7f997ecf8e71c9dc5aca65f8961d1db5f2",
+      "bytes": 1084
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.ReplyStudyTest.xml": {
+      "sha256": "abb30761a6d681ecb8591320b022503dc9eebd90a8238f1ad1621e51d7c66d8d",
+      "bytes": 1418
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.RolloutRiskStudyTest.xml": {
+      "sha256": "08dca64116c8ae5fb02e6e3ae7270a7bf8e7213a7efe0fa38345cb73e131bdc4",
+      "bytes": 621
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.SabotageForecastTest.xml": {
+      "sha256": "72e61aeb4991bad157e0c3751bd6c51defb85b511b48d0b5ceb0ec2b1b46badc",
+      "bytes": 990
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialBridgeTest.xml": {
+      "sha256": "21f3216f0bd51114d4853d2e47dae56eb276014fdb1b87d89dd13dbad8227a3f",
+      "bytes": 886
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialLatePanelTest.xml": {
+      "sha256": "29ff985bb5653cf24e1e61d9829bab6e920807fa9b3f214f776acf5a03a72f4f",
+      "bytes": 926
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialLearningAuditTest.xml": {
+      "sha256": "9fdd0fb587e9a7188b74516bee1071b290745b43a49b06072230fa7e0bd8c5b7",
+      "bytes": 1289
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialLearningMechanismTest.xml": {
+      "sha256": "346af3d220989148e5b2830d055860bb661d644db88dcb6f3ff5251ebd6960b4",
+      "bytes": 808
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialPoolBridgeTest.xml": {
+      "sha256": "353c148cd2313e3c2d20a945cddc4f3b9d1561e4722028f20685591b64d2db2f",
+      "bytes": 1552
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialTeacherExportTest.xml": {
+      "sha256": "fe70a26f149ddbdf896ad1db8403fbea5d6d69698e577777bf14c2c223c0a054",
+      "bytes": 1622
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialV9BridgeTest.xml": {
+      "sha256": "692ad0bc5186bf36ad2d266a6a722d02d6f57aa4f39ab47655fb40cfba66bd7d",
+      "bytes": 794
+    },
+    "build/analysis/spatial-ppo-v9/preflight-tests/TEST-btk.tools.spatial.SpatialV9PanelTest.xml": {
+      "sha256": "9ba83ffb9ceda6f2dae135bf15b8976b31712ab77e3da4afbf54ff3cab0769cb",
+      "bytes": 597
+    },
+    "build/analysis/spatial-ppo-v9/pretraining-freeze.json": {
+      "sha256": "0659891fadc1d403a9fa15dad3d7b4b5f78d7a4f187b5f009a4b377df67f0767",
+      "bytes": 108231
+    },
+    "build/analysis/spatial-ppo-v9/prior-excluded.json": {
+      "sha256": "4cdeb0315d2eb9b81d2795e634c4a55828fc3e6dafe9f301a8c0af2d9eca8cfb",
+      "bytes": 1567637
+    },
+    "build/analysis/spatial-ppo-v9/process-inputs.json": {
+      "sha256": "52446278c572824cd1841554c3da163863bf534d0abfc77af07d93b9ebb5097f",
+      "bytes": 1836
+    },
+    "build/analysis/spatial-ppo-v9/process.json": {
+      "sha256": "5a60e1afba4aa0d917a48b0846d55d01a0db2083bdd9ab3a85f1fa4d1fd90553",
+      "bytes": 196987
+    },
+    "build/analysis/spatial-ppo-v9/process.log": {
+      "sha256": "cdf0207bf1a9174379e538365515eaf5550081279dc2efa7845ac75d811ade18",
+      "bytes": 2041
+    },
+    "build/analysis/spatial-ppo-v9/progress-excluded.json": {
+      "sha256": "4cdeb0315d2eb9b81d2795e634c4a55828fc3e6dafe9f301a8c0af2d9eca8cfb",
+      "bytes": 1567637
+    },
+    "build/analysis/spatial-ppo-v9/progress-executed.log": {
+      "sha256": "eca4ed831e97b82b1082d2245bf0b4108d94ad4fdfd8b3b0a922b5d3ec5b98ff",
+      "bytes": 2002
+    },
+    "build/analysis/spatial-ppo-v9/progress.log": {
+      "sha256": "fff5375575d891c521c3d4fc8589a8d6c0588f99bfd6aa3a750a682c1e55f353",
+      "bytes": 807
+    },
+    "build/analysis/spatial-ppo-v9/protocol-before-results.md": {
+      "sha256": "be6f6757fbd9cf519027543e4e578f18de8f33aaaf2e51c5c9fdc129690df930",
+      "bytes": 6758
+    },
+    "build/analysis/spatial-ppo-v9/saved-v4-panel.json": {
+      "sha256": "1f982f10a2d4611d31a29cc098a3daf2693e6789def8f4460bda7e9ae186d7df",
+      "bytes": 479822
+    },
+    "build/analysis/spatial-ppo-v9/strength-console.log": {
+      "sha256": "fd502e96ec0bdb7dbf063f2db82cecf21bce6487d18ccdef684ebcf92a799040",
+      "bytes": 1557
+    },
+    "build/analysis/spatial-ppo-v9/training-console.log": {
+      "sha256": "9c543102e3b6f2e42b5938240a3dc4a2e6592df8d7697132c0fdb30b0c0249c1",
+      "bytes": 3991
+    },
+    "build/bench/spatial-ppo-v9/block1-decision.json": {
+      "sha256": "4402069f437aa24060b1bda4c4e3309ff66a6aeea52e8b67e39aa40fb6a1036f",
+      "bytes": 224802
+    },
+    "build/bench/spatial-ppo-v9/block1-excluded.json": {
+      "sha256": "36c20a36138f6e8f94408fe3a36d795ca37b8cf62c7dd02f5cb3879083714959",
+      "bytes": 1571232
+    },
+    "build/bench/spatial-ppo-v9/block1.json": {
+      "sha256": "aa97a8d1da99978e515ce20a0f4b378479fcc81c319538bf87e40b2237795a80",
+      "bytes": 286288
+    },
+    "build/bench/spatial-ppo-v9-vs-v4.json": {
+      "sha256": "f724cbe32ae1e4c11e010a6a4245c4fa073c68a61629c909d7b55bcc8a734643",
+      "bytes": 105750
+    },
+    "build/spatial-ppo-v4-cache/cache.json": {
+      "sha256": "a72b59e45fe81bc333e51fb07d59ff49b81fd61bd0f50d09c05af611336b26d8",
+      "bytes": 74667
+    },
+    "build/spatial-ppo-v4-data/manifest.json": {
+      "sha256": "0ab67f31833f23b7d78225ba4306dedaa5ccbde70e508a51b54b15f45d14ead5",
+      "bytes": 156958
+    },
+    "build/spatial-ppo-v9/config.json": {
+      "sha256": "250c50e8a415e8d702eeac7196421fd763c5816c6d08da61230bc470a0904edd",
+      "bytes": 180827
+    },
+    "build/spatial-ppo-v9/final-weights.base64": {
+      "sha256": "825b26d7d1d386413fc227532b53728f9ac4cd950d77c9665ad2cfd4bd3be3f7",
+      "bytes": 18344
+    },
+    "build/spatial-ppo-v9/final.pt": {
+      "sha256": "a19c8384b61bb39d6433dca80c29e152d2223f1305d2277288a9483058e28626",
+      "bytes": 234912
+    },
+    "build/spatial-ppo-v9/initial-weights.base64": {
+      "sha256": "a345b2d780101a5a6cbf34192c21b1f201d9f7e3f5c7e4c76d56be36f8d2c365",
+      "bytes": 18344
+    },
+    "build/spatial-ppo-v9/initial.pt": {
+      "sha256": "962a5e4c2684126f747a1276340174841fac6749a88b094a02ec09af2d8898eb",
+      "bytes": 194788
+    },
+    "build/spatial-ppo-v9/metrics.json": {
+      "sha256": "85d273d2ecd51400e8ac76875980ac2301bf27b1b3e403031062c85ee98440a0",
+      "bytes": 198615
+    },
+    "build/spatial-ppo-v9/midpoint.pt": {
+      "sha256": "0f46ad5be63d5064d2fe0c4f78178eed7b1f6f6189778e4a3bd3078f982040fb",
+      "bytes": 235987
+    },
+    "build/spatial-ppo-v9/parity-final-context-off.json": {
+      "sha256": "6e5556d80f7ea705e6e099c31bb16dd0895653aa1a659351839bd4430299b837",
+      "bytes": 327
+    },
+    "build/spatial-ppo-v9/parity-final-legacy.json": {
+      "sha256": "6e5556d80f7ea705e6e099c31bb16dd0895653aa1a659351839bd4430299b837",
+      "bytes": 327
+    },
+    "build/spatial-ppo-v9/parity-final.json": {
+      "sha256": "9b4493eff3901f6945710c2a055e043ced6a70988b34890d1ecdb5c77882c512",
+      "bytes": 326
+    },
+    "build/spatial-ppo-v9/parity-initial-context-off.json": {
+      "sha256": "4a89f5986068429d8541eb5483cab1087aaed9265cddac6aaad7706c159b2f8c",
+      "bytes": 325
+    },
+    "build/spatial-ppo-v9/parity-initial-legacy.json": {
+      "sha256": "4a89f5986068429d8541eb5483cab1087aaed9265cddac6aaad7706c159b2f8c",
+      "bytes": 325
+    },
+    "build/spatial-ppo-v9/parity-initial.json": {
+      "sha256": "003df59724cb39e8d09d06ae7aa37994c450a1fa62ab92709c89fd3783bf921d",
+      "bytes": 326
+    },
+    "build/spatial-ppo-v9/parity-observations.json": {
+      "sha256": "2f16c93dac04bb5beee0f758ce67fdf1a746ae4892512516afff95f472c57912",
+      "bytes": 5328261
+    },
+    "build/spatial-ppo-v9/parity-row-lineage.json": {
+      "sha256": "a550f83c5abce749fc9cccc14758fb48a2b6a5562f042b559a196f0c99bc6c37",
+      "bytes": 4531
+    },
+    "build/spatial-ppo-v9/run.log": {
+      "sha256": "9c543102e3b6f2e42b5938240a3dc4a2e6592df8d7697132c0fdb30b0c0249c1",
+      "bytes": 3991
+    },
+    "build/spatial-scope.gradle": {
+      "sha256": "1a12fdd8df5426de03bbd840ad04c36d67dc3ddeeaccd4e3cb90f2a2cebbd475",
+      "bytes": 204
+    },
+    "build/spatial-v9-java.json": {
+      "sha256": "b18d1319db28f9d5ecc184b1c623a1ea406333ef892b95a7a874331977687bec",
+      "bytes": 662
+    },
+    "build/spatial_v9_document.py": {
+      "sha256": "e6eac0ed1a196aee556e708a88a8285f2ff10901d46847e70b052087fe473d1e",
+      "bytes": 12143
+    },
+    "build/spatial_v9_evidence.py": {
+      "sha256": "524d610c350c459525e7cc7846b647860af65054cac859a094328d15e2a2b373",
+      "bytes": 8059
+    },
+    "build/spatial_v9_results.py": {
+      "sha256": "ebf47f46e5aaecee6c2a36dabd62f6773dbf33b15373073bf31b6095577034ca",
+      "bytes": 6600
+    },
+    "build/submit-spatial-v9/classes/Player$1.class": {
+      "sha256": "0fb8607bc4efd454b5403b0f6d7f45aeb829f3cd2180fabac26b4acbebed1085",
+      "bytes": 792
+    },
+    "build/submit-spatial-v9/classes/Player$Action$Type.class": {
+      "sha256": "52c5de41369b1fc6090371a0cdbde6980533b2730d258eb3ff52e4eac3a1a7e1",
+      "bytes": 1137
+    },
+    "build/submit-spatial-v9/classes/Player$Action.class": {
+      "sha256": "b8165054c8d2f4de77401123e0ee44be2fc380412f49f4125067438e12f342ba",
+      "bytes": 4768
+    },
+    "build/submit-spatial-v9/classes/Player$Bot.class": {
+      "sha256": "b593a5d7c4596415ddf946522480a2194acd9e9e6ea71c33b012b0f61eaa839f",
+      "bytes": 921
+    },
+    "build/submit-spatial-v9/classes/Player$CGRunner.class": {
+      "sha256": "b51800df2bb1845584b8bb788d062e457c29aa3eaa49f66d0c4eea9c9936f5e6",
+      "bytes": 6002
+    },
+    "build/submit-spatial-v9/classes/Player$EvalBot.class": {
+      "sha256": "715820293bb2ba5f065cbcd0e47f86259140161b6876f650d18465a2dd6e3ecb",
+      "bytes": 23050
+    },
+    "build/submit-spatial-v9/classes/Player$GameState.class": {
+      "sha256": "ab23cf5bb004c30f0267ffcb88b94d4095fab8d4850a64af6d0d2438c9fbe787",
+      "bytes": 5094
+    },
+    "build/submit-spatial-v9/classes/Player$MainBot.class": {
+      "sha256": "bbc001a70ad25dfe27918ac62e2534f7f710d1b09087dc6174e38119db7ce5e9",
+      "bytes": 5632
+    },
+    "build/submit-spatial-v9/classes/Player$NetworkCells.class": {
+      "sha256": "190d892f3d961730835ef02604a7f4ee15104d6eff80540db61304ba139a8b57",
+      "bytes": 1048
+    },
+    "build/submit-spatial-v9/classes/Player$NetworkChords.class": {
+      "sha256": "dcecf4ef9fc2fd73b8c1b1d721e2d3c7e585be9ecf753b1917113495715b7f71",
+      "bytes": 1393
+    },
+    "build/submit-spatial-v9/classes/Player$Params.class": {
+      "sha256": "bd485b5a44aae1cbc5339b81b6945ef8f2ecf1a528896841f92ec39e13bb356c",
+      "bytes": 11185
+    },
+    "build/submit-spatial-v9/classes/Player$Pathing.class": {
+      "sha256": "2bb55c3ba910e48fa26a353c8be575cf826e25deb30f5991fada290fe21c8573",
+      "bytes": 7012
+    },
+    "build/submit-spatial-v9/classes/Player$Protocol$Init.class": {
+      "sha256": "703cf9c0f66b1b4782df48f13b8dc9233c695c887f5fb5a80e2a68a481434a46",
+      "bytes": 407
+    },
+    "build/submit-spatial-v9/classes/Player$Protocol$TokenReader.class": {
+      "sha256": "e194ba380a056f8121b26d63c9c85f1da51f26a0572be2c2f2d8223fdf09d3a8",
+      "bytes": 1525
+    },
+    "build/submit-spatial-v9/classes/Player$Protocol$TurnInfo.class": {
+      "sha256": "04deffcc2cf727fb6257f5e1344e7fbc5eaf6dfd62fc1ae707206ed511db1081",
+      "bytes": 400
+    },
+    "build/submit-spatial-v9/classes/Player$Protocol.class": {
+      "sha256": "a145a06f072648d7af6a2ac1095d0f363fe22c5c4fe43cd17bfea8f675b7bbcf",
+      "bytes": 4856
+    },
+    "build/submit-spatial-v9/classes/Player$Rules$PlayerMoves.class": {
+      "sha256": "79d218ee2b491b5564d62a266b7077d5998f33c4fa1779b0e0f7bb9453744f49",
+      "bytes": 1054
+    },
+    "build/submit-spatial-v9/classes/Player$Rules$TurnResult.class": {
+      "sha256": "b90413b9e4f7fc078857290056f6d0ef8c1cc2cd510cfc9a6903f2dfa391d045",
+      "bytes": 895
+    },
+    "build/submit-spatial-v9/classes/Player$Rules.class": {
+      "sha256": "635051ab1857373bf88ae3dd60305dbbdac817961e95532b3cdb69e125e27256",
+      "bytes": 7907
+    },
+    "build/submit-spatial-v9/classes/Player$SearchState.class": {
+      "sha256": "2a38995dc30558f8d8861354dab16c2ab5b4f618e64e314f5fbca562f5fd1257",
+      "bytes": 1977
+    },
+    "build/submit-spatial-v9/classes/Player$SpatialNet.class": {
+      "sha256": "3d18156d88177a2dbc8a201a7bf5952f901f2d8018ada318874abb3aec3f8d24",
+      "bytes": 7813
+    },
+    "build/submit-spatial-v9/classes/Player$SpatialObservation.class": {
+      "sha256": "0c8db0aa3545b33fbdabe349aa6bed0f7b027d54a419d0aed15c23075159ef92",
+      "bytes": 6542
+    },
+    "build/submit-spatial-v9/classes/Player$SpatialWeights.class": {
+      "sha256": "481be4c23417ad096326acb13b96ba9bd30139a4190b07da73d4c8b2c7c076ec",
+      "bytes": 18690
+    },
+    "build/submit-spatial-v9/classes/Player$Timer.class": {
+      "sha256": "9b00c119ffe6b5596d830c543c080a91b982e30ee1e32e9552af65b1f7012475",
+      "bytes": 809
+    },
+    "build/submit-spatial-v9/classes/Player.class": {
+      "sha256": "c1c47e892b41cbef5d469a6cdd243fcce7756a84288298e0ca5ceec129c16f94",
+      "bytes": 1382
+    },
+    "build/submit-spatial-v9/manifest.json": {
+      "sha256": "dbd2aaf1d593183ec5c3d3c6ccbabbc7d0c8403f1953ac9d6bc6a1cc79a3caaf",
+      "bytes": 4857
+    },
+    "build/submit-spatial-v9/Player.java": {
+      "sha256": "da8b3bb160ea90d0e20076060339f5e33584399906c82ea5523e453920fb2a76",
+      "bytes": 87202
+    },
+    "build.gradle.kts": {
+      "sha256": "00db14c01313305830b0aa75e84b58d6ade1ae5ba067e8546ecca8ba86a97270",
+      "bytes": 22031
+    },
+    "docs/evidence/spatial-ppo-v9-training.json": {
+      "sha256": "85d273d2ecd51400e8ac76875980ac2301bf27b1b3e403031062c85ee98440a0",
+      "bytes": 198615
+    },
+    "docs/evidence/spatial-ppo-v9.json": {
+      "sha256": "7a2744e54c11284e5b509aee84f6e554d0d2572a0ad155172048124290be819d",
+      "bytes": 20539
+    },
+    "docs/spatial-ppo-v9.md": {
+      "sha256": "688c7fbbea17710bd8d3f91c6d30f54ecd5f2eebe0aea2c2dac55dfb3ed930bd",
+      "bytes": 12846
+    },
+    "replays/cg/903182120.json": {
+      "sha256": "d1169b02dc4bdbd64e44e2e2b739f3637a60ab746dd00706bb341d06049a16eb",
+      "bytes": 49034
+    },
+    "replays/cg/903182383.json": {
+      "sha256": "68bb24b072fa9a806adea70aa98f5e57b44cb152dfa4af88323002291585d94d",
+      "bytes": 54504
+    },
+    "replays/cg/903182464.json": {
+      "sha256": "6fbe6304d023bff06c3631ac5fc8859acb35a8255de17073238b2d99818d4a12",
+      "bytes": 55041
+    },
+    "replays/cg/903182662.json": {
+      "sha256": "8656a37b312068864ffcaaa5f5eb7853f51df3dd2c767af8b52e02168abdc734",
+      "bytes": 96317
+    },
+    "replays/cg/903182848.json": {
+      "sha256": "9f6a7ad3861429145a9215bf4be20e90f279cd448353dedc053422dda540ad08",
+      "bytes": 31611
+    },
+    "replays/cg/903183355.json": {
+      "sha256": "7df147ab506e5cb3655d42b1fa9568c2e32e319361ca6d9ad80b569b0b4faa25",
+      "bytes": 40473
+    },
+    "replays/cg/903183513.json": {
+      "sha256": "8da1c6ed4664dc59d514f3c7bc6aa560d9d2668d5ce3161ee98d258ec68828bf",
+      "bytes": 84751
+    },
+    "replays/cg/903183758.json": {
+      "sha256": "aa1d53b49e1acc14538e599599160fe32c1f27e1d4738579953d270ea885019d",
+      "bytes": 57695
+    },
+    "src/main/java/btk/bot/Bot.java": {
+      "sha256": "21eb774e67a8ee5a3523b75be50fb11d61fcf36ce2d51975e6f5e97ce9162810",
+      "bytes": 1204
+    },
+    "src/main/java/btk/bot/BotFactory.java": {
+      "sha256": "25c1e9faa6d359479f9a91da502a60e7931365316a033031a28349c4f0c84a2f",
+      "bytes": 10837
+    },
+    "src/main/java/btk/bot/FrozenParams.java": {
+      "sha256": "2d57629f63845459f472e04caefbd090f05d0a19910fb8edc317a783c5d43cb6",
+      "bytes": 2553
+    },
+    "src/main/java/btk/bot/MainBot.java": {
+      "sha256": "b4e94791c92a0452fc1fbc7f3172aaa820ed67e6fa0f04d7b4d56ad92086b584",
+      "bytes": 2953
+    },
+    "src/main/java/btk/bot/neural/SpatialBot.java": {
+      "sha256": "72fa785972751c2e0b10d7cc3628e386692564d997c3363d46135c06eb087494",
+      "bytes": 4749
+    },
+    "src/main/java/btk/bot/neural/SpatialInitialWeights.java": {
+      "sha256": "3c3382e348c478201e304fe57c14563f60b515959aeac6ee8639093f579e8756",
+      "bytes": 21157
+    },
+    "src/main/java/btk/bot/neural/SpatialNet.java": {
+      "sha256": "c66935366d8aac3f7775c5d09546c71b349fdfd86aca380fe71168cdb541d8cb",
+      "bytes": 8456
+    },
+    "src/main/java/btk/bot/neural/SpatialObservation.java": {
+      "sha256": "10dc8e80edf7c97cd87b88f018f5588546618b7a8a86207687d9c26595e4b6e0",
+      "bytes": 8915
+    },
+    "src/main/java/btk/bot/neural/SpatialV2Weights.java": {
+      "sha256": "5f706ad9e79c3d2f10c9225d95bbcd41c7b1c767a02e0e220c414cdcdcb7941a",
+      "bytes": 21147
+    },
+    "src/main/java/btk/bot/neural/SpatialV3Bot.java": {
+      "sha256": "ecf4e282e9272a671ba99c2d9b6e06804b0f7dc62ccd6fe5cc6df3eb19b860fa",
+      "bytes": 873
+    },
+    "src/main/java/btk/bot/neural/SpatialV3Weights.java": {
+      "sha256": "b4c6d91ea9f959ba23c8564fd5b3506b35b239fd8080302fe75c65ad7f31e4a6",
+      "bytes": 21147
+    },
+    "src/main/java/btk/bot/neural/SpatialV4Bot.java": {
+      "sha256": "f15174a0ed1cc3bfff334824bfb802e53e165349706fa02e3314ce59af57fe9b",
+      "bytes": 880
+    },
+    "src/main/java/btk/bot/neural/SpatialV4Weights.java": {
+      "sha256": "98d19e32cd88317d387f92dea347ae3f7994be1a0665666fc36771f9054b65b7",
+      "bytes": 21142
+    },
+    "src/main/java/btk/bot/neural/SpatialV5Bot.java": {
+      "sha256": "e5d27ccb13893fc7fb76f75f681ee87ebd487ecb6b2ddbf99762175b59d4cfe5",
+      "bytes": 8507
+    },
+    "src/main/java/btk/bot/neural/SpatialV5Weights.java": {
+      "sha256": "de4354dcfc746e19167dafce32df8a264c558a42611a9a2d7573556e459b9736",
+      "bytes": 21153
+    },
+    "src/main/java/btk/bot/neural/SpatialV6Bot.java": {
+      "sha256": "38b7fcb7eca84244a503eacd47ec203719e08148169ec3b2d5b9bde3d9dc6ac0",
+      "bytes": 13835
+    },
+    "src/main/java/btk/bot/neural/SpatialV7Bot.java": {
+      "sha256": "995e5987c3f628be90a481f6d98e9ce0fe5b02e6a4614d28ea56a368cef3dc43",
+      "bytes": 17047
+    },
+    "src/main/java/btk/bot/neural/SpatialV8Bot.java": {
+      "sha256": "0fcf78ca7953af497dc878c145b802671119c3186b1ce40b5003a622d12378d3",
+      "bytes": 19346
+    },
+    "src/main/java/btk/bot/neural/SpatialV9Bot.java": {
+      "sha256": "35b9e4bc8a55a3808a2288781691c79a2dd1c9bb6d40e1b4475c11828ff4fd85",
+      "bytes": 4801
+    },
+    "src/main/java/btk/bot/neural/SpatialV9Net.java": {
+      "sha256": "26a62a7c6c778ea943f8fe21764f14466296ffd516f9fa976e98c74913860d73",
+      "bytes": 12252
+    },
+    "src/main/java/btk/bot/neural/SpatialV9Weights.java": {
+      "sha256": "64afcac6a24f9ecb7098e57a67947dfd487922108672273c53bf8a3a041e61f4",
+      "bytes": 21142
+    },
+    "src/main/java/btk/bot/neural/SpatialVariantBot.java": {
+      "sha256": "0d4253a1770138dcd32082d065f312711fe78c1164b031a6386e502c5c2a038a",
+      "bytes": 1156
+    },
+    "src/main/java/btk/bot/neural/SpatialWeights.java": {
+      "sha256": "0dadc4bacdfcd45a56feaa8f00707514c5dcde2639811f4d6bfc4b250ef00702",
+      "bytes": 21141
+    },
+    "src/main/java/btk/bot/Params.java": {
+      "sha256": "ef3a0df34e9a86d11fe630109c5374e3efa23431112663032818102ed97f55b1",
+      "bytes": 16070
+    },
+    "src/main/java/btk/bot/Timer.java": {
+      "sha256": "d18aadb0f092b1b4ef00aacde6cc76df4eaa9871e79f854bf9639f1b2fbe0bdd",
+      "bytes": 786
+    },
+    "src/main/java/btk/core/Action.java": {
+      "sha256": "d6ec211f4e4ccb559de9b3420519749de1bde1e423932bd65a70a37278f9ac07",
+      "bytes": 4461
+    },
+    "src/main/java/btk/core/FeaturePaths.java": {
+      "sha256": "9f1e5e94ffd8a299da687666f512fb55a86975a614683a56df36334afbbfef51",
+      "bytes": 4443
+    },
+    "src/main/java/btk/core/GameState.java": {
+      "sha256": "96dfeb45b10a90517d8eec93dc0b9ce5624d2239348c237346f7ad1cc9162943",
+      "bytes": 8198
+    },
+    "src/main/java/btk/core/HypotheticalIncome.java": {
+      "sha256": "cfa68235ab1463edd6f2dfb32c37163e7b334e56a614c48dbc5320df58b3ad23",
+      "bytes": 5615
+    },
+    "src/main/java/btk/core/InkProjection.java": {
+      "sha256": "32ced1f6f9a41650ab679c897248ba522839ed9d5110f0d154053747784e1785",
+      "bytes": 1684
+    },
+    "src/main/java/btk/core/NetworkCells.java": {
+      "sha256": "8f253d578b56e30de3ea246514f6cafd501222767a67c600a1ba78e63d7f246b",
+      "bytes": 2174
+    },
+    "src/main/java/btk/core/NetworkChords.java": {
+      "sha256": "9a0ddd5d6b8782e663d78d59742797c237a871ed0420b8072bd9d308fe6fea70",
+      "bytes": 2725
+    },
+    "src/main/java/btk/core/Pathing.java": {
+      "sha256": "93f0ab4cf9f90f2a37d9794a69a60488183cb9f51c7458b4bbcd000e69f689f5",
+      "bytes": 15284
+    },
+    "src/main/java/btk/core/Protocol.java": {
+      "sha256": "e98d8fbc901cf4a94b83017cd321411f39e3f72d915c524bd88d7db6aa1d1b26",
+      "bytes": 8928
+    },
+    "src/main/java/btk/core/Rules.java": {
+      "sha256": "c05c75ccb105b5bb3eb2640a89ba29605e3fb2b89601635c41cd6ef91a122162",
+      "bytes": 13694
+    },
+    "src/main/java/btk/core/SearchState.java": {
+      "sha256": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b",
+      "bytes": 2287
+    },
+    "src/main/java/btk/core/TacticalPathing.java": {
+      "sha256": "b0b1e6b2e57e48e353b88b92583171bde3fbd8131e9892e2878238cc5af0b22a",
+      "bytes": 6476
+    },
+    "src/main/java/btk/submit/CGRunner.java": {
+      "sha256": "531b2e46fffee3a947d31d71ce0c59bd33df8c6c6862d29b995ffc7e546f56d9",
+      "bytes": 5578
+    },
+    "src/main/java/btk/submit/FileMerger.java": {
+      "sha256": "2ef8d540ac4a83571906351eef395f3f8fd2b233f517082d90392c593f1b0a3f",
+      "bytes": 27495
+    },
+    "src/main/java/btk/tools/spatial/SpatialBridge.java": {
+      "sha256": "8f82118ed49123e5cc6cc620d591beae028e506f328f9abd05eac8c0a9930a20",
+      "bytes": 15729
+    },
+    "src/main/java/btk/tools/spatial/SpatialLatePanel.java": {
+      "sha256": "f845e641e56d30a0ca20f7ab9901e00603444b450f78ee181a9ab8bc4ca15199",
+      "bytes": 22456
+    },
+    "src/main/java/btk/tools/spatial/SpatialLearningAudit.java": {
+      "sha256": "30a299886692e4e5695953f4418c6ef20e5699a857dcc5991ea3a88de86891ec",
+      "bytes": 33968
+    },
+    "src/main/java/btk/tools/spatial/SpatialLearningMechanism.java": {
+      "sha256": "1ab1309aeb3bb49f230c354b9ba418f728fadef9e264e34db84c919e733bb3b0",
+      "bytes": 14219
+    },
+    "src/main/java/btk/tools/spatial/SpatialPoolBridge.java": {
+      "sha256": "0feb9d6313c32c19e098e6d2daf6d1d23e03c9bd3c399e0fbdb1d6975c44f2f5",
+      "bytes": 15748
+    },
+    "src/main/java/btk/tools/spatial/SpatialProfile.java": {
+      "sha256": "3bc6c911583703f02a80299be2d99436107f747513e890a21371f4efb091a503",
+      "bytes": 13274
+    },
+    "src/main/java/btk/tools/spatial/SpatialTeacherExport.java": {
+      "sha256": "36460c12f2323f671875d9db1d91c9686fe3704431b6c0339bb8622617b2551c",
+      "bytes": 24690
+    },
+    "src/main/java/btk/tools/spatial/SpatialV5Panel.java": {
+      "sha256": "4d30ad9a5502a7f77b55944ef031eab086489c86da2db77070ed45971d3433f5",
+      "bytes": 16410
+    },
+    "src/main/java/btk/tools/spatial/SpatialV6Panel.java": {
+      "sha256": "83f5d51eced52dde0a1666f16741c91fff12c226eb860ea51c0ea6eb94f8661c",
+      "bytes": 35426
+    },
+    "src/main/java/btk/tools/spatial/SpatialV7Panel.java": {
+      "sha256": "76013393d61579260a067ec8265bab626da2e9b04f27e25700698846992201a1",
+      "bytes": 44303
+    },
+    "src/main/java/btk/tools/spatial/SpatialV8Panel.java": {
+      "sha256": "214646be2ace4c389e6de0fd1dda82d6ea8cc2574d1c61000a6dc6c6a2c2c46a",
+      "bytes": 57580
+    },
+    "src/main/java/btk/tools/spatial/SpatialV9Bridge.java": {
+      "sha256": "1b43a0b86b15ed21d3fe7172a8d9ef3e80bdc14916b3dc6b7c139f46bbf3aca7",
+      "bytes": 6240
+    },
+    "src/main/java/btk/tools/spatial/SpatialV9Panel.java": {
+      "sha256": "a174960aa65a854cde497d52b5cc049f85fe73e7273f1236e8f2a89bf0e5363f",
+      "bytes": 24509
+    },
+    "src/main/resources/btk/bot/catalog.json": {
+      "sha256": "4b0bb7e0a63ab7cacd3359537c80460c609d659e0dd88b12b84e3dd8611e1c2f",
+      "bytes": 14396
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v1.properties": {
+      "sha256": "cc69300698ace30a8dbf12058f7926d1cca3a4990b632d4b48aa84fd4a6d7c6b",
+      "bytes": 2803
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v2-init.properties": {
+      "sha256": "2315229a3dd011b6031b266ee3ce632b3b6cfa9cc4a7805b2f021b1571e4ebfc",
+      "bytes": 2945
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v2.properties": {
+      "sha256": "06feed3eb35d7f4fee3e87efdf4beaf3f410a94e9f8cc562efe939e2665266a4",
+      "bytes": 2940
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v3.properties": {
+      "sha256": "97cd43361d5bda677f6b1a7e6eac2746823f31401d5f7c10d938435384f1cbcf",
+      "bytes": 2939
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v4.properties": {
+      "sha256": "155c6c2f3f2e14125f2d8191bf711cc38ab8c6533e48345647ee52a754c693c6",
+      "bytes": 2939
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v5.properties": {
+      "sha256": "b96c6de91faf7baf032bb98ac05aae19a23d460bc44252007a5a32f10b164c01",
+      "bytes": 2887
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v6.properties": {
+      "sha256": "cbacc45eefaddb6f1882d0b5e1babdf2baa02cc086febf4a5e11af0582cbf51b",
+      "bytes": 2963
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v7.properties": {
+      "sha256": "6e8256e014da409cd2b9242d213ec6fb88ef0dfc0713a8dce8da4796c3f89016",
+      "bytes": 3034
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v8.properties": {
+      "sha256": "b21ffd9b1f3f714a2e67a85884f27bace98b443062233ce3fcf61092f7614145",
+      "bytes": 3100
+    },
+    "src/main/resources/btk/bot/versions/spatial-ppo-v9.properties": {
+      "sha256": "76a27c4798509d91b8389c269f8386cdc43ab44a052df852b942e51e30d3a19f",
+      "bytes": 3138
+    },
+    "src/test/java/btk/bot/neural/SpatialV5BotTest.java": {
+      "sha256": "7a4886f1a5f3878c5e4550e3a0f6bd6e7ee234fbc25a5276e6bcdbcbea412ba2",
+      "bytes": 11176
+    },
+    "src/test/java/btk/bot/neural/SpatialV6BotTest.java": {
+      "sha256": "f55f0aaa5c489580a8776ee35c5928abed588b69b853cdfb911f5c109e8ac940",
+      "bytes": 15160
+    },
+    "src/test/java/btk/bot/neural/SpatialV7BotTest.java": {
+      "sha256": "d267aa7a3ad8a938ebc57493ae1567bcc2098300a06b6bce51858f9ed36fdca3",
+      "bytes": 19093
+    },
+    "src/test/java/btk/bot/neural/SpatialV8BotTest.java": {
+      "sha256": "7dd6df8f20e27a64fe46da4e2968ef49e8bf103cc6cb0e63933c6ab7c44289b5",
+      "bytes": 19047
+    },
+    "src/test/java/btk/bot/neural/SpatialV9BotTest.java": {
+      "sha256": "4f17a2eb86b697a52653e0e5d8c4c294cd18b07ade81b40c5ab4f8735ceae412",
+      "bytes": 3680
+    },
+    "src/test/java/btk/bot/neural/SpatialV9NetTest.java": {
+      "sha256": "b8ae5e992b1fef69b1b47d73a33e2f2ec4d3a320ddf379e57a890959466bfae1",
+      "bytes": 9226
+    },
+    "src/test/java/btk/bot/spatial/SpatialBotTest.java": {
+      "sha256": "8f0c3fa79251c6aeb76e7d79acda66f25b5bbad055c04f4befac8adc8a12fb6e",
+      "bytes": 4382
+    },
+    "src/test/java/btk/bot/spatial/SpatialNetTest.java": {
+      "sha256": "ef976ad7967703c1a3b53bcd2a36144666b8606eb4057eac3d6d9edabe16cb07",
+      "bytes": 6618
+    },
+    "src/test/java/btk/bot/SpatialObservationTest.java": {
+      "sha256": "88242d0babc28e7f1026f09e31fd99e6d7d89139d3dab9c2998582908a76a876",
+      "bytes": 4368
+    },
+    "src/test/java/btk/bot/SpatialV3BotTest.java": {
+      "sha256": "bfd967b982796822a611e45af5985c150e8382726977d380827b7f26ad681913",
+      "bytes": 3759
+    },
+    "src/test/java/btk/bot/SpatialV4BotTest.java": {
+      "sha256": "4fcc12eb2b9a41a05f73eb023ca7230eeaeefcfabf1870dc9804fe01b2aceaa6",
+      "bytes": 3971
+    },
+    "src/test/java/btk/bot/SpatialV9ConfigurationTest.java": {
+      "sha256": "3df7a968d4f41856c2522fdc26eea4f3ee3a4454663e69597263e2b81b138eb2",
+      "bytes": 647
+    },
+    "src/test/java/btk/bot/SpatialVariantsTest.java": {
+      "sha256": "06ea362749d92a4d3a7732da79a3022b4ce7cc70e347f05603e3b3b3c1d6c53d",
+      "bytes": 5125
+    },
+    "src/test/java/btk/tools/spatial/SpatialBridgeTest.java": {
+      "sha256": "6d1cda415f6b930792ed68d188e51f39ce158b3af1b7f8fc0808680834dffc96",
+      "bytes": 4352
+    },
+    "src/test/java/btk/tools/spatial/SpatialLatePanelTest.java": {
+      "sha256": "785476fe02081a96a22ef69c2908071072486c48ee13b914b6c26fe3c7865bda",
+      "bytes": 4127
+    },
+    "src/test/java/btk/tools/spatial/SpatialLearningAuditTest.java": {
+      "sha256": "f767a4436a01d0804ceb1b9f4b1323d7462e488e93401b356b4d000f247f4e74",
+      "bytes": 11408
+    },
+    "src/test/java/btk/tools/spatial/SpatialLearningMechanismTest.java": {
+      "sha256": "540a50a7e7db85834c7940c4c52cc48fa3bb27c3a9779beadf054dcf725c6fa2",
+      "bytes": 5369
+    },
+    "src/test/java/btk/tools/spatial/SpatialPoolBridgeTest.java": {
+      "sha256": "74bea4441a9bfbb91919c045793914e346fad6ca1e74190c131048312311884a",
+      "bytes": 11141
+    },
+    "src/test/java/btk/tools/spatial/SpatialTeacherExportTest.java": {
+      "sha256": "6e27dd721d2d533dfe9e6d66aad60fb5ff58e61300ce3c2d6f636ad40c3be2ca",
+      "bytes": 15663
+    },
+    "src/test/java/btk/tools/spatial/SpatialV9BridgeTest.java": {
+      "sha256": "624a51416d28b3b4c9e77e0d094eea357dda2ff08b392775abb19119a064cf38",
+      "bytes": 5966
+    },
+    "src/test/java/btk/tools/spatial/SpatialV9PanelTest.java": {
+      "sha256": "b756331a2a05748cb5d048acfbcb76f570c2ad706155b83fdb836fcd0743ba35",
+      "bytes": 3703
+    },
+    "tools/practical_gate.py": {
+      "sha256": "b9d8707cf5d41774b0812b179ae410c975708bc48a4f9de8196a23052b9d652a",
+      "bytes": 9389
+    },
+    "tools/practical_gate_v4.py": {
+      "sha256": "1b632549cf8bad373db1d8244d6d5b8c80249435c4553e803967659a5d6479f7",
+      "bytes": 11150
+    },
+    "tools/run_practical_v4.py": {
+      "sha256": "165f6d391da1df44013600a3bd47fb5e3b484a1ae4ab9c23c1d99a298b3599fd",
+      "bytes": 6754
+    },
+    "tools/spatial/bridge.py": {
+      "sha256": "c6f4d698d2024366a665935319e916dee3b9586d8fcc0496b437553a7d2f2ac2",
+      "bytes": 1369
+    },
+    "tools/spatial/compare_v2_panel.py": {
+      "sha256": "feb0ee603f503a1b6673e5ec8173ba955cb84f89d62f9be96a1ed420dfe8007b",
+      "bytes": 4236
+    },
+    "tools/spatial/compare_v9_panel.py": {
+      "sha256": "063e8fd947424c120f0a254b107038603fc968a443a93d9faf87b538b8f9cadd",
+      "bytes": 1513
+    },
+    "tools/spatial/learning_audit.py": {
+      "sha256": "098f6d560f09274b007a1944ef79a549bf86d8c0cf61b4e72a0fdd9afc5ef8a8",
+      "bytes": 27710
+    },
+    "tools/spatial/model.py": {
+      "sha256": "5f8b18849358f5be4322f80f73c9f2d3ee5e10269a030866c41a0a34b8035a7f",
+      "bytes": 5460
+    },
+    "tools/spatial/model_v9.py": {
+      "sha256": "e33b657c7d686c3426a0792d1fcab82bd192c6b026c32a8aa6bb42d735584b49",
+      "bytes": 3190
+    },
+    "tools/spatial/pool_collector.py": {
+      "sha256": "136ed526e647b420a42ce378739ba81e3d014bb4454f4e93c4abce6b399efa35",
+      "bytes": 7301
+    },
+    "tools/spatial/ppo.py": {
+      "sha256": "3c181bb1e61f975bbf857622f636ad562d6548eea5e23f265523e8bfe4c57500",
+      "bytes": 3292
+    },
+    "tools/spatial/run_v2_training.py": {
+      "sha256": "b5584e51be09f68c669356816b6c4eebe0969c83257c5ad0dacd836f6029d793",
+      "bytes": 17942
+    },
+    "tools/spatial/run_v3_training.py": {
+      "sha256": "a30b85c23f92e33a57be3ef3cf644882b0fe6db1f927db0f1ec7403f79a4cb40",
+      "bytes": 14975
+    },
+    "tools/spatial/test_learning_audit.py": {
+      "sha256": "bf6c471a7352785cfbff5d28eb628ace03f53df009ea5aab0005a46ec828f0ec",
+      "bytes": 13677
+    },
+    "tools/spatial/test_spatial.py": {
+      "sha256": "d7c9f968fceb7c62264f618306db939b17be2d7418af7fe00a52a539e41f1ae2",
+      "bytes": 5321
+    },
+    "tools/spatial/test_spatial_v2.py": {
+      "sha256": "9197f9040f224185e993e6c3e5c7f30b79d2297bf4a54098262a01a9626b331b",
+      "bytes": 8571
+    },
+    "tools/spatial/test_spatial_v3.py": {
+      "sha256": "97be076496835e99abe0c0a0b059fd49212ed3728b77e9c05370d6de4597d14d",
+      "bytes": 10809
+    },
+    "tools/spatial/test_spatial_v4.py": {
+      "sha256": "1d83fd97501f93dd4320f4cf830d066f4fe26a5b7a1b47b76b8982edec9907bd",
+      "bytes": 14512
+    },
+    "tools/spatial/test_spatial_v5.py": {
+      "sha256": "30c6764940857dfae9e0ac8b6b077fba0efab757b5e3d9ad8245b32841e4a494",
+      "bytes": 10651
+    },
+    "tools/spatial/test_spatial_v9.py": {
+      "sha256": "fe7184b99f510f684277df633485aae7283e1ce1cde6c6358eb3ec71c8b022d6",
+      "bytes": 10355
+    },
+    "tools/spatial/train_spatial.py": {
+      "sha256": "18000ab966c251fa61c214a19ca34e70dbe01fc8395bf63d8b32dfa0d04ed7e4",
+      "bytes": 16643
+    },
+    "tools/spatial/v2_support.py": {
+      "sha256": "826aacb7d585fc40b2925d4baf55da3bd3d5f0826e97b0430d606aa32a5d89dd",
+      "bytes": 10021
+    },
+    "tools/spatial/v3_support.py": {
+      "sha256": "cf856e8f32458d9d1e2c8c9a11996d3a1e8e1c87ddffbb8cd9c85fcac4ef629b",
+      "bytes": 9733
+    },
+    "tools/spatial/v4_data.py": {
+      "sha256": "1d7fc5eadb21bf2f056332895b2f6531f84c77d5e0095d52d8003d1a7d96486e",
+      "bytes": 14646
+    },
+    "tools/spatial/v4_distill.py": {
+      "sha256": "777180c7d29be639910a599e02f8cece58c2cfd36d887bcc775745b2af645883",
+      "bytes": 21420
+    },
+    "tools/spatial/v5_value.py": {
+      "sha256": "109586caf52bfb9510c2873141020ebb1e1d931845af3961403cf6f529417b7d",
+      "bytes": 25657
+    },
+    "tools/spatial/v9_distill.py": {
+      "sha256": "e77f57eda7524ef5aeb612017a49623a6c7d2735b83f0c129e67d3720b90f231",
+      "bytes": 19692
+    }
+  }
+}

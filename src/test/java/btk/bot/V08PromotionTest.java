@@ -72,8 +72,8 @@ class V08PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size() + 17, fields,
-                "inactive later fields include neural and spatial deadlines, two spatial v5 fields, three spatial v6 fields, three spatial v7 fields, three spatial v8 fields, two V7 fallback fields and two current-only experiments");
+        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size() + 18, fields,
+                "inactive later fields include neural and spatial deadlines, two spatial v5 fields, three spatial v6 fields, three spatial v7 fields, three spatial v8 fields, one spatial v9 context field, two V7 fallback fields and two current-only experiments");
         FrozenParams.applyTo("v08", dirty);
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());

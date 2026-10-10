@@ -75,6 +75,14 @@ tasks.register<JavaExec>("spatialBridge") {
     standardInput = System.`in`
 }
 
+/** V9 numerical parity bridge; game operations still delegate to the frozen bridge. */
+tasks.register<JavaExec>("spatialV9Bridge") {
+    group = "game"
+    mainClass.set("btk.tools.spatial.SpatialV9Bridge")
+    classpath = sourceSets["main"].runtimeClasspath
+    standardInput = System.`in`
+}
+
 tasks.register("spatialRuntime") {
     group = "game"
     dependsOn("classes")

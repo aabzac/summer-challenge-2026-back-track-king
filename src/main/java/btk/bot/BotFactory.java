@@ -20,6 +20,7 @@ import btk.bot.neural.SpatialV5Bot;
 import btk.bot.neural.SpatialV6Bot;
 import btk.bot.neural.SpatialV7Bot;
 import btk.bot.neural.SpatialV8Bot;
+import btk.bot.neural.SpatialV9Bot;
 import btk.bot.neural.SpatialVariantBot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
@@ -101,6 +102,7 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
+                if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")
                         || field.getName().equals("SPATIAL_V8_DEPTH")) && !version(spec).equals("spatial-ppo-v8")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V7_SEARCH") || field.getName().equals("SPATIAL_V7_MIN_SEARCH_MS")
@@ -142,7 +144,7 @@ public final class BotFactory {
         return version.equals("spatial-ppo-v1") || version.equals("spatial-ppo-v2")
                 || version.equals("spatial-ppo-v2-init") || version.equals("spatial-ppo-v3")
                 || version.equals("spatial-ppo-v4") || version.equals("spatial-ppo-v5") || version.equals("spatial-ppo-v6")
-                || version.equals("spatial-ppo-v7") || version.equals("spatial-ppo-v8");
+                || version.equals("spatial-ppo-v7") || version.equals("spatial-ppo-v8") || version.equals("spatial-ppo-v9");
     }
 
     private static Function<Params, Bot> lookup(String version) {
@@ -178,6 +180,7 @@ public final class BotFactory {
             case "spatial-ppo-v6": return SpatialV6Bot::new;
             case "spatial-ppo-v7": return SpatialV7Bot::new;
             case "spatial-ppo-v8": return SpatialV8Bot::new;
+            case "spatial-ppo-v9": return SpatialV9Bot::new;
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
             case "indrill-forum-v1": return IndrillForumBot::new;

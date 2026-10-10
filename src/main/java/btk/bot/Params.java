@@ -35,6 +35,9 @@ public class Params {
     public int SPATIAL_V8_MIN_SEARCH_MS = 12;
     public int SPATIAL_V8_DEPTH = 8;
 
+    /** Spatial v9 town context; excluded from every earlier configuration and artifact. */
+    public boolean USE_SPATIAL_V9_TOWN_CONTEXT = false;
+
     /** V3-only cooperative deadline; excluded from other bots' config and emitted Params to preserve their artifacts. */
     public int NEURAL_DEADLINE_RESERVE_MS = 2;
     /** V7-only bounded construction on deadline cutoff; historical artifacts omit these fields. */

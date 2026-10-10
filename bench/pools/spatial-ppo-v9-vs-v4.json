@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "spatial-ppo-v9-vs-v4",
+  "purpose": "progress-diagnostic",
+  "generator": "cg-sha1prng",
+  "seedStart": 23000000,
+  "pairs": 50
+}

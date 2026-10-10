@@ -15,8 +15,9 @@ completed experiments do not automatically complete their parent stage.
       Measurements do not cover a future larger architecture.
 - [ ] 3. Establish useful competitive learning and reliable future-value evaluation,
       including delayed investment. V2/v4 improve weaker baselines, but v09 and
-      value results remain inadequate. Current bounded diagnostic:
-      [spatial-learning-audit-v1](spatial-learning-audit-v1.md).
+      value results remain inadequate. Completed audit and follow-up:
+      [spatial-learning-audit-v1](spatial-learning-audit-v1.md),
+      [spatial-ppo-v9](spatial-ppo-v9.md); town context did not improve strength.
 - [ ] 4. Scale effective self-play with a frozen-opponent pool and held-out maps.
       Pool infrastructure is implemented in v3; regression means effective
       competitive learning/scaling is still unresolved.
@@ -29,9 +30,11 @@ completed experiments do not automatically complete their parent stage.
       but v09 0/8; v5 transfer loses to income extrapolation in all eight groups.
       V3's own critic improves despite policy regression. Prove a delayed-route
       local representation alias; retain the outcome distinction above.
-- [ ] Next hypothesis within stage 3: one global distance-weighted town-context
-      representation change, then the fixed teacher recipe and runtime/closed-loop
-      checks. Proposed only; not implemented or trained by the completed audit.
+- [x] Complete [spatial-ppo-v9](spatial-ppo-v9.md) within stage 3: one global
+      distance-weighted town-context change, same v4 data/16-epoch recipe, numerical
+      and runtime checks. Alias removed, vs v4 42W/58L; vs v09
+      0W/300L/0D / 300, STOP_FUTILITY_300. Strict process 8/8 clean.
+      Reject promotion, preserve v09; parent stage 3 remains open.
 
 ## Spatial PPO first complete pipeline (2026-10-08)
 

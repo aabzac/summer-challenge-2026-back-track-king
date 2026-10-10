@@ -27,6 +27,8 @@ final class FrozenParams {
             if (!snapshot.containsKey("USE_ROLLOUT_ROOT_FILL")) params.USE_ROLLOUT_ROOT_FILL = false;
             // Historical strategies never read this independent policy's routing feature weight.
             if (!snapshot.containsKey("INDRILL_INK_PENALTY")) params.INDRILL_INK_PENALTY = 2;
+            // Town context is opt-in even when a legacy snapshot is applied to a reused Params object.
+            if (!snapshot.containsKey("USE_SPATIAL_V9_TOWN_CONTEXT")) params.USE_SPATIAL_V9_TOWN_CONTEXT = false;
             for (String key : snapshot.stringPropertyNames()) params.set(key, snapshot.getProperty(key));
             return params;
         } catch (IOException e) {

@@ -6516,3 +6516,31 @@ recipe and runtime/closed-loop checks. Proposal only; no new training/version,
 promotion, boss calls, arena upload or push. Original five-stage outcome status
 is now explicit in PLAN. Full protocol/results and retained artifacts:
 [spatial-learning-audit-v1](spatial-learning-audit-v1.md).
+
+
+## 2026-10-10 — spatial-ppo-v9: town context, fixed recipe, strength rejected
+
+- Hypothesis: expose remote town embeddings to every real cell through one
+  distance-weighted sum before the residual block. Keep the old local scatter,
+  3,439-float layout, frozen historical code, exact v4 corpus/V2 warm start and
+  16-epoch supervised recipe. No new games for training, search or value objective.
+- Completed 4,560 optimizer steps/291,072 rows in 267.236 s. Validation unforced
+  agreement 38.414% versus v4 39.543%; full plans 63/1,112 versus 77/1,112.
+  Final alias difference +0.3440676 (off 0), but greedy selects another cell.
+  This establishes distinguishability, not useful delayed-action evaluation.
+- Checks: 621 initial Java tests, one unrelated timing failure passed separately;
+  all 17 new tests and 69 post-export checks pass. Python 47 pass after fixing
+  temporary-directory access; core 292/292 exact. Initial/final numerical parity,
+  all 32 nominal/ample plans match; no cutoffs. Player 87,202 characters; strict
+  process 8/8 clean, later max 28.4595 ms. Raw initial failures are retained.
+- Progress: **42W/58L/0D/100** versus v4, mean gap -155.38, no errors. Initial
+  pool metadata label was rejected before any game; a recorded compatibility
+  manifest changed only that label. No training or played-game retries/tuning.
+- Practical-v4 vs v09: **0W/300L/0D / 300**, mean gap -9349.41,
+  zero errors, **STOP_FUTILITY_300**. No later blocks or boss. All 200 evaluation
+  maps are fresh/disjoint, and frozen source/runtime/artifact identities hold.
+- Decision: retain isolated v9 and complete evidence; reject promotion, current
+  remains v09. No improvement demonstrated over v4; do not generalize this result
+  to all global-context representations. Value calibration/competitive learning
+  and original stage 3 remain unresolved. No upload/push or automatic next run.
+  [Protocol/results](spatial-ppo-v9.md), [summary](evidence/spatial-ppo-v9.json).

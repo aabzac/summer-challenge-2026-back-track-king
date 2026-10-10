@@ -205,6 +205,13 @@
       "description": "Frozen V6 policy and V2 weights with bounded stable own-network construction only after a neural deadline cutoff; completed choices and ample-time behavior are preserved."
     },
     {
+      "id": "spatial-ppo-v9",
+      "title": "Global Town Context",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Separate greedy spatial policy with distance-weighted town embeddings broadcast over the board. Fixed supervised experiment; no search or strategy promotion. docs/spatial-ppo-v9.md."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

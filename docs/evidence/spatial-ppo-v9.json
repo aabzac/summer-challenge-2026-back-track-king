@@ -1,0 +1,644 @@
+{
+  "experiment": "spatial-ppo-v9",
+  "recordedAt": "2026-10-10T20:09:20.885336+00:00",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "SKIPPED_LOCAL_FAILURE",
+  "method": "Same V4 supervised teacher recipe with one new distance-weighted town-context representation; no new data/PPO/value training/search",
+  "checks": {
+    "preflightJava": {
+      "tests": 621,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "isolatedOldTimingTest": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "postExportTargetedJava": {
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pythonTestsPassed": 47,
+    "engineExactReplays": 292,
+    "oldUntrackedPduhardTestsExcluded": 6,
+    "technicalIncidents": [
+      "Initial Python run had four temporary-directory access errors; all47 passed after using a workspace temporary directory.",
+      "Initial621-test Java suite had one unchanged IndrillForum timing assertion (37.6615ms); it passed in a recorded isolated run without concurrent Python. All17 new Java tests passed; no source fix or game rerun.",
+      "BenchPool.select rejects progress-diagnostic as an unsupported purpose before constructing maps or playing any game. Retain original manifest and failed log; use schema-supported confirmation label only. This remains the predeclared progress diagnostic, not a promotion gate."
+    ]
+  },
+  "training": {
+    "initial_weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+    "final_weights_sha256": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6",
+    "total_optimizer_steps": 4560,
+    "trained_decision_rows": 291072,
+    "value_head_parameters_unchanged": true,
+    "weight_l2_change": 11.09518051147461,
+    "weight_max_abs_change": 1.3030108213424683,
+    "total_seconds": 267.2360237999819,
+    "python_peak_working_set_bytes": 1769467904,
+    "initial_metrics": {
+      "train": {
+        "slices": {
+          "all": {
+            "rows": 18192,
+            "correct": 4027,
+            "cross_entropy": 3.709982402485909,
+            "agreement": 0.22136103781882147
+          },
+          "unforced": {
+            "rows": 14428,
+            "correct": 263,
+            "cross_entropy": 4.677848618382566,
+            "agreement": 0.018228444690878847
+          },
+          "build": {
+            "rows": 13644,
+            "correct": 3958,
+            "cross_entropy": 3.659385421014372,
+            "agreement": 0.2900908824391674
+          },
+          "disrupt": {
+            "rows": 4548,
+            "correct": 69,
+            "cross_entropy": 3.8617733469005207,
+            "agreement": 0.015171503957783642
+          },
+          "build_unforced": {
+            "rows": 9880,
+            "correct": 194,
+            "cross_entropy": 5.05350755914171,
+            "agreement": 0.019635627530364373
+          },
+          "disrupt_unforced": {
+            "rows": 4548,
+            "correct": 69,
+            "cross_entropy": 3.8617733469005207,
+            "agreement": 0.015171503957783642
+          }
+        },
+        "full_plans": 4548,
+        "exact_full_plans": 3,
+        "exact_full_plan_agreement": 0.0006596306068601583,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      },
+      "validation": {
+        "slices": {
+          "all": {
+            "rows": 4448,
+            "correct": 794,
+            "cross_entropy": 4.063755291292993,
+            "agreement": 0.17850719424460432
+          },
+          "unforced": {
+            "rows": 3720,
+            "correct": 66,
+            "cross_entropy": 4.859027832169686,
+            "agreement": 0.017741935483870968
+          },
+          "build": {
+            "rows": 3336,
+            "correct": 776,
+            "cross_entropy": 4.0777366118465395,
+            "agreement": 0.23261390887290168
+          },
+          "disrupt": {
+            "rows": 1112,
+            "correct": 18,
+            "cross_entropy": 4.021811329632354,
+            "agreement": 0.01618705035971223
+          },
+          "build_unforced": {
+            "rows": 2608,
+            "correct": 48,
+            "cross_entropy": 5.2160005126994085,
+            "agreement": 0.018404907975460124
+          },
+          "disrupt_unforced": {
+            "rows": 1112,
+            "correct": 18,
+            "cross_entropy": 4.021811329632354,
+            "agreement": 0.01618705035971223
+          }
+        },
+        "full_plans": 1112,
+        "exact_full_plans": 0,
+        "exact_full_plan_agreement": 0.0,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      }
+    },
+    "final_metrics": {
+      "train": {
+        "slices": {
+          "all": {
+            "rows": 18192,
+            "correct": 10017,
+            "cross_entropy": 1.761462345058854,
+            "agreement": 0.5506266490765171
+          },
+          "unforced": {
+            "rows": 14428,
+            "correct": 6253,
+            "cross_entropy": 2.2209954935757326,
+            "agreement": 0.43339340171887997
+          },
+          "build": {
+            "rows": 13644,
+            "correct": 7117,
+            "cross_entropy": 1.9664103306607883,
+            "agreement": 0.521621225447083
+          },
+          "disrupt": {
+            "rows": 4548,
+            "correct": 2900,
+            "cross_entropy": 1.1466183882530507,
+            "agreement": 0.6376429199648197
+          },
+          "build_unforced": {
+            "rows": 9880,
+            "correct": 3353,
+            "cross_entropy": 2.7155569384145544,
+            "agreement": 0.3393724696356275
+          },
+          "disrupt_unforced": {
+            "rows": 4548,
+            "correct": 2900,
+            "cross_entropy": 1.1466183882530507,
+            "agreement": 0.6376429199648197
+          }
+        },
+        "full_plans": 4548,
+        "exact_full_plans": 604,
+        "exact_full_plan_agreement": 0.13280562884784522,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      },
+      "validation": {
+        "slices": {
+          "all": {
+            "rows": 4448,
+            "correct": 2157,
+            "cross_entropy": 2.0537661938791865,
+            "agreement": 0.48493705035971224
+          },
+          "unforced": {
+            "rows": 3720,
+            "correct": 1429,
+            "cross_entropy": 2.455686029670597,
+            "agreement": 0.3841397849462366
+          },
+          "build": {
+            "rows": 3336,
+            "correct": 1496,
+            "cross_entropy": 2.3045831393195475,
+            "agreement": 0.44844124700239807
+          },
+          "disrupt": {
+            "rows": 1112,
+            "correct": 661,
+            "cross_entropy": 1.3013153575581042,
+            "agreement": 0.5944244604316546
+          },
+          "build_unforced": {
+            "rows": 2608,
+            "correct": 768,
+            "cross_entropy": 2.947887021767642,
+            "agreement": 0.294478527607362
+          },
+          "disrupt_unforced": {
+            "rows": 1112,
+            "correct": 661,
+            "cross_entropy": 1.3013153575581042,
+            "agreement": 0.5944244604316546
+          }
+        },
+        "full_plans": 1112,
+        "exact_full_plans": 63,
+        "exact_full_plan_agreement": 0.05665467625899281,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      }
+    },
+    "initial_parity": {
+      "observations": 24,
+      "max_abs_error": {
+        "build": 3.5762786865234375e-07,
+        "disrupt": 4.76837158203125e-07,
+        "value": 3.5762786865234375e-07
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true,
+      "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+      "passed": true
+    },
+    "final_parity": {
+      "observations": 24,
+      "max_abs_error": {
+        "build": 8.58306884765625e-06,
+        "disrupt": 3.2186508178710938e-06,
+        "value": 1.4901161193847656e-06
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true,
+      "weights_sha256": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6",
+      "passed": true
+    },
+    "initial_context_off": {
+      "python_bitwise_equal": true,
+      "java_bitwise_equal": true,
+      "disabled_python_java": {
+        "observations": 24,
+        "max_abs_error": {
+          "build": 4.76837158203125e-07,
+          "disrupt": 3.5762786865234375e-07,
+          "value": 4.172325134277344e-07
+        },
+        "tolerance": 0.0001,
+        "greedy_equal": true,
+        "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+        "passed": true
+      },
+      "legacy_python_java": {
+        "observations": 24,
+        "max_abs_error": {
+          "build": 4.76837158203125e-07,
+          "disrupt": 3.5762786865234375e-07,
+          "value": 4.172325134277344e-07
+        },
+        "tolerance": 0.0001,
+        "greedy_equal": true,
+        "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+        "passed": true
+      }
+    },
+    "final_context_off": {
+      "python_bitwise_equal": true,
+      "java_bitwise_equal": true,
+      "disabled_python_java": {
+        "observations": 24,
+        "max_abs_error": {
+          "build": 7.867813110351562e-06,
+          "disrupt": 3.6954879760742188e-06,
+          "value": 1.6689300537109375e-06
+        },
+        "tolerance": 0.0001,
+        "greedy_equal": true,
+        "weights_sha256": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6",
+        "passed": true
+      },
+      "legacy_python_java": {
+        "observations": 24,
+        "max_abs_error": {
+          "build": 7.867813110351562e-06,
+          "disrupt": 3.6954879760742188e-06,
+          "value": 1.6689300537109375e-06
+        },
+        "tolerance": 0.0001,
+        "greedy_equal": true,
+        "weights_sha256": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6",
+        "passed": true
+      }
+    }
+  },
+  "savedPanel": {
+    "positions": 16,
+    "requestedPositions": 20,
+    "savedPanelSha256": "1f982f10a2d4611d31a29cc098a3daf2693e6789def8f4460bda7e9ae186d7df",
+    "reconstruction": [
+      {
+        "replayedReferenceTurns": 361,
+        "matchedSavedPositions": 16,
+        "newReferenceCalls": 0
+      }
+    ],
+    "summary": [
+      {
+        "label": "initial",
+        "weightsSha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+        "seatSamples": 32,
+        "actionMatches": 32,
+        "actionMismatches": 0,
+        "uninterruptedActionMismatches": 0,
+        "ampleParityTraceMismatches": 0,
+        "ampleInterrupted": 0,
+        "nominalInterrupted": 0,
+        "nominalCallsOver36Ms": 0,
+        "errors": 0,
+        "skippedActions": 0,
+        "amplePlayMs": {
+          "samples": 32,
+          "min": 3.8272,
+          "mean": 10.063693749999999,
+          "p95": 15.1538,
+          "max": 21.3464
+        },
+        "nominalPlayMs": {
+          "samples": 32,
+          "min": 8.3295,
+          "mean": 19.1615625,
+          "p95": 28.1185,
+          "max": 28.2449
+        }
+      },
+      {
+        "label": "final",
+        "weightsSha256": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6",
+        "seatSamples": 32,
+        "actionMatches": 32,
+        "actionMismatches": 0,
+        "uninterruptedActionMismatches": 0,
+        "ampleParityTraceMismatches": 0,
+        "ampleInterrupted": 0,
+        "nominalInterrupted": 0,
+        "nominalCallsOver36Ms": 0,
+        "errors": 0,
+        "skippedActions": 0,
+        "amplePlayMs": {
+          "samples": 32,
+          "min": 11.0612,
+          "mean": 19.197693749999996,
+          "p95": 26.1562,
+          "max": 27.6936
+        },
+        "nominalPlayMs": {
+          "samples": 32,
+          "min": 5.3928,
+          "mean": 15.745371875,
+          "p95": 25.1796,
+          "max": 29.1511
+        }
+      }
+    ],
+    "pythonJavaParity": {
+      "initial": {
+        "label": "initial",
+        "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+        "observations": 128,
+        "seeds": [
+          10100000,
+          10100001,
+          10100002,
+          10100003
+        ],
+        "turns": [
+          0,
+          25,
+          50,
+          75,
+          99
+        ],
+        "observations_by_turn": {
+          "0": 32,
+          "25": 32,
+          "50": 32,
+          "75": 24,
+          "99": 8
+        },
+        "max_abs_error": {
+          "build": 7.152557373046875e-07,
+          "disrupt": 5.960464477539062e-07,
+          "value": 1.0477005005782303e-06
+        },
+        "tolerance": 0.0001,
+        "greedy_mismatches": [],
+        "passed": true,
+        "architecture": "spatial-ppo-v9 distance-weighted town context"
+      },
+      "final": {
+        "label": "final",
+        "weights_sha256": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6",
+        "observations": 128,
+        "seeds": [
+          10100000,
+          10100001,
+          10100002,
+          10100003
+        ],
+        "turns": [
+          0,
+          25,
+          50,
+          75,
+          99
+        ],
+        "observations_by_turn": {
+          "0": 32,
+          "25": 32,
+          "50": 32,
+          "75": 24,
+          "99": 8
+        },
+        "max_abs_error": {
+          "build": 1.0609626770019531e-05,
+          "disrupt": 4.0531158447265625e-06,
+          "value": 3.7651550293116287e-06
+        },
+        "tolerance": 0.0001,
+        "greedy_mismatches": [],
+        "passed": true,
+        "architecture": "spatial-ppo-v9 distance-weighted town context"
+      }
+    },
+    "mechanism": {
+      "role": "Exposed delayed-route representation probe, not strength or optimal-action evidence",
+      "investmentCell": 280,
+      "alternativeCell": 460,
+      "rows": [
+        {
+          "label": "initial",
+          "seat": 0,
+          "contextEnabled": false,
+          "investmentLogit": 0.6720831,
+          "alternativeLogit": 0.6720831,
+          "difference": 0.0,
+          "greedyCell": 271
+        },
+        {
+          "label": "initial",
+          "seat": 0,
+          "contextEnabled": true,
+          "investmentLogit": 0.6758746,
+          "alternativeLogit": 0.6743872,
+          "difference": 0.0014873743057250977,
+          "greedyCell": 271
+        },
+        {
+          "label": "initial",
+          "seat": 1,
+          "contextEnabled": false,
+          "investmentLogit": 0.6720831,
+          "alternativeLogit": 0.6720831,
+          "difference": 0.0,
+          "greedyCell": 271
+        },
+        {
+          "label": "initial",
+          "seat": 1,
+          "contextEnabled": true,
+          "investmentLogit": 0.6758746,
+          "alternativeLogit": 0.6743872,
+          "difference": 0.0014873743057250977,
+          "greedyCell": 271
+        },
+        {
+          "label": "final",
+          "seat": 0,
+          "contextEnabled": false,
+          "investmentLogit": 4.6044517,
+          "alternativeLogit": 4.6044517,
+          "difference": 0.0,
+          "greedyCell": 289
+        },
+        {
+          "label": "final",
+          "seat": 0,
+          "contextEnabled": true,
+          "investmentLogit": 5.0368204,
+          "alternativeLogit": 4.692753,
+          "difference": 0.3440675735473633,
+          "greedyCell": 242
+        },
+        {
+          "label": "final",
+          "seat": 1,
+          "contextEnabled": false,
+          "investmentLogit": 4.6044517,
+          "alternativeLogit": 4.6044517,
+          "difference": 0.0,
+          "greedyCell": 289
+        },
+        {
+          "label": "final",
+          "seat": 1,
+          "contextEnabled": true,
+          "investmentLogit": 5.0368204,
+          "alternativeLogit": 4.692753,
+          "difference": 0.3440675735473633,
+          "greedyCell": 242
+        }
+      ]
+    }
+  },
+  "artifact": {
+    "characters": 87202,
+    "bytes": 87202,
+    "sourceSha256": "da8b3bb160ea90d0e20076060339f5e33584399906c82ea5523e453920fb2a76",
+    "classesSha256": "99d1b662e66f043fc000f98d439efca41c3634fa3aba303940b36961a083a151"
+  },
+  "process": {
+    "games": 8,
+    "strict": true,
+    "graceMs": 0,
+    "problems": 0,
+    "timeouts": 0,
+    "nominalOverruns": 0,
+    "wins": 0,
+    "sameV4MapOrder": true,
+    "maxFirstResponseMs": 583.882,
+    "maxLaterResponseMs": 28.4595
+  },
+  "progress": {
+    "a": "spatial-ppo-v9",
+    "b": "spatial-ppo-v4",
+    "games": 100,
+    "winsA": 42,
+    "winsB": 58,
+    "draws": 0,
+    "errorsA": 0,
+    "errorsB": 0,
+    "threads": 2,
+    "timingProfile": "CG",
+    "elapsedMs": 118039,
+    "baseSeed": 23000000,
+    "poolId": "spatial-ppo-v9-vs-v4",
+    "poolSha256": "a99fbef8c7dd98aca18ee217165427665a4483b7f55db41d6488327e185eb954",
+    "sumDiff": -15538,
+    "maxMsA": 46,
+    "maxMsB": 55,
+    "slowA": 0,
+    "slowB": 2,
+    "turns": 9926,
+    "confidence95": [
+      0.22793544173601582,
+      0.6120645582639841
+    ],
+    "path": "build/bench/spatial-ppo-v9-vs-v4.json",
+    "sha256": "f724cbe32ae1e4c11e010a6a4245c4fa073c68a61629c909d7b55bcc8a734643",
+    "maps": 50,
+    "score": 0.42,
+    "meanScoreGap": -155.38
+  },
+  "strength": {
+    "stage": "STOP_FUTILITY_300",
+    "pooledGames": 300,
+    "pooledScore": 0.0,
+    "blocks": [
+      {
+        "a": "spatial-ppo-v9",
+        "b": "v09",
+        "games": 300,
+        "winsA": 0,
+        "winsB": 300,
+        "draws": 0,
+        "errorsA": 0,
+        "errorsB": 0,
+        "threads": 2,
+        "timingProfile": "CG",
+        "elapsedMs": 615378,
+        "baseSeed": 23100000,
+        "poolId": "spatial-ppo-v9-block1",
+        "poolSha256": "669612dc65da6b7357b7d2133f31ffaeb57d3af9ef8240b6dded9f80acc5bb03",
+        "sumDiff": -2804823,
+        "maxMsA": 57,
+        "maxMsB": 85,
+        "slowA": 2,
+        "slowB": 6,
+        "turns": 30000,
+        "confidence95": [
+          0.0,
+          0.11088852441549774
+        ],
+        "path": "build/bench/spatial-ppo-v9/block1.json",
+        "sha256": "aa97a8d1da99978e515ce20a0f4b378479fcc81c319538bf87e40b2237795a80",
+        "maps": 150,
+        "score": 0.0,
+        "meanScoreGap": -9349.41
+      }
+    ]
+  },
+  "mapFreshness": {
+    "excludedPriorMaps": 21901,
+    "progressMaps": 50,
+    "practicalMaps": 150,
+    "overlaps": 0
+  },
+  "provenance": {
+    "recordedAt": "2026-10-10T20:09:20.702079+00:00",
+    "unchangedFiles": 863,
+    "unchangedHistoricalFiles": 78,
+    "changedFiles": []
+  },
+  "preGameManifestRepair": {
+    "recordedAt": "2026-10-10T19:55:37.892153+00:00",
+    "reason": "BenchPool.select rejects progress-diagnostic as an unsupported purpose before constructing maps or playing any game. Retain original manifest and failed log; use schema-supported confirmation label only. This remains the predeclared progress diagnostic, not a promotion gate.",
+    "onlyChangedField": "purpose",
+    "originalFile": "bench/pools/spatial-ppo-v9-vs-v4.json",
+    "originalSha256": "d290928e78f999a76c4f433ef5a810d657be37e35f7a1c0b861f9c027ce3f948",
+    "files": {
+      "bench/pools/spatial-ppo-v9-vs-v4-run.json": "a99fbef8c7dd98aca18ee217165427665a4483b7f55db41d6488327e185eb954"
+    },
+    "gamesPlayedBeforeRepair": 0,
+    "seedsGamesBotsWeightsSettingsChanged": false
+  },
+  "interpretation": {
+    "originalStage3Complete": false,
+    "validation": "Previously exposed development maps; no fresh-generalization claim.",
+    "mechanism": "Breaking the alias alone does not establish stronger actions, optimal delayed value, or frequency in normal games.",
+    "value": "15 coefficients unchanged but shared features trained; value remains uncalibrated and unused.",
+    "decision": "Strength rejected; preserve v09 selection; no arena upload or promotion."
+  }
+}

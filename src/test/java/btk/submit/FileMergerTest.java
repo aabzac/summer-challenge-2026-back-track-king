@@ -508,6 +508,88 @@ class FileMergerTest {
         }
     }
 
+    @Test void spatialV9ShipsOnlyItsOwnNetworkAndPayloadAndMatchesLocalContextModes() throws Exception {
+        String source = FileMerger.merge("spatial-ppo-v9");
+        var declaration = java.util.regex.Pattern.compile("String DATA\\s*=\\s*([^;]+);").matcher(source);
+        assertTrue(declaration.find());
+        var chunks = java.util.regex.Pattern.compile("\"([A-Za-z0-9+/=]+)\"").matcher(declaration.group(1));
+        StringBuilder payload = new StringBuilder();
+        while (chunks.find()) payload.append(chunks.group(1));
+        assertEquals(btk.bot.neural.SpatialV9Weights.DATA, payload.toString());
+        assertFalse(declaration.find(), "exactly one v9 weight payload must ship");
+        assertTrue(source.contains("return \"spatial-ppo-v9\";"));
+        assertTrue(source.contains("static final class EvalBot"));
+        assertTrue(source.contains("static final class SpatialNet"));
+        assertTrue(source.contains("static final class SpatialWeights"));
+        assertTrue(source.contains("USE_SPATIAL_V9_TOWN_CONTEXT=true"));
+        assertTrue(source.contains("townKernel"), "the new spatial network must be selected");
+        for (String omitted : new String[]{"class SpatialBot", "SpatialV9Bot", "SpatialV9Net", "SpatialV9Weights",
+                "SpatialV8Bot", "SpatialV7Bot", "SpatialV6Bot", "SpatialV5Bot", "SpatialV4Weights", "SpatialV2Weights",
+                "USE_SPATIAL_V8_SEARCH", "USE_SPATIAL_V7_SEARCH", "USE_SPATIAL_V6_SEARCH", "USE_SPATIAL_V5_SEARCH",
+                "SpatialBridge", "SpatialTeacherExport", "btk.tools", "btk.referee", "com.google.gson"})
+            assertFalse(source.contains(omitted), omitted);
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("spatial-ppo-v9", true);
+        String off = "spatial-ppo-v9?USE_SPATIAL_V9_TOWN_CONTEXT=0";
+        assertTrue(FileMerger.merge(off).contains("USE_SPATIAL_V9_TOWN_CONTEXT=false"));
+        checkFrozenDecisions(off, true);
+    }
+
+    @Test void spatialV9RegistrationChangesOnlyTownContextAndOffKeepsOriginalGreedyExecution() {
+        assertInstanceOf(btk.bot.neural.SpatialV9Bot.class, BotFactory.create("spatial-ppo-v9"));
+        assertEquals("spatial-ppo-v9", BotFactory.create("spatial-ppo-v9").name());
+        assertEquals("candidate", btk.bot.BotCatalog.describe("spatial-ppo-v9").category());
+        assertFalse(new btk.bot.Params().USE_SPATIAL_V9_TOWN_CONTEXT);
+        Map<String, String> expected = new TreeMap<>(BotFactory.configuration("spatial-ppo-v4"));
+        expected.put("USE_SPATIAL_V9_TOWN_CONTEXT", "true");
+        assertEquals(expected, BotFactory.configuration("spatial-ppo-v9"));
+        var params = BotFactory.parameters("spatial-ppo-v9?USE_SPATIAL_V9_TOWN_CONTEXT=0");
+        assertFalse(params.USE_SPATIAL_V9_TOWN_CONTEXT);
+        assertFalse(params.USE_SPATIAL_V5_SEARCH);
+        assertFalse(params.USE_SPATIAL_V6_SEARCH);
+        assertFalse(params.USE_SPATIAL_V7_SEARCH);
+        assertFalse(params.USE_SPATIAL_V8_SEARCH);
+        for (int me = 0; me < 2; me++) for (int turn : new int[]{0, 37}) {
+            GameState state = MapGenerator.generate(1000);
+            state.turn = turn;
+            if (turn > 0) {
+                for (int cell = 0; cell < state.size; cell += 11)
+                    if (state.canBuild(cell)) state.owner[cell] = (cell / 11) % 2;
+                btk.core.Rules.updateConnections(state, new btk.core.Pathing(state.size));
+            }
+            Bot original = new btk.bot.neural.SpatialBot(params,
+                    new btk.bot.neural.SpatialNet(btk.bot.neural.SpatialV9Weights.DATA), () -> 0L);
+            Bot off = new btk.bot.neural.SpatialV9Bot(params,
+                    new btk.bot.neural.SpatialV9Net(btk.bot.neural.SpatialV9Weights.DATA, false), () -> 0L);
+            original.init(state, me); off.init(state, me);
+            assertEquals(Action.format(original.play(state.copy(), me, 60_000)),
+                    Action.format(off.play(state.copy(), me, 60_000)), "seat=" + me + ",turn=" + turn);
+        }
+    }
+
+    @Test void spatialV9RegistrationPreservesAllPriorSpatialAndSelectedArtifactBytes() throws Exception {
+        Map<String, String> hashes = Map.ofEntries(
+                Map.entry("spatial-ppo-v1", "d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7"),
+                Map.entry("spatial-ppo-v2", "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1"),
+                Map.entry("spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7"),
+                Map.entry("spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2"),
+                Map.entry("spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2"),
+                Map.entry("spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6"),
+                Map.entry("spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74"),
+                Map.entry("spatial-ppo-v8", "3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff"),
+                Map.entry("current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5"),
+                Map.entry("v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac"),
+                Map.entry("neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9"));
+        for (var prior : hashes.entrySet()) {
+            String source = FileMerger.merge(prior.getKey());
+            assertEquals(prior.getValue(), FileMerger.sha256(source), prior.getKey());
+            assertFalse(source.contains("USE_SPATIAL_V9_TOWN_CONTEXT"), prior.getKey());
+            assertFalse(BotFactory.configuration(prior.getKey()).containsKey("USE_SPATIAL_V9_TOWN_CONTEXT"), prior.getKey());
+        }
+        assertFalse(FileMerger.merge("spatial-ppo-v2-init").contains("USE_SPATIAL_V9_TOWN_CONTEXT"));
+        assertFalse(BotFactory.configuration("spatial-ppo-v2-init").containsKey("USE_SPATIAL_V9_TOWN_CONTEXT"));
+    }
+
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
         String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);

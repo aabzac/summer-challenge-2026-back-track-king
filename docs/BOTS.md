@@ -13,6 +13,14 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-10: **spatial-ppo-v9**, one global distance-weighted town-context
+change with the exact v4 teacher recipe. Fixed 16 epochs/4,560 steps; validation
+unforced agreement 38.414% versus v4 39.543%. The synthetic alias is broken,
+but the progress comparison is **42W/58L/0D/100** versus v4. Practical-v4 versus
+v09: **0W/300L/0D / 300**, **STOP_FUTILITY_300**, errors [0, 0].
+Strict process 8/8 clean; strength rejected, v09 selected, original stage 3 open.
+[Protocol/evidence](spatial-ppo-v9.md).
+
 Completed diagnostic 2026-10-10: **spatial-learning-audit-v1**, returning to original
 roadmap point3. No new bot/weights or promotion. Four frozen policies, four fresh
 maps, both v01/v09 opponents and both seats: 64 complete games/6,280 turns, ample
@@ -1103,6 +1111,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v9 | 2026-10-10 | Add distance-weighted town context; unchanged v4 corpus and fixed 16-epoch imitation recipe. | Vs v4: **42W/58L/0D/100**; practical-v4 vs v09: **0W/300L/0D / 300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected, stage 3 open. [Evidence](spatial-ppo-v9.md). |
 | spatial-ppo-v8 | 2026-10-10 | Frozen v4/v7 proposals; paired score checkpoints2/4/6/8, absorbing terminals and deepest completed fallback. | Practical-v4 vs v09: **2W/298L/0D/300**, STOP_FUTILITY_300. Strict process8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v8.md). |
 | spatial-ppo-v7 | 2026-10-10 | Frozen v4; root construction alternative with a fresh conditional suffix; exact two-turn ranking. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v7.md). |
 | spatial-ppo-v6 | 2026-10-10 | Frozen v4; two same-cost last-cell candidates, two exact turns, score-delta ranking; no training. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v6.md). |
