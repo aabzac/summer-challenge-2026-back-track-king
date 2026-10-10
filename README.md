@@ -150,6 +150,13 @@ comparisons complete; vs v09 1W/299L/0D/300 (STOP_FUTILITY_300).
 Strict process 8/8 clean; strength rejected, selected v09 unchanged.
 [Protocol and retained evidence](docs/spatial-ppo-v6.md).
 
+`spatial-ppo-v7` explores a different first build and recomputes the remaining
+construction choices with their actual new prefix. Frozen v4 weights and the
+two-turn score evaluator are unchanged. Nominal saved panel: 26/34
+comparisons complete; vs v09 1W/299L/0D/300 (STOP_FUTILITY_300).
+Strict process 8/8 clean; strength rejected, selected v09 unchanged.
+[Protocol and evidence](docs/spatial-ppo-v7.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

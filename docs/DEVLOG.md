@@ -6300,3 +6300,84 @@ Evidence: [summary](evidence/spatial-ppo-v6.json),
 The archive retains the original prospective protocol, source/runtime freezes,
 tests, complete saved-state panel/audit, exact submission and raw strength reports.
 Its hashed corpus dependency is the unchanged v4 archive; no new training corpus.
+
+## 2026-10-10 — spatial-ppo-v7: conditional root construction branch
+
+Hypothesis: changing the first build and recomputing its actual conditional
+suffix may expose useful bundles beyond the last-cell substitution of v6.
+User-authorized next stage; fixed v4 weights, depth2 and score-only ranking.
+
+Implementation and checks: 583 scoped Java tests pass, including 10
+new v7 synthetic tests and four new packaging/registration checks. The six
+unrelated pre-existing untracked Pduhard tests remain explicitly excluded; this
+is not an unqualified full-suite claim. Core, network, observation and v4 weights
+are unchanged. All 292 archived CG games reproduce exactly. Historical
+v1-v6/current/v09/neural-v2 submission bytes are preserved. No training or new
+Python numerical-parity run for the unchanged inference implementation.
+
+Saved panel: first four original v4 training maps and teacher-P0 trajectories,
+17/20 requested preturns survive before terminal;
+both perspectives, 34 calls per phase. Full recorded game histories,
+metadata, pre-state hashes, score and terminal boundaries match core. Missing
+post-terminal positions are not replaced. Search-off matches v4 throughout.
+
+Ample: 34 attempts, 34 completed proposals,
+4 duplicate build sets skipped, 30 complete
+comparisons, 3 changed plans. Nominal36ms: 31 attempts,
+30 completed proposals, 3 duplicates,
+26 complete comparisons, 3 changes, 2 search
+cutoffs. Cutoff phases: {'alternative': 1, 'opponent': 1, 'base': 0, 'candidate': 0}. Invalid proposals:
+0; greedy interruptions 0; calls over
+the supplied budget 0. Completed nominal decisions agree
+with ample; 0 nominal actions differ overall.
+Nominal mean/p95/max: 23.051/34.050/34.421ms.
+Ample mean/max: 20.415/43.583ms. These serial warmed
+phases are mechanism/coverage evidence, not a speed comparison or host guarantee.
+Among completed ample proposals, 13
+change construction count, and 3
+branch after original root STOP. These are proposal changes, not necessarily
+accepted changes to the final action.
+
+After timing, independent fresh conditional forwards reconstruct greedy and
+alternative proposals. Public Rules.resolve verifies 60
+trajectories and 112 transitions for 30 complete
+AMPLE comparisons: root priors/opponent, conditional construction, current child
+legality, simultaneous continuation, exact long returns and terminal/depth bounds.
+Nominal calls receive legality/fallback/completed-action checks; their hidden
+simulator states are not independently replayed. Original input and greedy
+disruption stay unchanged. The plans may differ in construction count/cost.
+The audit establishes correct implementation of the approximate continuation;
+it does not establish accurate opponent prediction.
+Of 30 complete ample comparisons,
+22 tie and
+10 have both returns zero. These are exposed
+panel diagnostics, not a causal explanation of match strength.
+
+Exact Player: 94,796 characters; source SHA
+`32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74`;
+build `4512b010ca41943037e28f840b197b94b89d92ba1c6bbaa5eaadade9d34abc12`. One strict zero-grace process panel: 8/8 clean;
+first response maximum 645.189ms, later maximum
+36.548ms. No timing retry.
+
+Practical-v4 vs selected v09: **1W/299L/0D/300**, score 0.33%;
+**STOP_FUTILITY_300**. Mean score difference -9308.25;
+errors candidate/control [0, 0], slow native calls [3, 0],
+maximum native call times [119, 41]ms. All 150 fresh paired
+maps exclude 21,597 prior/development maps. Two
+CG-budget workers, base seed15300000; fixed block decision with no tuning,
+extension or retry. Local failure skips boss. All
+745 frozen files remain unchanged through evaluation.
+
+Decision: retain the completed conditional-construction experiment and reject
+promotion. Selected current/v09 stays unchanged; no upload or push. V7 implements
+one root alternative with a genuinely conditional suffix. It does not implement
+full multi-branch search or solve the known short-horizon/continuation limitations.
+Wider branching, longer reliable lookahead, useful future value and competitive
+training remain open.
+
+Evidence: [summary](evidence/spatial-ppo-v7.json),
+[archive index](evidence/spatial-ppo-v7-artifacts.json),
+[retained archive](evidence/spatial-ppo-v7-artifacts.zip).
+The archive contains original prospective protocol, source/runtime freezes,
+tests, full saved panel/trajectory audit, exact submission and raw bench reports.
+Its hashed corpus dependency is the unchanged v4 archive.

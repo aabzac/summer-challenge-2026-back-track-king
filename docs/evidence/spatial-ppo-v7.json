@@ -1,0 +1,196 @@
+{
+  "experiment": "spatial-ppo-v7",
+  "recordedAt": "2026-10-10T16:50:37.093344+00:00",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "SKIPPED_LOCAL_FAILURE",
+  "method": "root construction deviation with fresh conditional suffix; two exact turns with frozen root-prior continuation; integer score delta, no value/training",
+  "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+  "checks": {
+    "javaScoped": {
+      "tests": 583,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "engineExactReplays": 292,
+    "oldUntrackedPduhardTestsExcluded": 6
+  },
+  "savedPanel": {
+    "status": "complete",
+    "positions": 17,
+    "requestedPositions": 20,
+    "requestedTurns": [
+      0,
+      25,
+      50,
+      75,
+      99
+    ],
+    "summary": [
+      {
+        "phase": "baseline",
+        "calls": 34,
+        "attempted": 0,
+        "complete": 0,
+        "changed": 0,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 0,
+        "alternativesComplete": 0,
+        "duplicates": 0,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 0,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 0,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 6.208714705882353,
+        "p95Ms": 8.7665,
+        "maxMs": 9.1946
+      },
+      {
+        "phase": "off",
+        "calls": 34,
+        "attempted": 0,
+        "complete": 0,
+        "changed": 0,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 0,
+        "alternativesComplete": 0,
+        "duplicates": 0,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 0,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 0,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 6.718082352941177,
+        "p95Ms": 9.3338,
+        "maxMs": 10.2231
+      },
+      {
+        "phase": "ample",
+        "calls": 34,
+        "attempted": 34,
+        "complete": 30,
+        "changed": 3,
+        "cutoff": 0,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 112,
+        "alternativesComplete": 34,
+        "duplicates": 4,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 47,
+        "cutoffsByPhase": {
+          "alternative": 0,
+          "opponent": 0,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 20.41480294117647,
+        "p95Ms": 42.7288,
+        "maxMs": 43.5826
+      },
+      {
+        "phase": "nominal",
+        "calls": 34,
+        "attempted": 31,
+        "complete": 26,
+        "changed": 3,
+        "cutoff": 2,
+        "greedyInterrupted": 0,
+        "callsOverBudget": 0,
+        "differentFromAmple": 0,
+        "searchTransitions": 96,
+        "alternativesComplete": 30,
+        "duplicates": 3,
+        "invalidProposals": 0,
+        "alternativeSuffixDecisions": 40,
+        "cutoffsByPhase": {
+          "alternative": 1,
+          "opponent": 1,
+          "base": 0,
+          "candidate": 0
+        },
+        "meanMs": 23.05144411764706,
+        "p95Ms": 34.0497,
+        "maxMs": 34.4214
+      }
+    ],
+    "role": "exposed v4 teacher trajectories; mechanism/timing only, not strength evidence"
+  },
+  "trajectoryAudit": {
+    "method": "Fresh original-state conditional alternative; independent public Rules.resolve; no SearchState or child network forwards",
+    "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+    "passed": true,
+    "ampleRows": 34,
+    "comparedRows": 30,
+    "candidateTrajectories": 60,
+    "coreTransitions": 112
+  },
+  "savedReturnDiagnostic": {
+    "completed": 30,
+    "equalReturns": 22,
+    "bothZero": 10
+  },
+  "savedProposalDiagnostic": {
+    "completedProposals": 34,
+    "differentBuildCounts": 13,
+    "originallyStopped": 3
+  },
+  "artifact": {
+    "characters": 94796,
+    "sourceSha256": "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74",
+    "buildId": "4512b010ca41943037e28f840b197b94b89d92ba1c6bbaa5eaadade9d34abc12",
+    "processGames": 8,
+    "processProblems": 0,
+    "firstResponseMaxMs": 645.1888,
+    "laterResponseMaxMs": 36.5478
+  },
+  "v09Comparison": {
+    "games": 300,
+    "maps": 150,
+    "wins": 1,
+    "losses": 299,
+    "draws": 0,
+    "scoreRate": 0.0033333333333333335,
+    "meanScoreDifference": -9308.246666666666,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      3,
+      0
+    ],
+    "maxNativeCallMs": [
+      119,
+      41
+    ],
+    "elapsedMs": 759958,
+    "workers": 2,
+    "verdict": "STOP_FUTILITY_300"
+  },
+  "freshness": {
+    "distinctEvaluationMaps": 150,
+    "priorExclusions": 21597,
+    "intersection": 0
+  },
+  "freezeAudit": {
+    "recordedAt": "2026-10-10T16:50:32.249459+00:00",
+    "unchangedFiles": 745,
+    "changedFiles": []
+  }
+}

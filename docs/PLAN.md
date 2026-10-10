@@ -50,8 +50,14 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       30/34 nominal comparisons complete, strict process 8/8 clean.
 - [x] Complete v6 practical-v4 vs v09: 1W/299L/0D/300, STOP_FUTILITY_300;
       retain evidence and commit rejected experiment. Selected v09 unchanged.
-- [ ] Broader conditional branching, longer search, useful long-horizon value and
-      competitive training remain open; v6 is a bounded tactical experiment.
+- [x] Predeclare [spatial-ppo-v7](spatial-ppo-v7.md): change the first construction
+      choice and recompute its conditional suffix, keeping v4 weights/depth2 ranking.
+- [x] Verify v7 conditional proposals/fallback and 60 saved trajectories;
+      26/34 nominal comparisons complete, strict process 8/8 clean.
+- [x] Complete v7 practical-v4 vs v09: 1W/299L/0D/300, STOP_FUTILITY_300;
+      retain evidence and commit rejected experiment. Selected v09 unchanged.
+- [ ] Wider multi-branch search, longer reliable lookahead, useful long-horizon
+      value and competitive training remain open work.
 
 ## Indrill forum readout (2026-10-06)
 

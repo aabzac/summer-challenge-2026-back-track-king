@@ -13,6 +13,14 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-10: **spatial-ppo-v7**, frozen v4 weights, alternative first
+BUILD with a fresh conditional suffix, unchanged two-turn exact-score ranking.
+Nominal saved panel: 30 complete proposals,
+3 duplicates, 26/34 comparisons, 3 changes.
+Practical-v4 vs v09: **1W/299L/0D/300**, **STOP_FUTILITY_300**; errors [0, 0].
+Strict process 8/8 clean, 583 scoped Java tests, 292 exact replays.
+Strength rejected; selected v09 unchanged. [Protocol/evidence](spatial-ppo-v7.md).
+
 Completed 2026-10-10: **spatial-ppo-v6**, unchanged v4 weights, two same-cost
 last-placement candidates and two exact turns, ranked by actual score delta.
 Nominal saved panel: 30/34 comparisons complete,
@@ -1078,6 +1086,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v7 | 2026-10-10 | Frozen v4; root construction alternative with a fresh conditional suffix; exact two-turn ranking. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v7.md). |
 | spatial-ppo-v6 | 2026-10-10 | Frozen v4; two same-cost last-cell candidates, two exact turns, score-delta ranking; no training. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v6.md). |
 | spatial-ppo-v5 | 2026-10-10 | Fixed v4 policy; 15-coefficient teacher value fit; two-disruption one-ply search. | V4: **1W/1L/98D/100**. Practical-v4 vs v09: **0W/300L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v5.md). |
 | spatial-ppo-v4 | 2026-10-10 | V2 warm start; hard v09 teacher actions, 60 complete games, 22,640 rows, 16 epochs. Same model/runtime; no PPO/value loss. | V2: **98W/2L/0D / 100**. Practical-v4 vs v09: **0W/300L/0D / 300**, STOP_FUTILITY_300. Zero game errors; strict process 8/8 clean. | Not uploaded; stronger than v2, strength rejected, no promotion. [Evidence](spatial-ppo-v4.md). |

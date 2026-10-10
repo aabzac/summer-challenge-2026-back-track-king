@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v7",
+      "title": "Spatial Conditional Construction Search",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Frozen v4 policy weights with one alternative first build, a freshly recomputed conditional suffix, and bounded two-turn exact-score comparison. No learned value, retraining or promotion; historical spatial-ppo name retained."
+    },
+    {
       "id": "spatial-ppo-v6",
       "title": "Spatial Construction Search",
       "category": "candidate",

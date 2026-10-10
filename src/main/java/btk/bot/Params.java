@@ -25,6 +25,11 @@ public class Params {
     public int SPATIAL_V6_MIN_SEARCH_MS = 12;
     public int SPATIAL_V6_DEPTH = 2;
 
+    /** Spatial v7 only; omitted from earlier configurations and submission sources. */
+    public boolean USE_SPATIAL_V7_SEARCH = false;
+    public int SPATIAL_V7_MIN_SEARCH_MS = 12;
+    public int SPATIAL_V7_DEPTH = 2;
+
     /** V3-only cooperative deadline; excluded from other bots' config and emitted Params to preserve their artifacts. */
     public int NEURAL_DEADLINE_RESERVE_MS = 2;
     /** V7-only bounded construction on deadline cutoff; historical artifacts omit these fields. */
