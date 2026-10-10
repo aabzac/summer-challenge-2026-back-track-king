@@ -136,6 +136,13 @@ Protocol and results: [spatial-ppo-v4](docs/spatial-ppo-v4.md).
 Completed: 60 teacher games, 16 epochs; final vs v2 98W/2L/0D/100,
 vs v09 0W/300L/0D/300 (STOP_FUTILITY_300). Rejected for strength; v09 stays selected.
 
+`spatial-ppo-v5` keeps v4 construction and compares two disruptions using a
+newly calibrated value head and exact one-turn simulation. One fixed fit changes
+only 15 value coefficients. Saved-state nominal search completes 14/34 comparisons.
+Results: vs v4 1W/1L/98D/100; vs v09 0W/300L/0D/300 (STOP_FUTILITY_300).
+Strict process 8/8 clean; strength rejected, v09 stays selected.
+[Protocol and retained evidence](docs/spatial-ppo-v5.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

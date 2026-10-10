@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v5",
+      "title": "Spatial Value-Guided Search",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Value-head calibration on frozen v4 features and a bounded two-candidate disruption search, with separate generated SpatialV5Weights. Historical spatial-ppo name retained; no PPO or promotion."
+    },
+    {
       "id": "spatial-ppo-v4",
       "title": "Distillation From V09",
       "category": "candidate",

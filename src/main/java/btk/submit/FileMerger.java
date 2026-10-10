@@ -118,13 +118,14 @@ public class FileMerger {
         boolean spatialV2 = version.equals("spatial-ppo-v2");
         boolean spatialV3 = version.equals("spatial-ppo-v3");
         boolean spatialV4 = version.equals("spatial-ppo-v4");
+        boolean spatialV5 = version.equals("spatial-ppo-v5");
         boolean spatialInitial = version.equals("spatial-ppo-v2-init");
-        boolean spatial = version.equals("spatial-ppo-v1") || spatialV2 || spatialV3 || spatialV4 || spatialInitial;
-        String spatialWeights = spatialV4 ? "SpatialV4Weights" : spatialV3 ? "SpatialV3Weights" : spatialV2 ? "SpatialV2Weights"
+        boolean spatial = version.equals("spatial-ppo-v1") || spatialV2 || spatialV3 || spatialV4 || spatialV5 || spatialInitial;
+        String spatialWeights = spatialV5 ? "SpatialV5Weights" : spatialV4 ? "SpatialV4Weights" : spatialV3 ? "SpatialV3Weights" : spatialV2 ? "SpatialV2Weights"
                 : spatialInitial ? "SpatialInitialWeights" : "SpatialWeights";
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
                 && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !neural && !indrill && !spatial) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2, spatial-ppo-v1, spatial-ppo-v2, spatial-ppo-v2-init, spatial-ppo-v3 or spatial-ppo-v4");
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2, spatial-ppo-v1, spatial-ppo-v2, spatial-ppo-v2-init, spatial-ppo-v3, spatial-ppo-v4 or spatial-ppo-v5");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
@@ -136,6 +137,7 @@ public class FileMerger {
                 : version.equals("v07") ? "bot/v07/RolloutBotV07.java"
                 : version.equals("v08") ? "bot/v08/RolloutBotV08.java"
                 : version.equals("v09") ? "bot/v09/RolloutBotV09.java"
+                : spatialV5 ? "bot/neural/SpatialV5Bot.java"
                 : spatial ? "bot/neural/SpatialBot.java"
                 : neuralV7 ? "bot/neural/NeuralV7Bot.java"
                 : neuralV6 ? "bot/neural/NeuralV6Bot.java"
@@ -161,6 +163,7 @@ public class FileMerger {
         if (neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
         files.add(SRC_ROOT.resolve(policy));
         if (spatial) {
+            if (spatialV5) files.add(SRC_ROOT.resolve("bot/neural/SpatialBot.java"));
             files.add(SRC_ROOT.resolve("bot/neural/SpatialObservation.java"));
             files.add(SRC_ROOT.resolve("bot/neural/SpatialNet.java"));
             files.add(SRC_ROOT.resolve("bot/neural/" + spatialWeights + ".java"));
@@ -192,11 +195,17 @@ public class FileMerger {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
+                if (!spatialV5 && file.endsWith("Params.java")
+                        && (line.contains("public boolean USE_SPATIAL_V5_SEARCH =")
+                        || line.contains("public int SPATIAL_V5_MIN_SEARCH_MS ="))) continue;
                 if (!spatial && file.endsWith("Params.java") && line.contains("public int SPATIAL_RESERVE_MS =")) continue;
-                if (spatial && file.endsWith("SpatialBot.java")) line = line.replaceAll("\\bSpatialBot\\b", "EvalBot");
+                if (spatial && !spatialV5 && file.endsWith("SpatialBot.java")) line = line.replaceAll("\\bSpatialBot\\b", "EvalBot");
+                if (spatialV5 && file.endsWith("SpatialV5Bot.java"))
+                    line = line.replaceAll("\\bSpatialV5Bot\\b", "EvalBot")
+                            .replaceAll("\\bSpatialV5Weights\\b", "SpatialWeights");
                 if ((spatialV2 || spatialV3 || spatialV4 || spatialInitial) && file.endsWith("SpatialBot.java"))
                     line = line.replace("\"spatial-ppo-v1\"", "\"" + version + "\"");
-                if ((spatialV2 || spatialV3 || spatialV4 || spatialInitial) && file.endsWith(spatialWeights + ".java"))
+                if ((spatialV2 || spatialV3 || spatialV4 || spatialV5 || spatialInitial) && file.endsWith(spatialWeights + ".java"))
                     line = line.replaceAll("\\b" + spatialWeights + "\\b", "SpatialWeights");
                 if (!(version.equals("current") && rollout) && file.endsWith("Params.java")
                         && (line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")

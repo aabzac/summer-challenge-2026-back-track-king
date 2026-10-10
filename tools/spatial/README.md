@@ -140,3 +140,29 @@ raw memmap cache is committed; it can be rebuilt from the hashed gzip corpus.
 
 Completed: 98W/2L/0D/100 vs v2; 0W/300L/0D/300 vs v09,
 STOP_FUTILITY_300. Technical checks passed; promotion rejected.
+
+## V5: calibrated value and bounded disruption search
+
+`v5_value.py` reuses the archived v4 corpus and its original 24/6 map split.
+One deterministic ridge solve fits only the 15 value-head coefficients from
+stage-zero teacher turns. All 3,424 shared/policy floats remain byte-identical.
+The target is remaining teacher-perspective score difference divided by 10,000.
+This is supervised regression on recorded teacher continuations, not PPO or
+counterfactual/on-policy calibration for the student. See the fixed
+[v5 protocol](../../docs/spatial-ppo-v5.md).
+
+```powershell
+# Historical fixed-run commands; fresh output/evidence and the pre-fit freeze are required.
+python tools/spatial/v5_value.py --java-command-json build/spatial-v5-java.json
+python -m unittest discover -s tools/spatial -p 'test_spatial*.py'
+.\gradlew.bat submit '-PsubmitVersion=spatial-ppo-v5' '-PsubmitOut=build/submit-spatial-v5'
+```
+
+The separate `SpatialV5Bot` preserves v4 construction and compares its disruption
+against the runner-up using two exact one-turn core simulations. Both leaves
+share one predicted opponent plan. A cutoff keeps the original complete plan.
+`spatial-ppo-v5?USE_SPATIAL_V5_SEARCH=0` retains v4 greedy behavior.
+`SpatialV5Panel` checks this on saved teacher trajectories without playing new games.
+
+Completed: vs v4 1W/1L/98D/100; vs v09 0W/300L/0D/300,
+STOP_FUTILITY_300. Strict process 8/8 clean; selected v09 unchanged.

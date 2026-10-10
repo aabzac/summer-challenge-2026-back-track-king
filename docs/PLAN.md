@@ -37,7 +37,15 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Verify v4 parity/process (strict 8/8 clean); vs v2: 98W/2L/0D/100,
       vs v09: 0W/300L/0D/300, STOP_FUTILITY_300. Archive and commit rejected
       v4; stronger than v2, teacher unforced agreement 39.54%, v09 unchanged.
-- [ ] Value-guided search remains a later stage; v4 does not train/calibrate a critic.
+- [x] Predeclare [spatial-ppo-v5](spatial-ppo-v5.md): frozen v4 policy, one fixed
+      value-head regression on the original teacher turns, two-disruption one-ply search.
+- [x] Fit only 15 value coefficients on 4,548 teacher turns; preserve all 3,424 policy
+      floats, verify targets/split/parity. Validation RMSE 8920, weak v09-only fit.
+- [x] Verify bounded search: 14/34 nominal comparisons complete, strict process 8/8 clean.
+      Vs v4: 1W/1L/98D/100; vs v09: 0W/300L/0D/300, STOP_FUTILITY_300.
+      Retain evidence and commit rejected v5; selected v09 remains unchanged.
+- [ ] Deeper search and construction branching remain later work; v5 tests only
+      one-turn disruption selection and does not complete the full top-3 architecture.
 
 ## Indrill forum readout (2026-10-06)
 

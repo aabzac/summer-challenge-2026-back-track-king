@@ -6123,3 +6123,107 @@ Evidence: [summary](evidence/spatial-ppo-v4.json),
 The archive contains compressed exact teacher data, metadata, checkpoints,
 predeclared protocol/source/runtime manifests, independent audits, test logs,
 numerical panels, exact submission and raw comparison reports.
+
+
+## 2026-10-10 — spatial-ppo-v5: value calibration and one-ply disruption search
+
+Hypothesis: a calibrated value head could improve v4 disruption selection through exact one-turn simulation.
+
+Completed one fixed ridge solve in 9.394s (feature extraction
+3.969s, linear solve 0.009749s). All 3,424
+policy/shared floats remain exact; 15 value coefficients were fitted. The 14-column
+design has 12 active columns; constant columns 9/10 are dropped, regularized
+condition 486.65, solver residual 5.52e-16. No new training games, sweeps or retries.
+Initial payload: `89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef`.
+Final payload: `efb3be39fcb3fedfbbe88c2cf433e0027e86f59548c422dd047c246db9d37f81`.
+
+Original teacher split: 4,548 training turns on 24 maps; 1,112 validation turns on 6
+different maps. Validation is reused development data. Fitted validation RMSE
+8920.42 score points versus income-extrapolation
+10783.03, train-mean
+12427.49, zero
+15875.63. Fitted MAE
+5919.27 is worse than income-extrapolation
+5464.57. Overall R-squared
+0.4807, Pearson
+0.7066; these aggregate metrics do not establish search utility.
+
+The v09-opponent validation subset (312 turns) is particularly poor: fitted RMSE
+8151.21, versus zero
+967.36 and income
+1453.00; Pearson
+0.0305. This critic estimates recorded v09
+continuations against a mixed pool, not the student continuation or causal
+differences between hypothetical search leaves. The fit is not an established
+strong-opponent evaluator.
+
+Independent audit: 100 checks pass, with a reporting caveat. Floating-point
+centering gave 10 tiny non-null Pearson entries for a constant train-mean baseline.
+They are mathematically undefined, interpreted as null in the retained audit.
+Original reports are preserved; no refit or outcome-guided correction was made.
+This does not affect the fitted weights, RMSE/MAE, search or game results.
+
+Verification: 556 scoped Java tests and 38 Python tests pass. The six pre-existing
+untracked Pduhard tests remain excluded; this is not an unqualified full-suite claim.
+The initial run had three stale field-count assertions after adding two inactive
+v5 parameters; only their counts/descriptions were repaired before source freeze.
+Original failed logs/XML are retained. Post-fit 11 targeted Java tests pass;
+292/292 archived CG games reproduce exactly. Prior submissions stay byte-identical.
+Initial/final 24-row Python-Java parity passes, max final error 7.93e-6.
+
+Saved-trajectory panel: first 4 original training maps, teacher P0 trajectories,
+17/20 requested preturn positions survive before terminal, both perspectives.
+All recorded transitions/hashes/scores match core; no new games or replacement slots.
+Search-off matches v4 in all 34 calls. With ample time, 34/34 pairs complete and
+16 decisions change. Under 36 ms, 14/34 complete, 23 start,
+9 started searches cut off,6 decisions change; all greedy
+plans complete. Construction, input state, legality and complete-pair fallbacks
+are checked. Nominal and ample actions differ in 10/34
+calls. Nominal mean/p95/max: 28.571/34.054/34.279 ms.
+Ample mean/max: 17.613/39.164 ms. Serial warmed phases are
+mechanism/coverage diagnostics, not a speed comparison or CG-host guarantee.
+All 68 successor observations pass Python-Java parity (max error 1.60e-5), with
+matching greedy choices; independent leaf accounting agrees with recorded search.
+
+Exact Player: 90,906 characters, source SHA `f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2`,
+build `26c3306d1edc09fc4a17eb2c64d57728fc195a5e0fdfcad9dd66a6af48335040`. One strict zero-grace process panel: 8 games,
+0 problem games; first max 589.085 ms,
+later max 37.756 ms. No timing retry.
+
+Progress against exact spatial-v4: **1W/1L/98D/100**, score 50.00%,
+mean score difference +6.75, errors [0, 0],
+slow calls (candidate/control) [3, 0]. Fresh 50 paired maps,
+maximum native call times (candidate/control): [65, 34] ms.
+Seeds 13200000..13200049, two CG-budget workers. Map-grouped 95% diagnostic interval:
+[30.79%,69.21%]. Progress evidence only, not promotion.
+All 98 draws are exactly 0:0, with matching placement/paint totals. This symmetric
+matchup is weak evidence for general strength; totals do not prove identical
+per-turn actions. The two non-draws are candidate P1 on seeds 13200000/13200001.
+V5 issues 3,661 disruptions against v4's 1,131, so unchanged full play is not an
+explanation for the aggregate tie. Neither non-draw contains errors or slow calls.
+
+Practical-v4 against selected v09: **0W/300L/0D/300**, score 0.00%,
+mean score difference -8575.49, errors [0, 0],
+slow calls [2, 0], maximum native call times [69, 43] ms;
+**STOP_FUTILITY_300**. The mandatory futility stop ends
+evaluation; no additional local blocks or boss games. All
+200 evaluation maps are distinct, exclude
+21247 previously used/development maps, and preserve
+the fixed two-worker CG timing profile. The strength exclusion index includes
+the progress maps. All 873 final frozen files
+remain byte-identical through evaluation.
+
+Decision: preserve the completed evaluator/search experiment and reject promotion.
+Selected v09 and the arena stay unchanged. A fitted critic and working one-turn
+search are now implemented; reliable student/counterfactual value, deeper search
+and construction branching remain open. These results do not isolate fit quality,
+opponent prediction and the restricted action search as separate causal effects.
+
+Evidence: [summary](evidence/spatial-ppo-v5.json),
+[fit](evidence/spatial-ppo-v5-training.json),
+[archive index](evidence/spatial-ppo-v5-artifacts.json),
+[retained archive](evidence/spatial-ppo-v5-artifacts.zip).
+The compact archive retains exact features/targets/lineage, checkpoints 0/1,
+protocol/source/runtime freezes, audits/tests, saved-state panel, exact submit
+and raw bench reports. Its hashed dependency is the unchanged v4 corpus archive;
+the large raw memmap cache is not duplicated.

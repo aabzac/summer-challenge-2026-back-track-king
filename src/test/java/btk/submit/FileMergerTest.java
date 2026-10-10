@@ -142,6 +142,71 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("v09")));
     }
 
+    @Test void spatialV5ShipsOnlySelectedPayloadAndMatchesLocalSearchAndAblation() throws Exception {
+        String source = FileMerger.merge("spatial-ppo-v5");
+        var declaration = java.util.regex.Pattern.compile("String DATA\\s*=\\s*([^;]+);").matcher(source);
+        assertTrue(declaration.find());
+        var chunks = java.util.regex.Pattern.compile("\"([A-Za-z0-9+/=]+)\"").matcher(declaration.group(1));
+        StringBuilder payload = new StringBuilder();
+        while (chunks.find()) payload.append(chunks.group(1));
+        assertEquals(btk.bot.neural.SpatialV5Weights.DATA, payload.toString());
+        assertFalse(declaration.find(), "only one generated payload may ship");
+        assertTrue(source.contains("return \"spatial-ppo-v5\";"));
+        assertTrue(source.contains("static final class EvalBot"));
+        assertTrue(source.contains("static final class SpatialBot"), "v5 keeps the unchanged greedy delegate");
+        assertTrue(source.contains("static final class SpatialWeights"));
+        assertTrue(source.contains("class SearchState"));
+        assertTrue(source.contains("USE_SPATIAL_V5_SEARCH=true"));
+        assertTrue(source.contains("SPATIAL_V5_MIN_SEARCH_MS=12"));
+        for (String omitted : new String[]{"SpatialV5Bot", "SpatialV5Weights", "SpatialV4Bot", "SpatialV4Weights",
+                "SpatialV3Weights", "SpatialV2Weights", "SpatialInitialWeights", "SpatialBridge", "SpatialTeacherExport",
+                "btk.tools", "btk.referee", "com.google.gson"})
+            assertFalse(source.contains(omitted), omitted);
+        FileMerger.checkSourceSize(source);
+        checkFrozenDecisions("spatial-ppo-v5", true);
+        String ablation = "spatial-ppo-v5?USE_SPATIAL_V5_SEARCH=0";
+        assertTrue(FileMerger.merge(ablation).contains("USE_SPATIAL_V5_SEARCH=false"));
+        checkFrozenDecisions(ablation, true);
+    }
+
+    @Test void spatialV5RegistrationAddsOnlyItsExplicitSearchConfiguration() {
+        assertInstanceOf(btk.bot.neural.SpatialV5Bot.class, BotFactory.create("spatial-ppo-v5"));
+        assertEquals("spatial-ppo-v5", BotFactory.create("spatial-ppo-v5").name());
+        assertEquals("candidate", btk.bot.BotCatalog.describe("spatial-ppo-v5").category());
+        assertFalse(new btk.bot.Params().USE_SPATIAL_V5_SEARCH);
+        assertEquals(12, new btk.bot.Params().SPATIAL_V5_MIN_SEARCH_MS);
+        Map<String, String> expected = new TreeMap<>(BotFactory.configuration("spatial-ppo-v4"));
+        expected.put("USE_SPATIAL_V5_SEARCH", "true");
+        expected.put("SPATIAL_V5_MIN_SEARCH_MS", "12");
+        assertEquals(expected, BotFactory.configuration("spatial-ppo-v5"));
+        var ablation = BotFactory.parameters("spatial-ppo-v5?USE_SPATIAL_V5_SEARCH=0,SPATIAL_V5_MIN_SEARCH_MS=18");
+        assertFalse(ablation.USE_SPATIAL_V5_SEARCH);
+        assertEquals(18, ablation.SPATIAL_V5_MIN_SEARCH_MS);
+    }
+
+    @Test void spatialV5RegistrationPreservesAllPriorSpatialAndSelectedArtifactBytes() throws Exception {
+        Map<String, String> hashes = Map.of(
+                "spatial-ppo-v1", "d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7",
+                "spatial-ppo-v2", "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
+                "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
+                "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
+                "current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+                "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
+        for (var prior : hashes.entrySet()) {
+            String source = FileMerger.merge(prior.getKey());
+            assertEquals(prior.getValue(), FileMerger.sha256(source), prior.getKey());
+            for (String field : new String[]{"USE_SPATIAL_V5_SEARCH", "SPATIAL_V5_MIN_SEARCH_MS"}) {
+                assertFalse(source.contains(field), prior.getKey() + ": " + field);
+                assertFalse(BotFactory.configuration(prior.getKey()).containsKey(field), prior.getKey() + ": " + field);
+            }
+        }
+        for (String field : new String[]{"USE_SPATIAL_V5_SEARCH", "SPATIAL_V5_MIN_SEARCH_MS"}) {
+            assertFalse(FileMerger.merge("spatial-ppo-v2-init").contains(field));
+            assertFalse(BotFactory.configuration("spatial-ppo-v2-init").containsKey(field));
+        }
+    }
+
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
         String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);

@@ -16,6 +16,10 @@ public class Params {
     /** Spatial PPO v1 only; historical/default artifacts omit this independent policy field. */
     public int SPATIAL_RESERVE_MS = 2;
 
+    /** Spatial v5 only; omitted from all earlier configurations and submission sources. */
+    public boolean USE_SPATIAL_V5_SEARCH = false;
+    public int SPATIAL_V5_MIN_SEARCH_MS = 12;
+
     /** V3-only cooperative deadline; excluded from other bots' config and emitted Params to preserve their artifacts. */
     public int NEURAL_DEADLINE_RESERVE_MS = 2;
     /** V7-only bounded construction on deadline cutoff; historical artifacts omit these fields. */
