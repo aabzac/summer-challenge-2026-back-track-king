@@ -1,0 +1,2911 @@
+{
+  "experiment": "spatial-learning-audit-v1",
+  "status": "complete",
+  "selected": "v09",
+  "newBotVersion": false,
+  "newTraining": false,
+  "promotion": false,
+  "baseRevision": "794a482",
+  "scope": "Original roadmap point3: frozen-policy learning/value/mechanism diagnosis",
+  "games": 64,
+  "turns": 6280,
+  "freshMapClusters": 4,
+  "priorMapExclusions": 21897,
+  "regime": "serial,60000ms percall,no warmup; descriptive only, not CG strength gate",
+  "collectionCreatedAt": "2026-10-10T19:21:52.840489900Z",
+  "collectionCompletedAt": "2026-10-10T19:28:19.351903400Z",
+  "checks": {
+    "scopedJava": {
+      "tests": 604,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pythonTests": 11,
+    "engineReplays": 292,
+    "gameReplayCount": 64,
+    "replayTurns": 6280,
+    "allPreturnValuesRecomputed": true,
+    "preExistingUntrackedTestsExcluded": 6
+  },
+  "freezeAudit": {
+    "recordedAt": "2026-10-10T19:29:43.076848+00:00",
+    "unchangedFrozenFiles": 645,
+    "unchangedHistoricalFiles": 130,
+    "changedFiles": []
+  },
+  "groups": [
+    {
+      "learner": "spatial-ppo-v2-init",
+      "opponent": "v01",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -19722.25,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 7.25,
+        "mean_paint_used_per_turn": 3.0,
+        "mean_unused_paint_turn_fraction": 0.0,
+        "mean_max_owned_desired_paths": 24.25
+      },
+      "native_head_status": "native PPO units; greedy/opponent distribution shift",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 68.23192110931636,
+            "mae": 71.2519955509224,
+            "rmse": 104.09845130013075,
+            "pearson": 0.5999675892042562
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 67.76533047484136,
+            "mae": 70.9356870872474,
+            "rmse": 103.8321516104819,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -15.319409606535164,
+            "mae": 54.75053258362534,
+            "rmse": 76.42430417056774,
+            "pearson": 0.6329106228123286
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 1.5571322988855,
+            "mae": 1.6310479657005,
+            "rmse": 2.199440038883647,
+            "pearson": -0.7350996920862274
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.8600505,
+            "mae": 0.899889,
+            "rmse": 1.3823598252625835,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -0.252124,
+            "mae": 0.788513,
+            "rmse": 1.1227947505666385,
+            "pearson": 0.5853929138990214
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 138.68264597072175,
+                "mae": 138.68264597072175,
+                "rmse": 162.37629868303978,
+                "pearson": -0.03730652938800716
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 138.33263860202175,
+                "mae": 138.33263860202175,
+                "rmse": 162.0764763997346,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 55.13926477354496,
+                "mae": 95.30813910954936,
+                "rmse": 119.7816746650222,
+                "pearson": 0.33055797247246765
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 3.211462524,
+                "mae": 3.211462524,
+                "rmse": 3.465164014696281,
+                "pearson": -0.20318664050453208
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.877945,
+                "mae": 1.877945,
+                "rmse": 2.2550636942002327,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.66549,
+                "mae": 1.403564,
+                "rmse": 1.7697153835574804,
+                "pearson": 0.24791538154073547
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 93.4730595188626,
+                "mae": 93.4730595188626,
+                "rmse": 116.67016099407918,
+                "pearson": -0.06560590654923958
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 93.0285148607626,
+                "mae": 93.0285148607626,
+                "rmse": 116.31351305504697,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -71.72010115968796,
+                "mae": 75.1313054083182,
+                "rmse": 79.76395178894758,
+                "pearson": 0.9595121999909638
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.0733825021,
+                "mae": 2.0733825021,
+                "rmse": 2.4100307804194614,
+                "pearson": -0.7333552421060332
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.1244750000000001,
+                "mae": 1.1244750000000001,
+                "rmse": 1.4523581312816753,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -1.1001,
+                "mae": 1.137204,
+                "rmse": 1.212711940157266,
+                "pearson": 0.957109153951092
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 35.59544726012984,
+                "mae": 40.11614309244553,
+                "rmse": 55.04832583799102,
+                "pearson": 0.09691585645415178
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 35.089858285129836,
+                "mae": 39.805127083845534,
+                "rmse": 54.72431032344627,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -38.49853125560991,
+                "mae": 41.23115497536318,
+                "rmse": 50.21588230927473,
+                "pearson": 0.8512752947103249
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.787270043092,
+                "mae": 0.833794421352,
+                "rmse": 1.1239570322618886,
+                "pearson": -0.8493104901060992
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.39222,
+                "mae": 0.462852,
+                "rmse": 0.6403594715470367,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.501085,
+                "mae": 0.529827,
+                "rmse": 0.6503896583587411,
+                "pearson": 0.8427111918697594
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 5.176531687551248,
+                "mae": 12.736133621659725,
+                "rmse": 18.37507100364616,
+                "pearson": -0.007998512054895709
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 4.610310151451248,
+                "mae": 12.576467802359726,
+                "rmse": 18.223478551342744,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -6.198270784387743,
+                "mae": 7.331530841270657,
+                "rmse": 11.450966997425114,
+                "pearson": 0.9115078951830861
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.15641412635000002,
+                "mae": 0.40555241535000003,
+                "rmse": 0.5208229227787033,
+                "pearson": -0.6591194243882923
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.045562000000000005,
+                "mae": 0.13428400000000001,
+                "rmse": 0.1973780301857327,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.072801,
+                "mae": 0.083457,
+                "rmse": 0.13077733480997386,
+                "pearson": 0.9071892850928478
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v2-init",
+      "opponent": "v09",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -20324.625,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 8.875,
+        "mean_paint_used_per_turn": 2.6992436231764687,
+        "mean_unused_paint_turn_fraction": 0.10371183337938657,
+        "mean_max_owned_desired_paths": 23.75
+      },
+      "native_head_status": "native PPO units; greedy/opponent distribution shift",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 769,
+            "bias": 79.55911991336556,
+            "mae": 79.55911991336556,
+            "rmse": 103.3210729255517,
+            "pearson": 0.6225846316963026
+          },
+          "zero": {
+            "games": 8,
+            "observations": 769,
+            "bias": 79.10603326160904,
+            "mae": 79.10603326160904,
+            "rmse": 103.00406370262053,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 769,
+            "bias": -2.2637352628823106,
+            "mae": 50.01129219873449,
+            "rmse": 72.46191264054018,
+            "pearson": 0.501153520138204
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 769,
+            "bias": 1.4901151301502042,
+            "mae": 1.6187744802941577,
+            "rmse": 2.132668553356272,
+            "pearson": -0.816184159607742
+          },
+          "zero": {
+            "games": 8,
+            "observations": 769,
+            "bias": 1.0298203637593568,
+            "mae": 1.0298203637593568,
+            "rmse": 1.3918549724792688,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 769,
+            "bias": -0.041802713216083566,
+            "mae": 0.7261315469293561,
+            "rmse": 1.0669199749137268,
+            "pearson": 0.43908631697687006
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 139.8867038692999,
+                "mae": 139.8867038692999,
+                "rmse": 151.86495389744087,
+                "pearson": -0.04395986086227696
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 139.5435475426999,
+                "mae": 139.5435475426999,
+                "rmse": 151.54804915532534,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 85.01593948665625,
+                "mae": 99.8042650565662,
+                "rmse": 119.94151008789204,
+                "pearson": 0.18288092472664216
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 3.2064587544,
+                "mae": 3.2064587544,
+                "rmse": 3.3475574791138536,
+                "pearson": -0.23671868081428787
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.98039,
+                "mae": 1.98039,
+                "rmse": 2.1732882948426333,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.1894175,
+                "mae": 1.4649765000000001,
+                "rmse": 1.7747303190203294,
+                "pearson": 0.07902235007828685
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 106.33909429727264,
+                "mae": 106.33909429727264,
+                "rmse": 119.42022797013345,
+                "pearson": -0.09514955739740555
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 105.89399927122264,
+                "mae": 105.89399927122264,
+                "rmse": 119.02331315462415,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -54.31701687300912,
+                "mae": 54.31701687300912,
+                "rmse": 62.759267377127415,
+                "pearson": 0.9179210615549349
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.0810444820250003,
+                "mae": 2.0810444820250003,
+                "rmse": 2.3310828089862152,
+                "pearson": -0.7911745479033538
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.3238755,
+                "mae": 1.3238755,
+                "rmse": 1.5094156008369597,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.8398615,
+                "mae": 0.8398615,
+                "rmse": 0.969801352829537,
+                "pearson": 0.8971377347189978
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 51.1042591665391,
+                "mae": 51.1042591665391,
+                "rmse": 63.404476070946366,
+                "pearson": 0.04368251112641052
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 50.6015572035891,
+                "mae": 50.6015572035891,
+                "rmse": 63.00045798452562,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -30.86059269474155,
+                "mae": 30.9987681159281,
+                "rmse": 44.28745206331047,
+                "pearson": 0.7693208878371607
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.654107862226,
+                "mae": 0.665644593526,
+                "rmse": 0.936047951612152,
+                "pearson": -0.6675818330315665
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.5798075,
+                "mae": 0.5798075,
+                "rmse": 0.734724540525223,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.40579750000000003,
+                "mae": 0.4063445,
+                "rmse": 0.5722646598821214,
+                "pearson": 0.7607300466778095
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 169,
+                "bias": 11.534647192356855,
+                "mae": 11.534647192356855,
+                "rmse": 19.88282862810411,
+                "pearson": -0.403078657289571
+              },
+              "zero": {
+                "games": 8,
+                "observations": 169,
+                "bias": 11.002934575484268,
+                "mae": 11.002934575484268,
+                "rmse": 19.570074354762145,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 169,
+                "bias": -8.963464901877769,
+                "mae": 9.147687682054508,
+                "rmse": 15.716716496228367,
+                "pearson": 0.8894211652624666
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 169,
+                "bias": -0.24070534202354865,
+                "mae": 0.3510233972124864,
+                "rmse": 0.4343535117024615,
+                "pearson": -0.4685987849984218
+              },
+              "zero": {
+                "games": 8,
+                "observations": 169,
+                "bias": 0.1142592083453827,
+                "mae": 0.1142592083453827,
+                "rmse": 0.20859413916991573,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 169,
+                "bias": -0.10400308598419125,
+                "mae": 0.10530408598419125,
+                "rmse": 0.17969064427188386,
+                "pearson": 0.8845905301422983
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v2",
+      "opponent": "v01",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -4460.0,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 7.75,
+        "mean_paint_used_per_turn": 3.0,
+        "mean_unused_paint_turn_fraction": 0.0,
+        "mean_max_owned_desired_paths": 24.5
+      },
+      "native_head_status": "native PPO units; greedy/opponent distribution shift",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 6.061245503136348,
+            "mae": 21.012528213925286,
+            "rmse": 30.421972924541265,
+            "pearson": -0.2391638649796849
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 7.154892012951098,
+            "mae": 20.860123959013656,
+            "rmse": 30.59297598767544,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -19.947510238293933,
+            "mae": 30.99980132358089,
+            "rmse": 43.913728204474566,
+            "pearson": 0.550123874378176
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.845903378505,
+            "mae": 0.9066679386250001,
+            "rmse": 1.1602608469590474,
+            "pearson": -0.38512089563628543
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.059999000000000004,
+            "mae": 0.248472,
+            "rmse": 0.38535754352289514,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -0.326002,
+            "mae": 0.4467795,
+            "rmse": 0.6597761255910978,
+            "pearson": 0.475586236330672
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 35.13837960383612,
+                "mae": 35.191269875351054,
+                "rmse": 47.67539685669256,
+                "pearson": -0.14242022289456124
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 36.00409919069512,
+                "mae": 36.01167765735945,
+                "rmse": 48.27281827758733,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -18.945826269912406,
+                "mae": 50.871214185711,
+                "rmse": 63.13433759103965,
+                "pearson": 0.04535104479938835
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.7259514703,
+                "mae": 1.7259514703,
+                "rmse": 1.800427887562489,
+                "pearson": 0.15992610854834333
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.378487,
+                "mae": 0.394173,
+                "rmse": 0.6156533333784525,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.42432600000000004,
+                "mae": 0.774916,
+                "rmse": 0.985031856033093,
+                "pearson": 0.028073319009137985
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 4.72604361329847,
+                "mae": 23.055201286198038,
+                "rmse": 30.465965518345357,
+                "pearson": 0.6583416587994575
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 5.975663143298469,
+                "mae": 22.611925462198037,
+                "rmse": 30.719672466209172,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -46.12599695068466,
+                "mae": 46.780992276154926,
+                "rmse": 54.31006918308882,
+                "pearson": 0.7571990422514283
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.1101076599,
+                "mae": 1.1101076599,
+                "rmse": 1.282443125511138,
+                "pearson": -0.41002276661318116
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.025528000000000006,
+                "mae": 0.312104,
+                "rmse": 0.38798912948689684,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.686444,
+                "mae": 0.692584,
+                "rmse": 0.8060584543319423,
+                "pearson": 0.7194131784374614
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -10.903538618411588,
+                "mae": 20.282798346606338,
+                "rmse": 20.988135843293747,
+                "pearson": 0.6641846094639414
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -9.71758766841159,
+                "mae": 19.737924832606335,
+                "rmse": 20.445658908291154,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -17.5332738255694,
+                "mae": 20.03977426899224,
+                "rmse": 26.2589248183429,
+                "pearson": 0.8161070118687997
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.37934087849,
+                "mae": 0.45982139411,
+                "rmse": 0.5792959249960995,
+                "pearson": -0.1833048689357046
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.122534,
+                "mae": 0.233042,
+                "rmse": 0.24150747938728523,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.221943,
+                "mae": 0.251095,
+                "rmse": 0.3325014942823566,
+                "pearson": 0.7971904708886118
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -4.715902586177612,
+                "mae": 5.5208433475457115,
+                "rmse": 7.769516066100664,
+                "pearson": 0.23476414242349763
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -3.6426066137776116,
+                "mae": 5.078967883890796,
+                "rmse": 7.192530155906237,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.8150560929907282,
+                "mae": 6.307224563465387,
+                "rmse": 9.412904382772535,
+                "pearson": 0.730476376691647
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.16821350533,
+                "mae": 0.33079123019,
+                "rmse": 0.4037774321874804,
+                "pearson": 0.014049868505514977
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.041485,
+                "mae": 0.054569,
+                "rmse": 0.07817474848056756,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.028705,
+                "mae": 0.068523,
+                "rmse": 0.10316448371411549,
+                "pearson": 0.7316310281769424
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v2",
+      "opponent": "v09",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -13734.375,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 9.0,
+        "mean_paint_used_per_turn": 2.4875511217177886,
+        "mean_unused_paint_turn_fraction": 0.1735941835941836,
+        "mean_max_owned_desired_paths": 23.875
+      },
+      "native_head_status": "native PPO units; greedy/opponent distribution shift",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 771,
+            "bias": 49.98220656533197,
+            "mae": 50.05103001128511,
+            "rmse": 70.21265613476862,
+            "pearson": -0.2146965697314035
+          },
+          "zero": {
+            "games": 8,
+            "observations": 771,
+            "bias": 51.08316417534054,
+            "mae": 51.08316417534054,
+            "rmse": 70.94928548005754,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 771,
+            "bias": -5.658559595199181,
+            "mae": 40.40093989733444,
+            "rmse": 58.71867553368608,
+            "pearson": 0.501319061524893
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 771,
+            "bias": 1.1185457540772932,
+            "mae": 1.3088089437382904,
+            "rmse": 1.6752646585528048,
+            "pearson": -0.748896496452152
+          },
+          "zero": {
+            "games": 8,
+            "observations": 771,
+            "bias": 0.655297763986014,
+            "mae": 0.655297763986014,
+            "rmse": 0.9445839041508155,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 771,
+            "bias": -0.09605428810695478,
+            "mae": 0.5703258359295026,
+            "rmse": 0.8403775102767146,
+            "pearson": 0.44865433714927505
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 95.22724784093707,
+                "mae": 95.22724784093707,
+                "rmse": 107.22596420610182,
+                "pearson": 0.11090168714963816
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 95.94525551103077,
+                "mae": 95.94525551103077,
+                "rmse": 107.8869750921674,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 57.37615785959036,
+                "mae": 67.8793794204736,
+                "rmse": 83.6178195713204,
+                "pearson": 0.2376793228025326
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.50332492185,
+                "mae": 2.50332492185,
+                "rmse": 2.6155976840321404,
+                "pearson": -0.06755321777921841
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.33363,
+                "mae": 1.33363,
+                "rmse": 1.515296071762875,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.7730225000000001,
+                "mae": 0.9753735,
+                "rmse": 1.21639624672637,
+                "pearson": 0.13383314817816772
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 68.70617325619564,
+                "mae": 68.70617325619564,
+                "rmse": 80.7921239736054,
+                "pearson": 0.6783882678686888
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 69.97250766819565,
+                "mae": 69.97250766819565,
+                "rmse": 81.89801199059445,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -47.3821974513409,
+                "mae": 55.62008579137292,
+                "rmse": 68.71734004457733,
+                "pearson": 0.7998915990505879
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.6556947098,
+                "mae": 1.6556947098,
+                "rmse": 1.8479570444610947,
+                "pearson": -0.7404073037344711
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.8558725,
+                "mae": 0.8558725,
+                "rmse": 1.01678666668579,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.7301175,
+                "mae": 0.8175885,
+                "rmse": 1.0038109387977399,
+                "pearson": 0.8062037671958634
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 27.57803356731452,
+                "mae": 27.624204453714256,
+                "rmse": 37.74280373211067,
+                "pearson": 0.779003025055167
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 28.827241193814523,
+                "mae": 28.827241193814523,
+                "rmse": 38.707025196247145,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -28.724508951901417,
+                "mae": 31.382158446176692,
+                "rmse": 43.14899001139874,
+                "pearson": 0.7385837739835303
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.5039450807505,
+                "mae": 0.6029207983605,
+                "rmse": 0.7597432568364774,
+                "pearson": -0.7040544207109128
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.324674,
+                "mae": 0.324674,
+                "rmse": 0.4434231980850799,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.37165200000000004,
+                "mae": 0.397696,
+                "rmse": 0.5427369445689136,
+                "pearson": 0.7420964169655131
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 171,
+                "bias": 4.261493417828655,
+                "mae": 4.592377096007618,
+                "rmse": 8.701631504331367,
+                "pearson": 0.7415241990000058
+              },
+              "zero": {
+                "games": 8,
+                "observations": 171,
+                "bias": 5.444829030984905,
+                "mae": 5.444829030984905,
+                "rmse": 9.386575351016637,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 171,
+                "bias": -2.5884552776498504,
+                "mae": 2.7021505980213294,
+                "rmse": 4.7603266264544715,
+                "pearson": 0.96295450361349
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 171,
+                "bias": -0.39701708741395836,
+                "mae": 0.42296001810395834,
+                "rmse": 0.4999852017155532,
+                "pearson": -0.5861767365208862
+              },
+              "zero": {
+                "games": 8,
+                "observations": 171,
+                "bias": 0.05541666666666667,
+                "mae": 0.05541666666666667,
+                "rmse": 0.1000529797782155,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 171,
+                "bias": -0.032209375,
+                "mae": 0.032209375,
+                "rmse": 0.05557442397362298,
+                "pearson": 0.962092462090739
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v3",
+      "opponent": "v01",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -14595.25,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 7.0,
+        "mean_paint_used_per_turn": 3.0,
+        "mean_unused_paint_turn_fraction": 0.0,
+        "mean_max_owned_desired_paths": 24.5
+      },
+      "native_head_status": "native PPO units; greedy/opponent distribution shift",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": -2.692406992780031,
+            "mae": 35.75616908281009,
+            "rmse": 50.53994945301835,
+            "pearson": 0.7226702756509514
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 43.53172890586997,
+            "mae": 52.177716035757356,
+            "rmse": 84.90052095174097,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -26.040246606134176,
+            "mae": 63.18312108217097,
+            "rmse": 87.67825210945155,
+            "pearson": 0.5681706957814547
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 1.26692490898075,
+            "mae": 1.29595104298925,
+            "rmse": 1.816450411839494,
+            "pearson": -0.6205756047971454
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.51761025,
+            "mae": 0.62515725,
+            "rmse": 1.0515721226691965,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -0.42430450000000003,
+            "mae": 0.884563,
+            "rmse": 1.2533314416984838,
+            "pearson": 0.5108023701331418
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 17.245254711502625,
+                "mae": 67.33025786259161,
+                "rmse": 82.67847692453978,
+                "pearson": 0.2755145285494517
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 109.08968754150263,
+                "mae": 109.08968754150263,
+                "rmse": 137.08523530445655,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 37.490161378284846,
+                "mae": 90.85202447060036,
+                "rmse": 112.93907189470627,
+                "pearson": 0.16810582678259084
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.712383671,
+                "mae": 2.712383671,
+                "rmse": 2.935087605243163,
+                "pearson": 0.0587633134278604
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.380917,
+                "mae": 1.380917,
+                "rmse": 1.7780117012832057,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.338334,
+                "mae": 1.270108,
+                "rmse": 1.5808942530099854,
+                "pearson": 0.09767861302037002
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -18.643206270344407,
+                "mae": 45.89647037573678,
+                "rmse": 51.43299000212476,
+                "pearson": 0.8467280943320219
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 62.857273379655595,
+                "mae": 67.4558496949602,
+                "rmse": 94.6037704795917,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -92.87995205552559,
+                "mae": 94.7903167237834,
+                "rmse": 106.15968049167965,
+                "pearson": 0.9519639416278294
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.6721330055,
+                "mae": 1.6721330055,
+                "rmse": 1.9818129191907436,
+                "pearson": -0.734026501535665
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.692216,
+                "mae": 0.77513,
+                "rmse": 1.069359626505508,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -1.409718,
+                "mae": 1.4291420000000001,
+                "rmse": 1.6351252678617623,
+                "pearson": 0.9426839069029913
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -9.182673744748367,
+                "mae": 17.527504925019837,
+                "rmse": 20.712796938533998,
+                "pearson": 0.7770247598023386
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 8.675642139851632,
+                "mae": 22.611024760673754,
+                "rmse": 29.043435502939168,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -41.62504982406203,
+                "mae": 55.19867033353754,
+                "rmse": 77.23152778342295,
+                "pearson": 0.767021404367673
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.55374310526,
+                "mae": 0.59481777256,
+                "rmse": 0.7685748087789197,
+                "pearson": -0.5541123532402736
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.07129100000000001,
+                "mae": 0.23996900000000002,
+                "rmse": 0.2974383699188792,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.542343,
+                "mae": 0.706075,
+                "rmse": 1.0067552321691704,
+                "pearson": 0.7044385565037119
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.18900266752997594,
+                "mae": 12.270443167892143,
+                "rmse": 17.52264245818351,
+                "pearson": -0.5566188708157116
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -6.495687437529976,
+                "mae": 9.554302145892844,
+                "rmse": 15.704698604594558,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -7.146145923233935,
+                "mae": 11.891472800762578,
+                "rmse": 27.569602202052224,
+                "pearson": 0.0622827434218896
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.129439854163,
+                "mae": 0.204469722897,
+                "rmse": 0.25483222102892394,
+                "pearson": 0.7204601248879313
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.07398300000000001,
+                "mae": 0.104613,
+                "rmse": 0.17288872750992182,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.08349100000000001,
+                "mae": 0.13292700000000002,
+                "rmse": 0.3113541917174073,
+                "pearson": 0.008393760744891954
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v3",
+      "opponent": "v09",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -18206.75,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 11.875,
+        "mean_paint_used_per_turn": 2.779734104506255,
+        "mean_unused_paint_turn_fraction": 0.07569918471856427,
+        "mean_max_owned_desired_paths": 24.125
+      },
+      "native_head_status": "native PPO units; greedy/opponent distribution shift",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 740,
+            "bias": 34.33196875756457,
+            "mae": 39.66356499582142,
+            "rmse": 61.11268124770434,
+            "pearson": 0.7178959959310071
+          },
+          "zero": {
+            "games": 8,
+            "observations": 740,
+            "bias": 72.51291352590461,
+            "mae": 72.51291352590461,
+            "rmse": 101.53373787807205,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 740,
+            "bias": -1.5946683480882875,
+            "mae": 48.41750468036352,
+            "rmse": 71.00910156450145,
+            "pearson": 0.5337857068455277
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 740,
+            "bias": 1.477446901635613,
+            "mae": 1.5586614968369807,
+            "rmse": 2.0833369729426288,
+            "pearson": -0.6767701273462018
+          },
+          "zero": {
+            "games": 8,
+            "observations": 740,
+            "bias": 0.9429745948146656,
+            "mae": 0.9429745948146656,
+            "rmse": 1.3802503267008361,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 740,
+            "bias": -0.030492867831931423,
+            "mae": 0.7052326393526703,
+            "rmse": 1.0581834021297307,
+            "pearson": 0.461126904591934
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 60.090774607414204,
+                "mae": 69.28932133502867,
+                "rmse": 94.16980778401006,
+                "pearson": 0.2883002051213423
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 125.0248420252642,
+                "mae": 125.0248420252642,
+                "rmse": 145.37270407497942,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 79.64089752912635,
+                "mae": 96.67503738684549,
+                "rmse": 122.07559996419509,
+                "pearson": 0.13966909657732135
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.9163605768500003,
+                "mae": 2.9163605768500003,
+                "rmse": 3.145431193631269,
+                "pearson": -0.06283045580162953
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.7796995,
+                "mae": 1.7796995,
+                "rmse": 2.1161474477337348,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.1222615,
+                "mae": 1.4325595,
+                "rmse": 1.8339065337551967,
+                "pearson": 0.05637085990164157
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 27.133372131603952,
+                "mae": 36.8928639626863,
+                "rmse": 58.05918742058887,
+                "pearson": 0.8037883251234594
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 96.37375140660396,
+                "mae": 96.37375140660396,
+                "rmse": 119.55267817000393,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -47.38942446769892,
+                "mae": 49.86364320917871,
+                "rmse": 57.95806835562479,
+                "pearson": 0.9148739902895658
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 2.031494638735,
+                "mae": 2.031494638735,
+                "rmse": 2.368725468412291,
+                "pearson": -0.6761685538063387
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.203756,
+                "mae": 1.203756,
+                "rmse": 1.528479685210111,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.7364755000000001,
+                "mae": 0.7660905,
+                "rmse": 0.8788233685161085,
+                "pearson": 0.9076727739899408
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 35.28037276781622,
+                "mae": 35.28037276781622,
+                "rmse": 46.08102331731732,
+                "pearson": 0.9235756725075187
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 47.15090271251622,
+                "mae": 47.15090271251622,
+                "rmse": 67.63647495735597,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -27.30708055102313,
+                "mae": 27.393123698867,
+                "rmse": 31.58344356599095,
+                "pearson": 0.9555312549413257
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.7019214490060001,
+                "mae": 0.714267136206,
+                "rmse": 1.0485831671021137,
+                "pearson": -0.6461660950931889
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.5360725000000001,
+                "mae": 0.5360725000000001,
+                "rmse": 0.785788514009972,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.362255,
+                "mae": 0.362561,
+                "rmse": 0.4152744956050155,
+                "pearson": 0.952902426509448
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 140,
+                "bias": 13.55745624540597,
+                "mae": 13.55745624540597,
+                "rmse": 19.31936586962331,
+                "pearson": 0.8954298450998635
+              },
+              "zero": {
+                "games": 8,
+                "observations": 140,
+                "bias": 8.85828438339635,
+                "mae": 8.85828438339635,
+                "rmse": 18.70752153207091,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 140,
+                "bias": -10.433357745209506,
+                "mae": 10.532466208907568,
+                "rmse": 16.79011484955656,
+                "pearson": 0.9665303422376067
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 140,
+                "bias": -0.1268265324426843,
+                "mae": 0.3056876995580414,
+                "rmse": 0.4101595838831,
+                "pearson": -0.553400512942167
+              },
+              "zero": {
+                "games": 8,
+                "observations": 140,
+                "bias": 0.09081469633307869,
+                "mae": 0.09081469633307869,
+                "rmse": 0.19879801389516083,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 140,
+                "bias": -0.12062240578049402,
+                "mae": 0.12117040578049403,
+                "rmse": 0.19267979597146345,
+                "pearson": 0.9652893997503962
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v4",
+      "opponent": "v01",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 8,
+        "draws": 0,
+        "losses": 0,
+        "mean_score": 1.0,
+        "mean_score_gap": 11162.0,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 6.5,
+        "mean_paint_used_per_turn": 3.0,
+        "mean_unused_paint_turn_fraction": 0.0,
+        "mean_max_owned_desired_paths": 24.25
+      },
+      "native_head_status": "uncalibrated after trunk-only policy distillation",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": -49.65715078019478,
+            "mae": 49.66044704569478,
+            "rmse": 59.338084075165064,
+            "pearson": -0.5024675793801224
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": -50.44460504669728,
+            "mae": 50.44460504669728,
+            "rmse": 59.76483512221669,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -16.914937701082895,
+            "mae": 19.955889760927928,
+            "rmse": 36.89775711569175,
+            "pearson": 0.5172110985471907
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.63830880755,
+            "mae": 0.68240949565,
+            "rmse": 0.7496923160735391,
+            "pearson": 0.6555103247253231
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": -0.69185975,
+            "mae": 0.69185975,
+            "rmse": 0.8460161760126103,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": -0.2675195,
+            "mae": 0.309253,
+            "rmse": 0.5870825229471578,
+            "pearson": 0.4000455712707271
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -70.73768641107199,
+                "mae": 70.73768641107199,
+                "rmse": 78.03151165169798,
+                "pearson": 0.29182521521870086
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -70.33335412877199,
+                "mae": 70.33335412877199,
+                "rmse": 77.7086540342315,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -62.62492838391101,
+                "mae": 62.62492838391101,
+                "rmse": 71.8795504634941,
+                "pearson": 0.4215996257371202
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.2939482978,
+                "mae": 0.4703510502,
+                "rmse": 0.570544043172295,
+                "pearson": 0.373220778395978
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -1.11669,
+                "mae": 1.11669,
+                "rmse": 1.2189702737966992,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -1.007905,
+                "mae": 1.007905,
+                "rmse": 1.1516555165065636,
+                "pearson": 0.3254798070072242
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -67.69214753160907,
+                "mae": 67.69214753160907,
+                "rmse": 72.99778868082689,
+                "pearson": 0.43328032968782204
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -68.25334772141906,
+                "mae": 68.25334772141906,
+                "rmse": 73.56609624874919,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -5.714207170488752,
+                "mae": 11.202006845960751,
+                "rmse": 13.91200353760476,
+                "pearson": 0.9248544182982509
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.6617471865,
+                "mae": 0.6617471865,
+                "rmse": 0.6907684700688878,
+                "pearson": 0.9274860188076933
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.915883,
+                "mae": 0.915883,
+                "rmse": 0.9881932625250994,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.076741,
+                "mae": 0.15840500000000002,
+                "rmse": 0.19685099974346082,
+                "pearson": 0.9149196425066495
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -44.00186511589604,
+                "mae": 44.00186511589604,
+                "rmse": 47.63368186868539,
+                "pearson": 0.023984792767578072
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -45.254450106396035,
+                "mae": 45.254450106396035,
+                "rmse": 48.79444764451562,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.2929895161814002,
+                "mae": 5.100779305896588,
+                "rmse": 9.134303025551779,
+                "pearson": 0.9453039700634577
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.7485473516,
+                "mae": 0.7485473516,
+                "rmse": 0.7871617832847376,
+                "pearson": 0.8631980096483073
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.543638,
+                "mae": 0.543638,
+                "rmse": 0.5892401484963495,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.018474,
+                "mae": 0.06236799999999999,
+                "rmse": 0.1156311004877148,
+                "pearson": 0.9473006042640885
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -16.196904062202034,
+                "mae": 16.21008912420203,
+                "rmse": 19.936681658153784,
+                "pearson": -0.2950039025222828
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -17.937268230202033,
+                "mae": 17.937268230202033,
+                "rmse": 21.350375142312846,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.6136047661132165,
+                "mae": 0.8958445079433636,
+                "rmse": 1.4590447722392725,
+                "pearson": 0.9934448883840228
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.8489923943000001,
+                "mae": 0.8489923943000001,
+                "rmse": 0.9087623548618856,
+                "pearson": 0.6084954553377527
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.191228,
+                "mae": 0.191228,
+                "rmse": 0.2309871754015794,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.003906000000000002,
+                "mae": 0.008334000000000001,
+                "rmse": 0.01524003937002789,
+                "pearson": 0.9935188279162465
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "learner": "spatial-ppo-v4",
+      "opponent": "v09",
+      "outcomes": {
+        "games": 8,
+        "independent_map_clusters": 4,
+        "wins": 0,
+        "draws": 0,
+        "losses": 8,
+        "mean_score": 0.0,
+        "mean_score_gap": -8460.125,
+        "zero_income_games": 0,
+        "mean_first_score_after_turn_among_nonzero": 9.5,
+        "mean_paint_used_per_turn": 2.4125,
+        "mean_unused_paint_turn_fraction": 0.20125,
+        "mean_max_owned_desired_paths": 23.5
+      },
+      "native_head_status": "uncalibrated after trunk-only policy distillation",
+      "v5_status": "teacher-trained value transfer to this named learner continuation",
+      "values_all_turns": {
+        "ppo": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 34.92300408767233,
+            "mae": 34.92300408767233,
+            "rmse": 42.919867019182995,
+            "pearson": 0.6120855565799789
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 34.97368836309892,
+            "mae": 34.97368836309892,
+            "rmse": 43.11232445977522,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": 6.10985603131466,
+            "mae": 19.211871702146063,
+            "rmse": 32.020519946029175,
+            "pearson": 0.4530628831789039
+          }
+        },
+        "v5": {
+          "model": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.865239739735,
+            "mae": 1.012651874335,
+            "rmse": 1.2905344256661104,
+            "pearson": -0.7852568958544894
+          },
+          "zero": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.47000200000000003,
+            "mae": 0.47000200000000003,
+            "rmse": 0.5983585901029582,
+            "pearson": null
+          },
+          "current_income": {
+            "games": 8,
+            "observations": 800,
+            "bias": 0.0939915,
+            "mae": 0.27935225,
+            "rmse": 0.4753408785019441,
+            "pearson": 0.3800748351860695
+          }
+        }
+      },
+      "values_by_preturn_bin": [
+        {
+          "start_inclusive": 0,
+          "stop_exclusive": 25,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 54.17301934330302,
+                "mae": 54.17301934330302,
+                "rmse": 59.72519941580394,
+                "pearson": -0.026771057397125417
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 54.81482266405302,
+                "mae": 54.81482266405302,
+                "rmse": 60.305669450330505,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 35.698446568854216,
+                "mae": 45.87882618507689,
+                "rmse": 52.87542680352256,
+                "pearson": -0.13166362392837003
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.9342241806,
+                "mae": 1.9342241806,
+                "rmse": 1.9843705632587794,
+                "pearson": -0.01037440164996022
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.824798,
+                "mae": 0.824798,
+                "rmse": 0.9038789870884266,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.546371,
+                "mae": 0.700954,
+                "rmse": 0.8078318663558649,
+                "pearson": -0.23566300457813993
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 25,
+          "stop_exclusive": 50,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 46.11033629581746,
+                "mae": 46.11033629581746,
+                "rmse": 51.50622703024548,
+                "pearson": -0.008469851469403251
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 46.277252899713815,
+                "mae": 46.277252899713815,
+                "rmse": 51.65501097096931,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -8.929436473058706,
+                "mae": 22.95240345596154,
+                "rmse": 34.34503556192433,
+                "pearson": 0.7742888314880101
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 1.35235391162,
+                "mae": 1.35235391162,
+                "rmse": 1.49347833791886,
+                "pearson": -0.7742680191137862
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.608209,
+                "mae": 0.608209,
+                "rmse": 0.6768918334564246,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.134757,
+                "mae": 0.319135,
+                "rmse": 0.481329595080128,
+                "pearson": 0.7632583185793907
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 50,
+          "stop_exclusive": 75,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 28.645565162168793,
+                "mae": 28.645565162168793,
+                "rmse": 31.376510344378904,
+                "pearson": -0.2628350339517793
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 28.480195920928793,
+                "mae": 28.480195920928793,
+                "rmse": 31.2125755164527,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -2.3118635177990807,
+                "mae": 7.418396915827231,
+                "rmse": 11.172817707773657,
+                "pearson": 0.7675052909447578
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.3772380167755,
+                "mae": 0.4798538617755,
+                "rmse": 0.6145269288221208,
+                "pearson": -0.7964376353093794
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.3382395,
+                "mae": 0.3382395,
+                "rmse": 0.37285764904317037,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.032445999999999996,
+                "mae": 0.092338,
+                "rmse": 0.13922879874508723,
+                "pearson": 0.7658897067966486
+              }
+            }
+          }
+        },
+        {
+          "start_inclusive": 75,
+          "stop_exclusive": 100,
+          "metrics": {
+            "ppo": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": 10.76309554940005,
+                "mae": 10.76309554940005,
+                "rmse": 12.80561088889374,
+                "pearson": 0.44888872568976573
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 10.322481967700051,
+                "mae": 10.322481967700051,
+                "rmse": 12.46801045339559,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.017722452737788434,
+                "mae": 0.5978602517185977,
+                "rmse": 1.0152376670272583,
+                "pearson": 0.9941571001482085
+              }
+            },
+            "v5": {
+              "model": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.2028571500555,
+                "mae": 0.2841755433445,
+                "rmse": 0.3406889944055071,
+                "pearson": -0.4555829808164277
+              },
+              "zero": {
+                "games": 8,
+                "observations": 200,
+                "bias": 0.1087615,
+                "mae": 0.1087615,
+                "rmse": 0.13390072983370926,
+                "pearson": null
+              },
+              "current_income": {
+                "games": 8,
+                "observations": 200,
+                "bias": -0.003201999999999999,
+                "mae": 0.0049819999999999994,
+                "rmse": 0.011859228474061876,
+                "pearson": 0.9940161822890117
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "pairedDeltas": [
+    {
+      "control": "spatial-ppo-v2-init",
+      "candidate": "spatial-ppo-v2",
+      "opponent": "v01",
+      "games": 8,
+      "mean_score_gap_delta": 15262.25,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 11540.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 37737.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 4208.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 7564.0,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2-init",
+      "candidate": "spatial-ppo-v2",
+      "opponent": "v09",
+      "games": 8,
+      "mean_score_gap_delta": 6590.25,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 7902.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 9496.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 5896.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 3066.0,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2-init",
+      "candidate": "spatial-ppo-v3",
+      "opponent": "v01",
+      "games": 8,
+      "mean_score_gap_delta": 5127.0,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 4228.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 8571.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 2088.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 5621.0,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2-init",
+      "candidate": "spatial-ppo-v3",
+      "opponent": "v09",
+      "games": 8,
+      "mean_score_gap_delta": 2117.875,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 2832.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": -3082.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 6548.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 2173.5,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2-init",
+      "candidate": "spatial-ppo-v4",
+      "opponent": "v01",
+      "games": 8,
+      "mean_score_gap_delta": 30884.25,
+      "mean_result_score_delta": 1.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 25957.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 57312.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 29035.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 11233.0,
+          "mean_result_score_delta": 1.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2-init",
+      "candidate": "spatial-ppo-v4",
+      "opponent": "v09",
+      "games": 8,
+      "mean_score_gap_delta": 11864.5,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 9091.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 20746.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 10388.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 7231.5,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2",
+      "candidate": "spatial-ppo-v3",
+      "opponent": "v01",
+      "games": 8,
+      "mean_score_gap_delta": -10135.25,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": -7312.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": -29166.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": -2120.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": -1943.0,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2",
+      "candidate": "spatial-ppo-v3",
+      "opponent": "v09",
+      "games": 8,
+      "mean_score_gap_delta": -4472.375,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": -5069.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": -12579.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 651.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": -892.5,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2",
+      "candidate": "spatial-ppo-v4",
+      "opponent": "v01",
+      "games": 8,
+      "mean_score_gap_delta": 15622.0,
+      "mean_result_score_delta": 1.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 14417.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 19575.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 24827.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 3669.0,
+          "mean_result_score_delta": 1.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v2",
+      "candidate": "spatial-ppo-v4",
+      "opponent": "v09",
+      "games": 8,
+      "mean_score_gap_delta": 5274.25,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 1189.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 11250.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 4492.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 4165.5,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v3",
+      "candidate": "spatial-ppo-v4",
+      "opponent": "v01",
+      "games": 8,
+      "mean_score_gap_delta": 25757.25,
+      "mean_result_score_delta": 1.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 21729.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 48741.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 26947.0,
+          "mean_result_score_delta": 1.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 5612.0,
+          "mean_result_score_delta": 1.0
+        }
+      ]
+    },
+    {
+      "control": "spatial-ppo-v3",
+      "candidate": "spatial-ppo-v4",
+      "opponent": "v09",
+      "games": 8,
+      "mean_score_gap_delta": 9746.625,
+      "mean_result_score_delta": 0.0,
+      "per_map": [
+        {
+          "seed": 22000000,
+          "mean_score_gap_delta": 6259.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000001,
+          "mean_score_gap_delta": 23829.0,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000002,
+          "mean_score_gap_delta": 3840.5,
+          "mean_result_score_delta": 0.0
+        },
+        {
+          "seed": 22000003,
+          "mean_score_gap_delta": 5058.0,
+          "mean_result_score_delta": 0.0
+        }
+      ]
+    }
+  ],
+  "mechanism": {
+    "localPatchFloats": 1176,
+    "allFourModelsBothSeatsBitIdenticalLogits": true,
+    "eachAliasTieCount": 266,
+    "scriptGainA": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      15
+    ],
+    "scriptGainB": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "terminal": false,
+    "neitherComparedCellWasGreedyFirstChoice": true,
+    "limit": "Exposed constructed board/script; not optimal-Q, frequency or cause-of-loss proof"
+  },
+  "valueConclusion": "V5 RMSE worse than current-income baseline in all8 named policy/opponent groups. V3 native PPO critic beats both zero and current-income baselines in its2 groups, despite policy regression; do not call all learned value useless. Units/continuation contracts remain separate.",
+  "nextHypothesis": "One representation change: broadcast existing learned town embeddings to every cell with fixed distance weights; test same frozen v4 corpus/loss/16epochs then appropriate closed-loop gates. Not implemented or trained by this audit.",
+  "originalStage3Complete": false,
+  "limits": [
+    "Only four independent fresh map clusters; ample60000ms calls without warmup are not CG-budget strength evidence.",
+    "Targets and errors stay grouped by acting learner and opponent; future returns from different policies are never pooled.",
+    "Native PPO targets match reward units but greedy inference/opponents differ from sampled training continuation.",
+    "V4 native value is uncalibrated: its head froze while shared features changed.",
+    "V5 was fitted on v09 teacher trajectories; all student groups are transfer checks, not counterfactual action-ranking validation.",
+    "Raw PPO and V5 error units are different; direct cross-contract ranking is invalid.",
+    "Undefined/constant-target or constant-prediction correlations are null. Turns are correlated.",
+    "The exporter's stopped-with-paint flag means total cost<3, including forced STOP or insufficient affordable legal choices; it does not establish voluntary/premature stopping.",
+    "Owned-desired-path counts mean active desired routes containing at least one rail of that player, not exclusively owned routes or newly completed connections.",
+    "Python validates trace accounting only; independent Java core replay establishes legality/scoring/path fidelity."
+  ],
+  "evidenceSha256": {
+    "build/analysis/spatial-learning-audit-v1/report.json": "aadbb4ea980e178baa175e0dee591b0d3455b8dc6b656295646f973f33d6bfa6",
+    "build/analysis/spatial-learning-audit-v1/mechanism.json": "9928912f44eff6873bfeb45d9169e3adc20fc08dfa1822be014393beef33d915",
+    "build/analysis/spatial-learning-audit-v1/games/replay-audit.json": "a367833e64634ea0791ffc011871864fa82612444b6328a37df6e05414e6724a",
+    "build/analysis/spatial-learning-audit-v1/games/manifest.json": "b5897874ddb56588a4520708e7bc0dc656a40f626737039af80fc67e9acd6e78",
+    "build/analysis/spatial-learning-audit-v1/freeze.json": "e5a35cceca4563e04fb23bc4e4dedbb58a77c5ae795008abb09e4637d8f94ab6"
+  }
+}

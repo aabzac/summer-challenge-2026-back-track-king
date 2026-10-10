@@ -1,0 +1,821 @@
+{
+  "experiment": "spatial-learning-audit-v1",
+  "recordedAt": "2026-10-10T19:32:11.661653+00:00",
+  "archiveSha256": "eda73e17257b77bec242ec58a47def9590288293c181881a67257d86e4128754",
+  "archiveBytes": 5346198,
+  "baseRevision": "794a482de8b4154578f88cb90385c219da1d6ec1",
+  "files": {
+    "build/analysis/spatial-learning-audit-v1/baseline.json": {
+      "sha256": "03636845240e6e0c49a18cb2d1cba0d63e5313f84452dda931903e358b586a86",
+      "bytes": 16000
+    },
+    "build/analysis/spatial-learning-audit-v1/exclusions.json": {
+      "sha256": "9ebd21013aecffb31253a8d69ccc43b41dceac3a3883e6c270e6179511ca8174",
+      "bytes": 1598624
+    },
+    "build/analysis/spatial-learning-audit-v1/final-preflight-python.log": {
+      "sha256": "462cfd3889bcdbee677441c0331be708c0345985f706fee7adf9509694f16c87",
+      "bytes": 1793
+    },
+    "build/analysis/spatial-learning-audit-v1/freeze.json": {
+      "sha256": "e5a35cceca4563e04fb23bc4e4dedbb58a77c5ae795008abb09e4637d8f94ab6",
+      "bytes": 84001
+    },
+    "build/analysis/spatial-learning-audit-v1/games/intent.json": {
+      "sha256": "0f432a6fc1bc918c0dd6f85d82706dcb063b8cc8fcaee1924e2cc8f8a4297610",
+      "bytes": 743
+    },
+    "build/analysis/spatial-learning-audit-v1/games/manifest.json": {
+      "sha256": "b5897874ddb56588a4520708e7bc0dc656a40f626737039af80fc67e9acd6e78",
+      "bytes": 73312
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v2-init-p0.json": {
+      "sha256": "e5a5b2909747f86614b0b5246a817a5b76ecf5ffef0299e2730455bcc2d95a0e",
+      "bytes": 1444816
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v2-init-p1.json": {
+      "sha256": "53d8ec9663157863c6e4719e76c8208d9f591b1fd02b69c851808c2ea8c5e713",
+      "bytes": 1444943
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v2-p0.json": {
+      "sha256": "372762b286adc7b0997c0dd0473e781c1b61a2e006017ebf0029e6c918d066dc",
+      "bytes": 1400433
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v2-p1.json": {
+      "sha256": "a8d64a6f231bbcd02b620e850038baaf1dd7494c6d6197103deef965e438b925",
+      "bytes": 1400494
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v3-p0.json": {
+      "sha256": "469102f614ad4f3c6e19249e547c34b04c615eb9ca6a6b4eb70f2c6f19c832ed",
+      "bytes": 1427205
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v3-p1.json": {
+      "sha256": "274b4ad6d647c7ff35692b84c62a6787098ccd24c922e7b5bd42ffaffe8bd043",
+      "bytes": 1427207
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v4-p0.json": {
+      "sha256": "8fd0eab49c8f45a11f6d42d2d747ef6ee143322b57a54edff34a15b5e659e39f",
+      "bytes": 1375190
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v01-spatial-ppo-v4-p1.json": {
+      "sha256": "a7541f3f81a653bde1e3de5f6dbad6091b056ac9bf30a5d5af652fd29558f182",
+      "bytes": 1375169
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v2-init-p0.json": {
+      "sha256": "289bd6a58a0b18c707fddcd06890290e9ab1108921bdf3656ffea1b85f28d722",
+      "bytes": 1372888
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v2-init-p1.json": {
+      "sha256": "93d979dac969af520b528aeff2a7ae36520f0a182e6be42c9994cd7e3f649936",
+      "bytes": 1355597
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v2-p0.json": {
+      "sha256": "72c5d82aa21cea7c1cfa7c732b0e35d456b4b6220917f52303958e21a880f9cf",
+      "bytes": 1224234
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v2-p1.json": {
+      "sha256": "4ab8952408dd2964a55782e2d6a961af554603a939cbd4e05e0a454dee80001b",
+      "bytes": 1121936
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v3-p0.json": {
+      "sha256": "2319423bac4bdf99fcea28680b0d1a6a6eb809de5489760552ab0e9a40265e35",
+      "bytes": 1329546
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v3-p1.json": {
+      "sha256": "128ce5c7a084d4deb8d576559d831a51dd8a2225511f00dd9a47a7b1e6b18812",
+      "bytes": 1183380
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v4-p0.json": {
+      "sha256": "8469ffba69fb68f1607cde2c3bc07819f14447d1c145b38e0b5b8962763e2ba6",
+      "bytes": 1347149
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map0-v09-spatial-ppo-v4-p1.json": {
+      "sha256": "118fdc385cf8d3e742b84f318a29e3a105eb3a9e7b8c826a872ddd0b26e35049",
+      "bytes": 1454457
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v2-init-p0.json": {
+      "sha256": "a1b827d57f4441f546c3ac153cc50484bb7d4505af05994bbb28ce4f06a69a43",
+      "bytes": 2092972
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v2-init-p1.json": {
+      "sha256": "c9885e9119d70133975e2b80303ee864f68caa67a2e5ef868768753c032a01ef",
+      "bytes": 2092957
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v2-p0.json": {
+      "sha256": "20d4a9fe81260c989c2551a3a70003e45059fba318e16c6afd504ace38272d41",
+      "bytes": 1984436
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v2-p1.json": {
+      "sha256": "c1e908a1c7a50b0508d3011b9f7fa78825afdc163d8273c3f3299909a0ccc78b",
+      "bytes": 1984445
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v3-p0.json": {
+      "sha256": "cb591d707a1ccbe36fa0da1bacdb006b5479683e78263b5512daa1b09c92a7e7",
+      "bytes": 2103590
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v3-p1.json": {
+      "sha256": "575fd61cfe80958b27406179e0d53757c64f98f882d6adcf94d1760cb4b88e1d",
+      "bytes": 2103601
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v4-p0.json": {
+      "sha256": "473359ed19fd15f4f42d1b195aa711a692977f1a439740f4463002c14b627410",
+      "bytes": 1969863
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v01-spatial-ppo-v4-p1.json": {
+      "sha256": "6e99d5c9e58071b4c49986044e2594f52f1aaeef8ca37e3172377803272bb8ff",
+      "bytes": 1969830
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v2-init-p0.json": {
+      "sha256": "05695668e19dfb64bddcf0983cb1d8b7173fa6c319f0339141bf0126bd943904",
+      "bytes": 1769103
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v2-init-p1.json": {
+      "sha256": "97ec37efa63a4dd3e2a52260be530198f7c53ca11533e542e25a389346da8fb2",
+      "bytes": 1977489
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v2-p0.json": {
+      "sha256": "868df11d98dbbb3c5b8d9d55e7d66133c84c4b053f784f33f03b34b52cfef500",
+      "bytes": 1729042
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v2-p1.json": {
+      "sha256": "af5bf5e063086869231857d58bbfa3e6e6a8cbf673b650fb781490a0a304a58a",
+      "bytes": 1732508
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v3-p0.json": {
+      "sha256": "26744f054f4893d5bf3ae79fa047ce8c0fd84cbc653ea53881576dc2c961e3eb",
+      "bytes": 1943452
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v3-p1.json": {
+      "sha256": "d2ffdc5d7e640f4de20ba3f8bcdec2f5191f568be24efe69412dc0c32fb6a1f2",
+      "bytes": 1964590
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v4-p0.json": {
+      "sha256": "25d19df20110fa68663ee96941c1c2576ea6d92b99803beba21becb25b6f1215",
+      "bytes": 1906513
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map1-v09-spatial-ppo-v4-p1.json": {
+      "sha256": "7fac7bf2c8760cc484bdd7f49756596a6172875d2a0a5a70e882a8fe43eae4f8",
+      "bytes": 1861567
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v2-init-p0.json": {
+      "sha256": "1b2f8eb05a5c6cc5d5adf5fe6fcf87bb165f0af9580362890ba99100a4a891f5",
+      "bytes": 1548602
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v2-init-p1.json": {
+      "sha256": "9dec76a3b91b690524427e6df11ffe0ac99d8f02e5b7c0430516bcc2eec63f72",
+      "bytes": 1548597
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v2-p0.json": {
+      "sha256": "a14e2a1cc34ed6fa42ffdf65c07a20155f418ac702341229da4dd1f0bb36cb8f",
+      "bytes": 1568613
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v2-p1.json": {
+      "sha256": "42f63669bf9b36230ba555379854d9c4c6c02270f79f577b644badfca2a6d5d9",
+      "bytes": 1568637
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v3-p0.json": {
+      "sha256": "42345dce6c7af74e0f8fe08053cbedae5ca7e12b831690fbcab17594a8077b4c",
+      "bytes": 1582555
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v3-p1.json": {
+      "sha256": "654cd8cd91efaad90ece880ce81491fb04293c37465263f7fb44fb597db28f78",
+      "bytes": 1582517
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v4-p0.json": {
+      "sha256": "2f93c9f8ebb77735f82816c23892b68feb1929e3b4f0350c918aeb22021e116f",
+      "bytes": 1467307
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v01-spatial-ppo-v4-p1.json": {
+      "sha256": "8a9ffb9a6f370a510a4eb534b679e3f6099b73632638e997a4cd06b584360c95",
+      "bytes": 1467325
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v2-init-p0.json": {
+      "sha256": "86a17d79c7c827bd4507e640fa19715d2d57ec632918fb9d3fb94ecaa72939f7",
+      "bytes": 1450707
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v2-init-p1.json": {
+      "sha256": "495e19b6012adf24b56683609d3c715d887a8911354efb3be037c6f26800e9c0",
+      "bytes": 1344869
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v2-p0.json": {
+      "sha256": "ed232c60af09c1072dd4cffaab979eca921569b2d2c4d7c893363f17f22613bd",
+      "bytes": 1491295
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v2-p1.json": {
+      "sha256": "90c02b758acab195e96608930cb5155467d768400da85b40b770858d238b3e88",
+      "bytes": 1422386
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v3-p0.json": {
+      "sha256": "6da7375efd38520735a23a5be65399e5ad0666df1ef2e2b952c9dbe63395d913",
+      "bytes": 1360041
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v3-p1.json": {
+      "sha256": "1400560b053dc2ce1fed38b1f94c59d4508af9f54bee22ae9ec6547491e9c427",
+      "bytes": 1380820
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v4-p0.json": {
+      "sha256": "a58c479dac5b4c208b53ebcfc56b043453f3ed64cb338293ed5b7384f62fe46c",
+      "bytes": 1455403
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map2-v09-spatial-ppo-v4-p1.json": {
+      "sha256": "4bd3a27dc9944db7150b68048858a746b42d2b0a3403a5eafc4aec870be90b42",
+      "bytes": 1474339
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v2-init-p0.json": {
+      "sha256": "d10a8c5293bbf5810122fd8e9357185266b9db1c91fdcba8ca17eda4e38fb304",
+      "bytes": 1334454
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v2-init-p1.json": {
+      "sha256": "f2e0b572c970d94b23e211459ed37afef4e2234fbfa0385af903c6ac82300f81",
+      "bytes": 1334428
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v2-p0.json": {
+      "sha256": "1705a85705a96311ef4ba8b96d8c1f927dbebdabb62057eb222e4d3ec975ab23",
+      "bytes": 1225048
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v2-p1.json": {
+      "sha256": "1c2f0a3f15b1da838a4505299d4a441bd4d63a6d78074314ceff2e79a72c6d1f",
+      "bytes": 1225036
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v3-p0.json": {
+      "sha256": "fa4d59962fac16bd04a2f75240b92a5dcba3a357ced91337e7a0b90dded6ae21",
+      "bytes": 1246405
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v3-p1.json": {
+      "sha256": "5f14d48e569fa78f930c96637eebd7cd587736d0c6b89f9158a4817586f18cda",
+      "bytes": 1246338
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v4-p0.json": {
+      "sha256": "d76f7c0a2db0a7a2147835ed22e6fbbd779f307bb5d136d8e78ca75208cfb528",
+      "bytes": 1282099
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v01-spatial-ppo-v4-p1.json": {
+      "sha256": "aab63aa9b8858b5551ad1cfb1c0d5341535232936a51cc1486fc6713454d4d7f",
+      "bytes": 1282097
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v2-init-p0.json": {
+      "sha256": "ec28fa4efb7a66c3b61de9de07cc9e5516599e0dea222a761317828f7c1eb3ec",
+      "bytes": 1189516
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v2-init-p1.json": {
+      "sha256": "f16de16e97a5ac72914558a181c796d0fd1e0fe484305e21555fdd4dc9fd5d1e",
+      "bytes": 1118071
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v2-p0.json": {
+      "sha256": "615a10ee05805b2b2c399a36fbfe7d54f34dc89f336412950f24d39ed595585e",
+      "bytes": 1161471
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v2-p1.json": {
+      "sha256": "15cd9be96cd5d9552ae6b2c254103f26c253d8deb36c83114c94dec166fac613",
+      "bytes": 1200898
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v3-p0.json": {
+      "sha256": "702ea15c2030e6f216780d944db9f31f65a0b72bea0b44ba9168a0d48ace64a3",
+      "bytes": 1130992
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v3-p1.json": {
+      "sha256": "01697d3a8aac5102a99a81e5a32c732d76358114375f835effd63090beaf8654",
+      "bytes": 1080919
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v4-p0.json": {
+      "sha256": "7acf9a3e3c60be016a63e230e1ffac8e2d0887be2910719d9a4bea440f2ba058",
+      "bytes": 1223414
+    },
+    "build/analysis/spatial-learning-audit-v1/games/map3-v09-spatial-ppo-v4-p1.json": {
+      "sha256": "94aadff1a9042b008ec3995879841726d2c807846726d99abd4811de2c5f1811",
+      "bytes": 1213150
+    },
+    "build/analysis/spatial-learning-audit-v1/games/preflight.json": {
+      "sha256": "9f31b051ad7ea63f6b91cc5ca44bcaea56912fb23d93da73b582480308c35353",
+      "bytes": 38512
+    },
+    "build/analysis/spatial-learning-audit-v1/games/replay-audit.json": {
+      "sha256": "a367833e64634ea0791ffc011871864fa82612444b6328a37df6e05414e6724a",
+      "bytes": 21666
+    },
+    "build/analysis/spatial-learning-audit-v1/games-console.log": {
+      "sha256": "0f9d13215e11f91852db85d9d0fe17e0510a017ddcfa18a597ab9c3057687075",
+      "bytes": 3802
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/counts.json": {
+      "sha256": "9e056ac79ffa9d4d021f8c1663dc41b1a032fc506379cff13796402f63577b9c",
+      "bytes": 73
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.BotCatalogTest.xml": {
+      "sha256": "5432ebd531b73e5c232bff29e03fe314a249d2a8e0b8a8e41a11b7be1b08f211",
+      "bytes": 1075
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.BuildDirectionTest.xml": {
+      "sha256": "d6deb54ff42e95a4d3c5649a85f594d239cff3fc8854a29f08828a512963658d",
+      "bytes": 995
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.BuildIncomeGuardTest.xml": {
+      "sha256": "11dc1bcb219e3a1cf1e4b417594a5d0f856104e435b1fa973f3f895820f885d2",
+      "bytes": 578
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.DefensePriorityTest.xml": {
+      "sha256": "2713975550b1df008f8e0051bff4751a017940b8b211c66340e844b103c6bb3d",
+      "bytes": 1230
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.EarlyDisruptFallbackTest.xml": {
+      "sha256": "c76a683f7d2e74edfba5490a0b8b937d8412030d5ac4ff0ae9e7d164742ed81c",
+      "bytes": 581
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.EvalBotTest.xml": {
+      "sha256": "8d6cc444c0b0720a9c6a3e3e7afa0c8126c5b29d65918d7fcdd933544bbf1c32",
+      "bytes": 1172
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.HeuristicBaselineTest.xml": {
+      "sha256": "2cdc66e27c67e21efc7e6c77d429400efd1f5e3194ba871a3441bea57599e9bf",
+      "bytes": 457
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.HeuristicBotTest.xml": {
+      "sha256": "a452e1e4b7a0ef3e725cb92f9942fbdeaa2dc6b74a17f1abcb4840c733ee701d",
+      "bytes": 1122
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.HeuristicDetourTest.xml": {
+      "sha256": "b5563ecd78cbc9ce4ddfef1cfdf163da51e1c316049164761f42cfdc0da0c9c2",
+      "bytes": 1176
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.InterruptedEvalTest.xml": {
+      "sha256": "9beae37445645b0b9fea1314c69ee9eb67c24816e9ea7950496dcfbaad0c6949",
+      "bytes": 734
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.OwnBuildPlanTest.xml": {
+      "sha256": "d3ca057290547060b9ba643e021863c7b8f48c5a0fef24365659ec806e9b122f",
+      "bytes": 1422
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.ProtectedOpeningTest.xml": {
+      "sha256": "f4cb8315fb1b0d2db3873a836c25100215406b79ee2ce815f45daa6ee95f59a8",
+      "bytes": 1624
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.ReplyRerankTest.xml": {
+      "sha256": "6e15f8476329bfa5ce158c94fed4677323197ce990294614c848c3cbc6c7f8df",
+      "bytes": 566
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutAllCellRiskTest.xml": {
+      "sha256": "43b970eea6024769602c208d59bfeaf40c3e7d1742e466b908069067725c956d",
+      "bytes": 1093
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutBotTest.xml": {
+      "sha256": "7b0ec7fa109e7a3abd58c7e5d1d86a3feaa2bb3cada823fbe6c70378a61901c0",
+      "bytes": 1570
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutDiverseRepliesTest.xml": {
+      "sha256": "7b2b6178fcc1d081bcbf187ccbfc7b203ccb052b41e846b65a6ebb3e978e069f",
+      "bytes": 635
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutFillTest.xml": {
+      "sha256": "37f4feb5778b20a94e8e7173c45b8ca3aeebe24167a51e83fe3363c0335a88ff",
+      "bytes": 764
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutLiveTargetTest.xml": {
+      "sha256": "c0803e6d17c89601a7604cdab6eeb850952fc64fa4ef1ea0ff5286609782c494",
+      "bytes": 633
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml": {
+      "sha256": "a3a69a2822eef7847ccdd6f76647d751e697e36cd6b0c3b41d002e0e5a101b68",
+      "bytes": 1400
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutNetworkChordsTest.xml": {
+      "sha256": "bcecce513c349126924c2bbdc166e5e979daba49bba633cd0b3024f7c312ede6",
+      "bytes": 1062
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutNetworkTest.xml": {
+      "sha256": "5a089f810a8dac1e34bf46866220c7512172197661d35ee13d61bbd2ecddf354",
+      "bytes": 1200
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutOpeningIntegrationTest.xml": {
+      "sha256": "4714583570d916636f848e1f6c181a35c5535bddafd4dc3736a79b0738615276",
+      "bytes": 814
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutQuickRouteTest.xml": {
+      "sha256": "c3ddf2494c6eb99da7d6c55d36a8c709b5721e918251efd2748086d99cb5a517",
+      "bytes": 1363
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutReplanTest.xml": {
+      "sha256": "88133ba5731f029e37f6542e88b2ee3f68e00f1e8bcc913019e0d5d0f943a4e7",
+      "bytes": 604
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutRootFillTest.xml": {
+      "sha256": "485162f116962254e3d03c059f1a89ea3b6811e3b97885acadb907fd3ab94dd2",
+      "bytes": 1125
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutRouteDependenciesTest.xml": {
+      "sha256": "651a189165a5865188d464404b75d4e02b476a0c1d8f9ff4a647354d12da1155",
+      "bytes": 1288
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutSecondTargetTest.xml": {
+      "sha256": "87be45362f44f5721960adb394ab21ce1c8be2473e2eae8621f2206455ca6d34",
+      "bytes": 632
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutSpreadTest.xml": {
+      "sha256": "aab58c7d62f0fa9c1d32e7f545f1264dc40398f358ab34ddb0f2355cc490471a",
+      "bytes": 1008
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.RolloutTrackValueTest.xml": {
+      "sha256": "4338041059b25ae87b17e86ddba231b382bfaf293c32178300474cc2dc709281",
+      "bytes": 769
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.current.SabotageRegressionTest.xml": {
+      "sha256": "9898e7a467cd96592b3eb95affece78f7739b7c61795b4efa17aadc3a3ceba19",
+      "bytes": 468
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.FrozenParamsTest.xml": {
+      "sha256": "ab518646124340a4fa8d9af59850e760b731a08b5cbda521230e096bcc53cf62",
+      "bytes": 2297
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.IndrillBotTest.xml": {
+      "sha256": "50c65233f54ef7e16f066cbd34b00ecbbe010dcf4b5541b34944d035d5a90cc8",
+      "bytes": 1006
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.IndrillForumBotTest.xml": {
+      "sha256": "e50cd27ceffcf6f7a244c48c4814065e0d93c9c9439f2533dde334daa313cbbf",
+      "bytes": 915
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.IndrillV2BotTest.xml": {
+      "sha256": "c7308258344eda68e3fe625687c90763306a111c18a697a63514a1d47b1c549b",
+      "bytes": 1133
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.LeaderBot2Test.xml": {
+      "sha256": "72b7942022f83e39856d6a2d3c6af035bbbdf827e0beaf545b36f38281518d5a",
+      "bytes": 832
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.LeaderBotTest.xml": {
+      "sha256": "c7dddecd230215da496bd8beaa04ada93da4278e07164bef57f595319efa9d24",
+      "bytes": 1007
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.neural.SpatialBotTest.xml": {
+      "sha256": "dbd695ee3accc6bd96ae75ec16cca150898aa5b71f70f39230be32d35e9cefdd",
+      "bytes": 966
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.neural.SpatialNetTest.xml": {
+      "sha256": "11a1d42a3f7edacd1a0d181a49bb167f51a28f07317a05cdba7d26a9e1a887d0",
+      "bytes": 994
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.neural.SpatialV5BotTest.xml": {
+      "sha256": "4c45ac6c2994024624df1f94811192b17611f8dbc2604c3427f00965ee25151e",
+      "bytes": 1588
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.neural.SpatialV6BotTest.xml": {
+      "sha256": "d321f7a799709bec0a04cb0df79a7af153f667eae0a9091f49296b032c527931",
+      "bytes": 1684
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.neural.SpatialV7BotTest.xml": {
+      "sha256": "6f658587bc355bd56b80c95dfbfe7bc32f6536d1f359eef5bba6f7bf7146c982",
+      "bytes": 1777
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.neural.SpatialV8BotTest.xml": {
+      "sha256": "d0b4da5fa77411ba82f86cc56bf6ee54f266e592659e61bd72e05d2bf649b0b6",
+      "bytes": 1492
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralBotTest.xml": {
+      "sha256": "0d164a94abaf792a8c2bcdc3322384bb70d725f6459bd47a3a2da37f31cc8fb4",
+      "bytes": 1053
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV2BotTest.xml": {
+      "sha256": "997f65e6bdb377ee8adc50fb156583afa5de23a5265483137fabd615dbcf91ee",
+      "bytes": 853
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV3BotTest.xml": {
+      "sha256": "44ac4147338ee53ce0a30b70d13c69828552bda7777e60f5499287501ab3e523",
+      "bytes": 854
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV3FeaturesTest.xml": {
+      "sha256": "a6b2cd39803a02d1450da0f0a5a6b395df62237979daea8e9a7c7e89c89f419f",
+      "bytes": 1032
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV4BotTest.xml": {
+      "sha256": "6fb3fcd35412ec8f96687229d6764ee73574fd0ef5d30f9e305233d85bb599eb",
+      "bytes": 598
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV5BotTest.xml": {
+      "sha256": "6bbae89e19cf0cbfaca9c49fdff54d08b8ecfe9234e787002a965dd1951a3ed2",
+      "bytes": 988
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV5FeaturesTest.xml": {
+      "sha256": "fe298832ff3d20115908e360e1aa5b3822f2270edc22662bf53b8373b2ae691b",
+      "bytes": 1031
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV6BotTest.xml": {
+      "sha256": "e7e541cdad94c3f934bca0ce9fccb14624931d9bfdce7e9021d51012d004a08c",
+      "bytes": 986
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV6FeaturesTest.xml": {
+      "sha256": "e2ab6b84625ec2e2c20120355e19b94575183328a22efaae9c4878fb170f0cba",
+      "bytes": 1328
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.NeuralV7BotTest.xml": {
+      "sha256": "69b97ac67b1ef7c7dc9958bc033dbaaf71ebe17e2c203f89ca74e409da805735",
+      "bytes": 2041
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.PressureBotTest.xml": {
+      "sha256": "02ca4299fca5b578c1c1ba26d0ba01cd06ed673308b050ae842fa7ce7ad4a417",
+      "bytes": 839
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.RouteWarmupTest.xml": {
+      "sha256": "c31ac070e88a22765a4dafe9be427ec5bd38dd8319b6098b8bbc0773a9baca9d",
+      "bytes": 910
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.SpatialObservationTest.xml": {
+      "sha256": "c8cd4ad5b87715ba19f1d45449c9d7a9981c46e52874bdb5505447659cc2a17c",
+      "bytes": 872
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.SpatialV3BotTest.xml": {
+      "sha256": "d81eed6baabca035a0214e1698481a1a9ba0ec86b528820ba1082baf7a73284a",
+      "bytes": 710
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.SpatialV4BotTest.xml": {
+      "sha256": "644f637aa3c04750761ab08f0c1ba295a0af8aa7cc07d33baa9aee0cdac0bf6e",
+      "bytes": 708
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.SpatialVariantsTest.xml": {
+      "sha256": "92b113f244ccb790f95af7b39232fab530cc810a5dc8a05a9c4fe55919b11ba9",
+      "bytes": 751
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.TimerTest.xml": {
+      "sha256": "1483f671706b7a87ca8f92dd4ed5056b74e8a27e01024b3b21b0c82158939b59",
+      "bytes": 526
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.V06PromotionTest.xml": {
+      "sha256": "3976695922dc69b78d2fc0cc0dc33617ea1ea4c23a52b3960d32f7dd4206bdfd",
+      "bytes": 578
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.V07PromotionTest.xml": {
+      "sha256": "ca89b6c0ddad045fd67a83af6daf72f8d975e094ce67cba770c020a1d01da51e",
+      "bytes": 700
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.V08PromotionTest.xml": {
+      "sha256": "74509fb27ccc461c0cb004c99cf658dba639ba0df55db0c27fb31cc3e216c055",
+      "bytes": 1014
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.bot.V09PromotionTest.xml": {
+      "sha256": "90ed45e9e27e8086fd0067908eacdd068ea8b881ed90424c1943d0c8bd92bd39",
+      "bytes": 990
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.FeaturePathsTest.xml": {
+      "sha256": "870df4c5a01020e4f1885c116eeaacebe7358ab15aad48133c5b916a797c31d9",
+      "bytes": 1262
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.HypotheticalIncomeTest.xml": {
+      "sha256": "c1eb55ed526c0a30ab7486de78003ece373d6f230923a7929629d63d2fb805d4",
+      "bytes": 1276
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.InkAllProjectionTest.xml": {
+      "sha256": "177afbb6d082ff2697c77c6a0bde244a937b263201031aaef08a0021b34f0d2d",
+      "bytes": 856
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.InkTest.xml": {
+      "sha256": "be6d390d3ce9c142addb86ae161c9b252479a2d3596c4f70eeeb5b896d389b1e",
+      "bytes": 795
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.NetworkChordsTest.xml": {
+      "sha256": "9c806134e91b8f41fa4133363f229a750797ee9844a47f0122440634ccda0614",
+      "bytes": 593
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.PathingTest.xml": {
+      "sha256": "75321cd6f0c1f03eca03680a116ac1ef40124e8ebf9dffbb60d97e80f0e17993",
+      "bytes": 820
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.ProtocolTest.xml": {
+      "sha256": "fa5383c74fee0d8de17665caa519009e996994f4db3c0d6d6afd1445d2d65afd",
+      "bytes": 506
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.RulesTest.xml": {
+      "sha256": "b2bb104ae2383febd63cba9c0bd2274b53dda2fc85e881e181bfb32215de1347",
+      "bytes": 1321
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.SearchStateTest.xml": {
+      "sha256": "d8c51f9bdca317dbd290fb8e6e5f19e50bfc508a0cb01b50f6731906147f7737",
+      "bytes": 842
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.SingleCellConnectionsTest.xml": {
+      "sha256": "045dec73f3fd905c110dba18176a13c7f0355b8033afc5b78ded2a860813192a",
+      "bytes": 1293
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.core.WeightedDistancesTest.xml": {
+      "sha256": "48d7459ab9c35c46083e82978d38845c1e1f2086973e4d312457692fa1dd1814",
+      "bytes": 1242
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.referee.MapGeneratorTest.xml": {
+      "sha256": "d1ef0705432a6b24fc3ab970b9024cbcde0d87eb1d620403bf9afb479bee70ec",
+      "bytes": 1605
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.referee.ReplayTest.xml": {
+      "sha256": "b23eba7ef6e77a21de6902c66fceda93e3345ba5fa192cb4b383887d947cbf32",
+      "bytes": 658
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.BehaviorMetricsTest.xml": {
+      "sha256": "a2c9d782bd79232893e0a4381a1a8d5ecfafb6280e2d36e59e155d5bc73cdb56",
+      "bytes": 449
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.BenchmarkRunnerTest.xml": {
+      "sha256": "87a27f66c44bf83027931ab084fd4d269b6227d894505cb7dabfdd6cc6c95ad0",
+      "bytes": 1322
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.BenchmarkSuiteTest.xml": {
+      "sha256": "2bf532e3d6b6aee4c9b1d2f4951ff62c13ffd9e79f1e3f43ef17674e8147b891",
+      "bytes": 1694
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.BenchPoolTest.xml": {
+      "sha256": "110609dd973b9ba769ff29733bc7d6b21b4e65f6684df9d46a6c1e03ee66aedf",
+      "bytes": 789
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.ProcessBotTest.xml": {
+      "sha256": "4704550f685ac8c2f065e226d139a0cdb21b67ffddb76dfe68c4de5b87dc06a8",
+      "bytes": 1697
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.ProcessCheckTest.xml": {
+      "sha256": "b81fd4b18dd9f55dbef30de74307026da52725f5606a3c7b4147e94ade84c3d0",
+      "bytes": 1198
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.runner.TimingProfileTest.xml": {
+      "sha256": "2c77d60af017b7cba0b44c644341e039c422514a04a6a37a157274b5ea3abb5e",
+      "bytes": 751
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.submit.BuildProvenanceTest.xml": {
+      "sha256": "aeb11732c6ad02007e3a7caad03d88633ad7e71b9e58158c47bff4d3e8181d47",
+      "bytes": 869
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.submit.FileMergerTest.xml": {
+      "sha256": "2c00fcfef24e274eb454c559f0a0ed49e1588b94fa67774ac7e9838011ef0d8b",
+      "bytes": 7517
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgBossDefenseStudyTest.xml": {
+      "sha256": "1cf6cd8d06f022f1eabe0963a3188b59ef4971899c4505dbc8294f2b63a7cedb",
+      "bytes": 861
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgDisruptStudyTest.xml": {
+      "sha256": "b1830c59e310bd2fdc94290a8e16ef7fbc64887609f1c9aa319ddfc0fd01f0ba",
+      "bytes": 1227
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgPlayerStudyTest.xml": {
+      "sha256": "367fc727aab3dfb5f0f228f6f08de46df7322f8168ad14f395170f777268dea7",
+      "bytes": 969
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgRenderSeedTest.xml": {
+      "sha256": "179c3332dbe2ace1c0f7238906b800a50abaa1480e1d1309ebf5203bb7f8b971",
+      "bytes": 1235
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgReplayPlayersTest.xml": {
+      "sha256": "3fad8a84581977f8096debf7a225ce58a7255eaf849434a291d877dd1bd0dd8f",
+      "bytes": 827
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgReplaySeedTest.xml": {
+      "sha256": "83ee5d5924c7ef95970168d9384ce54d9c8aa73423fd109765528b014025431d",
+      "bytes": 564
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgRolloutBossProbeTest.xml": {
+      "sha256": "9d78e7d13f6db02f7b5806f78578612598d304be585e25e77c84b7d7150b9d3a",
+      "bytes": 758
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.CgValidateTest.xml": {
+      "sha256": "0c66d5f8f8f66f8c0c74ed5feea6ecbe2c6ff9d3e5ae46cb4a5e4a7a32c37692",
+      "bytes": 1278
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.JointActionTest.xml": {
+      "sha256": "748ce744e1eb6640b51bcf83fd68b650edd19c9fc8b72303496a264bb8130133",
+      "bytes": 840
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.JointReplyStudyTest.xml": {
+      "sha256": "cfaa01240d75c1955fd8f0218ae0dfd3ae15daab8424bd7dd167309ceedf5a52",
+      "bytes": 1199
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.NeuralV2CollectTest.xml": {
+      "sha256": "0a54c40cea3efddae1e252c921e3873c99609ec0b0ecb463ebe90bda5370584d",
+      "bytes": 702
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.NeuralV2VerifyTest.xml": {
+      "sha256": "533db686053621f2d42ad0c89a45fb0c3d8ccce979b767d5f16b67d67cd8ca84",
+      "bytes": 693
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.NeuralV4CollectTest.xml": {
+      "sha256": "1b0acc348290984cf8c26bf4fa08ddcb418d3d0f1ebe690de2db25621022cc1f",
+      "bytes": 707
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.NeuralV4VerifyTest.xml": {
+      "sha256": "acfa38a1cf8dfb5c50bdf5c3c3816d8c3bb203b892450dc515d013bafe7b8c41",
+      "bytes": 695
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.ppo.PpoProbeTest.xml": {
+      "sha256": "e758bfd617abeb2b24fc467756c9072d53b464c10b69abc9077febb930a8dc66",
+      "bytes": 984
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.ReplayPathsTest.xml": {
+      "sha256": "c7f6b009b0b1fbd2a03b9ceb161e0b78c61cf306ac10b22d2b816e461d9396df",
+      "bytes": 1086
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.ReplyStudyTest.xml": {
+      "sha256": "b073522158201f963b0c4df3c62b6a4345ea5c41953902b8c59c104d7c1f3740",
+      "bytes": 1420
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.RolloutRiskStudyTest.xml": {
+      "sha256": "d19a2614f5932c70e150ba537f0176b281fe7cc7ec47d889dd1b8a1478be9394",
+      "bytes": 619
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.SabotageForecastTest.xml": {
+      "sha256": "7196b110c987093ecbac2a541daeef7e1bea43bfae6a22f467a8d3d1a603deeb",
+      "bytes": 988
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.spatial.SpatialBridgeTest.xml": {
+      "sha256": "80fcd5610e3ea428ea528f150338eceee3022c4d5a2b3a6d77cc18d00f7ef771",
+      "bytes": 886
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.spatial.SpatialLatePanelTest.xml": {
+      "sha256": "25393d61b648f95ef94dfce159ca5e45cd58e4d320576a1b27793606ccc54b12",
+      "bytes": 925
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.spatial.SpatialLearningAuditTest.xml": {
+      "sha256": "3431a2ee3ddbe6ac14e33b29f65dcb9c55a718bf2be2945cc55889ff0835ecea",
+      "bytes": 1289
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.spatial.SpatialLearningMechanismTest.xml": {
+      "sha256": "a45e2381a4279f986fc20be88e14348133c03d6c7e306d9ab0f84d963c5d8973",
+      "bytes": 809
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.spatial.SpatialPoolBridgeTest.xml": {
+      "sha256": "8430c2f39bf3b5cb50c0bc8d9fb066fa77f68e21042c8a18d820a1271daa7271",
+      "bytes": 1551
+    },
+    "build/analysis/spatial-learning-audit-v1/java-tests/TEST-btk.tools.spatial.SpatialTeacherExportTest.xml": {
+      "sha256": "a4c3e6040220e17b0b786bf2465d1b9bb5f4ab619caeb972635484b1f13e35b3",
+      "bytes": 1622
+    },
+    "build/analysis/spatial-learning-audit-v1/mechanism.json": {
+      "sha256": "9928912f44eff6873bfeb45d9169e3adc20fc08dfa1822be014393beef33d915",
+      "bytes": 182947
+    },
+    "build/analysis/spatial-learning-audit-v1/post-run-verification.json": {
+      "sha256": "bf56545fa13b64187e379d45bed728cedcf7460fbee039b147189a2be42f33b2",
+      "bytes": 149
+    },
+    "build/analysis/spatial-learning-audit-v1/preflight-java.log": {
+      "sha256": "cb27fb417d7989729df7fd6425a816a8fea4d8557a3dee3bfbde57e7583eff33",
+      "bytes": 312
+    },
+    "build/analysis/spatial-learning-audit-v1/preflight-python.log": {
+      "sha256": "8a31b9e583a3386be2233a43360401ff36f04d44a12266ccf2002c85521edfb3",
+      "bytes": 1793
+    },
+    "build/analysis/spatial-learning-audit-v1/prior-excluded.json": {
+      "sha256": "e6b96c33570e656db957278af36278f9bd4ecdd3e42893475c6d03c461396112",
+      "bytes": 1567291
+    },
+    "build/analysis/spatial-learning-audit-v1/protocol-before-results.md": {
+      "sha256": "6e254b3b1132a3825812f6262b83417829928194c55e4d874dae5549cf42656c",
+      "bytes": 5422
+    },
+    "build/analysis/spatial-learning-audit-v1/report.json": {
+      "sha256": "aadbb4ea980e178baa175e0dee591b0d3455b8dc6b656295646f973f33d6bfa6",
+      "bytes": 1531477
+    },
+    "build/bench/spatial-learning-audit-v1/exposed-maps.json": {
+      "sha256": "47c08c21c2994b9c1819cee71f7b31f73ef421ef97900bf1c5789066fc95dbb6",
+      "bytes": 428
+    },
+    "build/spatial-scope.gradle": {
+      "sha256": "1a12fdd8df5426de03bbd840ad04c36d67dc3ddeeaccd4e3cb90f2a2cebbd475",
+      "bytes": 204
+    },
+    "build/spatial-v8-java.json": {
+      "sha256": "25bd99ec9fb8d4a2eb1b067d3c67e70a7dbf617569a6f2f5babbaf4b33b9e252",
+      "bytes": 660
+    },
+    "build/spatial_learning_evidence.py": {
+      "sha256": "2981884f3b43be8daeda956e8812327adcd6b434b0fa1835c4ce15a6b7fdc5ca",
+      "bytes": 6043
+    },
+    "docs/evidence/spatial-learning-audit-v1.json": {
+      "sha256": "45dd65b8ad1ef349a1be8daf7cf7445a4209563109639bec0cb7e8a0f98275bd",
+      "bytes": 93593
+    },
+    "docs/spatial-learning-audit-v1.md": {
+      "sha256": "e35ba9bc52e16350a7a18e0f42fbcff5ab33ccc132886d6844dff5e3d8f5cc3f",
+      "bytes": 12454
+    },
+    "src/main/java/btk/tools/spatial/SpatialLearningAudit.java": {
+      "sha256": "30a299886692e4e5695953f4418c6ef20e5699a857dcc5991ea3a88de86891ec",
+      "bytes": 33968
+    },
+    "src/main/java/btk/tools/spatial/SpatialLearningMechanism.java": {
+      "sha256": "1ab1309aeb3bb49f230c354b9ba418f728fadef9e264e34db84c919e733bb3b0",
+      "bytes": 14219
+    },
+    "src/test/java/btk/tools/spatial/SpatialLearningAuditTest.java": {
+      "sha256": "f767a4436a01d0804ceb1b9f4b1323d7462e488e93401b356b4d000f247f4e74",
+      "bytes": 11408
+    },
+    "src/test/java/btk/tools/spatial/SpatialLearningMechanismTest.java": {
+      "sha256": "540a50a7e7db85834c7940c4c52cc48fa3bb27c3a9779beadf054dcf725c6fa2",
+      "bytes": 5369
+    },
+    "tools/spatial/learning_audit.py": {
+      "sha256": "098f6d560f09274b007a1944ef79a549bf86d8c0cf61b4e72a0fdd9afc5ef8a8",
+      "bytes": 27710
+    },
+    "tools/spatial/test_learning_audit.py": {
+      "sha256": "bf6c471a7352785cfbff5d28eb628ace03f53df009ea5aab0005a46ec828f0ec",
+      "bytes": 13677
+    }
+  }
+}

@@ -3,6 +3,36 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Original spatial roadmap — outcome status (2026-10-10)
+
+Version numbers below are experiments within these five broad stages, not five
+fixed releases. V4 teacher imitation and v5–v8 search were adaptive follow-ups;
+completed experiments do not automatically complete their parent stage.
+
+- [x] 1. End-to-end small spatial policy/value pipeline (Java core, Python PPO,
+      export and Java inference), delivered in v1.
+- [x] 2. Measure runtime, submission size and collection cost for this small model.
+      Measurements do not cover a future larger architecture.
+- [ ] 3. Establish useful competitive learning and reliable future-value evaluation,
+      including delayed investment. V2/v4 improve weaker baselines, but v09 and
+      value results remain inadequate. Current bounded diagnostic:
+      [spatial-learning-audit-v1](spatial-learning-audit-v1.md).
+- [ ] 4. Scale effective self-play with a frozen-opponent pool and held-out maps.
+      Pool infrastructure is implemented in v3; regression means effective
+      competitive learning/scaling is still unresolved.
+- [ ] 5. Useful search supported by reliable value, then compression/reuse if needed.
+      V5–v8 test partial search mechanisms; no successful strength result and no
+      original compression/network-reuse stage has been completed.
+
+- [x] Complete the return-to-stage-3 diagnostic: 64 matched complete games/6,280
+      turns, all independently replayed with value verification. V4 beats v01 8/8
+      but v09 0/8; v5 transfer loses to income extrapolation in all eight groups.
+      V3's own critic improves despite policy regression. Prove a delayed-route
+      local representation alias; retain the outcome distinction above.
+- [ ] Next hypothesis within stage 3: one global distance-weighted town-context
+      representation change, then the fixed teacher recipe and runtime/closed-loop
+      checks. Proposed only; not implemented or trained by the completed audit.
+
 ## Spatial PPO first complete pipeline (2026-10-08)
 
 - [x] Independently review Pduhard's final policy/value/self-play architecture and

@@ -6468,3 +6468,51 @@ Evidence: [summary](evidence/spatial-ppo-v8.json),
 Archive includes original protocol, source/runtime freezes, tests, complete panel,
 checkpoint audit, exact submission and raw games; original v4 corpus is a hashed
 dependency rather than a second copy.
+
+## 2026-10-10 — spatial-learning-audit-v1: return to original roadmap point 3
+
+Context/hypothesis: after v8, the user asked whether experiments still followed
+the original plan, then selected original point3. Completed v1–v8 experiments
+were not five completed roadmap stages. Return to useful learning/value diagnosis
+instead of extending search or silently adding another training run. Predeclare
+four frozen greedy learners (initializer/v2/v3/v4), four fresh maps, both v01/v09
+opponents and both seats:64 complete games, ample60000ms, serial/no warmup,
+no tuning or extension. Freeze protocol/source/runtime before collection.
+
+Result:64 terminal games/6280 turns; all4 hashes disjoint from21897 prior maps.
+No illegal, skipped, truncated or over-budget calls. Independent core replay
+checks every transition and both preturn neural predictions.645 frozen files
+and130 historical source/resource files unchanged through analysis.604 scoped
+Java tests,11 Python tests,292/292 exact CG replays; only6 pre-existing unrelated
+Pduhard tests excluded. No policy/core/frozen-weight/submission change.
+
+Useful learning is observed: v4 scores8W/0L vs v01 and0W/8L vs v09, improving
+paired mean gap over v2 by15622 and5274 points respectively, on every map mean.
+V3 policy regresses vs v2. All64 games earn income; v4's first income vs v09
+is not earlier than v2's, so learning is not explained by simply starting to
+complete connections. Four independent map clusters and ample budgets support
+diagnosis only, not a strength/promotion claim.
+
+Value conclusions differ by head: frozen v5 is worse than current-income
+extrapolation in RMSE and MAE in all8 named learner/opponent groups. On v4/v09
+trajectories, RMSE12905 vs4753 score points. Reject unchanged teacher-value
+transfer to these student continuations. V3's native PPO critic, however, beats
+zero and income baselines in both its opponent groups despite worse play;
+predicting its own continuation is not evidence of choosing better actions.
+PPO and v5 targets/units remain separate. Historical v3 gradient/KL growth is a
+scale/optimization concern, not proven actor/critic causality.
+
+Mechanism: two legal cells have exactly identical1176-float local patches and
+equal logits in all4 policies/both seats, but matched scripted continuation
+earns0,0,0,0,0,15 vs allzero. Both are among266 tied cells; neither was the
+actual greedy first choice. This proves a representation alias, not optimality,
+frequency or cause of losses. V5 reacts strongly once the connection exists;
+synthetic nonterminal script returns are not its full-game value target.
+
+Decision: completed diagnostic, selectedv09 unchanged, original stage3 still
+open. One next hypothesis: add globally distance-weighted existing town context
+percell, retain local injection, isolate the change under the fixed v4 teacher
+recipe and runtime/closed-loop checks. Proposal only; no new training/version,
+promotion, boss calls, arena upload or push. Original five-stage outcome status
+is now explicit in PLAN. Full protocol/results and retained artifacts:
+[spatial-learning-audit-v1](spatial-learning-audit-v1.md).

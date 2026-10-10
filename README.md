@@ -163,6 +163,11 @@ Nominal panel: 19/34 usable comparisons; vs v09
 2W/298L/0D/300 (STOP_FUTILITY_300). Strict process8/8 clean.
 Strength rejected; selected v09 unchanged. [Evidence](docs/spatial-ppo-v8.md).
 
+`spatial-learning-audit-v1` returns to the original roadmap's useful-learning
+diagnosis. It compares four frozen policies on matched complete games and checks
+future-value transfer and a delayed-route representation fixture, without new
+training or bot changes. [Protocol and results](docs/spatial-learning-audit-v1.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

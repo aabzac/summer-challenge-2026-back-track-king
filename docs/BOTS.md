@@ -13,6 +13,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-10: **spatial-learning-audit-v1**, returning to original
+roadmap point3. No new bot/weights or promotion. Four frozen policies, four fresh
+maps, both v01/v09 opponents and both seats: 64 complete games/6,280 turns, ample
+budgets; independently replayed with every stage-zero value checked. V4: 8W/0L
+vs v01, 0W/8L vs v09; matched gap improves over v2. V5 transfer is worse than
+income extrapolation in all eight groups; v3's native critic improves while its
+policy regresses. Exact delayed-route local alias demonstrated. Stage3 remains
+open; one global town-context hypothesis proposed. 604 scoped Java/11 Python
+tests,292 exact replays. [Protocol/evidence](spatial-learning-audit-v1.md).
+
 Completed 2026-10-10: **spatial-ppo-v8**, frozen v4 weights/v7 proposals,
 paired exact-score checkpoints at depths2/4/6/8 with deepest-complete-pair fallback.
 Nominal saved panel: 19/34 usable comparisons, 3 changes.
