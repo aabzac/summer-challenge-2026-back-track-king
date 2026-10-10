@@ -30,7 +30,14 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Verify v3 export/parity/process (strict 8/8 clean); final vs v2: 6W/94L/100.
       Practical-v4 vs v09: 0W/300L, STOP_FUTILITY_300, zero game errors. Archive and
       commit rejected v3; regression against v2, selected v09 unchanged.
-- [ ] Distillation and value-guided search remain later stages.
+- [x] Predeclare [spatial-ppo-v4](spatial-ppo-v4.md): v09 teacher, unchanged spatial
+      model from v2, disjoint teacher training/validation maps, fixed 16 epochs.
+- [x] Implement and verify exact conditional teacher labels and supervised training;
+      60 terminal games, 22,640 rows; fixed 16 epochs/4,560 updates, final-only export.
+- [x] Verify v4 parity/process (strict 8/8 clean); vs v2: 98W/2L/0D/100,
+      vs v09: 0W/300L/0D/300, STOP_FUTILITY_300. Archive and commit rejected
+      v4; stronger than v2, teacher unforced agreement 39.54%, v09 unchanged.
+- [ ] Value-guided search remains a later stage; v4 does not train/calibrate a critic.
 
 ## Indrill forum readout (2026-10-06)
 

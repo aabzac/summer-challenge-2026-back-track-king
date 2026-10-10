@@ -6025,3 +6025,101 @@ invalidate larger training recipes or reproduce the full top-3 system. Distillat
 and value-guided search remain future stages. Updated BOTS/PLAN and retained raw
 reports, checkpoints, prospective protocol, test logs/XML, incidents and audits
 under docs/evidence/spatial-ppo-v3*. Commit locally; no promotion, upload or push.
+
+## 2026-10-10 — spatial-ppo-v4: v09 teacher distillation, completed
+
+Hypothesis: teaching the compact spatial policy complete v09 decisions can improve
+on the earlier self-play policy. The user authorized this next planned stage.
+Fixed v2 warm start, same 3,439-weight model/observations/masks/Java runtime; new
+exact-core teacher exporter, lossless binary corpus, strict validator/disk cache,
+supervised trainer and separate v4 integration. No PPO, architecture change,
+online student rollouts or search. The source/data/final evaluation freezes and
+independent audits guard lineage; historical models, core and selected v09 remain
+unchanged. No technical failure, retraining, timing retry or strength rerun occurred.
+
+
+All 60 games finished at their actual terminals on 30 predeclared maps, including
+17 early terminals. The corpus contains 5,660 real teacher turns and
+22,640 exact float32 conditional rows: 18,192 training rows on 24 maps and
+4,448 validation rows on six different maps. All 11,320 teacher/opponent calls
+completed legally; all expanded and accepted plans agree. Independent streaming
+audit verified every binary record, prefix, mask, outcome, gzip CRC and hash.
+Compressed game data totals 52,289,086 bytes; the disposable raw
+disk cache is not duplicated in the archive.
+
+The single 16-epoch run completed 4,560 Adam updates and
+291,072 row exposures in 215.833 seconds. Checkpoints
+at epochs 0/8/16 retain Adam steps 0/2,280/4,560 and RNG/configuration state.
+Only the final model was exported and compared. All 15 value-head parameters
+remain unchanged, while 3,424 policy/shared parameters were trainable. Shared
+features changed, so value outputs remain uncalibrated and unsuitable as an
+established search critic. Peak Python working set, including mapped data pages:
+1676.0 MiB.
+
+On held-out maps, mean cross-entropy changed from
+4.061915 to 2.033353.
+All-choice agreement rose from 17.83% to
+49.44%; excluding forced singleton choices,
+from 1.75% to
+39.54%. Final unforced build agreement
+is 31.33%, disruption agreement
+58.81%. Exact full-plan agreement
+is 77/1112 (6.92%);
+training full-plan agreement is 599/4548
+(13.17%). These use teacher prefixes and are
+imitation diagnostics, not closed-loop match strength.
+
+Preflight: 545 scoped Java tests and 30 Python tests passed. After final export,
+five targeted Java tests and all 30 Python tests passed; 292/292 engine replays
+reproduced exactly both before collection and after training. Six pre-existing
+untracked Pduhard tests remain excluded; this is not an unqualified full-suite pass.
+No core or historical spatial model/runtime/weights changed. No training, process
+or strength retry, checkpoint selection, or outcome-driven tuning occurred.
+
+Initial/final training parity passes all 24 observations per model. The fixed
+late panel captured 16/20 requested positions (four genuinely post-terminal slots
+missing, no replacements). All 128 observations per model pass numerical and
+greedy parity; final maximum error 9.89437e-06.
+Both models have 32/32 identical ample/nominal/traced plans, zero cuts/errors/skips.
+Final nominal mean/p95/max: 13.614/
+20.395/20.489 ms.
+The reused tool's historical v2 label is not the candidate identity: exact v4
+payload hashes and separate output paths identify this measurement.
+
+Exact Player: 84,315 characters, source SHA `a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2`,
+build `de52c874c686f2729fe95f543b6ebe3992206478157a150cbf1e69f4190b6767`. Strict zero-grace process check: eight games, zero problem
+games; first response max 593.798 ms, later max
+30.016 ms. This finite local panel is not a CG-host timing
+guarantee. The timed progress bench still recorded 2/0
+slow calls (candidate/control), and the v09 comparison 2/0;
+preserve these observations alongside the clean process result.
+
+Progress versus exact v2: **98W/2L/0D / 100**, mean score difference
++4474.32, zero game errors, 128.545 s.
+All 50 maps are fresh and paired, seeds 12200000..12200049, two workers, CG budgets.
+Map-grouped Hoeffding diagnostic 95% interval:
+[78.79%, 100.00%]. This establishes a large
+improvement against that particular earlier model.
+
+Practical-v4 versus v09: **0W/300L/0D / 300**, mean score difference
+-9736.15, zero game errors, 569.416 s.
+150 separate fresh paired maps, two workers, CG budgets, `STOP_FUTILITY_300`.
+The mandatory futility stop ends evaluation; no further local blocks or boss games.
+All 200 evaluation maps are distinct and
+exclude prior/training/validation/smoke/process/late-panel maps. The v09 index also
+excludes all 50 v2-comparison maps. All 896 final
+frozen files remained byte-identical through evaluation.
+
+Decision: retain the teacher-data/distillation pipeline and stronger spatial
+reference, reject this payload for promotion. V09 stays selected. The result does
+not establish whether more data, a different architecture, or search would close
+the gap; those require separate experiments. Value calibration and value-guided
+search remain later work, not completed by this supervised stage.
+
+Evidence: [summary](evidence/spatial-ppo-v4.json),
+[training](evidence/spatial-ppo-v4-training.json),
+[archive index](evidence/spatial-ppo-v4-artifacts.json),
+[complete retained archive](evidence/spatial-ppo-v4-artifacts.zip).
+The archive contains compressed exact teacher data, metadata, checkpoints,
+predeclared protocol/source/runtime manifests, independent audits, test logs,
+numerical panels, exact submission and raw comparison reports.

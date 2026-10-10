@@ -107,3 +107,36 @@ and new output paths identify the tested weights, not the tool's old v2 label.
 Completed fixed run: 183 terminal games, 16,384 learner turns, 1,024 Adam steps.
 Final versus v2: 6W/94L/0D; versus v09: 0W/300L/0D, STOP_FUTILITY_300. Technical
 checks passed, but strength regressed; this v3 payload is not selected or promoted.
+
+## Fixed teacher distillation: v4
+
+`SpatialTeacherExport` records frozen v09's final ordered plans through the shared
+core and existing Java observation/mask builder. Three conditional build decisions
+plus one disrupt decision form each teacher turn. Its `smoke` and `corpus` modes
+use separate fixed seeds; both require fresh output directories. See
+[the lossless binary schema](teacher_format.md) and
+[the completed protocol](../../docs/spatial-ppo-v4.md).
+
+`v4_data.py` validates the entire corpus before creating a disposable disk-backed
+float32 cache. `v4_distill.py` warm-starts v2, resets Adam/RNG, and trains the active
+policy head by masked cross-entropy for exactly 16 epochs. Whole-map train/validation
+splits, source/data freezes and write-once paths are mandatory. Checkpoints 0/8/16
+are retained; only final exports to `SpatialV4Weights`. No PPO/value loss, tuning,
+checkpoint selection or resume mode. Shared features change while the value-head
+parameters remain fixed: value outputs are not a calibrated search critic.
+
+```powershell
+# Historical fixed-run commands; they reject existing output/evidence paths.
+# First collect the fixed corpus and record the prescribed source/data freezes.
+python tools/spatial/v4_distill.py prepare --excluded-maps build/analysis/spatial-ppo-v4/corpus-excluded.json
+python tools/spatial/v4_distill.py train --java-command-json build/spatial-v4-java.json
+python -m unittest discover -s tools/spatial -p 'test_*.py' -v
+.\gradlew.bat submit '-PsubmitVersion=spatial-ppo-v4' '-PsubmitOut=build/submit-spatial-v4'
+```
+
+The exact commands, compressed corpus, metadata, exclusions, initial/mid/final
+checkpoints, audits, tests, submission and match reports are archived. No large
+raw memmap cache is committed; it can be rebuilt from the hashed gzip corpus.
+
+Completed: 98W/2L/0D/100 vs v2; 0W/300L/0D/300 vs v09,
+STOP_FUTILITY_300. Technical checks passed; promotion rejected.

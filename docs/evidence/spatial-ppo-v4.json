@@ -1,0 +1,520 @@
+{
+  "experiment": "spatial-ppo-v4",
+  "recordedAt": "2026-10-10T12:19:58.824332+00:00",
+  "selected": "v09",
+  "promoted": false,
+  "bossStage": "SKIPPED_LOCAL_FAILURE",
+  "method": "hard-action supervised distillation; no PPO or value training",
+  "corpus": {
+    "maps": 30,
+    "games": 60,
+    "turns": 5660,
+    "rows": 22640,
+    "splits": {
+      "train": {
+        "games": 48,
+        "maps": 24,
+        "rows": 18192
+      },
+      "validation": {
+        "games": 12,
+        "maps": 6,
+        "rows": 4448
+      }
+    },
+    "compressedBytes": 52289086,
+    "nativeCallStats": {
+      "teacher:v09": {
+        "calls": 5660,
+        "completed": 5660,
+        "failed": 0,
+        "elapsedMsTotal": 420661.1248999979,
+        "maxElapsedMs": 989.6741
+      },
+      "opponent:v01": {
+        "calls": 2000,
+        "completed": 2000,
+        "failed": 0,
+        "elapsedMsTotal": 732.1870999999998,
+        "maxElapsedMs": 11.9198
+      },
+      "opponent:spatial-ppo-v2": {
+        "calls": 1864,
+        "completed": 1864,
+        "failed": 0,
+        "elapsedMsTotal": 21716.96409999998,
+        "maxElapsedMs": 61.8903
+      },
+      "opponent:v09": {
+        "calls": 1796,
+        "completed": 1796,
+        "failed": 0,
+        "elapsedMsTotal": 91941.53310000003,
+        "maxElapsedMs": 404.0605
+      }
+    },
+    "exclusionCount": 21017
+  },
+  "training": {
+    "epochs": 16,
+    "optimizerSteps": 4560,
+    "trainedDecisionRows": 291072,
+    "trainableParameters": 3424,
+    "valueHeadParametersUnchanged": true,
+    "valueLimit": "shared features change; value outputs uncalibrated and not used for greedy decisions",
+    "initialWeightsSha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+    "finalWeightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+    "weightL2Change": 10.783598899841309,
+    "seconds": 215.83348160004243,
+    "pythonPeakWorkingSetBytes": 1757450240,
+    "epochSeconds": 194.85810599988326,
+    "initialMetrics": {
+      "train": {
+        "slices": {
+          "all": {
+            "rows": 18192,
+            "correct": 4027,
+            "cross_entropy": 3.7085790403306866,
+            "agreement": 0.22136103781882147
+          },
+          "unforced": {
+            "rows": 14428,
+            "correct": 263,
+            "cross_entropy": 4.676079144836141,
+            "agreement": 0.018228444690878847
+          },
+          "build": {
+            "rows": 13644,
+            "correct": 3955,
+            "cross_entropy": 3.6601198190341018,
+            "agreement": 0.289871005570214
+          },
+          "disrupt": {
+            "rows": 4548,
+            "correct": 72,
+            "cross_entropy": 3.8539567042204403,
+            "agreement": 0.0158311345646438
+          },
+          "build_unforced": {
+            "rows": 9880,
+            "correct": 191,
+            "cross_entropy": 5.054521741994057,
+            "agreement": 0.019331983805668015
+          },
+          "disrupt_unforced": {
+            "rows": 4548,
+            "correct": 72,
+            "cross_entropy": 3.8539567042204403,
+            "agreement": 0.0158311345646438
+          }
+        },
+        "full_plans": 4548,
+        "exact_full_plans": 3,
+        "exact_full_plan_agreement": 0.0006596306068601583,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      },
+      "validation": {
+        "slices": {
+          "all": {
+            "rows": 4448,
+            "correct": 793,
+            "cross_entropy": 4.061914783158748,
+            "agreement": 0.17828237410071943
+          },
+          "unforced": {
+            "rows": 3720,
+            "correct": 65,
+            "cross_entropy": 4.856827138572611,
+            "agreement": 0.01747311827956989
+          },
+          "build": {
+            "rows": 3336,
+            "correct": 774,
+            "cross_entropy": 4.078459903347692,
+            "agreement": 0.23201438848920863
+          },
+          "disrupt": {
+            "rows": 1112,
+            "correct": 19,
+            "cross_entropy": 4.0122794225919165,
+            "agreement": 0.0170863309352518
+          },
+          "build_unforced": {
+            "rows": 2608,
+            "correct": 46,
+            "cross_entropy": 5.2169257045889195,
+            "agreement": 0.01763803680981595
+          },
+          "disrupt_unforced": {
+            "rows": 1112,
+            "correct": 19,
+            "cross_entropy": 4.0122794225919165,
+            "agreement": 0.0170863309352518
+          }
+        },
+        "full_plans": 1112,
+        "exact_full_plans": 0,
+        "exact_full_plan_agreement": 0.0,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      }
+    },
+    "finalMetrics": {
+      "train": {
+        "slices": {
+          "all": {
+            "rows": 18192,
+            "correct": 10015,
+            "cross_entropy": 1.7413196502737172,
+            "agreement": 0.5505167106420404
+          },
+          "unforced": {
+            "rows": 14428,
+            "correct": 6251,
+            "cross_entropy": 2.1955979399625356,
+            "agreement": 0.4332547823676185
+          },
+          "build": {
+            "rows": 13644,
+            "correct": 7152,
+            "cross_entropy": 1.9331712253453437,
+            "agreement": 0.5241864555848724
+          },
+          "disrupt": {
+            "rows": 4548,
+            "correct": 2863,
+            "cross_entropy": 1.165764925058838,
+            "agreement": 0.6295074758135444
+          },
+          "build_unforced": {
+            "rows": 9880,
+            "correct": 3388,
+            "cross_entropy": 2.669654675972861,
+            "agreement": 0.342914979757085
+          },
+          "disrupt_unforced": {
+            "rows": 4548,
+            "correct": 2863,
+            "cross_entropy": 1.165764925058838,
+            "agreement": 0.6295074758135444
+          }
+        },
+        "full_plans": 4548,
+        "exact_full_plans": 599,
+        "exact_full_plan_agreement": 0.13170624450307827,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      },
+      "validation": {
+        "slices": {
+          "all": {
+            "rows": 4448,
+            "correct": 2199,
+            "cross_entropy": 2.033352911686307,
+            "agreement": 0.4943794964028777
+          },
+          "unforced": {
+            "rows": 3720,
+            "correct": 1471,
+            "cross_entropy": 2.431277890102337,
+            "agreement": 0.39543010752688174
+          },
+          "build": {
+            "rows": 3336,
+            "correct": 1545,
+            "cross_entropy": 2.2724171121070404,
+            "agreement": 0.4631294964028777
+          },
+          "disrupt": {
+            "rows": 1112,
+            "correct": 654,
+            "cross_entropy": 1.316160310424107,
+            "agreement": 0.5881294964028777
+          },
+          "build_unforced": {
+            "rows": 2608,
+            "correct": 817,
+            "cross_entropy": 2.9067421341982693,
+            "agreement": 0.31326687116564417
+          },
+          "disrupt_unforced": {
+            "rows": 1112,
+            "correct": 654,
+            "cross_entropy": 1.316160310424107,
+            "agreement": 0.5881294964028777
+          }
+        },
+        "full_plans": 1112,
+        "exact_full_plans": 77,
+        "exact_full_plan_agreement": 0.06924460431654676,
+        "interpretation": "teacher-prefix agreement; not student rollouts or game strength"
+      }
+    },
+    "initialParity": {
+      "observations": 24,
+      "max_abs_error": {
+        "build": 4.76837158203125e-07,
+        "disrupt": 3.5762786865234375e-07,
+        "value": 4.172325134277344e-07
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true,
+      "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+      "passed": true
+    },
+    "finalParity": {
+      "observations": 24,
+      "max_abs_error": {
+        "build": 8.58306884765625e-06,
+        "disrupt": 2.6226043701171875e-06,
+        "value": 2.682209014892578e-06
+      },
+      "tolerance": 0.0001,
+      "greedy_equal": true,
+      "weights_sha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+      "passed": true
+    }
+  },
+  "checks": {
+    "javaIntegration": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "javaScoped": {
+      "tests": 545,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "javaFinalArtifact": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pythonPreflight": {
+      "tests": 30,
+      "failures": 0,
+      "log": "build/analysis/spatial-ppo-v4/preflight-python.log"
+    },
+    "pythonFinal": {
+      "tests": 30,
+      "failures": 0,
+      "log": "build/analysis/spatial-ppo-v4/post-training-python.log"
+    },
+    "engineExactReplays": 292,
+    "oldUntrackedPduhardTestsExcluded": 6,
+    "smoke": {
+      "experiment": "spatial-ppo-v4",
+      "kind": "declared smoke binary/action audit",
+      "passed": true,
+      "games": 3,
+      "turns": 6,
+      "rows": 24,
+      "compressedBytes": 32153,
+      "checks": [
+        "compressed/raw/metadata hashes",
+        "header and byte counts",
+        "stage/turn/label identity",
+        "target legal in serialized mask",
+        "finite exact float32 features",
+        "native completion"
+      ],
+      "strengthEvidence": false
+    }
+  },
+  "latePanel": {
+    "capturedPositions": 16,
+    "requestedPositions": 20,
+    "mapRole": "reused v2 diagnostic maps, not fresh strength confirmation",
+    "historicalToolLabel": "spatial-ppo-v2",
+    "profile": [
+      {
+        "label": "initial",
+        "weightsSha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+        "seatSamples": 32,
+        "actionMatches": 32,
+        "actionMismatches": 0,
+        "uninterruptedActionMismatches": 0,
+        "ampleParityTraceMismatches": 0,
+        "ampleInterrupted": 0,
+        "nominalInterrupted": 0,
+        "nominalCallsOver36Ms": 0,
+        "errors": 0,
+        "skippedActions": 0,
+        "amplePlayMs": {
+          "samples": 32,
+          "min": 7.239,
+          "mean": 16.095287499999994,
+          "p95": 20.9891,
+          "max": 23.5406
+        },
+        "nominalPlayMs": {
+          "samples": 32,
+          "min": 8.8944,
+          "mean": 16.248431250000003,
+          "p95": 20.5339,
+          "max": 22.3274
+        }
+      },
+      {
+        "label": "final",
+        "weightsSha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+        "seatSamples": 32,
+        "actionMatches": 32,
+        "actionMismatches": 0,
+        "uninterruptedActionMismatches": 0,
+        "ampleParityTraceMismatches": 0,
+        "ampleInterrupted": 0,
+        "nominalInterrupted": 0,
+        "nominalCallsOver36Ms": 0,
+        "errors": 0,
+        "skippedActions": 0,
+        "amplePlayMs": {
+          "samples": 32,
+          "min": 6.2359,
+          "mean": 15.942487499999999,
+          "p95": 22.3618,
+          "max": 25.022
+        },
+        "nominalPlayMs": {
+          "samples": 32,
+          "min": 2.815,
+          "mean": 13.613709375,
+          "p95": 20.3945,
+          "max": 20.4891
+        }
+      }
+    ],
+    "initialParity": {
+      "label": "initial",
+      "weights_sha256": "b8cdd34b01aac15c025bd36d41290fb261946debe483b3af268117ed7d8eca1d",
+      "observations": 128,
+      "seeds": [
+        10100000,
+        10100001,
+        10100002,
+        10100003
+      ],
+      "turns": [
+        0,
+        25,
+        50,
+        75,
+        99
+      ],
+      "observations_by_turn": {
+        "0": 32,
+        "25": 32,
+        "50": 32,
+        "75": 24,
+        "99": 8
+      },
+      "max_abs_error": {
+        "build": 5.960464477539062e-07,
+        "disrupt": 7.152557373046875e-07,
+        "value": 8.920745848683964e-07
+      },
+      "tolerance": 0.0001,
+      "greedy_mismatches": [],
+      "passed": true
+    },
+    "finalParity": {
+      "label": "final",
+      "weights_sha256": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+      "observations": 128,
+      "seeds": [
+        10100000,
+        10100001,
+        10100002,
+        10100003
+      ],
+      "turns": [
+        0,
+        25,
+        50,
+        75,
+        99
+      ],
+      "observations_by_turn": {
+        "0": 32,
+        "25": 32,
+        "50": 32,
+        "75": 24,
+        "99": 8
+      },
+      "max_abs_error": {
+        "build": 9.894371032714844e-06,
+        "disrupt": 3.933906555175781e-06,
+        "value": 5.015858459467282e-06
+      },
+      "tolerance": 0.0001,
+      "greedy_mismatches": [],
+      "passed": true
+    }
+  },
+  "artifact": {
+    "characters": 84315,
+    "sourceSha256": "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
+    "buildId": "de52c874c686f2729fe95f543b6ebe3992206478157a150cbf1e69f4190b6767",
+    "processGames": 8,
+    "processProblems": 0,
+    "firstResponseMaxMs": 593.7979,
+    "laterResponseMaxMs": 30.016
+  },
+  "v2Comparison": {
+    "games": 100,
+    "maps": 50,
+    "wins": 98,
+    "losses": 2,
+    "draws": 0,
+    "scoreRate": 0.98,
+    "meanScoreDifference": 4474.32,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      2,
+      0
+    ],
+    "elapsedMs": 128545,
+    "workers": 2,
+    "confidence95": [
+      0.7879354417360158,
+      1.0
+    ],
+    "confidenceMethod": "map-grouped Hoeffding 95%; assumes independent representative maps",
+    "role": "progress diagnostic, not promotion"
+  },
+  "v09Comparison": {
+    "games": 300,
+    "maps": 150,
+    "wins": 0,
+    "losses": 300,
+    "draws": 0,
+    "scoreRate": 0.0,
+    "meanScoreDifference": -9736.15,
+    "errors": [
+      0,
+      0
+    ],
+    "slowMoves": [
+      2,
+      0
+    ],
+    "elapsedMs": 569416,
+    "workers": 2,
+    "verdict": "STOP_FUTILITY_300"
+  },
+  "freshness": {
+    "distinctEvaluationMaps": 200,
+    "priorPlusDevelopmentExclusions": 21047,
+    "intersection": 0
+  },
+  "freezeAudit": {
+    "recordedAt": "2026-10-10T12:19:58.689670+00:00",
+    "unchangedFiles": 896,
+    "changedFiles": []
+  }
+}

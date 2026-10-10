@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-10: **spatial-ppo-v4**, supervised hard-action distillation
+from frozen v09, warm-start v2, unchanged architecture/runtime. 60 complete games,
+22,640 conditional rows, 16 epochs, 4,560 Adam steps. Held-out unforced teacher
+agreement 39.54%; exact full plans
+6.92% (teacher-prefix diagnostics).
+Final vs v2: **98W/2L/0D / 100**; practical-v4 vs v09: **0W/300L/0D / 300**,
+`STOP_FUTILITY_300`. Zero game errors; strict process 8/8 clean, 292 engine replays
+exact. Local bench slow calls 2/0 vs v2 and
+2/0 vs v09. Improved over v2, rejected for strength;
+boss skipped, selected v09 unchanged. Value head frozen during distillation;
+resulting values uncalibrated.
+[Protocol and evidence](spatial-ppo-v4.md).
+
 Completed 2026-10-09: **spatial-ppo-v3**, fixed four-opponent pool from v2 weights,
 unchanged model/runtime/PPO, 16,384 learner turns, 183 completed games and 1,024
 optimizer steps. Final versus v2: **6W/94L/0D / 100**, regression on 50 fresh paired
@@ -1047,6 +1060,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v4 | 2026-10-10 | V2 warm start; hard v09 teacher actions, 60 complete games, 22,640 rows, 16 epochs. Same model/runtime; no PPO/value loss. | V2: **98W/2L/0D / 100**. Practical-v4 vs v09: **0W/300L/0D / 300**, STOP_FUTILITY_300. Zero game errors; strict process 8/8 clean. | Not uploaded; stronger than v2, strength rejected, no promotion. [Evidence](spatial-ppo-v4.md). |
 | spatial-ppo-v3 | 2026-10-09 | V2 warm start; fixed four-opponent pool, 16,384 learner turns, 183 completed training games. Unchanged model/PPO/runtime. | V2: **6W/94L/0D / 100**. Practical-v4 vs v09: **0W/300L/0D**, STOP_FUTILITY_300. Zero errors; strict process 8/8 clean. | Not uploaded; regression against v2, rejected, no promotion. [Evidence](spatial-ppo-v3.md). |
 | spatial-ppo-v2 | 2026-10-09 | Same spatial model; fixed 8,192-turn self-play, 92 completed training games, separate final/initializer weights. | Initializer: **96W/4L/0D / 100**. Practical-v4 vs v09: **0W/300L/0D**, STOP_FUTILITY_300. Zero errors; strict process 8/8 clean. | Not uploaded; strength rejected, no promotion. [Evidence](spatial-ppo-v2.md). |
 | spatial-ppo-v1 | 2026-10-08 | Separate 3,439-weight spatial policy/value CNN; simultaneous exact-core self-play, full-plan PPO, generated Java inference. Fixed 256-turn technical training run. | Practical-v4 vs v09: **0W/300L/0D (0%)**, 150 fresh paired maps, STOP_FUTILITY_300. Zero errors; strict process 8/8 clean. | Not uploaded; no promotion. [Evidence](spatial-ppo-v1.md). |

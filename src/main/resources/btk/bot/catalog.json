@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "spatial-ppo-v4",
+      "title": "Distillation From V09",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Supervised distillation from frozen v09 hard actions, with separate generated SpatialV4Weights and the unchanged spatial model/runtime. No PPO in this stage; historical spatial-ppo naming retained. No promotion."
+    },
+    {
       "id": "spatial-ppo-v3",
       "title": "Spatial PPO Fixed Opponent Pool",
       "category": "candidate",

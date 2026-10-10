@@ -129,6 +129,13 @@ keeps the previous model and PPO objective. Recipe and results:
 Completed: 183 training games; final wins 6/100 against v2 and 0/300 against v09
 (STOP_FUTILITY_300). Rejected for strength; selected v09 unchanged.
 
+`spatial-ppo-v4` is a separate spatial version: supervised imitation of
+frozen v09 decisions, starting from v2 weights. It uses the same production network
+and runtime, with separate training/validation maps and no PPO or critic training.
+Protocol and results: [spatial-ppo-v4](docs/spatial-ppo-v4.md).
+Completed: 60 teacher games, 16 epochs; final vs v2 98W/2L/0D/100,
+vs v09 0W/300L/0D/300 (STOP_FUTILITY_300). Rejected for strength; v09 stays selected.
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from
