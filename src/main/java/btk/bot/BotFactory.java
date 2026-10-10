@@ -21,6 +21,7 @@ import btk.bot.neural.SpatialV6Bot;
 import btk.bot.neural.SpatialV7Bot;
 import btk.bot.neural.SpatialV8Bot;
 import btk.bot.neural.SpatialV9Bot;
+import btk.bot.neural.SpatialV10Bot;
 import btk.bot.neural.SpatialVariantBot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
@@ -144,7 +145,8 @@ public final class BotFactory {
         return version.equals("spatial-ppo-v1") || version.equals("spatial-ppo-v2")
                 || version.equals("spatial-ppo-v2-init") || version.equals("spatial-ppo-v3")
                 || version.equals("spatial-ppo-v4") || version.equals("spatial-ppo-v5") || version.equals("spatial-ppo-v6")
-                || version.equals("spatial-ppo-v7") || version.equals("spatial-ppo-v8") || version.equals("spatial-ppo-v9");
+                || version.equals("spatial-ppo-v7") || version.equals("spatial-ppo-v8") || version.equals("spatial-ppo-v9")
+                || version.equals("spatial-ppo-v10");
     }
 
     private static Function<Params, Bot> lookup(String version) {
@@ -181,6 +183,7 @@ public final class BotFactory {
             case "spatial-ppo-v7": return SpatialV7Bot::new;
             case "spatial-ppo-v8": return SpatialV8Bot::new;
             case "spatial-ppo-v9": return SpatialV9Bot::new;
+            case "spatial-ppo-v10": return SpatialV10Bot::new;
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
             case "indrill-forum-v1": return IndrillForumBot::new;

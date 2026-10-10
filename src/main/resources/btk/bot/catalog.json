@@ -212,6 +212,13 @@
       "description": "Separate greedy spatial policy with distance-weighted town embeddings broadcast over the board. Fixed supervised experiment; no search or strategy promotion. docs/spatial-ppo-v9.md."
     },
     {
+      "id": "spatial-ppo-v10",
+      "title": "Longer Full-Corpus Imitation",
+      "category": "candidate",
+      "status": "local_only",
+      "description": "Continue the original v4 supervised run on its unchanged full training corpus. Same spatial model, ordered imitation objective and greedy runtime; no search or strategy promotion. docs/spatial-ppo-v10.md."
+    },
+    {
       "id": "indrill-q-v1",
       "title": "Indrill Action Values",
       "category": "candidate",

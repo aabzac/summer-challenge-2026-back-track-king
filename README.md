@@ -189,6 +189,14 @@ establishes subset trainability, without a new candidate or strength claim.
 Selected v09 and original stage-3 status remain unchanged.
 [Protocol, results and reproduction](docs/spatial-fit-probe-v1.md).
 
+`spatial-ppo-v10` continues original V4 for exactly 64 more full-corpus epochs,
+restoring Adam/RNG and keeping the model/loss/runtime unchanged. TRAIN unforced
+agreement 6,251→7,337/14,428 (43.325%→50.853%); exposed validation 1,471→1,361/3,720 (39.543%→36.586%). Against original V4:
+66W/34L/0D / 100; practical-v4 against v09: **0W/300L/0D / 300, STOP_FUTILITY_300**.
+Strict process 8/8 clean. Strength rejected; selected v09 and original stage-3
+status remain unchanged. [Protocol, results and reproduction](docs/spatial-ppo-v10.md).
+
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

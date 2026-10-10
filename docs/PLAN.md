@@ -46,11 +46,12 @@ completed experiments do not automatically complete their parent stage.
       Decisions 118→192/192; actual Java full plans and semantic successors
       8→48/48. Complement/exposed-validation agreement worsens; this establishes
       subset trainability only. No candidate or strength bench; stage 3 stays open.
-- [ ] Proposed next stage-3 experiment: one bounded full-corpus continuation from
-      original V4, with unchanged architecture/loss, fixed endpoint and recorded
-      train/validation curves. Predeclare optimizer/RNG handling and extra budget;
-      do not start from the memorized probe or select checkpoints by results.
-      Test broader fitting before changing capacity; agreement is not a strength gate.
+- [x] Complete [spatial-ppo-v10](spatial-ppo-v10.md): fixed full-corpus continuation
+      from original V4 model/Adam/RNG, unchanged architecture/loss, 64 added
+      epochs / 18,240 updates, final-only epoch 80. Record all nine train/validation
+      curve points; agreement is not a strength gate. Vs original V4
+      66W/34L/0D / 100; versus v09 0W/300L/0D / 300, STOP_FUTILITY_300.
+      Strength rejected; selected v09 unchanged and parent stage 3 remains open.
 
 ## Spatial PPO first complete pipeline (2026-10-08)
 

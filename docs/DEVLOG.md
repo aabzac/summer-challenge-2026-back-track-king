@@ -6613,3 +6613,44 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   submission, boss calls, promotion, arena upload or push.
   [Protocol/results](spatial-fit-probe-v1.md),
   [report](evidence/spatial-fit-probe-v1.json).
+
+
+## 2026-10-11 — spatial-ppo-v10: fixed full-corpus continuation from V4
+
+- Hypothesis: the small TRAIN probe established fitting ability but worsened
+  agreement elsewhere. Additional optimization on the original full distribution
+  may improve imitation and actual play without changing architecture/objective.
+- Restore original epoch 16 V4 model, Adam moments/steps and Python/NumPy/Torch
+  RNG after construction. Same 18,192 TRAIN / 4,448 exposed-validation rows,
+  batch 64 with tail 16, lr 0.001; fixed 64 added epochs / 18,240 updates, final
+  epoch 80 / step 22,800. No new teacher data, initialization from probe/V9,
+  checkpoint selection, value objective or search. Run time 1424.602 s.
+- TRAIN unforced 6,251→7,337/14,428 (43.325%→50.853%), teacher-prefix full plans 599→829/4,548;
+  all-row CE 1.741320→1.484091.
+  Exposed validation unforced 1,471→1,361/3,720 (39.543%→36.586%), full plans 77→34/1,112;
+  CE 2.033353→2.051781.
+  Nine fixed curve points and checkpoints 16/48/80 retained; no agreement gate.
+- Checks: 43 Java / 25 Python preflight,
+  7 post-export Java tests; 292 exact core replays.
+  Initial/final parity 24 training rows and 128 saved-panel rows/model. Final
+  own-prefix nominal/ample match 32/32, cutoffs 0,
+  nominal mean/p95/max 22.393/26.706/26.871 ms.
+  Player 84,318 characters; strict process 8/8 clean, later max
+  37.024 ms. Frozen identities: 812 files,
+  910 historical files unchanged.
+- Progress vs V4: **66W/34L/0D / 100**, mean gap +733.90.
+  Native slow calls A/B 2/0, maximum move time
+  A/B 52/37 ms (A=V10, B=V4).
+  Practical-v4 vs v09: **0W/300L/0D / 300, STOP_FUTILITY_300**, mean gap
+  -9815.90; errors [0, 0].
+  200 comparison maps fresh/disjoint.
+- Native practical-block timing/outcomes follow (A=V10, B=v09); these outliers
+  remain distinct from the strict external-process check:
+
+- Block 1: **0W/300L/0D / 300**, score 0.000%, mean score gap -9815.90, errors [0, 0]; native slow calls A/B 2/0, maximum move time A/B 68/50 ms.
+
+- Decision: The fixed local strength comparison rejected this candidate. Preserve v09 selection, no promotion/upload/push.
+  These results leave the cause of the remaining learning gap unresolved; value
+  is uncalibrated and unused despite unchanged 15 head coefficients. Original
+  stage 3 remains open, and no next strategy is selected here.
+  [Protocol/results](spatial-ppo-v10.md), [summary](evidence/spatial-ppo-v10.json).

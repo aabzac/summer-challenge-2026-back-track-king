@@ -13,6 +13,15 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed 2026-10-11: **spatial-ppo-v10**, full-corpus continuation from original V4.
+Same architecture, ordered imitation objective and greedy runtime; restore
+original Adam/RNG, add 64 epochs / 18,240 steps, ending at epoch 80 / step 22,800.
+TRAIN unforced 6,251→7,337/14,428 (43.325%→50.853%); exposed validation 1,471→1,361/3,720 (39.543%→36.586%); teacher-prefix
+full plans 599→829/4,548 / 77→34/1,112, respectively. Versus original V4:
+**66W/34L/0D / 100**; practical-v4 versus v09: **0W/300L/0D / 300, STOP_FUTILITY_300**.
+Strict process 8/8 clean. Strength rejected; no promotion/upload, v09 selected,
+original stage 3 open. [Protocol/evidence](spatial-ppo-v10.md).
+
 Completed diagnostic 2026-10-10: **spatial-fit-probe-v1**, no registered candidate
 or strength bench. Unchanged V4, 48 fixed TRAIN roots / 192 rows, exactly 1,024
 epochs / 3,072 updates. Decisions 118→192/192; actual Java ordered/unordered full
@@ -1129,6 +1138,7 @@ benchmark. New reports use map-grouped Hoeffding bounds for the statistical prom
 
 | version | date | change | bench vs prev | CG result |
 |---|---|---|---|---|
+| spatial-ppo-v10 | 2026-10-11 | Continue original V4 model/Adam/RNG for 64 full-corpus epochs; same model/loss/runtime. | Vs v4: **66W/34L/0D / 100**; practical-v4 vs v09: **0W/300L/0D / 300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected, stage 3 open. [Evidence](spatial-ppo-v10.md). |
 | spatial-ppo-v9 | 2026-10-10 | Add distance-weighted town context; unchanged v4 corpus and fixed 16-epoch imitation recipe. | Vs v4: **42W/58L/0D/100**; practical-v4 vs v09: **0W/300L/0D / 300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected, stage 3 open. [Evidence](spatial-ppo-v9.md). |
 | spatial-ppo-v8 | 2026-10-10 | Frozen v4/v7 proposals; paired score checkpoints2/4/6/8, absorbing terminals and deepest completed fallback. | Practical-v4 vs v09: **2W/298L/0D/300**, STOP_FUTILITY_300. Strict process8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v8.md). |
 | spatial-ppo-v7 | 2026-10-10 | Frozen v4; root construction alternative with a fresh conditional suffix; exact two-turn ranking. | Practical-v4 vs v09: **1W/299L/0D/300**, STOP_FUTILITY_300. Strict process 8/8 clean. | Not uploaded; strength rejected. [Evidence](spatial-ppo-v7.md). |
