@@ -196,6 +196,13 @@ agreement 6,251→7,337/14,428 (43.325%→50.853%); exposed validation 1,471→1
 Strict process 8/8 clean. Strength rejected; selected v09 and original stage-3
 status remain unchanged. [Protocol, results and reproduction](docs/spatial-ppo-v10.md).
 
+`neural-proposal-audit-v1` returns to v09 through saved historical `neural-v3`
+actions: 51 positions on eight games, 13 terminal omissions. Eight proposals
+beat v09's best complete action under a shared rollout continuation; 12 tie and
+31 score worse. Seven positives also change the disruption target, so the
+construction contribution remains unresolved. No new model, strength bench or
+production change. [Protocol and results](docs/neural-proposal-audit-v1.md).
+
 
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a

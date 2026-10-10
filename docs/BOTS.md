@@ -13,6 +13,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-11: **neural-proposal-audit-v1**, no registered
+candidate or strength bench. Recorded historical neural-v3 full actions on
+51 live positions / eight games; 13 terminal omissions. Forty-eight new full
+actions, including 47 new construction sets. Under the same retained route-0
+continuation: **8 better / 12 tied / 31 worse** than the best complete v09
+alternative. Positives span six games; seven also change the disruption target,
+so construction alone is not established as the cause. 68 focused tests pass,
+292+8 replays exact, 581 frozen files preserved. Keep v09; no NN integration or
+strength claim. [Protocol/evidence](neural-proposal-audit-v1.md).
+
 Completed 2026-10-11: **spatial-ppo-v10**, full-corpus continuation from original V4.
 Same architecture, ordered imitation objective and greedy runtime; restore
 original Adam/RNG, add 64 epochs / 18,240 steps, ending at epoch 80 / step 22,800.

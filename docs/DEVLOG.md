@@ -6654,3 +6654,45 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   is uncalibrated and unused despite unchanged 15 head coefficients. Original
   stage 3 remains open, and no next strategy is selected here.
   [Protocol/results](spatial-ppo-v10.md), [summary](evidence/spatial-ppo-v10.json).
+
+## 2026-10-11 — neural-proposal-audit-v1: saved neural actions can expose missed v09 choices
+
+- Hypothesis: a recorded full action from the retained historical neural-v3 MLP
+  can supply a choice absent from v09's portfolio that its own lookahead prefers.
+  This returns to v09 without continuing spatial training or building a hybrid.
+- Fixed sample before measurement: first four candidate games per seat in the
+  original verified 40-game neural-v3 boss schedule; turns 3/10/20/30/40/50/60/70.
+  All 40 historical capture identities checked; selected eight complete games
+  reconstructed through core. Retained artifact and markers match, but do not
+  independently prove remote execution identity. No outcome-based selection.
+- New tools-only probe reconstructs raw root/target comparisons, target-specific
+  leftover fill and frozen-v09 selection. Primary comparison scores every full
+  action with the same retained own route 0 and original opponent replies.
+  Native root-specific scores stay separate. Suppressed duplicates cannot count
+  as new neural choices. No recorded future opponent actions enter scoring.
+- Checks: 68 focused tests pass (seven new synthetic tests), 292/292 archived
+  baseline replays and 8/8 source replays exact. Initial preflight test compilation
+  failed on a loop variable captured in a lambda; fixed before measurement, both
+  logs retained. Independent source review before freeze and report reconciliation
+  afterwards. All 581 frozen files unchanged; production/core/weights preserved.
+- Result: one panel, **51 live positions +13 genuine terminal omissions**;
+  542 searched tuples /522 distinct filled actions summed over positions. The
+  neural plan is new in 48 positions; 47 new construction sets and one target-only
+  change. Versus the best complete existing action: **8 better /12 equal /31
+  worse**. The eight positives span six games, four per seat. Against only the
+  emitted baseline there would be 14 positives; six fail the stronger comparison.
+- Interpretation: seven positives also introduce a target absent from the
+  baseline proposals; attribution to construction remains unresolved. One same-
+  target example combines two individually known cells into a new pair.
+  A +1,000,015 proxy gap in game907063898/turn30 is dominated by the existing
+  terminal-loss bonus, not actual points or a demonstrated recovered win.
+- Decision: retain the missed-choice signal; selected v09 stays. No new candidate,
+  games, training, submission, upload, promotion or push. One future diagnostic is
+  proposed: cross neural/v09 construction and disruption on the same panel to
+  isolate the contribution before choosing a small strategy change. Not run or
+  automatically scheduled. Spatial stages3–5 remain unresolved; do not reopen the
+  rejected ROOT_FILL/ALL_CELL_RISK experiments as if they were new proposals.
+- [Protocol/results](neural-proposal-audit-v1.md),
+  [summary and all action rows](evidence/neural-proposal-audit-v1.json),
+  [archive index](evidence/neural-proposal-audit-v1-artifacts.json),
+  [retained archive](evidence/neural-proposal-audit-v1-artifacts.zip).

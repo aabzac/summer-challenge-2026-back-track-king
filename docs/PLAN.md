@@ -3,6 +3,22 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Return to v09 — reuse neural proposals (2026-10-11)
+
+- [x] Complete [neural-proposal-audit-v1](neural-proposal-audit-v1.md) on a fixed
+      saved panel from historical neural-v3, with no new training or games:
+      51 positions / eight games, 13 terminal omissions; 48 novel full actions.
+      Eight beat the best complete v09 alternative under the shared rollout
+      continuation, 12 tie, 31 score worse; positives span six games.
+- [x] Verify native/frozen selection and all full-action comparisons; 68 focused
+      tests, 292 baseline +8 source replays exact, 581 frozen files preserved.
+      Archive evidence and record the diagnostic; selected v09 unchanged.
+- [ ] Proposed separately, not started: cross construction/disruption components
+      on this same panel. Seven of eight positives change both; isolate the cause
+      before selecting a bounded v09 change. No automatic hybrid or training run.
+
+This direction does not complete the unresolved original spatial stages below.
+
 ## Original spatial roadmap — outcome status (2026-10-10)
 
 Version numbers below are experiments within these five broad stages, not five
@@ -136,9 +152,10 @@ checkpoints, retaining settings, data/split identities, optimizer/RNG recovery a
 final metrics. Per-update full NPZ plus two JSON files and auditing every Adam
 step are not the default. Profile a bounded run before choosing batching,
 compiled loss code or a framework migration. Preserve the existing engine,
-numerical, artifact and practical-v4 strength checks. The still-open v09
-all-cell-risk route-candidate idea below is the recommended next strategy
-direction for discussion; no new strategy experiment was launched in this review.
+numerical, artifact and practical-v4 strength checks. At the time of this review,
+the v09 all-cell-risk route-candidate idea was proposed next; its completed
+rejection is recorded below. The current direction is the saved neural-proposal
+audit above; neither all-cell-risk nor root-fill is being reopened.
 
 ## Clean v09: rollout-fill-root-v1 (2026-10-06)
 

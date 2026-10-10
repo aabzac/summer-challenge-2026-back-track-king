@@ -1,0 +1,3929 @@
+{
+  "schema": "neural-proposal-audit-v1-summary",
+  "status": "DIAGNOSTIC_COMPLETE_PROPOSAL_OPPORTUNITY",
+  "baseRevision": "8f533d8",
+  "candidateRegistered": false,
+  "selectedBot": "v09",
+  "sourcePolicy": "neural-v3 (historical engineered-feature MLP, not spatial-ppo-v3)",
+  "buildId": "9158eae9029544f3b1984d543c36c1e5d3bd73bfbcbb5ba3a4f633a77da13267",
+  "sourceSha256": "2aee3ffec84a06dd314179cdf6d97475e87cf3dc8bd01aab81f27291a6bc563f",
+  "executionIdentityIndependentlyVerified": false,
+  "inputs": {
+    "sourcePlanSha256": "61f425c959db9ab4cf8f1557db66afdf10f72253efddfdc36b4dae8bf6e42e44",
+    "selectionSha256": "84b51a4bfd92b9e5150bdeb5611a377e8ddd92bc6fdf36674637dbc9d342967a",
+    "preparationSha256": "8a52a7bcbbf2b4f1d80b9c69f7db58381ee5b5f1265f097a8b0f63fea0dacb54"
+  },
+  "baseline": {
+    "spec": "v09?NOISE=0",
+    "ampleMsPerPlayOrTuple": 60000,
+    "depth": 8,
+    "maximumReplies": 2,
+    "replyCountsByPosition": {
+      "2": 38,
+      "1": 13
+    },
+    "continuation": "same retained own route 0 and original opponent portfolio for every full action",
+    "comparison": "best distinct searched complete baseline action under the common continuation"
+  },
+  "games": [
+    {
+      "slot": 1,
+      "gameId": 907063775,
+      "seed": "1132660295",
+      "me": 1,
+      "mapSha256": "c65af402fe51d5adbcde07f438a8ed0b2896fb96df15cb391f85e283c601343d",
+      "replaySha256": "133bd799935dadaba3a647a191eafa07983cc05908a9b7a06c6cfd82400e43c1",
+      "historicalCaptureSha256": "d4de0fabdf72358293b58b1e090b784f4b99c570b772d7ec41a97df24a6eaaad",
+      "turns": 49,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 2,
+      "gameId": 907063844,
+      "seed": "406021975",
+      "me": 0,
+      "mapSha256": "4b322632f5467aeff55d490f9b2a60f0c80b049cadc7b04ce8d5e9d7ab59935d",
+      "replaySha256": "4e344e15655f28e9e5b99892c400857c5dc59570c207160453c9bff3fbd4a786",
+      "historicalCaptureSha256": "1a976a56e340ff14d2fa2f26f6f8673f29c23f9e07aff278228cce95b153915c",
+      "turns": 41,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "seed": "1115221987",
+      "me": 0,
+      "mapSha256": "575cc4282abbc6989d01214d9f313c765563978536ae674f62b909c9808526dd",
+      "replaySha256": "8566bc534a22d5630d65a5fb744ae6a4daed205d231aa132958691cbe6943c3f",
+      "historicalCaptureSha256": "3639a8b927efb431cc906e0d9b880e9b87462f2b779eba8996a85cfeaa91a1ac",
+      "turns": 100,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "seed": "742580053",
+      "me": 0,
+      "mapSha256": "db2e1d976a0a543c9bbe9b70cf316125074c0e9bafda346686dc8a7b6865c8a9",
+      "replaySha256": "cbcef429f69242e1f02d0e7176513082cf538b8fd02fbd606ac061de25cf09a5",
+      "historicalCaptureSha256": "64d4fc80d8c27d19c89d3e1caa04cb9456ad851445c564ecae869df8c81ade55",
+      "turns": 51,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "seed": "1678648853",
+      "me": 1,
+      "mapSha256": "673f961a25c14210c96453d304d6591d7525be7373267aadaa4e866af859d1f7",
+      "replaySha256": "5484a27462cb7ca38b9b495207df6e59518723df6b68dd0004a6660dd21f8429",
+      "historicalCaptureSha256": "0cef88f7d116287f0097ac6e5db142c8870e2e4ee9f0594e3a3f8b265014f55e",
+      "turns": 51,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "seed": "1610227264",
+      "me": 1,
+      "mapSha256": "17f14cc97daec4d73bd17808d27bb046d3d67a1f43a68891e1bc268ed20f6c7a",
+      "replaySha256": "132d7c8ea75ab5cbd23178e69c8a836eb1751be0e878606ec9a30e0fd03606c2",
+      "historicalCaptureSha256": "c164ba304c311d2fddde5bfb0390c675a62e442e6dbec67715e98aa231420bd0",
+      "turns": 100,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "seed": "890401537",
+      "me": 0,
+      "mapSha256": "a805d19548fe383fbb4a3ec0a03cc3f26231e2a4567e5285e6334216d6d626ff",
+      "replaySha256": "03aab6390572da3b11a11212ab7d48900768d70fbfc03702245f543604c42b94",
+      "historicalCaptureSha256": "290d7f29dd62327f973b93f2d29f75908ac50b3fc1fbe28d20bbf8bf9450cd75",
+      "turns": 100,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    },
+    {
+      "slot": 8,
+      "gameId": 907064176,
+      "seed": "829713970",
+      "me": 1,
+      "mapSha256": "eda01ab4b8c9fd6e63f9455497e6e3fc368cc5c86ad45d80820e464990dc8527",
+      "replaySha256": "d845e6f21c74832b7cbcd34ffa0677f56c8c3e5479aa1d038b1a1f558ba4b3d5",
+      "historicalCaptureSha256": "7cb05dbfb0e26e81f8c35468f7b17d3f0509e89d006341a031a35c6c992eff1b",
+      "turns": 44,
+      "historicalSkippedActions": 0,
+      "cgValidated": true,
+      "executionIdentityIndependentlyVerified": false
+    }
+  ],
+  "perGame": [
+    {
+      "novelModelPreferred": 1,
+      "novelFullPlans": 4,
+      "omissions": 3,
+      "gameId": 907063775,
+      "positions": 5,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    },
+    {
+      "novelModelPreferred": 0,
+      "novelFullPlans": 4,
+      "omissions": 3,
+      "gameId": 907063844,
+      "positions": 5,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    },
+    {
+      "novelModelPreferred": 1,
+      "novelFullPlans": 8,
+      "omissions": 0,
+      "gameId": 907063898,
+      "positions": 8,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    },
+    {
+      "novelModelPreferred": 2,
+      "novelFullPlans": 5,
+      "omissions": 2,
+      "gameId": 907063965,
+      "positions": 6,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    },
+    {
+      "novelModelPreferred": 1,
+      "novelFullPlans": 6,
+      "omissions": 2,
+      "gameId": 907064014,
+      "positions": 6,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    },
+    {
+      "novelModelPreferred": 0,
+      "novelFullPlans": 8,
+      "omissions": 0,
+      "gameId": 907064062,
+      "positions": 8,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 1
+    },
+    {
+      "novelModelPreferred": 1,
+      "novelFullPlans": 8,
+      "omissions": 0,
+      "gameId": 907064114,
+      "positions": 8,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    },
+    {
+      "novelModelPreferred": 2,
+      "novelFullPlans": 5,
+      "omissions": 3,
+      "gameId": 907064176,
+      "positions": 5,
+      "coveredOnlyAfterFill": 0,
+      "targetOnlyNovelty": 0
+    }
+  ],
+  "requestedPositions": 64,
+  "positions": 51,
+  "omissions": [
+    {
+      "slot": 1,
+      "reason": "recorded game already terminal",
+      "gameId": 907063775,
+      "terminalTurn": 49,
+      "me": 1,
+      "turn": 50
+    },
+    {
+      "slot": 1,
+      "reason": "recorded game already terminal",
+      "gameId": 907063775,
+      "terminalTurn": 49,
+      "me": 1,
+      "turn": 60
+    },
+    {
+      "slot": 1,
+      "reason": "recorded game already terminal",
+      "gameId": 907063775,
+      "terminalTurn": 49,
+      "me": 1,
+      "turn": 70
+    },
+    {
+      "slot": 2,
+      "reason": "recorded game already terminal",
+      "gameId": 907063844,
+      "terminalTurn": 41,
+      "me": 0,
+      "turn": 50
+    },
+    {
+      "slot": 2,
+      "reason": "recorded game already terminal",
+      "gameId": 907063844,
+      "terminalTurn": 41,
+      "me": 0,
+      "turn": 60
+    },
+    {
+      "slot": 2,
+      "reason": "recorded game already terminal",
+      "gameId": 907063844,
+      "terminalTurn": 41,
+      "me": 0,
+      "turn": 70
+    },
+    {
+      "slot": 4,
+      "reason": "recorded game already terminal",
+      "gameId": 907063965,
+      "terminalTurn": 51,
+      "me": 0,
+      "turn": 60
+    },
+    {
+      "slot": 4,
+      "reason": "recorded game already terminal",
+      "gameId": 907063965,
+      "terminalTurn": 51,
+      "me": 0,
+      "turn": 70
+    },
+    {
+      "slot": 5,
+      "reason": "recorded game already terminal",
+      "gameId": 907064014,
+      "terminalTurn": 51,
+      "me": 1,
+      "turn": 60
+    },
+    {
+      "slot": 5,
+      "reason": "recorded game already terminal",
+      "gameId": 907064014,
+      "terminalTurn": 51,
+      "me": 1,
+      "turn": 70
+    },
+    {
+      "slot": 8,
+      "reason": "recorded game already terminal",
+      "gameId": 907064176,
+      "terminalTurn": 44,
+      "me": 1,
+      "turn": 50
+    },
+    {
+      "slot": 8,
+      "reason": "recorded game already terminal",
+      "gameId": 907064176,
+      "terminalTurn": 44,
+      "me": 1,
+      "turn": 60
+    },
+    {
+      "slot": 8,
+      "reason": "recorded game already terminal",
+      "gameId": 907064176,
+      "terminalTurn": 44,
+      "me": 1,
+      "turn": 70
+    }
+  ],
+  "counts": {
+    "novelFullPlans": 48,
+    "novelModelPreferred": 8,
+    "targetOnlyNovelty": 1,
+    "coveredOnlyAfterFill": 0,
+    "novelConstruction": 47,
+    "coveredFullPlans": 3,
+    "positiveGames": 6,
+    "suppressedOnlyFilledMatches": 0,
+    "searchedTuples": 542,
+    "distinctFilledActionsSummedAcrossPositions": 522,
+    "suppressedTuples": 6
+  },
+  "versusBestExistingFullAction": {
+    "better": 8,
+    "equal": 12,
+    "worse": 31
+  },
+  "novelVersusBestExistingFullAction": {
+    "better": 8,
+    "equal": 12,
+    "worse": 28
+  },
+  "versusActuallyEmittedBaseline": {
+    "better": 14,
+    "equal": 13,
+    "worse": 24
+  },
+  "positivePatterns": {
+    "allHaveNovelConstruction": true,
+    "constructionCellCounts": {
+      "1": 4,
+      "3": 1,
+      "2": 3
+    },
+    "differentTargetFromBestBaseline": 7,
+    "notes": [
+      "Four single-cell, three two-cell and one three-cell construction sets; cell count is not paint cost.",
+      "Two two-cell proposals are nonadjacent pairs; one is an adjacent pair. No general generator is identified.",
+      "Seven of eight positives also change disruption target, so construction alone is not the established cause.",
+      "907063898 turn 30: +1000015 is dominated by existing terminal-loss bonus in the baseline rollout; not actual points or a recovered win."
+    ]
+  },
+  "checks": {
+    "focusedTests": {
+      "tests": 68,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "baselineCgReplays": {
+      "passed": 292,
+      "total": 292
+    },
+    "sourceCgReplays": {
+      "passed": 8,
+      "total": 8
+    },
+    "frozenFilesUnchanged": 581,
+    "preflightNote": "Initial test compilation failed on a captured loop variable; fixed before measurement. Both logs retained.",
+    "independentSourceReview": "Completed before panel; conservative suppressed-action novelty guard added before freeze."
+  },
+  "decision": "Retain the proposal opportunity, keep v09 selected, do not integrate a neural runtime from this diagnostic.",
+  "nextHypothesisNotRun": "On the same fixed 51 states, cross neural construction with emitted-v09 target and vice versa to distinguish construction, disruption and interaction. Preserve the common evaluator and best-existing-full-action denominator; no new training or maps.",
+  "limits": [
+    "Eight reused development maps on neural-v3 trajectories; not a v09 on-policy or fresh strength sample.",
+    "Recorded actions can be deadline-truncated; no new neural inference occurred.",
+    "Ample offline common-route-0 score is a proxy; no win-rate or contest-runtime conclusion.",
+    "Marker/source attribution does not independently prove remote server execution identity.",
+    "No new games, training, production changes, submission, upload, promotion or push."
+  ],
+  "fullReport": {
+    "pathInArchive": "build/analysis/neural-proposal-audit-v1/results.json",
+    "sha256": "33abb017aa31c408ae148b30aff9f2cc38eff9e609daeb6b424bc4dc7e14ad1d"
+  },
+  "samples": [
+    {
+      "slot": 1,
+      "gameId": 907063775,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "2482aed199b7bd6996d3bef09bb0005bbae15e816bf485e6e583dec7ec6fbf3c",
+      "recordedCommand": "PLACE_TRACKS 17 6;PLACE_TRACKS 17 5;PLACE_TRACKS 18 5;DISRUPT 22",
+      "neuralPlan": {
+        "cells": [
+          155,
+          132,
+          133
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 17 6;PLACE_TRACKS 17 5;PLACE_TRACKS 18 5;DISRUPT 22"
+      },
+      "baselinePlan": {
+        "cells": [
+          193,
+          194,
+          195
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 9 8;PLACE_TRACKS 10 8;PLACE_TRACKS 11 8;DISRUPT 22"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 1,
+        "filledFullPlanMatches": 1,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 2,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": false,
+        "novelConstruction": false,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 3.0,
+        "replyValues": [
+          -17.0,
+          63.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 18.0,
+        "replyValues": [
+          57.0,
+          5.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 18.0,
+        "replyValues": [
+          57.0,
+          5.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -15.0,
+      "neuralMinusBestFilled": -15.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          193,
+          194,
+          195
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 9 8;PLACE_TRACKS 10 8;PLACE_TRACKS 11 8;DISRUPT 22"
+      }
+    },
+    {
+      "slot": 1,
+      "gameId": 907063775,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "99510f401edf20eff6bfdc10e4493fd9ffe79dba653bb88c14f1a604e7fc4ede",
+      "recordedCommand": "PLACE_TRACKS 20 2;PLACE_TRACKS 2 9;PLACE_TRACKS 1 9;DISRUPT 16",
+      "neuralPlan": {
+        "cells": [
+          66,
+          209,
+          208
+        ],
+        "target": 16,
+        "action": "PLACE_TRACKS 20 2;PLACE_TRACKS 2 9;PLACE_TRACKS 1 9;DISRUPT 16"
+      },
+      "baselinePlan": {
+        "cells": [
+          112,
+          135,
+          158
+        ],
+        "target": 5,
+        "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 20 5;PLACE_TRACKS 20 6;DISRUPT 5"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 306.0,
+        "replyValues": [
+          306.0,
+          306.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 358.0,
+        "replyValues": [
+          358.0,
+          358.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 358.0,
+        "replyValues": [
+          358.0,
+          358.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -52.0,
+      "neuralMinusBestFilled": -52.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          112,
+          135,
+          158
+        ],
+        "target": 5,
+        "action": "PLACE_TRACKS 20 4;PLACE_TRACKS 20 5;PLACE_TRACKS 20 6;DISRUPT 5"
+      }
+    },
+    {
+      "slot": 1,
+      "gameId": 907063775,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "a94259f65ac647ececcf503812cf0a00bdf8f6e8b654fa890df5e5e12f624c61",
+      "recordedCommand": "PLACE_TRACKS 11 10;DISRUPT 33",
+      "neuralPlan": {
+        "cells": [
+          241
+        ],
+        "target": 33,
+        "action": "PLACE_TRACKS 11 10;DISRUPT 33"
+      },
+      "baselinePlan": {
+        "cells": [
+          240
+        ],
+        "target": 5,
+        "action": "PLACE_TRACKS 10 10;DISRUPT 5"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 445.0,
+        "replyValues": [
+          441.0,
+          457.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 411.5,
+        "replyValues": [
+          407.0,
+          425.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 411.5,
+        "replyValues": [
+          407.0,
+          425.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 33.5,
+      "neuralMinusBestFilled": 33.5,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          240
+        ],
+        "target": 5,
+        "action": "PLACE_TRACKS 10 10;DISRUPT 5"
+      }
+    },
+    {
+      "slot": 1,
+      "gameId": 907063775,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "2b87f6a4d45d034dcd2b756927bcdbfcb18bd3773b2ad75960304ee275f31674",
+      "recordedCommand": "PLACE_TRACKS 1 1;PLACE_TRACKS 2 1;PLACE_TRACKS 0 4;DISRUPT 39",
+      "neuralPlan": {
+        "cells": [
+          24,
+          25,
+          92
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 1 1;PLACE_TRACKS 2 1;PLACE_TRACKS 0 4;DISRUPT 39"
+      },
+      "baselinePlan": {
+        "cells": [
+          159,
+          233,
+          235
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 3 10;PLACE_TRACKS 5 10;DISRUPT 39"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -314.0,
+        "replyValues": [
+          -314.0,
+          -314.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -298.0,
+        "replyValues": [
+          -298.0,
+          -298.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -298.0,
+        "replyValues": [
+          -298.0,
+          -298.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -16.0,
+      "neuralMinusBestFilled": -16.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          159,
+          233,
+          235
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 3 10;PLACE_TRACKS 5 10;DISRUPT 39"
+      }
+    },
+    {
+      "slot": 1,
+      "gameId": 907063775,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "97f2d3f0623f4551ce648c705db30fc16dfbc236112260e82cdcbffae079ed64",
+      "recordedCommand": "PLACE_TRACKS 11 3;PLACE_TRACKS 12 7;DISRUPT 7",
+      "neuralPlan": {
+        "cells": [
+          80,
+          173
+        ],
+        "target": 7,
+        "action": "PLACE_TRACKS 11 3;PLACE_TRACKS 12 7;DISRUPT 7"
+      },
+      "baselinePlan": {
+        "cells": [
+          235,
+          234,
+          233
+        ],
+        "target": 7,
+        "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 7"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -396.0,
+        "replyValues": [
+          -396.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -396.0,
+        "replyValues": [
+          -396.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -396.0,
+        "replyValues": [
+          -396.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          235,
+          234,
+          233
+        ],
+        "target": 7,
+        "action": "PLACE_TRACKS 5 10;PLACE_TRACKS 4 10;PLACE_TRACKS 3 10;DISRUPT 7"
+      }
+    },
+    {
+      "slot": 2,
+      "gameId": 907063844,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "88f682df8286a70579599dfc6c39b4b37cddb1de55b817f08a44220b0b05e250",
+      "recordedCommand": "PLACE_TRACKS 21 7;PLACE_TRACKS 18 8;PLACE_TRACKS 19 8;DISRUPT 26",
+      "neuralPlan": {
+        "cells": [
+          182,
+          202,
+          203
+        ],
+        "target": 26,
+        "action": "PLACE_TRACKS 21 7;PLACE_TRACKS 18 8;PLACE_TRACKS 19 8;DISRUPT 26"
+      },
+      "baselinePlan": {
+        "cells": [
+          146,
+          147,
+          148
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 6;PLACE_TRACKS 10 6"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 117.0,
+        "replyValues": [
+          117.0,
+          117.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 356.0,
+        "replyValues": [
+          356.0,
+          356.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 356.0,
+        "replyValues": [
+          356.0,
+          356.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -239.0,
+      "neuralMinusBestFilled": -239.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          146,
+          147,
+          148
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 8 6;PLACE_TRACKS 9 6;PLACE_TRACKS 10 6"
+      }
+    },
+    {
+      "slot": 2,
+      "gameId": 907063844,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "0d83efa590633ac4e71ece7593ab2c36193262d43060987ceacf463f89d13a1c",
+      "recordedCommand": "PLACE_TRACKS 18 11;PLACE_TRACKS 20 2;PLACE_TRACKS 17 11;DISRUPT 10",
+      "neuralPlan": {
+        "cells": [
+          271,
+          66,
+          270
+        ],
+        "target": 10,
+        "action": "PLACE_TRACKS 18 11;PLACE_TRACKS 20 2;PLACE_TRACKS 17 11;DISRUPT 10"
+      },
+      "baselinePlan": {
+        "cells": [
+          43,
+          44,
+          134
+        ],
+        "target": 10,
+        "action": "PLACE_TRACKS 20 1;PLACE_TRACKS 21 1;PLACE_TRACKS 19 5;DISRUPT 10"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 99.75,
+        "replyValues": [
+          99.0,
+          102.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 106.75,
+        "replyValues": [
+          106.0,
+          109.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 162.0,
+        "replyValues": [
+          210.0,
+          146.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -7.0,
+      "neuralMinusBestFilled": -62.25,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          134,
+          133,
+          132
+        ],
+        "target": 10,
+        "action": "PLACE_TRACKS 19 5;PLACE_TRACKS 18 5;PLACE_TRACKS 17 5;DISRUPT 10"
+      }
+    },
+    {
+      "slot": 2,
+      "gameId": 907063844,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "c1850bb7f1195fe33ee8c30f24f2451e79eee0ec542841f43bdd9e5a54dae708",
+      "recordedCommand": "PLACE_TRACKS 16 12;PLACE_TRACKS 15 12;PLACE_TRACKS 15 11;DISRUPT 25",
+      "neuralPlan": {
+        "cells": [
+          292,
+          291,
+          268
+        ],
+        "target": 25,
+        "action": "PLACE_TRACKS 16 12;PLACE_TRACKS 15 12;PLACE_TRACKS 15 11;DISRUPT 25"
+      },
+      "baselinePlan": {
+        "cells": [
+          296,
+          319,
+          318
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 20 12;PLACE_TRACKS 20 13;PLACE_TRACKS 19 13"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 143.5,
+        "replyValues": [
+          223.0,
+          117.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 386.0,
+        "replyValues": [
+          431.0,
+          371.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 386.0,
+        "replyValues": [
+          431.0,
+          371.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -242.5,
+      "neuralMinusBestFilled": -242.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          296,
+          319,
+          318
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 20 12;PLACE_TRACKS 20 13;PLACE_TRACKS 19 13"
+      }
+    },
+    {
+      "slot": 2,
+      "gameId": 907063844,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "a0f89e53069ec6721d1ed82e976d68cfe7275278d437e391022143ef65778c9a",
+      "recordedCommand": "PLACE_TRACKS 15 1;DISRUPT 23",
+      "neuralPlan": {
+        "cells": [
+          38
+        ],
+        "target": 23,
+        "action": "PLACE_TRACKS 15 1;DISRUPT 23"
+      },
+      "baselinePlan": {
+        "cells": [
+          38
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 15 1"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 1,
+        "filledFullPlanMatches": 1,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 2,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": false,
+        "novelConstruction": false,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 252.0,
+        "replyValues": [
+          252.0,
+          252.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 285.0,
+        "replyValues": [
+          285.0,
+          285.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 285.0,
+        "replyValues": [
+          285.0,
+          285.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -33.0,
+      "neuralMinusBestFilled": -33.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          38
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 15 1"
+      }
+    },
+    {
+      "slot": 2,
+      "gameId": 907063844,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "3f45442e39368c579a41170ff827cefb4b70879af69e17e108db5872407bd8c4",
+      "recordedCommand": "PLACE_TRACKS 8 10;PLACE_TRACKS 14 2;DISRUPT 31",
+      "neuralPlan": {
+        "cells": [
+          238,
+          60
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 8 10;PLACE_TRACKS 14 2;DISRUPT 31"
+      },
+      "baselinePlan": {
+        "cells": [
+          16,
+          68,
+          91
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 16 0;PLACE_TRACKS 22 2;PLACE_TRACKS 22 3;DISRUPT 31"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 1000152.0,
+        "replyValues": [
+          1000152.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 1000152.0,
+        "replyValues": [
+          1000152.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 1000152.0,
+        "replyValues": [
+          1000152.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          16,
+          68,
+          91
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 16 0;PLACE_TRACKS 22 2;PLACE_TRACKS 22 3;DISRUPT 31"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "8d28acaf28cef7240ae503bc971823eb48502887da66b0cd0d035614ca2346c0",
+      "recordedCommand": "PLACE_TRACKS 4 4;PLACE_TRACKS 9 3;PLACE_TRACKS 9 2;DISRUPT 37",
+      "neuralPlan": {
+        "cells": [
+          96,
+          78,
+          55
+        ],
+        "target": 37,
+        "action": "PLACE_TRACKS 4 4;PLACE_TRACKS 9 3;PLACE_TRACKS 9 2;DISRUPT 37"
+      },
+      "baselinePlan": {
+        "cells": [
+          33,
+          56,
+          79
+        ],
+        "target": 37,
+        "action": "PLACE_TRACKS 10 1;PLACE_TRACKS 10 2;PLACE_TRACKS 10 3;DISRUPT 37"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 32.0,
+        "replyValues": [
+          26.0,
+          50.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 92.25,
+        "replyValues": [
+          89.0,
+          102.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 92.25,
+        "replyValues": [
+          89.0,
+          102.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -60.25,
+      "neuralMinusBestFilled": -60.25,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          33,
+          56,
+          79
+        ],
+        "target": 37,
+        "action": "PLACE_TRACKS 10 1;PLACE_TRACKS 10 2;PLACE_TRACKS 10 3;DISRUPT 37"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "fd70bb341bebf9f1ae4ea38e8552305c56894aa20ab7372e634852950cd820d9",
+      "recordedCommand": "PLACE_TRACKS 11 9;PLACE_TRACKS 12 4;DISRUPT 24",
+      "neuralPlan": {
+        "cells": [
+          218,
+          104
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 11 9;PLACE_TRACKS 12 4;DISRUPT 24"
+      },
+      "baselinePlan": {
+        "cells": [
+          134
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 19 5;DISRUPT 24"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -256.75,
+        "replyValues": [
+          -226.0,
+          -267.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -22.0,
+        "replyValues": [
+          -23.0,
+          -19.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -22.0,
+        "replyValues": [
+          -23.0,
+          -19.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -234.75,
+      "neuralMinusBestFilled": -234.75,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          35,
+          36
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 12 1;PLACE_TRACKS 13 1;DISRUPT 24"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "6824e5e9b4481deee25d3d6f9f842d6c4006da90a0b6f15c294eb7b6f039adf3",
+      "recordedCommand": "PLACE_TRACKS 17 2;PLACE_TRACKS 17 3;PLACE_TRACKS 16 3;DISRUPT 14",
+      "neuralPlan": {
+        "cells": [
+          63,
+          86,
+          85
+        ],
+        "target": 14,
+        "action": "PLACE_TRACKS 17 2;PLACE_TRACKS 17 3;PLACE_TRACKS 16 3;DISRUPT 14"
+      },
+      "baselinePlan": {
+        "cells": [
+          134
+        ],
+        "target": 14,
+        "action": "PLACE_TRACKS 19 5;DISRUPT 14"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -560.0,
+        "replyValues": [
+          -563.0,
+          -551.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -549.0,
+        "replyValues": [
+          -549.0,
+          -549.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -549.0,
+        "replyValues": [
+          -549.0,
+          -549.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -11.0,
+      "neuralMinusBestFilled": -11.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          11,
+          12
+        ],
+        "target": 14,
+        "action": "PLACE_TRACKS 11 0;PLACE_TRACKS 12 0;DISRUPT 14"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "2c79bc110be45a1c5bbe13e30b80b1e6122bea2a26c64b891254c0ef0aec5f2d",
+      "recordedCommand": "PLACE_TRACKS 21 12;PLACE_TRACKS 22 12;PLACE_TRACKS 22 11;DISRUPT 20",
+      "neuralPlan": {
+        "cells": [
+          297,
+          298,
+          275
+        ],
+        "target": 20,
+        "action": "PLACE_TRACKS 21 12;PLACE_TRACKS 22 12;PLACE_TRACKS 22 11;DISRUPT 20"
+      },
+      "baselinePlan": {
+        "cells": [
+          203,
+          226,
+          249
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 19 8;PLACE_TRACKS 19 9;PLACE_TRACKS 19 10;DISRUPT 12"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -490.0,
+        "replyValues": [
+          -490.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -1000505.0,
+        "replyValues": [
+          -1000505.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -1000505.0,
+        "replyValues": [
+          -1000505.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 1000015.0,
+      "neuralMinusBestFilled": 1000015.0,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          226,
+          203,
+          249
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 19 9;PLACE_TRACKS 19 8;PLACE_TRACKS 19 10;DISRUPT 12"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "8c73df68ba85c8f539240ae2b3dc8374c26cf57af72273a11bec98102dc05f5c",
+      "recordedCommand": "PLACE_TRACKS 13 12;PLACE_TRACKS 12 12;PLACE_TRACKS 11 12;DISRUPT 21",
+      "neuralPlan": {
+        "cells": [
+          289,
+          288,
+          287
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 13 12;PLACE_TRACKS 12 12;PLACE_TRACKS 11 12;DISRUPT 21"
+      },
+      "baselinePlan": {
+        "cells": [
+          183,
+          194,
+          198
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 22 7;PLACE_TRACKS 10 8;PLACE_TRACKS 14 8;DISRUPT 21"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -559.0,
+        "replyValues": [
+          -559.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -559.0,
+        "replyValues": [
+          -559.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -559.0,
+        "replyValues": [
+          -559.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          183,
+          194,
+          198
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 22 7;PLACE_TRACKS 10 8;PLACE_TRACKS 14 8;DISRUPT 21"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 50,
+      "me": 0,
+      "stateSha256": "6144ccec2fabc18ce63d160ce2f91c2262c1038dcb8594f5abf155e60ba4490a",
+      "recordedCommand": "PLACE_TRACKS 22 2;DISRUPT 35",
+      "neuralPlan": {
+        "cells": [
+          68
+        ],
+        "target": 35,
+        "action": "PLACE_TRACKS 22 2;DISRUPT 35"
+      },
+      "baselinePlan": {
+        "cells": [
+          250,
+          249,
+          20
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 0;DISRUPT 12"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -579.0,
+        "replyValues": [
+          -579.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -579.0,
+        "replyValues": [
+          -579.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -579.0,
+        "replyValues": [
+          -579.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          250,
+          249,
+          20
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 0;DISRUPT 12"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 60,
+      "me": 0,
+      "stateSha256": "821cc2c854051991016efad02a2628aa968ae81feff292517c22b3996a8d7012",
+      "recordedCommand": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 11;DISRUPT 41",
+      "neuralPlan": {
+        "cells": [
+          250,
+          249,
+          273
+        ],
+        "target": 41,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 20 11;DISRUPT 41"
+      },
+      "baselinePlan": {
+        "cells": [
+          250,
+          249,
+          311
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 12 13;DISRUPT 22"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -599.0,
+        "replyValues": [
+          -599.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -599.0,
+        "replyValues": [
+          -599.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -599.0,
+        "replyValues": [
+          -599.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          250,
+          249,
+          311
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 20 10;PLACE_TRACKS 19 10;PLACE_TRACKS 12 13;DISRUPT 22"
+      }
+    },
+    {
+      "slot": 3,
+      "gameId": 907063898,
+      "turn": 70,
+      "me": 0,
+      "stateSha256": "8905410df5db4d2771a4e8c32fff55641ef170b5bc7234ee687b60f6092ea381",
+      "recordedCommand": "PLACE_TRACKS 19 13;PLACE_TRACKS 21 13;PLACE_TRACKS 1 9;DISRUPT 0",
+      "neuralPlan": {
+        "cells": [
+          318,
+          320,
+          208
+        ],
+        "target": 0,
+        "action": "PLACE_TRACKS 19 13;PLACE_TRACKS 21 13;PLACE_TRACKS 1 9;DISRUPT 0"
+      },
+      "baselinePlan": {
+        "cells": [
+          320
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 21 13;DISRUPT 22"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -619.0,
+        "replyValues": [
+          -619.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -619.0,
+        "replyValues": [
+          -619.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -619.0,
+        "replyValues": [
+          -619.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          320
+        ],
+        "target": 22,
+        "action": "PLACE_TRACKS 21 13;DISRUPT 22"
+      }
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "73ff7264e0073386afbae5499ba2b68a0e66eb5d9fd22d0e5d45f4f1d4138874",
+      "recordedCommand": "PLACE_TRACKS 3 6;PLACE_TRACKS 4 6;PLACE_TRACKS 9 6;DISRUPT 21",
+      "neuralPlan": {
+        "cells": [
+          141,
+          142,
+          147
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 3 6;PLACE_TRACKS 4 6;PLACE_TRACKS 9 6;DISRUPT 21"
+      },
+      "baselinePlan": {
+        "cells": [
+          141,
+          164,
+          165
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 3 6;PLACE_TRACKS 3 7;PLACE_TRACKS 4 7;DISRUPT 21"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 1,
+        "filledFullPlanMatches": 1,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 2,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": false,
+        "novelConstruction": false,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 20.0,
+        "replyValues": [
+          29.0,
+          17.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -1.0,
+        "replyValues": [
+          23.0,
+          -9.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 69.5,
+        "replyValues": [
+          83.0,
+          65.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 21.0,
+      "neuralMinusBestFilled": -49.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          169,
+          167
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 8 7;PLACE_TRACKS 6 7;DISRUPT 21"
+      }
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "1e0e2344901c5d5ff74b804ce05cb720a74f9d1526f342ff12d7c21856876bc2",
+      "recordedCommand": "PLACE_TRACKS 15 6;PLACE_TRACKS 15 5;PLACE_TRACKS 15 3;DISRUPT 3",
+      "neuralPlan": {
+        "cells": [
+          153,
+          130,
+          84
+        ],
+        "target": 3,
+        "action": "PLACE_TRACKS 15 6;PLACE_TRACKS 15 5;PLACE_TRACKS 15 3;DISRUPT 3"
+      },
+      "baselinePlan": {
+        "cells": [
+          97,
+          96,
+          95
+        ],
+        "target": 3,
+        "action": "PLACE_TRACKS 5 4;PLACE_TRACKS 4 4;PLACE_TRACKS 3 4;DISRUPT 3"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -60.0,
+        "replyValues": [
+          -48.0,
+          -64.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -29.5,
+        "replyValues": [
+          -16.0,
+          -34.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -29.5,
+        "replyValues": [
+          -16.0,
+          -34.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -30.5,
+      "neuralMinusBestFilled": -30.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          97,
+          96,
+          95
+        ],
+        "target": 3,
+        "action": "PLACE_TRACKS 5 4;PLACE_TRACKS 4 4;PLACE_TRACKS 3 4;DISRUPT 3"
+      }
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "3ea1921c6bd1c6cf94c2660fdf21a95301712b30c04cfcc8c53c96c5aff5b877",
+      "recordedCommand": "PLACE_TRACKS 10 8;PLACE_TRACKS 8 9;DISRUPT 42",
+      "neuralPlan": {
+        "cells": [
+          194,
+          215
+        ],
+        "target": 42,
+        "action": "PLACE_TRACKS 10 8;PLACE_TRACKS 8 9;DISRUPT 42"
+      },
+      "baselinePlan": {
+        "cells": [
+          255,
+          62
+        ],
+        "target": 23,
+        "action": "PLACE_TRACKS 2 11;PLACE_TRACKS 16 2;DISRUPT 23"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 160.5,
+        "replyValues": [
+          213.0,
+          143.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 198.25,
+        "replyValues": [
+          223.0,
+          190.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 198.25,
+        "replyValues": [
+          223.0,
+          190.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -37.75,
+      "neuralMinusBestFilled": -37.75,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          255,
+          62
+        ],
+        "target": 23,
+        "action": "PLACE_TRACKS 2 11;PLACE_TRACKS 16 2;DISRUPT 23"
+      }
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "31e1dbfa6d80a5827d501269a7f1e5fc8956133f12883760b69a2962837f35b6",
+      "recordedCommand": "PLACE_TRACKS 11 6;DISRUPT 19",
+      "neuralPlan": {
+        "cells": [
+          149
+        ],
+        "target": 19,
+        "action": "PLACE_TRACKS 11 6;DISRUPT 19"
+      },
+      "baselinePlan": {
+        "cells": [
+          81
+        ],
+        "target": 8,
+        "action": "PLACE_TRACKS 12 3;DISRUPT 8"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 225.25,
+        "replyValues": [
+          238.0,
+          221.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 211.5,
+        "replyValues": [
+          246.0,
+          200.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 211.5,
+        "replyValues": [
+          246.0,
+          200.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 13.75,
+      "neuralMinusBestFilled": 13.75,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          81
+        ],
+        "target": 8,
+        "action": "PLACE_TRACKS 12 3;DISRUPT 8"
+      }
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "fb120cd8a011acca5e9c4bd5cc62a7412f7c7f377274597a609ee51e08eb432b",
+      "recordedCommand": "PLACE_TRACKS 18 12;PLACE_TRACKS 17 12;DISRUPT 31",
+      "neuralPlan": {
+        "cells": [
+          294,
+          293
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 18 12;PLACE_TRACKS 17 12;DISRUPT 31"
+      },
+      "baselinePlan": {
+        "cells": [
+          192,
+          76,
+          99
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4;DISRUPT 39"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 42.0,
+        "replyValues": [
+          42.0,
+          42.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -40.0,
+        "replyValues": [
+          -40.0,
+          -40.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -40.0,
+        "replyValues": [
+          -40.0,
+          -40.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 82.0,
+      "neuralMinusBestFilled": 82.0,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          192,
+          76,
+          99
+        ],
+        "target": 39,
+        "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4;DISRUPT 39"
+      }
+    },
+    {
+      "slot": 4,
+      "gameId": 907063965,
+      "turn": 50,
+      "me": 0,
+      "stateSha256": "1e516fd817a0cbb0156f17f1f1f7735327b4cab25a4e8e55c6463be0103c3c75",
+      "recordedCommand": "PLACE_TRACKS 15 14;DISRUPT 11",
+      "neuralPlan": {
+        "cells": [
+          337
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 15 14;DISRUPT 11"
+      },
+      "baselinePlan": {
+        "cells": [
+          192,
+          228,
+          205
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 21 9;PLACE_TRACKS 21 8;DISRUPT 11"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 1000044.0,
+        "replyValues": [
+          1000044.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 1000044.0,
+        "replyValues": [
+          1000044.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 1000044.0,
+        "replyValues": [
+          1000044.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          192,
+          228,
+          205
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 8 8;PLACE_TRACKS 21 9;PLACE_TRACKS 21 8;DISRUPT 11"
+      }
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "dcc6ac64b8ead89b10a15f9c38ca646c81f924d0a369dfc2c02959469c26f1b6",
+      "recordedCommand": "PLACE_TRACKS 21 11;DISRUPT 43",
+      "neuralPlan": {
+        "cells": [
+          318
+        ],
+        "target": 43,
+        "action": "PLACE_TRACKS 21 11;DISRUPT 43"
+      },
+      "baselinePlan": {
+        "cells": [
+          331,
+          304
+        ],
+        "target": 43,
+        "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;DISRUPT 43"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -89.0,
+        "replyValues": [
+          -20.0,
+          -112.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -30.75,
+        "replyValues": [
+          12.0,
+          -45.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -30.75,
+        "replyValues": [
+          12.0,
+          -45.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -58.25,
+      "neuralMinusBestFilled": -58.25,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          331,
+          304
+        ],
+        "target": 43,
+        "action": "PLACE_TRACKS 7 12;PLACE_TRACKS 7 11;DISRUPT 43"
+      }
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "3a8b8a0deb275e6a554cc538c34f1ebdba71b79fb539b6cf2912ae0b17b1a1b5",
+      "recordedCommand": "PLACE_TRACKS 3 2;DISRUPT 45",
+      "neuralPlan": {
+        "cells": [
+          57
+        ],
+        "target": 45,
+        "action": "PLACE_TRACKS 3 2;DISRUPT 45"
+      },
+      "baselinePlan": {
+        "cells": [
+          57,
+          58
+        ],
+        "target": 45,
+        "action": "PLACE_TRACKS 3 2;PLACE_TRACKS 4 2;DISRUPT 45"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -312.5,
+        "replyValues": [
+          -281.0,
+          -323.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -303.5,
+        "replyValues": [
+          -272.0,
+          -314.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -275.5,
+        "replyValues": [
+          -244.0,
+          -286.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -9.0,
+      "neuralMinusBestFilled": -37.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          74,
+          73,
+          72
+        ],
+        "target": 45,
+        "action": "PLACE_TRACKS 20 2;PLACE_TRACKS 19 2;PLACE_TRACKS 18 2;DISRUPT 45"
+      }
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "4296506f6b951aadc62a74bea6d1b7765b09866181a3b8896349271558c93be3",
+      "recordedCommand": "PLACE_TRACKS 18 9;DISRUPT 28",
+      "neuralPlan": {
+        "cells": [
+          261
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 18 9;DISRUPT 28"
+      },
+      "baselinePlan": {
+        "cells": [
+          186,
+          185,
+          158
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 1,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -1642.0,
+        "replyValues": [
+          -1642.0,
+          -1642.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -1634.0,
+        "replyValues": [
+          -1634.0,
+          -1634.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -1384.0,
+        "replyValues": [
+          -1384.0,
+          -1384.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -8.0,
+      "neuralMinusBestFilled": -258.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          186,
+          185,
+          158
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 28"
+      }
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "e1dea8b4e72901e8baf7fb26e012e6396653d8de00602dc12f942fce90061bad",
+      "recordedCommand": "PLACE_TRACKS 24 3;PLACE_TRACKS 5 9;DISRUPT 52",
+      "neuralPlan": {
+        "cells": [
+          105,
+          248
+        ],
+        "target": 52,
+        "action": "PLACE_TRACKS 24 3;PLACE_TRACKS 5 9;DISRUPT 52"
+      },
+      "baselinePlan": {
+        "cells": [
+          385,
+          386,
+          387
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 14;PLACE_TRACKS 8 14;PLACE_TRACKS 9 14"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -3270.25,
+        "replyValues": [
+          -3315.0,
+          -3136.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -3395.75,
+        "replyValues": [
+          -3549.0,
+          -2936.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -3395.75,
+        "replyValues": [
+          -3549.0,
+          -2936.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 125.5,
+      "neuralMinusBestFilled": 125.5,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          385,
+          386,
+          387
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 14;PLACE_TRACKS 8 14;PLACE_TRACKS 9 14"
+      }
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "bc33f7d4bbde6471c44c86d83ea759001f6a8bdc80043a11617d9dda75da2259",
+      "recordedCommand": "PLACE_TRACKS 5 11;PLACE_TRACKS 8 17;DISRUPT 50",
+      "neuralPlan": {
+        "cells": [
+          302,
+          467
+        ],
+        "target": 50,
+        "action": "PLACE_TRACKS 5 11;PLACE_TRACKS 8 17;DISRUPT 50"
+      },
+      "baselinePlan": {
+        "cells": [
+          186,
+          185,
+          158
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 11"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -3135.0,
+        "replyValues": [
+          -3135.0,
+          -3135.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -3096.0,
+        "replyValues": [
+          -3096.0,
+          -3096.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -3096.0,
+        "replyValues": [
+          -3096.0,
+          -3096.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -39.0,
+      "neuralMinusBestFilled": -39.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          186,
+          185,
+          158
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 24 6;PLACE_TRACKS 23 6;PLACE_TRACKS 23 5;DISRUPT 11"
+      }
+    },
+    {
+      "slot": 5,
+      "gameId": 907064014,
+      "turn": 50,
+      "me": 1,
+      "stateSha256": "b04e54ae3757a690bc9d85e009294025aeb35509f66a9012e05eeba700e4cc98",
+      "recordedCommand": "PLACE_TRACKS 1 17;DISRUPT 32",
+      "neuralPlan": {
+        "cells": [
+          460
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 1 17;DISRUPT 32"
+      },
+      "baselinePlan": {
+        "cells": [
+          35,
+          8,
+          7
+        ],
+        "target": 35,
+        "action": "PLACE_TRACKS 8 1;PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;DISRUPT 35"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -1003099.0,
+        "replyValues": [
+          -1003099.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -1003099.0,
+        "replyValues": [
+          -1003099.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -1003099.0,
+        "replyValues": [
+          -1003099.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          35,
+          8,
+          7
+        ],
+        "target": 35,
+        "action": "PLACE_TRACKS 8 1;PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;DISRUPT 35"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "24a60ee2c0aaa83523debe2842a8a566044ead9191ea8a5fcdf804a8c806b96c",
+      "recordedCommand": "PLACE_TRACKS 20 7;PLACE_TRACKS 19 7;PLACE_TRACKS 15 3;DISRUPT 13",
+      "neuralPlan": {
+        "cells": [
+          209,
+          208,
+          96
+        ],
+        "target": 13,
+        "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 19 7;PLACE_TRACKS 15 3;DISRUPT 13"
+      },
+      "baselinePlan": {
+        "cells": [
+          96,
+          123,
+          121
+        ],
+        "target": 13,
+        "action": "PLACE_TRACKS 15 3;PLACE_TRACKS 15 4;PLACE_TRACKS 13 4;DISRUPT 13"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -38.0,
+        "replyValues": [
+          -14.0,
+          -46.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -42.5,
+        "replyValues": [
+          -43.0,
+          -41.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -16.25,
+        "replyValues": [
+          7.0,
+          -24.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 4.5,
+      "neuralMinusBestFilled": -21.75,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          209,
+          177
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 20 7;PLACE_TRACKS 15 6"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "2b705b8363abbc636d80b221d98e64155351b47734062e1e02c3e6b8883c27f7",
+      "recordedCommand": "PLACE_TRACKS 15 4;PLACE_TRACKS 5 10;PLACE_TRACKS 5 9;DISRUPT 35",
+      "neuralPlan": {
+        "cells": [
+          123,
+          275,
+          248
+        ],
+        "target": 35,
+        "action": "PLACE_TRACKS 15 4;PLACE_TRACKS 5 10;PLACE_TRACKS 5 9;DISRUPT 35"
+      },
+      "baselinePlan": {
+        "cells": [
+          256
+        ],
+        "target": 30,
+        "action": "PLACE_TRACKS 13 9;DISRUPT 30"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -155.75,
+        "replyValues": [
+          -164.0,
+          -131.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -21.75,
+        "replyValues": [
+          -29.0,
+          0.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -18.75,
+        "replyValues": [
+          -24.0,
+          -3.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -134.0,
+      "neuralMinusBestFilled": -137.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          334,
+          307,
+          280
+        ],
+        "target": 30,
+        "action": "PLACE_TRACKS 10 12;PLACE_TRACKS 10 11;PLACE_TRACKS 10 10;DISRUPT 30"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "a2e79ca6f9f84742890f25708e9fff5edb02661542c1ece01de05da8c2fc55c4",
+      "recordedCommand": "PLACE_TRACKS 23 7;PLACE_TRACKS 15 6;DISRUPT 18",
+      "neuralPlan": {
+        "cells": [
+          212,
+          177
+        ],
+        "target": 18,
+        "action": "PLACE_TRACKS 23 7;PLACE_TRACKS 15 6;DISRUPT 18"
+      },
+      "baselinePlan": {
+        "cells": [
+          183,
+          210,
+          212
+        ],
+        "target": 42,
+        "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 21 7;PLACE_TRACKS 23 7;DISRUPT 42"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -359.0,
+        "replyValues": [
+          -359.0,
+          -359.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -4.0,
+        "replyValues": [
+          -4.0,
+          -4.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 261.0,
+        "replyValues": [
+          261.0,
+          261.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -355.0,
+      "neuralMinusBestFilled": -620.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          122,
+          121
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "aa5d71f06a12e7df49e8623823e82fe2552bdf57f94527d6ad1e1a727f35deca",
+      "recordedCommand": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 14 15;DISRUPT 37",
+      "neuralPlan": {
+        "cells": [
+          53,
+          392,
+          419
+        ],
+        "target": 37,
+        "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 14 15;DISRUPT 37"
+      },
+      "baselinePlan": {
+        "cells": [
+          53,
+          392,
+          33
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 6 1"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -508.5,
+        "replyValues": [
+          -515.0,
+          -489.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -485.0,
+        "replyValues": [
+          -401.0,
+          -513.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -485.0,
+        "replyValues": [
+          -401.0,
+          -513.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -23.5,
+      "neuralMinusBestFilled": -23.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          53,
+          392,
+          33
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 26 1;PLACE_TRACKS 14 14;PLACE_TRACKS 6 1"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "4203bf93101c9ca68324c9e17fd7ffe01b9743befa86254b2d2b5adf3054cd5e",
+      "recordedCommand": "PLACE_TRACKS 13 4;PLACE_TRACKS 14 4;DISRUPT 19",
+      "neuralPlan": {
+        "cells": [
+          121,
+          122
+        ],
+        "target": 19,
+        "action": "PLACE_TRACKS 13 4;PLACE_TRACKS 14 4;DISRUPT 19"
+      },
+      "baselinePlan": {
+        "cells": [
+          122,
+          121
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 2,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": false,
+        "targetOnlyNovelty": true,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -518.25,
+        "replyValues": [
+          -495.0,
+          -526.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -518.25,
+        "replyValues": [
+          -495.0,
+          -526.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -518.25,
+        "replyValues": [
+          -495.0,
+          -526.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          122,
+          121
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 14 4;PLACE_TRACKS 13 4"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 50,
+      "me": 1,
+      "stateSha256": "86c6a024d90524c046e8818fdac71d1485107c6acbbaa2245f125f7e45801395",
+      "recordedCommand": "PLACE_TRACKS 23 12;DISRUPT 1",
+      "neuralPlan": {
+        "cells": [
+          347
+        ],
+        "target": 1,
+        "action": "PLACE_TRACKS 23 12;DISRUPT 1"
+      },
+      "baselinePlan": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 1,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 1"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -623.0,
+        "replyValues": [
+          -623.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -623.0,
+        "replyValues": [
+          -623.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -623.0,
+        "replyValues": [
+          -623.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 1,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 1"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 60,
+      "me": 1,
+      "stateSha256": "8716e526b01d3a01c55e416eba6dbba78a60016545886746ad0a591f52c1d562",
+      "recordedCommand": "PLACE_TRACKS 25 17;DISRUPT 45",
+      "neuralPlan": {
+        "cells": [
+          484
+        ],
+        "target": 45,
+        "action": "PLACE_TRACKS 25 17;DISRUPT 45"
+      },
+      "baselinePlan": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -663.0,
+        "replyValues": [
+          -663.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -663.0,
+        "replyValues": [
+          -663.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -663.0,
+        "replyValues": [
+          -663.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+      }
+    },
+    {
+      "slot": 6,
+      "gameId": 907064062,
+      "turn": 70,
+      "me": 1,
+      "stateSha256": "5e094858dce7a2bc6933a6a1c68f68b94b316bf0181dd3742a5902d264bf9c07",
+      "recordedCommand": "PLACE_TRACKS 1 12;DISRUPT 52",
+      "neuralPlan": {
+        "cells": [
+          325
+        ],
+        "target": 52,
+        "action": "PLACE_TRACKS 1 12;DISRUPT 52"
+      },
+      "baselinePlan": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -703.0,
+        "replyValues": [
+          -703.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -703.0,
+        "replyValues": [
+          -703.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -703.0,
+        "replyValues": [
+          -703.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": 0.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          8,
+          7,
+          9
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 8 0;PLACE_TRACKS 7 0;PLACE_TRACKS 9 0;DISRUPT 28"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 3,
+      "me": 0,
+      "stateSha256": "032f1e176afe4916ba3a5484d225271687b55e92f9f5b98a36212dcb5f6cd7f0",
+      "recordedCommand": "DISRUPT 4",
+      "neuralPlan": {
+        "cells": [],
+        "target": 4,
+        "action": "DISRUPT 4"
+      },
+      "baselinePlan": {
+        "cells": [
+          19,
+          18,
+          16
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 19 0;PLACE_TRACKS 18 0;PLACE_TRACKS 16 0;DISRUPT 32"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 1,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -226.5,
+        "replyValues": [
+          -288.0,
+          -42.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -213.5,
+        "replyValues": [
+          -308.0,
+          70.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -143.5,
+        "replyValues": [
+          -172.0,
+          -58.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -13.0,
+      "neuralMinusBestFilled": -83.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          109,
+          108,
+          107
+        ],
+        "target": 4,
+        "action": "PLACE_TRACKS 22 3;PLACE_TRACKS 21 3;PLACE_TRACKS 20 3;DISRUPT 4"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 10,
+      "me": 0,
+      "stateSha256": "f0c15b6ec2b6d0df878194a73f3dd23da5949da8c264dc65b8dbb42c517569ff",
+      "recordedCommand": "PLACE_TRACKS 18 13;DISRUPT 12",
+      "neuralPlan": {
+        "cells": [
+          395
+        ],
+        "target": 12,
+        "action": "PLACE_TRACKS 18 13;DISRUPT 12"
+      },
+      "baselinePlan": {
+        "cells": [
+          293,
+          294,
+          295
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 3 10;PLACE_TRACKS 4 10;PLACE_TRACKS 5 10;DISRUPT 32"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -766.25,
+        "replyValues": [
+          -773.0,
+          -746.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -883.25,
+        "replyValues": [
+          -890.0,
+          -863.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -827.25,
+        "replyValues": [
+          -822.0,
+          -829.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 117.0,
+      "neuralMinusBestFilled": 61.0,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          65,
+          69,
+          109
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 2;PLACE_TRACKS 11 2;PLACE_TRACKS 22 3"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 20,
+      "me": 0,
+      "stateSha256": "4ef08321ecce7f8c3dd0a0b63ae26b7115a30ab383ab0c9398c868dcbb882a02",
+      "recordedCommand": "WAIT",
+      "neuralPlan": {
+        "cells": [],
+        "target": -1,
+        "action": "WAIT"
+      },
+      "baselinePlan": {
+        "cells": [
+          293,
+          294,
+          295
+        ],
+        "target": 13,
+        "action": "PLACE_TRACKS 3 10;PLACE_TRACKS 4 10;PLACE_TRACKS 5 10;DISRUPT 13"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 1,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 2,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -4005.0,
+        "replyValues": [
+          -4006.0,
+          -4002.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -4054.0,
+        "replyValues": [
+          -4055.0,
+          -4051.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -3809.0,
+        "replyValues": [
+          -3810.0,
+          -3806.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 49.0,
+      "neuralMinusBestFilled": -196.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          65,
+          94,
+          123
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 7 2;PLACE_TRACKS 7 3;PLACE_TRACKS 7 4"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 30,
+      "me": 0,
+      "stateSha256": "714f2c4ae7f3c1ba04533125ccff081669f5a12c461350388cc61362405db993",
+      "recordedCommand": "PLACE_TRACKS 8 2;DISRUPT 11",
+      "neuralPlan": {
+        "cells": [
+          66
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 8 2;DISRUPT 11"
+      },
+      "baselinePlan": {
+        "cells": [
+          307,
+          306,
+          305
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 17 10;PLACE_TRACKS 16 10;PLACE_TRACKS 15 10;DISRUPT 11"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -11479.75,
+        "replyValues": [
+          -11521.0,
+          -11356.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -11519.0,
+        "replyValues": [
+          -11561.0,
+          -11393.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -11195.5,
+        "replyValues": [
+          -11236.0,
+          -11074.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 39.25,
+      "neuralMinusBestFilled": -284.25,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          69,
+          94,
+          454
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 11 2;PLACE_TRACKS 7 3;PLACE_TRACKS 19 15;DISRUPT 11"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 40,
+      "me": 0,
+      "stateSha256": "20ab579e525412eb0b7a2e65edd5b27fcf61ae8ab8986e7b4b43d916b73d1e5a",
+      "recordedCommand": "PLACE_TRACKS 7 9;DISRUPT 34",
+      "neuralPlan": {
+        "cells": [
+          268
+        ],
+        "target": 34,
+        "action": "PLACE_TRACKS 7 9;DISRUPT 34"
+      },
+      "baselinePlan": {
+        "cells": [
+          504,
+          505,
+          506
+        ],
+        "target": 34,
+        "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 12 17;PLACE_TRACKS 13 17;DISRUPT 34"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -15446.25,
+        "replyValues": [
+          -15559.0,
+          -15108.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -15092.75,
+        "replyValues": [
+          -15047.0,
+          -15108.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -15092.75,
+        "replyValues": [
+          -15047.0,
+          -15108.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -353.5,
+      "neuralMinusBestFilled": -353.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          504,
+          505,
+          506
+        ],
+        "target": 34,
+        "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 12 17;PLACE_TRACKS 13 17;DISRUPT 34"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 50,
+      "me": 0,
+      "stateSha256": "d59df95f7b16b33397d1278822c5b894e35c9257e9679a8e436b5710d4df9e58",
+      "recordedCommand": "PLACE_TRACKS 23 8;DISRUPT 31",
+      "neuralPlan": {
+        "cells": [
+          255
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 23 8;DISRUPT 31"
+      },
+      "baselinePlan": {
+        "cells": [
+          431,
+          402,
+          373
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 25 14;PLACE_TRACKS 25 13;PLACE_TRACKS 25 12;DISRUPT 31"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -16659.75,
+        "replyValues": [
+          -16823.0,
+          -16170.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -16873.5,
+        "replyValues": [
+          -17121.0,
+          -16131.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -16650.75,
+        "replyValues": [
+          -16834.0,
+          -16101.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 213.75,
+      "neuralMinusBestFilled": -9.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          431,
+          430,
+          459
+        ],
+        "target": 31,
+        "action": "PLACE_TRACKS 25 14;PLACE_TRACKS 24 14;PLACE_TRACKS 24 15;DISRUPT 31"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 60,
+      "me": 0,
+      "stateSha256": "e3c68f00fe31274f19be0711f0909235be3d369661332600294e8502567cabef",
+      "recordedCommand": "PLACE_TRACKS 6 11;DISRUPT 32",
+      "neuralPlan": {
+        "cells": [
+          325
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 6 11;DISRUPT 32"
+      },
+      "baselinePlan": {
+        "cells": [
+          511
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 18 17;DISRUPT 32"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -18383.75,
+        "replyValues": [
+          -18387.0,
+          -18374.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -18383.75,
+        "replyValues": [
+          -18387.0,
+          -18374.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -18331.75,
+        "replyValues": [
+          -18335.0,
+          -18322.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 0.0,
+      "neuralMinusBestFilled": -52.0,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          504,
+          11,
+          20
+        ],
+        "target": 32,
+        "action": "PLACE_TRACKS 11 17;PLACE_TRACKS 11 0;PLACE_TRACKS 20 0;DISRUPT 32"
+      }
+    },
+    {
+      "slot": 7,
+      "gameId": 907064114,
+      "turn": 70,
+      "me": 0,
+      "stateSha256": "d39463e71ea29517f65f7a95eb6c7e83dd4a5fb79d98ed4923f8703d96f0caf3",
+      "recordedCommand": "PLACE_TRACKS 20 8;DISRUPT 28",
+      "neuralPlan": {
+        "cells": [
+          252
+        ],
+        "target": 28,
+        "action": "PLACE_TRACKS 20 8;DISRUPT 28"
+      },
+      "baselinePlan": {
+        "cells": [
+          249,
+          11
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 17 8;PLACE_TRACKS 11 0;DISRUPT 21"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -19127.75,
+        "replyValues": [
+          -18998.0,
+          -19171.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -19088.5,
+        "replyValues": [
+          -19069.0,
+          -19095.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -19088.5,
+        "replyValues": [
+          -19069.0,
+          -19095.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -39.25,
+      "neuralMinusBestFilled": -39.25,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          249,
+          11
+        ],
+        "target": 21,
+        "action": "PLACE_TRACKS 17 8;PLACE_TRACKS 11 0;DISRUPT 21"
+      }
+    },
+    {
+      "slot": 8,
+      "gameId": 907064176,
+      "turn": 3,
+      "me": 1,
+      "stateSha256": "364e4cc4b202fa6a2655909dfc4f706d60aea0cab291aeecfe520c05730f6694",
+      "recordedCommand": "PLACE_TRACKS 19 2;PLACE_TRACKS 16 6;PLACE_TRACKS 5 6;DISRUPT 29",
+      "neuralPlan": {
+        "cells": [
+          67,
+          160,
+          149
+        ],
+        "target": 29,
+        "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 16 6;PLACE_TRACKS 5 6;DISRUPT 29"
+      },
+      "baselinePlan": {
+        "cells": [
+          67,
+          135,
+          134
+        ],
+        "target": 29,
+        "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 15 5;PLACE_TRACKS 14 5;DISRUPT 29"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -30.5,
+        "replyValues": [
+          -23.0,
+          -33.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -40.25,
+        "replyValues": [
+          -41.0,
+          -38.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 35.0,
+        "replyValues": [
+          77.0,
+          21.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 9.75,
+      "neuralMinusBestFilled": -65.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          67,
+          89,
+          135
+        ],
+        "target": -1,
+        "action": "PLACE_TRACKS 19 2;PLACE_TRACKS 17 3;PLACE_TRACKS 15 5"
+      }
+    },
+    {
+      "slot": 8,
+      "gameId": 907064176,
+      "turn": 10,
+      "me": 1,
+      "stateSha256": "2911fab70d326024247eea2169318ba24bf7208436138347efcc32178dd264c1",
+      "recordedCommand": "PLACE_TRACKS 15 3;PLACE_TRACKS 14 3;PLACE_TRACKS 21 1;DISRUPT 17",
+      "neuralPlan": {
+        "cells": [
+          87,
+          86,
+          45
+        ],
+        "target": 17,
+        "action": "PLACE_TRACKS 15 3;PLACE_TRACKS 14 3;PLACE_TRACKS 21 1;DISRUPT 17"
+      },
+      "baselinePlan": {
+        "cells": [
+          42,
+          43
+        ],
+        "target": 17,
+        "action": "PLACE_TRACKS 18 1;PLACE_TRACKS 19 1;DISRUPT 17"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -15.5,
+        "replyValues": [
+          -31.0,
+          31.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 71.0,
+        "replyValues": [
+          71.0,
+          71.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 222.0,
+        "replyValues": [
+          222.0,
+          222.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -86.5,
+      "neuralMinusBestFilled": -237.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          45,
+          44
+        ],
+        "target": 17,
+        "action": "PLACE_TRACKS 21 1;PLACE_TRACKS 20 1;DISRUPT 17"
+      }
+    },
+    {
+      "slot": 8,
+      "gameId": 907064176,
+      "turn": 20,
+      "me": 1,
+      "stateSha256": "ae36bdf8becacf4bd9c82d8f87c2079334f9beb574dd62f9318d1fd2d582a95c",
+      "recordedCommand": "PLACE_TRACKS 8 10;PLACE_TRACKS 13 6;DISRUPT 18",
+      "neuralPlan": {
+        "cells": [
+          248,
+          157
+        ],
+        "target": 18,
+        "action": "PLACE_TRACKS 8 10;PLACE_TRACKS 13 6;DISRUPT 18"
+      },
+      "baselinePlan": {
+        "cells": [
+          273,
+          274
+        ],
+        "target": 18,
+        "action": "PLACE_TRACKS 9 11;PLACE_TRACKS 10 11;DISRUPT 18"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": -35.0,
+        "replyValues": [
+          -42.0,
+          -14.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": -67.75,
+        "replyValues": [
+          -84.0,
+          -19.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": -49.5,
+        "replyValues": [
+          -30.0,
+          -56.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 32.75,
+      "neuralMinusBestFilled": 14.5,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          249,
+          273,
+          277
+        ],
+        "target": 18,
+        "action": "PLACE_TRACKS 9 10;PLACE_TRACKS 9 11;PLACE_TRACKS 13 11;DISRUPT 18"
+      }
+    },
+    {
+      "slot": 8,
+      "gameId": 907064176,
+      "turn": 30,
+      "me": 1,
+      "stateSha256": "2d0f18fb07d5024af8b8195d77e0de359d1a98d3bd8738da44379b4c257bfefc",
+      "recordedCommand": "PLACE_TRACKS 19 11;PLACE_TRACKS 20 11;PLACE_TRACKS 21 11;DISRUPT 24",
+      "neuralPlan": {
+        "cells": [
+          283,
+          284,
+          285
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 19 11;PLACE_TRACKS 20 11;PLACE_TRACKS 21 11;DISRUPT 24"
+      },
+      "baselinePlan": {
+        "cells": [
+          63,
+          316,
+          18
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 15 2;PLACE_TRACKS 4 13;PLACE_TRACKS 18 0;DISRUPT 24"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 318.5,
+        "replyValues": [
+          332.0,
+          314.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 334.0,
+        "replyValues": [
+          334.0,
+          334.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 334.0,
+        "replyValues": [
+          334.0,
+          334.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": -15.5,
+      "neuralMinusBestFilled": -15.5,
+      "novelModelPreferred": false,
+      "bestExistingFullPlan": {
+        "cells": [
+          63,
+          316,
+          18
+        ],
+        "target": 24,
+        "action": "PLACE_TRACKS 15 2;PLACE_TRACKS 4 13;PLACE_TRACKS 18 0;DISRUPT 24"
+      }
+    },
+    {
+      "slot": 8,
+      "gameId": 907064176,
+      "turn": 40,
+      "me": 1,
+      "stateSha256": "cbd967c89dbf17aca323a118157adac20c0c98736a4eda1281b85bf3c27f78d7",
+      "recordedCommand": "PLACE_TRACKS 14 13;DISRUPT 45",
+      "neuralPlan": {
+        "cells": [
+          326
+        ],
+        "target": 45,
+        "action": "PLACE_TRACKS 14 13;DISRUPT 45"
+      },
+      "baselinePlan": {
+        "cells": [
+          18,
+          41,
+          63
+        ],
+        "target": 40,
+        "action": "PLACE_TRACKS 18 0;PLACE_TRACKS 17 1;PLACE_TRACKS 15 2;DISRUPT 40"
+      },
+      "coverage": {
+        "rawFullPlanMatches": 0,
+        "filledFullPlanMatches": 0,
+        "rawConstructionMatches": 0,
+        "filledConstructionMatches": 0,
+        "suppressedRawFullPlanMatches": 0,
+        "suppressedFilledFullPlanMatches": 0,
+        "suppressedFilledConstructionMatches": 0,
+        "novelFullPlan": true,
+        "novelConstruction": true,
+        "targetOnlyNovelty": false,
+        "coveredOnlyAfterFill": false
+      },
+      "neuralCommonScore": {
+        "value": 1000289.0,
+        "replyValues": [
+          1000289.0
+        ]
+      },
+      "baselineCommonScore": {
+        "value": 1000282.0,
+        "replyValues": [
+          1000282.0
+        ]
+      },
+      "bestCommonFilledScore": {
+        "value": 1000282.0,
+        "replyValues": [
+          1000282.0
+        ]
+      },
+      "neuralMinusEmittedBaseline": 7.0,
+      "neuralMinusBestFilled": 7.0,
+      "novelModelPreferred": true,
+      "bestExistingFullPlan": {
+        "cells": [
+          18,
+          41,
+          63
+        ],
+        "target": 40,
+        "action": "PLACE_TRACKS 18 0;PLACE_TRACKS 17 1;PLACE_TRACKS 15 2;DISRUPT 40"
+      }
+    }
+  ]
+}

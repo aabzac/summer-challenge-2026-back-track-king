@@ -1,0 +1,375 @@
+{
+  "recordedAt": "2026-10-10T23:29:23.285559+00:00",
+  "archiveSha256": "29a2e9c8591ab6d35473b8a428b422229013feab57d74b9a42866a6b95cb69f1",
+  "archiveBytes": 678576,
+  "files": {
+    "build/analysis/neural-proposal-audit-v1/engine-command.json": {
+      "sha256": "f82a544051cace327e170a7c92012d9f966f3f3ebbcca9e9c5daeaa6c22e6198",
+      "bytes": 832
+    },
+    "build/analysis/neural-proposal-audit-v1/engine-exit.json": {
+      "sha256": "1a709f79d5bdba1b2514379ed7b3f69fad135813744ccd831d884a01ad5c6b23",
+      "bytes": 117
+    },
+    "build/analysis/neural-proposal-audit-v1/engine.log": {
+      "sha256": "477ea86af794375f3d7dc33f20772e438d18d06f77717f7bb5f1add2670f1e38",
+      "bytes": 38
+    },
+    "build/analysis/neural-proposal-audit-v1/freeze.json": {
+      "sha256": "5aca1199b92bdeff6795ea2da04aaebff312f9aa097941152319d6ef1a3db8b2",
+      "bytes": 76838
+    },
+    "build/analysis/neural-proposal-audit-v1/input-provenance.json": {
+      "sha256": "8a52a7bcbbf2b4f1d80b9c69f7db58381ee5b5f1265f097a8b0f63fea0dacb54",
+      "bytes": 54594
+    },
+    "build/analysis/neural-proposal-audit-v1/panel-command.json": {
+      "sha256": "67002677fef927431d893e1c0bf1aedb0b4262997ac85afa4033f1e6f50a18bb",
+      "bytes": 946
+    },
+    "build/analysis/neural-proposal-audit-v1/panel-exit.json": {
+      "sha256": "6c389667f1ed0ae0544dc5e89f0df0953f3f8f870eda3457c3c2280780bb4c96",
+      "bytes": 117
+    },
+    "build/analysis/neural-proposal-audit-v1/panel.log": {
+      "sha256": "610c70dee8de440a771d19a841bf5552d031c3a32c1c1715f5be8330ee1e4417",
+      "bytes": 2635
+    },
+    "build/analysis/neural-proposal-audit-v1/preflight-command.json": {
+      "sha256": "c84d767f3cadc5a5f8a3eb197bcda87ef0a65abefd4b98585e1e2354fb9f0c9c",
+      "bytes": 763
+    },
+    "build/analysis/neural-proposal-audit-v1/preflight-exit.json": {
+      "sha256": "22f65d60895425c27c0fe94185dc876a4d7c38a4a287be463b81da3d13081465",
+      "bytes": 116
+    },
+    "build/analysis/neural-proposal-audit-v1/preflight.log": {
+      "sha256": "14fecac6ddb9c4e814bb00a950fb3ba031864ea760762b6ff88f19a8829875fd",
+      "bytes": 2143
+    },
+    "build/analysis/neural-proposal-audit-v1/preflight2-command.json": {
+      "sha256": "38b5d6450dd998b21a2c888b3ebb7677a46d91f8678a8f7e58e08601bcf4701d",
+      "bytes": 763
+    },
+    "build/analysis/neural-proposal-audit-v1/preflight2-exit.json": {
+      "sha256": "6ec380c380c151a69ac8a763c400e924656f70f22c2ac7265fdd08ed1596cf8f",
+      "bytes": 116
+    },
+    "build/analysis/neural-proposal-audit-v1/preflight2.log": {
+      "sha256": "d72928cc6c3fb2bad309a52cdb5f5791b90e47254878d3b12046f81470b616e7",
+      "bytes": 270
+    },
+    "build/analysis/neural-proposal-audit-v1/protocol-before-results.md": {
+      "sha256": "ec64bbfaa67a9a216b6edbc704e528027e03afd3250181f52fd8c436bb6749d5",
+      "bytes": 6594
+    },
+    "build/analysis/neural-proposal-audit-v1/protocol.md": {
+      "sha256": "82fc18ef353643b0a8776ac72e703c5f8b237fa5a35df60304fa6ef91fadd9ac",
+      "bytes": 6436
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907063775.json": {
+      "sha256": "133bd799935dadaba3a647a191eafa07983cc05908a9b7a06c6cfd82400e43c1",
+      "bytes": 58220
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907063844.json": {
+      "sha256": "4e344e15655f28e9e5b99892c400857c5dc59570c207160453c9bff3fbd4a786",
+      "bytes": 52691
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907063898.json": {
+      "sha256": "8566bc534a22d5630d65a5fb744ae6a4daed205d231aa132958691cbe6943c3f",
+      "bytes": 68415
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907063965.json": {
+      "sha256": "cbcef429f69242e1f02d0e7176513082cf538b8fd02fbd606ac061de25cf09a5",
+      "bytes": 54447
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907064014.json": {
+      "sha256": "5484a27462cb7ca38b9b495207df6e59518723df6b68dd0004a6660dd21f8429",
+      "bytes": 60488
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907064062.json": {
+      "sha256": "132d7c8ea75ab5cbd23178e69c8a836eb1751be0e878606ec9a30e0fd03606c2",
+      "bytes": 88384
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907064114.json": {
+      "sha256": "03aab6390572da3b11a11212ab7d48900768d70fbfc03702245f543604c42b94",
+      "bytes": 158756
+    },
+    "build/analysis/neural-proposal-audit-v1/replays/907064176.json": {
+      "sha256": "d845e6f21c74832b7cbcd34ffa0677f56c8c3e5479aa1d038b1a1f558ba4b3d5",
+      "bytes": 60265
+    },
+    "build/analysis/neural-proposal-audit-v1/results.json": {
+      "sha256": "33abb017aa31c408ae148b30aff9f2cc38eff9e609daeb6b424bc4dc7e14ad1d",
+      "bytes": 639944
+    },
+    "build/analysis/neural-proposal-audit-v1/selection.json": {
+      "sha256": "84b51a4bfd92b9e5150bdeb5611a377e8ddd92bc6fdf36674637dbc9d342967a",
+      "bytes": 2591
+    },
+    "build/analysis/neural-proposal-audit-v1/summarize.py": {
+      "sha256": "f12d410db99fefa965428d45c61e1b6168bfbacd99b6c910cf42bfa4990eeff9",
+      "bytes": 8046
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/counts.json": {
+      "sha256": "caf9e6d940116f3936ff62f131d0aee6717da1b3a1b23964d78edd4cd1027345",
+      "bytes": 72
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.bot.current.RolloutBotTest.xml": {
+      "sha256": "05c7c18bcb6f126311f654c35c7a93d9fe27bf6e9012da204021c02cb8eb16b4",
+      "bytes": 1579
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.bot.current.RolloutFillTest.xml": {
+      "sha256": "2dc4410034f6ff7b5718ed80498d7b3cd8c5c8f806a30401acae1b6753dbcda4",
+      "bytes": 764
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.bot.current.RolloutNetworkAfterBaseTest.xml": {
+      "sha256": "d2a78efadfd462a99045d9f6301fd3d3ced2429b9d96661eaa153d33ccf415d8",
+      "bytes": 1404
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.bot.FrozenParamsTest.xml": {
+      "sha256": "328a49d7ce2ef350fcdc175985cba7e8116366f3a99f8883bd51e122134bbee0",
+      "bytes": 2295
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.tools.CgReplayPlayersTest.xml": {
+      "sha256": "b6504f788f69fd39118bf3e33ce02f9535ec60516750a0e30ec45cb570813fc7",
+      "bytes": 827
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.tools.CgReplaySeedTest.xml": {
+      "sha256": "bcb1ed96dc3004035a352c07f5a14ac00ac1fe54407d2641a35857f11ba97b86",
+      "bytes": 564
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.tools.CgValidateTest.xml": {
+      "sha256": "4075aab160dd1e1498f69b616728f55db0a4b315dc9a49a12de20b24df4fb357",
+      "bytes": 1277
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.tools.NeuralProposalStudyTest.xml": {
+      "sha256": "d12fc7c39845c8752d3e4e24d4220cb378b73db09290ed894c2964ed29c90a2f",
+      "bytes": 1389
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.tools.ReplyStudyTest.xml": {
+      "sha256": "1eb6595b3cba1d1a64b0faba8e09a2961076e4a8101762fddaf33ed594c63151",
+      "bytes": 1420
+    },
+    "build/analysis/neural-proposal-audit-v1/tests/TEST-btk.tools.RolloutRiskStudyTest.xml": {
+      "sha256": "1a576b3419cdd08bcf6a35885eddda4a58aa97016259c55fd760fc2be6b11c33",
+      "bytes": 621
+    },
+    "build/analysis/neural-proposal-audit-v1/verification.json": {
+      "sha256": "a4b7586d0e1c6c72486196783f9b5c39f008adc8c9293851c74cb7efcb179f91",
+      "bytes": 107
+    },
+    "build/neural_proposal_prepare.py": {
+      "sha256": "f7c172412c0135b0d68bf916c96be66fe41de08e53aea9b4b1490b0152a06a95",
+      "bytes": 14477
+    },
+    "build/spatial-v10-java.json": {
+      "sha256": "25bd99ec9fb8d4a2eb1b067d3c67e70a7dbf617569a6f2f5babbaf4b33b9e252",
+      "bytes": 660
+    },
+    "build.gradle.kts": {
+      "sha256": "00db14c01313305830b0aa75e84b58d6ade1ae5ba067e8546ecca8ba86a97270",
+      "bytes": 22031
+    },
+    "docs/BOTS.md": {
+      "sha256": "d5d23c1f911c0bf621b41faf9ca38e7d0bd86ba6481c0beb08da77ccb49172ed",
+      "bytes": 151414
+    },
+    "docs/DEVLOG.md": {
+      "sha256": "7d108c7f8380719c0b046a6fc47a69363462151ca59f70841ede8969c468b3b8",
+      "bytes": 518218
+    },
+    "docs/evidence/neural-proposal-audit-v1.json": {
+      "sha256": "db7dcb204a5a32bd226eebb31c40eafbee48da1380fee944c960cf50af4e571e",
+      "bytes": 107519
+    },
+    "docs/neural-proposal-audit-v1.md": {
+      "sha256": "e79e9d758e3f44ac5af91fea6929b92c6c4b78bce4244bada3e80f8a796033b9",
+      "bytes": 12049
+    },
+    "docs/PLAN.md": {
+      "sha256": "1a27b8d80083b52eb04ca514608a297249bb1b5ac90c3704d7046e5da525cb11",
+      "bytes": 92765
+    },
+    "README.md": {
+      "sha256": "3612b35410a8ec922a0cecececa194c3f12fc1b36f9fed427a055b46417dc60f",
+      "bytes": 52330
+    },
+    "src/main/java/btk/bot/Bot.java": {
+      "sha256": "21eb774e67a8ee5a3523b75be50fb11d61fcf36ce2d51975e6f5e97ce9162810",
+      "bytes": 1204
+    },
+    "src/main/java/btk/bot/BotCatalog.java": {
+      "sha256": "5204172a3385e8c60a9ff704d19e62de735881b9bdf77e2544393f465eb5cf63",
+      "bytes": 8220
+    },
+    "src/main/java/btk/bot/BotFactory.java": {
+      "sha256": "8f45c73848caa58efdb5071079283f17eaf7b00b41f8b2ac5528df98200324a2",
+      "bytes": 10990
+    },
+    "src/main/java/btk/bot/current/EvalBot.java": {
+      "sha256": "4ca4f89ba8772b2144dd25511561fe8d90ec913ee55f8e5b9a2edc9cb0c757bc",
+      "bytes": 60020
+    },
+    "src/main/java/btk/bot/current/HeuristicBot.java": {
+      "sha256": "1d18dec99a5f516f8e42c81fc85da71a3475bb9bab588e5a3e31b073ba21d78a",
+      "bytes": 16026
+    },
+    "src/main/java/btk/bot/current/IndrillBot.java": {
+      "sha256": "0acabb20e52a2e18b20937abc3a36903a52a03f1311c57daa3adae1ea089b923",
+      "bytes": 1999
+    },
+    "src/main/java/btk/bot/current/IndrillFeatures.java": {
+      "sha256": "558ec06510a35f9bed94e2b95348331ab9875666f7648d6d94a5342cfee8ebbb",
+      "bytes": 6752
+    },
+    "src/main/java/btk/bot/current/IndrillNet.java": {
+      "sha256": "cca6393e9f7955c1cce652a4ccdcdc54fcc11026c964d655485886d51fa957ea",
+      "bytes": 5269
+    },
+    "src/main/java/btk/bot/current/IndrillV2Bot.java": {
+      "sha256": "e2ad3d7a0b3c25e446bdc3d0b5386f6f0af54fdbd36d585c923094fb0837581e",
+      "bytes": 2369
+    },
+    "src/main/java/btk/bot/current/IndrillV2Net.java": {
+      "sha256": "ce9c36ba252bc82b23740e58ac88fdbf1946d1aee000038d50a6005b14ca5415",
+      "bytes": 6039
+    },
+    "src/main/java/btk/bot/current/IndrillV2Weights.java": {
+      "sha256": "e8f5bc21ca62983884ab4bb1a68e2489ec272a211cb820100882dbfd94b05451",
+      "bytes": 19353
+    },
+    "src/main/java/btk/bot/current/IndrillWeights.java": {
+      "sha256": "be34ddd0ee48087a213934877ee7d4f3121a96fd1732ddb7c62349d377cea0fe",
+      "bytes": 19110
+    },
+    "src/main/java/btk/bot/current/ProtectedOpening.java": {
+      "sha256": "96c2de3a843439a57e2d12e63c5e83d3b5fc0b6278d875e36b4587d2424613d3",
+      "bytes": 6066
+    },
+    "src/main/java/btk/bot/current/RolloutBot.java": {
+      "sha256": "ac3359205af75e029e943d64530a8bd67d89d796dfa510a0951f7e6d21a18efc",
+      "bytes": 59567
+    },
+    "src/main/java/btk/bot/FrozenParams.java": {
+      "sha256": "2d57629f63845459f472e04caefbd090f05d0a19910fb8edc317a783c5d43cb6",
+      "bytes": 2553
+    },
+    "src/main/java/btk/bot/MainBot.java": {
+      "sha256": "b4e94791c92a0452fc1fbc7f3172aaa820ed67e6fa0f04d7b4d56ad92086b584",
+      "bytes": 2953
+    },
+    "src/main/java/btk/bot/Params.java": {
+      "sha256": "ef3a0df34e9a86d11fe630109c5374e3efa23431112663032818102ed97f55b1",
+      "bytes": 16070
+    },
+    "src/main/java/btk/bot/RetainedEngine.java": {
+      "sha256": "17fa7401a08693435da4c6161a3ec8f57d2ba16ed9095535282918854ae06eb0",
+      "bytes": 3273
+    },
+    "src/main/java/btk/bot/Timer.java": {
+      "sha256": "d18aadb0f092b1b4ef00aacde6cc76df4eaa9871e79f854bf9639f1b2fbe0bdd",
+      "bytes": 786
+    },
+    "src/main/java/btk/bot/v09/ProtectedOpeningV09.java": {
+      "sha256": "8e41de9439fe078fab59a1d29ffb1d86439ac16ad74a7d4334780719fc109049",
+      "bytes": 6071
+    },
+    "src/main/java/btk/bot/v09/RolloutBotV09.java": {
+      "sha256": "2eff39dea3a9bf1dd9f4e69bc3cc61a8133da812dc494f3fe3e282ce1714e4b7",
+      "bytes": 56768
+    },
+    "src/main/java/btk/core/Action.java": {
+      "sha256": "d6ec211f4e4ccb559de9b3420519749de1bde1e423932bd65a70a37278f9ac07",
+      "bytes": 4461
+    },
+    "src/main/java/btk/core/FeaturePaths.java": {
+      "sha256": "9f1e5e94ffd8a299da687666f512fb55a86975a614683a56df36334afbbfef51",
+      "bytes": 4443
+    },
+    "src/main/java/btk/core/GameState.java": {
+      "sha256": "96dfeb45b10a90517d8eec93dc0b9ce5624d2239348c237346f7ad1cc9162943",
+      "bytes": 8198
+    },
+    "src/main/java/btk/core/HypotheticalIncome.java": {
+      "sha256": "cfa68235ab1463edd6f2dfb32c37163e7b334e56a614c48dbc5320df58b3ad23",
+      "bytes": 5615
+    },
+    "src/main/java/btk/core/InkProjection.java": {
+      "sha256": "32ced1f6f9a41650ab679c897248ba522839ed9d5110f0d154053747784e1785",
+      "bytes": 1684
+    },
+    "src/main/java/btk/core/NetworkCells.java": {
+      "sha256": "8f253d578b56e30de3ea246514f6cafd501222767a67c600a1ba78e63d7f246b",
+      "bytes": 2174
+    },
+    "src/main/java/btk/core/NetworkChords.java": {
+      "sha256": "9a0ddd5d6b8782e663d78d59742797c237a871ed0420b8072bd9d308fe6fea70",
+      "bytes": 2725
+    },
+    "src/main/java/btk/core/Pathing.java": {
+      "sha256": "93f0ab4cf9f90f2a37d9794a69a60488183cb9f51c7458b4bbcd000e69f689f5",
+      "bytes": 15284
+    },
+    "src/main/java/btk/core/Protocol.java": {
+      "sha256": "e98d8fbc901cf4a94b83017cd321411f39e3f72d915c524bd88d7db6aa1d1b26",
+      "bytes": 8928
+    },
+    "src/main/java/btk/core/Rules.java": {
+      "sha256": "c05c75ccb105b5bb3eb2640a89ba29605e3fb2b89601635c41cd6ef91a122162",
+      "bytes": 13694
+    },
+    "src/main/java/btk/core/SearchState.java": {
+      "sha256": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b",
+      "bytes": 2287
+    },
+    "src/main/java/btk/core/TacticalPathing.java": {
+      "sha256": "b0b1e6b2e57e48e353b88b92583171bde3fbd8131e9892e2878238cc5af0b22a",
+      "bytes": 6476
+    },
+    "src/main/java/btk/tools/CgDisruptStudy.java": {
+      "sha256": "c3a676d4460c59c072347f89f7f8877ca926fbb780930aba7708937b188cda62",
+      "bytes": 9192
+    },
+    "src/main/java/btk/tools/CgReplay.java": {
+      "sha256": "ff45521b97bfebdd1a4ab8eaf2e68002c59308cbb01273bd3c2017ac6c1a0822",
+      "bytes": 12548
+    },
+    "src/main/java/btk/tools/CgValidate.java": {
+      "sha256": "98251180703753818ab4aebcec86e9dc06bc5331c9f46c7ffa74a6eca2b0bf06",
+      "bytes": 11489
+    },
+    "src/main/java/btk/tools/NeuralProposalStudy.java": {
+      "sha256": "37328c49d6dfee614ac3e612f339bd1b7ce3fc4049d2fa7bc376376f57f9e229",
+      "bytes": 28236
+    },
+    "src/main/java/btk/tools/ReplayPaths.java": {
+      "sha256": "d6915cb6cb0a9c88cfcd12e3c45c3b90bfb86ddea991bce6f66b718da7ec11c2",
+      "bytes": 2125
+    },
+    "src/main/java/btk/tools/ReplyProbe.java": {
+      "sha256": "ec17769f5a20dc86bfcd1586fde05dfae32f77c6e9041eeb476cb8645cfce324",
+      "bytes": 13152
+    },
+    "src/main/java/btk/tools/ReplyStudy.java": {
+      "sha256": "8bf976cede2ca502f85623c8d55423507c1a00033b5a287b4b13cf516d537b82",
+      "bytes": 15299
+    },
+    "src/main/java/btk/tools/RolloutFillStudy.java": {
+      "sha256": "3f4526fad0e6e52be7abf9308dd830d8bf6d250b2f892cdcfd35115233294253",
+      "bytes": 15260
+    },
+    "src/main/resources/btk/bot/versions/v09.properties": {
+      "sha256": "93a6f0ab512f0d914ce98c1e554653b131dc8d4dc5702a5cd0402958c5fca5bf",
+      "bytes": 2935
+    },
+    "src/test/java/btk/tools/NeuralProposalStudyTest.java": {
+      "sha256": "b3442ab3a0ea7661fc88003b40ac2c6e943eacb3f0d55abc60ef6ad8295051ef",
+      "bytes": 11283
+    },
+    "tools/diagnostics/neural_proposal_audit.py": {
+      "sha256": "80afe4cad4b71bc632aa86af132fa4ba81bc5a66b36a2e0a1616510418a80989",
+      "bytes": 7113
+    }
+  }
+}
