@@ -13,6 +13,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-10: **spatial-label-audit-v1**, no new model or bench.
+All 60 original teacher games / 5,660 roots / 22,640 rows reproduced exactly.
+All 21,702 teacher construction permutations preserve the full next state, but
+actual validation full-plan agreement only changes 77→80/1,112 (V4) and
+63→65/1,112 (V9) when order is ignored. Exact-input conflicts force 37 label
+errors out of 22,640; measured ordering/contradictions do not explain most of
+the fitting gap. 7 Java / 9 Python tests pass, 292 exact engine replays.
+Selected v09 unchanged; original stage 3 remains open.
+[Protocol/evidence](spatial-label-audit-v1.md).
+
 Completed 2026-10-10: **spatial-ppo-v9**, one global distance-weighted town-context
 change with the exact v4 teacher recipe. Fixed 16 epochs/4,560 steps; validation
 unforced agreement 38.414% versus v4 39.543%. The synthetic alias is broken,

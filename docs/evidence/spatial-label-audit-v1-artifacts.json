@@ -1,0 +1,424 @@
+{
+  "recordedAt": "2026-10-10T20:39:37.420979+00:00",
+  "experiment": "spatial-label-audit-v1",
+  "archiveSha256": "c2d7a1cd999e8a1c2ecd88cb141961eb9ca3dc3cc182619e97cabc1f1d0f2371",
+  "archiveBytes": 3837056,
+  "dependencies": {
+    "docs/evidence/spatial-ppo-v4-artifacts.zip": "773b31e6c37b08549d879af9f63e8e35f57ca45607805d534d48d6362b1fba09",
+    "docs/evidence/spatial-ppo-v9-artifacts.zip": "5ca8a7810fea127d8ec236fa8a419400c67d08fd3514db0ef36518c6fbf8809a"
+  },
+  "files": {
+    "build/analysis/spatial-label-audit-v1/collector/games/train-00-p0.jsonl": {
+      "sha256": "dc56d471b2a214947acbac86b873f7df7f2be436c56c79c82311372ebfba839b",
+      "bytes": 416037
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-00-p1.jsonl": {
+      "sha256": "5dab56a95bda57d1abb384a2b41ce35c8199c5ea7b510a33ab22ce4999346b0a",
+      "bytes": 417996
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-01-p0.jsonl": {
+      "sha256": "b63289b00346e188efa39d2c42025daf17ed6b257b486e5146b7df0c376c766f",
+      "bytes": 299550
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-01-p1.jsonl": {
+      "sha256": "cd2ab93f41ec50178d2739fb1b749341e0b942427399ba874e1ff99074a35a20",
+      "bytes": 353748
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-02-p0.jsonl": {
+      "sha256": "4ea5e56ef670d072a0ef80863ea0c1bad843aeb11a62c0a71e34659b29278dc3",
+      "bytes": 358513
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-02-p1.jsonl": {
+      "sha256": "578ed78a896f8d6a2bff1dcf6f0d67ff584a9c5fcca7305cab18062b464b2f6e",
+      "bytes": 366909
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-03-p0.jsonl": {
+      "sha256": "1d5d1ea9c4c70c69b9da5020419468ebd2093581d5356b5dd1aafdc3f012002d",
+      "bytes": 397190
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-03-p1.jsonl": {
+      "sha256": "e6ef4053a8cd1e3b22069b05ceae3037e1f4d2a0a1675a99b3cf56960f78eb0b",
+      "bytes": 400961
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-04-p0.jsonl": {
+      "sha256": "c73f9cc95f048a4779ae6fcf15a807277173a2489b18089086cb0c877f6a6f2d",
+      "bytes": 372826
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-04-p1.jsonl": {
+      "sha256": "aeb45777a8d8f6d51dd184e49c063ab2b5283cbbcbceb8dc26b494c1739e8401",
+      "bytes": 375527
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-05-p0.jsonl": {
+      "sha256": "ef6790288a58d03f653fd63c425481a6528efbf28a97aba6016b45a2ea79df16",
+      "bytes": 398921
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-05-p1.jsonl": {
+      "sha256": "b9611ec5dfa08fcfa63d4dd640edb55a023c994b64a432fcdd3ff2a35d8aea42",
+      "bytes": 393495
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-06-p0.jsonl": {
+      "sha256": "38990be8f25f936184bf91f0715991adbf4e9edef4b30d20ce2b8f65400cd2e7",
+      "bytes": 443013
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-06-p1.jsonl": {
+      "sha256": "b09194d1cf0543bb1c907387c5dd1e2a084883244f6c6286eed946c9c2f7ed26",
+      "bytes": 440764
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-07-p0.jsonl": {
+      "sha256": "a03b60afbe3a250fd8b488b46aa93545a1f2c92950fa03b1016fe52a44a15dab",
+      "bytes": 418998
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-07-p1.jsonl": {
+      "sha256": "03f3035c4d814f1f4b862ee2224bf42459b72b4ab7b4c53ef265181d12c8b79e",
+      "bytes": 411908
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-08-p0.jsonl": {
+      "sha256": "34fe399fe2c85bdc214b317a74ae2ffbf2f0d13273e5b1a81d34fcd21b8f43b7",
+      "bytes": 410323
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-08-p1.jsonl": {
+      "sha256": "407ff94e852752f85691c4fedb7060535adaf998ce931ecda31e157a8b6356b8",
+      "bytes": 399837
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-09-p0.jsonl": {
+      "sha256": "f857abb989126ea7e2d7282e3406a53c7611457bcea9738a502a289a4f31cc76",
+      "bytes": 407465
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-09-p1.jsonl": {
+      "sha256": "2d70975254c79d6b76dea1d9fa2f3b8bdf543a882fa7ad3a65d2a29209d449bb",
+      "bytes": 414032
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-10-p0.jsonl": {
+      "sha256": "d34ffb1b71da8f70789ba2a31f5a67c29a8d0ad0534e6fef1f2503839e63cddb",
+      "bytes": 412909
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-10-p1.jsonl": {
+      "sha256": "cbcd0a9103b21e0ae5280a5b8f452703fd1ff891fde2a0715ea69704a6a161b4",
+      "bytes": 412996
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-11-p0.jsonl": {
+      "sha256": "8844f6cd837298195d4748ee9d10f0831af08118813ee4916ac980e08c838098",
+      "bytes": 281008
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-11-p1.jsonl": {
+      "sha256": "ab7edce02f16f7e3f0084adc1e0488d8c8f7050370be294e27aa79cf60da7b9c",
+      "bytes": 293948
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-12-p0.jsonl": {
+      "sha256": "17cf5f57e1058cd75a8901c918845e8e694abdda078caa3f3dfc0dead877139b",
+      "bytes": 412812
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-12-p1.jsonl": {
+      "sha256": "2041c543ddae24692eaf8af8c89906bcf09e015ee822bd7c6ca914499020d57d",
+      "bytes": 423049
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-13-p0.jsonl": {
+      "sha256": "ba50118bb90c4c3b20e592ab7b647725478c619a1075500a5aeb6470450ea1ae",
+      "bytes": 286843
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-13-p1.jsonl": {
+      "sha256": "ab4521df2197da1c9116f46115a52120552dc31e9a0c85a7d5f619055080ac5a",
+      "bytes": 298274
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-14-p0.jsonl": {
+      "sha256": "7e210a89faafa7ab9b031258c0d149c0c7034bb969f14224b497cdf539ba844a",
+      "bytes": 345717
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-14-p1.jsonl": {
+      "sha256": "b16722498a6a9b8370ffc9105e06769f159ac2cf5dd3d3cf3070f542ffcc9f7b",
+      "bytes": 342859
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-15-p0.jsonl": {
+      "sha256": "f667059e5ccc332fe5e9f693e7204d783b671ec063770ca525c9feb4153b0bae",
+      "bytes": 428715
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-15-p1.jsonl": {
+      "sha256": "5a16ca877de4127a0a7b5b5cb1297572b78a6c09d68d2551b83f7cfadb18389e",
+      "bytes": 429308
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-16-p0.jsonl": {
+      "sha256": "55455bb9248d32ff66ee40546168a4ac97099cd44325ef8e376ef53aff820e57",
+      "bytes": 405560
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-16-p1.jsonl": {
+      "sha256": "42abbe4c98d572d06509a47c6509b1ffe131ae51fed86e8b4293d92e03920d33",
+      "bytes": 404507
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-17-p0.jsonl": {
+      "sha256": "442935d60d8043769db7d2167116a5a18d312bd34d7a79e4e437c45be5a2fb3c",
+      "bytes": 373706
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-17-p1.jsonl": {
+      "sha256": "348c531b4583fff31f60da5fef1ffd99bd64ef649db4368f64fea776ec4fa9f2",
+      "bytes": 375300
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-18-p0.jsonl": {
+      "sha256": "85285d9a11816f062d3b498308b9b0940a7fe3ef96797b35b25374e962e288fa",
+      "bytes": 404939
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-18-p1.jsonl": {
+      "sha256": "10f8274b1c1c2e6558eee3fa8f6a5bd05f47fbe4068221296612bf992167f5a8",
+      "bytes": 403200
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-19-p0.jsonl": {
+      "sha256": "495919dbb996d8e0dba02236e8ae5d7a8dc68cc2cc2285394be31df9521b0b4f",
+      "bytes": 387871
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-19-p1.jsonl": {
+      "sha256": "b3151f24672930d720da5eba421af4f37cf98f14dd9272815f8ff917aa5d7471",
+      "bytes": 394643
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-20-p0.jsonl": {
+      "sha256": "236a4efda7d42afba79662e95434b4753936eb79c435322603c7b79cfe48de25",
+      "bytes": 402801
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-20-p1.jsonl": {
+      "sha256": "dea5656404aacd8b66b8d97b6b22d16683c7b2b34e1d717a1762dd88deefa4ef",
+      "bytes": 392322
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-21-p0.jsonl": {
+      "sha256": "1f70afe0d20d40e12a8420f536a83772fb1fa7bc8061b83bc126d50332b1dcb5",
+      "bytes": 427292
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-21-p1.jsonl": {
+      "sha256": "d36e958d58c71c4fb0057e657e26ab93d9543b2218bf004453e9015c3f1988ca",
+      "bytes": 426054
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-22-p0.jsonl": {
+      "sha256": "ead27e8e76c444afb42ef8c39ad02e771ca1542156920fc8f1246892fa374682",
+      "bytes": 297479
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-22-p1.jsonl": {
+      "sha256": "856d02f5c06b5a5e246a8a75d6855062d509a7d03f408607bc8a8f7708f5c116",
+      "bytes": 319276
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-23-p0.jsonl": {
+      "sha256": "727e0c190b6614ce467ca229ef0b85b36af037b366924ff7ead3e3aebe4b921e",
+      "bytes": 382405
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/train-23-p1.jsonl": {
+      "sha256": "ccd6bc236cc6456afbe72f65b9e790be9b9c146804ae42e92843900433bcecb5",
+      "bytes": 394034
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-00-p0.jsonl": {
+      "sha256": "819547e7ce3627de797bf13f0cfcd95192adc6ab50ed4b66aa7695b71a987c62",
+      "bytes": 430956
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-00-p1.jsonl": {
+      "sha256": "54eda475e955123c3fc520a4c3eb68508a90f2ca4831eeac30a78ac129a49bcb",
+      "bytes": 433408
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-01-p0.jsonl": {
+      "sha256": "949e96b1e02e529b3faf8b8e981d4c978e4fd8fe853e74314744fdb1cdf1d3a7",
+      "bytes": 405967
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-01-p1.jsonl": {
+      "sha256": "3a63429231370a80c9c1562075eb7e6c67b77f56ec064a69b11a112dfe643cec",
+      "bytes": 415292
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-02-p0.jsonl": {
+      "sha256": "74472f3688d768afb112fb4eb8fbc4b6b96d1d0a326389e9a36b40fc667036b2",
+      "bytes": 235670
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-02-p1.jsonl": {
+      "sha256": "df6374ae06c61c64eb084b0ba8ceae33abe5f5b71d4ee757c3631532b5789959",
+      "bytes": 231460
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-03-p0.jsonl": {
+      "sha256": "28a6c4777881b18b30ea42a89d7e437dd0238ab90cf5d741b07de678e639249e",
+      "bytes": 455195
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-03-p1.jsonl": {
+      "sha256": "8e680cff3d1b755fe7390a5de4f9932c0fb43fe2133a4958203635fe906fae86",
+      "bytes": 452522
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-04-p0.jsonl": {
+      "sha256": "b9b581e0548fa231ed229b115d72d1876a9104089c7419900013b565dc52ee13",
+      "bytes": 424279
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-04-p1.jsonl": {
+      "sha256": "07a5e1ad6ebcc04db50c0399f667eb2b2d1b0de66853d96b4f16a7f3117b7461",
+      "bytes": 418498
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-05-p0.jsonl": {
+      "sha256": "5dfbed62ff16d28ac0ae4d2e62f8c4bb6d9f48f56256d3c4f0f9d26f9d5d98fd",
+      "bytes": 398436
+    },
+    "build/analysis/spatial-label-audit-v1/collector/games/validation-05-p1.jsonl": {
+      "sha256": "cb92d23123cc89b648564e78dcad2ee1906628c0af7c1421a3f2ce0f6fad4937",
+      "bytes": 386141
+    },
+    "build/analysis/spatial-label-audit-v1/collector/intent.json": {
+      "sha256": "87bc55de8eb9267ba27050749115519cf28f0c39484a247469499d8d26982721",
+      "bytes": 521
+    },
+    "build/analysis/spatial-label-audit-v1/collector/manifest.json": {
+      "sha256": "2ffec624b22810cd15f0eb95b31521cc253055aec3dd545283ccf6d25fcedaf9",
+      "bytes": 33552
+    },
+    "build/analysis/spatial-label-audit-v1/collector/preflight.json": {
+      "sha256": "5fedce1d213feeffea9111eb533936520c3af830e26354ef4148ea9343cb80fc",
+      "bytes": 7290
+    },
+    "build/analysis/spatial-label-audit-v1/collector-command.json": {
+      "sha256": "71ad2e9e65d54009bf56343396328efe6fcba11608bd56b123cf6d8b71272738",
+      "bytes": 905
+    },
+    "build/analysis/spatial-label-audit-v1/collector-exit.json": {
+      "sha256": "807689671d95a2186b32b52b6ee0cce45ba2d7c8888119c8ad9ff1140ea31579",
+      "bytes": 162
+    },
+    "build/analysis/spatial-label-audit-v1/collector.log": {
+      "sha256": "3e589a748e54f2b884e0b950606085056749c123f13d7cb238bfcce6c4eb3bb3",
+      "bytes": 2443
+    },
+    "build/analysis/spatial-label-audit-v1/collision-groups.json": {
+      "sha256": "026968f1a1aabcbf08be432971d5e0786aa06b6e1fee392e00b680b3c8a1e692",
+      "bytes": 264779
+    },
+    "build/analysis/spatial-label-audit-v1/compile-preflight-command.json": {
+      "sha256": "f9ea8bb07c8c753e10192f2ecae8cc4e9435b953b8733a2d3cf9de2fc87ef8c0",
+      "bytes": 217
+    },
+    "build/analysis/spatial-label-audit-v1/compile-preflight-exit.json": {
+      "sha256": "c42beb06ad5a29ab0436a450031d04d758f69456947ce4a15fde58bfd99f766e",
+      "bytes": 163
+    },
+    "build/analysis/spatial-label-audit-v1/compile-preflight.log": {
+      "sha256": "10fe7f750d2a0edc7cf33a342ddcb96ac7566b60219db04dc8f99face65700dc",
+      "bytes": 1323
+    },
+    "build/analysis/spatial-label-audit-v1/engine-preflight-command.json": {
+      "sha256": "29604feb2b7085181017ded43793e9cd55189f8206c3662cfe9f662d90fffa7f",
+      "bytes": 216
+    },
+    "build/analysis/spatial-label-audit-v1/engine-preflight-exit.json": {
+      "sha256": "83580a6b4fb5965e46c1253c24d745a6873d840f36dc4d3210c920ead55f17da",
+      "bytes": 162
+    },
+    "build/analysis/spatial-label-audit-v1/engine-preflight.log": {
+      "sha256": "2abbd401fcdbf5110d32f9606823dbee01785cfb2bc986f1608e5373e35c5422",
+      "bytes": 229
+    },
+    "build/analysis/spatial-label-audit-v1/evaluation-freeze.json": {
+      "sha256": "ab91dbc3920ca220fa5ef282960f51d30cf431497cbe99d96cd5ef80f6a5a4a7",
+      "bytes": 79128
+    },
+    "build/analysis/spatial-label-audit-v1/final-identity-check.json": {
+      "sha256": "4fbd9d6b60aee0b95222790a0b461b99f5cb69f4f96f0b3b7fd08ff817145430",
+      "bytes": 131
+    },
+    "build/analysis/spatial-label-audit-v1/history.json": {
+      "sha256": "08454f2e100fa13b9df27e4948d3fdde7dae26f26776e76f11014f908ff833d6",
+      "bytes": 145554
+    },
+    "build/analysis/spatial-label-audit-v1/java-preflight-command.json": {
+      "sha256": "471e6058e9e2f795f892321477d32e78fb068d314bda6274d3df492ef934080c",
+      "bytes": 272
+    },
+    "build/analysis/spatial-label-audit-v1/java-preflight-exit.json": {
+      "sha256": "b33d6f4927782fe2e318f5bb51a33c95e07b297d819e5b41f66751315ce19af9",
+      "bytes": 162
+    },
+    "build/analysis/spatial-label-audit-v1/java-preflight.log": {
+      "sha256": "6ea04dac1a55cbc7c4c967cc40ab1c12f58a7c1cb9c5885214db518eb7cfc0ad",
+      "bytes": 248
+    },
+    "build/analysis/spatial-label-audit-v1/java-tests.xml": {
+      "sha256": "75fe96a82e4aa8253d96dd9ff66b9253184de0a6c515069d525a40462dc1cf81",
+      "bytes": 1435
+    },
+    "build/analysis/spatial-label-audit-v1/protocol-before-results.md": {
+      "sha256": "6b119146849412083ec596d8eca38229f32ca842d44bec5ad5c4cf0baa18f296",
+      "bytes": 5360
+    },
+    "build/analysis/spatial-label-audit-v1/python-preflight-command.json": {
+      "sha256": "4d7e5e51338a19360c9d8454e375283fdd738256859e68f0183d8ede196556e8",
+      "bytes": 370
+    },
+    "build/analysis/spatial-label-audit-v1/python-preflight-exit.json": {
+      "sha256": "699fb474fb22df5962fdec766e16d7a070add0857b293bad06b5bc8b4d05a582",
+      "bytes": 163
+    },
+    "build/analysis/spatial-label-audit-v1/python-preflight.log": {
+      "sha256": "f6eb974c199aae68f1c3a5bda6cbb9234a22a4f68ef83c7fb5e42ba87753e014",
+      "bytes": 1680
+    },
+    "build/analysis/spatial-label-audit-v1/reduction-command.json": {
+      "sha256": "fe0d36d75e637bd15e862d21ccf4a63019a3ded9aec09caf00f089ee7300bc41",
+      "bytes": 532
+    },
+    "build/analysis/spatial-label-audit-v1/reduction-exit.json": {
+      "sha256": "5bd2c3f4218065ba3ecb37d6cd955b537e9a621c85b1afd4f4b30c9e9caa4b55",
+      "bytes": 163
+    },
+    "build/analysis/spatial-label-audit-v1/reduction.log": {
+      "sha256": "c0483959d14640052d83f6b49a2b6ad79e13c2adc4a7137acddfd9e9087ea1d5",
+      "bytes": 180
+    },
+    "build/analysis/spatial-label-audit-v1/report.json": {
+      "sha256": "cd97a6a5a4ca67a81255750ab4613eb15bfff9acff11a3cf680284cc09172788",
+      "bytes": 77156
+    },
+    "build/analysis/spatial-label-audit-v1/review.json": {
+      "sha256": "2404ecfabeb26a9ee94d0ba32dcee14977b0b0c4f401cd21fdb4b586e258968a",
+      "bytes": 1076
+    },
+    "build/analysis/spatial-label-audit-v1/sources-freeze.json": {
+      "sha256": "901263973a457b768035ce8c1a91f381ec6fef34ef79b3345be52de3f0d3cd39",
+      "bytes": 58577
+    },
+    "build/spatial-ppo-v4-cache/cache.json": {
+      "sha256": "a72b59e45fe81bc333e51fb07d59ff49b81fd61bd0f50d09c05af611336b26d8",
+      "bytes": 74667
+    },
+    "build/spatial-v9-java.json": {
+      "sha256": "b18d1319db28f9d5ecc184b1c623a1ea406333ef892b95a7a874331977687bec",
+      "bytes": 662
+    },
+    "build/spatial_label_audit_evidence.py": {
+      "sha256": "3798a453f502461dfb69504f908b680cdcd458346cddcfcbee863e0879db6b98",
+      "bytes": 6045
+    },
+    "docs/BOTS.md": {
+      "sha256": "260be93b50c41bee938240323e1a33c38bdab11da98a0b88520234c9fefabb4a",
+      "bytes": 149152
+    },
+    "docs/DEVLOG.md": {
+      "sha256": "017b9acac053a5d45033420515a39a199d949f3549a6d11e7f82e72720e07853",
+      "bytes": 510005
+    },
+    "docs/evidence/spatial-label-audit-v1.json": {
+      "sha256": "6aee039c48aafb01c6db46b2855037bbd60ce5237fbb2d0ceb0c687e48b51107",
+      "bytes": 76811
+    },
+    "docs/PLAN.md": {
+      "sha256": "da694be3dd6cd3b69120aeb165f53ce0d26c94fba152c8d88a584ec72416739a",
+      "bytes": 91143
+    },
+    "docs/spatial-label-audit-v1.md": {
+      "sha256": "5e2bce22253922fd6d585f1b6965f2f6a14ff17185c150baa1914cfe9656099d",
+      "bytes": 12497
+    },
+    "README.md": {
+      "sha256": "1fec87c9f68d66fc7cce50fd00fc516649f9738ccd7599d479daf536554b4c0b",
+      "bytes": 50799
+    },
+    "src/main/java/btk/tools/spatial/SpatialLabelAudit.java": {
+      "sha256": "ea42cb717b5138092b6b86c9f2291851402090615a7169b9ed30ee6166cbae0e",
+      "bytes": 33250
+    },
+    "src/test/java/btk/tools/spatial/SpatialLabelAuditTest.java": {
+      "sha256": "4ca93c3063717810c7458ab3b535396ea14e89a3fd2252a12956b3cd19dddacb",
+      "bytes": 16512
+    },
+    "tools/spatial/label_audit.py": {
+      "sha256": "31ba0127566a6b572532d0b4faf7ac7f3a5df56615bb6231c9791f5ec4a16bc6",
+      "bytes": 27851
+    },
+    "tools/spatial/test_label_audit.py": {
+      "sha256": "831e882415a9649456a00afbf7ad8a55f38bff3e6578f7397b75bdbe7865590a",
+      "bytes": 11961
+    }
+  }
+}

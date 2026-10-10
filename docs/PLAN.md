@@ -35,6 +35,16 @@ completed experiments do not automatically complete their parent stage.
       and runtime checks. Alias removed, vs v4 42W/58L; vs v09
       0W/300L/0D / 300, STOP_FUTILITY_300. Strict process 8/8 clean.
       Reject promotion, preserve v09; parent stage 3 remains open.
+- [x] Complete [spatial-label-audit-v1](spatial-label-audit-v1.md) within stage 3:
+      reconstruct all 60 teacher games / 5,660 roots / 22,640 rows exactly; compare
+      actual own-prefix V4/V9 plans and all 21,702 teacher construction permutations.
+      Ordering is equivalent, but validation full-plan matches only change 77→80
+      (V4) and 63→65 (V9). Exact-input conflicts force 37/22,640 label errors;
+      these measured effects do not explain most of the fitting gap. No new model.
+- [ ] Proposed next stage-3 diagnostic: a fixed small TRAIN subset without detected
+      exact-input conflicts, unchanged V4 architecture/loss and a bounded fitting
+      budget; separate same-example trainability from broader optimization/capacity
+      questions. No training launched by the label audit, no strength claim.
 
 ## Spatial PPO first complete pipeline (2026-10-08)
 

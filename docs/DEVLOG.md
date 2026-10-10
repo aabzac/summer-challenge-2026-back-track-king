@@ -6544,3 +6544,35 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   to all global-context representations. Value calibration/competitive learning
   and original stage 3 remain unresolved. No upload/push or automatic next run.
   [Protocol/results](spatial-ppo-v9.md), [summary](evidence/spatial-ppo-v9.json).
+
+
+## 2026-10-10 — spatial-label-audit-v1: ordering is not the main measured fitting gap
+
+- Hypothesis: exact hard-action agreement may penalize interchangeable construction
+  orders or contradict identical observed inputs. Audit all original V4 data with
+  frozen V4/V9 models; no training, new teacher calls, candidate or strength bench.
+- Reconstructed all 60 terminal games / 5,660 roots / 22,640 rows through core;
+  each regenerated binary stream matches its original hash. All 21,702 teacher
+  permutations yield exactly the same full successor with the recorded opponent.
+- Found 37 conflicting exact-input groups / 74 rows, forcing at least 37 errors
+  among 22,640 examples. This finite-multiset ceiling (99.8366%) is conservative,
+  not an achievable-network claim or proof of absent broader representation aliases.
+- Train unforced BUILD after remaining-set relaxation is still only 38.1478% V4
+  and 37.6012% V9 (exact 34.2915% / 33.9372%). Validation actual own-prefix full
+  plans change only 77 to 80/1,112 and 63 to 65/1,112 when order is ignored.
+  Those 80/65 also equal the full semantic successor matches. Equal income alone
+  falsely suggests equivalence for another 508/551 validation roots respectively.
+- Verification: 7 Java and 9 Python tests pass; 292/292 CG replays exact. Initial
+  compile caught a boolean-field API typo, fixed before tests/freeze/scoring;
+  preserve its log. Complete collector/reducer passed without retries or omissions.
+  Collection 527.187 s; reduction 38.664 s excluding startup. Final identity check
+  passed for 895 historical files and 448 frozen inputs/executables.
+- Decision: measured order penalties and exact-input contradictions do not explain
+  most present fitting errors. They already exist on teacher TRAIN states, so
+  learner trajectory shift alone is insufficient. Capacity versus optimization
+  remains unresolved. Propose a fixed small-subset trainability probe with the
+  unchanged V4 architecture/objective; do not automatically launch it or impose
+  a teacher-agreement strength gate. Selected v09 and original stage-3 status
+  remain unchanged; no submission, boss, promotion, arena upload or push.
+  [Protocol/results](spatial-label-audit-v1.md),
+  [report](evidence/spatial-label-audit-v1.json).

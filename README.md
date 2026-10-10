@@ -174,6 +174,13 @@ but vs v4 is 42W/58L; practical-v4 vs v09 is 0W/300L/0D / 300,
 STOP_FUTILITY_300. Strict process 8/8 clean; v09 unchanged and original
 stage 3 remains open. [Protocol and results](docs/spatial-ppo-v9.md).
 
+`spatial-label-audit-v1` checks all 60 original teacher games without training.
+Every observation stream is reproduced exactly; 21,702 teacher construction
+permutations preserve the full next state. Ignoring order barely improves actual
+full-plan agreement, and observed exact-input contradictions are rare. The main
+same-example fitting gap remains unresolved; selected v09 is unchanged.
+[Protocol, results and reproduction](docs/spatial-label-audit-v1.md).
+
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
 grid network with build/ink Q heads, and greedy whole-quota construction. It is separate from

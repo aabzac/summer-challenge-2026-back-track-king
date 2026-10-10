@@ -1,0 +1,1610 @@
+{
+  "schemaVersion": 1,
+  "experiment": "spatial-label-audit-v1",
+  "status": "complete",
+  "coverage": {
+    "games": 60,
+    "maps": 30,
+    "turn_roots": 5660,
+    "conditional_rows": 22640,
+    "models": [
+      "spatial-ppo-v4",
+      "spatial-ppo-v9"
+    ]
+  },
+  "weightsSha256": {
+    "spatial-ppo-v4": "89de11f4239844c55c6e61c987ee2443fd5d79a1c71af782d2686e836ec6f3ef",
+    "spatial-ppo-v9": "fd616a7f454792ec47d3cfc8e5a10f63becfb889d06dbd64e0dea8bf053b4cb6"
+  },
+  "provenance": {
+    "source_freeze": {
+      "path": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\sources-freeze.json",
+      "sha256": "901263973a457b768035ce8c1a91f381ec6fef34ef79b3345be52de3f0d3cd39",
+      "verified_files": 448
+    },
+    "cache": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\spatial-ppo-v4-cache",
+    "cache_sha256": "a72b59e45fe81bc333e51fb07d59ff49b81fd61bd0f50d09c05af611336b26d8",
+    "corpus_manifest_sha256": "0ab67f31833f23b7d78225ba4306dedaa5ccbde70e508a51b54b15f45d14ead5",
+    "java_files_sha256": {
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\manifest.json": "2ffec624b22810cd15f0eb95b31521cc253055aec3dd545283ccf6d25fcedaf9",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-00-p0.jsonl": "dc56d471b2a214947acbac86b873f7df7f2be436c56c79c82311372ebfba839b",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-00-p1.jsonl": "5dab56a95bda57d1abb384a2b41ce35c8199c5ea7b510a33ab22ce4999346b0a",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-01-p0.jsonl": "b63289b00346e188efa39d2c42025daf17ed6b257b486e5146b7df0c376c766f",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-01-p1.jsonl": "cd2ab93f41ec50178d2739fb1b749341e0b942427399ba874e1ff99074a35a20",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-02-p0.jsonl": "4ea5e56ef670d072a0ef80863ea0c1bad843aeb11a62c0a71e34659b29278dc3",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-02-p1.jsonl": "578ed78a896f8d6a2bff1dcf6f0d67ff584a9c5fcca7305cab18062b464b2f6e",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-03-p0.jsonl": "1d5d1ea9c4c70c69b9da5020419468ebd2093581d5356b5dd1aafdc3f012002d",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-03-p1.jsonl": "e6ef4053a8cd1e3b22069b05ceae3037e1f4d2a0a1675a99b3cf56960f78eb0b",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-04-p0.jsonl": "c73f9cc95f048a4779ae6fcf15a807277173a2489b18089086cb0c877f6a6f2d",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-04-p1.jsonl": "aeb45777a8d8f6d51dd184e49c063ab2b5283cbbcbceb8dc26b494c1739e8401",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-05-p0.jsonl": "ef6790288a58d03f653fd63c425481a6528efbf28a97aba6016b45a2ea79df16",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-05-p1.jsonl": "b9611ec5dfa08fcfa63d4dd640edb55a023c994b64a432fcdd3ff2a35d8aea42",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-06-p0.jsonl": "38990be8f25f936184bf91f0715991adbf4e9edef4b30d20ce2b8f65400cd2e7",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-06-p1.jsonl": "b09194d1cf0543bb1c907387c5dd1e2a084883244f6c6286eed946c9c2f7ed26",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-07-p0.jsonl": "a03b60afbe3a250fd8b488b46aa93545a1f2c92950fa03b1016fe52a44a15dab",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-07-p1.jsonl": "03f3035c4d814f1f4b862ee2224bf42459b72b4ab7b4c53ef265181d12c8b79e",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-08-p0.jsonl": "34fe399fe2c85bdc214b317a74ae2ffbf2f0d13273e5b1a81d34fcd21b8f43b7",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-08-p1.jsonl": "407ff94e852752f85691c4fedb7060535adaf998ce931ecda31e157a8b6356b8",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-09-p0.jsonl": "f857abb989126ea7e2d7282e3406a53c7611457bcea9738a502a289a4f31cc76",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-09-p1.jsonl": "2d70975254c79d6b76dea1d9fa2f3b8bdf543a882fa7ad3a65d2a29209d449bb",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-10-p0.jsonl": "d34ffb1b71da8f70789ba2a31f5a67c29a8d0ad0534e6fef1f2503839e63cddb",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-10-p1.jsonl": "cbcd0a9103b21e0ae5280a5b8f452703fd1ff891fde2a0715ea69704a6a161b4",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-11-p0.jsonl": "8844f6cd837298195d4748ee9d10f0831af08118813ee4916ac980e08c838098",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-11-p1.jsonl": "ab7edce02f16f7e3f0084adc1e0488d8c8f7050370be294e27aa79cf60da7b9c",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-12-p0.jsonl": "17cf5f57e1058cd75a8901c918845e8e694abdda078caa3f3dfc0dead877139b",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-12-p1.jsonl": "2041c543ddae24692eaf8af8c89906bcf09e015ee822bd7c6ca914499020d57d",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-13-p0.jsonl": "ba50118bb90c4c3b20e592ab7b647725478c619a1075500a5aeb6470450ea1ae",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-13-p1.jsonl": "ab4521df2197da1c9116f46115a52120552dc31e9a0c85a7d5f619055080ac5a",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-14-p0.jsonl": "7e210a89faafa7ab9b031258c0d149c0c7034bb969f14224b497cdf539ba844a",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-14-p1.jsonl": "b16722498a6a9b8370ffc9105e06769f159ac2cf5dd3d3cf3070f542ffcc9f7b",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-15-p0.jsonl": "f667059e5ccc332fe5e9f693e7204d783b671ec063770ca525c9feb4153b0bae",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-15-p1.jsonl": "5a16ca877de4127a0a7b5b5cb1297572b78a6c09d68d2551b83f7cfadb18389e",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-16-p0.jsonl": "55455bb9248d32ff66ee40546168a4ac97099cd44325ef8e376ef53aff820e57",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-16-p1.jsonl": "42abbe4c98d572d06509a47c6509b1ffe131ae51fed86e8b4293d92e03920d33",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-17-p0.jsonl": "442935d60d8043769db7d2167116a5a18d312bd34d7a79e4e437c45be5a2fb3c",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-17-p1.jsonl": "348c531b4583fff31f60da5fef1ffd99bd64ef649db4368f64fea776ec4fa9f2",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-18-p0.jsonl": "85285d9a11816f062d3b498308b9b0940a7fe3ef96797b35b25374e962e288fa",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-18-p1.jsonl": "10f8274b1c1c2e6558eee3fa8f6a5bd05f47fbe4068221296612bf992167f5a8",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-19-p0.jsonl": "495919dbb996d8e0dba02236e8ae5d7a8dc68cc2cc2285394be31df9521b0b4f",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-19-p1.jsonl": "b3151f24672930d720da5eba421af4f37cf98f14dd9272815f8ff917aa5d7471",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-20-p0.jsonl": "236a4efda7d42afba79662e95434b4753936eb79c435322603c7b79cfe48de25",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-20-p1.jsonl": "dea5656404aacd8b66b8d97b6b22d16683c7b2b34e1d717a1762dd88deefa4ef",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-21-p0.jsonl": "1f70afe0d20d40e12a8420f536a83772fb1fa7bc8061b83bc126d50332b1dcb5",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-21-p1.jsonl": "d36e958d58c71c4fb0057e657e26ab93d9543b2218bf004453e9015c3f1988ca",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-22-p0.jsonl": "ead27e8e76c444afb42ef8c39ad02e771ca1542156920fc8f1246892fa374682",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-22-p1.jsonl": "856d02f5c06b5a5e246a8a75d6855062d509a7d03f408607bc8a8f7708f5c116",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-23-p0.jsonl": "727e0c190b6614ce467ca229ef0b85b36af037b366924ff7ead3e3aebe4b921e",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\train-23-p1.jsonl": "ccd6bc236cc6456afbe72f65b9e790be9b9c146804ae42e92843900433bcecb5",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-00-p0.jsonl": "819547e7ce3627de797bf13f0cfcd95192adc6ab50ed4b66aa7695b71a987c62",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-00-p1.jsonl": "54eda475e955123c3fc520a4c3eb68508a90f2ca4831eeac30a78ac129a49bcb",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-01-p0.jsonl": "949e96b1e02e529b3faf8b8e981d4c978e4fd8fe853e74314744fdb1cdf1d3a7",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-01-p1.jsonl": "3a63429231370a80c9c1562075eb7e6c67b77f56ec064a69b11a112dfe643cec",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-02-p0.jsonl": "74472f3688d768afb112fb4eb8fbc4b6b96d1d0a326389e9a36b40fc667036b2",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-02-p1.jsonl": "df6374ae06c61c64eb084b0ba8ceae33abe5f5b71d4ee757c3631532b5789959",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-03-p0.jsonl": "28a6c4777881b18b30ea42a89d7e437dd0238ab90cf5d741b07de678e639249e",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-03-p1.jsonl": "8e680cff3d1b755fe7390a5de4f9932c0fb43fe2133a4958203635fe906fae86",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-04-p0.jsonl": "b9b581e0548fa231ed229b115d72d1876a9104089c7419900013b565dc52ee13",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-04-p1.jsonl": "07a5e1ad6ebcc04db50c0399f667eb2b2d1b0de66853d96b4f16a7f3117b7461",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-05-p0.jsonl": "5dfbed62ff16d28ac0ae4d2e62f8c4bb6d9f48f56256d3c4f0f9d26f9d5d98fd",
+      "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collector\\games\\validation-05-p1.jsonl": "cb92d23123cc89b648564e78dcad2ee1906628c0af7c1421a3f2ce0f6fad4937"
+    }
+  },
+  "collisions": {
+    "input_fields": [
+      "planes",
+      "towns",
+      "scalars",
+      "townCells",
+      "regionIds",
+      "buildMask",
+      "disruptMask",
+      "stage"
+    ],
+    "identity": "SHA256 plus exact byte verification for repeated digests; includes explicit stage",
+    "excluded_fields": [
+      "label",
+      "raw turn bookkeeping",
+      "game/split/seat metadata"
+    ],
+    "cross_split_duplicate_groups": 0,
+    "groups": {
+      "train": {
+        "all": {
+          "rows": 18192,
+          "unique_inputs": 17895,
+          "majority_correct": 18163,
+          "duplicate_groups": 297,
+          "rows_in_duplicate_groups": 594,
+          "conflicting_groups": 29,
+          "rows_in_conflicting_groups": 58,
+          "minority_label_rows": 29,
+          "empirical_majority_label_agreement_ceiling": 0.998405892700088
+        },
+        "unforced": {
+          "rows": 14428,
+          "unique_inputs": 14155,
+          "majority_correct": 14399,
+          "duplicate_groups": 273,
+          "rows_in_duplicate_groups": 546,
+          "conflicting_groups": 29,
+          "rows_in_conflicting_groups": 58,
+          "minority_label_rows": 29,
+          "empirical_majority_label_agreement_ceiling": 0.9979900194067092
+        },
+        "build": {
+          "rows": 13644,
+          "unique_inputs": 13416,
+          "majority_correct": 13616,
+          "duplicate_groups": 228,
+          "rows_in_duplicate_groups": 456,
+          "conflicting_groups": 28,
+          "rows_in_conflicting_groups": 56,
+          "minority_label_rows": 28,
+          "empirical_majority_label_agreement_ceiling": 0.9979478158897684
+        },
+        "disrupt": {
+          "rows": 4548,
+          "unique_inputs": 4479,
+          "majority_correct": 4547,
+          "duplicate_groups": 69,
+          "rows_in_duplicate_groups": 138,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9997801231310466
+        },
+        "build_unforced": {
+          "rows": 9880,
+          "unique_inputs": 9676,
+          "majority_correct": 9852,
+          "duplicate_groups": 204,
+          "rows_in_duplicate_groups": 408,
+          "conflicting_groups": 28,
+          "rows_in_conflicting_groups": 56,
+          "minority_label_rows": 28,
+          "empirical_majority_label_agreement_ceiling": 0.9971659919028341
+        },
+        "disrupt_unforced": {
+          "rows": 4548,
+          "unique_inputs": 4479,
+          "majority_correct": 4547,
+          "duplicate_groups": 69,
+          "rows_in_duplicate_groups": 138,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9997801231310466
+        },
+        "stage0": {
+          "rows": 4548,
+          "unique_inputs": 4455,
+          "majority_correct": 4523,
+          "duplicate_groups": 93,
+          "rows_in_duplicate_groups": 186,
+          "conflicting_groups": 25,
+          "rows_in_conflicting_groups": 50,
+          "minority_label_rows": 25,
+          "empirical_majority_label_agreement_ceiling": 0.9945030782761654
+        },
+        "stage1": {
+          "rows": 4548,
+          "unique_inputs": 4480,
+          "majority_correct": 4545,
+          "duplicate_groups": 68,
+          "rows_in_duplicate_groups": 136,
+          "conflicting_groups": 3,
+          "rows_in_conflicting_groups": 6,
+          "minority_label_rows": 3,
+          "empirical_majority_label_agreement_ceiling": 0.9993403693931399
+        },
+        "stage2": {
+          "rows": 4548,
+          "unique_inputs": 4481,
+          "majority_correct": 4548,
+          "duplicate_groups": 67,
+          "rows_in_duplicate_groups": 134,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage3": {
+          "rows": 4548,
+          "unique_inputs": 4479,
+          "majority_correct": 4547,
+          "duplicate_groups": 69,
+          "rows_in_duplicate_groups": 138,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9997801231310466
+        },
+        "stage0_unforced": {
+          "rows": 4322,
+          "unique_inputs": 4229,
+          "majority_correct": 4297,
+          "duplicate_groups": 93,
+          "rows_in_duplicate_groups": 186,
+          "conflicting_groups": 25,
+          "rows_in_conflicting_groups": 50,
+          "minority_label_rows": 25,
+          "empirical_majority_label_agreement_ceiling": 0.9942156409069876
+        },
+        "stage1_unforced": {
+          "rows": 3220,
+          "unique_inputs": 3154,
+          "majority_correct": 3217,
+          "duplicate_groups": 66,
+          "rows_in_duplicate_groups": 132,
+          "conflicting_groups": 3,
+          "rows_in_conflicting_groups": 6,
+          "minority_label_rows": 3,
+          "empirical_majority_label_agreement_ceiling": 0.9990683229813665
+        },
+        "stage2_unforced": {
+          "rows": 2338,
+          "unique_inputs": 2293,
+          "majority_correct": 2338,
+          "duplicate_groups": 45,
+          "rows_in_duplicate_groups": 90,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage3_unforced": {
+          "rows": 4548,
+          "unique_inputs": 4479,
+          "majority_correct": 4547,
+          "duplicate_groups": 69,
+          "rows_in_duplicate_groups": 138,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9997801231310466
+        }
+      },
+      "validation": {
+        "all": {
+          "rows": 4448,
+          "unique_inputs": 4405,
+          "majority_correct": 4440,
+          "duplicate_groups": 43,
+          "rows_in_duplicate_groups": 86,
+          "conflicting_groups": 8,
+          "rows_in_conflicting_groups": 16,
+          "minority_label_rows": 8,
+          "empirical_majority_label_agreement_ceiling": 0.9982014388489209
+        },
+        "unforced": {
+          "rows": 3720,
+          "unique_inputs": 3679,
+          "majority_correct": 3712,
+          "duplicate_groups": 41,
+          "rows_in_duplicate_groups": 82,
+          "conflicting_groups": 8,
+          "rows_in_conflicting_groups": 16,
+          "minority_label_rows": 8,
+          "empirical_majority_label_agreement_ceiling": 0.9978494623655914
+        },
+        "build": {
+          "rows": 3336,
+          "unique_inputs": 3302,
+          "majority_correct": 3328,
+          "duplicate_groups": 34,
+          "rows_in_duplicate_groups": 68,
+          "conflicting_groups": 8,
+          "rows_in_conflicting_groups": 16,
+          "minority_label_rows": 8,
+          "empirical_majority_label_agreement_ceiling": 0.9976019184652278
+        },
+        "disrupt": {
+          "rows": 1112,
+          "unique_inputs": 1103,
+          "majority_correct": 1112,
+          "duplicate_groups": 9,
+          "rows_in_duplicate_groups": 18,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "build_unforced": {
+          "rows": 2608,
+          "unique_inputs": 2576,
+          "majority_correct": 2600,
+          "duplicate_groups": 32,
+          "rows_in_duplicate_groups": 64,
+          "conflicting_groups": 8,
+          "rows_in_conflicting_groups": 16,
+          "minority_label_rows": 8,
+          "empirical_majority_label_agreement_ceiling": 0.9969325153374233
+        },
+        "disrupt_unforced": {
+          "rows": 1112,
+          "unique_inputs": 1103,
+          "majority_correct": 1112,
+          "duplicate_groups": 9,
+          "rows_in_duplicate_groups": 18,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage0": {
+          "rows": 1112,
+          "unique_inputs": 1097,
+          "majority_correct": 1107,
+          "duplicate_groups": 15,
+          "rows_in_duplicate_groups": 30,
+          "conflicting_groups": 5,
+          "rows_in_conflicting_groups": 10,
+          "minority_label_rows": 5,
+          "empirical_majority_label_agreement_ceiling": 0.9955035971223022
+        },
+        "stage1": {
+          "rows": 1112,
+          "unique_inputs": 1102,
+          "majority_correct": 1109,
+          "duplicate_groups": 10,
+          "rows_in_duplicate_groups": 20,
+          "conflicting_groups": 3,
+          "rows_in_conflicting_groups": 6,
+          "minority_label_rows": 3,
+          "empirical_majority_label_agreement_ceiling": 0.9973021582733813
+        },
+        "stage2": {
+          "rows": 1112,
+          "unique_inputs": 1103,
+          "majority_correct": 1112,
+          "duplicate_groups": 9,
+          "rows_in_duplicate_groups": 18,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage3": {
+          "rows": 1112,
+          "unique_inputs": 1103,
+          "majority_correct": 1112,
+          "duplicate_groups": 9,
+          "rows_in_duplicate_groups": 18,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage0_unforced": {
+          "rows": 1072,
+          "unique_inputs": 1057,
+          "majority_correct": 1067,
+          "duplicate_groups": 15,
+          "rows_in_duplicate_groups": 30,
+          "conflicting_groups": 5,
+          "rows_in_conflicting_groups": 10,
+          "minority_label_rows": 5,
+          "empirical_majority_label_agreement_ceiling": 0.9953358208955224
+        },
+        "stage1_unforced": {
+          "rows": 851,
+          "unique_inputs": 841,
+          "majority_correct": 848,
+          "duplicate_groups": 10,
+          "rows_in_duplicate_groups": 20,
+          "conflicting_groups": 3,
+          "rows_in_conflicting_groups": 6,
+          "minority_label_rows": 3,
+          "empirical_majority_label_agreement_ceiling": 0.9964747356051704
+        },
+        "stage2_unforced": {
+          "rows": 685,
+          "unique_inputs": 678,
+          "majority_correct": 685,
+          "duplicate_groups": 7,
+          "rows_in_duplicate_groups": 14,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage3_unforced": {
+          "rows": 1112,
+          "unique_inputs": 1103,
+          "majority_correct": 1112,
+          "duplicate_groups": 9,
+          "rows_in_duplicate_groups": 18,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        }
+      },
+      "all": {
+        "all": {
+          "rows": 22640,
+          "unique_inputs": 22300,
+          "majority_correct": 22603,
+          "duplicate_groups": 340,
+          "rows_in_duplicate_groups": 680,
+          "conflicting_groups": 37,
+          "rows_in_conflicting_groups": 74,
+          "minority_label_rows": 37,
+          "empirical_majority_label_agreement_ceiling": 0.9983657243816254
+        },
+        "unforced": {
+          "rows": 18148,
+          "unique_inputs": 17834,
+          "majority_correct": 18111,
+          "duplicate_groups": 314,
+          "rows_in_duplicate_groups": 628,
+          "conflicting_groups": 37,
+          "rows_in_conflicting_groups": 74,
+          "minority_label_rows": 37,
+          "empirical_majority_label_agreement_ceiling": 0.9979612078465947
+        },
+        "build": {
+          "rows": 16980,
+          "unique_inputs": 16718,
+          "majority_correct": 16944,
+          "duplicate_groups": 262,
+          "rows_in_duplicate_groups": 524,
+          "conflicting_groups": 36,
+          "rows_in_conflicting_groups": 72,
+          "minority_label_rows": 36,
+          "empirical_majority_label_agreement_ceiling": 0.9978798586572438
+        },
+        "disrupt": {
+          "rows": 5660,
+          "unique_inputs": 5582,
+          "majority_correct": 5659,
+          "duplicate_groups": 78,
+          "rows_in_duplicate_groups": 156,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9998233215547703
+        },
+        "build_unforced": {
+          "rows": 12488,
+          "unique_inputs": 12252,
+          "majority_correct": 12452,
+          "duplicate_groups": 236,
+          "rows_in_duplicate_groups": 472,
+          "conflicting_groups": 36,
+          "rows_in_conflicting_groups": 72,
+          "minority_label_rows": 36,
+          "empirical_majority_label_agreement_ceiling": 0.9971172325432415
+        },
+        "disrupt_unforced": {
+          "rows": 5660,
+          "unique_inputs": 5582,
+          "majority_correct": 5659,
+          "duplicate_groups": 78,
+          "rows_in_duplicate_groups": 156,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9998233215547703
+        },
+        "stage0": {
+          "rows": 5660,
+          "unique_inputs": 5552,
+          "majority_correct": 5630,
+          "duplicate_groups": 108,
+          "rows_in_duplicate_groups": 216,
+          "conflicting_groups": 30,
+          "rows_in_conflicting_groups": 60,
+          "minority_label_rows": 30,
+          "empirical_majority_label_agreement_ceiling": 0.9946996466431095
+        },
+        "stage1": {
+          "rows": 5660,
+          "unique_inputs": 5582,
+          "majority_correct": 5654,
+          "duplicate_groups": 78,
+          "rows_in_duplicate_groups": 156,
+          "conflicting_groups": 6,
+          "rows_in_conflicting_groups": 12,
+          "minority_label_rows": 6,
+          "empirical_majority_label_agreement_ceiling": 0.9989399293286219
+        },
+        "stage2": {
+          "rows": 5660,
+          "unique_inputs": 5584,
+          "majority_correct": 5660,
+          "duplicate_groups": 76,
+          "rows_in_duplicate_groups": 152,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage3": {
+          "rows": 5660,
+          "unique_inputs": 5582,
+          "majority_correct": 5659,
+          "duplicate_groups": 78,
+          "rows_in_duplicate_groups": 156,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9998233215547703
+        },
+        "stage0_unforced": {
+          "rows": 5394,
+          "unique_inputs": 5286,
+          "majority_correct": 5364,
+          "duplicate_groups": 108,
+          "rows_in_duplicate_groups": 216,
+          "conflicting_groups": 30,
+          "rows_in_conflicting_groups": 60,
+          "minority_label_rows": 30,
+          "empirical_majority_label_agreement_ceiling": 0.9944382647385984
+        },
+        "stage1_unforced": {
+          "rows": 4071,
+          "unique_inputs": 3995,
+          "majority_correct": 4065,
+          "duplicate_groups": 76,
+          "rows_in_duplicate_groups": 152,
+          "conflicting_groups": 6,
+          "rows_in_conflicting_groups": 12,
+          "minority_label_rows": 6,
+          "empirical_majority_label_agreement_ceiling": 0.9985261606484893
+        },
+        "stage2_unforced": {
+          "rows": 3023,
+          "unique_inputs": 2971,
+          "majority_correct": 3023,
+          "duplicate_groups": 52,
+          "rows_in_duplicate_groups": 104,
+          "conflicting_groups": 0,
+          "rows_in_conflicting_groups": 0,
+          "minority_label_rows": 0,
+          "empirical_majority_label_agreement_ceiling": 1.0
+        },
+        "stage3_unforced": {
+          "rows": 5660,
+          "unique_inputs": 5582,
+          "majority_correct": 5659,
+          "duplicate_groups": 78,
+          "rows_in_duplicate_groups": 156,
+          "conflicting_groups": 1,
+          "rows_in_conflicting_groups": 2,
+          "minority_label_rows": 1,
+          "empirical_majority_label_agreement_ceiling": 0.9998233215547703
+        }
+      }
+    },
+    "interpretation": "Finite recorded-multiset hard-label ceiling only; byte identity is conservative, not global learnability or model capacity"
+  },
+  "comparisons": {
+    "train": {
+      "models": {
+        "v4": {
+          "teacher_prefix": {
+            "all": {
+              "rows": 18192,
+              "exact_correct": 10015,
+              "remaining_correct": 10396,
+              "exact_agreement": 0.5505167106420404,
+              "remaining_set_agreement": 0.5714599824098505,
+              "mean_original_label_probability": 0.45381717191675375,
+              "mean_remaining_set_probability": 0.4675371282753191
+            },
+            "unforced": {
+              "rows": 14428,
+              "exact_correct": 6251,
+              "remaining_correct": 6632,
+              "exact_agreement": 0.4332547823676185,
+              "remaining_set_agreement": 0.4596617687829221,
+              "mean_original_label_probability": 0.31132811141597055,
+              "mean_remaining_set_probability": 0.32862735220298117
+            },
+            "build": {
+              "rows": 13644,
+              "exact_correct": 7152,
+              "remaining_correct": 7533,
+              "exact_agreement": 0.5241864555848724,
+              "remaining_set_agreement": 0.5521108179419525,
+              "mean_original_label_probability": 0.42984642004970525,
+              "mean_remaining_set_probability": 0.44813969519445723
+            },
+            "disrupt": {
+              "rows": 4548,
+              "exact_correct": 2863,
+              "remaining_correct": 2863,
+              "exact_agreement": 0.6295074758135444,
+              "remaining_set_agreement": 0.6295074758135444,
+              "mean_original_label_probability": 0.5257294275179059,
+              "mean_remaining_set_probability": 0.5257294275179059
+            },
+            "build_unforced": {
+              "rows": 9880,
+              "exact_correct": 3388,
+              "remaining_correct": 3769,
+              "exact_agreement": 0.342914979757085,
+              "remaining_set_agreement": 0.38147773279352226,
+              "mean_original_label_probability": 0.212634064287265,
+              "mean_remaining_set_probability": 0.23789655882927052
+            },
+            "disrupt_unforced": {
+              "rows": 4548,
+              "exact_correct": 2863,
+              "remaining_correct": 2863,
+              "exact_agreement": 0.6295074758135444,
+              "remaining_set_agreement": 0.6295074758135444,
+              "mean_original_label_probability": 0.5257294275179059,
+              "mean_remaining_set_probability": 0.5257294275179059
+            },
+            "stage0": {
+              "rows": 4548,
+              "exact_correct": 1194,
+              "remaining_correct": 1490,
+              "exact_agreement": 0.262532981530343,
+              "remaining_set_agreement": 0.3276165347405453,
+              "mean_original_label_probability": 0.16299507320492423,
+              "mean_remaining_set_probability": 0.19869428986355042
+            },
+            "stage1": {
+              "rows": 4548,
+              "exact_correct": 2667,
+              "remaining_correct": 2752,
+              "exact_agreement": 0.5864116094986808,
+              "remaining_set_agreement": 0.6051011433597185,
+              "mean_original_label_probability": 0.47027530653049215,
+              "mean_remaining_set_probability": 0.48945591530612487
+            },
+            "stage2": {
+              "rows": 4548,
+              "exact_correct": 3291,
+              "remaining_correct": 3291,
+              "exact_agreement": 0.7236147757255936,
+              "remaining_set_agreement": 0.7236147757255936,
+              "mean_original_label_probability": 0.6562688804136999,
+              "mean_remaining_set_probability": 0.6562688804136999
+            },
+            "stage3": {
+              "rows": 4548,
+              "exact_correct": 2863,
+              "remaining_correct": 2863,
+              "exact_agreement": 0.6295074758135444,
+              "remaining_set_agreement": 0.6295074758135444,
+              "mean_original_label_probability": 0.5257294275179059,
+              "mean_remaining_set_probability": 0.5257294275179059
+            },
+            "stage0_unforced": {
+              "rows": 4322,
+              "exact_correct": 968,
+              "remaining_correct": 1264,
+              "exact_agreement": 0.22397038408144376,
+              "remaining_set_agreement": 0.29245719574271173,
+              "mean_original_label_probability": 0.11922757818972682,
+              "mean_remaining_set_probability": 0.15679352852832631
+            },
+            "stage1_unforced": {
+              "rows": 3220,
+              "exact_correct": 1339,
+              "remaining_correct": 1424,
+              "exact_agreement": 0.4158385093167702,
+              "remaining_set_agreement": 0.4422360248447205,
+              "mean_original_label_probability": 0.2518049981679126,
+              "mean_remaining_set_probability": 0.2788961188857924
+            },
+            "stage2_unforced": {
+              "rows": 2338,
+              "exact_correct": 1081,
+              "remaining_correct": 1081,
+              "exact_agreement": 0.46236099230111205,
+              "remaining_set_agreement": 0.46236099230111205,
+              "mean_original_label_probability": 0.3313562310186055,
+              "mean_remaining_set_probability": 0.3313562310186055
+            },
+            "stage3_unforced": {
+              "rows": 4548,
+              "exact_correct": 2863,
+              "remaining_correct": 2863,
+              "exact_agreement": 0.6295074758135444,
+              "remaining_set_agreement": 0.6295074758135444,
+              "mean_original_label_probability": 0.5257294275179059,
+              "mean_remaining_set_probability": 0.5257294275179059
+            }
+          },
+          "root_counts": {
+            "roots": 4548,
+            "ordered_build_equal": 836,
+            "build_set_equal": 854,
+            "disrupt_equal": 2845,
+            "ordered_full_plan_equal": 599,
+            "unordered_full_plan_equal": 609,
+            "semantic_next_state_equal": 609,
+            "immediate_gained_equal": 2759,
+            "same_gain_different_state": 2150,
+            "different_plan_same_state": 10,
+            "teacher_prefix_all_four_exact": 599,
+            "teacher_prefix_all_four_remaining": 666
+          },
+          "root_rates": {
+            "ordered_build_equal": 0.1838170624450308,
+            "build_set_equal": 0.18777484608619174,
+            "disrupt_equal": 0.6255496921723834,
+            "ordered_full_plan_equal": 0.13170624450307827,
+            "unordered_full_plan_equal": 0.13390501319261214,
+            "semantic_next_state_equal": 0.13390501319261214,
+            "immediate_gained_equal": 0.6066402814423922,
+            "same_gain_different_state": 0.4727352682497801,
+            "different_plan_same_state": 0.0021987686895338612,
+            "teacher_prefix_all_four_exact": 0.13170624450307827,
+            "teacher_prefix_all_four_remaining": 0.14643799472295516
+          }
+        },
+        "v9": {
+          "teacher_prefix": {
+            "all": {
+              "rows": 18192,
+              "exact_correct": 10017,
+              "remaining_correct": 10379,
+              "exact_agreement": 0.5506266490765171,
+              "remaining_set_agreement": 0.5705255057167986,
+              "mean_original_label_probability": 0.4484646200827116,
+              "mean_remaining_set_probability": 0.4616607813782342
+            },
+            "unforced": {
+              "rows": 14428,
+              "exact_correct": 6253,
+              "remaining_correct": 6615,
+              "exact_agreement": 0.43339340171887997,
+              "remaining_set_agreement": 0.45848350429719986,
+              "mean_original_label_probability": 0.30457917719328514,
+              "mean_remaining_set_probability": 0.32121797441314637
+            },
+            "build": {
+              "rows": 13644,
+              "exact_correct": 7117,
+              "remaining_correct": 7479,
+              "exact_agreement": 0.521621225447083,
+              "remaining_set_agreement": 0.5481530343007915,
+              "mean_original_label_probability": 0.42424510858313824,
+              "mean_remaining_set_probability": 0.4418399903105035
+            },
+            "disrupt": {
+              "rows": 4548,
+              "exact_correct": 2900,
+              "remaining_correct": 2900,
+              "exact_agreement": 0.6376429199648197,
+              "remaining_set_agreement": 0.6376429199648197,
+              "mean_original_label_probability": 0.521123154581433,
+              "mean_remaining_set_probability": 0.521123154581433
+            },
+            "build_unforced": {
+              "rows": 9880,
+              "exact_correct": 3353,
+              "remaining_correct": 3715,
+              "exact_agreement": 0.3393724696356275,
+              "remaining_set_agreement": 0.37601214574898784,
+              "mean_original_label_probability": 0.2048988118935578,
+              "mean_remaining_set_probability": 0.22919684491867442
+            },
+            "disrupt_unforced": {
+              "rows": 4548,
+              "exact_correct": 2900,
+              "remaining_correct": 2900,
+              "exact_agreement": 0.6376429199648197,
+              "remaining_set_agreement": 0.6376429199648197,
+              "mean_original_label_probability": 0.521123154581433,
+              "mean_remaining_set_probability": 0.521123154581433
+            },
+            "stage0": {
+              "rows": 4548,
+              "exact_correct": 1203,
+              "remaining_correct": 1489,
+              "exact_agreement": 0.26451187335092347,
+              "remaining_set_agreement": 0.3273966578715919,
+              "mean_original_label_probability": 0.1626939198327489,
+              "mean_remaining_set_probability": 0.1978451280199209
+            },
+            "stage1": {
+              "rows": 4548,
+              "exact_correct": 2663,
+              "remaining_correct": 2739,
+              "exact_agreement": 0.5855321020228672,
+              "remaining_set_agreement": 0.6022427440633246,
+              "mean_original_label_probability": 0.4629453463645186,
+              "mean_remaining_set_probability": 0.4805787833594389
+            },
+            "stage2": {
+              "rows": 4548,
+              "exact_correct": 3251,
+              "remaining_correct": 3251,
+              "exact_agreement": 0.7148197009674582,
+              "remaining_set_agreement": 0.7148197009674582,
+              "mean_original_label_probability": 0.6470960595521478,
+              "mean_remaining_set_probability": 0.6470960595521478
+            },
+            "stage3": {
+              "rows": 4548,
+              "exact_correct": 2900,
+              "remaining_correct": 2900,
+              "exact_agreement": 0.6376429199648197,
+              "remaining_set_agreement": 0.6376429199648197,
+              "mean_original_label_probability": 0.521123154581433,
+              "mean_remaining_set_probability": 0.521123154581433
+            },
+            "stage0_unforced": {
+              "rows": 4322,
+              "exact_correct": 977,
+              "remaining_correct": 1263,
+              "exact_agreement": 0.22605275335492828,
+              "remaining_set_agreement": 0.2922258213789912,
+              "mean_original_label_probability": 0.11891067732516035,
+              "mean_remaining_set_probability": 0.15589996349713112
+            },
+            "stage1_unforced": {
+              "rows": 3220,
+              "exact_correct": 1335,
+              "remaining_correct": 1411,
+              "exact_agreement": 0.41459627329192544,
+              "remaining_set_agreement": 0.43819875776397516,
+              "mean_original_label_probability": 0.24145199852976168,
+              "mean_remaining_set_probability": 0.26635785922941957
+            },
+            "stage2_unforced": {
+              "rows": 2338,
+              "exact_correct": 1041,
+              "remaining_correct": 1041,
+              "exact_agreement": 0.44525235243798117,
+              "remaining_set_agreement": 0.44525235243798117,
+              "mean_original_label_probability": 0.31351277965918384,
+              "mean_remaining_set_probability": 0.31351277965918384
+            },
+            "stage3_unforced": {
+              "rows": 4548,
+              "exact_correct": 2900,
+              "remaining_correct": 2900,
+              "exact_agreement": 0.6376429199648197,
+              "remaining_set_agreement": 0.6376429199648197,
+              "mean_original_label_probability": 0.521123154581433,
+              "mean_remaining_set_probability": 0.521123154581433
+            }
+          },
+          "root_counts": {
+            "roots": 4548,
+            "ordered_build_equal": 847,
+            "build_set_equal": 867,
+            "disrupt_equal": 2894,
+            "ordered_full_plan_equal": 604,
+            "unordered_full_plan_equal": 617,
+            "semantic_next_state_equal": 617,
+            "immediate_gained_equal": 2801,
+            "same_gain_different_state": 2184,
+            "different_plan_same_state": 13,
+            "teacher_prefix_all_four_exact": 604,
+            "teacher_prefix_all_four_remaining": 682
+          },
+          "root_rates": {
+            "ordered_build_equal": 0.18623570800351802,
+            "build_set_equal": 0.19063324538258575,
+            "disrupt_equal": 0.6363236587510994,
+            "ordered_full_plan_equal": 0.13280562884784522,
+            "unordered_full_plan_equal": 0.13566402814423922,
+            "semantic_next_state_equal": 0.13566402814423922,
+            "immediate_gained_equal": 0.6158751099384345,
+            "same_gain_different_state": 0.48021108179419525,
+            "different_plan_same_state": 0.0028583992963940193,
+            "teacher_prefix_all_four_exact": 0.13280562884784522,
+            "teacher_prefix_all_four_remaining": 0.14995602462620933
+          }
+        }
+      },
+      "teacher_permutations": {
+        "roots": 4548,
+        "permutations": 17007,
+        "roots_all_permutations_semantic_equal": 4548,
+        "semantic_equal": 17007,
+        "gained_equal": 17007,
+        "same_gain_different_state": 0
+      }
+    },
+    "validation": {
+      "models": {
+        "v4": {
+          "teacher_prefix": {
+            "all": {
+              "rows": 4448,
+              "exact_correct": 2199,
+              "remaining_correct": 2278,
+              "exact_agreement": 0.4943794964028777,
+              "remaining_set_agreement": 0.5121402877697842,
+              "mean_original_label_probability": 0.3936679113937174,
+              "mean_remaining_set_probability": 0.4071599435848268
+            },
+            "unforced": {
+              "rows": 3720,
+              "exact_correct": 1471,
+              "remaining_correct": 1550,
+              "exact_agreement": 0.39543010752688174,
+              "remaining_set_agreement": 0.4166666666666667,
+              "mean_original_label_probability": 0.2750093736234575,
+              "mean_remaining_set_probability": 0.2911417820068049
+            },
+            "build": {
+              "rows": 3336,
+              "exact_correct": 1545,
+              "remaining_correct": 1624,
+              "exact_agreement": 0.4631294964028777,
+              "remaining_set_agreement": 0.486810551558753,
+              "mean_original_label_probability": 0.3625924405704876,
+              "mean_remaining_set_probability": 0.3805818168252991
+            },
+            "disrupt": {
+              "rows": 1112,
+              "exact_correct": 654,
+              "remaining_correct": 654,
+              "exact_agreement": 0.5881294964028777,
+              "remaining_set_agreement": 0.5881294964028777,
+              "mean_original_label_probability": 0.48689432386341314,
+              "mean_remaining_set_probability": 0.48689432386341314
+            },
+            "build_unforced": {
+              "rows": 2608,
+              "exact_correct": 817,
+              "remaining_correct": 896,
+              "exact_agreement": 0.31326687116564417,
+              "remaining_set_agreement": 0.34355828220858897,
+              "mean_original_label_probability": 0.18466579054568433,
+              "mean_remaining_set_probability": 0.20767674115383308
+            },
+            "disrupt_unforced": {
+              "rows": 1112,
+              "exact_correct": 654,
+              "remaining_correct": 654,
+              "exact_agreement": 0.5881294964028777,
+              "remaining_set_agreement": 0.5881294964028777,
+              "mean_original_label_probability": 0.48689432386341314,
+              "mean_remaining_set_probability": 0.48689432386341314
+            },
+            "stage0": {
+              "rows": 1112,
+              "exact_correct": 235,
+              "remaining_correct": 294,
+              "exact_agreement": 0.21133093525179855,
+              "remaining_set_agreement": 0.2643884892086331,
+              "mean_original_label_probability": 0.11858019392598707,
+              "mean_remaining_set_probability": 0.15379287917330456
+            },
+            "stage1": {
+              "rows": 1112,
+              "exact_correct": 574,
+              "remaining_correct": 594,
+              "exact_agreement": 0.5161870503597122,
+              "remaining_set_agreement": 0.5341726618705036,
+              "mean_original_label_probability": 0.39491014780027295,
+              "mean_remaining_set_probability": 0.413665591317391
+            },
+            "stage2": {
+              "rows": 1112,
+              "exact_correct": 736,
+              "remaining_correct": 736,
+              "exact_agreement": 0.6618705035971223,
+              "remaining_set_agreement": 0.6618705035971223,
+              "mean_original_label_probability": 0.5742869799852011,
+              "mean_remaining_set_probability": 0.5742869799852011
+            },
+            "stage3": {
+              "rows": 1112,
+              "exact_correct": 654,
+              "remaining_correct": 654,
+              "exact_agreement": 0.5881294964028777,
+              "remaining_set_agreement": 0.5881294964028777,
+              "mean_original_label_probability": 0.48689432386341314,
+              "mean_remaining_set_probability": 0.48689432386341314
+            },
+            "stage0_unforced": {
+              "rows": 1072,
+              "exact_correct": 195,
+              "remaining_correct": 254,
+              "exact_agreement": 0.18190298507462688,
+              "remaining_set_agreement": 0.23694029850746268,
+              "mean_original_label_probability": 0.08569139519188206,
+              "mean_remaining_set_probability": 0.12221798660514425
+            },
+            "stage1_unforced": {
+              "rows": 851,
+              "exact_correct": 313,
+              "remaining_correct": 333,
+              "exact_agreement": 0.36780258519388953,
+              "remaining_set_agreement": 0.391304347826087,
+              "mean_original_label_probability": 0.20933029888825327,
+              "mean_remaining_set_probability": 0.23383799946526274
+            },
+            "stage2_unforced": {
+              "rows": 685,
+              "exact_correct": 309,
+              "remaining_correct": 309,
+              "exact_agreement": 0.4510948905109489,
+              "remaining_set_agreement": 0.4510948905109489,
+              "mean_original_label_probability": 0.3089155061949543,
+              "mean_remaining_set_probability": 0.3089155061949543
+            },
+            "stage3_unforced": {
+              "rows": 1112,
+              "exact_correct": 654,
+              "remaining_correct": 654,
+              "exact_agreement": 0.5881294964028777,
+              "remaining_set_agreement": 0.5881294964028777,
+              "mean_original_label_probability": 0.48689432386341314,
+              "mean_remaining_set_probability": 0.48689432386341314
+            }
+          },
+          "root_counts": {
+            "roots": 1112,
+            "ordered_build_equal": 151,
+            "build_set_equal": 156,
+            "disrupt_equal": 647,
+            "ordered_full_plan_equal": 77,
+            "unordered_full_plan_equal": 80,
+            "semantic_next_state_equal": 80,
+            "immediate_gained_equal": 588,
+            "same_gain_different_state": 508,
+            "different_plan_same_state": 3,
+            "teacher_prefix_all_four_exact": 77,
+            "teacher_prefix_all_four_remaining": 90
+          },
+          "root_rates": {
+            "ordered_build_equal": 0.1357913669064748,
+            "build_set_equal": 0.14028776978417265,
+            "disrupt_equal": 0.5818345323741008,
+            "ordered_full_plan_equal": 0.06924460431654676,
+            "unordered_full_plan_equal": 0.07194244604316546,
+            "semantic_next_state_equal": 0.07194244604316546,
+            "immediate_gained_equal": 0.5287769784172662,
+            "same_gain_different_state": 0.4568345323741007,
+            "different_plan_same_state": 0.002697841726618705,
+            "teacher_prefix_all_four_exact": 0.06924460431654676,
+            "teacher_prefix_all_four_remaining": 0.08093525179856115
+          }
+        },
+        "v9": {
+          "teacher_prefix": {
+            "all": {
+              "rows": 4448,
+              "exact_correct": 2157,
+              "remaining_correct": 2244,
+              "exact_agreement": 0.48493705035971224,
+              "remaining_set_agreement": 0.5044964028776978,
+              "mean_original_label_probability": 0.38850084495953274,
+              "mean_remaining_set_probability": 0.4019768394280737
+            },
+            "unforced": {
+              "rows": 3720,
+              "exact_correct": 1429,
+              "remaining_correct": 1516,
+              "exact_agreement": 0.3841397849462366,
+              "remaining_set_agreement": 0.4075268817204301,
+              "mean_original_label_probability": 0.2688311178440854,
+              "mean_remaining_set_probability": 0.2849443499398042
+            },
+            "build": {
+              "rows": 3336,
+              "exact_correct": 1496,
+              "remaining_correct": 1583,
+              "exact_agreement": 0.44844124700239807,
+              "remaining_set_agreement": 0.47452038369304556,
+              "mean_original_label_probability": 0.3574421453754212,
+              "mean_remaining_set_probability": 0.37541013800014356
+            },
+            "disrupt": {
+              "rows": 1112,
+              "exact_correct": 661,
+              "remaining_correct": 661,
+              "exact_agreement": 0.5944244604316546,
+              "remaining_set_agreement": 0.5944244604316546,
+              "mean_original_label_probability": 0.4816769437118633,
+              "mean_remaining_set_probability": 0.4816769437118633
+            },
+            "build_unforced": {
+              "rows": 2608,
+              "exact_correct": 768,
+              "remaining_correct": 855,
+              "exact_agreement": 0.294478527607362,
+              "remaining_set_agreement": 0.32783742331288346,
+              "mean_original_label_probability": 0.1780778362624255,
+              "mean_remaining_set_probability": 0.2010614341903676
+            },
+            "disrupt_unforced": {
+              "rows": 1112,
+              "exact_correct": 661,
+              "remaining_correct": 661,
+              "exact_agreement": 0.5944244604316546,
+              "remaining_set_agreement": 0.5944244604316546,
+              "mean_original_label_probability": 0.4816769437118633,
+              "mean_remaining_set_probability": 0.4816769437118633
+            },
+            "stage0": {
+              "rows": 1112,
+              "exact_correct": 186,
+              "remaining_correct": 258,
+              "exact_agreement": 0.1672661870503597,
+              "remaining_set_agreement": 0.23201438848920863,
+              "mean_original_label_probability": 0.11423031316607166,
+              "mean_remaining_set_probability": 0.1505633215708969
+            },
+            "stage1": {
+              "rows": 1112,
+              "exact_correct": 580,
+              "remaining_correct": 595,
+              "exact_agreement": 0.5215827338129496,
+              "remaining_set_agreement": 0.5350719424460432,
+              "mean_original_label_probability": 0.39155391043049,
+              "mean_remaining_set_probability": 0.4091248798998308
+            },
+            "stage2": {
+              "rows": 1112,
+              "exact_correct": 730,
+              "remaining_correct": 730,
+              "exact_agreement": 0.6564748201438849,
+              "remaining_set_agreement": 0.6564748201438849,
+              "mean_original_label_probability": 0.5665422125297024,
+              "mean_remaining_set_probability": 0.5665422125297024
+            },
+            "stage3": {
+              "rows": 1112,
+              "exact_correct": 661,
+              "remaining_correct": 661,
+              "exact_agreement": 0.5944244604316546,
+              "remaining_set_agreement": 0.5944244604316546,
+              "mean_original_label_probability": 0.4816769437118633,
+              "mean_remaining_set_probability": 0.4816769437118633
+            },
+            "stage0_unforced": {
+              "rows": 1072,
+              "exact_correct": 146,
+              "remaining_correct": 218,
+              "exact_agreement": 0.13619402985074627,
+              "remaining_set_agreement": 0.20335820895522388,
+              "mean_original_label_probability": 0.08117920544838764,
+              "mean_remaining_set_probability": 0.11886792312204976
+            },
+            "stage1_unforced": {
+              "rows": 851,
+              "exact_correct": 319,
+              "remaining_correct": 334,
+              "exact_agreement": 0.37485311398354876,
+              "remaining_set_agreement": 0.39247943595769685,
+              "mean_original_label_probability": 0.20494471022174487,
+              "mean_remaining_set_probability": 0.22790466092668898
+            },
+            "stage2_unforced": {
+              "rows": 685,
+              "exact_correct": 303,
+              "remaining_correct": 303,
+              "exact_agreement": 0.44233576642335765,
+              "remaining_set_agreement": 0.44233576642335765,
+              "mean_original_label_probability": 0.29634297858836317,
+              "mean_remaining_set_probability": 0.29634297858836317
+            },
+            "stage3_unforced": {
+              "rows": 1112,
+              "exact_correct": 661,
+              "remaining_correct": 661,
+              "exact_agreement": 0.5944244604316546,
+              "remaining_set_agreement": 0.5944244604316546,
+              "mean_original_label_probability": 0.4816769437118633,
+              "mean_remaining_set_probability": 0.4816769437118633
+            }
+          },
+          "root_counts": {
+            "roots": 1112,
+            "ordered_build_equal": 117,
+            "build_set_equal": 119,
+            "disrupt_equal": 665,
+            "ordered_full_plan_equal": 63,
+            "unordered_full_plan_equal": 65,
+            "semantic_next_state_equal": 65,
+            "immediate_gained_equal": 616,
+            "same_gain_different_state": 551,
+            "different_plan_same_state": 2,
+            "teacher_prefix_all_four_exact": 63,
+            "teacher_prefix_all_four_remaining": 83
+          },
+          "root_rates": {
+            "ordered_build_equal": 0.1052158273381295,
+            "build_set_equal": 0.10701438848920863,
+            "disrupt_equal": 0.5980215827338129,
+            "ordered_full_plan_equal": 0.05665467625899281,
+            "unordered_full_plan_equal": 0.05845323741007194,
+            "semantic_next_state_equal": 0.05845323741007194,
+            "immediate_gained_equal": 0.5539568345323741,
+            "same_gain_different_state": 0.49550359712230213,
+            "different_plan_same_state": 0.0017985611510791368,
+            "teacher_prefix_all_four_exact": 0.05665467625899281,
+            "teacher_prefix_all_four_remaining": 0.07464028776978417
+          }
+        }
+      },
+      "teacher_permutations": {
+        "roots": 1112,
+        "permutations": 4695,
+        "roots_all_permutations_semantic_equal": 1112,
+        "semantic_equal": 4695,
+        "gained_equal": 4695,
+        "same_gain_different_state": 0
+      }
+    },
+    "all": {
+      "models": {
+        "v4": {
+          "teacher_prefix": {
+            "all": {
+              "rows": 22640,
+              "exact_correct": 12214,
+              "remaining_correct": 12674,
+              "exact_agreement": 0.5394876325088339,
+              "remaining_set_agreement": 0.5598056537102474,
+              "mean_original_label_probability": 0.44199986136876446,
+              "mean_remaining_set_probability": 0.45567503827958994
+            },
+            "unforced": {
+              "rows": 18148,
+              "exact_correct": 7722,
+              "remaining_correct": 8182,
+              "exact_agreement": 0.42550143266475643,
+              "remaining_set_agreement": 0.45084857835574166,
+              "mean_original_label_probability": 0.30388345059449406,
+              "mean_remaining_set_probability": 0.32094351259918125
+            },
+            "build": {
+              "rows": 16980,
+              "exact_correct": 8697,
+              "remaining_correct": 9157,
+              "exact_agreement": 0.5121908127208481,
+              "remaining_set_agreement": 0.539281507656066,
+              "mean_original_label_probability": 0.4166332707244585,
+              "mean_remaining_set_probability": 0.4348668399388913
+            },
+            "disrupt": {
+              "rows": 5660,
+              "exact_correct": 3517,
+              "remaining_correct": 3517,
+              "exact_agreement": 0.6213780918727915,
+              "remaining_set_agreement": 0.6213780918727915,
+              "mean_original_label_probability": 0.5180996333016871,
+              "mean_remaining_set_probability": 0.5180996333016871
+            },
+            "build_unforced": {
+              "rows": 12488,
+              "exact_correct": 4205,
+              "remaining_correct": 4665,
+              "exact_agreement": 0.3367232543241512,
+              "remaining_set_agreement": 0.37355861627162074,
+              "mean_original_label_probability": 0.20679315638223236,
+              "mean_remaining_set_probability": 0.23158543739288776
+            },
+            "disrupt_unforced": {
+              "rows": 5660,
+              "exact_correct": 3517,
+              "remaining_correct": 3517,
+              "exact_agreement": 0.6213780918727915,
+              "remaining_set_agreement": 0.6213780918727915,
+              "mean_original_label_probability": 0.5180996333016871,
+              "mean_remaining_set_probability": 0.5180996333016871
+            },
+            "stage0": {
+              "rows": 5660,
+              "exact_correct": 1429,
+              "remaining_correct": 1784,
+              "exact_agreement": 0.2524734982332155,
+              "remaining_set_agreement": 0.3151943462897526,
+              "mean_original_label_probability": 0.15426904038545808,
+              "mean_remaining_set_probability": 0.18987266995408833
+            },
+            "stage1": {
+              "rows": 5660,
+              "exact_correct": 3241,
+              "remaining_correct": 3346,
+              "exact_agreement": 0.5726148409893993,
+              "remaining_set_agreement": 0.5911660777385159,
+              "mean_original_label_probability": 0.4554685827658258,
+              "mean_remaining_set_probability": 0.47456566084049323
+            },
+            "stage2": {
+              "rows": 5660,
+              "exact_correct": 4027,
+              "remaining_correct": 4027,
+              "exact_agreement": 0.7114840989399294,
+              "remaining_set_agreement": 0.7114840989399294,
+              "mean_original_label_probability": 0.6401621890220931,
+              "mean_remaining_set_probability": 0.6401621890220931
+            },
+            "stage3": {
+              "rows": 5660,
+              "exact_correct": 3517,
+              "remaining_correct": 3517,
+              "exact_agreement": 0.6213780918727915,
+              "remaining_set_agreement": 0.6213780918727915,
+              "mean_original_label_probability": 0.5180996333016871,
+              "mean_remaining_set_probability": 0.5180996333016871
+            },
+            "stage0_unforced": {
+              "rows": 5394,
+              "exact_correct": 1163,
+              "remaining_correct": 1518,
+              "exact_agreement": 0.21560993696700037,
+              "remaining_set_agreement": 0.2814238042269188,
+              "mean_original_label_probability": 0.11256261931436719,
+              "mean_remaining_set_probability": 0.1499220081461141
+            },
+            "stage1_unforced": {
+              "rows": 4071,
+              "exact_correct": 1652,
+              "remaining_correct": 1757,
+              "exact_agreement": 0.4057971014492754,
+              "remaining_set_agreement": 0.43158929010071234,
+              "mean_original_label_probability": 0.2429261062280971,
+              "mean_remaining_set_probability": 0.26947718996737713
+            },
+            "stage2_unforced": {
+              "rows": 3023,
+              "exact_correct": 1390,
+              "remaining_correct": 1390,
+              "exact_agreement": 0.4598081376116441,
+              "remaining_set_agreement": 0.4598081376116441,
+              "mean_original_label_probability": 0.3262712503688538,
+              "mean_remaining_set_probability": 0.3262712503688538
+            },
+            "stage3_unforced": {
+              "rows": 5660,
+              "exact_correct": 3517,
+              "remaining_correct": 3517,
+              "exact_agreement": 0.6213780918727915,
+              "remaining_set_agreement": 0.6213780918727915,
+              "mean_original_label_probability": 0.5180996333016871,
+              "mean_remaining_set_probability": 0.5180996333016871
+            }
+          },
+          "root_counts": {
+            "roots": 5660,
+            "ordered_build_equal": 987,
+            "build_set_equal": 1010,
+            "disrupt_equal": 3492,
+            "ordered_full_plan_equal": 676,
+            "unordered_full_plan_equal": 689,
+            "semantic_next_state_equal": 689,
+            "immediate_gained_equal": 3347,
+            "same_gain_different_state": 2658,
+            "different_plan_same_state": 13,
+            "teacher_prefix_all_four_exact": 676,
+            "teacher_prefix_all_four_remaining": 756
+          },
+          "root_rates": {
+            "ordered_build_equal": 0.1743816254416961,
+            "build_set_equal": 0.1784452296819788,
+            "disrupt_equal": 0.6169611307420495,
+            "ordered_full_plan_equal": 0.11943462897526502,
+            "unordered_full_plan_equal": 0.12173144876325089,
+            "semantic_next_state_equal": 0.12173144876325089,
+            "immediate_gained_equal": 0.5913427561837455,
+            "same_gain_different_state": 0.4696113074204947,
+            "different_plan_same_state": 0.0022968197879858657,
+            "teacher_prefix_all_four_exact": 0.11943462897526502,
+            "teacher_prefix_all_four_remaining": 0.13356890459363957
+          }
+        },
+        "v9": {
+          "teacher_prefix": {
+            "all": {
+              "rows": 22640,
+              "exact_correct": 12174,
+              "remaining_correct": 12623,
+              "exact_agreement": 0.5377208480565371,
+              "remaining_set_agreement": 0.557553003533569,
+              "mean_original_label_probability": 0.43668375118925246,
+              "mean_remaining_set_probability": 0.4499348903095815
+            },
+            "unforced": {
+              "rows": 18148,
+              "exact_correct": 7682,
+              "remaining_correct": 8131,
+              "exact_agreement": 0.4232973330394534,
+              "remaining_set_agreement": 0.4480383513334803,
+              "mean_original_label_probability": 0.2972514947611153,
+              "mean_remaining_set_probability": 0.3137825609769088
+            },
+            "build": {
+              "rows": 16980,
+              "exact_correct": 8613,
+              "remaining_correct": 9062,
+              "exact_agreement": 0.507243816254417,
+              "remaining_set_agreement": 0.5336866902237927,
+              "mean_original_label_probability": 0.41112056881512066,
+              "mean_remaining_set_probability": 0.42878875430889185
+            },
+            "disrupt": {
+              "rows": 5660,
+              "exact_correct": 3561,
+              "remaining_correct": 3561,
+              "exact_agreement": 0.6291519434628975,
+              "remaining_set_agreement": 0.6291519434628975,
+              "mean_original_label_probability": 0.5133732983116526,
+              "mean_remaining_set_probability": 0.5133732983116526
+            },
+            "build_unforced": {
+              "rows": 12488,
+              "exact_correct": 4121,
+              "remaining_correct": 4570,
+              "exact_agreement": 0.329996796925048,
+              "remaining_set_agreement": 0.3659513132607303,
+              "mean_original_label_probability": 0.19929750628449366,
+              "mean_remaining_set_probability": 0.22332103204396112
+            },
+            "disrupt_unforced": {
+              "rows": 5660,
+              "exact_correct": 3561,
+              "remaining_correct": 3561,
+              "exact_agreement": 0.6291519434628975,
+              "remaining_set_agreement": 0.6291519434628975,
+              "mean_original_label_probability": 0.5133732983116526,
+              "mean_remaining_set_probability": 0.5133732983116526
+            },
+            "stage0": {
+              "rows": 5660,
+              "exact_correct": 1389,
+              "remaining_correct": 1747,
+              "exact_agreement": 0.24540636042402827,
+              "remaining_set_agreement": 0.3086572438162544,
+              "mean_original_label_probability": 0.15317244799293495,
+              "mean_remaining_set_probability": 0.18855584025113736
+            },
+            "stage1": {
+              "rows": 5660,
+              "exact_correct": 3243,
+              "remaining_correct": 3334,
+              "exact_agreement": 0.5729681978798586,
+              "remaining_set_agreement": 0.5890459363957598,
+              "mean_original_label_probability": 0.4489193257357834,
+              "mean_remaining_set_probability": 0.46654048995889447
+            },
+            "stage2": {
+              "rows": 5660,
+              "exact_correct": 3981,
+              "remaining_correct": 3981,
+              "exact_agreement": 0.703356890459364,
+              "remaining_set_agreement": 0.703356890459364,
+              "mean_original_label_probability": 0.631269932716643,
+              "mean_remaining_set_probability": 0.631269932716643
+            },
+            "stage3": {
+              "rows": 5660,
+              "exact_correct": 3561,
+              "remaining_correct": 3561,
+              "exact_agreement": 0.6291519434628975,
+              "remaining_set_agreement": 0.6291519434628975,
+              "mean_original_label_probability": 0.5133732983116526,
+              "mean_remaining_set_probability": 0.5133732983116526
+            },
+            "stage0_unforced": {
+              "rows": 5394,
+              "exact_correct": 1123,
+              "remaining_correct": 1481,
+              "exact_agreement": 0.20819428995179828,
+              "remaining_set_agreement": 0.27456433073785685,
+              "mean_original_label_probability": 0.11141194950686187,
+              "mean_remaining_set_probability": 0.14854024023385948
+            },
+            "stage1_unforced": {
+              "rows": 4071,
+              "exact_correct": 1654,
+              "remaining_correct": 1745,
+              "exact_agreement": 0.4062883812331123,
+              "remaining_set_agreement": 0.42864161139769097,
+              "mean_original_label_probability": 0.2338205314823234,
+              "mean_remaining_set_probability": 0.25831962003619346
+            },
+            "stage2_unforced": {
+              "rows": 3023,
+              "exact_correct": 1344,
+              "remaining_correct": 1344,
+              "exact_agreement": 0.44459146543169037,
+              "remaining_set_agreement": 0.44459146543169037,
+              "mean_original_label_probability": 0.3096221697572617,
+              "mean_remaining_set_probability": 0.3096221697572617
+            },
+            "stage3_unforced": {
+              "rows": 5660,
+              "exact_correct": 3561,
+              "remaining_correct": 3561,
+              "exact_agreement": 0.6291519434628975,
+              "remaining_set_agreement": 0.6291519434628975,
+              "mean_original_label_probability": 0.5133732983116526,
+              "mean_remaining_set_probability": 0.5133732983116526
+            }
+          },
+          "root_counts": {
+            "roots": 5660,
+            "ordered_build_equal": 964,
+            "build_set_equal": 986,
+            "disrupt_equal": 3559,
+            "ordered_full_plan_equal": 667,
+            "unordered_full_plan_equal": 682,
+            "semantic_next_state_equal": 682,
+            "immediate_gained_equal": 3417,
+            "same_gain_different_state": 2735,
+            "different_plan_same_state": 15,
+            "teacher_prefix_all_four_exact": 667,
+            "teacher_prefix_all_four_remaining": 765
+          },
+          "root_rates": {
+            "ordered_build_equal": 0.17031802120141343,
+            "build_set_equal": 0.17420494699646644,
+            "disrupt_equal": 0.6287985865724381,
+            "ordered_full_plan_equal": 0.11784452296819788,
+            "unordered_full_plan_equal": 0.12049469964664311,
+            "semantic_next_state_equal": 0.12049469964664311,
+            "immediate_gained_equal": 0.6037102473498234,
+            "same_gain_different_state": 0.4832155477031802,
+            "different_plan_same_state": 0.00265017667844523,
+            "teacher_prefix_all_four_exact": 0.11784452296819788,
+            "teacher_prefix_all_four_remaining": 0.1351590106007067
+          }
+        }
+      },
+      "teacher_permutations": {
+        "roots": 5660,
+        "permutations": 21702,
+        "roots_all_permutations_semantic_equal": 5660,
+        "semantic_equal": 21702,
+        "gained_equal": 21702,
+        "same_gain_different_state": 0
+      }
+    }
+  },
+  "collision_evidence": {
+    "path": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\spatial-label-audit-v1\\collision-groups.json",
+    "sha256": "026968f1a1aabcbf08be432971d5e0786aa06b6e1fee392e00b680b3c8a1e692",
+    "duplicate_groups": 340
+  },
+  "limits": [
+    "Previously exposed development corpus; descriptive finite-sample results only.",
+    "All row means weight conditional rows equally; all root rates weight recorded turn roots equally.",
+    "Teacher-prefix all-four agreement is a separate diagnostic, never a stitched actual student plan.",
+    "Remaining-set mass diagnoses ordering only; it is not an alternative training objective.",
+    "Byte identity is conservative and majority-label ceiling is only for this recorded multiset.",
+    "Equal immediate gain with a different semantic state is not action equivalence.",
+    "Same next state is relative to the same recorded simultaneous opponent action, not every opponent.",
+    "Teacher disagreement does not establish inferior strategy; no value or strength conclusion."
+  ],
+  "seconds": 38.66439660009928,
+  "selectedBot": "v09",
+  "newModel": false,
+  "strengthBatchRun": false,
+  "decision": "Diagnostic complete; observed ordering penalties and exact-input contradictions do not explain most existing fitting errors. Original stage 3 remains open.",
+  "verification": {
+    "javaTests": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pythonTests": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0
+    },
+    "engineReplays": {
+      "exact": 292,
+      "total": 292
+    }
+  },
+  "identityVerification": {
+    "recordedAt": "2026-10-10T20:36:46.493367+00:00",
+    "status": "complete",
+    "historicalFiles": 895,
+    "evaluationFiles": 448
+  },
+  "rawReportSha256": "cd97a6a5a4ca67a81255750ab4613eb15bfff9acff11a3cf680284cc09172788",
+  "collectorManifestSha256": "2ffec624b22810cd15f0eb95b31521cc253055aec3dd545283ccf6d25fcedaf9",
+  "preResultsProtocolSha256": "6b119146849412083ec596d8eca38229f32ca842d44bec5ad5c4cf0baa18f296",
+  "collectorSeconds": 527.1870000001509,
+  "retainedTechnicalIncident": "Initial compile-only preflight used collection method on boolean unknownActions. Fixed before all tests, frozen sources and actual data scoring; no collection/reduction retries."
+}
