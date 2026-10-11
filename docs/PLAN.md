@@ -15,9 +15,15 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Select one next hypothesis: construction-preserving evaluation of deferred
       sabotage on an empty own portfolio. Exploratory raw-root signal39states/
       15games, including native-model delayed-terminal-win counterexamples.
-- [ ] Separately declare a full-action/replanning preflight of that hypothesis,
-      with native root/fill provenance and terminal controls, before any default-off
-      candidate or practical-v4 strength trial. Not launched by this diagnostic.
+- [x] On the user's follow-up, complete [v09-full-action-v1](v09-full-action-v1.md):
+      all967 selected states,56 cohort starts plus historical;183 exact network
+      roots,38/39 old reversals survive full construction. In the old39 subgroup,
+      13/52 nominated-target promises miss due dates across nine starts/six games.
+- [x] Verify32 focused tests,292+40+1 exact replays and693 unchanged frozen files.
+      All88 native-reply and56 passive cohort pairs complete. Primary earned-score
+      effects36 positive/19 negative/33 tied; no A-only terminal wins. Four starts
+      lose a within-window winning closure. Reject blanket early-sabotage selection;
+      retain evidence and v09. No automatic candidate or strength follow-up.
 
 ## Return to v09 — reuse neural proposals (2026-10-11)
 

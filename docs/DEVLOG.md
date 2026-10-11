@@ -6860,3 +6860,58 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-continuation-v1.json),
   [archive index](evidence/v09-continuation-v1-artifacts.json),
   [archive](evidence/v09-continuation-v1-artifacts.zip).
+
+## 2026-10-11 — v09-full-action-v1: full construction, promises and repeated decisions
+
+- User authorized the selected follow-up. Predeclared all967 old traced positions
+  (39games),56 mechanically selected cohort starts and one separately labelled
+  historical start. Includes all39 old exploratory reversals (six terminal-win
+  controls within them), nine no-reversal controls, three former attack/tie controls and five
+  full-WAIT controls. No new-outcome selection or extra trajectories.
+- Tools reconstruct exact frozen-v09 raw winner/order/ties, network-root identity
+  and final fill, then hold complete construction fixed under A (old nominated
+  target), W (no hit), W0 (no future own sabotage). Original continuation/replies/
+  horizon/aggregation retained; native scalar and full-state parity asserted.
+  All967 complete,183 selected network roots; alternative nomination differences
+  recorded explicitly. No core/bot/Params/weight edits.
+- Full actions:375 A-preferred,143 W-preferred,449 ties;43 W>A>W0 reversals.
+  In the old39, all39 still prefer W over A and38 reverse against W0 (15games).
+  Filler omission does not explain most of the old signal, but reversal alone
+  assumes future attacks away rather than proving them unavailable.
+- Real replans: initial full A/W intervention only, then unchanged v09 for up to
+  eight turns. Each initial native opponent reply retains its portfolio and
+  recomputes legal actions on the divergent board; pure WAIT is separate.56starts/
+  23games give88 native pairs and56 passive pairs, all complete. Native first-hit
+  promises60 on-time/11 late/13 unfulfilled/4 opponent ink after deadline. Within
+  the old39, nominated-target promises39/52 on time,13 missed across9starts/6games;
+  another12 replies make no promise on that target. Counts are correlated.
+- Actual mechanism examples:907134651/t38 target33 due39 slides to42, where it
+  finally inks; initial A gains77 bounded points.907135823/t35 target11 is promised
+  then replaced by another target and remains intact; initial A gains136. Conversely
+  907136694/t73 target45 executes on time; A worsens reply0 by189 but improves
+  reply1 by18. These are eight-turn score differences, not recovered wins.
+- Primary A−W earned score36 positive/19 negative/33 tied, median0. Outcomes W→A:
+  70 nonterminal/nonterminal,9 nonterminal/loss,4 win/win,4 win/nonterminal,1loss/loss.
+  No A-only terminal win. All six907134720 terminal controls execute promised hits
+  on time under the native reply; early attack loses the within-window closure at
+  four starts despite+10 score. Under pure WAIT those six promises fail instead:
+  the effect depends on the opponent context, not just own commitment.
+- Historical904554072/t37 remains separate. Native replies execute target29 on38;
+  both A/W end−2012. Against pure WAIT, W never attacks and ends−2190, A−1656;
+  both remain nonterminal. Do not infer an active-opponent gain from this example.
+- Verification:32 focused tests,292 baseline+40 cohort+1 historical exact replays,
+  693 frozen files unchanged; independent code/provenance/result review. PATH Java
+  launch stalled before output; explicit JDK first hit cache permission, then
+  approved offline build worked. First test compile needed a throws declaration;
+  corrected before results and logs retained. Added a nonempty episode fixture
+  before the final freeze; preliminary snapshot retained. One complete measurement,
+  no retries, tuning or sample expansion.
+- Decision: forecast/execution mismatch exists, but reject a blanket earlier-hit
+  selector from W0. Preserve v09; a later correction would need to separate missed
+  commitments from valid opponent-dependent plans and retain terminal/adverse-reply
+  controls. No automatic production candidate, strength games, upload or promotion.
+  Retain and locally commit this completed diagnostic under the working agreement.
+  [Protocol/results](v09-full-action-v1.md),
+  [summary](evidence/v09-full-action-v1.json),
+  [archive index](evidence/v09-full-action-v1-artifacts.json),
+  [archive](evidence/v09-full-action-v1-artifacts.zip).

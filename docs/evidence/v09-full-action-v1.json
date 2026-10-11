@@ -1,0 +1,2074 @@
+{
+  "schemaVersion": 1,
+  "kind": "v09-full-action-v1",
+  "complete": true,
+  "verdict": "FORECAST_EXECUTION_MISMATCH_CONFIRMED_BLANKET_EARLY_ATTACK_NOT_SUPPORTED",
+  "selectedBot": "v09",
+  "policyChanged": false,
+  "newGames": 0,
+  "strengthTrial": false,
+  "protocol": {
+    "path": "docs/v09-full-action-v1.md",
+    "sha256": "8b62e982b678b0034b321ee39eadfec81986a293848d070797566b686da42263",
+    "bytes": 16272
+  },
+  "prospectiveProtocol": {
+    "path": "build/analysis/v09-full-action-v1/prospective-protocol.md",
+    "sha256": "4e0a8df4f3bda71abb7834df11bbc52d59eb833df0fbb99a16320cb219ce1c60",
+    "bytes": 7749
+  },
+  "selection": {
+    "path": "build/analysis/v09-full-action-v1/selection.json",
+    "sha256": "c6cead6244d5d2fd873f645fde926dd3be1bf6848fa9f7aaab1c6695ba6c2129",
+    "bytes": 599075
+  },
+  "selectionCounts": {
+    "sourceRows": 2936,
+    "sourceGames": 40,
+    "panelRows": 967,
+    "panelGames": 39,
+    "classifications": {
+      "already_disrupting": 830,
+      "native_attack_or_tie": 3,
+      "wait_preferred_no_reversal": 90,
+      "exploratory_reversal": 39,
+      "full_wait_control": 5
+    },
+    "cohortEpisodeStarts": 56,
+    "episodeClassifications": {
+      "native_attack_or_tie": 3,
+      "wait_preferred_no_reversal": 9,
+      "exploratory_reversal": 39,
+      "full_wait_control": 5
+    },
+    "historicalEpisodeStarts": 1,
+    "forecastTerminalControlRows": 6
+  },
+  "fullActionPanel": {
+    "rows": 967,
+    "games": 39,
+    "statuses": {
+      "COMPLETE": 967
+    },
+    "networkRoots": 183,
+    "selectedRawNomineeDiffersFromPinned": 10,
+    "postConstructionChooserDiffersFromPinned": 15,
+    "preferences": {
+      "fullNoHitPreferred": {
+        "rows": 143,
+        "games": 24
+      },
+      "fullPreferenceReversed": {
+        "rows": 43,
+        "games": 16
+      },
+      "fullAttackPreferred": {
+        "rows": 375,
+        "games": 39
+      }
+    },
+    "attackMinusNoHit": {
+      "count": 967,
+      "min": -1000004.0,
+      "median": 0.0,
+      "max": 1000011.0,
+      "sum": -36491950.75,
+      "mean": -37737.281023784904
+    },
+    "attackMinusNoFuture": {
+      "count": 967,
+      "min": -1000000.0,
+      "median": 0.0,
+      "max": 1000187.0,
+      "sum": -1898358.5,
+      "mean": -1963.1421923474663
+    },
+    "oldToFullPreference": {
+      "positive->positive": 372,
+      "positive->negative": 7,
+      "tied->tied": 446,
+      "negative->negative": 136,
+      "tied->positive": 2,
+      "positive->tied": 3,
+      "negative->positive": 1
+    },
+    "replyEndStates": {
+      "attack": {
+        "NONTERMINAL": 964,
+        "LOSS": 141,
+        "WIN": 64
+      },
+      "noHit": {
+        "NONTERMINAL": 999,
+        "LOSS": 104,
+        "WIN": 66
+      },
+      "noFutureOwnSabotage": {
+        "NONTERMINAL": 1096,
+        "LOSS": 73
+      }
+    }
+  },
+  "fullActionByOldClassification": {
+    "already_disrupting": {
+      "rows": 830,
+      "games": 39,
+      "statuses": {
+        "COMPLETE": 830
+      },
+      "networkRoots": 161,
+      "selectedRawNomineeDiffersFromPinned": 10,
+      "postConstructionChooserDiffersFromPinned": 14,
+      "preferences": {
+        "fullNoHitPreferred": {
+          "rows": 6,
+          "games": 5
+        },
+        "fullPreferenceReversed": {
+          "rows": 3,
+          "games": 3
+        },
+        "fullAttackPreferred": {
+          "rows": 375,
+          "games": 39
+        }
+      },
+      "attackMinusNoHit": {
+        "count": 830,
+        "min": -249974.75,
+        "median": 0.0,
+        "max": 1000011.0,
+        "sum": 5512130.25,
+        "mean": 6641.12078313253
+      },
+      "attackMinusNoFuture": {
+        "count": 830,
+        "min": -1000000.0,
+        "median": 6.0,
+        "max": 1000187.0,
+        "sum": 34093956.75,
+        "mean": 41077.05632530121
+      },
+      "oldToFullPreference": {
+        "positive->positive": 372,
+        "tied->tied": 446,
+        "tied->positive": 2,
+        "positive->negative": 4,
+        "positive->tied": 3,
+        "negative->negative": 2,
+        "negative->positive": 1
+      },
+      "replyEndStates": {
+        "attack": {
+          "NONTERMINAL": 833,
+          "LOSS": 93,
+          "WIN": 62
+        },
+        "noHit": {
+          "NONTERMINAL": 835,
+          "LOSS": 95,
+          "WIN": 58
+        },
+        "noFutureOwnSabotage": {
+          "NONTERMINAL": 923,
+          "LOSS": 65
+        }
+      }
+    },
+    "exploratory_reversal": {
+      "rows": 39,
+      "games": 15,
+      "statuses": {
+        "COMPLETE": 39
+      },
+      "networkRoots": 10,
+      "selectedRawNomineeDiffersFromPinned": 0,
+      "postConstructionChooserDiffersFromPinned": 0,
+      "preferences": {
+        "fullNoHitPreferred": {
+          "rows": 39,
+          "games": 15
+        },
+        "fullPreferenceReversed": {
+          "rows": 38,
+          "games": 15
+        },
+        "fullAttackPreferred": {
+          "rows": 0,
+          "games": 0
+        }
+      },
+      "attackMinusNoHit": {
+        "count": 39,
+        "min": -999988.0,
+        "median": -30.0,
+        "max": -1.0,
+        "sum": -6002187.5,
+        "mean": -153902.2435897436
+      },
+      "attackMinusNoFuture": {
+        "count": 39,
+        "min": -44.0,
+        "median": 99.0,
+        "max": 1000016.0,
+        "sum": 1006437.75,
+        "mean": 25806.096153846152
+      },
+      "oldToFullPreference": {
+        "negative->negative": 39
+      },
+      "replyEndStates": {
+        "attack": {
+          "NONTERMINAL": 62,
+          "WIN": 2
+        },
+        "noHit": {
+          "NONTERMINAL": 56,
+          "WIN": 8
+        },
+        "noFutureOwnSabotage": {
+          "NONTERMINAL": 64
+        }
+      }
+    },
+    "full_wait_control": {
+      "rows": 5,
+      "games": 1,
+      "statuses": {
+        "COMPLETE": 5
+      },
+      "networkRoots": 0,
+      "selectedRawNomineeDiffersFromPinned": 0,
+      "postConstructionChooserDiffersFromPinned": 0,
+      "preferences": {
+        "fullNoHitPreferred": {
+          "rows": 5,
+          "games": 1
+        },
+        "fullPreferenceReversed": {
+          "rows": 0,
+          "games": 0
+        },
+        "fullAttackPreferred": {
+          "rows": 0,
+          "games": 0
+        }
+      },
+      "attackMinusNoHit": {
+        "count": 5,
+        "min": -999994.0,
+        "median": -999988.0,
+        "max": -999988.0,
+        "sum": -4999949.0,
+        "mean": -999989.8
+      },
+      "attackMinusNoFuture": {
+        "count": 5,
+        "min": -999994.0,
+        "median": -999988.0,
+        "max": -999988.0,
+        "sum": -4999949.0,
+        "mean": -999989.8
+      },
+      "oldToFullPreference": {
+        "negative->negative": 5
+      },
+      "replyEndStates": {
+        "attack": {
+          "LOSS": 5
+        },
+        "noHit": {
+          "NONTERMINAL": 5
+        },
+        "noFutureOwnSabotage": {
+          "NONTERMINAL": 5
+        }
+      }
+    },
+    "native_attack_or_tie": {
+      "rows": 3,
+      "games": 3,
+      "statuses": {
+        "COMPLETE": 3
+      },
+      "networkRoots": 3,
+      "selectedRawNomineeDiffersFromPinned": 0,
+      "postConstructionChooserDiffersFromPinned": 0,
+      "preferences": {
+        "fullNoHitPreferred": {
+          "rows": 3,
+          "games": 3
+        },
+        "fullPreferenceReversed": {
+          "rows": 2,
+          "games": 2
+        },
+        "fullAttackPreferred": {
+          "rows": 0,
+          "games": 0
+        }
+      },
+      "attackMinusNoHit": {
+        "count": 3,
+        "min": -999973.0,
+        "median": -7.0,
+        "max": -2.0,
+        "sum": -999982.0,
+        "mean": -333327.3333333333
+      },
+      "attackMinusNoFuture": {
+        "count": 3,
+        "min": -999654.0,
+        "median": 58.0,
+        "max": 205.0,
+        "sum": -999391.0,
+        "mean": -333130.3333333333
+      },
+      "oldToFullPreference": {
+        "positive->negative": 3
+      },
+      "replyEndStates": {
+        "attack": {
+          "NONTERMINAL": 4,
+          "LOSS": 2
+        },
+        "noHit": {
+          "NONTERMINAL": 6
+        },
+        "noFutureOwnSabotage": {
+          "NONTERMINAL": 6
+        }
+      }
+    },
+    "wait_preferred_no_reversal": {
+      "rows": 90,
+      "games": 9,
+      "statuses": {
+        "COMPLETE": 90
+      },
+      "networkRoots": 9,
+      "selectedRawNomineeDiffersFromPinned": 0,
+      "postConstructionChooserDiffersFromPinned": 1,
+      "preferences": {
+        "fullNoHitPreferred": {
+          "rows": 90,
+          "games": 9
+        },
+        "fullPreferenceReversed": {
+          "rows": 0,
+          "games": 0
+        },
+        "fullAttackPreferred": {
+          "rows": 0,
+          "games": 0
+        }
+      },
+      "attackMinusNoHit": {
+        "count": 90,
+        "min": -1000004.0,
+        "median": -21.5,
+        "max": -1.0,
+        "sum": -30001962.5,
+        "mean": -333355.1388888889
+      },
+      "attackMinusNoFuture": {
+        "count": 90,
+        "min": -999984.0,
+        "median": -13.5,
+        "max": -1.0,
+        "sum": -30999413.0,
+        "mean": -344437.9222222222
+      },
+      "oldToFullPreference": {
+        "negative->negative": 90
+      },
+      "replyEndStates": {
+        "attack": {
+          "LOSS": 41,
+          "NONTERMINAL": 65
+        },
+        "noHit": {
+          "NONTERMINAL": 97,
+          "LOSS": 9
+        },
+        "noFutureOwnSabotage": {
+          "NONTERMINAL": 98,
+          "LOSS": 8
+        }
+      }
+    }
+  },
+  "episodes": {
+    "NATIVE_FIXED_PORTFOLIO": {
+      "paired": {
+        "comparisons": 88,
+        "starts": 56,
+        "games": 23,
+        "bothComplete": 88,
+        "earnedScoreDelta": {
+          "count": 88,
+          "min": -189,
+          "median": 0.0,
+          "max": 206,
+          "sum": 615,
+          "mean": 6.988636363636363
+        },
+        "deltaSigns": {
+          "negative": {
+            "observations": 19,
+            "starts": 14,
+            "games": 8
+          },
+          "positive": {
+            "observations": 36,
+            "starts": 29,
+            "games": 15
+          },
+          "tied": {
+            "observations": 33,
+            "starts": 21,
+            "games": 12
+          }
+        },
+        "terminalPairs": {
+          "LOSS->LOSS": {
+            "observations": 1,
+            "starts": 1,
+            "games": 1
+          },
+          "NONTERMINAL->LOSS": {
+            "observations": 9,
+            "starts": 8,
+            "games": 4
+          },
+          "NONTERMINAL->NONTERMINAL": {
+            "observations": 70,
+            "starts": 40,
+            "games": 18
+          },
+          "WIN->NONTERMINAL": {
+            "observations": 4,
+            "starts": 4,
+            "games": 1
+          },
+          "WIN->WIN": {
+            "observations": 4,
+            "starts": 3,
+            "games": 2
+          }
+        },
+        "startReplyPatterns": {
+          "positive": 24,
+          "tied": 15,
+          "negative": 9,
+          "positive/tied": 3,
+          "negative/positive": 2,
+          "negative/tied": 3
+        },
+        "startsWithAnyWTerminalWinAndALossOfThatWin": [
+          "907134720/49/1",
+          "907134720/50/1",
+          "907134720/51/1",
+          "907134720/52/1"
+        ],
+        "startsWithAnyATerminalWinWithoutWTerminalWin": []
+      },
+      "originalWPromises": {
+        "firstFutureNominatedHit": {
+          "observations": 88,
+          "statuses": {
+            "EXECUTED_LATE": {
+              "observations": 11,
+              "starts": 10,
+              "games": 5
+            },
+            "EXECUTED_ON_TIME": {
+              "observations": 47,
+              "starts": 29,
+              "games": 16
+            },
+            "NO_PROMISE": {
+              "observations": 14,
+              "starts": 11,
+              "games": 7
+            },
+            "OPPONENT_INKED_AFTER_DEADLINE": {
+              "observations": 4,
+              "starts": 2,
+              "games": 1
+            },
+            "UNFULFILLED": {
+              "observations": 12,
+              "starts": 9,
+              "games": 7
+            }
+          },
+          "byDeadline": {
+            "false": {
+              "observations": 41,
+              "starts": 28,
+              "games": 15
+            },
+            "true": {
+              "observations": 47,
+              "starts": 29,
+              "games": 16
+            }
+          },
+          "deadlineMissedWhileActionable": {
+            "false": {
+              "observations": 61,
+              "starts": 39,
+              "games": 18
+            },
+            "true": {
+              "observations": 27,
+              "starts": 20,
+              "games": 12
+            }
+          },
+          "terminalBeforeDeadlineOutcomes": {}
+        },
+        "firstFutureOwnHit": {
+          "observations": 88,
+          "statuses": {
+            "EXECUTED_LATE": {
+              "observations": 11,
+              "starts": 10,
+              "games": 5
+            },
+            "EXECUTED_ON_TIME": {
+              "observations": 60,
+              "starts": 38,
+              "games": 18
+            },
+            "OPPONENT_INKED_AFTER_DEADLINE": {
+              "observations": 4,
+              "starts": 2,
+              "games": 1
+            },
+            "UNFULFILLED": {
+              "observations": 13,
+              "starts": 9,
+              "games": 7
+            }
+          },
+          "byDeadline": {
+            "false": {
+              "observations": 28,
+              "starts": 20,
+              "games": 12
+            },
+            "true": {
+              "observations": 60,
+              "starts": 38,
+              "games": 18
+            }
+          },
+          "deadlineMissedWhileActionable": {
+            "false": {
+              "observations": 60,
+              "starts": 38,
+              "games": 18
+            },
+            "true": {
+              "observations": 28,
+              "starts": 20,
+              "games": 12
+            }
+          },
+          "terminalBeforeDeadlineOutcomes": {}
+        }
+      },
+      "pairedByOldClassification": {
+        "exploratory_reversal": {
+          "comparisons": 64,
+          "starts": 39,
+          "games": 15,
+          "bothComplete": 64,
+          "earnedScoreDelta": {
+            "count": 64,
+            "min": -189,
+            "median": 0.0,
+            "max": 206,
+            "sum": 467,
+            "mean": 7.296875
+          },
+          "deltaSigns": {
+            "negative": {
+              "observations": 14,
+              "starts": 11,
+              "games": 6
+            },
+            "positive": {
+              "observations": 21,
+              "starts": 17,
+              "games": 9
+            },
+            "tied": {
+              "observations": 29,
+              "starts": 19,
+              "games": 11
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 56,
+              "starts": 32,
+              "games": 13
+            },
+            "WIN->NONTERMINAL": {
+              "observations": 4,
+              "starts": 4,
+              "games": 1
+            },
+            "WIN->WIN": {
+              "observations": 4,
+              "starts": 3,
+              "games": 2
+            }
+          },
+          "startReplyPatterns": {
+            "tied": 13,
+            "positive": 12,
+            "positive/tied": 3,
+            "negative/positive": 2,
+            "negative/tied": 3,
+            "negative": 6
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [
+            "907134720/49/1",
+            "907134720/50/1",
+            "907134720/51/1",
+            "907134720/52/1"
+          ],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        },
+        "full_wait_control": {
+          "comparisons": 5,
+          "starts": 5,
+          "games": 1,
+          "bothComplete": 5,
+          "earnedScoreDelta": {
+            "count": 5,
+            "min": 3,
+            "median": 3,
+            "max": 3,
+            "sum": 15,
+            "mean": 3
+          },
+          "deltaSigns": {
+            "positive": {
+              "observations": 5,
+              "starts": 5,
+              "games": 1
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->LOSS": {
+              "observations": 5,
+              "starts": 5,
+              "games": 1
+            }
+          },
+          "startReplyPatterns": {
+            "positive": 5
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        },
+        "native_attack_or_tie": {
+          "comparisons": 6,
+          "starts": 3,
+          "games": 3,
+          "bothComplete": 6,
+          "earnedScoreDelta": {
+            "count": 6,
+            "min": -47,
+            "median": 29.0,
+            "max": 58,
+            "sum": 78,
+            "mean": 13
+          },
+          "deltaSigns": {
+            "negative": {
+              "observations": 2,
+              "starts": 1,
+              "games": 1
+            },
+            "positive": {
+              "observations": 4,
+              "starts": 2,
+              "games": 2
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->LOSS": {
+              "observations": 2,
+              "starts": 1,
+              "games": 1
+            },
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 4,
+              "starts": 2,
+              "games": 2
+            }
+          },
+          "startReplyPatterns": {
+            "positive": 2,
+            "negative": 1
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        },
+        "wait_preferred_no_reversal": {
+          "comparisons": 13,
+          "starts": 9,
+          "games": 9,
+          "bothComplete": 13,
+          "earnedScoreDelta": {
+            "count": 13,
+            "min": -12,
+            "median": 0,
+            "max": 32,
+            "sum": 55,
+            "mean": 4.230769230769231
+          },
+          "deltaSigns": {
+            "negative": {
+              "observations": 3,
+              "starts": 2,
+              "games": 2
+            },
+            "positive": {
+              "observations": 6,
+              "starts": 5,
+              "games": 5
+            },
+            "tied": {
+              "observations": 4,
+              "starts": 2,
+              "games": 2
+            }
+          },
+          "terminalPairs": {
+            "LOSS->LOSS": {
+              "observations": 1,
+              "starts": 1,
+              "games": 1
+            },
+            "NONTERMINAL->LOSS": {
+              "observations": 2,
+              "starts": 2,
+              "games": 2
+            },
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 10,
+              "starts": 6,
+              "games": 6
+            }
+          },
+          "startReplyPatterns": {
+            "positive": 5,
+            "negative": 2,
+            "tied": 2
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        }
+      },
+      "promisesByOldClassification": {
+        "exploratory_reversal": {
+          "firstFutureNominatedHit": {
+            "observations": 64,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 4,
+                "starts": 4,
+                "games": 3
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 39,
+                "starts": 24,
+                "games": 11
+              },
+              "NO_PROMISE": {
+                "observations": 12,
+                "starts": 9,
+                "games": 5
+              },
+              "OPPONENT_INKED_AFTER_DEADLINE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "UNFULFILLED": {
+                "observations": 7,
+                "starts": 5,
+                "games": 3
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 25,
+                "starts": 16,
+                "games": 8
+              },
+              "true": {
+                "observations": 39,
+                "starts": 24,
+                "games": 11
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 51,
+                "starts": 32,
+                "games": 13
+              },
+              "true": {
+                "observations": 13,
+                "starts": 9,
+                "games": 6
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 64,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 4,
+                "starts": 4,
+                "games": 3
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 50,
+                "starts": 31,
+                "games": 12
+              },
+              "OPPONENT_INKED_AFTER_DEADLINE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "UNFULFILLED": {
+                "observations": 8,
+                "starts": 5,
+                "games": 3
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 14,
+                "starts": 9,
+                "games": 6
+              },
+              "true": {
+                "observations": 50,
+                "starts": 31,
+                "games": 12
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 50,
+                "starts": 31,
+                "games": 12
+              },
+              "true": {
+                "observations": 14,
+                "starts": 9,
+                "games": 6
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        },
+        "full_wait_control": {
+          "firstFutureNominatedHit": {
+            "observations": 5,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "true": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 5,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "true": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        },
+        "native_attack_or_tie": {
+          "firstFutureNominatedHit": {
+            "observations": 6,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "OPPONENT_INKED_AFTER_DEADLINE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              },
+              "true": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 6,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "OPPONENT_INKED_AFTER_DEADLINE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              },
+              "true": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        },
+        "wait_preferred_no_reversal": {
+          "firstFutureNominatedHit": {
+            "observations": 13,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 5,
+                "starts": 3,
+                "games": 3
+              },
+              "NO_PROMISE": {
+                "observations": 2,
+                "starts": 2,
+                "games": 2
+              },
+              "UNFULFILLED": {
+                "observations": 5,
+                "starts": 4,
+                "games": 4
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 8,
+                "starts": 6,
+                "games": 6
+              },
+              "true": {
+                "observations": 5,
+                "starts": 3,
+                "games": 3
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 7,
+                "starts": 5,
+                "games": 5
+              },
+              "true": {
+                "observations": 6,
+                "starts": 5,
+                "games": 5
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 13,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 7,
+                "starts": 5,
+                "games": 5
+              },
+              "UNFULFILLED": {
+                "observations": 5,
+                "starts": 4,
+                "games": 4
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 6,
+                "starts": 5,
+                "games": 5
+              },
+              "true": {
+                "observations": 7,
+                "starts": 5,
+                "games": 5
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 7,
+                "starts": 5,
+                "games": 5
+              },
+              "true": {
+                "observations": 6,
+                "starts": 5,
+                "games": 5
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        }
+      },
+      "rollingForecasts": {
+        "count": 240,
+        "byArm": {
+          "W": 131,
+          "A": 109
+        },
+        "context": "FRESH_V09_OPPONENT_CONTEXT; not a matched primary forecast"
+      }
+    },
+    "PURE_WAIT": {
+      "paired": {
+        "comparisons": 56,
+        "starts": 56,
+        "games": 23,
+        "bothComplete": 56,
+        "earnedScoreDelta": {
+          "count": 56,
+          "min": -119,
+          "median": 13.0,
+          "max": 276,
+          "sum": 1381,
+          "mean": 24.660714285714285
+        },
+        "deltaSigns": {
+          "negative": {
+            "observations": 2,
+            "starts": 2,
+            "games": 2
+          },
+          "positive": {
+            "observations": 35,
+            "starts": 35,
+            "games": 19
+          },
+          "tied": {
+            "observations": 19,
+            "starts": 19,
+            "games": 10
+          }
+        },
+        "terminalPairs": {
+          "NONTERMINAL->NONTERMINAL": {
+            "observations": 56,
+            "starts": 56,
+            "games": 23
+          }
+        },
+        "startReplyPatterns": {
+          "positive": 35,
+          "tied": 19,
+          "negative": 2
+        },
+        "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+        "startsWithAnyATerminalWinWithoutWTerminalWin": []
+      },
+      "originalWPromises": {
+        "firstFutureNominatedHit": {
+          "observations": 88,
+          "statuses": {
+            "EXECUTED_EARLY": {
+              "observations": 5,
+              "starts": 5,
+              "games": 3
+            },
+            "EXECUTED_LATE": {
+              "observations": 25,
+              "starts": 18,
+              "games": 8
+            },
+            "EXECUTED_ON_TIME": {
+              "observations": 14,
+              "starts": 9,
+              "games": 8
+            },
+            "NO_PROMISE": {
+              "observations": 14,
+              "starts": 11,
+              "games": 7
+            },
+            "UNFULFILLED": {
+              "observations": 30,
+              "starts": 21,
+              "games": 12
+            }
+          },
+          "byDeadline": {
+            "false": {
+              "observations": 69,
+              "starts": 47,
+              "games": 19
+            },
+            "true": {
+              "observations": 19,
+              "starts": 13,
+              "games": 9
+            }
+          },
+          "deadlineMissedWhileActionable": {
+            "false": {
+              "observations": 33,
+              "starts": 23,
+              "games": 14
+            },
+            "true": {
+              "observations": 55,
+              "starts": 39,
+              "games": 17
+            }
+          },
+          "terminalBeforeDeadlineOutcomes": {}
+        },
+        "firstFutureOwnHit": {
+          "observations": 88,
+          "statuses": {
+            "EXECUTED_LATE": {
+              "observations": 27,
+              "starts": 20,
+              "games": 9
+            },
+            "EXECUTED_ON_TIME": {
+              "observations": 14,
+              "starts": 9,
+              "games": 8
+            },
+            "UNFULFILLED": {
+              "observations": 47,
+              "starts": 33,
+              "games": 15
+            }
+          },
+          "byDeadline": {
+            "false": {
+              "observations": 74,
+              "starts": 49,
+              "games": 19
+            },
+            "true": {
+              "observations": 14,
+              "starts": 9,
+              "games": 8
+            }
+          },
+          "deadlineMissedWhileActionable": {
+            "false": {
+              "observations": 14,
+              "starts": 9,
+              "games": 8
+            },
+            "true": {
+              "observations": 74,
+              "starts": 49,
+              "games": 19
+            }
+          },
+          "terminalBeforeDeadlineOutcomes": {}
+        }
+      },
+      "pairedByOldClassification": {
+        "exploratory_reversal": {
+          "comparisons": 39,
+          "starts": 39,
+          "games": 15,
+          "bothComplete": 39,
+          "earnedScoreDelta": {
+            "count": 39,
+            "min": -19,
+            "median": 18,
+            "max": 276,
+            "sum": 1094,
+            "mean": 28.05128205128205
+          },
+          "deltaSigns": {
+            "negative": {
+              "observations": 1,
+              "starts": 1,
+              "games": 1
+            },
+            "positive": {
+              "observations": 27,
+              "starts": 27,
+              "games": 13
+            },
+            "tied": {
+              "observations": 11,
+              "starts": 11,
+              "games": 6
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 39,
+              "starts": 39,
+              "games": 15
+            }
+          },
+          "startReplyPatterns": {
+            "positive": 27,
+            "tied": 11,
+            "negative": 1
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        },
+        "full_wait_control": {
+          "comparisons": 5,
+          "starts": 5,
+          "games": 1,
+          "bothComplete": 5,
+          "earnedScoreDelta": {
+            "count": 5,
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "sum": 0,
+            "mean": 0
+          },
+          "deltaSigns": {
+            "tied": {
+              "observations": 5,
+              "starts": 5,
+              "games": 1
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 5,
+              "starts": 5,
+              "games": 1
+            }
+          },
+          "startReplyPatterns": {
+            "tied": 5
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        },
+        "native_attack_or_tie": {
+          "comparisons": 3,
+          "starts": 3,
+          "games": 3,
+          "bothComplete": 3,
+          "earnedScoreDelta": {
+            "count": 3,
+            "min": -119,
+            "median": 6,
+            "max": 50,
+            "sum": -63,
+            "mean": -21
+          },
+          "deltaSigns": {
+            "negative": {
+              "observations": 1,
+              "starts": 1,
+              "games": 1
+            },
+            "positive": {
+              "observations": 2,
+              "starts": 2,
+              "games": 2
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 3,
+              "starts": 3,
+              "games": 3
+            }
+          },
+          "startReplyPatterns": {
+            "positive": 2,
+            "negative": 1
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        },
+        "wait_preferred_no_reversal": {
+          "comparisons": 9,
+          "starts": 9,
+          "games": 9,
+          "bothComplete": 9,
+          "earnedScoreDelta": {
+            "count": 9,
+            "min": 0,
+            "median": 22,
+            "max": 187,
+            "sum": 350,
+            "mean": 38.888888888888886
+          },
+          "deltaSigns": {
+            "positive": {
+              "observations": 6,
+              "starts": 6,
+              "games": 6
+            },
+            "tied": {
+              "observations": 3,
+              "starts": 3,
+              "games": 3
+            }
+          },
+          "terminalPairs": {
+            "NONTERMINAL->NONTERMINAL": {
+              "observations": 9,
+              "starts": 9,
+              "games": 9
+            }
+          },
+          "startReplyPatterns": {
+            "tied": 3,
+            "positive": 6
+          },
+          "startsWithAnyWTerminalWinAndALossOfThatWin": [],
+          "startsWithAnyATerminalWinWithoutWTerminalWin": []
+        }
+      },
+      "promisesByOldClassification": {
+        "exploratory_reversal": {
+          "firstFutureNominatedHit": {
+            "observations": 64,
+            "statuses": {
+              "EXECUTED_EARLY": {
+                "observations": 5,
+                "starts": 5,
+                "games": 3
+              },
+              "EXECUTED_LATE": {
+                "observations": 17,
+                "starts": 11,
+                "games": 6
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 10,
+                "starts": 6,
+                "games": 5
+              },
+              "NO_PROMISE": {
+                "observations": 12,
+                "starts": 9,
+                "games": 5
+              },
+              "UNFULFILLED": {
+                "observations": 20,
+                "starts": 15,
+                "games": 8
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 49,
+                "starts": 33,
+                "games": 12
+              },
+              "true": {
+                "observations": 15,
+                "starts": 10,
+                "games": 6
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 27,
+                "starts": 18,
+                "games": 9
+              },
+              "true": {
+                "observations": 37,
+                "starts": 26,
+                "games": 11
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 64,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 19,
+                "starts": 13,
+                "games": 7
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 10,
+                "starts": 6,
+                "games": 5
+              },
+              "UNFULFILLED": {
+                "observations": 35,
+                "starts": 25,
+                "games": 10
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 54,
+                "starts": 35,
+                "games": 12
+              },
+              "true": {
+                "observations": 10,
+                "starts": 6,
+                "games": 5
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 10,
+                "starts": 6,
+                "games": 5
+              },
+              "true": {
+                "observations": 54,
+                "starts": 35,
+                "games": 12
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        },
+        "full_wait_control": {
+          "firstFutureNominatedHit": {
+            "observations": 5,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "true": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 5,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              },
+              "true": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 4,
+                "games": 1
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        },
+        "native_attack_or_tie": {
+          "firstFutureNominatedHit": {
+            "observations": 6,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "UNFULFILLED": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              },
+              "true": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 6,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "UNFULFILLED": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              },
+              "true": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 2,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 4,
+                "starts": 2,
+                "games": 2
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        },
+        "wait_preferred_no_reversal": {
+          "firstFutureNominatedHit": {
+            "observations": 13,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 2,
+                "starts": 2,
+                "games": 2
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "NO_PROMISE": {
+                "observations": 2,
+                "starts": 2,
+                "games": 2
+              },
+              "UNFULFILLED": {
+                "observations": 8,
+                "starts": 5,
+                "games": 5
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 12,
+                "starts": 8,
+                "games": 8
+              },
+              "true": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 3,
+                "starts": 3,
+                "games": 3
+              },
+              "true": {
+                "observations": 10,
+                "starts": 7,
+                "games": 7
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          },
+          "firstFutureOwnHit": {
+            "observations": 13,
+            "statuses": {
+              "EXECUTED_LATE": {
+                "observations": 2,
+                "starts": 2,
+                "games": 2
+              },
+              "EXECUTED_ON_TIME": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "UNFULFILLED": {
+                "observations": 10,
+                "starts": 7,
+                "games": 7
+              }
+            },
+            "byDeadline": {
+              "false": {
+                "observations": 12,
+                "starts": 8,
+                "games": 8
+              },
+              "true": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              }
+            },
+            "deadlineMissedWhileActionable": {
+              "false": {
+                "observations": 1,
+                "starts": 1,
+                "games": 1
+              },
+              "true": {
+                "observations": 12,
+                "starts": 8,
+                "games": 8
+              }
+            },
+            "terminalBeforeDeadlineOutcomes": {}
+          }
+        }
+      },
+      "rollingForecasts": {
+        "count": 262,
+        "byArm": {
+          "W": 194,
+          "A": 68
+        },
+        "context": "FRESH_V09_OPPONENT_CONTEXT; not a matched primary forecast"
+      }
+    }
+  },
+  "historical": {
+    "position": {
+      "gameId": 904554072,
+      "turn": 37,
+      "me": 0,
+      "classification": "historical_v07_regression",
+      "forecastTerminalControl": false,
+      "id": "904554072/37/0",
+      "status": "COMPLETE",
+      "supported": true,
+      "networkRoot": false,
+      "root": 0,
+      "pinnedTarget": 29,
+      "rawRootTarget": 29,
+      "fullChooserTarget": 29,
+      "attackReplyEndStates": {
+        "NONTERMINAL": 2
+      },
+      "noHitReplyEndStates": {
+        "NONTERMINAL": 2
+      },
+      "noFutureOwnSabotageReplyEndStates": {
+        "NONTERMINAL": 2
+      },
+      "fullNoHitPreferred": true,
+      "fullPreferenceReversed": true,
+      "fullAttackPreferred": false,
+      "A": -2044.0,
+      "W": -2012.0,
+      "W0": -2457.0,
+      "attackMinusNoHit": -32.0,
+      "attackMinusNoFuture": 413.0,
+      "oldRawA": -2044.0,
+      "oldRawW": -2012.0,
+      "oldRawW0": -2457.0,
+      "oldToFullPreference": "negative->negative"
+    },
+    "comparisons": [
+      {
+        "gameId": 904554072,
+        "turn": 37,
+        "me": 0,
+        "classification": "historical_v07_regression",
+        "forecastTerminalControl": false,
+        "id": "904554072/37/0",
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 0,
+        "bothComplete": true,
+        "WscoreDifference": -2012,
+        "AscoreDifference": -2012,
+        "earnedScoreDelta": 0,
+        "Woutcome": "NONTERMINAL",
+        "Aoutcome": "NONTERMINAL",
+        "Wsteps": 8,
+        "Asteps": 8,
+        "WattackSteps": 7,
+        "AattackSteps": 7,
+        "Wstop": "HORIZON",
+        "Astop": "HORIZON",
+        "originalTerminalForecasts": [
+          {
+            "predictedTurn": null,
+            "predictedOutcome": null,
+            "status": "NO_TERMINAL_FORECAST",
+            "actualTurn": null,
+            "actualOutcome": "NONTERMINAL"
+          }
+        ],
+        "earnedScoreSign": "tied",
+        "terminalPair": "NONTERMINAL->NONTERMINAL"
+      },
+      {
+        "gameId": 904554072,
+        "turn": 37,
+        "me": 0,
+        "classification": "historical_v07_regression",
+        "forecastTerminalControl": false,
+        "id": "904554072/37/0",
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 1,
+        "bothComplete": true,
+        "WscoreDifference": -2012,
+        "AscoreDifference": -2012,
+        "earnedScoreDelta": 0,
+        "Woutcome": "NONTERMINAL",
+        "Aoutcome": "NONTERMINAL",
+        "Wsteps": 8,
+        "Asteps": 8,
+        "WattackSteps": 7,
+        "AattackSteps": 7,
+        "Wstop": "HORIZON",
+        "Astop": "HORIZON",
+        "originalTerminalForecasts": [
+          {
+            "predictedTurn": null,
+            "predictedOutcome": null,
+            "status": "NO_TERMINAL_FORECAST",
+            "actualTurn": null,
+            "actualOutcome": "NONTERMINAL"
+          }
+        ],
+        "earnedScoreSign": "tied",
+        "terminalPair": "NONTERMINAL->NONTERMINAL"
+      },
+      {
+        "gameId": 904554072,
+        "turn": 37,
+        "me": 0,
+        "classification": "historical_v07_regression",
+        "forecastTerminalControl": false,
+        "id": "904554072/37/0",
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "bothComplete": true,
+        "WscoreDifference": -2190,
+        "AscoreDifference": -1656,
+        "earnedScoreDelta": 534,
+        "Woutcome": "NONTERMINAL",
+        "Aoutcome": "NONTERMINAL",
+        "Wsteps": 8,
+        "Asteps": 8,
+        "WattackSteps": 0,
+        "AattackSteps": 8,
+        "Wstop": "HORIZON",
+        "Astop": "HORIZON",
+        "originalTerminalForecasts": [
+          {
+            "predictedTurn": null,
+            "predictedOutcome": null,
+            "status": "NO_TERMINAL_FORECAST",
+            "actualTurn": null,
+            "actualOutcome": "NONTERMINAL"
+          },
+          {
+            "predictedTurn": null,
+            "predictedOutcome": null,
+            "status": "NO_TERMINAL_FORECAST",
+            "actualTurn": null,
+            "actualOutcome": "NONTERMINAL"
+          }
+        ],
+        "earnedScoreSign": "positive",
+        "terminalPair": "NONTERMINAL->NONTERMINAL"
+      }
+    ]
+  },
+  "decision": {
+    "mechanism": "Full construction retains38/39 old reversals; nominated-target deadlines missed in13/52 actual promises across9 starts/6 games of that subgroup.",
+    "counterevidence": "Most promises execute;64 subgroup native pairs yield21 positive/14 negative/29 tied bounded score effects, no additional terminal wins;four starts remove a within-window terminal win.",
+    "nextAction": "Keep v09. No blanket force-attack or W0 selector. Any later candidate must distinguish failed commitments from valid delayed closures and adverse replies, then pass the separately declared strength gate.",
+    "automaticFollowup": false
+  },
+  "verification": {
+    "focusedTests": 32,
+    "baselineEngineExact": 292,
+    "sourceEngineExact": 40,
+    "historicalEngineExact": 1,
+    "frozenFilesUnchangedAtPanelEnd": 693,
+    "snapshot": {
+      "path": "build/analysis/v09-full-action-v1/snapshot-before.json",
+      "sha256": "a5afdbaf684e55043c8bd5438291504bf285126b494a586474416b5fb8f0caf8",
+      "bytes": 146048
+    },
+    "preflight": {
+      "path": "build/analysis/v09-full-action-v1/preflight.json",
+      "sha256": "f653501bd93e2ca50e821675de1810764f3e3a59be668811b80d803a175e5ac0",
+      "bytes": 2218
+    },
+    "reconciliation": {
+      "path": "build/analysis/v09-full-action-v1/reconciliation.json",
+      "sha256": "9071675d315cb6ac7f02ca99f176968df2b9aa84e4940a41753f21f369608643",
+      "bytes": 206758
+    },
+    "runCompletion": {
+      "path": "build/analysis/v09-full-action-v1/run-completion.json",
+      "sha256": "ab49cd7a21ca61527f6a83bbc577a79fdf7fe5d32737677e3edeff84bf359ae2",
+      "bytes": 599
+    },
+    "panelRuns": 1,
+    "measurementRetries": 0,
+    "sourceReview": "Independent native-root/full-fill/protocol and episode-promise reviews; raw-result reconciliation by two reviewers.",
+    "preflightCorrections": "PATH Java startup/cache access; missing throws declaration in test helper; nonempty episode fixture added before final freeze. Logs and preliminary snapshot retained."
+  },
+  "caveats": [
+    "Exposed fixed development corpus; no independent strength, arena or win-rate inference.",
+    "Turns, overlapping starts and opponent replies are correlated; their counts are not independent games.",
+    "Primary promises count only original W forecasts against noHit arms under the matching initial retained opponent reply.",
+    "Passive comparisons test native-model promises under a different opponent and remain secondary.",
+    "Rolling forecasts use FRESH_V09_OPPONENT_CONTEXT, unlike the fixed initial opponent that advances episodes.",
+    "Earned-score deltas describe at most eight resolved turns, stopping at terminal states; no million-unit proxy bonuses.",
+    "File consistency is independently checked here; exact native/core parity and legality are runtime assertions in the pinned harness, not new evaluations.",
+    "A minus W is final earned score DIFFERENCE, not match wins or million-unit utility.",
+    "Only same original native reply and the noHit arm support primary promise execution counts.",
+    "Pure-WAIT88 promise observations derive from56 trajectories against multiple initial native forecasts.",
+    "No terminal win within eight turns does not establish an eventual loss."
+  ],
+  "rawFiles": {
+    "positions": {
+      "path": "build/analysis/v09-full-action-v1/run/positions.jsonl",
+      "sha256": "da52ebf6e5502357d23b4b09166c90df3fc7151fc364aef02d5008c88668d9ba",
+      "bytes": 10664268
+    },
+    "episodes": {
+      "path": "build/analysis/v09-full-action-v1/run/episodes.jsonl",
+      "sha256": "9fda7585eb7fe73d9fc8a8d211cd76911baa0ccf873dfb3f77dd8189f22ba75a",
+      "bytes": 3745298
+    },
+    "historical": {
+      "path": "build/analysis/v09-full-action-v1/run/historical.json",
+      "sha256": "73ba0906defde8601a82b1b2fe7845e2d37c3fadb2f4837db1a8483fe370c24a",
+      "bytes": 299112
+    }
+  },
+  "archive": "docs/evidence/v09-full-action-v1-artifacts.zip"
+}

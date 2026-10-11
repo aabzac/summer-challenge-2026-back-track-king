@@ -13,6 +13,17 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic experiment 2026-10-11: **v09-full-action-v1**, no registered
+candidate or strength games. Same complete construction compared at967 states;
+exact root/fill provenance,183 network roots.38/39 old reversals remain, but in
+the39 subgroup39/52 nominated-target promises execute on time;13 miss deadlines
+across nine starts/six games.56 cohort starts yield88 native reply pairs: bounded
+earned-score A−W36 positive/19 negative/33 tied; no recovered terminal win. Four
+starts change W=WIN to A=NONTERMINAL within eight turns.56 passive pairs and one
+historical start remain separately labelled.32 tests,292+40+1 exact replays,
+693 frozen files unchanged. Forecast/execution mismatch confirmed; blanket earlier
+sabotage is not supported. Keep v09. [Protocol/evidence](v09-full-action-v1.md).
+
 Completed diagnostic 2026-10-11: **v09-continuation-v1**, no new bot or strength
 trial. Fixed full40-game v09 cohort,2,936states: five full-WAIT deferred states in
 one episode, zero qualifying changes after removing future own sabotage. Ten

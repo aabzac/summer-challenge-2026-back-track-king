@@ -44,6 +44,7 @@ gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/tim
 gradlew jointReplyStudy                        # joint first-build/own-sabotage audit on the SAME saved sample
 gradlew jointActionCheck                       # serial cost check of opt-in joint search on saved states
 gradlew v09ContinuationStudy -Pout=build/analysis/v09-continuation-v1/new-run # fixed 40-game continuation/closure diagnostic
+gradlew v09FullActionStudy -Pout=build/analysis/v09-full-action-v1/new-run # complete construction and repeated-decision experiment
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
@@ -54,7 +55,9 @@ mirror each other and every game is a draw.
 The completed [v09 continuation diagnostic](docs/v09-continuation-v1.md) covers
 all 2,936 states from 40 saved games: no qualifying full-WAIT correction and no
 recovered closing win. The selected follow-up checks omitted sabotage while
-preserving complete construction; it has not changed selected v09.
+preserving complete construction. That [follow-up](docs/v09-full-action-v1.md)
+is complete: some promised attacks slip, but earlier attacks have mixed effects
+and can prevent a timely winning closure. Selected v09 remains unchanged.
 
 ## Pieces
 

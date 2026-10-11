@@ -344,6 +344,17 @@ tasks.register<JavaExec>("v09ContinuationStudy") {
         prop("historical", "replays/cg/boss/904554072.json"))
 }
 
+tasks.register<JavaExec>("v09FullActionStudy") {
+    group = "diagnostics"
+    description = "Compare complete v09 construction with sabotage and trace repeated decisions"
+    dependsOn("classes")
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("btk.tools.V09FullActionStudy")
+    maxHeapSize = "1536m"
+    args = listOf(prop("selection", "build/analysis/v09-full-action-v1/selection.json"),
+        prop("out", "build/analysis/v09-full-action-v1/run"))
+}
+
 tasks.register<JavaExec>("rolloutFillStudy") {
     group = "diagnostics"
     description = "Audit first-turn leftover fill in the existing rollout on saved development states"
