@@ -6737,3 +6737,42 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/neural-component-audit-v1.json),
   [archive index](evidence/neural-component-audit-v1-artifacts.json),
   [archive](evidence/neural-component-audit-v1-artifacts.zip).
+
+## 2026-10-11 — neural-target-feasibility-v1: exact module, direct port stopped on size
+
+- Hypothesis: the earlier target-only mechanism can be reused with a bounded
+  frozen-V3 proposal module, provided exact features, source size and remaining
+  time work without reducing v09's required search. Declared a prerequisite
+  feasibility diagnostic, no training or automatic strength/promotion stage.
+- Built isolated tools-only TargetProposalFeatures/TargetProposer: 29 sabotage
+  inputs, original V2 weights and V3 closing guard, deterministic NOISE=0. Removed
+  construction-only work; existing core FeaturePaths/SearchState preserve path
+  ties and canonical hypothetical-ink effects using reusable storage. Only the
+  caller's emitted target enters history, including fallback; suggestions do not.
+- Fixed original sample: 51 states/eight games, 13 terminal omissions, full
+  historical public memory. All 1,715 candidate rows /49,735 feature values match
+  bitwise; candidate order, closing flags, actual scorer outputs and target choice
+  match. This is completed-pass equivalence, not historical noisy action replay.
+- Source result: fresh unchanged-current builder produces 98,709 characters,
+  versus the older retained artifact's 95,278. This experiment changed no shipping
+  code. Required module bodies add 20,805; with 80 import characters the direct
+  port reaches **119,594/100,000 before E/D integration**. No hybrid artifact was
+  assembled. **STOP_DIRECT_PORT_SIZE**, not a claim that all compression is impossible.
+- One serial local pass after three fixed warmups: module median1.3019ms,
+  p95=6.1985ms, max6.6087ms. v09 ordinary/network search completes24/51; module
+  fits remaining36ms in22/51 (22/24 complete baselines). Actual current-turn
+  history update included; parsing, init, E/D rollouts and process costs excluded.
+  No E/D comparison scores or new games; these timings do not certify a hybrid.
+- Verification: 85 focused tests pass (ten new), 292/292 baseline replays and
+  8/8 source games exact; independent code/report review clean. All576 frozen
+  files and four runtime/dependency files match. Preserved two preflight compile
+  failures and fixes (private json helper reference; byte-array length syntax),
+  with no repeated measurement. XML, raw rows, exact size accounting, source
+  snapshots and baseline artifact retained in the archive.
+- Decision: close this direct-reuse prototype and keep v09. E/D adapter integration,
+  candidate process checks and strength evaluation were not reached. No upload,
+  promotion, push or automatic follow-on; original spatial stages3–5 stay open.
+  [Protocol/results](neural-target-feasibility-v1.md),
+  [summary](evidence/neural-target-feasibility-v1.json),
+  [archive index](evidence/neural-target-feasibility-v1-artifacts.json),
+  [archive](evidence/neural-target-feasibility-v1-artifacts.zip).

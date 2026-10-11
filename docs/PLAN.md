@@ -19,10 +19,13 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       Original eight positives: five target-only, two construction-only, one either;
       none needs both to exceed the comparison score. 75 tests, 292+8 exact
       replays, 595 frozen files +4 runtime files preserved. Archive and record.
-- [ ] Proposed next, not started: one target-only adapter with frozen neural-v3
-      sabotage weights, unchanged complete v09 construction and paired E/D scoring.
-      First check exact features, source size and remaining time; keep baseline on
-      tie/cutoff, stop if infeasible. No automatic training, strength run or promotion.
+- [x] Complete [neural-target-feasibility-v1](neural-target-feasibility-v1.md):
+      isolate frozen target features/scorer; 49,735 feature values match bitwise on
+      all 51 states, 85 tests and 292+8 exact replays. Direct module port requires
+      119,594/100,000 characters before E/D glue; **STOP_DIRECT_PORT_SIZE**.
+      Module median 1.30 ms /p95 6.20 ms; fits remaining v09 time on 22/51 states.
+      Stop this direct-reuse prototype. Integrated E/D adapter, candidate artifact
+      and strength evaluation were not reached; no automatic follow-on or promotion.
 
 This direction does not complete the unresolved original spatial stages below.
 

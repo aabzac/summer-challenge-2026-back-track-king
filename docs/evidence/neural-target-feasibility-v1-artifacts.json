@@ -1,0 +1,268 @@
+{
+  "archive": "neural-target-feasibility-v1-artifacts.zip",
+  "sha256": "a311e0fe244a9ac4257580943eb98297e0dfcc9d9ba6350b377aec379d0f9821",
+  "bytes": 228446,
+  "files": [
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907063775.json",
+      "bytes": 58220,
+      "sha256": "133bd799935dadaba3a647a191eafa07983cc05908a9b7a06c6cfd82400e43c1"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907063844.json",
+      "bytes": 52691,
+      "sha256": "4e344e15655f28e9e5b99892c400857c5dc59570c207160453c9bff3fbd4a786"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907063898.json",
+      "bytes": 68415,
+      "sha256": "8566bc534a22d5630d65a5fb744ae6a4daed205d231aa132958691cbe6943c3f"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907063965.json",
+      "bytes": 54447,
+      "sha256": "cbcef429f69242e1f02d0e7176513082cf538b8fd02fbd606ac061de25cf09a5"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907064014.json",
+      "bytes": 60488,
+      "sha256": "5484a27462cb7ca38b9b495207df6e59518723df6b68dd0004a6660dd21f8429"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907064062.json",
+      "bytes": 88384,
+      "sha256": "132d7c8ea75ab5cbd23178e69c8a836eb1751be0e878606ec9a30e0fd03606c2"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907064114.json",
+      "bytes": 158756,
+      "sha256": "03aab6390572da3b11a11212ab7d48900768d70fbfc03702245f543604c42b94"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/replays/907064176.json",
+      "bytes": 60265,
+      "sha256": "d845e6f21c74832b7cbcd34ffa0677f56c8c3e5479aa1d038b1a1f558ba4b3d5"
+    },
+    {
+      "path": "build/analysis/neural-proposal-audit-v1/selection.json",
+      "bytes": 2591,
+      "sha256": "84b51a4bfd92b9e5150bdeb5611a377e8ddd92bc6fdf36674637dbc9d342967a"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/baseline/manifest.json",
+      "bytes": 4842,
+      "sha256": "3f93d319d937d7e9f75401413d6e6ecd4a4d0a2eeb6793e2fbd00d61cc255f40"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/baseline/Player.java",
+      "bytes": 98709,
+      "sha256": "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/build-baseline-fixed.command.json",
+      "bytes": 230,
+      "sha256": "803b61ae28bf483c38bd5de828383155356275c07e67881221d33561b5f44f15"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/build-baseline-fixed.log",
+      "bytes": 535,
+      "sha256": "01036f2828e67b52451e64f76b3cc6fb76d66a86311546b38e7173b86fb69082"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/build-baseline.command.json",
+      "bytes": 230,
+      "sha256": "603ecce5a5e7e37a3bebbf4e2fc563d496211c4bb62d48e739d97f09832ed3d8"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/build-baseline.log",
+      "bytes": 1366,
+      "sha256": "4a416445a5498512da72299339391a8a19830ec1866afa7fc3ddc561a27f0d66"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/cg-validate.command.json",
+      "bytes": 162,
+      "sha256": "3fe00365d2eb1133e833bab243cf5bcb3382d01357f11013825218426cd41555"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/cg-validate.log",
+      "bytes": 317,
+      "sha256": "ba1650413f14e78c0303ff302cf625974d1d3e64872799f9f6af8bbaa31a3013"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/finalize.py",
+      "bytes": 3912,
+      "sha256": "0b62434843a20f140e2e24ac88847037a71b6aa124ec6fef914fe644cb72925d"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/freeze.json",
+      "bytes": 76800,
+      "sha256": "481ab6e683bb9f82fbb7582cc74ce531cf207bc211823bb21ad90f675c88717f"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/panel.command.json",
+      "bytes": 910,
+      "sha256": "473a17e8e1869a46230435df573140206695219882e4ec0c3c966b47c0f79ca6"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/panel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/protocol-before-measurement.md",
+      "bytes": 3904,
+      "sha256": "599784ec0f8afffd62c58ea7de3b1e483efac3fe6f24eb2345c5b763a17733f8"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/reference-source/bot/neural/NeuralNet.java",
+      "bytes": 3443,
+      "sha256": "ed09d83ad4e0a532f24ad54d2fa873bbb323be2f7ecb4548455ed22e0c87a814"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/reference-source/bot/neural/NeuralV2Weights.java",
+      "bytes": 14075,
+      "sha256": "bf650f1102323d73f77bb9e98a1a8c1472a20b11e599e5c145499cc9e4fa93e2"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/reference-source/bot/neural/NeuralV3Bot.java",
+      "bytes": 7960,
+      "sha256": "2a80412294734d6a1e56a6b05a9de14e4f47c39235fa3e293d98f1f0fd76b362"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/reference-source/bot/neural/NeuralV3Features.java",
+      "bytes": 34681,
+      "sha256": "d173b8f282ca5b0d877fabcb84cf6cd76658166afd1706bb7232d2b16c4398c6"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/reference-source/core/FeaturePaths.java",
+      "bytes": 4443,
+      "sha256": "9f1e5e94ffd8a299da687666f512fb55a86975a614683a56df36334afbbfef51"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/reference-source/core/SearchState.java",
+      "bytes": 2287,
+      "sha256": "9d02e8b5565cbcc2742a26539e94e02de2e727408d99b388e19303ed821f8c9b"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/results.json",
+      "bytes": 33844,
+      "sha256": "6a5fcda180a7b46d04e5380ef4ce6bb222b1b092e9cd5e5db361b1cab20987ed"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/size.command.json",
+      "bytes": 915,
+      "sha256": "f32269fd9d8ea757f2fd38a2a8f8a744852c7c6a1a4fbcbd77779b1603462c28"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/size.json",
+      "bytes": 10598,
+      "sha256": "8996f11e0eaa3b60cb5804152ac3a4769346de2fae546fccf9966efd318860ab"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/size.log",
+      "bytes": 89,
+      "sha256": "b06ffda7a5a6dd23e05a4fc11cf6d2b5b0496bcc994ca1c9ef82a642e8a1cfda"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.bot.NeuralV3BotTest.xml",
+      "bytes": 854,
+      "sha256": "39e95ed09ce157b312750113dacc07bc9134fdbcac0793c3a74d116576f99301"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.bot.NeuralV3FeaturesTest.xml",
+      "bytes": 1031,
+      "sha256": "2735eec3b1d84b244c7c3a478b24b23cede47f92204672eb2e7a20da56b8de45"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.core.FeaturePathsTest.xml",
+      "bytes": 1268,
+      "sha256": "793606c5e7ef263e9289aa74890df0cef4b2a8f4263998a5349dd9df00eb76e6"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.core.SearchStateTest.xml",
+      "bytes": 842,
+      "sha256": "4d5bc2e881be14f436fbfd87224d155134461c21ac31d4c14cda56289e940c09"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.submit.FileMergerTest.xml",
+      "bytes": 7955,
+      "sha256": "7e23201beb3c58e3c7cb89dd296c767114732fd90cda4e635ba3c5bddf1c1787"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.tools.NeuralTargetSizeProbeTest.xml",
+      "bytes": 783,
+      "sha256": "2651feecdbb5311b07eccb117cb5c8c5a353104a0439bab265769df30d6b97e9"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests/TEST-btk.tools.target.TargetProposalFeaturesTest.xml",
+      "bytes": 1413,
+      "sha256": "5fe96558a8adc6df45a8fb384c23211674f38893f1f60295f992d52c2a8d58c2"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests-fixed.command.json",
+      "bytes": 495,
+      "sha256": "c18799b7deecb8c1ef55a00df44157de5b8a3a9d576d7b9f7a7b761b1d01da8b"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests-fixed.log",
+      "bytes": 273,
+      "sha256": "e1f7df6dd21835b7fb8a6b50996055a026d9a170b76b4d3fd2988235823ca1ec"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests.command.json",
+      "bytes": 495,
+      "sha256": "ef7b4b21707c82bfa06b740d10ed3d31e3934c912006dfd592fe100792013e88"
+    },
+    {
+      "path": "build/analysis/neural-target-feasibility-v1/tests.log",
+      "bytes": 1289,
+      "sha256": "0f7d5c808b14cebe2fceebb9ccdfe5a32a38ee9355d84a2b750c8b557607d6de"
+    },
+    {
+      "path": "docs/evidence/neural-target-feasibility-v1.json",
+      "bytes": 47380,
+      "sha256": "ac67519268f45baa96c041134fc6df9876af0ec497bc72758bb13118300679b7"
+    },
+    {
+      "path": "docs/neural-target-feasibility-v1.md",
+      "bytes": 8875,
+      "sha256": "6424191fe209fb24d69947cb72df4836ebe6684591ee2fa1e3ac3f2168709bd4"
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralTargetFeasibility.java",
+      "bytes": 11747,
+      "sha256": "4c01649c261f7ac51ff16ef345dc6332d6aec7b980c97ddc7489129581141dba"
+    },
+    {
+      "path": "src/main/java/btk/tools/NeuralTargetSizeProbe.java",
+      "bytes": 15506,
+      "sha256": "3cf26ffed509453885f0cfb5a7497639301f0d2b5270b6220c663b99149fcab9"
+    },
+    {
+      "path": "src/main/java/btk/tools/target/TargetProposalFeatures.java",
+      "bytes": 13048,
+      "sha256": "18cbde4326054928e58d92c8eba197eebc6d93521a1289749a35526f389cc9fa"
+    },
+    {
+      "path": "src/main/java/btk/tools/target/TargetProposer.java",
+      "bytes": 3655,
+      "sha256": "96520617f3b9d38f2a0b898be19c09110b8c43396c1336d86ee6e22352c87999"
+    },
+    {
+      "path": "src/test/java/btk/tools/NeuralTargetSizeProbeTest.java",
+      "bytes": 2653,
+      "sha256": "5936e4de9da9815d9db8bf9a06ed954ca1c94b8f57737ad2faa839175c283a2f"
+    },
+    {
+      "path": "src/test/java/btk/tools/target/TargetProposalFeaturesTest.java",
+      "bytes": 11858,
+      "sha256": "d7921c7d760432bc5bb907c32b28ef8ca840fbb9d483c907d916eaf8dc4455a2"
+    },
+    {
+      "path": "tools/diagnostics/neural_target_feasibility.py",
+      "bytes": 5267,
+      "sha256": "2b43f2b356228e655ca8538543f72c2421376895d78eaec9159f2b7e09a58f13"
+    }
+  ],
+  "scope": "Public replays, protocol, new code, logs, baseline artifact and pins; historical private lineage remains local."
+}

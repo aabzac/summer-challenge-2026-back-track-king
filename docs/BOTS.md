@@ -13,6 +13,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed feasibility experiment 2026-10-11: **neural-target-feasibility-v1**,
+**STOP_DIRECT_PORT_SIZE**. Isolated deterministic frozen-V3 target module matches
+49,735 feature values bitwise on 51 states/1,715 candidates. Its direct addition
+to fresh current requires **119,594/100,000 characters**, before E/D integration.
+Warm local module median **1.30 ms**, p95 **6.20 ms**; fits remaining baseline
+budget in **22/51** states (22/24 with complete baseline search). 85 focused tests,
+292+8 exact replays, 576 frozen files +4 runtimes verified. No registered bot,
+integrated adapter, candidate artifact or strength games; keep v09 and stop this
+direct port. [Protocol/evidence](neural-target-feasibility-v1.md).
+
 Completed diagnostic 2026-10-11: **neural-component-audit-v1**, no registered
 candidate or strength bench. All 51 prior rows reproduced exactly, then four
 construction/target combinations evaluated without refill. Versus the best

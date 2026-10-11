@@ -210,6 +210,12 @@ five need only the target replacement, two only construction, and one accepts
 either. This prioritizes a bounded target-only adapter feasibility check, with
 no new production candidate yet. [Protocol and results](docs/neural-component-audit-v1.md).
 
+`neural-target-feasibility-v1` implements the isolated target module and verifies
+all 49,735 feature values bitwise. Direct reuse stops at the source-size gate:
+119,594/100,000 characters before integration. Module median 1.30 ms, p95 6.20 ms;
+only 22/51 saved states leave enough time after v09 for the module alone. No hybrid
+candidate or strength run; v09 remains selected. [Results](docs/neural-target-feasibility-v1.md).
+
 
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a
