@@ -7135,3 +7135,39 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [Diagnosis](v09-runtime-cause-v1.md), [summary](evidence/v09-runtime-cause-v1.json),
   [archive index](evidence/v09-runtime-cause-v1-artifacts.json),
   [archive](evidence/v09-runtime-cause-v1-artifacts.zip).
+
+## 2026-10-11 - v09-deferred-strength-v1: first strength block stops at48.6667%
+
+- User requested moving to a benchmark to test the improvement. Test the already
+  implemented/verified exact candidate `current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true`
+  against selected frozen v09. Hypothesis: construction-preserving overdue-sabotage
+  correction plus existing forecast reuse improves complete-game outcomes.
+  Whole-candidate comparison explicitly retains tested NOISE0 versus control0.1;
+  it does not isolate the deadline flag. No strategy/core changes or new batching.
+- Before games: prospective practical-v4 blocks300/+200/+500 on fresh seeds
+  241011000/241111000/241211000, two workers and486/36ms; futility below50% at
+  300/500, final local pass>=55% at1000. Pre-register all pools and exclude22,894
+  prior local/saved-CG/development map hashes. No retry, seed replacement or tuning.
+- Preflight engine292/292 exact. Fresh separate98,572-character export SHA
+  3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c and all class
+  bytes match prior enabled artifact. Full local/artifact parameters match.
+  Freeze2,589 sources/classes/inputs and7 runtime files; unchanged before/after.
+  Existing semantic evidence reused because no production code changed.
+- One first block completes in464.761s:134W142L24D,146/300 points=48.6667%,
+  150 distinct maps in both seats, zeroerrors/missing games. All map identities
+  disjoint from prospective exclusions; actual configs/seeds/timing/pools checked.
+  STOP_FUTILITY_300; blocks2/3 remain unplayed, no extension or alternative arm.
+  Broad map-grouped confidence37.58%..59.76% is diagnostic only. No demonstrated
+  strength improvement; no claim that the specific correction itself is harmful.
+- Native search max66/50ms,slow2/0 candidate/control. Average92.08 turns,
+  score difference-3.50; accepted sabotage71.10%/70.04% of turns. These are local
+  descriptive counts without per-turn intervention attribution, not process
+  readiness. Old56.0151ms strict failure is inherited unchanged, no process retry.
+- Decision: LOCAL_NOT_PASSED_AND_PROCESS_FAILED. Candidate stays OFF, selected
+  v09 unchanged. No boss games, upload, promotion or push. The proposed batched
+  refresh remains unimplemented; no automatic follow-up after the failed gate.
+  Retain result/evidence and commit locally.
+  [Protocol/result](v09-deferred-strength-v1.md),
+  [summary](evidence/v09-deferred-strength-v1.json),
+  [archive index](evidence/v09-deferred-strength-v1-artifacts.json),
+  [archive](evidence/v09-deferred-strength-v1-artifacts.zip).

@@ -69,6 +69,14 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [ ] On a separate follow-up, implement the selected opt-in refresh optimization;
       require core differential tests/cgValidate, ample parity, actual r33t40,
       six WIN controls, source100k and zero-grace exact-artifact process check.
+- [x] On the user's benchmark request, evaluate the existing exact enabled candidate
+      versus selected v09 in [v09-deferred-strength-v1](v09-deferred-strength-v1.md).
+      Whole-candidate recipes retain NOISE0 versus0.1; no new batching implementation.
+      Fresh150 paired maps,134W142L24D/300 (48.6667%),zeroerrors,STOP_FUTILITY_300.
+      Blocks2/3 not run; no retries or tuning. Engine292exact, artifact/classes exact,
+      2,589 frozen inputs+7 runtimes preserved. Local benefit not established;
+      old PROCESS_FAIL remains. Leave correction OFF/v09 selected and do not
+      automatically implement the pending refresh idea after this rejection.
 
 ## Return to v09 — reuse neural proposals (2026-10-11)
 

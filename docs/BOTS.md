@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed local strength experiment 2026-10-11: **v09-deferred-strength-v1**,
+**STOP_FUTILITY_300 / LOCAL_NOT_PASSED_AND_PROCESS_FAILED**. Exact tested
+`current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true` versus selected frozen v09:
+134W142L24D,146/300 points (**48.6667%**),150 fresh paired maps, zero bot errors.
+Two workers, CG486/36ms; all maps disjoint from22,894 previous identities.
+Blocks2/3 pre-registered but skipped at the first futility stop, no retry/tuning.
+This compares the whole candidate (including NOISE=0) with v09(NOISE=0.1),
+not the causal effect of one flag. Engine292 exact, fresh98,572-character export
+and classes match the prior candidate;2,589 frozen inputs+7 runtimes unchanged.
+Old strict50ms failure remains; no new process/boss check, promotion or upload.
+Selected v09 unchanged; no automatic path-batching follow-up.
+[Protocol and result](v09-deferred-strength-v1.md).
+
 Completed diagnostic 2026-10-11: **v09-runtime-cause-v1**,
 **PARTIAL_ATTRIBUTION / FOLLOWUP_SELECTED / ORIGINAL_PROCESS_FAIL_UNCHANGED**.
 Old56.0151ms includes child52ms; old99.5029/64.5907ms have zero supplemental
