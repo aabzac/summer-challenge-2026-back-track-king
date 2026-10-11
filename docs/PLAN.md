@@ -57,6 +57,18 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       and all guards; six winning controls exact and eight native wins preserved.
       Strict50ms readiness still fails: one56.0151ms timeout at904148181/P0/t33.
       Archive both outcomes and commit; preserve flag OFF/v09, no retry or promotion.
+- [x] Diagnose retained56.0151/99.5029/64.5907ms overruns in
+      [v09-runtime-cause-v1](v09-runtime-cause-v1.md). Historical phase attribution
+      remains unknown; old nominal spikes have zero supplemental work. Main JFR
+      panel57/147 complete, but forced-input and child-process probes have retained
+      tool failures. No retries. Key r33t40 still observed28.8426ms, six WIN controls
+      exact, eight native wins retained; original readiness FAIL unchanged.
+- [x] Select one follow-up: allocation-free canonical refresh with one BFS per
+      destination town. Measured refresh samples40.26%; preserve paths/ties, full
+      construction, all W/A/Wr0 guards and timers. No production implementation yet.
+- [ ] On a separate follow-up, implement the selected opt-in refresh optimization;
+      require core differential tests/cgValidate, ample parity, actual r33t40,
+      six WIN controls, source100k and zero-grace exact-artifact process check.
 
 ## Return to v09 — reuse neural proposals (2026-10-11)
 

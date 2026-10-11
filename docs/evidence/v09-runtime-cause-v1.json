@@ -1,0 +1,1531 @@
+{
+  "kind": "v09-runtime-cause-v1",
+  "verdict": "PARTIAL_ATTRIBUTION_FOLLOWUP_SELECTED",
+  "diagnosticComplete": false,
+  "mainPanelComplete": true,
+  "originalProcessReadiness": "FAIL_UNCHANGED",
+  "baselineHead": "684f32555cc235593a7901abdc41655a9d45d739",
+  "productionChanged": false,
+  "strategyChanged": false,
+  "followupImplemented": false,
+  "sourceCharacters": 98572,
+  "sourceLimit": 100000,
+  "source": {
+    "path": "build/analysis/v09-deferred-forecast-reuse-v1/artifact-on/Player.java",
+    "sha256": "3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
+    "bytes": 98572
+  },
+  "oldOverruns": [
+    {
+      "game": 904148181,
+      "seat": 0,
+      "turn": 33,
+      "responseMs": 56.0151,
+      "childLoggedTotalMs": 52,
+      "sendMs": 3.0814,
+      "consumerMs": 63.8926,
+      "exactOldInputRetained": false,
+      "cause": "UNKNOWN; late consumer wake-up alone excluded"
+    },
+    {
+      "game": 907135435,
+      "seat": 1,
+      "start": 59,
+      "turn": 61,
+      "searchMs": 99.5029,
+      "extraForecastTurns": 0,
+      "routeQueries": 67,
+      "cause": "UNKNOWN; no supplemental forecast work"
+    },
+    {
+      "game": 907135435,
+      "seat": 1,
+      "start": 59,
+      "turn": 62,
+      "searchMs": 64.5907,
+      "extraForecastTurns": 0,
+      "routeQueries": 0,
+      "cause": "UNKNOWN; no supplemental forecast or route-query work"
+    }
+  ],
+  "execution": {
+    "kind": "v09-runtime-cause-v1-execution-status",
+    "nominalCommandExitCode": 1,
+    "nominalStageComplete": false,
+    "mainPanelComplete": true,
+    "mainPanelStarts": 57,
+    "mainPanelPairs": 147,
+    "mainPanelDecisions": {
+      "off": 1141,
+      "on": 1140
+    },
+    "mainPanelJsonJfrMatches": 2281,
+    "nominalFailure": "FileAlreadyExistsException on second incremental forced-input.json write (CREATE_NEW).",
+    "forcedInput": {
+      "planned": 8,
+      "validatedInputAndSuccessorHashes": 8,
+      "measuredJfrCalls": 2,
+      "jsonCalls": 1,
+      "measuredTurns": [
+        59,
+        60
+      ],
+      "oldProblemInputs61And62Measured": false
+    },
+    "processCommandExitCode": 0,
+    "processStageComplete": false,
+    "processValidBotReplies": 0,
+    "processFailure": "JFR startup stdout parsed as action at t0; JCMD_TIMEOUT; empty child.jfr.",
+    "offlineSummary": {
+      "nominal": "SUCCESS",
+      "child": "FAILED: zero-byte file, no child summary created"
+    },
+    "retries": 0,
+    "postMeasurementPolicyOrHarnessRepairs": 0,
+    "scope": "Partial diagnostic evidence only; original strict failure unchanged."
+  },
+  "mainPanel": {
+    "completeFromRetainedArms": true,
+    "cohortStarts": 56,
+    "cohortPairs": 144,
+    "historicalStarts": 1,
+    "historicalPairs": 3,
+    "offArms": 147,
+    "offDecisions": 1141,
+    "offIncompleteArms": 0,
+    "onArms": 147,
+    "onDecisions": 1140,
+    "onIncompleteArms": 0,
+    "recordedStateChainErrors": [],
+    "all1140OnDecisionsPreserveNativeFullConstruction": true,
+    "mainJsonMarkersMatched": 2281,
+    "jfrMarkerCount": 2283,
+    "mainFinalReportPresent": false
+  },
+  "keyAndOtherInterventions": [
+    {
+      "case": [
+        907134651,
+        38,
+        "NATIVE_FIXED_PORTFOLIO",
+        0,
+        "on",
+        40
+      ],
+      "action": {
+        "cells": [
+          288
+        ],
+        "target": 33,
+        "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+      },
+      "due": 39,
+      "strictlyAfterDue": true,
+      "guardArraysAccept": true,
+      "W": [
+        1095.0,
+        null
+      ],
+      "A": [
+        1084.0,
+        null
+      ],
+      "Wr0": [
+        933.0,
+        null
+      ],
+      "nativeFullConstruction": [
+        288
+      ],
+      "sameOffInputAtIntervention": true,
+      "sameOffConstructionAtIntervention": true,
+      "inkedRegions": [
+        33
+      ],
+      "offOnBoundedScoreDifferences": [
+        1026,
+        1071
+      ],
+      "offOnTerminalOutcomes": [
+        "NONTERMINAL",
+        "NONTERMINAL"
+      ],
+      "timing": {
+        "correlationId": "907134651/38/P1/NATIVE_FIXED_PORTFOLIO/0/ON/2",
+        "turn": 40,
+        "invokeWallMs": 28.8426,
+        "coarseThreadCpuMs": 31.25,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPauseOverlapMs": 0.0,
+        "safepointOverlapMs": 0.0,
+        "vmOperationOverlapMs": 0.0,
+        "vmOperations": [],
+        "overlappingCompilationCount": 3,
+        "sameThreadSamples": 2,
+        "sampledTopFrames": [
+          {
+            "samples": 1,
+            "frame": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:1 [JIT compiled]"
+          },
+          {
+            "samples": 1,
+            "frame": "Player$Pathing.shortestPath(LPlayer$GameState;II[I)I:1 [JIT compiled]"
+          }
+        ]
+      }
+    },
+    {
+      "case": [
+        907134651,
+        38,
+        "PURE_WAIT",
+        -1,
+        "on",
+        40
+      ],
+      "action": {
+        "cells": [
+          288
+        ],
+        "target": 33,
+        "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+      },
+      "due": 39,
+      "strictlyAfterDue": true,
+      "guardArraysAccept": true,
+      "W": [
+        1095.0,
+        null
+      ],
+      "A": [
+        1084.0,
+        null
+      ],
+      "Wr0": [
+        933.0,
+        null
+      ],
+      "nativeFullConstruction": [
+        288
+      ],
+      "sameOffInputAtIntervention": true,
+      "sameOffConstructionAtIntervention": true,
+      "inkedRegions": [
+        33
+      ],
+      "offOnBoundedScoreDifferences": [
+        1026,
+        1071
+      ],
+      "offOnTerminalOutcomes": [
+        "NONTERMINAL",
+        "NONTERMINAL"
+      ],
+      "timing": {
+        "correlationId": "907134651/38/P1/PURE_WAIT/-1/ON/2",
+        "turn": 40,
+        "invokeWallMs": 28.422,
+        "coarseThreadCpuMs": 15.625,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPauseOverlapMs": 0.0,
+        "safepointOverlapMs": 0.0,
+        "vmOperationOverlapMs": 0.0,
+        "vmOperations": [],
+        "overlappingCompilationCount": 2,
+        "sameThreadSamples": 2,
+        "sampledTopFrames": [
+          {
+            "samples": 1,
+            "frame": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:1 [Interpreted]"
+          },
+          {
+            "samples": 1,
+            "frame": "Player$Pathing.shortestPath(LPlayer$GameState;II[I)I:1 [JIT compiled]"
+          }
+        ]
+      }
+    },
+    {
+      "case": [
+        907135823,
+        35,
+        "PURE_WAIT",
+        -1,
+        "on",
+        37
+      ],
+      "action": {
+        "cells": [
+          159,
+          162,
+          182
+        ],
+        "target": 11,
+        "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 1 7;PLACE_TRACKS 21 7;DISRUPT 11"
+      },
+      "due": 36,
+      "strictlyAfterDue": true,
+      "guardArraysAccept": true,
+      "W": [
+        -495.0,
+        null
+      ],
+      "A": [
+        -541.0,
+        null
+      ],
+      "Wr0": [
+        -905.0,
+        null
+      ],
+      "nativeFullConstruction": [
+        159,
+        162,
+        182
+      ],
+      "sameOffInputAtIntervention": true,
+      "sameOffConstructionAtIntervention": true,
+      "inkedRegions": [
+        11
+      ],
+      "offOnBoundedScoreDifferences": [
+        -598,
+        -551
+      ],
+      "offOnTerminalOutcomes": [
+        "NONTERMINAL",
+        "NONTERMINAL"
+      ],
+      "timing": {
+        "correlationId": "907135823/35/P0/PURE_WAIT/-1/ON/2",
+        "turn": 37,
+        "invokeWallMs": 32.9635,
+        "coarseThreadCpuMs": 31.25,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPauseOverlapMs": 0.0,
+        "safepointOverlapMs": 0.0,
+        "vmOperationOverlapMs": 0.0,
+        "vmOperations": [],
+        "overlappingCompilationCount": 3,
+        "sameThreadSamples": 2,
+        "sampledTopFrames": [
+          {
+            "samples": 1,
+            "frame": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:1 [Interpreted]"
+          },
+          {
+            "samples": 1,
+            "frame": "Player$Pathing.reachableAvoidingInk(LPlayer$GameState;II)Z:1 [JIT compiled]"
+          }
+        ]
+      }
+    }
+  ],
+  "sixWinningControls": [
+    {
+      "gameId": 907134720,
+      "start": 46,
+      "seat": 1,
+      "reply": 0,
+      "offOnTerminalOutcomes": [
+        "WIN",
+        "WIN"
+      ],
+      "offOnMargins": [
+        1971,
+        1971
+      ],
+      "lastCommandTurn": 48,
+      "offOnSemanticIdentity": true,
+      "matchesPreservedReuseOn": true,
+      "interventions": 0,
+      "initialWTerminal": [
+        1,
+        0
+      ],
+      "initialStatus": "unsafe-or-changed-W"
+    },
+    {
+      "gameId": 907134720,
+      "start": 47,
+      "seat": 1,
+      "reply": 0,
+      "offOnTerminalOutcomes": [
+        "WIN",
+        "WIN"
+      ],
+      "offOnMargins": [
+        1969,
+        1969
+      ],
+      "lastCommandTurn": 49,
+      "offOnSemanticIdentity": true,
+      "matchesPreservedReuseOn": true,
+      "interventions": 0,
+      "initialWTerminal": [
+        1,
+        0
+      ],
+      "initialStatus": "unsafe-or-changed-W"
+    },
+    {
+      "gameId": 907134720,
+      "start": 49,
+      "seat": 1,
+      "reply": 0,
+      "offOnTerminalOutcomes": [
+        "WIN",
+        "WIN"
+      ],
+      "offOnMargins": [
+        1967,
+        1967
+      ],
+      "lastCommandTurn": 50,
+      "offOnSemanticIdentity": true,
+      "matchesPreservedReuseOn": true,
+      "interventions": 0,
+      "initialWTerminal": [
+        1,
+        0
+      ],
+      "initialStatus": "unsafe-or-changed-W"
+    },
+    {
+      "gameId": 907134720,
+      "start": 50,
+      "seat": 1,
+      "reply": 0,
+      "offOnTerminalOutcomes": [
+        "WIN",
+        "WIN"
+      ],
+      "offOnMargins": [
+        1965,
+        1965
+      ],
+      "lastCommandTurn": 51,
+      "offOnSemanticIdentity": true,
+      "matchesPreservedReuseOn": true,
+      "interventions": 0,
+      "initialWTerminal": [
+        1,
+        0
+      ],
+      "initialStatus": "unsafe-or-changed-W"
+    },
+    {
+      "gameId": 907134720,
+      "start": 51,
+      "seat": 1,
+      "reply": 0,
+      "offOnTerminalOutcomes": [
+        "WIN",
+        "WIN"
+      ],
+      "offOnMargins": [
+        1963,
+        1963
+      ],
+      "lastCommandTurn": 52,
+      "offOnSemanticIdentity": true,
+      "matchesPreservedReuseOn": true,
+      "interventions": 0,
+      "initialWTerminal": [
+        1,
+        0
+      ],
+      "initialStatus": "unsafe-or-changed-W"
+    },
+    {
+      "gameId": 907134720,
+      "start": 52,
+      "seat": 1,
+      "reply": 0,
+      "offOnTerminalOutcomes": [
+        "WIN",
+        "WIN"
+      ],
+      "offOnMargins": [
+        1961,
+        1961
+      ],
+      "lastCommandTurn": 53,
+      "offOnSemanticIdentity": true,
+      "matchesPreservedReuseOn": true,
+      "interventions": 0,
+      "initialWTerminal": [
+        1,
+        0
+      ],
+      "initialStatus": "unsafe-or-changed-W"
+    }
+  ],
+  "eightOffWins": [
+    {
+      "gameId": 907134581,
+      "start": 50,
+      "seat": 0,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 97,
+      "onMargin": 115,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 93
+    },
+    {
+      "gameId": 907134581,
+      "start": 50,
+      "seat": 0,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 1,
+      "offMargin": 111,
+      "onMargin": 111,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 85
+    },
+    {
+      "gameId": 907134720,
+      "start": 46,
+      "seat": 1,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 1971,
+      "onMargin": 1971,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 1971
+    },
+    {
+      "gameId": 907134720,
+      "start": 47,
+      "seat": 1,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 1969,
+      "onMargin": 1969,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 1969
+    },
+    {
+      "gameId": 907134720,
+      "start": 49,
+      "seat": 1,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 1967,
+      "onMargin": 1967,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 1967
+    },
+    {
+      "gameId": 907134720,
+      "start": 50,
+      "seat": 1,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 1965,
+      "onMargin": 1965,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 1965
+    },
+    {
+      "gameId": 907134720,
+      "start": 51,
+      "seat": 1,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 1963,
+      "onMargin": 1963,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 1963
+    },
+    {
+      "gameId": 907134720,
+      "start": 52,
+      "seat": 1,
+      "regime": "NATIVE_FIXED_PORTFOLIO",
+      "reply": 0,
+      "offMargin": 1961,
+      "onMargin": 1961,
+      "onOutcome": "WIN",
+      "oldReuseOnOutcome": "WIN",
+      "oldReuseOnMargin": 1961
+    }
+  ],
+  "jfr": {
+    "playCount": 2283,
+    "mainPanelPlayCount": 2281,
+    "forcedPlayCount": 2,
+    "above36Ms": 292,
+    "above50Ms": 4,
+    "slowCalls": [
+      {
+        "correlationId": "907135538/60/P0/NATIVE_FIXED_PORTFOLIO/1/OFF/3",
+        "turn": 63,
+        "player": 0,
+        "measuredInvokeWallMs": 52.5876,
+        "threadCpuMs": 15.625,
+        "wallMinusCoarseThreadCpuMs": 36.9626,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPhasePauseOverlap": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "safepointOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "executeVmOperationOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "overlappingCompilationCorrelationOnly": {
+          "events": [
+            {
+              "compileId": 17447,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$EvalBot.chooseTarget(LPlayer$GameState;I)I",
+              "eventThreadJfrId": 61,
+              "eventThreadJavaId": 9,
+              "eventThreadName": "C2 CompilerThread1",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:39.976727200Z",
+              "end": "2026-10-11T12:36:40.428262400Z",
+              "durationMs": 451.5352,
+              "clippedOverlapMs": 52.5881
+            },
+            {
+              "compileId": 17448,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I",
+              "eventThreadJfrId": 14,
+              "eventThreadJavaId": 8,
+              "eventThreadName": "C2 CompilerThread0",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:40.029682300Z",
+              "end": "2026-10-11T12:36:40.283504600Z",
+              "durationMs": 253.8223,
+              "clippedOverlapMs": 52.5881
+            }
+          ],
+          "eventCount": 2,
+          "unionOverlapMs": 52.5881
+        },
+        "samples": {
+          "playMarkers": 1,
+          "sameThreadMeasuredSamples": 2,
+          "markersWithoutSamples": 0,
+          "exclusivePathCategories": {
+            "Pathing.cheapestPath": {
+              "samples": 1,
+              "shareOfSamplesPercent": 50.0
+            },
+            "SearchState.refresh": {
+              "samples": 1,
+              "shareOfSamplesPercent": 50.0
+            }
+          },
+          "exclusiveStageCategories": {
+            "nativeForecast": 1,
+            "routeProposal": 1
+          },
+          "refreshImmediateCallers": {
+            "Player$EvalBot.placeOwn": 1
+          },
+          "refreshByStage": {
+            "nativeForecast": 1
+          },
+          "inclusiveGeneratedMethods": {
+            "Player$EvalBot.play": 2,
+            "Player$MainBot.play": 2,
+            "Player$EvalBot.placeOwn": 1,
+            "Player$EvalBot.propose": 1,
+            "Player$EvalBot.rollout": 1,
+            "Player$EvalBot.searchRoots": 1,
+            "Player$Pathing.bfsFrom": 1,
+            "Player$Pathing.bfsInto": 1,
+            "Player$Pathing.cheapestPath": 1,
+            "Player$Pathing.shortestPath": 1,
+            "Player$SearchState.refresh": 1
+          }
+        },
+        "sampleStacks": [
+          {
+            "samples": 1,
+            "name": "Player$Pathing.bfsInto(LPlayer$GameState;I[I)I:25 [Inlined]\nPlayer$Pathing.bfsFrom(LPlayer$GameState;I)I:25 [Inlined]\nPlayer$Pathing.shortestPath(LPlayer$GameState;II[I)I:25 [JIT compiled]\nPlayer$SearchState.refresh()V:36 [JIT compiled]\nPlayer$EvalBot.placeOwn(LPlayer$SearchState;I[II)V:129 [JIT compiled]\nPlayer$EvalBot.rollout(LPlayer$GameState;IIII)D:131 [Interpreted]\nPlayer$EvalBot.searchRoots(LPlayer$GameState;IIII)Z:99 [Interpreted]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:93 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:148 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:52 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:45 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          },
+          {
+            "samples": 1,
+            "name": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:25 [JIT compiled]\nPlayer$EvalBot.propose(LPlayer$GameState;III)V:107 [JIT compiled]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:89 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:148 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:52 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:45 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          }
+        ],
+        "diagnostics": {
+          "completedComparisons": 0,
+          "fillCells": 0,
+          "networkPhaseComplete": false,
+          "ordinarySearchComplete": false,
+          "routeQueries": 128,
+          "selectedRoute": -1,
+          "selectedTarget": 32,
+          "selectedValue": null,
+          "simulatedTurns": 7
+        },
+        "ownAction": {
+          "cells": [],
+          "target": 32,
+          "action": "DISRUPT 32"
+        }
+      },
+      {
+        "correlationId": "907135538/60/P0/NATIVE_FIXED_PORTFOLIO/1/OFF/4",
+        "turn": 64,
+        "player": 0,
+        "measuredInvokeWallMs": 291.0473,
+        "threadCpuMs": 0.0,
+        "wallMinusCoarseThreadCpuMs": 291.0473,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPhasePauseOverlap": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "safepointOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "executeVmOperationOverlapCorrelationOnly": {
+          "events": [
+            {
+              "safepointId": 0,
+              "operation": "HandshakeAllThreads",
+              "safepoint": false,
+              "blocking": true,
+              "eventThreadJfrId": 7,
+              "eventThreadJavaId": 0,
+              "eventThreadName": null,
+              "type": "jdk.ExecuteVMOperation",
+              "start": "2026-10-11T12:36:40.283413900Z",
+              "end": "2026-10-11T12:36:40.410402200Z",
+              "durationMs": 126.9883,
+              "clippedOverlapMs": 118.9408
+            }
+          ],
+          "eventCount": 1,
+          "unionOverlapMs": 118.9408
+        },
+        "overlappingCompilationCorrelationOnly": {
+          "events": [
+            {
+              "compileId": 17447,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$EvalBot.chooseTarget(LPlayer$GameState;I)I",
+              "eventThreadJfrId": 61,
+              "eventThreadJavaId": 9,
+              "eventThreadName": "C2 CompilerThread1",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:39.976727200Z",
+              "end": "2026-10-11T12:36:40.428262400Z",
+              "durationMs": 451.5352,
+              "clippedOverlapMs": 291.049
+            },
+            {
+              "compileId": 17448,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I",
+              "eventThreadJfrId": 14,
+              "eventThreadJavaId": 8,
+              "eventThreadName": "C2 CompilerThread0",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:40.029682300Z",
+              "end": "2026-10-11T12:36:40.283504600Z",
+              "durationMs": 253.8223,
+              "clippedOverlapMs": 172.1989
+            },
+            {
+              "compileId": 17449,
+              "compiler": "c1",
+              "compileLevel": 3,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$Pathing.walk(LPlayer$GameState;II[I[I)I",
+              "eventThreadJfrId": 15,
+              "eventThreadJavaId": 11,
+              "eventThreadName": "C1 CompilerThread0",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:40.111387800Z",
+              "end": "2026-10-11T12:36:40.112397600Z",
+              "durationMs": 1.0098,
+              "clippedOverlapMs": 1.0098
+            }
+          ],
+          "eventCount": 3,
+          "unionOverlapMs": 291.049
+        },
+        "samples": {
+          "playMarkers": 1,
+          "sameThreadMeasuredSamples": 8,
+          "markersWithoutSamples": 0,
+          "exclusivePathCategories": {
+            "Pathing.cheapestPath": {
+              "samples": 8,
+              "shareOfSamplesPercent": 100.0
+            }
+          },
+          "exclusiveStageCategories": {
+            "routeProposal": 8
+          },
+          "refreshImmediateCallers": {},
+          "refreshByStage": {},
+          "inclusiveGeneratedMethods": {
+            "Player$EvalBot.play": 8,
+            "Player$EvalBot.propose": 8,
+            "Player$MainBot.play": 8,
+            "Player$Pathing.cheapestPath": 8,
+            "Player$Pathing.heapPush": 8,
+            "Player$Pathing.siftUp": 8
+          }
+        },
+        "sampleStacks": [
+          {
+            "samples": 8,
+            "name": "Player$Pathing.siftUp(I)V:28 [Inlined]\nPlayer$Pathing.heapPush(II)I:28 [Inlined]\nPlayer$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:28 [JIT compiled]\nPlayer$EvalBot.propose(LPlayer$GameState;III)V:107 [JIT compiled]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:91 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:148 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:52 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:45 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          }
+        ],
+        "diagnostics": {
+          "completedComparisons": 0,
+          "fillCells": 0,
+          "networkPhaseComplete": false,
+          "ordinarySearchComplete": false,
+          "routeQueries": 32,
+          "selectedRoute": -1,
+          "selectedTarget": 22,
+          "selectedValue": null,
+          "simulatedTurns": 0
+        },
+        "ownAction": {
+          "cells": [],
+          "target": 22,
+          "action": "DISRUPT 22"
+        }
+      },
+      {
+        "correlationId": "907135538/60/P0/PURE_WAIT/-1/ON/1",
+        "turn": 61,
+        "player": 0,
+        "measuredInvokeWallMs": 65.3131,
+        "threadCpuMs": 15.625,
+        "wallMinusCoarseThreadCpuMs": 49.688100000000006,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPhasePauseOverlap": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "safepointOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "executeVmOperationOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "overlappingCompilationCorrelationOnly": {
+          "events": [
+            {
+              "compileId": 17699,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$EvalBot.chooseTarget(LPlayer$GameState;I)I",
+              "eventThreadJfrId": 14,
+              "eventThreadJavaId": 8,
+              "eventThreadName": "C2 CompilerThread0",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.640145400Z",
+              "end": "2026-10-11T12:36:42.958876900Z",
+              "durationMs": 318.7315,
+              "clippedOverlapMs": 65.3149
+            },
+            {
+              "compileId": 17708,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$EvalBot.propose(LPlayer$GameState;III)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.676525500Z",
+              "end": "2026-10-11T12:36:42.803455300Z",
+              "durationMs": 126.9298,
+              "clippedOverlapMs": 10.7672
+            },
+            {
+              "compileId": 17715,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I",
+              "eventThreadJfrId": 61,
+              "eventThreadJavaId": 9,
+              "eventThreadName": "C2 CompilerThread1",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.756129500Z",
+              "end": "2026-10-11T12:36:43.026846400Z",
+              "durationMs": 270.7169,
+              "clippedOverlapMs": 65.3149
+            },
+            {
+              "compileId": 17685,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$Pathing.siftUp(I)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.803703500Z",
+              "end": "2026-10-11T12:36:42.813434300Z",
+              "durationMs": 9.7308,
+              "clippedOverlapMs": 9.7308
+            },
+            {
+              "compileId": 17700,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$Rules.incomePerTurn(LPlayer$GameState;[I)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.813561300Z",
+              "end": "2026-10-11T12:36:42.828822700Z",
+              "durationMs": 15.2614,
+              "clippedOverlapMs": 15.2614
+            },
+            {
+              "compileId": 17714,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$SearchState.connectionIncomeDifference(LPlayer$GameState;II)I",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.829574300Z",
+              "end": "2026-10-11T12:36:42.839173100Z",
+              "durationMs": 9.5988,
+              "clippedOverlapMs": 9.5988
+            },
+            {
+              "compileId": 17711,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$Pathing.reachableAvoidingInk(LPlayer$GameState;II)Z",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.840045200Z",
+              "end": "2026-10-11T12:36:42.868815700Z",
+              "durationMs": 28.7705,
+              "clippedOverlapMs": 17.9578
+            }
+          ],
+          "eventCount": 7,
+          "unionOverlapMs": 65.3149
+        },
+        "samples": {
+          "playMarkers": 1,
+          "sameThreadMeasuredSamples": 4,
+          "markersWithoutSamples": 0,
+          "exclusivePathCategories": {
+            "Pathing.cheapestPath": {
+              "samples": 4,
+              "shareOfSamplesPercent": 100.0
+            }
+          },
+          "exclusiveStageCategories": {
+            "routeProposal": 4
+          },
+          "refreshImmediateCallers": {},
+          "refreshByStage": {},
+          "inclusiveGeneratedMethods": {
+            "Player$EvalBot.play": 4,
+            "Player$EvalBot.propose": 4,
+            "Player$MainBot.play": 4,
+            "Player$Pathing.cheapestPath": 4,
+            "Player$Pathing.heapFix": 1
+          }
+        },
+        "sampleStacks": [
+          {
+            "samples": 3,
+            "name": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:1 [Interpreted]\nPlayer$EvalBot.propose(LPlayer$GameState;III)V:1 [JIT compiled]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:53 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:46 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          },
+          {
+            "samples": 1,
+            "name": "Player$Pathing.heapFix(II)I:1 [Inlined]\nPlayer$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:1 [JIT compiled]\nPlayer$EvalBot.propose(LPlayer$GameState;III)V:1 [JIT compiled]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:53 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:46 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          }
+        ],
+        "diagnostics": {
+          "completedComparisons": 0,
+          "deadlineACompleted": 0,
+          "deadlineATerminal": [
+            0,
+            0
+          ],
+          "deadlineAValues": [
+            null,
+            null
+          ],
+          "deadlineChanged": false,
+          "deadlineCommittedDue": -1,
+          "deadlineCommittedTarget": -1,
+          "deadlineExtraTurns": 0,
+          "deadlineFirstDue": [
+            -1,
+            -1
+          ],
+          "deadlineFirstTarget": [
+            -1,
+            -1
+          ],
+          "deadlineInterventionTarget": -1,
+          "deadlineNativeCells": [
+            -1,
+            -1,
+            -1
+          ],
+          "deadlineNativeCount": 0,
+          "deadlineNativeTarget": 22,
+          "deadlineNominee": -1,
+          "deadlineReplies": 0,
+          "deadlineReusedBoards": 0,
+          "deadlineRoot": -1,
+          "deadlineStatus": "native-attack",
+          "deadlineWCompleted": 0,
+          "deadlineWTerminal": [
+            0,
+            0
+          ],
+          "deadlineWValues": [
+            null,
+            null
+          ],
+          "deadlineWr0Completed": 0,
+          "deadlineWr0Terminal": [
+            0,
+            0
+          ],
+          "deadlineWr0Values": [
+            null,
+            null
+          ],
+          "fillCells": 0,
+          "networkPhaseComplete": false,
+          "ordinarySearchComplete": false,
+          "routeQueries": 25,
+          "selectedRoute": -1,
+          "selectedTarget": 22,
+          "selectedValue": null,
+          "simulatedTurns": 0,
+          "deadlinePendingTarget": -1,
+          "deadlinePendingDue": -1
+        },
+        "ownAction": {
+          "cells": [],
+          "target": 22,
+          "action": "DISRUPT 22"
+        }
+      },
+      {
+        "correlationId": "907135538/60/P0/PURE_WAIT/-1/ON/3",
+        "turn": 63,
+        "player": 0,
+        "measuredInvokeWallMs": 52.6405,
+        "threadCpuMs": 0.0,
+        "wallMinusCoarseThreadCpuMs": 52.6405,
+        "jvmWideGcCountDelta": 0.0,
+        "jvmWideGcTimeDeltaMs": 0.0,
+        "gcPhasePauseOverlap": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "safepointOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "executeVmOperationOverlapCorrelationOnly": {
+          "events": [],
+          "eventCount": 0,
+          "unionOverlapMs": 0.0
+        },
+        "overlappingCompilationCorrelationOnly": {
+          "events": [
+            {
+              "compileId": 17699,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$EvalBot.chooseTarget(LPlayer$GameState;I)I",
+              "eventThreadJfrId": 14,
+              "eventThreadJavaId": 8,
+              "eventThreadName": "C2 CompilerThread0",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.640145400Z",
+              "end": "2026-10-11T12:36:42.958876900Z",
+              "durationMs": 318.7315,
+              "clippedOverlapMs": 52.6421
+            },
+            {
+              "compileId": 17715,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": true,
+              "method": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I",
+              "eventThreadJfrId": 61,
+              "eventThreadJavaId": 9,
+              "eventThreadName": "C2 CompilerThread1",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.756129500Z",
+              "end": "2026-10-11T12:36:43.026846400Z",
+              "durationMs": 270.7169,
+              "clippedOverlapMs": 52.6421
+            },
+            {
+              "compileId": 17717,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$Rules.disrupt(LPlayer$GameState;I)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.895333400Z",
+              "end": "2026-10-11T12:36:42.905033200Z",
+              "durationMs": 9.6998,
+              "clippedOverlapMs": 0.2087
+            },
+            {
+              "compileId": 17718,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$Rules.incomePerTurn(LPlayer$GameState;[I)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.905149700Z",
+              "end": "2026-10-11T12:36:42.918441500Z",
+              "durationMs": 13.2918,
+              "clippedOverlapMs": 13.2918
+            },
+            {
+              "compileId": 17707,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$GameState.copyFrom(LPlayer$GameState;)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.918556100Z",
+              "end": "2026-10-11T12:36:42.936313600Z",
+              "durationMs": 17.7575,
+              "clippedOverlapMs": 17.7575
+            },
+            {
+              "compileId": 17710,
+              "compiler": "c2",
+              "compileLevel": 4,
+              "succeded": true,
+              "isOsr": false,
+              "method": "Player$SearchState.set(LPlayer$GameState;)V",
+              "eventThreadJfrId": 65,
+              "eventThreadJavaId": 10,
+              "eventThreadName": "C2 CompilerThread2",
+              "type": "jdk.Compilation",
+              "start": "2026-10-11T12:36:42.936591100Z",
+              "end": "2026-10-11T12:36:42.961403700Z",
+              "durationMs": 24.8126,
+              "clippedOverlapMs": 20.8755
+            }
+          ],
+          "eventCount": 6,
+          "unionOverlapMs": 52.6421
+        },
+        "samples": {
+          "playMarkers": 1,
+          "sameThreadMeasuredSamples": 3,
+          "markersWithoutSamples": 0,
+          "exclusivePathCategories": {
+            "SearchState.refresh": {
+              "samples": 2,
+              "shareOfSamplesPercent": 66.66666666666667
+            },
+            "Pathing.cheapestPath": {
+              "samples": 1,
+              "shareOfSamplesPercent": 33.333333333333336
+            }
+          },
+          "exclusiveStageCategories": {
+            "targetSelectionOutsideForecast": 2,
+            "routeProposal": 1
+          },
+          "refreshImmediateCallers": {
+            "Player$EvalBot.chooseTarget": 2
+          },
+          "refreshByStage": {
+            "targetSelectionOutsideForecast": 2
+          },
+          "inclusiveGeneratedMethods": {
+            "Player$EvalBot.play": 3,
+            "Player$MainBot.play": 3,
+            "Player$EvalBot.chooseTarget": 2,
+            "Player$Pathing.shortestPath": 2,
+            "Player$SearchState.refresh": 2,
+            "Player$EvalBot.propose": 1,
+            "Player$Pathing.cheapestPath": 1,
+            "Player$Pathing.heapPush": 1,
+            "Player$Pathing.siftUp": 1
+          }
+        },
+        "sampleStacks": [
+          {
+            "samples": 2,
+            "name": "Player$Pathing.shortestPath(LPlayer$GameState;II[I)I:1 [JIT compiled]\nPlayer$SearchState.refresh()V:1 [JIT compiled]\nPlayer$EvalBot.chooseTarget(LPlayer$GameState;I)I:1 [Interpreted]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:53 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:46 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          },
+          {
+            "samples": 1,
+            "name": "Player$Pathing.siftUp(I)V:1 [Inlined]\nPlayer$Pathing.heapPush(II)I:1 [Inlined]\nPlayer$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I:1 [JIT compiled]\nPlayer$EvalBot.propose(LPlayer$GameState;III)V:1 [JIT compiled]\nPlayer$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\nPlayer$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;:1 [Interpreted]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:-1 [Native]\njdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:77 [JIT compiled]\njdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:43 [JIT compiled]\njava.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;:568 [Inlined]\nbtk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;:103 [JIT compiled]\nbtk.tools.V09RuntimeCauseStudy.arm(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Arm;:63 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.pair(Lbtk/core/GameState;IILbtk/tools/V09FullActionProbe;Ljava/lang/String;ILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Pair;:53 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.episode(Lbtk/core/GameState;IILjava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)Lbtk/tools/V09RuntimeCauseStudy$Episode;:46 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.run([Ljava/lang/String;)V:154 [Interpreted]\nbtk.tools.V09RuntimeCauseStudy.main([Ljava/lang/String;)V:121 [Interpreted]"
+          }
+        ],
+        "diagnostics": {
+          "completedComparisons": 0,
+          "deadlineACompleted": 0,
+          "deadlineATerminal": [
+            0,
+            0
+          ],
+          "deadlineAValues": [
+            null,
+            null
+          ],
+          "deadlineChanged": false,
+          "deadlineCommittedDue": -1,
+          "deadlineCommittedTarget": -1,
+          "deadlineExtraTurns": 0,
+          "deadlineFirstDue": [
+            -1,
+            -1
+          ],
+          "deadlineFirstTarget": [
+            -1,
+            -1
+          ],
+          "deadlineInterventionTarget": -1,
+          "deadlineNativeCells": [
+            -1,
+            -1,
+            -1
+          ],
+          "deadlineNativeCount": 0,
+          "deadlineNativeTarget": 25,
+          "deadlineNominee": -1,
+          "deadlineReplies": 0,
+          "deadlineReusedBoards": 0,
+          "deadlineRoot": -1,
+          "deadlineStatus": "native-attack",
+          "deadlineWCompleted": 0,
+          "deadlineWTerminal": [
+            0,
+            0
+          ],
+          "deadlineWValues": [
+            null,
+            null
+          ],
+          "deadlineWr0Completed": 0,
+          "deadlineWr0Terminal": [
+            0,
+            0
+          ],
+          "deadlineWr0Values": [
+            null,
+            null
+          ],
+          "fillCells": 0,
+          "networkPhaseComplete": false,
+          "ordinarySearchComplete": false,
+          "routeQueries": 43,
+          "selectedRoute": -1,
+          "selectedTarget": 25,
+          "selectedValue": null,
+          "simulatedTurns": 0,
+          "deadlinePendingTarget": -1,
+          "deadlinePendingDue": -1
+        },
+        "ownAction": {
+          "cells": [],
+          "target": 25,
+          "action": "DISRUPT 25"
+        }
+      }
+    ],
+    "measuredOnlySamples": {
+      "playMarkers": 2283,
+      "sameThreadMeasuredSamples": 3090,
+      "markersWithoutSamples": 466,
+      "exclusivePathCategories": {
+        "SearchState.refresh": {
+          "samples": 1244,
+          "shareOfSamplesPercent": 40.25889967637541
+        },
+        "Pathing.cheapestPath": {
+          "samples": 1205,
+          "shareOfSamplesPercent": 38.996763754045304
+        },
+        "other": {
+          "samples": 480,
+          "shareOfSamplesPercent": 15.533980582524272
+        },
+        "Pathing.reachableAvoidingInk": {
+          "samples": 161,
+          "shareOfSamplesPercent": 5.210355987055016
+        }
+      },
+      "exclusiveStageCategories": {
+        "nativeForecast": 1440,
+        "routeProposal": 1338,
+        "supplementalForecast": 104,
+        "targetSelectionOutsideForecast": 99,
+        "networkRootsOutsideForecast": 59,
+        "finalFill": 25,
+        "otherOrUnresolved": 18,
+        "rootPlacementOutsideForecast": 7
+      },
+      "refreshImmediateCallers": {
+        "Player$EvalBot.chooseTarget": 843,
+        "Player$EvalBot.placeOwn": 205,
+        "Player$SearchState.resolve": 95,
+        "Player$EvalBot.propose": 57,
+        "Player$EvalBot.addNetworkRoots": 39,
+        "Player$EvalBot.play": 5
+      },
+      "refreshByStage": {
+        "nativeForecast": 1003,
+        "supplementalForecast": 71,
+        "targetSelectionOutsideForecast": 58,
+        "routeProposal": 57,
+        "networkRootsOutsideForecast": 43,
+        "rootPlacementOutsideForecast": 7,
+        "otherOrUnresolved": 5
+      },
+      "inclusiveGeneratedMethods": {
+        "Player$EvalBot.play": 3090,
+        "Player$MainBot.play": 3090,
+        "Player$EvalBot.rollout": 1544,
+        "Player$EvalBot.searchRoots": 1440,
+        "Player$EvalBot.propose": 1338,
+        "Player$SearchState.refresh": 1244,
+        "Player$EvalBot.chooseTarget": 1240,
+        "Player$Pathing.shortestPath": 1230,
+        "Player$Pathing.cheapestPath": 1205,
+        "Player$Pathing.bfsFrom": 410,
+        "Player$Pathing.bfsInto": 409,
+        "Player$EvalBot.searchNetworkAfterBase": 273,
+        "Player$EvalBot.placeOwn": 205,
+        "Player$SearchState.resolve": 183,
+        "Player$Rules.anyPairPossible": 163,
+        "Player$Pathing.reachableAvoidingInk": 161,
+        "Player$Pathing.heapFix": 158,
+        "Player$EvalBot.actions": 131,
+        "Player$EvalBot.correctMissedDeadline": 104,
+        "Player$EvalBot.deadlineRollout": 104,
+        "Player$Rules.gameOver": 77,
+        "Player$EvalBot.addNetworkRoots": 59,
+        "Player$Pathing.heapPush": 53,
+        "Player$Pathing.siftUp": 51,
+        "Player$Pathing.heapPop": 49,
+        "Player$Pathing.siftDown": 49,
+        "Player$EvalBot.fill": 25,
+        "Player$Rules.ink": 14,
+        "Player$SearchState.set": 14,
+        "Player$Rules.incomePerTurn": 11,
+        "Player$NetworkCells.collectSingleCellConnections": 9,
+        "Player$SearchState.connectionIncomeDifference": 8,
+        "Player$GameState.passable": 7,
+        "Player$EvalBot.fillBuild": 5,
+        "Player$GameState.copyFrom": 5,
+        "Player$Rules.inkUnstable": 4,
+        "Player$EvalBot.insert": 3,
+        "Player$Rules.disrupt": 3,
+        "Player$Rules.scoreTurn": 3,
+        "Player$EvalBot.pack": 2,
+        "Player$GameState.regionHasTown": 2,
+        "Player$EvalBot.networkCheaper": 1,
+        "Player$EvalBot.networkPriorityBefore": 1,
+        "Player$EvalBot.sameSet": 1,
+        "Player$GameState.canBuild": 1,
+        "Player$GameState.x": 1
+      }
+    },
+    "interpretation": "Samples identify routine work, not exact duration. No recorded GC/safepoint overlap on the four new slow calls. Compiler and non-safepoint VM-operation overlap are correlation, not proof of stalls. Original causes unresolved."
+  },
+  "selectedSingleFollowup": {
+    "candidate": "Allocation-free SearchState batched canonical refresh, one BFS per used destination town, one reusable dist/queue, original paths[p] buffers and existing core walk tie-break.",
+    "basis": "SearchState.refresh is a substantial repeated-work region across ordinary target evaluation, both rollout types, root placement, proposals and network roots. CheapestPath is similarly prominent but exact heap/path semantics make its optimization a separate and riskier change. Prefer broad exact refresh reuse over narrower unaffected-region invalidation for this one followup.",
+    "scope": "Existing enabled candidate only; default/frozen artifacts remain byte-identical. No changed strategy weights, guards, deadline policy, warmup budget, timer checks, traversal tie-break or RNG consumption.",
+    "claim": "Feasible routine CPU reduction hypothesis, not a proven remedy for JVM scheduling tails or historical overruns."
+  },
+  "requiredAcceptance": [
+    "core differential path/buffer/resolve tests and cgValidate",
+    "147 ample old-ON/new-ON parity including actions/states/W/A/Wr0/memory/guards",
+    "actual r33 intervention at40 from persistent start38",
+    "full construction and six WIN controls",
+    "source under100000",
+    "separately frozen zero-grace exact-artifact submit/procCheck"
+  ],
+  "noOtherActions": [
+    "no production implementation",
+    "no timing retry",
+    "no strength/boss games",
+    "no promotion/upload/push"
+  ],
+  "evidence": {
+    "selection.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/selection.json",
+      "sha256": "3c7c41297debd05abd1d12a7688e77c452d4cb2a89591beab652602032540b7a",
+      "bytes": 2609
+    },
+    "prospective-protocol.md": {
+      "path": "build/analysis/v09-runtime-cause-v1/prospective-protocol.md",
+      "sha256": "9448ebe66ae724480e9ecef93f946cb992c7bb192b075c74df364f5e8fc4faee",
+      "bytes": 5515
+    },
+    "source-evidence.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/source-evidence.json",
+      "sha256": "8cff609a42f368367548a539ca03a50a38082d3a599b192376fa32e9d8b72d1c",
+      "bytes": 34502
+    },
+    "snapshot-before.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/snapshot-before.json",
+      "sha256": "3faaea08a34f266e92f25d4aee49170bd98c27e31f4e51a1810adb4a23959ad9",
+      "bytes": 200660
+    },
+    "execution-status.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/execution-status.json",
+      "sha256": "85d1902caedb42f9b8f01f96609748e3d64ddb5a893df13badd25886925977cf",
+      "bytes": 1085
+    },
+    "nominal.log": {
+      "path": "build/analysis/v09-runtime-cause-v1/nominal.log",
+      "sha256": "075157b54a26236b8c0239d9ba02504946f7d28ad3e1e7a879e39b004540b94a",
+      "bytes": 38726
+    },
+    "nominal/episodes.jsonl": {
+      "path": "build/analysis/v09-runtime-cause-v1/nominal/episodes.jsonl",
+      "sha256": "da4d2afedefb2567506e96c95df18b712b99dd62e9d38a2804e17cb425b1fc30",
+      "bytes": 4965638
+    },
+    "nominal/historical.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/nominal/historical.json",
+      "sha256": "6dfc2e7726dfdfbc717ef144a77b095477e900ad6d25020da8070078637fb6d6",
+      "bytes": 211008
+    },
+    "nominal/forced-input.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/nominal/forced-input.json",
+      "sha256": "e782bb4cc3275156c334572d30ecfbf34280348e56fa0cd029be340aeb3307d2",
+      "bytes": 5259
+    },
+    "nominal/profile.jfr": {
+      "path": "build/analysis/v09-runtime-cause-v1/nominal/profile.jfr",
+      "sha256": "88a4b151228f2e5ce11d21723b02b4b5322e953ffc65ff1b2f4a46b6dd1b121a",
+      "bytes": 4986511
+    },
+    "nominal/jfr-summary.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/nominal/jfr-summary.json",
+      "sha256": "b964456f9fa3431c8aa329d72d8b47174f0e96202b6f945dc8f807d408e3660e",
+      "bytes": 36591826
+    },
+    "process/report.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/process/report.json",
+      "sha256": "2deede611289bc2f6fb154258d3414504d394a95f8a7cf4a8221256175ad87c4",
+      "bytes": 41407
+    },
+    "process/child.jfr": {
+      "path": "build/analysis/v09-runtime-cause-v1/process/child.jfr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "independent-cause-review.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/independent-cause-review.json",
+      "sha256": "c0a1a212094f48bebe53c62e839908e8b0cf8fc1ce5e705119c31bb14cc29c66",
+      "bytes": 24051
+    },
+    "pathing-selection-review.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/pathing-selection-review.json",
+      "sha256": "bfa63f156ede403cfdcc49836af0bac69b9a46ed56e337ab3cb5a57c461a54a0",
+      "bytes": 85209
+    },
+    "process-failure-review.json": {
+      "path": "build/analysis/v09-runtime-cause-v1/process-failure-review.json",
+      "sha256": "09b2909c391d8b6ab40d7db3000964dff3a63454167e376e96145d426e375a3f",
+      "bytes": 11567
+    }
+  }
+}

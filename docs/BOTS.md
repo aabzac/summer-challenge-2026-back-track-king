@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-11: **v09-runtime-cause-v1**,
+**PARTIAL_ATTRIBUTION / FOLLOWUP_SELECTED / ORIGINAL_PROCESS_FAIL_UNCHANGED**.
+Old56.0151ms includes child52ms; old99.5029/64.5907ms have zero supplemental
+forecast work. Exact historical causes remain unknown. One unchanged-artifact
+JFR panel completes57starts/147pairs,2,281 decisions; forced-input persistence
+fails after two measured calls, and child JFR startup breaks the separate process
+probe at t0. Both tool failures retained, no retry. Measured-only samples show
+refresh40.26% and cheapestPath39.00%; four new overruns have no recorded GC pause.
+Required native r33t40 still intervenes28.8426ms; six WIN controls exact, eight
+native wins retained. Select allocation-free destination-batched core refresh as
+the sole follow-up; not implemented or proven50ms. Production/default/v09 unchanged.
+[Diagnosis and acceptance plan](v09-runtime-cause-v1.md).
+
 Completed runtime optimization 2026-10-11: **v09-deferred-forecast-reuse-v1**,
 **SEMANTIC_PARITY_PASSED / REQUIRED_MECHANISM_OBSERVED / PROCESS_FAILED**.
 Supplemental forecasts reuse canonical paths only when construction is empty;

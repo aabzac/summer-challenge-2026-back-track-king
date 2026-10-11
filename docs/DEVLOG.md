@@ -7083,3 +7083,55 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-deferred-forecast-reuse-v1.json),
   [archive index](evidence/v09-deferred-forecast-reuse-v1-artifacts.json),
   [archive](evidence/v09-deferred-forecast-reuse-v1-artifacts.zip).
+
+## 2026-10-11 - v09-runtime-cause-v1: partial attribution; batched refresh selected
+
+- User requested causes of the56.0151ms process timeout and99.5029/64.5907ms
+  nominal spikes, then one narrow runtime follow-up preserving strategy, guards
+  and native r33t40. Hypothesis: redundant canonical-path work between cooperative
+  timer checks contributes to runtime risk; do not infer GC/JIT causality from
+  wall time alone. No production code or artifact changed.
+- Retained evidence: old process child reports52ms, so late host wake-up alone
+  is excluded; failed input/trajectory was not saved. Both nominal outliers have
+  zero supplemental forecast work; t61 has67 route queries, t62 has0. Their
+  precise historical causes remain unknown. A newly timed trace cannot replace
+  missing historical CPU/GC/phase measurements.
+- Freeze exact old OFF/ON classes, tools and protocol before measurement. Five
+  focused tests pass. Single serial JFR panel completes56starts/144pairs plus
+  history3: all294 arms complete,1141OFF/1140ON decisions. All2281 decision
+  wall times join exactly to JFR markers. Old defaults/frozen sources unchanged.
+- Two tool failures retained, no retry: forced-input validates all8 old input
+  and successor hashes but second incremental CREATE_NEW save fails. JSON retains
+  t59, JFR retains t59/t60; original t61/t62 never measured on those exact inputs.
+  Main-panel trace differs from the old one at action60. Nominal command exits1;
+  full declared diagnostic is incomplete despite the complete primary panel.
+  Process probe fails at0 because JFR startup info pollutes stdout; its transport
+  OK is not a bot response. JFR.dump times out30s and leaves0-byte recording.
+  Wrapper exit0 does not override report complete=false. No child attribution.
+- JFR measured-call evidence, excluding warmup:2283 markers including2 forced,
+  3090 same-thread samples; refresh1244(40.26%), cheapestPath1205(39.00%). Four
+  new calls exceed50ms, all907135538/start60:52.5876/291.0473ms OFF native reply1
+  and65.3131/52.6405ms ON passive. GC/safepoint overlap0; coarseCPU15.625/0/
+  15.625/0ms. Compiler overlap and118.9408ms non-safepoint VM-operation overlap
+  on the largest spike are correlations, not a measured causal delay. Keep the
+  outlier and missing samples; no timing readiness or historical-cause claim.
+- Unchanged artifact still executes native r33t40 in28.8426ms, due39,
+  W1095/A1084/Wr0933, all retained replies complete, full construction[288].
+  Passive r33t40/r11t37 also retained. All8 OFF wins remain ON wins; six named
+  WIN controls exact, zero native-construction changes across1140 ON decisions.
+  These are diagnostic retention observations, not a candidate speedup or win-rate.
+- Select ONE future change: allocation-free core SearchState.refresh batching
+  one BFS per destination town, existing dist/queue and paths[p], existing walk
+  ties. Keep legacy/default paths exact with an opt-in Params switch; no new
+  per-node arrays. This removes routine redundancy broadly but cannot guarantee
+  recovery from JVM/host stalls or accelerate cheapestPath. No implementation yet.
+  Require core differential tests/cgValidate, ample147 parity, full construction,
+  actual persistent r33t40, six WIN controls,100k source and separately fixed
+  zero-grace process check before acceptance. No timer/strategy/guard relaxation.
+- Decision: PARTIAL_ATTRIBUTION / FOLLOWUP_SELECTED; original PROCESS_FAILED
+  remains. Flag OFF, selected v09 unchanged. Retain failed diagnostic source and
+  evidence; harness persistence/startup issues need separately tested repair
+  before reuse. No strength/boss trial, promotion, upload or push; commit locally.
+  [Diagnosis](v09-runtime-cause-v1.md), [summary](evidence/v09-runtime-cause-v1.json),
+  [archive index](evidence/v09-runtime-cause-v1-artifacts.json),
+  [archive](evidence/v09-runtime-cause-v1-artifacts.zip).
