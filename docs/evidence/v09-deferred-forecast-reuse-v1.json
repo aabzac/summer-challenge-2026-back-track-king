@@ -1,0 +1,2276 @@
+{
+  "schemaVersion": 1,
+  "kind": "v09-deferred-forecast-reuse-v1",
+  "recordedDate": "2026-10-11",
+  "complete": true,
+  "scope": "One semantics-preserving supplemental forecast optimization, fixed ample parity and runtime checks; no strength trial, boss request, promotion or upload.",
+  "decision": {
+    "semanticParity": "PASS_FIXED_147_CONDITIONS",
+    "sourceSize": "PASS",
+    "requiredNativeMechanism": "OBSERVED",
+    "strictProcessReadiness": "FAIL",
+    "selectedControl": "v09",
+    "defaultFlagEnabled": false,
+    "promotion": false,
+    "reason": "Required native region33 correction now occurs, but one of eight strict process games times out. Two separate passive nominal play calls also exceed50ms; no cause established."
+  },
+  "implementation": {
+    "change": "For supplemental forecasts with moveCount==0 only, skip targetBoard.set/placeOwn.refresh and use already canonical work.state. Preserve nonempty construction, native search, all forecast semantics, guards and timers. No prefix cache or cross-decision reuse.",
+    "onSpec": "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true",
+    "offProtocolSpec": "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=false",
+    "offExportSpec": "current?NOISE=0",
+    "offEquivalence": "Same default false effective flag and generated source."
+  },
+  "prospectiveScope": {
+    "cohortStarts": 56,
+    "historicalStarts": 1,
+    "cohortNativePairs": 88,
+    "cohortPassivePairs": 56,
+    "historicalNativePairs": 2,
+    "historicalPassivePairs": 1,
+    "conditionsPerPanel": 147,
+    "horizon": 8,
+    "memory": "Fresh empty at each branch start, persistent within branch; no priming",
+    "ampleBudgetMs": 60000,
+    "ampleWarmupMs": 0,
+    "ampleArms": "previous enabled versus optimized enabled",
+    "nominalBudgetMs": 36,
+    "nominalWarmupMs": 500,
+    "nominalArms": "preserved disabled versus optimized enabled",
+    "executionOrder": "OFF before ON per condition; history last",
+    "timingRetries": 0,
+    "outcomeGuidedChanges": false,
+    "strengthGames": 0,
+    "bossGames": 0
+  },
+  "preservation": {
+    "baselineHead": "4d8918d85fb6ef7efa9cca5777c6149f9be42bb6",
+    "baselineCopiesExact": 693,
+    "frozenInputsUnchanged": 918,
+    "analysisScriptPinsExact": 3,
+    "verification": {
+      "frozenInputsUnchanged": 918,
+      "preservedBaselineFilesExact": 693,
+      "snapshot": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/snapshot-before.json",
+        "sha256": "5a24950caa3b393a2202d10d4aef0a12308e6a0429b9dac1c75a79b938504a45",
+        "bytes": 194636
+      },
+      "selection": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/selection.json",
+        "sha256": "85f081b6997d73cd3d1128ddc3a5258111478477b7eb389c3fe4905a3dd4d622",
+        "bytes": 68895
+      },
+      "allRecordedInterventionsObeyGuardsAndKeepConstruction": true,
+      "allMemoryTransitionsChecked": true,
+      "dependencyReconciler": {
+        "path": "C:/Disk_D/Programming/cursor/summer-challenge-2026-back-track-king/build/analysis/v09-deferred-commit-runtime-v1/reconcile.py",
+        "sha256": "a64cd09b43ee290ff637314afe969f7ef0da5692f5093d2eef536c5e5d5e4cf7",
+        "bytes": 22038
+      }
+    },
+    "baselineManifest": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/baseline-before-optimization.json",
+      "sha256": "bf398162f23d1c85573078c1db512522fe318c1cb2135a24792074c9ef495e88",
+      "bytes": 263445
+    },
+    "analysisScriptPins": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/analysis-script-pins.json",
+      "sha256": "c2b5648c1eeda1d2902004bc96649139b2fcb39df67a85b1c80f047c716a5766",
+      "bytes": 650
+    },
+    "prospectiveProtocol": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/prospective-protocol.md",
+      "sha256": "13a185660f41c454319fc5cf365520c792d8b4cb54c9fd2246191b85a7654f19",
+      "bytes": 9148
+    },
+    "selection": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/selection.json",
+      "sha256": "85f081b6997d73cd3d1128ddc3a5258111478477b7eb389c3fe4905a3dd4d622",
+      "bytes": 68895
+    },
+    "defaultAndFrozenCapture": {
+      "defaultCurrentCharacters": 98709,
+      "defaultCurrentSha256": "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+      "frozenV09Characters": 95312,
+      "frozenV09Sha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "executedBots": false
+    },
+    "savedSelectedExport": {
+      "path": "build/submit/Player.java",
+      "sha256": "1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19",
+      "bytes": 95278
+    },
+    "selectedExportUnchanged": true
+  },
+  "preflight": {
+    "focusedTests": 31,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "attempts": 1,
+    "engineExactReplays": 292,
+    "sourceCohortPreviouslyVerifiedReplays": 40,
+    "historicalPreviouslyVerifiedReplays": 1,
+    "logs": {
+      "preflight.json": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight.json",
+        "sha256": "3307e840c2b3ff55b60d10479c2b6b1a381755aa54698e50b52525747e26f050",
+        "bytes": 235
+      },
+      "preflight-tests.log": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests.log",
+        "sha256": "d6c30d60b4976a1102b44605db04eb2367e88ffc5c85dcd83579ac10a0af4ffc",
+        "bytes": 251
+      },
+      "engine.log": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/engine.log",
+        "sha256": "2abbd401fcdbf5110d32f9606823dbee01785cfb2bc986f1608e5373e35c5422",
+        "bytes": 229
+      },
+      "artifact-check.log": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/artifact-check.log",
+        "sha256": "c8842f0d061199d27e9fb44f08bad9f7657e4739d9812ce73db38c2b05904ec0",
+        "bytes": 155
+      },
+      "submit-on.log": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/submit-on.log",
+        "sha256": "d0a0936df7671cec1be6920db545f81b3bfacb081b378f837df121709b6ab566",
+        "bytes": 608
+      }
+    },
+    "xml": [
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.bot.current.RolloutForecastReuseTest.xml",
+        "sha256": "1774462f4e7e6167b4dc61aa21b8ccac0ffe87a9cac1c6091a001017efc09913",
+        "bytes": 815
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.bot.current.RolloutMissedDeadlineTest.xml",
+        "sha256": "bebd68d992623dab23e64853bfdc07e659a31c6c4ae1422b3bf1c19fe2c5610f",
+        "bytes": 1961
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.bot.V09PromotionTest.xml",
+        "sha256": "8693a0dad2e811624ebe8c25fd1c9134e3241ee50e7d6f3cd898c540c02058f7",
+        "bytes": 989
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.submit.DeferredCommitCompactionTest.xml",
+        "sha256": "9e91041c556935699bba0780a234b18ec1b12a409c20fd0afe25ab4b92190691",
+        "bytes": 768
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.submit.DeferredCommitSubmissionTest.xml",
+        "sha256": "bd781834c13d3ae2f6f7447aa2793e750dbceb21f58a40ad12ce47eac6bac87f",
+        "bytes": 612
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.tools.GeneratedPolicyTest.xml",
+        "sha256": "b7b2e2b9eac6fee349c3aa317241ef909d832d6972eef8abe6f3bcb11fa97c3e",
+        "bytes": 567
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.tools.V09DeferredCommitStudyTest.xml",
+        "sha256": "137fbb2910989edc40279cd0c7d0909fcf6601afd6c441c134d32b88de465a02",
+        "bytes": 627
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/preflight-tests/TEST-btk.tools.V09ForecastParityTest.xml",
+        "sha256": "3a1a6990a4e19390c87061896707607165778619eb6553a06c7d8775fc093653",
+        "bytes": 912
+      }
+    ]
+  },
+  "artifacts": {
+    "previousEnabled": {
+      "directory": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled",
+      "source": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/Player.java",
+        "sha256": "52bc192dabca0ea648f75c19f80ceda6fb70535c24dcf3c5c076e7286940d7e4",
+        "bytes": 98401
+      },
+      "manifest": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/manifest.json",
+        "sha256": "a779b775494e76f6b74d1250d0f4f88044997034f31c88f4d556de072cf70ff5",
+        "bytes": 4936
+      },
+      "classes": [
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$1.class",
+          "sha256": "1196939eb0be432abe1982a0a62577609a60a14be87d3fbea1b6e77ae602f7b4",
+          "bytes": 792
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Action$Type.class",
+          "sha256": "7ba8b4522bc172b0358abb16095bca4481e8cbe9aef5daba837e35c9c62fd929",
+          "bytes": 1137
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Action.class",
+          "sha256": "7c1913be4bf21465ead5738b93a3c8d19b7a27217630acdaee087e3f3ae7afc0",
+          "bytes": 4604
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Bot.class",
+          "sha256": "5578fb39b76a2eaaa6b891254df962410365f628153aa7852001477cf685382e",
+          "bytes": 889
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$CGRunner.class",
+          "sha256": "51824e9e0bf710077a3c48687fe31066a9b7558c808c5a5363322388a1ef4b54",
+          "bytes": 5755
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$EvalBot.class",
+          "sha256": "e57e429cab87bce95b13acc69d486789a9939a0318103156d1d429f60cea09b0",
+          "bytes": 35989
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$GameState.class",
+          "sha256": "fd4ea570e2db114b016291959fa745cfd502f0dab0a8ebedad01806aaccb1549",
+          "bytes": 4686
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$MainBot.class",
+          "sha256": "eb327bacf924dc445c90e228f3e970296d66dc8bd9789d26d75c870f668df3f5",
+          "bytes": 5567
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$NetworkCells.class",
+          "sha256": "e95e05353f5d650e72867354fa8007ce87907dd2a69fe5bbc203c63d63a8ef35",
+          "bytes": 980
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$NetworkChords.class",
+          "sha256": "557857d7588010d90e47f4bc4d558f2a745427f5b50080695a78331269faad18",
+          "bytes": 1273
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Params.class",
+          "sha256": "4bf5629e888b96eacbc2ee3b00da082d382dbd5375e3685fb9e3ce05996ddae7",
+          "bytes": 10108
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Pathing.class",
+          "sha256": "b8109a4efecbf420b187cc4c73989bf606696b25f2000393c2ecfb7a1e6822a0",
+          "bytes": 6040
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$ProtectedOpening.class",
+          "sha256": "7fcbbd40fb7593858008abee3220af2350571f683f9fd4d3a5829ee220ac7f4c",
+          "bytes": 3359
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Protocol$Init.class",
+          "sha256": "243db886f46c306954eddb46c9f859a77f6a82f0bcb4b50039d764167900ad22",
+          "bytes": 407
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Protocol$TokenReader.class",
+          "sha256": "677c386b10ae3094919e961045593fd37ae6165045f2b215ab25d949e0bc8a49",
+          "bytes": 1381
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Protocol$TurnInfo.class",
+          "sha256": "7611093e5731a4f210a83d17d3d9a06c2f61d1d34ee6c9dc4a6c0d1c17ff89c2",
+          "bytes": 400
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Protocol.class",
+          "sha256": "880783612c5ef42811e85584455c059688a3b9524a27591a63909e8daac0b800",
+          "bytes": 4468
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Rules$PlayerMoves.class",
+          "sha256": "356d3795179bdf884f772dad1287cb3540f1c695441b6c984836c5627e4e4bf7",
+          "bytes": 1014
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Rules$TurnResult.class",
+          "sha256": "8a1f38e5819829b35cf028d806985784532332816480317e276d56c166043771",
+          "bytes": 879
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Rules.class",
+          "sha256": "2ba577e2ccf9bbc2407fb8b989088cbbb0c48f7a69309d607996db817f2c1bf7",
+          "bytes": 7291
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$SearchState.class",
+          "sha256": "e313e726cc6d07459876d576554e9031da1ef3a7ec9cb32670f86a1b89956301",
+          "bytes": 1869
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$TacticalPathing.class",
+          "sha256": "543f621041af253963078461ba9ae6a9e02ceaffeed8c3a2b86c069e718eccd2",
+          "bytes": 3089
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player$Timer.class",
+          "sha256": "df87377e4ce138d1d2878225f70737ec92d62884c85545f7bd16c76f6198e0b8",
+          "bytes": 801
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-enabled/classes/Player.class",
+          "sha256": "c5391032441331e18c269942e685394d60f6ac083e13c688b24caaa157fa3b88",
+          "bytes": 1330
+        }
+      ]
+    },
+    "preservedDisabled": {
+      "directory": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled",
+      "source": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/Player.java",
+        "sha256": "dfbe780475bb4f0af3267caad8001c5d5e12ef264e40fc6707bd8b3a31d9b736",
+        "bytes": 98709
+      },
+      "manifest": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/manifest.json",
+        "sha256": "e6c3276ca203fdc9debc6e6c46115b18f0f2ab6bd1127d8ed77c11b43d095641",
+        "bytes": 4855
+      },
+      "classes": [
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$1.class",
+          "sha256": "7415c81c52594d8ad64a39bb3379c9b5a489efb4adee9bb6e5af070dff1870be",
+          "bytes": 792
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Action$Type.class",
+          "sha256": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+          "bytes": 1137
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Action.class",
+          "sha256": "be3c0f033d06811f7ed7bd1dc1fcba6a0ef09630fe783bf28a496499d5c398a7",
+          "bytes": 4636
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Bot.class",
+          "sha256": "aaed4eece10f9a05f72b6322602ceb4650ffafd73a8602b5d2742c19965d79f9",
+          "bytes": 889
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$CGRunner.class",
+          "sha256": "acaa30bf0ff403da0cef9923954c37a5317e44854385e420a0f8912b76d4a28e",
+          "bytes": 5771
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$EvalBot.class",
+          "sha256": "4bcdfa3c9a53c9d773c56af45091abb626be513f27b5a54e7c5dcbae054c3133",
+          "bytes": 31131
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$GameState.class",
+          "sha256": "2f164a59d06b8b6140dd6241517f955b49ebb68a9482c69f5bc0a1b5edc8a810",
+          "bytes": 4702
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$MainBot.class",
+          "sha256": "4f6c3901aabb71da5b1b13b98a26b2aaaddffc521c6782cf95f00bdfdeb4698b",
+          "bytes": 5546
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$NetworkCells.class",
+          "sha256": "052b8a0b326d324159bc21f9d08b61ab68dae7a5c6264909e9cbae1c09412606",
+          "bytes": 980
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$NetworkChords.class",
+          "sha256": "0cfe74f020d01e514210558363d5643b071ae1e98279b3e3d3d1d6acb888e323",
+          "bytes": 1285
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Params.class",
+          "sha256": "16951bac56242b2ca4c5c39eca4fd71137d9b5cc02cffe8205b8bef83461e130",
+          "bytes": 10050
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Pathing.class",
+          "sha256": "f6ef3c8bc246ea28ac5437c7b2d7c0107c51ceafeac923456c5010144c3704be",
+          "bytes": 6060
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$ProtectedOpening.class",
+          "sha256": "1874344eeb72647e2b33351b917a0cc06cd1d86ba25e952468e0a5720b1b6bf1",
+          "bytes": 3391
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Protocol$Init.class",
+          "sha256": "a39c89a951f5c5ae2caf9100dc54089147caf2c3d4d0a91207e1cf503ac337d9",
+          "bytes": 407
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Protocol$TokenReader.class",
+          "sha256": "3cdb2c2554faa17f16c2c1d41d41f95f649abbe82aed65e78cd28130bedae824",
+          "bytes": 1381
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Protocol$TurnInfo.class",
+          "sha256": "235c22b63eac40adf8b2875cd4c12828f9499494e90e707592372d752d3fde25",
+          "bytes": 400
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Protocol.class",
+          "sha256": "661be085162111894e54cba54109ac946221495b7f5cafac9f5424bf19ee25a3",
+          "bytes": 4500
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Rules$PlayerMoves.class",
+          "sha256": "955fd0b92eabeec488955ee4c3c89d19d22cc70f5b1d8064276c9689421ba6b8",
+          "bytes": 1014
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Rules$TurnResult.class",
+          "sha256": "74c2f4da248baaf96437673dcfb84110903b2c663eae75b1be4167a411d45173",
+          "bytes": 879
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Rules.class",
+          "sha256": "775e4e15266ec1b9a9f37b23808494a45f8b2d1b3b54c6c6fe7721fa98903358",
+          "bytes": 7303
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$SearchState.class",
+          "sha256": "942acffa093759b02499d4f3bd04fccf5dbd652983bda48b4342038f11511c10",
+          "bytes": 1869
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$TacticalPathing.class",
+          "sha256": "951b201c8776d5fbea8bb78dc21b9c08a411bb6ebed471f06724acb5f242e507",
+          "bytes": 3109
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player$Timer.class",
+          "sha256": "3e21445a1ade5443167209a39021bea613a338b5bfe57668fc9aa8f2219fc072",
+          "bytes": 801
+        },
+        {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/reference-disabled/classes/Player.class",
+          "sha256": "93a0c9e0588f816d7b0e0633c9a59040fd0f37e867df9c671eb390ee0eb822df",
+          "bytes": 1334
+        }
+      ]
+    },
+    "optimizedEnabledSource": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/artifact-on/Player.java",
+      "sha256": "3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
+      "bytes": 98572
+    },
+    "optimizedEnabledSourceCharacters": 98572,
+    "sourceLimit": 100000,
+    "sourceHeadroom": 1428,
+    "sourceGrowthVersusPriorEnabled": 171,
+    "optimizedEnabledClassesSha256": "9f331092f279670c9d1e1d3ee2a9311c2e52a4f455c3735a65afbbc2421fb478",
+    "candidateManifest": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/artifact-on/manifest.json",
+      "sha256": "e22dff93eeb8164588f95f99c476d4a99b52e4a7e8f236e22fd0826483720cc4",
+      "bytes": 4936
+    }
+  },
+  "ampleParity": {
+    "complete": true,
+    "comparisons": 147,
+    "equalDecisionsPerArm": 1140,
+    "allCommonSemanticFieldsAndCountersExact": true,
+    "finiteDoubleBitsExact": true,
+    "excludedFields": [
+      "artifact",
+      "searchWallMs",
+      "new diagnostics.deadlineReusedBoards"
+    ],
+    "candidateReusedBoards": 9968,
+    "candidateDecisionsWithReuse": 452,
+    "interventionsEachArm": 3,
+    "byRegime": {
+      "NATIVE_FIXED_PORTFOLIO": {
+        "pairs": 90,
+        "reusedBoards": 4695,
+        "decisions": 684
+      },
+      "PURE_WAIT": {
+        "pairs": 57,
+        "reusedBoards": 5273,
+        "decisions": 456
+      }
+    },
+    "interventionExamples": [
+      {
+        "id": "907134651/38/1",
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 0,
+        "turn": 40,
+        "action": {
+          "cells": [
+            288
+          ],
+          "target": 33,
+          "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+        },
+        "deadlineReusedBoards": 45
+      },
+      {
+        "id": "907134651/38/1",
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "turn": 40,
+        "action": {
+          "cells": [
+            288
+          ],
+          "target": 33,
+          "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+        },
+        "deadlineReusedBoards": 45
+      },
+      {
+        "id": "907135823/35/0",
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "turn": 37,
+        "action": {
+          "cells": [
+            159,
+            162,
+            182
+          ],
+          "target": 11,
+          "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 1 7;PLACE_TRACKS 21 7;DISRUPT 11"
+        },
+        "deadlineReusedBoards": 45
+      }
+    ]
+  },
+  "strictProcess": {
+    "games": 8,
+    "passedGames": 7,
+    "strictPassed": false,
+    "details": [
+      {
+        "callIndex": 1,
+        "map": "903510176.json",
+        "game": 0,
+        "player": 0,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 71,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-1.json",
+          "sha256": "1a0cb459bf829e51e9b286d7b28820746b2f3490250280bb7e3fb72fca0b0f45",
+          "bytes": 37565
+        },
+        "passed": true
+      },
+      {
+        "callIndex": 1,
+        "map": "903510176.json",
+        "game": 1,
+        "player": 1,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 63,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-1.json",
+          "sha256": "1a0cb459bf829e51e9b286d7b28820746b2f3490250280bb7e3fb72fca0b0f45",
+          "bytes": 37565
+        },
+        "passed": true
+      },
+      {
+        "callIndex": 2,
+        "map": "904146009.json",
+        "game": 0,
+        "player": 0,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 67,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-2.json",
+          "sha256": "e27fb1a4176c15a7899a74071ff84532b09a7bc785c64d8715217c017a174af2",
+          "bytes": 38963
+        },
+        "passed": true
+      },
+      {
+        "callIndex": 2,
+        "map": "904146009.json",
+        "game": 1,
+        "player": 1,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 73,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-2.json",
+          "sha256": "e27fb1a4176c15a7899a74071ff84532b09a7bc785c64d8715217c017a174af2",
+          "bytes": 38963
+        },
+        "passed": true
+      },
+      {
+        "callIndex": 3,
+        "map": "904148181.json",
+        "game": 0,
+        "player": 0,
+        "timeouts": 1,
+        "nominalOverruns": 1,
+        "errors": [
+          "exception: java.lang.IllegalStateException: TIMEOUT turn 33 (deadline 50 ms)",
+          null
+        ],
+        "timings": 34,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-3.json",
+          "sha256": "dd0f087a820f0074192e28e27278f3aaf7ebd0629ef313ebeddfd1a8172e20bc",
+          "bytes": 29475
+        },
+        "passed": false
+      },
+      {
+        "callIndex": 3,
+        "map": "904148181.json",
+        "game": 1,
+        "player": 1,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 65,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-3.json",
+          "sha256": "dd0f087a820f0074192e28e27278f3aaf7ebd0629ef313ebeddfd1a8172e20bc",
+          "bytes": 29475
+        },
+        "passed": true
+      },
+      {
+        "callIndex": 4,
+        "map": "904147739.json",
+        "game": 0,
+        "player": 0,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 65,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-4.json",
+          "sha256": "ef82bc0b4482c5d41866a5533f9c217d1e9d2aac152c78de8350d993f09e2efb",
+          "bytes": 38052
+        },
+        "passed": true
+      },
+      {
+        "callIndex": 4,
+        "map": "904147739.json",
+        "game": 1,
+        "player": 1,
+        "timeouts": 0,
+        "nominalOverruns": 0,
+        "errors": [
+          null,
+          null
+        ],
+        "timings": 71,
+        "report": {
+          "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-4.json",
+          "sha256": "ef82bc0b4482c5d41866a5533f9c217d1e9d2aac152c78de8350d993f09e2efb",
+          "bytes": 38052
+        },
+        "passed": true
+      }
+    ],
+    "responseMs": {
+      "first": {
+        "count": 8,
+        "min": 580.9101,
+        "median": 645.2238,
+        "p95NearestRank": 716.399,
+        "p99NearestRank": 716.399,
+        "max": 716.399,
+        "over36Ms": 8,
+        "over50Ms": 8
+      },
+      "later": {
+        "count": 501,
+        "min": 4.4234,
+        "median": 37.7327,
+        "p95NearestRank": 38.8172,
+        "p99NearestRank": 43.8894,
+        "max": 56.0151,
+        "over36Ms": 378,
+        "over50Ms": 1
+      }
+    },
+    "statuses": {
+      "OK": 508,
+      "TIMEOUT": 1
+    },
+    "reports": [
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-1.json",
+        "sha256": "1a0cb459bf829e51e9b286d7b28820746b2f3490250280bb7e3fb72fca0b0f45",
+        "bytes": 37565
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-2.json",
+        "sha256": "e27fb1a4176c15a7899a74071ff84532b09a7bc785c64d8715217c017a174af2",
+        "bytes": 38963
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-3.json",
+        "sha256": "dd0f087a820f0074192e28e27278f3aaf7ebd0629ef313ebeddfd1a8172e20bc",
+        "bytes": 29475
+      },
+      {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/process-4.json",
+        "sha256": "ef82bc0b4482c5d41866a5533f9c217d1e9d2aac152c78de8350d993f09e2efb",
+        "bytes": 38052
+      }
+    ],
+    "sourceSha256": "3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
+    "classesSha256": "9f331092f279670c9d1e1d3ee2a9311c2e52a4f455c3735a65afbbc2421fb478",
+    "failure": {
+      "map": 904148181,
+      "player": 0,
+      "turn": 33,
+      "responseMs": 56.0151,
+      "limitMs": 50,
+      "graceMs": 0,
+      "status": "TIMEOUT"
+    }
+  },
+  "nominal": {
+    "cohort": {
+      "NATIVE_FIXED_PORTFOLIO": {
+        "comparisons": 88,
+        "starts": 56,
+        "games": 23,
+        "interventions": 1,
+        "affectedStarts": 1,
+        "scoreSigns": {
+          "tied": 59,
+          "negative": 14,
+          "positive": 15
+        },
+        "terminalPairs": {
+          "NONTERMINAL->NONTERMINAL": 76,
+          "LOSS->NONTERMINAL": 1,
+          "WIN->WIN": 8,
+          "LOSS->LOSS": 3
+        },
+        "offFinalsMatchAmple": 36,
+        "onFinalsMatchAmple": 41,
+        "offOnFinalsEqual": 44,
+        "onGuardStatuses": {
+          "native-attack": 488,
+          "armed": 57,
+          "waiting": 27,
+          "counterfactual-veto": 12,
+          "incomplete-W": 29,
+          "timeout": 7,
+          "incomplete-Wr0": 1,
+          "unsafe-or-changed-W": 40,
+          "intervened": 1,
+          "own-portfolio": 4,
+          "invalid-target": 3
+        },
+        "searchWallMs": {
+          "off": {
+            "count": 669,
+            "min": 0.7138,
+            "median": 24.629,
+            "p95NearestRank": 36.2263,
+            "p99NearestRank": 36.7516,
+            "max": 38.9221,
+            "over36Ms": 104,
+            "over50Ms": 0
+          },
+          "on": {
+            "count": 669,
+            "min": 0.653,
+            "median": 25.6949,
+            "p95NearestRank": 36.2217,
+            "p99NearestRank": 36.578,
+            "max": 43.9193,
+            "over36Ms": 125,
+            "over50Ms": 0
+          }
+        },
+        "lostOffWins": [],
+        "newOnLosses": [],
+        "lostAmpleOnWins": [],
+        "onIncompleteOrTimeoutCount": 37,
+        "forecastTerminalControls": [
+          {
+            "id": "907134720/46/1",
+            "gameId": 907134720,
+            "turn": 46,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+            "nativeReply": 0,
+            "interventions": 0,
+            "offScoreDifference": 1971,
+            "onScoreDifference": 1971,
+            "earnedScoreDelta": 0,
+            "offOutcome": "WIN",
+            "onOutcome": "WIN",
+            "offSteps": 3,
+            "onSteps": 3,
+            "offFirstPinnedHit": 47,
+            "onFirstPinnedHit": 47,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "WIN",
+            "onOutcomeAmple": "WIN",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "WIN->WIN",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1971,
+            "offPreviousRuntimeOutcome": "WIN",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1971,
+            "onPreviousRuntimeOutcome": "WIN",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/47/1",
+            "gameId": 907134720,
+            "turn": 47,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+            "nativeReply": 0,
+            "interventions": 0,
+            "offScoreDifference": 1969,
+            "onScoreDifference": 1969,
+            "earnedScoreDelta": 0,
+            "offOutcome": "WIN",
+            "onOutcome": "WIN",
+            "offSteps": 3,
+            "onSteps": 3,
+            "offFirstPinnedHit": 48,
+            "onFirstPinnedHit": 48,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "WIN",
+            "onOutcomeAmple": "WIN",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "WIN->WIN",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1969,
+            "offPreviousRuntimeOutcome": "WIN",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1969,
+            "onPreviousRuntimeOutcome": "WIN",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/49/1",
+            "gameId": 907134720,
+            "turn": 49,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+            "nativeReply": 0,
+            "interventions": 0,
+            "offScoreDifference": 1967,
+            "onScoreDifference": 1967,
+            "earnedScoreDelta": 0,
+            "offOutcome": "WIN",
+            "onOutcome": "WIN",
+            "offSteps": 2,
+            "onSteps": 2,
+            "offFirstPinnedHit": 50,
+            "onFirstPinnedHit": 50,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "WIN",
+            "onOutcomeAmple": "WIN",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "WIN->WIN",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1967,
+            "offPreviousRuntimeOutcome": "WIN",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1967,
+            "onPreviousRuntimeOutcome": "WIN",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/50/1",
+            "gameId": 907134720,
+            "turn": 50,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+            "nativeReply": 0,
+            "interventions": 0,
+            "offScoreDifference": 1965,
+            "onScoreDifference": 1965,
+            "earnedScoreDelta": 0,
+            "offOutcome": "WIN",
+            "onOutcome": "WIN",
+            "offSteps": 2,
+            "onSteps": 2,
+            "offFirstPinnedHit": 51,
+            "onFirstPinnedHit": 51,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "WIN",
+            "onOutcomeAmple": "WIN",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "WIN->WIN",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1965,
+            "offPreviousRuntimeOutcome": "WIN",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1965,
+            "onPreviousRuntimeOutcome": "WIN",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/51/1",
+            "gameId": 907134720,
+            "turn": 51,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+            "nativeReply": 0,
+            "interventions": 0,
+            "offScoreDifference": 1963,
+            "onScoreDifference": 1963,
+            "earnedScoreDelta": 0,
+            "offOutcome": "WIN",
+            "onOutcome": "WIN",
+            "offSteps": 2,
+            "onSteps": 2,
+            "offFirstPinnedHit": 52,
+            "onFirstPinnedHit": 52,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "WIN",
+            "onOutcomeAmple": "WIN",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "WIN->WIN",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1963,
+            "offPreviousRuntimeOutcome": "WIN",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1963,
+            "onPreviousRuntimeOutcome": "WIN",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/52/1",
+            "gameId": 907134720,
+            "turn": 52,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+            "nativeReply": 0,
+            "interventions": 0,
+            "offScoreDifference": 1961,
+            "onScoreDifference": 1961,
+            "earnedScoreDelta": 0,
+            "offOutcome": "WIN",
+            "onOutcome": "WIN",
+            "offSteps": 2,
+            "onSteps": 2,
+            "offFirstPinnedHit": 53,
+            "onFirstPinnedHit": 53,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "WIN",
+            "onOutcomeAmple": "WIN",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "WIN->WIN",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1961,
+            "offPreviousRuntimeOutcome": "WIN",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1961,
+            "onPreviousRuntimeOutcome": "WIN",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          }
+        ]
+      },
+      "PURE_WAIT": {
+        "comparisons": 56,
+        "starts": 56,
+        "games": 23,
+        "interventions": 2,
+        "affectedStarts": 2,
+        "scoreSigns": {
+          "tied": 45,
+          "positive": 5,
+          "negative": 6
+        },
+        "terminalPairs": {
+          "NONTERMINAL->NONTERMINAL": 56
+        },
+        "offFinalsMatchAmple": 29,
+        "onFinalsMatchAmple": 31,
+        "offOnFinalsEqual": 34,
+        "onGuardStatuses": {
+          "native-attack": 232,
+          "armed": 44,
+          "waiting": 33,
+          "counterfactual-veto": 14,
+          "incomplete-Wr0": 3,
+          "unsafe-or-changed-W": 87,
+          "timeout": 8,
+          "intervened": 2,
+          "incomplete-W": 17,
+          "incomplete-A": 3,
+          "own-portfolio": 1,
+          "invalid-target": 4
+        },
+        "searchWallMs": {
+          "off": {
+            "count": 448,
+            "min": 0.9248,
+            "median": 21.2374,
+            "p95NearestRank": 36.1837,
+            "p99NearestRank": 36.4678,
+            "max": 40.5996,
+            "over36Ms": 64,
+            "over50Ms": 0
+          },
+          "on": {
+            "count": 448,
+            "min": 1.8348,
+            "median": 22.8676,
+            "p95NearestRank": 36.2569,
+            "p99NearestRank": 37.4674,
+            "max": 99.5029,
+            "over36Ms": 92,
+            "over50Ms": 2
+          }
+        },
+        "lostOffWins": [],
+        "newOnLosses": [],
+        "lostAmpleOnWins": [],
+        "onIncompleteOrTimeoutCount": 31,
+        "forecastTerminalControls": [
+          {
+            "id": "907134720/46/1",
+            "gameId": 907134720,
+            "turn": 46,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "PURE_WAIT",
+            "nativeReply": -1,
+            "interventions": 0,
+            "offScoreDifference": 1959,
+            "onScoreDifference": 1959,
+            "earnedScoreDelta": 0,
+            "offOutcome": "NONTERMINAL",
+            "onOutcome": "NONTERMINAL",
+            "offSteps": 8,
+            "onSteps": 8,
+            "offFirstPinnedHit": null,
+            "onFirstPinnedHit": null,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "NONTERMINAL",
+            "onOutcomeAmple": "NONTERMINAL",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "NONTERMINAL->NONTERMINAL",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1959,
+            "offPreviousRuntimeOutcome": "NONTERMINAL",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1959,
+            "onPreviousRuntimeOutcome": "NONTERMINAL",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/47/1",
+            "gameId": 907134720,
+            "turn": 47,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "PURE_WAIT",
+            "nativeReply": -1,
+            "interventions": 0,
+            "offScoreDifference": 1957,
+            "onScoreDifference": 1957,
+            "earnedScoreDelta": 0,
+            "offOutcome": "NONTERMINAL",
+            "onOutcome": "NONTERMINAL",
+            "offSteps": 8,
+            "onSteps": 8,
+            "offFirstPinnedHit": null,
+            "onFirstPinnedHit": null,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "NONTERMINAL",
+            "onOutcomeAmple": "NONTERMINAL",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "NONTERMINAL->NONTERMINAL",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1957,
+            "offPreviousRuntimeOutcome": "NONTERMINAL",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1957,
+            "onPreviousRuntimeOutcome": "NONTERMINAL",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/49/1",
+            "gameId": 907134720,
+            "turn": 49,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "PURE_WAIT",
+            "nativeReply": -1,
+            "interventions": 0,
+            "offScoreDifference": 1953,
+            "onScoreDifference": 1953,
+            "earnedScoreDelta": 0,
+            "offOutcome": "NONTERMINAL",
+            "onOutcome": "NONTERMINAL",
+            "offSteps": 8,
+            "onSteps": 8,
+            "offFirstPinnedHit": null,
+            "onFirstPinnedHit": null,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "NONTERMINAL",
+            "onOutcomeAmple": "NONTERMINAL",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "NONTERMINAL->NONTERMINAL",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1953,
+            "offPreviousRuntimeOutcome": "NONTERMINAL",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1953,
+            "onPreviousRuntimeOutcome": "NONTERMINAL",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/50/1",
+            "gameId": 907134720,
+            "turn": 50,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "PURE_WAIT",
+            "nativeReply": -1,
+            "interventions": 0,
+            "offScoreDifference": 1951,
+            "onScoreDifference": 1951,
+            "earnedScoreDelta": 0,
+            "offOutcome": "NONTERMINAL",
+            "onOutcome": "NONTERMINAL",
+            "offSteps": 8,
+            "onSteps": 8,
+            "offFirstPinnedHit": null,
+            "onFirstPinnedHit": null,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "NONTERMINAL",
+            "onOutcomeAmple": "NONTERMINAL",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "NONTERMINAL->NONTERMINAL",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1951,
+            "offPreviousRuntimeOutcome": "NONTERMINAL",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1951,
+            "onPreviousRuntimeOutcome": "NONTERMINAL",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/51/1",
+            "gameId": 907134720,
+            "turn": 51,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "PURE_WAIT",
+            "nativeReply": -1,
+            "interventions": 0,
+            "offScoreDifference": 1949,
+            "onScoreDifference": 1949,
+            "earnedScoreDelta": 0,
+            "offOutcome": "NONTERMINAL",
+            "onOutcome": "NONTERMINAL",
+            "offSteps": 8,
+            "onSteps": 8,
+            "offFirstPinnedHit": null,
+            "onFirstPinnedHit": null,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "NONTERMINAL",
+            "onOutcomeAmple": "NONTERMINAL",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "NONTERMINAL->NONTERMINAL",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1949,
+            "offPreviousRuntimeOutcome": "NONTERMINAL",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1949,
+            "onPreviousRuntimeOutcome": "NONTERMINAL",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          },
+          {
+            "id": "907134720/52/1",
+            "gameId": 907134720,
+            "turn": 52,
+            "me": 1,
+            "classification": "exploratory_reversal",
+            "forecastTerminalControl": true,
+            "opponentRegime": "PURE_WAIT",
+            "nativeReply": -1,
+            "interventions": 0,
+            "offScoreDifference": 1947,
+            "onScoreDifference": 1947,
+            "earnedScoreDelta": 0,
+            "offOutcome": "NONTERMINAL",
+            "onOutcome": "NONTERMINAL",
+            "offSteps": 8,
+            "onSteps": 8,
+            "offFirstPinnedHit": null,
+            "onFirstPinnedHit": null,
+            "offSameFinalAsAmple": true,
+            "onSameFinalAsAmple": true,
+            "offOutcomeAmple": "NONTERMINAL",
+            "onOutcomeAmple": "NONTERMINAL",
+            "offOnSameFinalState": true,
+            "scoreSign": "tied",
+            "terminalPair": "NONTERMINAL->NONTERMINAL",
+            "lostOffWin": false,
+            "newOnLoss": false,
+            "lostAmpleOnWin": false,
+            "pinnedHitEarlier": false,
+            "offPreviousRuntimeScore": 1947,
+            "offPreviousRuntimeOutcome": "NONTERMINAL",
+            "offSameFinalAsPreviousRuntime": true,
+            "onPreviousRuntimeScore": 1947,
+            "onPreviousRuntimeOutcome": "NONTERMINAL",
+            "onSameFinalAsPreviousRuntime": true,
+            "lostPreviousRuntimeOnWin": false,
+            "newOnLossVsPreviousRuntime": false
+          }
+        ]
+      }
+    },
+    "runtimeReuse": {
+      "boards": 7330,
+      "decisionsWithReuse": 377,
+      "decisions": 1141
+    },
+    "requiredR33Case": [
+      {
+        "id": "907134651/38/1",
+        "gameId": 907134651,
+        "turn": 38,
+        "me": 1,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 0,
+        "interventions": 1,
+        "offScoreDifference": 1033,
+        "onScoreDifference": 1074,
+        "earnedScoreDelta": 41,
+        "offOutcome": "NONTERMINAL",
+        "onOutcome": "NONTERMINAL",
+        "offSteps": 8,
+        "onSteps": 8,
+        "offFirstPinnedHit": 42,
+        "onFirstPinnedHit": 40,
+        "offSameFinalAsAmple": false,
+        "onSameFinalAsAmple": false,
+        "offOutcomeAmple": "NONTERMINAL",
+        "onOutcomeAmple": "NONTERMINAL",
+        "offOnSameFinalState": false,
+        "scoreSign": "positive",
+        "terminalPair": "NONTERMINAL->NONTERMINAL",
+        "lostOffWin": false,
+        "newOnLoss": false,
+        "lostAmpleOnWin": false,
+        "pinnedHitEarlier": true,
+        "offPreviousRuntimeScore": 1026,
+        "offPreviousRuntimeOutcome": "NONTERMINAL",
+        "offSameFinalAsPreviousRuntime": false,
+        "onPreviousRuntimeScore": 1026,
+        "onPreviousRuntimeOutcome": "NONTERMINAL",
+        "onSameFinalAsPreviousRuntime": false,
+        "lostPreviousRuntimeOnWin": false,
+        "newOnLossVsPreviousRuntime": false
+      }
+    ],
+    "r33PassiveCase": [
+      {
+        "id": "907134651/38/1",
+        "gameId": 907134651,
+        "turn": 38,
+        "me": 1,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "interventions": 1,
+        "offScoreDifference": 1026,
+        "onScoreDifference": 1076,
+        "earnedScoreDelta": 50,
+        "offOutcome": "NONTERMINAL",
+        "onOutcome": "NONTERMINAL",
+        "offSteps": 8,
+        "onSteps": 8,
+        "offFirstPinnedHit": 42,
+        "onFirstPinnedHit": 40,
+        "offSameFinalAsAmple": false,
+        "onSameFinalAsAmple": false,
+        "offOutcomeAmple": "NONTERMINAL",
+        "onOutcomeAmple": "NONTERMINAL",
+        "offOnSameFinalState": false,
+        "scoreSign": "positive",
+        "terminalPair": "NONTERMINAL->NONTERMINAL",
+        "lostOffWin": false,
+        "newOnLoss": false,
+        "lostAmpleOnWin": false,
+        "pinnedHitEarlier": true,
+        "offPreviousRuntimeScore": 1026,
+        "offPreviousRuntimeOutcome": "NONTERMINAL",
+        "offSameFinalAsPreviousRuntime": false,
+        "onPreviousRuntimeScore": 1074,
+        "onPreviousRuntimeOutcome": "NONTERMINAL",
+        "onSameFinalAsPreviousRuntime": false,
+        "lostPreviousRuntimeOnWin": false,
+        "newOnLossVsPreviousRuntime": false
+      }
+    ],
+    "r11Cases": [
+      {
+        "id": "907135823/35/0",
+        "gameId": 907135823,
+        "turn": 35,
+        "me": 0,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 0,
+        "interventions": 0,
+        "offScoreDifference": -470,
+        "onScoreDifference": -714,
+        "earnedScoreDelta": -244,
+        "offOutcome": "NONTERMINAL",
+        "onOutcome": "NONTERMINAL",
+        "offSteps": 8,
+        "onSteps": 8,
+        "offFirstPinnedHit": 36,
+        "onFirstPinnedHit": null,
+        "offSameFinalAsAmple": false,
+        "onSameFinalAsAmple": false,
+        "offOutcomeAmple": "NONTERMINAL",
+        "onOutcomeAmple": "NONTERMINAL",
+        "offOnSameFinalState": false,
+        "scoreSign": "negative",
+        "terminalPair": "NONTERMINAL->NONTERMINAL",
+        "lostOffWin": false,
+        "newOnLoss": false,
+        "lostAmpleOnWin": false,
+        "pinnedHitEarlier": false,
+        "offPreviousRuntimeScore": -470,
+        "offPreviousRuntimeOutcome": "NONTERMINAL",
+        "offSameFinalAsPreviousRuntime": true,
+        "onPreviousRuntimeScore": -814,
+        "onPreviousRuntimeOutcome": "NONTERMINAL",
+        "onSameFinalAsPreviousRuntime": false,
+        "lostPreviousRuntimeOnWin": false,
+        "newOnLossVsPreviousRuntime": false
+      },
+      {
+        "id": "907135823/35/0",
+        "gameId": 907135823,
+        "turn": 35,
+        "me": 0,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "interventions": 1,
+        "offScoreDifference": -598,
+        "onScoreDifference": -551,
+        "earnedScoreDelta": 47,
+        "offOutcome": "NONTERMINAL",
+        "onOutcome": "NONTERMINAL",
+        "offSteps": 8,
+        "onSteps": 8,
+        "offFirstPinnedHit": null,
+        "onFirstPinnedHit": 37,
+        "offSameFinalAsAmple": true,
+        "onSameFinalAsAmple": false,
+        "offOutcomeAmple": "NONTERMINAL",
+        "onOutcomeAmple": "NONTERMINAL",
+        "offOnSameFinalState": false,
+        "scoreSign": "positive",
+        "terminalPair": "NONTERMINAL->NONTERMINAL",
+        "lostOffWin": false,
+        "newOnLoss": false,
+        "lostAmpleOnWin": false,
+        "pinnedHitEarlier": true,
+        "offPreviousRuntimeScore": -551,
+        "offPreviousRuntimeOutcome": "NONTERMINAL",
+        "offSameFinalAsPreviousRuntime": false,
+        "onPreviousRuntimeScore": -551,
+        "onPreviousRuntimeOutcome": "NONTERMINAL",
+        "onSameFinalAsPreviousRuntime": true,
+        "lostPreviousRuntimeOnWin": false,
+        "newOnLossVsPreviousRuntime": false
+      }
+    ],
+    "interventions": [
+      {
+        "id": "907134651/38/1",
+        "gameId": 907134651,
+        "turn": 38,
+        "me": 1,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 0,
+        "arm": "on",
+        "decisionTurn": 40,
+        "searchWallMs": 32.8008,
+        "status": "intervened",
+        "intervention": true,
+        "completedComparisons": 2,
+        "simulatedTurns": 16,
+        "WCompleted": 1,
+        "ACompleted": 1,
+        "Wr0Completed": 1,
+        "replies": 1,
+        "action": {
+          "cells": [
+            288
+          ],
+          "target": 33,
+          "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+        },
+        "diagnostics": {
+          "chordComparisons": 0,
+          "chordEligible": 0,
+          "chordEvaluated": 0,
+          "chordRoots": 0,
+          "chordSearchStarted": false,
+          "completedComparisons": 2,
+          "deadlineACompleted": 1,
+          "deadlineATerminal": [
+            0,
+            0
+          ],
+          "deadlineAValues": [
+            1084.0,
+            null
+          ],
+          "deadlineChanged": true,
+          "deadlineCommittedDue": 39,
+          "deadlineCommittedTarget": 33,
+          "deadlineExtraTurns": 24,
+          "deadlineFirstDue": [
+            41,
+            -1
+          ],
+          "deadlineFirstTarget": [
+            33,
+            -1
+          ],
+          "deadlineInterventionTarget": 33,
+          "deadlineNativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "deadlineNativeCount": 1,
+          "deadlineNativeTarget": -1,
+          "deadlineNominee": 33,
+          "deadlineReplies": 1,
+          "deadlineReusedBoards": 45,
+          "deadlineRoot": 0,
+          "deadlineStatus": "intervened",
+          "deadlineWCompleted": 1,
+          "deadlineWTerminal": [
+            0,
+            0
+          ],
+          "deadlineWValues": [
+            1095.0,
+            null
+          ],
+          "deadlineWr0Completed": 1,
+          "deadlineWr0Terminal": [
+            0,
+            0
+          ],
+          "deadlineWr0Values": [
+            933.0,
+            null
+          ],
+          "extraTargetComparisons": 0,
+          "fillCells": 1,
+          "forcedTargets": 0,
+          "liveTargets": 0,
+          "networkComparisons": 0,
+          "networkEligible": 35,
+          "networkEvaluated": 0,
+          "networkPhaseComplete": true,
+          "networkRoots": 0,
+          "networkSearchStarted": true,
+          "openingCount": 0,
+          "openingEligible": 0,
+          "openingPaint": 0,
+          "openingPairs": 0,
+          "ordinaryComparisons": 2,
+          "ordinarySearchComplete": true,
+          "ordinarySelectedCells": [
+            0,
+            0,
+            0
+          ],
+          "ordinarySelectedCount": 0,
+          "ordinarySelectedRoute": -1,
+          "ordinarySelectedTarget": -1,
+          "ordinarySelectedValue": 1095.0,
+          "replanCalls": 0,
+          "replanChanges": 0,
+          "routeQueries": 49,
+          "selectedChord": false,
+          "selectedExtraTarget": false,
+          "selectedNetwork": false,
+          "selectedNetworkCell": -1,
+          "selectedOpening": false,
+          "selectedRoute": -1,
+          "selectedSpread": false,
+          "selectedTarget": 33,
+          "selectedValue": 1095.0,
+          "simulatedTurns": 16,
+          "spreadBuildTurns": 0,
+          "spreadComparisons": 0,
+          "spreadRoots": 0,
+          "deadlinePendingTarget": -1,
+          "deadlinePendingDue": -1
+        }
+      },
+      {
+        "id": "907134651/38/1",
+        "gameId": 907134651,
+        "turn": 38,
+        "me": 1,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "arm": "on",
+        "decisionTurn": 40,
+        "searchWallMs": 30.137,
+        "status": "intervened",
+        "intervention": true,
+        "completedComparisons": 2,
+        "simulatedTurns": 16,
+        "WCompleted": 1,
+        "ACompleted": 1,
+        "Wr0Completed": 1,
+        "replies": 1,
+        "action": {
+          "cells": [
+            288
+          ],
+          "target": 33,
+          "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+        },
+        "diagnostics": {
+          "chordComparisons": 0,
+          "chordEligible": 0,
+          "chordEvaluated": 0,
+          "chordRoots": 0,
+          "chordSearchStarted": false,
+          "completedComparisons": 2,
+          "deadlineACompleted": 1,
+          "deadlineATerminal": [
+            0,
+            0
+          ],
+          "deadlineAValues": [
+            1084.0,
+            null
+          ],
+          "deadlineChanged": true,
+          "deadlineCommittedDue": 39,
+          "deadlineCommittedTarget": 33,
+          "deadlineExtraTurns": 24,
+          "deadlineFirstDue": [
+            41,
+            -1
+          ],
+          "deadlineFirstTarget": [
+            33,
+            -1
+          ],
+          "deadlineInterventionTarget": 33,
+          "deadlineNativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "deadlineNativeCount": 1,
+          "deadlineNativeTarget": -1,
+          "deadlineNominee": 33,
+          "deadlineReplies": 1,
+          "deadlineReusedBoards": 45,
+          "deadlineRoot": 0,
+          "deadlineStatus": "intervened",
+          "deadlineWCompleted": 1,
+          "deadlineWTerminal": [
+            0,
+            0
+          ],
+          "deadlineWValues": [
+            1095.0,
+            null
+          ],
+          "deadlineWr0Completed": 1,
+          "deadlineWr0Terminal": [
+            0,
+            0
+          ],
+          "deadlineWr0Values": [
+            933.0,
+            null
+          ],
+          "extraTargetComparisons": 0,
+          "fillCells": 1,
+          "forcedTargets": 0,
+          "liveTargets": 0,
+          "networkComparisons": 0,
+          "networkEligible": 36,
+          "networkEvaluated": 24,
+          "networkPhaseComplete": true,
+          "networkRoots": 0,
+          "networkSearchStarted": true,
+          "openingCount": 0,
+          "openingEligible": 0,
+          "openingPaint": 0,
+          "openingPairs": 0,
+          "ordinaryComparisons": 2,
+          "ordinarySearchComplete": true,
+          "ordinarySelectedCells": [
+            0,
+            0,
+            0
+          ],
+          "ordinarySelectedCount": 0,
+          "ordinarySelectedRoute": -1,
+          "ordinarySelectedTarget": -1,
+          "ordinarySelectedValue": 1095.0,
+          "replanCalls": 0,
+          "replanChanges": 0,
+          "routeQueries": 44,
+          "selectedChord": false,
+          "selectedExtraTarget": false,
+          "selectedNetwork": false,
+          "selectedNetworkCell": -1,
+          "selectedOpening": false,
+          "selectedRoute": -1,
+          "selectedSpread": false,
+          "selectedTarget": 33,
+          "selectedValue": 1095.0,
+          "simulatedTurns": 16,
+          "spreadBuildTurns": 0,
+          "spreadComparisons": 0,
+          "spreadRoots": 0,
+          "deadlinePendingTarget": -1,
+          "deadlinePendingDue": -1
+        }
+      },
+      {
+        "id": "907135823/35/0",
+        "gameId": 907135823,
+        "turn": 35,
+        "me": 0,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "arm": "on",
+        "decisionTurn": 37,
+        "searchWallMs": 34.1071,
+        "status": "intervened",
+        "intervention": true,
+        "completedComparisons": 2,
+        "simulatedTurns": 16,
+        "WCompleted": 1,
+        "ACompleted": 1,
+        "Wr0Completed": 1,
+        "replies": 1,
+        "action": {
+          "cells": [
+            159,
+            162,
+            182
+          ],
+          "target": 11,
+          "action": "PLACE_TRACKS 21 6;PLACE_TRACKS 1 7;PLACE_TRACKS 21 7;DISRUPT 11"
+        },
+        "diagnostics": {
+          "chordComparisons": 0,
+          "chordEligible": 0,
+          "chordEvaluated": 0,
+          "chordRoots": 0,
+          "chordSearchStarted": false,
+          "completedComparisons": 2,
+          "deadlineACompleted": 1,
+          "deadlineATerminal": [
+            0,
+            0
+          ],
+          "deadlineAValues": [
+            -541.0,
+            null
+          ],
+          "deadlineChanged": true,
+          "deadlineCommittedDue": 36,
+          "deadlineCommittedTarget": 11,
+          "deadlineExtraTurns": 24,
+          "deadlineFirstDue": [
+            38,
+            -1
+          ],
+          "deadlineFirstTarget": [
+            11,
+            -1
+          ],
+          "deadlineInterventionTarget": 11,
+          "deadlineNativeCells": [
+            159,
+            162,
+            182
+          ],
+          "deadlineNativeCount": 3,
+          "deadlineNativeTarget": -1,
+          "deadlineNominee": 11,
+          "deadlineReplies": 1,
+          "deadlineReusedBoards": 45,
+          "deadlineRoot": 0,
+          "deadlineStatus": "intervened",
+          "deadlineWCompleted": 1,
+          "deadlineWTerminal": [
+            0,
+            0
+          ],
+          "deadlineWValues": [
+            -495.0,
+            null
+          ],
+          "deadlineWr0Completed": 1,
+          "deadlineWr0Terminal": [
+            0,
+            0
+          ],
+          "deadlineWr0Values": [
+            -905.0,
+            null
+          ],
+          "extraTargetComparisons": 0,
+          "fillCells": 3,
+          "forcedTargets": 0,
+          "liveTargets": 0,
+          "networkComparisons": 0,
+          "networkEligible": 22,
+          "networkEvaluated": 22,
+          "networkPhaseComplete": true,
+          "networkRoots": 0,
+          "networkSearchStarted": true,
+          "openingCount": 0,
+          "openingEligible": 0,
+          "openingPaint": 0,
+          "openingPairs": 0,
+          "ordinaryComparisons": 2,
+          "ordinarySearchComplete": true,
+          "ordinarySelectedCells": [
+            0,
+            0,
+            0
+          ],
+          "ordinarySelectedCount": 0,
+          "ordinarySelectedRoute": -1,
+          "ordinarySelectedTarget": -1,
+          "ordinarySelectedValue": -495.0,
+          "replanCalls": 0,
+          "replanChanges": 0,
+          "routeQueries": 71,
+          "selectedChord": false,
+          "selectedExtraTarget": false,
+          "selectedNetwork": false,
+          "selectedNetworkCell": -1,
+          "selectedOpening": false,
+          "selectedRoute": -1,
+          "selectedSpread": false,
+          "selectedTarget": 11,
+          "selectedValue": -495.0,
+          "simulatedTurns": 16,
+          "spreadBuildTurns": 0,
+          "spreadComparisons": 0,
+          "spreadRoots": 0,
+          "deadlinePendingTarget": -1,
+          "deadlinePendingDue": -1
+        }
+      }
+    ],
+    "all1141OnConstructionsVerified": true,
+    "allInterventionsKeepExactConstructionAndPassOriginalGuards": true,
+    "passivePlayOnlyOutliersAbove50ms": [
+      {
+        "id": "907135435/59/1",
+        "gameId": 907135435,
+        "turn": 59,
+        "me": 1,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "arm": "on",
+        "decisionTurn": 61,
+        "searchWallMs": 99.5029,
+        "status": "native-attack",
+        "intervention": false,
+        "completedComparisons": 0,
+        "simulatedTurns": 0,
+        "WCompleted": 0,
+        "ACompleted": 0,
+        "Wr0Completed": 0,
+        "replies": 0,
+        "reusedBoards": 0
+      },
+      {
+        "id": "907135435/59/1",
+        "gameId": 907135435,
+        "turn": 59,
+        "me": 1,
+        "classification": "exploratory_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "PURE_WAIT",
+        "nativeReply": -1,
+        "arm": "on",
+        "decisionTurn": 62,
+        "searchWallMs": 64.5907,
+        "status": "timeout",
+        "intervention": false,
+        "completedComparisons": 0,
+        "simulatedTurns": 0,
+        "WCompleted": 0,
+        "ACompleted": 0,
+        "Wr0Completed": 0,
+        "replies": 0,
+        "reusedBoards": 0
+      }
+    ],
+    "terminalLabelChanges": [
+      {
+        "id": "907134258/86/1",
+        "gameId": 907134258,
+        "turn": 86,
+        "me": 1,
+        "classification": "wait_preferred_no_reversal",
+        "forecastTerminalControl": false,
+        "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+        "nativeReply": 0,
+        "interventions": 0,
+        "offScoreDifference": -864,
+        "onScoreDifference": -868,
+        "earnedScoreDelta": -4,
+        "offOutcome": "LOSS",
+        "onOutcome": "NONTERMINAL",
+        "offSteps": 8,
+        "onSteps": 8,
+        "offFirstPinnedHit": 86,
+        "onFirstPinnedHit": 89,
+        "offSameFinalAsAmple": false,
+        "onSameFinalAsAmple": true,
+        "offOutcomeAmple": "NONTERMINAL",
+        "onOutcomeAmple": "NONTERMINAL",
+        "offOnSameFinalState": false,
+        "scoreSign": "negative",
+        "terminalPair": "LOSS->NONTERMINAL",
+        "lostOffWin": false,
+        "newOnLoss": false,
+        "lostAmpleOnWin": false,
+        "pinnedHitEarlier": false,
+        "offPreviousRuntimeScore": -868,
+        "offPreviousRuntimeOutcome": "NONTERMINAL",
+        "offSameFinalAsPreviousRuntime": false,
+        "onPreviousRuntimeScore": -868,
+        "onPreviousRuntimeOutcome": "NONTERMINAL",
+        "onSameFinalAsPreviousRuntime": true,
+        "lostPreviousRuntimeOnWin": false,
+        "newOnLossVsPreviousRuntime": false
+      }
+    ],
+    "historical": {
+      "summary": {
+        "comparisons": 3,
+        "starts": 1,
+        "games": 1,
+        "interventions": 0,
+        "affectedStarts": 0,
+        "scoreSigns": {
+          "tied": 3
+        },
+        "terminalPairs": {
+          "NONTERMINAL->NONTERMINAL": 3
+        },
+        "offFinalsMatchAmple": 2,
+        "onFinalsMatchAmple": 3,
+        "offOnFinalsEqual": 2,
+        "onGuardStatuses": {
+          "armed": 5,
+          "native-attack": 14,
+          "waiting": 3,
+          "incomplete-A": 1,
+          "counterfactual-veto": 1
+        },
+        "searchWallMs": {
+          "off": {
+            "count": 24,
+            "min": 9.6965,
+            "median": 18.20205,
+            "p95NearestRank": 33.4866,
+            "p99NearestRank": 36.3165,
+            "max": 36.3165,
+            "over36Ms": 1,
+            "over50Ms": 0
+          },
+          "on": {
+            "count": 24,
+            "min": 8.3244,
+            "median": 17.58205,
+            "p95NearestRank": 33.9625,
+            "p99NearestRank": 36.0953,
+            "max": 36.0953,
+            "over36Ms": 1,
+            "over50Ms": 0
+          }
+        },
+        "lostOffWins": [],
+        "newOnLosses": [],
+        "lostAmpleOnWins": [],
+        "onIncompleteOrTimeoutCount": 1,
+        "forecastTerminalControls": []
+      },
+      "comparisons": [
+        {
+          "id": "904554072/37/0",
+          "gameId": 904554072,
+          "turn": 37,
+          "me": 0,
+          "classification": "historical_v07_regression",
+          "forecastTerminalControl": false,
+          "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+          "nativeReply": 0,
+          "interventions": 0,
+          "offScoreDifference": -2012,
+          "onScoreDifference": -2012,
+          "earnedScoreDelta": 0,
+          "offOutcome": "NONTERMINAL",
+          "onOutcome": "NONTERMINAL",
+          "offSteps": 8,
+          "onSteps": 8,
+          "offFirstPinnedHit": 38,
+          "onFirstPinnedHit": 38,
+          "offSameFinalAsAmple": false,
+          "onSameFinalAsAmple": true,
+          "offOutcomeAmple": "NONTERMINAL",
+          "onOutcomeAmple": "NONTERMINAL",
+          "offOnSameFinalState": false,
+          "scoreSign": "tied",
+          "terminalPair": "NONTERMINAL->NONTERMINAL",
+          "lostOffWin": false,
+          "newOnLoss": false,
+          "lostAmpleOnWin": false,
+          "pinnedHitEarlier": false,
+          "offPreviousRuntimeScore": -2012,
+          "offPreviousRuntimeOutcome": "NONTERMINAL",
+          "offSameFinalAsPreviousRuntime": false,
+          "onPreviousRuntimeScore": -2012,
+          "onPreviousRuntimeOutcome": "NONTERMINAL",
+          "onSameFinalAsPreviousRuntime": false,
+          "lostPreviousRuntimeOnWin": false,
+          "newOnLossVsPreviousRuntime": false
+        },
+        {
+          "id": "904554072/37/0",
+          "gameId": 904554072,
+          "turn": 37,
+          "me": 0,
+          "classification": "historical_v07_regression",
+          "forecastTerminalControl": false,
+          "opponentRegime": "NATIVE_FIXED_PORTFOLIO",
+          "nativeReply": 1,
+          "interventions": 0,
+          "offScoreDifference": -2012,
+          "onScoreDifference": -2012,
+          "earnedScoreDelta": 0,
+          "offOutcome": "NONTERMINAL",
+          "onOutcome": "NONTERMINAL",
+          "offSteps": 8,
+          "onSteps": 8,
+          "offFirstPinnedHit": 38,
+          "onFirstPinnedHit": 38,
+          "offSameFinalAsAmple": true,
+          "onSameFinalAsAmple": true,
+          "offOutcomeAmple": "NONTERMINAL",
+          "onOutcomeAmple": "NONTERMINAL",
+          "offOnSameFinalState": true,
+          "scoreSign": "tied",
+          "terminalPair": "NONTERMINAL->NONTERMINAL",
+          "lostOffWin": false,
+          "newOnLoss": false,
+          "lostAmpleOnWin": false,
+          "pinnedHitEarlier": false,
+          "offPreviousRuntimeScore": -2012,
+          "offPreviousRuntimeOutcome": "NONTERMINAL",
+          "offSameFinalAsPreviousRuntime": false,
+          "onPreviousRuntimeScore": -2012,
+          "onPreviousRuntimeOutcome": "NONTERMINAL",
+          "onSameFinalAsPreviousRuntime": false,
+          "lostPreviousRuntimeOnWin": false,
+          "newOnLossVsPreviousRuntime": false
+        },
+        {
+          "id": "904554072/37/0",
+          "gameId": 904554072,
+          "turn": 37,
+          "me": 0,
+          "classification": "historical_v07_regression",
+          "forecastTerminalControl": false,
+          "opponentRegime": "PURE_WAIT",
+          "nativeReply": -1,
+          "interventions": 0,
+          "offScoreDifference": -2190,
+          "onScoreDifference": -2190,
+          "earnedScoreDelta": 0,
+          "offOutcome": "NONTERMINAL",
+          "onOutcome": "NONTERMINAL",
+          "offSteps": 8,
+          "onSteps": 8,
+          "offFirstPinnedHit": null,
+          "onFirstPinnedHit": null,
+          "offSameFinalAsAmple": true,
+          "onSameFinalAsAmple": true,
+          "offOutcomeAmple": "NONTERMINAL",
+          "onOutcomeAmple": "NONTERMINAL",
+          "offOnSameFinalState": true,
+          "scoreSign": "tied",
+          "terminalPair": "NONTERMINAL->NONTERMINAL",
+          "lostOffWin": false,
+          "newOnLoss": false,
+          "lostAmpleOnWin": false,
+          "pinnedHitEarlier": false,
+          "offPreviousRuntimeScore": -1834,
+          "offPreviousRuntimeOutcome": "NONTERMINAL",
+          "offSameFinalAsPreviousRuntime": false,
+          "onPreviousRuntimeScore": -2012,
+          "onPreviousRuntimeOutcome": "NONTERMINAL",
+          "onSameFinalAsPreviousRuntime": false,
+          "lostPreviousRuntimeOnWin": false,
+          "newOnLossVsPreviousRuntime": false
+        }
+      ],
+      "interventions": []
+    },
+    "versusPreviousRuntime": {
+      "onFinalStatesEqual": 64,
+      "offFinalStatesEqual": 66,
+      "lostOnWins": [],
+      "newOnLosses": [],
+      "cohortDenominator": 144,
+      "terminalRegressionScopeIncludingHistorical": 147
+    },
+    "priorIncompleteOrTimeoutContext": {
+      "nativeCohort": 58,
+      "passiveCohort": 38,
+      "currentNativeCohort": 37,
+      "currentPassiveCohort": 31,
+      "interpretation": "Descriptive separate timed runs, not an isolated speedup estimate"
+    }
+  },
+  "validation": {
+    "reconciliation": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/reconciliation.json",
+      "sha256": "2363b02652002b3729188bde0c8db3374c3586fdde244cfcbd083bf5cd464f63",
+      "bytes": 94465
+    },
+    "allPairAndDecisionDetails": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/reconciliation-details.json",
+      "sha256": "d55a503d2896a401fa1c11d09df2ade557ac24f0fc57526420b5ae6861762fb5",
+      "bytes": 1663786
+    },
+    "independentReview": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/independent-reuse-review.json",
+      "sha256": "1ea113aef2785eec10984c0a10c4f6ab5ef47a7a54a2b0b52943e7cdf34e1f7b",
+      "bytes": 14312
+    },
+    "reconciler": {
+      "path": "build/analysis/v09-deferred-forecast-reuse-v1/reconcile.py",
+      "sha256": "eec0e7561366de5c22cf9e8aa1bbc85d9dc902669ce5a28408966df47db1bc56",
+      "bytes": 13805
+    },
+    "oneFrozenReconcilerExecutionAfterMeasurement": true
+  },
+  "raw": {
+    "parity": {
+      "report.json": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/parity/report.json",
+        "sha256": "6e530275be4a4cb033828fae3a2fd6f6bd17abd57f5183b4553b09769c489c5a",
+        "bytes": 1400
+      },
+      "episodes.jsonl": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/parity/episodes.jsonl",
+        "sha256": "b1a2e64a2b417e7efee6c8f96ca7d7d5a6a5b59a78df93cf15c9a1b9cbb79d4d",
+        "bytes": 4766469
+      },
+      "historical.json": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/parity/historical.json",
+        "sha256": "235d8e08c21e4df4967f8db3a2c9ed700ea21f0fdba36e2aec41906070266946",
+        "bytes": 215292
+      }
+    },
+    "run": {
+      "report.json": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/run/report.json",
+        "sha256": "c681ee4e9d75d8bf192027b9316bdc1f6da0f1f4cacc09ada84e9936c0f2f144",
+        "bytes": 1417
+      },
+      "episodes.jsonl": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/run/episodes.jsonl",
+        "sha256": "886ffc258fa3d69843692b852786678ffb5af6d8f35185c085aa6347d6e7184e",
+        "bytes": 4017540
+      },
+      "historical.json": {
+        "path": "build/analysis/v09-deferred-forecast-reuse-v1/run/historical.json",
+        "sha256": "2f7cd30cabd71a32f555fa83cd9e9ebd72237f068f626fd0d04b5d078b0003ad",
+        "bytes": 176115
+      }
+    }
+  },
+  "caveats": [
+    "The ample panel compares previous enabled and optimized enabled; nominal panel compares disabled and optimized enabled. Keep their meanings separate.",
+    "Exact common diagnostics/actions/state parity is tested on fixed147 conditions; it is not a universal proof or strength estimate.",
+    "Old runtime OFF/ON outcomes are historical context,not new matched control measurements. Host/JIT/scheduling differs between runs.",
+    "OFF precedes ON at36ms; timing-sensitive native decisions can differ without an intervention. Paired scores do not isolate optimization strength.",
+    "Strict process and nominal play-only deadlines are separate; a failure in one cannot be rescued by another.",
+    "Exposed repeated starts and correlated replies; passive and historical remain separate; NONTERMINAL is censored.",
+    "Physical reuse counts count skipped board-copy/refresh operations,not fewer semantic rollout turns or a causal wall-time speedup.",
+    "Required native turn40 remains later than the original due39. It is a valid overdue correction, not an on-time promise or new terminal win.",
+    "Native region33 +41 and passive +50/+47 are bounded earned-score contrasts under real timers, not causal optimization effects or win-rate estimates.",
+    "Native region11 remains uncorrected with bounded score delta-244; every negative pair is retained in raw details.",
+    "The only terminal-label shift LOSS to NONTERMINAL is censored, has no intervention and bounded delta-4; it is not a recovered win.",
+    "The strict56.0151ms timeout and passive99.5029/64.5907ms play outliers are different observations. No causal attribution to supplemental reuse, CPU, GC or IO is supported.",
+    "All six winning control starts are correlated observations from one game. No prior terminal win loss or new terminal loss within this horizon is not a general safety guarantee."
+  ],
+  "archive": {
+    "index": "docs/evidence/v09-deferred-forecast-reuse-v1-artifacts.json",
+    "payload": "docs/evidence/v09-deferred-forecast-reuse-v1-artifacts.zip",
+    "scope": "Relevant source/tests/classes/resources; baseline and exact artifacts; prospective selection and freeze; all raw panels/preflight/logs and independent review. External runtimes and prior archives are hash-pinned; unrelated pduhard/ppo payload excluded."
+  }
+}

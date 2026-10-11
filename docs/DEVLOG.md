@@ -7021,3 +7021,65 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-deferred-commit-runtime-v1.json),
   [archive index](evidence/v09-deferred-commit-runtime-v1-artifacts.json),
   [archive](evidence/v09-deferred-commit-runtime-v1-artifacts.zip).
+
+## 2026-10-11 — v09-deferred-forecast-reuse-v1: exact empty-build path reuse
+
+- User requested accelerating supplemental sabotage forecasts without changing
+  strategy or safety conditions, then checking the required position, winning
+  closures and50ms budget. Preserve693 baseline files from4d8918d and exact old
+  ON/OFF artifacts before edits; predeclare the same57 starts/147 conditions and
+  eight strict process games. One implementation change: supplemental zero-build
+  target selection reads canonical work.state, skipping the redundant copy and
+  path refresh. Positive construction and native forecasts retain their old path.
+  No policy parameters, depth, reply order, guards, memory rules or timers changed;
+  no per-node allocation added. A new diagnostic counts the skipped operations.
+- Correctness:31 focused tests pass on the first preflight; synthetic chooser and
+  full-forecast parity cover both seats, instability levels, empty/nonempty enemy
+  construction, input immutability and root restoration. Update the earlier
+  compaction test to pin its immutable archived108,524-character reference instead
+  of requiring later optimized current source to retain that old hash. This test
+  maintenance preceded all measurements; no production compactor change.
+  Engine292/292 exact; all40 source games plus history reconstruct exactly.
+- Previous enabled versus optimized enabled artifacts, ample budget: all147
+  comparisons and1,140 decisions per arm match exactly, including complete ordered
+  actions, state chains, scores, terminal outcomes, double-bit forecast values,
+  memory, guards and all pre-existing counters. Exclude only time, artifact path
+  and the new reuse counter. Candidate skips9,968 board copy/refresh operations;
+  the same three interventions occur in both arms. SEMANTIC_PARITY_PASSED.
+- Candidate export **98,572/100,000 characters**,1,428 spare, SHA
+  `3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c`.
+  Exact artifact check and submission compilation pass. Default current, disabled,
+  frozen-v09 and saved selected export remain exact; CGRunner14ms margin unchanged.
+- Strict process panel completed once, zero grace, IO diagnostics off,1000/50ms:
+  **PROCESS_FAILED**,7/8 clean. Map904148181/P0/turn33 responds in56.0151ms and
+  times out.508 OK responses, one TIMEOUT;501 later responses median37.7327,
+  p95=38.8172,p99=43.8894ms. First response maximum716.399ms. All four calls
+  completed despite the failure; no retry or causal explanation inferred.
+- Nominal36ms exact exported classes,500ms isolated warm-up and persistent branch
+  memory: **REQUIRED_MECHANISM_OBSERVED**. At907134651/start38/P1, region33 arms
+  due39, waits39 and intervenes40 in32.8008ms, instead of OFF's attack42.
+  W/A/Wr0 all finish, A1084>Wr0 933, no forbidden terminal, full build[288]
+  unchanged.45 redundant refreshes removed on that decision. Eight-turn score
+  difference1074 versus1033 (+41), both nonterminal; this is mechanism evidence,
+  not a causal strength estimate. Previous ON failed Wr0 at40 and attacked42.
+- Two passive interventions also remain valid: r33 at40 in30.1370ms and r11
+  at37 in34.1071ms. Primary88 pairs contain15 positive/14 negative/59 tied score
+  changes; timing-sensitive native choices also differ without any intervention.
+  All eight OFF terminal wins preserved, all six named closing controls exact,
+  no new ON loss. Historical case has no intervention. Original fail-closed
+  behavior remains:37 native ON decisions report incomplete work/timeout.
+  Passive907135435/start59 ON also has two play-wall overruns:99.5029ms at61
+  (native-attack) and64.5907ms at62 (timeout). Both record zero supplemental
+  work/reuse; these measurements do not identify the cause. The lone native
+  terminal-label change,907134258/start86 LOSS(-864) to NONTERMINAL(-868), has
+  no intervention and is censored, not a recovered win.
+- Reconciliation checks147 ample and147 nominal comparisons, every recorded
+  intervention and deadline-memory transition,918 unchanged frozen inputs and693
+  exact baseline copies. One fixed evaluation, no outcome-guided edits or retries.
+  Retain the exact optimization and successful key-position mechanism, but overall
+  50ms readiness remains failed. Flag stays OFF, selected v09 unchanged; no strength
+  or boss games, promotion, arena upload or push. Commit the completed experiment.
+  [Protocol/results](v09-deferred-forecast-reuse-v1.md),
+  [summary](evidence/v09-deferred-forecast-reuse-v1.json),
+  [archive index](evidence/v09-deferred-forecast-reuse-v1-artifacts.json),
+  [archive](evidence/v09-deferred-forecast-reuse-v1-artifacts.zip).

@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed runtime optimization 2026-10-11: **v09-deferred-forecast-reuse-v1**,
+**SEMANTIC_PARITY_PASSED / REQUIRED_MECHANISM_OBSERVED / PROCESS_FAILED**.
+Supplemental forecasts reuse canonical paths only when construction is empty;
+strategy, guards, full construction and14ms margin are unchanged. Previous ON
+versus optimized ON:147 ample comparisons/1,140 decisions per arm match exactly,
+including all old diagnostics;9,968 redundant board refreshes removed.31 focused
+tests pass;292 baseline+40 cohort+1 historical replays exact. Export98,572 chars.
+At nominal36ms, required r33 attack executes at40 instead of42 in32.8008ms,
+with all guards complete and45 refreshes saved. Six closing controls stay exact;
+all eight native wins survive. Strict process panel fails:7/8 clean, one56.0151ms
+timeout at904148181/P0/t33. Keep experiment OFF and selected v09; no retries,
+strength/boss trial, promotion or upload. [Protocol/evidence](v09-deferred-forecast-reuse-v1.md).
+
 Completed packaging/runtime experiment 2026-10-11: **v09-deferred-commit-runtime-v1**,
 same default-off candidate, **PACKAGING_PASSED / PROCESS_FAILED / REQUIRED_MECHANISM_NOT_OBSERVED**.
 Lexical compaction reduces108,524 to98,401 characters (1,599 spare), preserving30,526

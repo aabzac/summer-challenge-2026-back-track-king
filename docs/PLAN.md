@@ -47,6 +47,16 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       Wr0 at40; attack remains42. Two passive interventions, all six winning controls
       exact, no native win lost. Record/archive failures, preserve flag OFF/v09;
       no automatic policy optimization, strength trial, promotion or upload.
+- [x] On the user's follow-up, complete one exact supplemental-forecast optimization
+      [v09-deferred-forecast-reuse-v1](v09-deferred-forecast-reuse-v1.md): reuse
+      canonical paths for empty construction only. Preserve strategy/guards/timers;
+      all147 ample comparisons/1,140 decisions per arm exact,31 focused tests pass,
+      292+40+1 replays exact,98,572-character export within limit.
+- [x] Complete the same fixed eight process games and147 nominal comparisons once.
+      Required r33 correction now executes at40 in32.8008ms, with full construction
+      and all guards; six winning controls exact and eight native wins preserved.
+      Strict50ms readiness still fails: one56.0151ms timeout at904148181/P0/t33.
+      Archive both outcomes and commit; preserve flag OFF/v09, no retry or promotion.
 
 ## Return to v09 — reuse neural proposals (2026-10-11)
 

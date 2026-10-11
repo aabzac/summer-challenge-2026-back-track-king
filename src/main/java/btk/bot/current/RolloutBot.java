@@ -94,6 +94,7 @@ public final class RolloutBot implements Bot {
     public String deadlineStatus = "disabled";
     public int deadlineNativeTarget = -1, deadlineNativeCount, deadlineRoot = -1, deadlineNominee = -1;
     public int deadlineReplies, deadlineInterventionTarget = -1, deadlineExtraTurns;
+    public int deadlineReusedBoards;
     public int deadlineCommittedTarget = -1, deadlineCommittedDue = -1;
     public int deadlineWCompleted, deadlineACompleted, deadlineWr0Completed;
     public boolean deadlineChanged;
@@ -401,6 +402,7 @@ public final class RolloutBot implements Bot {
         deadlineNativeTarget = deadlineRoot = deadlineNominee = deadlineInterventionTarget = -1;
         deadlineCommittedTarget = deadlineCommittedDue = -1;
         deadlineNativeCount = deadlineReplies = deadlineExtraTurns = 0;
+        deadlineReusedBoards = 0;
         deadlineWCompleted = deadlineACompleted = deadlineWr0Completed = 0;
         deadlineChanged = false;
         Arrays.fill(deadlineNativeCells, -1);
@@ -1157,10 +1159,18 @@ public final class RolloutBot implements Bot {
                                 spreadQuota[root], moves[player]);
                         if (packedBoth) spreadBuildTurns++;
                     } else moveCounts[player] = fillBuild(s, player, first, moves[player]);
+                    // MISSED_DEADLINE_BEGIN
+                    if (deadlineProbeActive && moveCounts[player] == 0) {
+                        // The resolved pre-turn board already has the same canonical paths.
+                        deadlineReusedBoards++;
+                        targets[player] = chooseTarget(s, player);
+                    } else {
+                    // MISSED_DEADLINE_END
                     targetBoard.set(s);
                     placeOwn(targetBoard, player, moves[player], moveCounts[player]);
                     targets[player] = chooseTarget(targetBoard.state, player);
                     // MISSED_DEADLINE_BEGIN
+                    }
                     if (deadlineProbeActive && player == me && targets[player] == deadlineSuppressedRegion)
                         targets[player] = -1;
                     // MISSED_DEADLINE_END
