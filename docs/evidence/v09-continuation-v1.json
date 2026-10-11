@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "kind": "v09-continuation-v1",
+  "complete": true,
+  "verdict": "DIAGNOSIS_COMPLETE_NEXT_HYPOTHESIS_SELECTED",
+  "policyChanged": false,
+  "strengthTrial": false,
+  "newGames": 0,
+  "selectedBot": "v09",
+  "spec": "v09?NOISE=0",
+  "ampleMs": 60000,
+  "cohort": {
+    "games": 40,
+    "wins": 15,
+    "losses": 25,
+    "draws": 0,
+    "seat0": 20,
+    "seat1": 20,
+    "firstCompleted": "2026-10-04T12:05:09.419691+00:00",
+    "lastCompleted": "2026-10-04T12:28:12.164229+00:00",
+    "turns": 2936
+  },
+  "sourceAudit": {
+    "path": "docs/evidence/neural-v7-control-boss.json",
+    "sha256": "bad756d65fbc1cb8d02f29e94b777bc2eae06cf0ea21a4977629dc48c1325981"
+  },
+  "sourcePlan": {
+    "path": "build/cg-boss/neural-v7-v09-fresh-control-40/plan.json",
+    "sha256": "3bb6635489d3b6fad417678afa14018bff6fa0422f8132d992d6a5e4e4816774",
+    "planId": "d2240d38b8804b7048b16a9d181274ab8d0e5b81ace6aadec42f4384dedde052",
+    "createdAt": "2026-10-04T11:59:20.256283+00:00"
+  },
+  "sourceBuild": {
+    "strategy": "v09",
+    "buildId": "b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2",
+    "sourceSha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+    "configSha256": "fb58180584ec9d79938e4332861e5d3c018fb7333a5ecf4ecc3ce6494ee1830a",
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v7\\preserved-v09"
+  },
+  "primaryCounts": {
+    "states": 2936,
+    "emptyOwnPortfolio": 1155,
+    "recordedFullWait": 83,
+    "ampleFullWait": 78,
+    "recordedAndAmpleDeferredWait": 5,
+    "deferredEmittedWait": 5,
+    "qualifiesReplannedProbe": 0,
+    "closureRegions": 708,
+    "guaranteedWinningRegions": 10,
+    "omittedWinningRegions": 3,
+    "conditionalJointWinningRegions": 25,
+    "statesWithGuaranteedWin": 10,
+    "statesWithOmittedWinningRegion": 3,
+    "statesMissedGuaranteedByActual": 3,
+    "statesMissedGuaranteedByAmple": 3,
+    "statesMissedImmediateWinByActualVsRecorded": 0,
+    "statesMissedImmediateWinByAmpleVsRecorded": 0,
+    "winningOpportunityButActualAlreadyWins": 10,
+    "winningOpportunityButAmpleAlreadyWins": 10,
+    "statesWithOracleClosingWin": 17,
+    "statesMissedOracleClosingWinByAmple": 3,
+    "emptyPortfolioWithNominatedAttack": 967,
+    "nativeWaitPreferred": 137,
+    "waitPromisesLaterAttack": 956,
+    "noPromiseReversesPreference": 470,
+    "passiveOpponentPrefersAttack": 494,
+    "recordedWaitEpisodes": 15,
+    "games_deferredEmittedWait": 1,
+    "games_qualifiesReplannedProbe": 0,
+    "games_statesWithGuaranteedWin": 10,
+    "games_statesWithOmittedWinningRegion": 3,
+    "games_statesMissedGuaranteedByActual": 3,
+    "games_statesMissedGuaranteedByAmple": 3,
+    "games_statesMissedImmediateWinByActualVsRecorded": 0,
+    "games_statesMissedImmediateWinByAmpleVsRecorded": 0,
+    "games_statesWithOracleClosingWin": 14,
+    "games_statesMissedOracleClosingWinByAmple": 3,
+    "deferredEpisodes": 1
+  },
+  "primaryInterpretation": {
+    "fullWait": "Five positions, one episode/game; zero no-future-sabotage preference reversals and zero qualifying replanning starts.",
+    "closures": "Ten guaranteed one-hit winning opportunities in ten games; three omitted native shortlists; every actual and ample baseline already wins against the recorded reply. Zero missed realized immediate wins.",
+    "oracle": "Three missed earlier cooperative closures, each in an already won game; depends on recorded same-region boss hit, fails against WAIT.",
+    "noPromiseReversesPreferenceWarning": "Raw count470 is not470 reversals of a native WAIT preference: many already preferred attack."
+  },
+  "exploratorySubgroup": {
+    "predeclared": false,
+    "newEvaluations": 0,
+    "selection": "Empty own route portfolio, complete ample action omits disruption, raw WAIT beats raw attack, suppression of future own sabotage reverses that pairwise preference.",
+    "positions": 39,
+    "games": 15,
+    "contiguousSameTargetEpisodes": 27,
+    "recordedAlsoNoDisruptionPositions": 18,
+    "recordedAlsoNoDisruptionGames": 8,
+    "recordedConstructionNoDisruptionPositions": 17,
+    "passiveOpponentAttackPreferredPositions": 31,
+    "passiveOpponentAttackPreferredGames": 15,
+    "fullConstructionTargetUnchangedPositions": 39,
+    "usefulWaitingCounterexample": {
+      "gameId": 907134720,
+      "seat": 1,
+      "turns": [
+        46,
+        47,
+        49,
+        50,
+        51,
+        52
+      ],
+      "finding": "Native WAIT forecasts terminal win; removing future sabotage destroys that value. Immediate attack is nonterminal. Million-unit gaps include terminal bonuses."
+    },
+    "limitations": [
+      "Full emitted construction was not inserted into these raw-root forecasts.",
+      "Selected native raw-root id is not recorded; some full actions can come from a network root.",
+      "Pairwise reversal does not establish the best action across every root or a won game.",
+      "No expanded receding-horizon run was made after these subgroup results."
+    ]
+  },
+  "historical": {
+    "gameId": 904554072,
+    "turn": 37,
+    "seat": 0,
+    "sourcePolicy": "v07",
+    "evaluatedPolicy": "v09?NOISE=0",
+    "cohortMember": false,
+    "nativeAttack": -2044,
+    "nativeWait": -2012,
+    "noFutureSabotageWait": -2457,
+    "passiveOpponentAttack": -1656,
+    "passiveOpponentWait": -1745,
+    "fullAction": "Three construction cells, no disruption; not full WAIT",
+    "eightStepReplans": "Identical actions, final938:3128, nonterminal"
+  },
+  "nextHypothesis": {
+    "name": "Construction-preserving evaluation of deferred sabotage with an empty own portfolio",
+    "status": "SELECTED_NOT_IMPLEMENTED",
+    "requiredFirstStep": "Separately declared full-action comparisons, native root/fill provenance, bounded replanning and terminal-win controls.",
+    "candidateCondition": "Only after full-action mechanism is supported; one default-off Params change, unchanged v09 on ties/incomplete/deadline.",
+    "strengthPolicy": "Practical-v4 fresh disjoint maps300/+200/+500; cache validity/refresh before exactly40 new boss candidate games; exact-artifact checks."
+  },
+  "verification": {
+    "focusedTests": 17,
+    "engineBaselineExact": 292,
+    "engineCohortExact": 40,
+    "engineHistoricalExact": 1,
+    "frozenFilesUnchangedAtPanelEnd": 665,
+    "nativeTraceParity": "All baseline scalars and final core states checked against frozen private rollout",
+    "reviews": "Independent source/provenance/raw-result reviews",
+    "snapshot": {
+      "path": "build/analysis/v09-continuation-v1/snapshot-before.json",
+      "sha256": "4bcc8dc27cc16c0a19cbb2011fcebae7f765b3e34500a0bc2f1f92bce4c41fd3",
+      "bytes": 139983
+    },
+    "preflight": {
+      "path": "build/analysis/v09-continuation-v1/preflight.json",
+      "sha256": "9472b3bdb77dce3c41bb2eff98eb1dddac6a412449ac76daab8a857759310b1a",
+      "bytes": 1693
+    },
+    "reconciliation": {
+      "path": "build/analysis/v09-continuation-v1/reconciliation.json",
+      "sha256": "0ada0ce32ae2af3dbb8d9b76540c706be173cb41421de3bbd0b60e62456cf4a2",
+      "bytes": 31505
+    },
+    "corrections": "One pre-panel seed-format fix; one postprocessing key correction; no panel retries"
+  },
+  "limitations": [
+    "Exposed historical development maps and correlated states; no held-out strength estimate.",
+    "Ample deterministic action differs from historical timed/noisy action.",
+    "Recorded opponent actions enter explicitly labelled oracle checks only.",
+    "Exploratory raw-root values omit full emitted construction and selected-root provenance.",
+    "No observed recovered win does not prove every closure guard or continuation improvement useless."
+  ],
+  "artifacts": {
+    "report": {
+      "path": "build/analysis/v09-continuation-v1/run/report.json",
+      "sha256": "02cf7998d2d924f2fa00d742f43c8a9964810a69375c6401ac58b904c0cee5c7",
+      "bytes": 69797
+    },
+    "positions": {
+      "path": "build/analysis/v09-continuation-v1/run/positions.jsonl",
+      "sha256": "cfe097d6ca2160e845c7003624cd72859eee3e12399d60054cb732c01a517177",
+      "bytes": 23233557
+    },
+    "historical": {
+      "path": "build/analysis/v09-continuation-v1/run/historical.json",
+      "sha256": "548f26a3f7e58fca5516fe017adb3b211e5b1e3c403725af24c3727e557e9e5d",
+      "bytes": 135942
+    },
+    "episodes": {
+      "path": "build/analysis/v09-continuation-v1/run/episodes.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    }
+  },
+  "archive": "docs/evidence/v09-continuation-v1-artifacts.zip"
+}

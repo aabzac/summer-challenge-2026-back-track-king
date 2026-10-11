@@ -3,6 +3,22 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 continuation diagnosis (2026-10-11)
+
+- [x] Complete [v09-continuation-v1](v09-continuation-v1.md): all40 saved v09 games,
+      2,936 positions. Five deferred full-WAIT states in one episode; removing
+      future sabotage changes none. Ten ready winning cuts, three absent from
+      native shortlists, but all baseline actions already win against the recorded
+      reply. No recovered win; selected v09 unchanged.
+- [x] Verify17 focused tests, 292 baseline +40 cohort +1 historical replays exact,
+      native trace parity and665 unchanged frozen files. Retain complete evidence.
+- [x] Select one next hypothesis: construction-preserving evaluation of deferred
+      sabotage on an empty own portfolio. Exploratory raw-root signal39states/
+      15games, including native-model delayed-terminal-win counterexamples.
+- [ ] Separately declare a full-action/replanning preflight of that hypothesis,
+      with native root/fill provenance and terminal controls, before any default-off
+      candidate or practical-v4 strength trial. Not launched by this diagnostic.
+
 ## Return to v09 — reuse neural proposals (2026-10-11)
 
 - [x] Complete [neural-proposal-audit-v1](neural-proposal-audit-v1.md) on a fixed

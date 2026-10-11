@@ -333,6 +333,17 @@ tasks.register<JavaExec>("rolloutRiskPolicyCheck") {
         prop("out", "build/analysis/rollout-risk-v1/policy-check.json"))
 }
 
+tasks.register<JavaExec>("v09ContinuationStudy") {
+    group = "diagnostics"
+    description = "Audit deferred sabotage and missed closures on the fixed 40-game v09 cohort"
+    dependsOn("classes")
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("btk.tools.V09ContinuationStudy")
+    args = listOf(prop("audit", "docs/evidence/neural-v7-control-boss.json"),
+        prop("out", "build/analysis/v09-continuation-v1/run"),
+        prop("historical", "replays/cg/boss/904554072.json"))
+}
+
 tasks.register<JavaExec>("rolloutFillStudy") {
     group = "diagnostics"
     description = "Audit first-turn leftover fill in the existing rollout on saved development states"

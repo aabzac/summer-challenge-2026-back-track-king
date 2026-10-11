@@ -6812,3 +6812,51 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/neural-target-strength-v1.json),
   [archive index](evidence/neural-target-strength-v1-artifacts.json),
   [archive](evidence/neural-target-strength-v1-artifacts.zip).
+
+## 2026-10-11 — v09-continuation-v1: diagnose postponement and closing cuts
+
+- User requested diagnosis and selection of one future improvement. Declared a
+  fixed offline panel before measurement: all40 games from the retained Oct4 v09
+  control,20 per seat,15W/25L,2,936 live positions. Historical v07 game904554072/t37
+  is separate. Verify source provenance; no filtering by losses or outcomes.
+- Tools-only probes use frozen v09?NOISE=0 and ample60000ms. Retain complete live
+  and ample actions, native raw roots, exact rollout traces, isolated suppression
+  of future own sabotage and independent pure-WAIT opponent comparisons. Core
+  alone resolves rules; exhaustive closure scan includes simultaneous double hits
+  and separately labelled recorded-opponent oracle cuts of different regions.
+- Primary sabotage hypothesis is not supported for emitted full WAIT: five states
+  in game907134780/t87–91, zero preference reversals under no-future-sabotage.
+  Attack forecasts a losing closure, WAIT stays nonterminal. No cohort state
+  qualifies for the declared bounded replanning probe. Historical raw values
+  reproduce the mismatch (attack−2044,WAIT−2012,no-future−2457), but v09 emits
+  construction, so both eight-step diagnostic branches keep identical actions.
+- Closure result:708 position/region cuts,10 guaranteed one-hit winning states,
+  three omissions from every native raw shortlist. At each omission the recorded
+  boss already supplies the winning fourth hit. All10 recorded/ample baselines
+  already win that turn: zero missed realized immediate wins. Three preceding
+  oracle opportunities require cooperation and merely close already-won games
+  earlier. Tests demonstrate the guard's general correctness, not strength gain.
+- Post-panel read-only subgroup:39states/15games/27 same-target episodes with
+  empty own portfolio, construction and no attack, where suppressing future own
+  sabotage flips the raw pairwise choice.18states/8games also omit the live attack.
+  All39 targets remain nominated after full construction, but raw selected-root
+  identity is missing and trace values omit final fill. Six rows in winning game
+  907134720 forecast a delayed terminal win under the native model; removing it
+  can erase that continuation. Utility bonuses are not recovered score points.
+- Decision: select construction-preserving sabotage-deferral evaluation as one
+  next hypothesis. First separately declare full-action comparisons and bounded
+  replanning with terminal controls; only then consider one default-off candidate
+  and the practical-v4 gate. No forced-sabotage policy is justified here. Keep v09;
+  closure guard remains a lower-priority robustness option. No new games, candidate
+  submission, upload, promotion or push; the selected follow-up was not launched.
+- Verification:17 focused tests pass;292 baseline+40 cohort+1 historical replays
+  exact; native scalar/full-state rollout parity;665 frozen sources/classes/
+  inputs/runtime files unchanged. Independent source/provenance/result reviews.
+  Seed-format comparison corrected before measurement. Reconciliation initially
+  used a wrong JSON field name, corrected once with postprocessing only; no panel
+  retry or outcome-guided sample expansion. Complete raw evidence retained and
+  completed diagnostic committed locally under the repository agreement.
+  [Protocol/results](v09-continuation-v1.md),
+  [summary](evidence/v09-continuation-v1.json),
+  [archive index](evidence/v09-continuation-v1-artifacts.json),
+  [archive](evidence/v09-continuation-v1-artifacts.zip).

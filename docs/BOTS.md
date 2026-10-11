@@ -13,6 +13,17 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed diagnostic 2026-10-11: **v09-continuation-v1**, no new bot or strength
+trial. Fixed full40-game v09 cohort,2,936states: five full-WAIT deferred states in
+one episode, zero qualifying changes after removing future own sabotage. Ten
+guaranteed winning cuts, three native shortlist omissions, but all original
+actions already win against the recorded reply; zero recovered immediate wins.
+Exploratory construction/no-sabotage subgroup39states/15games supports selecting
+a construction-preserving full-action preflight, not forced attacks; raw forecasts
+omit final fill and include delayed terminal wins forecast by the native model.17 tests,292+40+1
+exact replay validations,665 frozen files unchanged. Keep v09; follow-up selected
+but not implemented. [Protocol/evidence](v09-continuation-v1.md).
+
 Completed local strength experiment 2026-10-11: **neural-target-strength-v1**,
 `current?USE_NEURAL_TARGET_PROPOSAL=1`, **STOP_FUTILITY_300 / REJECTED**.
 At the user's request, source packaging was deferred. One frozen neural target

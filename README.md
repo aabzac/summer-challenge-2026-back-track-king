@@ -43,12 +43,18 @@ gradlew replyStudy -Pmode=capture               # fixed 24-game local diagnostic
 gradlew replyStudy -Pmode=analyze               # shared-state reply/ranking/time audit, no strategy change
 gradlew jointReplyStudy                        # joint first-build/own-sabotage audit on the SAME saved sample
 gradlew jointActionCheck                       # serial cost check of opt-in joint search on saved states
+gradlew v09ContinuationStudy -Pout=build/analysis/v09-continuation-v1/new-run # fixed 40-game continuation/closure diagnostic
 ```
 
 On PowerShell quote properties containing dots or `?`: `gradlew cgValidate "-Ppath=replays/cg/903184412.json"`,
 `gradlew bench "-Pbot1=current?NOISE=0.2,ROLLOUT_WIDTH=4" -Pbot2=v02`. Use `,` (not `&`) between params —
 cmd.exe swallows `&`. Bench two deterministic clones with different `SEED`/`NOISE`, otherwise they
 mirror each other and every game is a draw.
+
+The completed [v09 continuation diagnostic](docs/v09-continuation-v1.md) covers
+all 2,936 states from 40 saved games: no qualifying full-WAIT correction and no
+recovered closing win. The selected follow-up checks omitted sabotage while
+preserving complete construction; it has not changed selected v09.
 
 ## Pieces
 
