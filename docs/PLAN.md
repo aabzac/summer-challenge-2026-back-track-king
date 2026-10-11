@@ -26,6 +26,17 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       Module median 1.30 ms /p95 6.20 ms; fits remaining v09 time on 22/51 states.
       Stop this direct-reuse prototype. Integrated E/D adapter, candidate artifact
       and strength evaluation were not reached; no automatic follow-on or promotion.
+- [x] On the user's separate strength-first request, defer source size and complete
+      [neural-target-strength-v1](neural-target-strength-v1.md): one local v09 wrapper,
+      frozen neural target, unchanged construction, paired complete E/D comparison
+      and deadline fallback. 102 unique focused tests pass after one test-fixture
+      correction; 292/292 engine replays exact; default artifact byte-identical.
+- [x] Run the fixed practical-v4 local sequence: **129W154L17D/300 (45.83%)**,
+      **STOP_FUTILITY_300**, 150 fresh paired maps, two workers, zero bot errors.
+      7,146 comparisons complete; 754/24,871 turns change target. All 2,636 frozen
+      files and seven runtimes unchanged. Retain evidence and reject this candidate;
+      blocks2/3, source packaging, candidate process and boss checks are not pursued.
+      Keep v09; this does not prove that every possible neural hybrid is weaker.
 
 This direction does not complete the unresolved original spatial stages below.
 

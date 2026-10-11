@@ -13,6 +13,9 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
+    /** Local strength prototype only; FileMerger refuses this option until packaging is implemented. */
+    public boolean USE_NEURAL_TARGET_PROPOSAL = false;
+
     /** Spatial PPO v1 only; historical/default artifacts omit this independent policy field. */
     public int SPATIAL_RESERVE_MS = 2;
 

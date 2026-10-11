@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "neural-target-strength-v1-block3",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 231211000,
+  "pairs": 250
+}

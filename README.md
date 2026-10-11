@@ -216,6 +216,13 @@ all 49,735 feature values bitwise. Direct reuse stops at the source-size gate:
 only 22/51 saved states leave enough time after v09 for the module alone. No hybrid
 candidate or strength run; v09 remains selected. [Results](docs/neural-target-feasibility-v1.md).
 
+The user-authorized follow-up `neural-target-strength-v1` deferred source packaging
+and tested the integrated target-only hybrid locally at normal CG search budgets.
+Against v09: **129W154L17D/300, 45.83%**, **STOP_FUTILITY_300** on 150 fresh paired
+maps, zero bot errors. The module completed 7,146 E/D comparisons and changed 754
+of 24,871 turns (3.03%). This candidate is rejected; v09 stays selected. No further
+blocks, size work or boss games. [Protocol and results](docs/neural-target-strength-v1.md).
+
 
 An independent outcome-trained candidate, `indrill-q-v1`, implements a compact version of
 [Indrill's forum approach](docs/indrill-q-v1.md): risk-aware Best/Good/Path observations, a

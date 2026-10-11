@@ -103,6 +103,8 @@ public class FileMerger {
 
     static String merge(String version) throws IOException {
         String spec = version;
+        if (BotFactory.parameters(spec).USE_NEURAL_TARGET_PROPOSAL)
+            throw new IllegalArgumentException("USE_NEURAL_TARGET_PROPOSAL is local-only: candidate packaging and process checks are deferred");
         int queryAt = version.indexOf('?');
         if (queryAt >= 0) version = version.substring(0, queryAt);
         boolean neuralV2 = version.equals("neural-v2");
@@ -204,6 +206,7 @@ public class FileMerger {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             for (String line : Files.readAllLines(file)) {
+                if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
                 if (!spatialV8 && file.endsWith("Params.java")

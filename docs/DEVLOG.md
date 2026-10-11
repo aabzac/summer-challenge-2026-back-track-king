@@ -6776,3 +6776,39 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/neural-target-feasibility-v1.json),
   [archive index](evidence/neural-target-feasibility-v1-artifacts.json),
   [archive](evidence/neural-target-feasibility-v1-artifacts.zip).
+
+## 2026-10-11 — neural-target-strength-v1: local target hybrid rejected
+
+- User explicitly requested strength first and postponing the source-size limit.
+  Hypothesis: one frozen neural disruption proposal can improve v09 while keeping
+  its full emitted construction, ordinary search and deadline fallback intact.
+  No training, feature change, extra time, compression or automatic boss stage.
+- Implemented one default-off Params flag and a local tools-only wrapper around
+  unchanged current RolloutBot. E and D use the same full construction, retained
+  route0 continuation, opponent replies, depth and robust aggregation. Accept only
+  a finite complete strict improvement before the deadline; record actual target.
+  BotFactory selects the local wrapper; FileMerger rejects enabled export, and
+  flag-off configuration/source remains byte-identical to the prior fresh default.
+- Verification:102 unique focused tests pass. The initial run had one incorrect
+  protected-opening fixture (town regions had no buildable neighbours); corrected
+  the test only and reran its eight tests successfully. Original logs/XML retained.
+  Engine292/292 exact; independent source/test review;2,636 frozen files plus seven
+  runtime/dependency files unchanged. No core or frozen policy changes.
+- Fixed practical-v4 first block vs v09: **129W154L17D/300 (45.8333%)**,
+  **STOP_FUTILITY_300**.150 fresh paired maps, seeds231011000..231011149, two workers,
+  nominal486/36ms budgets; all22,744 prior/development/saved-CG maps excluded.
+  Zero bot errors. Native slow calls2/5, max56/77ms; not a strict process pass.
+- Mechanism:24,871 turns,15,312 eligible,15,305 proposal attempts,7,301 same-target,
+  248 feature cutoffs,7,146 complete E/D comparisons,610 comparison cutoffs and
+  **754 target changes (3.03%)**. Zero invalid/nonfinite proposals/comparisons.
+  The module ran and changed decisions; this fixed integration did not improve
+  measured strength. Per-change causal value and other possible hybrids remain unknown.
+- Decision: reject this candidate, retain selected v09. Registered blocks2/3 were
+  not played. Packaging, exact candidate process and boss checks were not reached;
+  source size was not the stop reason. No retries, tuning, upload, promotion or push.
+  Archive the completed negative experiment and commit locally; no automatic next
+  experiment. Original spatial stages3–5 remain unresolved.
+  [Protocol/results](neural-target-strength-v1.md),
+  [summary](evidence/neural-target-strength-v1.json),
+  [archive index](evidence/neural-target-strength-v1-artifacts.json),
+  [archive](evidence/neural-target-strength-v1-artifacts.zip).

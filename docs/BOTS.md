@@ -13,6 +13,20 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed local strength experiment 2026-10-11: **neural-target-strength-v1**,
+`current?USE_NEURAL_TARGET_PROPOSAL=1`, **STOP_FUTILITY_300 / REJECTED**.
+At the user's request, source packaging was deferred. One frozen neural target
+is compared against the original target with the complete unchanged v09 build,
+equal rollout context and deadline fallback. **129W154L17D/300 = 45.83%** versus
+v09 on 150 fresh paired maps; CG search budgets, two workers, zero bot errors.
+7,146 E/D comparisons complete, 754/24,871 turns change target (3.03%). Native
+slow calls2/5 and maxima56/77ms are not strict process validation. 102 unique
+focused tests pass after one fixture correction, 292 exact engine replays,
+2,636 files +7 runtimes verified; default source remains byte-identical.
+No further blocks, candidate artifact, boss games, upload or promotion; v09 stays.
+[Protocol/evidence](neural-target-strength-v1.md). The previous feasibility verdict
+below remains historical; this separate experiment explicitly waived its size stop.
+
 Completed feasibility experiment 2026-10-11: **neural-target-feasibility-v1**,
 **STOP_DIRECT_PORT_SIZE**. Isolated deterministic frozen-V3 target module matches
 49,735 feature values bitwise on 51 states/1,715 candidates. Its direct addition

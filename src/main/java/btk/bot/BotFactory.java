@@ -57,6 +57,8 @@ public final class BotFactory {
     public static Bot create(String spec) {
         String version = version(spec);
         Params params = parameters(spec);
+        if (version.equals("current") && params.USE_NEURAL_TARGET_PROPOSAL)
+            return new btk.tools.target.TargetHybridBot(params);
         Bot bot = version.startsWith("exp-") ? BotCatalog.createExperiment(spec) : lookup(version).apply(params);
         if (!version.startsWith("exp-")) return bot;
         // Preserve a named preset in generic referee replays without touching strategy classes.
@@ -93,7 +95,10 @@ public final class BotFactory {
                 || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("neural-v6") || version.equals("neural-v7")
                 || version.equals("indrill-q-v1")
                 || version.equals("indrill-q-v2") || spatialVersion(version)) FrozenParams.applyTo(version, params);
-        return params.apply(query);
+        params.apply(query);
+        if (params.USE_NEURAL_TARGET_PROPOSAL && !version.equals("current"))
+            throw new IllegalArgumentException("Neural target proposal is a local current-only experiment");
+        return params;
     }
 
     /** Full resolved configuration, independent of Params.diff() and future current defaults. */
@@ -103,6 +108,7 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
+                if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")
                         || field.getName().equals("SPATIAL_V8_DEPTH")) && !version(spec).equals("spatial-ppo-v8")) continue;
