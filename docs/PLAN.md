@@ -37,6 +37,16 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       enabled candidate108,524 exceeds100,000, SOURCE_SIZE_BLOCKED. Keep flag OFF,
       retain evidence and commit locally; no automatic compression, strength trial,
       candidate process check, boss games, promotion or upload.
+- [x] On the user's follow-up, complete packaging-only
+      [v09-deferred-commit-runtime-v1](v09-deferred-commit-runtime-v1.md):108,524
+      to98,401 characters, identical normalized tokens/all24 executable classes;
+      default and frozen exports unchanged.83 focused tests,292 exact replays.
+- [x] Run the fixed strict eight-game process check and all57 old starts/147
+      paired nominal36ms episodes once. Packaging passes; runtime readiness fails
+      (one51.0289ms timeout). Required native r33 intervention is lost to unfinished
+      Wr0 at40; attack remains42. Two passive interventions, all six winning controls
+      exact, no native win lost. Record/archive failures, preserve flag OFF/v09;
+      no automatic policy optimization, strength trial, promotion or upload.
 
 ## Return to v09 — reuse neural proposals (2026-10-11)
 

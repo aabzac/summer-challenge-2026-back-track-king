@@ -6969,3 +6969,55 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-deferred-commit-v1.json),
   [archive index](evidence/v09-deferred-commit-v1-artifacts.json),
   [archive](evidence/v09-deferred-commit-v1-artifacts.zip).
+
+## 2026-10-11 — v09-deferred-commit-runtime-v1: lexical packaging and fixed timing check
+
+- User requested fitting the enabled candidate below100,000 characters without
+  changing strategy, then checking the50ms budget. Preserved the oversized reference
+  from863e8c0 before edits. One packaging change only: candidate-specific lexical
+  comment/whitespace removal in FileMerger, with literal/operator boundary guards.
+  Current policy, Params, core, CGRunner and frozen bots are unchanged;14ms margin
+  and default-off experiment selection stay intact.
+- **PACKAGING_PASSED:**108,524 ->98,401 characters,10,123 saved,1,599 spare.
+  Reference SHAda4487e5...e0c56; compact artifact SHA52bc192d...0d7e4.
+  Normalize only the unique build marker and compiler debug positions:30,526 raw
+  tokens and all24 Java17 `-g:none` class files are identical. Ordinary/default,
+  disabled and frozen exports retain their bytes. Actual ON/OFF submission sources,
+  manifests and classes were built separately and verified against current source;
+  saved build/submit was preserved.
+- Preflight:83 unique focused tests pass. Initial83-test run had one Unicode test
+  fixture encoding failure under the project's Windows compiler encoding; replaced
+  the fixture's literal lambda with an encoding-independent character construction.
+  Repeated those four tests, all pass; production compactor unchanged. All initial
+  and repair logs retained. Engine292/292 exact, plus40 cohort+1 historical replay
+  reconstructions exact in the nominal panel. All edits preceded measured outcomes.
+- Prospective fixed strict process panel: four established maps, both seats,
+  eight games once, v09 opponent,1000/50ms deadlines, zero grace, diagnostics off.
+  **PROCESS_FAILED:**7 clean games and one timeout at904147739/P1/t54,
+  response51.0289ms.633 OK responses and1 TIMEOUT;626 later responses median37.4157,
+  p95=38.6627,p99=39.9812ms. First-turn maximum664.3543ms. No retry/filtering;
+  this single local panel neither identifies the overrun's cause nor guarantees CG timing.
+- Then exact exported classes on the original56+1 starts,147 OFF/ON pairs,
+  fresh persistent memory per branch,500ms disposable warmup,36ms per play call.
+  State copying/formatting/IO excluded; distinct from the strict process check.
+  **REQUIRED_MECHANISM_NOT_OBSERVED:** zero interventions in88 native pairs.
+  Required907134651/start38/P1 r33 arms due39, waits39, but at40 Wr0 is unfinished
+  (36.0587ms), so fail-closed memory clears. Attack stays42; both OFF/ON end1026
+  instead of ample ON1071. There are58 incomplete/timeout native ON decisions.
+- Two valid passive-only interventions: r33 at40 (34.548ms) and r11 at37
+  (35.5159ms). Both preserve complete construction and all overdue/terminal/reply
+  guards. Passive score changes are not causal-strength estimates: timed OFF/ON
+  searches can differ even without intervention. All six winning closure controls
+  remain exact to ample; all eight native OFF wins are preserved, no new ON loss.
+  Historical case has no intervention. No strategy recipe or safety relaxation
+  followed these outcomes.
+- Reconciliation verifies all147 comparisons,927 frozen inputs,629 preserved
+  baseline files, strict deadline memory and guard invariants. Keep the successful
+  packaging change and retain the failed runtime experiment locally. Candidate is
+  still default-off and not ready for promotion. No strength/boss games, upload or
+  push. A later optimization would need a separate declared experiment focused on
+  completing the supplemental forecasts while retaining the existing decisions.
+  [Protocol/results](v09-deferred-commit-runtime-v1.md),
+  [summary](evidence/v09-deferred-commit-runtime-v1.json),
+  [archive index](evidence/v09-deferred-commit-runtime-v1-artifacts.json),
+  [archive](evidence/v09-deferred-commit-runtime-v1-artifacts.zip).

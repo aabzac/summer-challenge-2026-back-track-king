@@ -13,6 +13,20 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed packaging/runtime experiment 2026-10-11: **v09-deferred-commit-runtime-v1**,
+same default-off candidate, **PACKAGING_PASSED / PROCESS_FAILED / REQUIRED_MECHANISM_NOT_OBSERVED**.
+Lexical compaction reduces108,524 to98,401 characters (1,599 spare), preserving30,526
+normalized Java tokens and all24 Java17 `-g:none` classes. Strategy and14ms margin
+unchanged.83 focused tests pass;292 engine replays exact. Strict eight-game process
+panel:7 clean, one51.0289ms timeout at904147739/P1/t54. Exact exported classes on
+57 old starts/147 paired nominal36ms episodes: zero native interventions; required
+region33 correction runs out during Wr0 at40 and still attacks42, losing the ample
+benefit. Two passive-only interventions preserve guards/build; all six closing
+controls remain exact and eight native wins preserved.927 frozen inputs and629
+baseline copies verified. Timing-limited OFF/ON score differences are not strength
+evidence. Keep flag OFF and selected v09; no retry, tuning, promotion or upload.
+[Protocol/evidence](v09-deferred-commit-runtime-v1.md).
+
 Completed local correction screen 2026-10-11: **v09-deferred-commit-v1**,
 `current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true` (default OFF), **LOCAL_SCREEN_PASSED /
 SOURCE_SIZE_BLOCKED**. Same full construction, immutable missed deadline,

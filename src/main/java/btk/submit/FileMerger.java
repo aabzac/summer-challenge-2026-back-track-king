@@ -102,6 +102,15 @@ public class FileMerger {
     }
 
     static String merge(String version) throws IOException {
+        return merge(version, true);
+    }
+
+    /** Verification reference: preserves the enabled policy's source before lexical packaging. */
+    static String mergeUncompressed(String version) throws IOException {
+        return merge(version, false);
+    }
+
+    private static String merge(String version, boolean compactCandidate) throws IOException {
         String spec = version;
         if (BotFactory.parameters(spec).USE_NEURAL_TARGET_PROPOSAL)
             throw new IllegalArgumentException("USE_NEURAL_TARGET_PROPOSAL is local-only: candidate packaging and process checks are deferred");
@@ -373,6 +382,15 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
+        if (compactCandidate && version.equals("current") && missedDeadline) {
+            normalized = JavaSourceCompactor.compact(normalized);
+            String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
+            if (normalized.indexOf(compactMarker) < 0
+                    || normalized.indexOf(compactMarker) != normalized.lastIndexOf(compactMarker))
+                throw new IllegalStateException("Expected exactly one compact empty marker declaration");
+            // Preserve the established identity parser's spelling; this changes whitespace only.
+            normalized = normalized.replace(compactMarker, EMPTY_MARKER_DECLARATION);
+        }
         if (normalized.indexOf(EMPTY_MARKER_DECLARATION) < 0
                 || normalized.indexOf(EMPTY_MARKER_DECLARATION) != normalized.lastIndexOf(EMPTY_MARKER_DECLARATION)) {
             throw new IllegalStateException("Expected exactly one empty submission marker declaration");
