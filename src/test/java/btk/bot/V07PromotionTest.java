@@ -56,10 +56,11 @@ class V07PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 20 + SearchExperimentParams.DEFAULTS.size()
+        assertEquals(expected.size() + 22 + SearchExperimentParams.DEFAULTS.size()
                 + LiveTargetExperimentParams.DEFAULTS.size(), fields,
-                "inactive later fields include neural and spatial deadlines, two spatial v5 fields, three spatial v6 fields, three spatial v7 fields, three spatial v8 fields, one spatial v9 context field, two V7 fallback fields and two current-only experiments");
+                "retained later fields plus the neural-target proposal and missed-deadline flags");
         FrozenParams.applyTo("v07", dirty);
+        assertFalse(dirty.USE_ROLLOUT_MISSED_DEADLINE);
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
         Params overridden = BotFactory.parameters("v07?ROLLOUT_NETWORK_ROOTS=1,NOISE=0");

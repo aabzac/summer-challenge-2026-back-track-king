@@ -355,6 +355,17 @@ tasks.register<JavaExec>("v09FullActionStudy") {
         prop("out", "build/analysis/v09-full-action-v1/run"))
 }
 
+tasks.register<JavaExec>("v09DeferredCommitStudy") {
+    group = "diagnostics"
+    description = "Screen the missed-deadline correction on the fixed v09 development cases"
+    dependsOn("classes")
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("btk.tools.V09DeferredCommitStudy")
+    maxHeapSize = "1536m"
+    args = listOf(prop("selection", "build/analysis/v09-deferred-commit-v1/selection.json"),
+        prop("out", "build/analysis/v09-deferred-commit-v1/run"))
+}
+
 tasks.register<JavaExec>("rolloutFillStudy") {
     group = "diagnostics"
     description = "Audit first-turn leftover fill in the existing rollout on saved development states"

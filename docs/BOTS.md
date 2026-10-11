@@ -13,6 +13,20 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed local correction screen 2026-10-11: **v09-deferred-commit-v1**,
+`current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true` (default OFF), **LOCAL_SCREEN_PASSED /
+SOURCE_SIZE_BLOCKED**. Same full construction, immutable missed deadline,
+same-first-target consensus, terminal protections and target-only Wr0 guard.
+Same56 starts/88 native reply pairs: one+45 earned-score change,87 ties,zero
+regressions. Region33 attacks at40 instead of42 after due39; lateness decreases,
+no new terminal win. All eight OFF wins preserved, including six closing
+controls. Passive56 pairs: two positive/54 tied; historical case unchanged.
+967 OFF actions and all OFF trajectories exact;64 tests,292+40+1 exact replays,
+1129 frozen inputs unchanged. Default export byte-identical; enabled source
+108,524/100,000 characters, normal export rejected and process/timing unverified.
+No strength or boss games, promotion or upload; retain v09.
+[Protocol/evidence](v09-deferred-commit-v1.md).
+
 Completed diagnostic experiment 2026-10-11: **v09-full-action-v1**, no registered
 candidate or strength games. Same complete construction compared at967 states;
 exact root/fill provenance,183 network roots.38/39 old reversals remain, but in

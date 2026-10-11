@@ -6915,3 +6915,57 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-full-action-v1.json),
   [archive index](evidence/v09-full-action-v1-artifacts.json),
   [archive](evidence/v09-full-action-v1-artifacts.zip).
+
+## 2026-10-11 — v09-deferred-commit-v1: missed-deadline correction passes local screen; size blocked
+
+- User requested one narrow fix for harmful repeated sabotage delay, preserving
+  useful waiting, tested first on known bad cases and winning closures. Added
+  default-off `USE_ROLLOUT_MISSED_DEADLINE` to current only. No frozen bot or core
+  edits. The exact native full construction is fixed before any target change.
+- Recipe: empty own portfolio, native no-hit, complete full W forecasts whose
+  FIRST future own hit agrees on the selected raw-root nominee in every reply.
+  Store the latest absolute due turn; do not slide it. Strictly after that due,
+  require the same promise, no W terminal WIN/DRAW, no A terminal LOSS, and A>Wr0
+  in each reply. Wr0 suppresses only future hits on that region, preserving all
+  other attacks. Gaps, target changes, native hits, invalid targets, new routes
+  and incomplete/failed guards clear the commitment. Warmup uses a disposable bot.
+- Prospective recipe/selection frozen before outcomes. Revision2 clarified W-only
+  arming versus overdue-only supplemental comparisons; revision1 retained.
+  Same56 starts+historical, each OFF/ON branch starts with empty memory and persists
+  through eight actual resolved turns. Initial retained opponent portfolio fixed;
+  actions recomputed from each current board. Pure WAIT is secondary. No replay
+  prefix priming or observed future commands enter candidate decisions.
+- **LOCAL_SCREEN_PASSED:** all967 OFF actions and all144 cohort+3 historical OFF
+  trajectories match the previous native full-v09 no-hit arms. Primary88 pairs:
+  one positive(+45),87 ties,zero negative. Only907134651/start38/P1/reply0 changes:
+  r33 due39 remains fixed, correction attacks/inks40 instead of OFF42; final earned
+  score difference1026->1071. Both nonterminal. This reduces lateness; original
+  first-hit60/88 and nominated-target47/74 on-time counts do not increase.
+- All eight primary terminal wins preserved, including six907134720 closing
+  controls with identical actions/states/scores/end turns. No new loss; all replies
+  at the affected start pass. Region11 native target switch clears the old promise;
+  region45 adverse-reply case is unchanged. A losing closure at907135435/t69 is
+  explicitly vetoed. Independent review also finds all32 prior native early-hit
+  warning comparisons unchanged by this candidate.
+- Passive56 pairs: r33+45 and r11+47,54 ties,zero regressions, no new terminal win.
+  Historical904554072 stays unchanged in both native replies and pure WAIT;
+  the passive unresolved promise remains. Narrow mechanism coverage, not a
+  general cure for every deferred attack or a strength result.
+- Verification:64 focused tests, including10 synthetic state/guard tests; independent
+  W/A/Wr0 scalar/terminal/first-hit oracle parity;292 baseline+40 cohort+1 historical
+  exact replays. All1129 frozen files unchanged before and after reconciliation.
+  One full measurement, no retries/tuning. Initial44-test preflight had one stale
+  Params-field-count assertion (pre-existing neural flag plus new flag); corrected
+  compatibility counts and new-flag reset, then64 tests passed. Final preflight
+  added explicit fail-loud oracle depth/time checks. All corrections premeasurement.
+- Packaging: disabled experimental blocks strip to the exact previous current
+  source,98,709 chars SHAab0954a4...d847e5; frozen v09 also unchanged. Enabled
+  candidate compiles, but FileMerger refuses **108,524/100,000 characters**.
+  **SOURCE_SIZE_BLOCKED**, no exported candidate or strict process/timing result.
+  No strength games, boss games, upload or promotion. Preserve v09/flag OFF;
+  retain and locally commit completed experiment. Later compression/readiness and
+  practical-v4 evaluation require separate work, not automatic continuation.
+  [Protocol/results](v09-deferred-commit-v1.md),
+  [summary](evidence/v09-deferred-commit-v1.json),
+  [archive index](evidence/v09-deferred-commit-v1-artifacts.json),
+  [archive](evidence/v09-deferred-commit-v1-artifacts.zip).

@@ -202,10 +202,23 @@ public class FileMerger {
 
         Set<String> imports = new TreeSet<>();
         StringBuilder body = new StringBuilder();
+        boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
+            boolean deadlineBlock = false;
             for (String line : Files.readAllLines(file)) {
+                if (line.trim().equals("// MISSED_DEADLINE_BEGIN")) {
+                    if (deadlineBlock) throw new IllegalArgumentException("Nested deadline block: " + file);
+                    deadlineBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// MISSED_DEADLINE_END")) {
+                    if (!deadlineBlock) throw new IllegalArgumentException("Unbalanced deadline block: " + file);
+                    deadlineBlock = false;
+                    continue;
+                }
+                if (deadlineBlock && !missedDeadline) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
@@ -346,6 +359,7 @@ public class FileMerger {
                 if (!(version.equals("current") && rollout && !code.contains("//")
                         && (code.endsWith(";") || code.endsWith("{") || code.endsWith("}")))) body.append('\n');
             }
+            if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
         }
 
         StringBuilder sb = new StringBuilder();

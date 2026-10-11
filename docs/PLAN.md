@@ -24,6 +24,19 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       effects36 positive/19 negative/33 tied; no A-only terminal wins. Four starts
       lose a within-window winning closure. Reject blanket early-sabotage selection;
       retain evidence and v09. No automatic candidate or strength follow-up.
+- [x] On the user's next request, implement one default-off targeted correction
+      [v09-deferred-commit-v1](v09-deferred-commit-v1.md): immutable missed deadline,
+      same first target across replies, exact full build, terminal-win/draw and
+      terminal-loss safeguards, target-specific future-attack ablation.
+- [x] Complete the fixed local screen with fresh persistent branch memory:
+      967 OFF positions exact;56 starts/88 primary pairs, one+45 score improvement
+      (region33 attacks40 instead of42),87 ties,zero regressions; all eight wins
+      and six named closing controls preserved.64 tests,292+40+1 exact replays,
+      1129 unchanged frozen inputs. LOCAL_SCREEN_PASSED, strength untested.
+- [x] Check packaging: default current remains98,709 characters and byte-identical;
+      enabled candidate108,524 exceeds100,000, SOURCE_SIZE_BLOCKED. Keep flag OFF,
+      retain evidence and commit locally; no automatic compression, strength trial,
+      candidate process check, boss games, promotion or upload.
 
 ## Return to v09 — reuse neural proposals (2026-10-11)
 

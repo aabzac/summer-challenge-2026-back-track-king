@@ -73,10 +73,11 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 19, fields, "later independent policy, neural and spatial deadlines, two spatial v5 fields, three spatial v6 fields, three spatial v7 fields, three spatial v8 fields, one spatial v9 context field, two V7 fallback fields and two current-only experiments");
+        assertEquals(expected.size() + 21, fields, "19 retained later fields plus the neural-target proposal and missed-deadline flags");
         FrozenParams.applyTo("v09", dirty);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);
         assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
+        assertFalse(dirty.USE_ROLLOUT_MISSED_DEADLINE);
         assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());

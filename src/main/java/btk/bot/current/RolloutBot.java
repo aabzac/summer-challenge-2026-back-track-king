@@ -84,8 +84,34 @@ public final class RolloutBot implements Bot {
     private int openingPlayer;
     public boolean selectedOpening;
     public int openingCount, openingPairs, openingEligible, openingPaint;
+    // MISSED_DEADLINE_BEGIN
+    private int deadlinePendingTarget = -1, deadlinePendingDue = -1;
+    private int deadlineLastTurn = -1, deadlineSeat = -1;
+    private int[] deadlineSavedRoot;
+    private boolean deadlineProbeActive;
+    private int deadlineSuppressedRegion = -1;
+    private int deadlineProbeFirstTarget = -1, deadlineProbeFirstDue = -1, deadlineProbeTerminal;
+    public String deadlineStatus = "disabled";
+    public int deadlineNativeTarget = -1, deadlineNativeCount, deadlineRoot = -1, deadlineNominee = -1;
+    public int deadlineReplies, deadlineInterventionTarget = -1, deadlineExtraTurns;
+    public int deadlineCommittedTarget = -1, deadlineCommittedDue = -1;
+    public int deadlineWCompleted, deadlineACompleted, deadlineWr0Completed;
+    public boolean deadlineChanged;
+    public int[] deadlineNativeCells, deadlineWTerminal, deadlineATerminal, deadlineWr0Terminal;
+    public int[] deadlineFirstTarget, deadlineFirstDue;
+    public double[] deadlineWValues, deadlineAValues, deadlineWr0Values;
+    // MISSED_DEADLINE_END
     public RolloutBot(Params params) {
         p = params.copy();
+        // MISSED_DEADLINE_BEGIN
+        if (p.USE_ROLLOUT_MISSED_DEADLINE && (p.USE_ROLLOUT_ROOT_FILL || p.USE_ROLLOUT_ALL_CELL_RISK
+                || p.USE_ROLLOUT_SECOND_TARGET || p.USE_ROLLOUT_SPREAD
+                || p.USE_ROLLOUT_NETWORK || p.USE_ROLLOUT_NETWORK_CHORDS || p.USE_ROLLOUT_ROUTE_DEPENDENCIES
+                || p.USE_ROLLOUT_REPLAN || p.USE_ROLLOUT_DIVERSE_REPLIES || p.USE_ROLLOUT_QUICK_EARLY
+                || p.USE_ROLLOUT_QUICK_VALUE || p.USE_ROLLOUT_QUICK_SAFE || p.USE_ROLLOUT_LIVE_TARGET
+                || p.ROLLOUT_ALWAYS_DISRUPT || p.USE_ROLLOUT_TRACK_VALUE))
+            throw new IllegalArgumentException("Missed-deadline correction requires the native rollout continuation");
+        // MISSED_DEADLINE_END
         // RHEA (strategy-search-rhea-v1, rejected) was removed from current for artifact size; frozen v08 keeps it.
         if (p.USE_ROLLOUT_RHEA) throw new IllegalArgumentException("USE_ROLLOUT_RHEA is no longer available in current");
         if (p.USE_HEURISTIC_POLICY || p.USE_OWN_BUILD_PLAN || p.USE_REPLY_RERANK || p.USE_JOINT_ACTION
@@ -167,6 +193,24 @@ public final class RolloutBot implements Bot {
         if (p.USE_ROLLOUT_ROOT_FILL) { filledRoot = new int[GameState.PAINT_PER_TURN]; fillMarks = new byte[s.size]; }
         random = new Random(p.SEED * 1_000_003L + me * 7919L);
         realPlayer = me;
+        // MISSED_DEADLINE_BEGIN
+        if (p.USE_ROLLOUT_MISSED_DEADLINE) {
+            deadlineSavedRoot = new int[GameState.PAINT_PER_TURN];
+            deadlineNativeCells = new int[GameState.PAINT_PER_TURN];
+            deadlineWValues = new double[p.ROLLOUT_REPLIES];
+            deadlineAValues = new double[p.ROLLOUT_REPLIES];
+            deadlineWr0Values = new double[p.ROLLOUT_REPLIES];
+            deadlineWTerminal = new int[p.ROLLOUT_REPLIES];
+            deadlineATerminal = new int[p.ROLLOUT_REPLIES];
+            deadlineWr0Terminal = new int[p.ROLLOUT_REPLIES];
+            deadlineFirstTarget = new int[p.ROLLOUT_REPLIES];
+            deadlineFirstDue = new int[p.ROLLOUT_REPLIES];
+            clearDeadlineCommitment();
+            deadlineLastTurn = deadlineSeat = -1;
+            deadlineProbeActive = false; deadlineSuppressedRegion = -1;
+            resetDeadlineDiagnostics();
+        }
+        // MISSED_DEADLINE_END
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
         if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
@@ -196,6 +240,12 @@ public final class RolloutBot implements Bot {
 
     public List<Action> play(GameState s, int me, long budgetMs) {
         timer.start(budgetMs);
+        // MISSED_DEADLINE_BEGIN
+        if (p.USE_ROLLOUT_MISSED_DEADLINE) {
+            deadlineBegin(s.turn, me);
+            if (budgetMs <= 0) deadlineReject("timeout");
+        }
+        // MISSED_DEADLINE_END
         selectedRootFilled = false;
         if (p.USE_ROLLOUT_ROOT_FILL) fillCells = 0;
         routeQueries = completedComparisons = simulatedTurns = 0;
@@ -319,6 +369,9 @@ public final class RolloutBot implements Bot {
 
     private List<Action> actions(GameState s) {
         if (p.USE_ROLLOUT_FILL && !selectedRootFilled) fill(s, realPlayer);
+        // MISSED_DEADLINE_BEGIN
+        if (p.USE_ROLLOUT_MISSED_DEADLINE) correctMissedDeadline(s);
+        // MISSED_DEADLINE_END
         List<Action> result = new ArrayList<>(4);
         for (int i = 0; i < bestCount; i++) result.add(Action.place(s.x(bestCells[i]), s.y(bestCells[i])));
         if (selectedTarget >= 0) result.add(Action.disrupt(selectedTarget));
@@ -326,6 +379,170 @@ public final class RolloutBot implements Bot {
         return result;
     }
 
+    // MISSED_DEADLINE_BEGIN
+    public int deadlinePendingTarget() { return deadlinePendingTarget; }
+    public int deadlinePendingDue() { return deadlinePendingDue; }
+
+    /** Synthetic warm-up decisions must never establish or spend a live commitment. */
+    @Override public void warmup(GameState s, int me, long ms) {
+        if (!p.USE_ROLLOUT_MISSED_DEADLINE) { Bot.super.warmup(s, me, ms); return; }
+        if (ms <= 0) return;
+        RolloutBot disposable = new RolloutBot(p);
+        disposable.init(s, me);
+        disposable.warmupDiscard(s, me, ms);
+    }
+
+    private void warmupDiscard(GameState s, int me, long ms) { Bot.super.warmup(s, me, ms); }
+
+    void clearDeadlineCommitment() { deadlinePendingTarget = deadlinePendingDue = -1; }
+
+    void resetDeadlineDiagnostics() {
+        deadlineStatus = "not-evaluated";
+        deadlineNativeTarget = deadlineRoot = deadlineNominee = deadlineInterventionTarget = -1;
+        deadlineCommittedTarget = deadlineCommittedDue = -1;
+        deadlineNativeCount = deadlineReplies = deadlineExtraTurns = 0;
+        deadlineWCompleted = deadlineACompleted = deadlineWr0Completed = 0;
+        deadlineChanged = false;
+        Arrays.fill(deadlineNativeCells, -1);
+        Arrays.fill(deadlineWValues, Double.NaN); Arrays.fill(deadlineAValues, Double.NaN);
+        Arrays.fill(deadlineWr0Values, Double.NaN);
+        Arrays.fill(deadlineWTerminal, 0); Arrays.fill(deadlineATerminal, 0);
+        Arrays.fill(deadlineWr0Terminal, 0);
+        Arrays.fill(deadlineFirstTarget, -1); Arrays.fill(deadlineFirstDue, -1);
+    }
+
+    /** Called only for real play calls; even an ineligible decision breaks stale promises. */
+    void deadlineBegin(int turn, int seat) {
+        resetDeadlineDiagnostics();
+        if (deadlineLastTurn < 0 || turn != deadlineLastTurn + 1 || seat != deadlineSeat)
+            clearDeadlineCommitment();
+        deadlineLastTurn = turn; deadlineSeat = seat;
+    }
+
+    private void deadlineReject(String reason) {
+        clearDeadlineCommitment(); deadlineStatus = reason;
+    }
+
+    /** Observe a complete current promise; never move an existing deadline into the future. */
+    boolean deadlineObserve(int turn, int seat, int target, int promisedDue) {
+        if (turn != deadlineLastTurn || seat != deadlineSeat || target < 0 || promisedDue <= turn) {
+            deadlineReject("invalid-promise"); return false;
+        }
+        if (deadlinePendingTarget < 0) {
+            deadlinePendingTarget = target; deadlinePendingDue = promisedDue;
+            deadlineCommittedTarget = target; deadlineCommittedDue = promisedDue;
+            deadlineStatus = "armed"; return false;
+        }
+        if (target != deadlinePendingTarget) {
+            deadlineReject("target-changed"); return false;
+        }
+        deadlineCommittedTarget = deadlinePendingTarget; deadlineCommittedDue = deadlinePendingDue;
+        deadlineStatus = turn > deadlinePendingDue ? "overdue" : "waiting";
+        return turn > deadlinePendingDue;
+    }
+
+    boolean deadlinePromisesMatch(int replies, int target) {
+        if (replies < 1 || replies > deadlineWValues.length || deadlineWCompleted != replies || target < 0)
+            return false;
+        for (int i = 0; i < replies; i++) {
+            if (!Double.isFinite(deadlineWValues[i]) || deadlineWTerminal[i] == 1 || deadlineWTerminal[i] == 2
+                    || deadlineFirstTarget[i] != target || deadlineFirstDue[i] <= deadlineLastTurn) return false;
+        }
+        return true;
+    }
+
+    int deadlinePromisedDue(GameState s, int replies) {
+        int due = s.turn;
+        for (int i = 0; i < replies; i++) due = Math.max(due, deadlineFirstDue[i]);
+        return due;
+    }
+
+    boolean deadlineScoresAccept(int replies) {
+        if (replies < 1 || replies > deadlineWValues.length || deadlineWCompleted != replies
+                || deadlineACompleted != replies || deadlineWr0Completed != replies) return false;
+        for (int i = 0; i < replies; i++) {
+            if (!Double.isFinite(deadlineWValues[i]) || !Double.isFinite(deadlineAValues[i])
+                    || !Double.isFinite(deadlineWr0Values[i]) || deadlineWTerminal[i] == 1
+                    || deadlineWTerminal[i] == 2 || deadlineATerminal[i] == -1
+                    || !(deadlineAValues[i] > deadlineWr0Values[i])) return false;
+        }
+        return true;
+    }
+
+    /** Native root identity and portfolios survive; only its first-turn cells are temporarily replaced. */
+    double deadlineRollout(GameState original, int me, int root, int target, int reply, int suppressedRegion) {
+        int count = rootCounts[root], turns = simulatedTurns;
+        System.arraycopy(roots[root], 0, deadlineSavedRoot, 0, GameState.PAINT_PER_TURN);
+        System.arraycopy(bestCells, 0, roots[root], 0, bestCount);
+        rootCounts[root] = bestCount;
+        deadlineProbeFirstTarget = deadlineProbeFirstDue = -1; deadlineProbeTerminal = 0;
+        deadlineProbeActive = true; deadlineSuppressedRegion = suppressedRegion;
+        try {
+            return rollout(original, me, root, target, reply);
+        } finally {
+            deadlineProbeActive = false; deadlineSuppressedRegion = -1;
+            rootCounts[root] = count;
+            System.arraycopy(deadlineSavedRoot, 0, roots[root], 0, GameState.PAINT_PER_TURN);
+            deadlineExtraTurns += simulatedTurns - turns; simulatedTurns = turns;
+        }
+    }
+
+    /** Changes only sabotage after the native construction and all native search have finished. */
+    void correctMissedDeadline(GameState s) {
+        deadlineNativeTarget = selectedTarget; deadlineNativeCount = bestCount;
+        System.arraycopy(bestCells, 0, deadlineNativeCells, 0, bestCount);
+        if (selectedTarget >= 0) { deadlineReject("native-attack"); return; }
+        if (deadlineSeat != realPlayer || deadlineLastTurn != s.turn) { deadlineReject("seat-or-turn"); return; }
+        if (counts[realPlayer] != 0) { deadlineReject("own-portfolio"); return; }
+        if (timer.up()) { deadlineReject("timeout"); return; }
+        if (selectedOpening || !ordinarySearchComplete
+                || p.USE_ROLLOUT_NETWORK_AFTER_BASE && !networkPhaseComplete
+                || completedComparisons == 0 || !Double.isFinite(selectedValue)) {
+            deadlineReject("incomplete-native-search"); return;
+        }
+        int root = selectedRoute < 0 ? counts[realPlayer] : selectedRoute;
+        if (root < 0 || root >= ordinaryRootSize + networkRoots || root >= roots.length
+                || selectedNetwork != (root >= ordinaryRootSize)) {
+            deadlineReject("unresolved-root"); return;
+        }
+        deadlineRoot = root; deadlineNominee = rootTargets[root];
+        int target = deadlineNominee;
+        if (target < 0 || target >= s.regionCount || s.regionInked[target] || s.regionHasTown(target)) {
+            deadlineReject("invalid-target"); return;
+        }
+        if (deadlinePendingTarget >= 0 && target != deadlinePendingTarget) {
+            deadlineReject("target-changed"); return;
+        }
+        int replies = Math.max(1, Math.min(p.ROLLOUT_REPLIES, counts[1 - realPlayer]));
+        deadlineReplies = replies;
+        for (int reply = 0; reply < replies; reply++) {
+            double value = deadlineRollout(s, realPlayer, root, -1, reply, -1);
+            if (!Double.isFinite(value) || timer.up()) { deadlineReject("incomplete-W"); return; }
+            deadlineWValues[reply] = value; deadlineWTerminal[reply] = deadlineProbeTerminal;
+            deadlineFirstTarget[reply] = deadlineProbeFirstTarget; deadlineFirstDue[reply] = deadlineProbeFirstDue;
+            deadlineWCompleted++;
+        }
+        if (!deadlinePromisesMatch(replies, target)) { deadlineReject("unsafe-or-changed-W"); return; }
+        if (!deadlineObserve(s.turn, realPlayer, target, deadlinePromisedDue(s, replies))) return;
+        for (int reply = 0; reply < replies; reply++) {
+            double value = deadlineRollout(s, realPlayer, root, target, reply, -1);
+            if (!Double.isFinite(value) || timer.up()) { deadlineReject("incomplete-A"); return; }
+            deadlineAValues[reply] = value; deadlineATerminal[reply] = deadlineProbeTerminal;
+            deadlineACompleted++;
+        }
+        for (int reply = 0; reply < replies; reply++) {
+            double value = deadlineRollout(s, realPlayer, root, -1, reply, target);
+            if (!Double.isFinite(value) || timer.up()) { deadlineReject("incomplete-Wr0"); return; }
+            deadlineWr0Values[reply] = value; deadlineWr0Terminal[reply] = deadlineProbeTerminal;
+            deadlineWr0Completed++;
+        }
+        if (!deadlineScoresAccept(replies)) { deadlineReject("counterfactual-veto"); return; }
+        if (timer.up()) { deadlineReject("timeout"); return; }
+        selectedTarget = target;
+        deadlineChanged = true; deadlineInterventionTarget = target;
+        clearDeadlineCommitment(); deadlineStatus = "intervened";
+    }
+    // MISSED_DEADLINE_END
     public int fillCells;
 
     /** USE_ROLLOUT_FILL: leftover paint on stable/protected free cells next to own rails; search and target untouched. */
@@ -943,13 +1160,25 @@ public final class RolloutBot implements Bot {
                     targetBoard.set(s);
                     placeOwn(targetBoard, player, moves[player], moveCounts[player]);
                     targets[player] = chooseTarget(targetBoard.state, player);
+                    // MISSED_DEADLINE_BEGIN
+                    if (deadlineProbeActive && player == me && targets[player] == deadlineSuppressedRegion)
+                        targets[player] = -1;
+                    // MISSED_DEADLINE_END
                 }
             }
             if (timer.up()) return Double.NaN;
+            // MISSED_DEADLINE_BEGIN
+            if (deadlineProbeActive && turn > 0 && deadlineProbeFirstTarget < 0 && targets[me] >= 0) {
+                deadlineProbeFirstTarget = targets[me]; deadlineProbeFirstDue = s.turn;
+            }
+            // MISSED_DEADLINE_END
             boolean terminal = work.resolve(moves[0], moveCounts[0], targets[0], moves[1], moveCounts[1], targets[1]);
             simulatedTurns++;
             if (terminal) {
                 int diff = s.score[me] - s.score[1 - me];
+                // MISSED_DEADLINE_BEGIN
+                if (deadlineProbeActive) deadlineProbeTerminal = diff > 0 ? 1 : diff < 0 ? -1 : 2;
+                // MISSED_DEADLINE_END
                 return Math.signum(diff) * p.ROLLOUT_WIN_VALUE + diff;
             }
         }

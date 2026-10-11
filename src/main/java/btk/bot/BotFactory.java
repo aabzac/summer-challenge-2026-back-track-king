@@ -96,6 +96,10 @@ public final class BotFactory {
                 || version.equals("indrill-q-v1")
                 || version.equals("indrill-q-v2") || spatialVersion(version)) FrozenParams.applyTo(version, params);
         params.apply(query);
+        if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
+            throw new IllegalArgumentException("Missed-deadline correction is a current-only experiment");
+        if (params.USE_ROLLOUT_MISSED_DEADLINE && (!params.USE_ROLLOUT_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))
+            throw new IllegalArgumentException("Missed-deadline correction requires the current native rollout");
         if (params.USE_NEURAL_TARGET_PROPOSAL && !version.equals("current"))
             throw new IllegalArgumentException("Neural target proposal is a local current-only experiment");
         return params;
@@ -108,6 +112,7 @@ public final class BotFactory {
         if (version(spec).equals("v00")) return values; // This bot has no tunable fields.
         try {
             for (var field : Params.class.getFields()) {
+                if (field.getName().equals("USE_ROLLOUT_MISSED_DEADLINE") && !params.USE_ROLLOUT_MISSED_DEADLINE) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")
