@@ -53,6 +53,12 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       time budget; distinguish abandoned repairs from wrong boss continuation.
       Do not reopen rejected broad risk/root-fill flags or promote from this
       outcome-selected sample. Refresh boss control for a new strategy candidate.
+- [x] Audit whether WARN telemetry supports increasing the budget: all148 saved
+      completed boss games and16 saved strict process games, no new runs.
+      Current target36ms/margin14ms; WARN is a censored internal interval,
+      not server time. Candidate WARN max98ms; full local response max46.7275ms.
+      Keep36ms;38ms is a proposed separate test point, not a validated setting.
+      [Budget audit](v09-budget-telemetry-v1.md).
 
 ## v09 continuation diagnosis (2026-10-11)
 

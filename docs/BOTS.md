@@ -13,6 +13,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Timing telemetry audit 2026-10-16: **v09-budget-telemetry-v1**, read-only;
+no new games, policy calls or budget changes. Current target36ms within50ms,
+margin14ms; WARN logs only integer totals>36 after stdout flush. Candidate68:
+1599 WARNs/4811 later turns, conditional median38/max98ms,9>50 in8 games;
+control80:2096/5717,median38/max106ms,13>50 in12 games; no explicit live failures.
+Full local candidate responses678: p9941.3965/max46.7275ms,zero overruns.
+WARN median is censored and cannot justify+5ms. Propose one separate38ms
+experiment, not implemented; keep36ms and all prior verdicts unchanged.
+[Budget and measurement explanation](v09-budget-telemetry-v1.md).
+
 Offline diagnosis 2026-10-16: **v09-batched-loss-diagnosis-v1**, completed with
 no strategy change or new games. All10 candidate-loss/v09-win pairs among68
 completed pairs included (7 original+3 additional);20 replays/1363 turns exact.

@@ -7370,3 +7370,39 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [Report](v09-batched-loss-diagnosis-v1.md),
   [evidence](evidence/v09-batched-loss-diagnosis-v1.json),
   [archive index](evidence/v09-batched-loss-diagnosis-v1-artifacts.json).
+
+## 2026-10-16 - v09-budget-telemetry-v1: WARN median cannot set the budget
+
+- User asks the current budget and whether WARN43/max45 or a median can justify
+  adding time, possibly accepting rare overruns. Audit retained data only;
+  no new games, model calls, budget/strategy or artifact changes.
+- Source/clock audit:50ms later limit minus14ms margin gives36ms for preparation
+  and search. Search receives max(5,36-floor(preparation)); final copy/format/output
+  also cost time. WARN is floor(total)>36 after stdout flush. WARN43 means an
+  internal interval[43,44)ms; pre-t0 hasNext work is excluded, while post-flush
+  scheduling delay may be included. Timer cooperates; it is not an interrupt.
+  First turn1000ms,internal986,nominal500warmup/486search are distinct.
+- All148 completed boss games included: candidate68/control80; twelve extra
+  control games are absent from the separately retained matched68 comparison.
+  Verify317 source pins and prior exact-stage evidence. Candidate4811laterturns:
+  1599WARNs,conditional median38/p9545/p9949/max98ms;351>40,77>45,9>50 in8games.
+  Control5717laterturns:2096WARNs,median38/p9545/p9949/max106;473>40,102>45,13>50
+  in12games. No explicit live failure. FirstturnWARN0; no duplicate copies.
+  Use printedturn, not containing outputframe:177/215 warnings arrive oneframe
+  later. Unlogged turns are censored; all-turn quantiles require complete capture.
+- Conditional all-later internal p99/p99.9 buckets: candidate46/53ms,
+  control47/56ms; medianunknown below37ms. These are not server response times.
+- Retained strict exact-artifact panels: candidate8games/678laterresponses,
+  p5037.02365/p9538.1225/p9941.3965/max46.7275ms;control8/657,
+  p5037.468/p9538.692/p9940.4345/max41.444ms. Zero recorded timeouts/overruns.
+  p99.9 equals maximum with these sample sizes. Candidate has1 response>45,
+  zero>48; controlzero forboth. Fullresponse timestamps, not consumerwakeups.
+- Decision: no justified+5ms from WARN maximum/median. Even a purely additive
+  illustration gives oldcandidate max51.7275ms after+5; actual latency is not
+  a fixed shift because work/actions/RNG/state change. Propose38ms (+2,margin12)
+  as one separate conservative experimental point, not a derived safe limit.
+  Evaluate fullresponse tail, real per-game failures and useful strength, not
+  only median or turn-level rate. Rules provide no rare-overrun allowance.
+  Keep36ms/margin14, selectedv09 and all historical verdicts. No test started.
+  [Report](v09-budget-telemetry-v1.md),
+  [evidence](evidence/v09-budget-telemetry-v1.json).

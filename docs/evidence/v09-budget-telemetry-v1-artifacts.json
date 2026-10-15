@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "experiment": "v09-budget-telemetry-v1",
+  "archive": {
+    "path": "docs/evidence/v09-budget-telemetry-v1-artifacts.zip",
+    "sha256": "7a4c5c2052833ac34330f9caf8d1be7e4c53105003769d2b460d6a6260b1710f",
+    "bytes": 435291
+  },
+  "files": [
+    {
+      "path": "build/analysis/neural-v7/control-process/process-903510176.json",
+      "sha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26",
+      "bytes": 37179
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904146009.json",
+      "sha256": "40d9c996c62367adef01c99934fda1d5d998ecda289fe9fa7b70a7c42dc15fa7",
+      "bytes": 45123
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904147739.json",
+      "sha256": "d95b84413b0f7d56e90d9e53bac566aa329fcd183065e0687a0929d4587e989d",
+      "bytes": 44632
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904148181.json",
+      "sha256": "5c6861a32c9992dfae40c87fd2215375fff0398adfe1cc30693d1bec8328aa58",
+      "bytes": 52812
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-1.json",
+      "sha256": "5c26f2f46751f6ca85db0c0321ed8310ab91d519dbcf5596cf46fa9f0ad07480",
+      "bytes": 45915
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-2.json",
+      "sha256": "30030d55e86d5f6cad7d5ef7198fa6f539134e92ed6e6c57035dc7f05eb815d0",
+      "bytes": 46389
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-3.json",
+      "sha256": "b7c18d4d6999a852ea5d78c1e8b679c99c1c511667e014743012a69d21118066",
+      "bytes": 49194
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-4.json",
+      "sha256": "93a904c1ade7e53870ad9e6affde0b4ea13d345644f84da46b71782a13ae8a1a",
+      "bytes": 43603
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/finalize.py",
+      "sha256": "4fa25a4c70f64416e190108cccaff06eac6af283308c6fdbd4b9d7c6444fee6f",
+      "bytes": 8254
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/source-freeze.json",
+      "sha256": "1b594dc6bbcf5bb6365e0794b7fe874a0ab6675fa7624e391b798ae35f46813a",
+      "bytes": 46603
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/study.py",
+      "sha256": "db6ab3aec8d34438fd787542f9ddf9ed911c83f06cbe19da9acd9001343a4505",
+      "bytes": 14811
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/tail-summary.json",
+      "sha256": "567698b62f922f44547f730384e2ab941e71b3718f5ab73bc759541e9563cd7a",
+      "bytes": 2520
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/telemetry.json",
+      "sha256": "944d9e3f000d4f298b42141ab8786d44f6ca14ce31a27db17500c49f9a52b9be",
+      "bytes": 649733
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/verification.json",
+      "sha256": "9562800dc9cbdb43f6b2c3d2f469e61881c1f16f0911c2ad90fe4602bc22cc0f",
+      "bytes": 810
+    },
+    {
+      "path": "docs/BOTS.md",
+      "sha256": "d8a241584c3d4ef76c2b10ff8d694e031527b287e84a3d496a8af22d7829ed6c",
+      "bytes": 165778
+    },
+    {
+      "path": "docs/DEVLOG.md",
+      "sha256": "33df76c2f77d94d917d43a050dab28e426f06a4b195e1e2e6b4438345367f433",
+      "bytes": 571148
+    },
+    {
+      "path": "docs/evidence/v09-budget-telemetry-v1.json",
+      "sha256": "1c0c87fa018fcdd08e8b4dc109f8931bfe827a927918714266b0046324d2d858",
+      "bytes": 41232
+    },
+    {
+      "path": "docs/PLAN.md",
+      "sha256": "f8c97c0a8b9515f466825208fda97db6fa20c5b5f91785010ea27d32e6ab28e5",
+      "bytes": 104797
+    },
+    {
+      "path": "docs/rules/bronze.md",
+      "sha256": "fc6510f69bf4df554ac2e52dbf90f66cbd6daa7e00aee8dda52060fdc8d44dd1",
+      "bytes": 8813
+    },
+    {
+      "path": "docs/v09-budget-telemetry-v1.md",
+      "sha256": "935db348fea7f9f8fa8557073565fdbdcfe8fab2d731bf078e62e76b250e07b1",
+      "bytes": 8824
+    },
+    {
+      "path": "src/main/java/btk/bot/Timer.java",
+      "sha256": "d18aadb0f092b1b4ef00aacde6cc76df4eaa9871e79f854bf9639f1b2fbe0bdd",
+      "bytes": 786
+    },
+    {
+      "path": "src/main/java/btk/runner/ProcessBot.java",
+      "sha256": "e8b186986f2475f767efd00c7d5a230c93e5adae16ad4ad866cfe14ef2230b36",
+      "bytes": 9826
+    },
+    {
+      "path": "src/main/java/btk/submit/CGRunner.java",
+      "sha256": "531b2e46fffee3a947d31d71ce0c59bd33df8c6c6862d29b995ffc7e546f56d9",
+      "bytes": 5578
+    }
+  ],
+  "fileCount": 23,
+  "canonicalEvidenceArchives": [
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.json",
+      "sha256": "552f18b6eef9123ec890c84590bb6c20c5c8c07a518ff2d0458a6a52d952a761",
+      "bytes": 128850
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.zip",
+      "sha256": "cfbca48cb1ce6ae3689ea3e5da317e07ff1f672a304ac08927b2662ef6687cd0",
+      "bytes": 4611953
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v2-artifacts.json",
+      "sha256": "02343e422c980504f8a1248afad8734da6fe5f222ffa8ba2ff8806098906160d",
+      "bytes": 144787
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v2-artifacts.zip",
+      "sha256": "0ac9d4146047c74032fe334e5c37811acad3f17502447d65188745b7e8185524",
+      "bytes": 4003184
+    }
+  ],
+  "verification": "All317 frozen input hashes checked; every ZIP entry CRC/length/SHA256 checked.",
+  "privateMaterialIncluded": false
+}

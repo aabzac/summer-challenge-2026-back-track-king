@@ -1,0 +1,1551 @@
+{
+  "schemaVersion": 1,
+  "experiment": "v09-budget-telemetry-v1",
+  "complete": true,
+  "status": "READ_ONLY_AUDIT_NO_BUDGET_CHANGE",
+  "newGames": 0,
+  "newPolicyCalls": 0,
+  "currentBudget": {
+    "laterExternalMs": 50,
+    "marginMs": 14,
+    "internalTargetMs": 36,
+    "firstExternalMs": 1000,
+    "warmupMs": 500,
+    "nominalFirstSearchMs": 486
+  },
+  "warningSemantics": {
+    "threshold": "floor(totalMs)>36 after stdout flush",
+    "example43MsInterval": "[43,44)",
+    "medianWarnIsAllTurnMedian": false,
+    "warnIsServerResponseTime": false,
+    "unloggedInternalIntervalBoundIfCompleteCapture": "[0,37)ms"
+  },
+  "live": {
+    "candidateCompleted68": {
+      "games": 68,
+      "allOwnTurns": 4879,
+      "firstTurnsExcludedFromLater": 68,
+      "laterOwnTurns": 4811,
+      "uniqueLaterWarningTurns": 1599,
+      "warningTurnRatePercent": 33.236333402618996,
+      "gamesWithLaterWarnings": 68,
+      "gamesWithRepeatedWarnings": 68,
+      "duplicateWarningCopiesRemoved": 0,
+      "conditionalWarnDistributionMs": {
+        "count": 1599,
+        "min": 37,
+        "median": 38,
+        "p90": 43,
+        "p95": 45,
+        "p99": 49,
+        "max": 98
+      },
+      "laterThresholdCounts": {
+        "40": {
+          "strictlyGreater": 351,
+          "percentOfAllLaterOwnTurns": 7.295780503013926
+        },
+        "45": {
+          "strictlyGreater": 77,
+          "percentOfAllLaterOwnTurns": 1.6004988567865308
+        },
+        "50": {
+          "strictlyGreater": 9,
+          "percentOfAllLaterOwnTurns": 0.18707129494907504
+        }
+      },
+      "firstTurnWarningCount": 0,
+      "conditionalFirstWarningDistributionMs": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "p90": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "gamesWithLaterWarningAbove50": [
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 20,
+          "gameId": 909154529,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 32,
+              "ms": 51,
+              "frame": 66,
+              "observedOutputOrdinal": 32
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 34,
+          "gameId": 909155242,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 7,
+              "ms": 53,
+              "frame": 15,
+              "observedOutputOrdinal": 7
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 36,
+          "gameId": 909155317,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 12,
+              "ms": 58,
+              "frame": 26,
+              "observedOutputOrdinal": 12
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 39,
+          "gameId": 909155434,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 45,
+              "ms": 53,
+              "frame": 91,
+              "observedOutputOrdinal": 45
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 1,
+          "gameId": 909168309,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 10,
+              "ms": 51,
+              "frame": 21,
+              "observedOutputOrdinal": 10
+            },
+            {
+              "turn": 36,
+              "ms": 98,
+              "frame": 73,
+              "observedOutputOrdinal": 36
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 2,
+          "gameId": 909168453,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 6,
+              "ms": 73,
+              "frame": 14,
+              "observedOutputOrdinal": 6
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 7,
+          "gameId": 909168753,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 6,
+              "ms": 53,
+              "frame": 13,
+              "observedOutputOrdinal": 6
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 16,
+          "gameId": 909169073,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 12,
+              "ms": 54,
+              "frame": 26,
+              "observedOutputOrdinal": 12
+            }
+          ]
+        }
+      ],
+      "allLaterInternalIntegerQuantileBoundsIfCompleteCapture": {
+        "p50": {
+          "lowerIntegerMs": 0,
+          "upperIntegerMs": 36
+        },
+        "p90": {
+          "lowerIntegerMs": 39,
+          "upperIntegerMs": 39
+        },
+        "p95": {
+          "lowerIntegerMs": 42,
+          "upperIntegerMs": 42
+        },
+        "p99": {
+          "lowerIntegerMs": 46,
+          "upperIntegerMs": 46
+        }
+      },
+      "explicitLiveFailures": 0,
+      "warningCaptureTurnOffsets": {
+        "0": 1422,
+        "1": 177
+      }
+    },
+    "controlCompleted80": {
+      "games": 80,
+      "allOwnTurns": 5797,
+      "firstTurnsExcludedFromLater": 80,
+      "laterOwnTurns": 5717,
+      "uniqueLaterWarningTurns": 2096,
+      "warningTurnRatePercent": 36.6625852719958,
+      "gamesWithLaterWarnings": 80,
+      "gamesWithRepeatedWarnings": 80,
+      "duplicateWarningCopiesRemoved": 0,
+      "conditionalWarnDistributionMs": {
+        "count": 2096,
+        "min": 37,
+        "median": 38.0,
+        "p90": 43,
+        "p95": 45,
+        "p99": 49,
+        "max": 106
+      },
+      "laterThresholdCounts": {
+        "40": {
+          "strictlyGreater": 473,
+          "percentOfAllLaterOwnTurns": 8.273570054224244
+        },
+        "45": {
+          "strictlyGreater": 102,
+          "percentOfAllLaterOwnTurns": 1.7841525275494141
+        },
+        "50": {
+          "strictlyGreater": 13,
+          "percentOfAllLaterOwnTurns": 0.22739198880531747
+        }
+      },
+      "firstTurnWarningCount": 0,
+      "conditionalFirstWarningDistributionMs": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "p90": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "gamesWithLaterWarningAbove50": [
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 4,
+          "gameId": 909150614,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 20,
+              "ms": 106,
+              "frame": 44,
+              "observedOutputOrdinal": 21
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 18,
+          "gameId": 909151754,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 5,
+              "ms": 53,
+              "frame": 12,
+              "observedOutputOrdinal": 5
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 23,
+          "gameId": 909152115,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 13,
+              "ms": 59,
+              "frame": 30,
+              "observedOutputOrdinal": 14
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 33,
+          "gameId": 909152842,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 12,
+              "ms": 54,
+              "frame": 26,
+              "observedOutputOrdinal": 12
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 37,
+          "gameId": 909153130,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 28,
+              "ms": 51,
+              "frame": 58,
+              "observedOutputOrdinal": 28
+            },
+            {
+              "turn": 51,
+              "ms": 52,
+              "frame": 104,
+              "observedOutputOrdinal": 51
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 39,
+          "gameId": 909153271,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 44,
+              "ms": 79,
+              "frame": 89,
+              "observedOutputOrdinal": 44
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 7,
+          "gameId": 909157602,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 6,
+              "ms": 56,
+              "frame": 13,
+              "observedOutputOrdinal": 6
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 18,
+          "gameId": 909158127,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 50,
+              "ms": 53,
+              "frame": 101,
+              "observedOutputOrdinal": 50
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 24,
+          "gameId": 909158758,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 50,
+              "ms": 64,
+              "frame": 102,
+              "observedOutputOrdinal": 50
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 27,
+          "gameId": 909158912,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 3,
+              "ms": 55,
+              "frame": 9,
+              "observedOutputOrdinal": 4
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 28,
+          "gameId": 909159000,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 36,
+              "ms": 60,
+              "frame": 74,
+              "observedOutputOrdinal": 36
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 39,
+          "gameId": 909164202,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 17,
+              "ms": 55,
+              "frame": 35,
+              "observedOutputOrdinal": 17
+            }
+          ]
+        }
+      ],
+      "allLaterInternalIntegerQuantileBoundsIfCompleteCapture": {
+        "p50": {
+          "lowerIntegerMs": 0,
+          "upperIntegerMs": 36
+        },
+        "p90": {
+          "lowerIntegerMs": 40,
+          "upperIntegerMs": 40
+        },
+        "p95": {
+          "lowerIntegerMs": 42,
+          "upperIntegerMs": 42
+        },
+        "p99": {
+          "lowerIntegerMs": 47,
+          "upperIntegerMs": 47
+        }
+      },
+      "explicitLiveFailures": 0,
+      "warningCaptureTurnOffsets": {
+        "1": 215,
+        "0": 1881
+      }
+    },
+    "matchedCandidate68": {
+      "games": 68,
+      "allOwnTurns": 4879,
+      "firstTurnsExcludedFromLater": 68,
+      "laterOwnTurns": 4811,
+      "uniqueLaterWarningTurns": 1599,
+      "warningTurnRatePercent": 33.236333402618996,
+      "gamesWithLaterWarnings": 68,
+      "gamesWithRepeatedWarnings": 68,
+      "duplicateWarningCopiesRemoved": 0,
+      "conditionalWarnDistributionMs": {
+        "count": 1599,
+        "min": 37,
+        "median": 38,
+        "p90": 43,
+        "p95": 45,
+        "p99": 49,
+        "max": 98
+      },
+      "laterThresholdCounts": {
+        "40": {
+          "strictlyGreater": 351,
+          "percentOfAllLaterOwnTurns": 7.295780503013926
+        },
+        "45": {
+          "strictlyGreater": 77,
+          "percentOfAllLaterOwnTurns": 1.6004988567865308
+        },
+        "50": {
+          "strictlyGreater": 9,
+          "percentOfAllLaterOwnTurns": 0.18707129494907504
+        }
+      },
+      "firstTurnWarningCount": 0,
+      "conditionalFirstWarningDistributionMs": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "p90": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "gamesWithLaterWarningAbove50": [
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 20,
+          "gameId": 909154529,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 32,
+              "ms": 51,
+              "frame": 66,
+              "observedOutputOrdinal": 32
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 34,
+          "gameId": 909155242,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 7,
+              "ms": 53,
+              "frame": 15,
+              "observedOutputOrdinal": 7
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 36,
+          "gameId": 909155317,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 12,
+              "ms": 58,
+              "frame": 26,
+              "observedOutputOrdinal": 12
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "candidate",
+          "slot": 39,
+          "gameId": 909155434,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 45,
+              "ms": 53,
+              "frame": 91,
+              "observedOutputOrdinal": 45
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 1,
+          "gameId": 909168309,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 10,
+              "ms": 51,
+              "frame": 21,
+              "observedOutputOrdinal": 10
+            },
+            {
+              "turn": 36,
+              "ms": 98,
+              "frame": 73,
+              "observedOutputOrdinal": 36
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 2,
+          "gameId": 909168453,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 6,
+              "ms": 73,
+              "frame": 14,
+              "observedOutputOrdinal": 6
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 7,
+          "gameId": 909168753,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 6,
+              "ms": 53,
+              "frame": 13,
+              "observedOutputOrdinal": 6
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "candidate",
+          "slot": 16,
+          "gameId": 909169073,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 12,
+              "ms": 54,
+              "frame": 26,
+              "observedOutputOrdinal": 12
+            }
+          ]
+        }
+      ],
+      "allLaterInternalIntegerQuantileBoundsIfCompleteCapture": {
+        "p50": {
+          "lowerIntegerMs": 0,
+          "upperIntegerMs": 36
+        },
+        "p90": {
+          "lowerIntegerMs": 39,
+          "upperIntegerMs": 39
+        },
+        "p95": {
+          "lowerIntegerMs": 42,
+          "upperIntegerMs": 42
+        },
+        "p99": {
+          "lowerIntegerMs": 46,
+          "upperIntegerMs": 46
+        }
+      },
+      "explicitLiveFailures": 0,
+      "warningCaptureTurnOffsets": {
+        "0": 1422,
+        "1": 177
+      }
+    },
+    "matchedControl68": {
+      "games": 68,
+      "allOwnTurns": 5004,
+      "firstTurnsExcludedFromLater": 68,
+      "laterOwnTurns": 4936,
+      "uniqueLaterWarningTurns": 1789,
+      "warningTurnRatePercent": 36.24392220421394,
+      "gamesWithLaterWarnings": 68,
+      "gamesWithRepeatedWarnings": 68,
+      "duplicateWarningCopiesRemoved": 0,
+      "conditionalWarnDistributionMs": {
+        "count": 1789,
+        "min": 37,
+        "median": 38,
+        "p90": 43,
+        "p95": 45,
+        "p99": 49,
+        "max": 106
+      },
+      "laterThresholdCounts": {
+        "40": {
+          "strictlyGreater": 399,
+          "percentOfAllLaterOwnTurns": 8.083468395461912
+        },
+        "45": {
+          "strictlyGreater": 88,
+          "percentOfAllLaterOwnTurns": 1.7828200972447326
+        },
+        "50": {
+          "strictlyGreater": 12,
+          "percentOfAllLaterOwnTurns": 0.24311183144246354
+        }
+      },
+      "firstTurnWarningCount": 0,
+      "conditionalFirstWarningDistributionMs": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "p90": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "gamesWithLaterWarningAbove50": [
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 4,
+          "gameId": 909150614,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 20,
+              "ms": 106,
+              "frame": 44,
+              "observedOutputOrdinal": 21
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 18,
+          "gameId": 909151754,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 5,
+              "ms": 53,
+              "frame": 12,
+              "observedOutputOrdinal": 5
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 23,
+          "gameId": 909152115,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 13,
+              "ms": 59,
+              "frame": 30,
+              "observedOutputOrdinal": 14
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 33,
+          "gameId": 909152842,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 12,
+              "ms": 54,
+              "frame": 26,
+              "observedOutputOrdinal": 12
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 37,
+          "gameId": 909153130,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 28,
+              "ms": 51,
+              "frame": 58,
+              "observedOutputOrdinal": 28
+            },
+            {
+              "turn": 51,
+              "ms": 52,
+              "frame": 104,
+              "observedOutputOrdinal": 51
+            }
+          ]
+        },
+        {
+          "series": "v1",
+          "arm": "control",
+          "slot": 39,
+          "gameId": 909153271,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 44,
+              "ms": 79,
+              "frame": 89,
+              "observedOutputOrdinal": 44
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 7,
+          "gameId": 909157602,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 6,
+              "ms": 56,
+              "frame": 13,
+              "observedOutputOrdinal": 6
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 18,
+          "gameId": 909158127,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 50,
+              "ms": 53,
+              "frame": 101,
+              "observedOutputOrdinal": 50
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 24,
+          "gameId": 909158758,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 50,
+              "ms": 64,
+              "frame": 102,
+              "observedOutputOrdinal": 50
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 27,
+          "gameId": 909158912,
+          "result": "W",
+          "warnings": [
+            {
+              "turn": 3,
+              "ms": 55,
+              "frame": 9,
+              "observedOutputOrdinal": 4
+            }
+          ]
+        },
+        {
+          "series": "v2",
+          "arm": "control",
+          "slot": 28,
+          "gameId": 909159000,
+          "result": "L",
+          "warnings": [
+            {
+              "turn": 36,
+              "ms": 60,
+              "frame": 74,
+              "observedOutputOrdinal": 36
+            }
+          ]
+        }
+      ],
+      "allLaterInternalIntegerQuantileBoundsIfCompleteCapture": {
+        "p50": {
+          "lowerIntegerMs": 0,
+          "upperIntegerMs": 36
+        },
+        "p90": {
+          "lowerIntegerMs": 40,
+          "upperIntegerMs": 40
+        },
+        "p95": {
+          "lowerIntegerMs": 42,
+          "upperIntegerMs": 42
+        },
+        "p99": {
+          "lowerIntegerMs": 47,
+          "upperIntegerMs": 47
+        }
+      },
+      "explicitLiveFailures": 0,
+      "warningCaptureTurnOffsets": {
+        "1": 182,
+        "0": 1607
+      }
+    }
+  },
+  "strictProcess": {
+    "candidate": {
+      "reports": [
+        {
+          "path": "build/analysis/v09-batched-refresh-v1/process-1.json",
+          "sha256": "5c26f2f46751f6ca85db0c0321ed8310ab91d519dbcf5596cf46fa9f0ad07480",
+          "bytes": 45915
+        },
+        {
+          "path": "build/analysis/v09-batched-refresh-v1/process-2.json",
+          "sha256": "30030d55e86d5f6cad7d5ef7198fa6f539134e92ed6e6c57035dc7f05eb815d0",
+          "bytes": 46389
+        },
+        {
+          "path": "build/analysis/v09-batched-refresh-v1/process-3.json",
+          "sha256": "b7c18d4d6999a852ea5d78c1e8b679c99c1c511667e014743012a69d21118066",
+          "bytes": 49194
+        },
+        {
+          "path": "build/analysis/v09-batched-refresh-v1/process-4.json",
+          "sha256": "93a904c1ade7e53870ad9e6affde0b4ea13d345644f84da46b71782a13ae8a1a",
+          "bytes": 43603
+        }
+      ],
+      "games": 8,
+      "allTurns": 686,
+      "laterTurns": 678,
+      "firstTurnTimingMs": {
+        "responseMs": {
+          "count": 8,
+          "min": 563.8338,
+          "median": 585.75175,
+          "p90": 601.2576,
+          "p95": 601.2576,
+          "p99": 601.2576,
+          "max": 601.2576
+        },
+        "sendMs": {
+          "count": 8,
+          "min": 70.0805,
+          "median": 81.01984999999999,
+          "p90": 86.0812,
+          "p95": 86.0812,
+          "p99": 86.0812,
+          "max": 86.0812
+        },
+        "consumerMs": {
+          "count": 8,
+          "min": 564.0001,
+          "median": 586.0355999999999,
+          "p90": 601.3514,
+          "p95": 601.3514,
+          "p99": 601.3514,
+          "max": 601.3514
+        }
+      },
+      "laterTimingMs": {
+        "responseMs": {
+          "count": 678,
+          "min": 1.6027,
+          "median": 37.02365,
+          "p90": 37.9026,
+          "p95": 38.1225,
+          "p99": 41.3965,
+          "max": 46.7275
+        },
+        "sendMs": {
+          "count": 678,
+          "min": 0.0626,
+          "median": 0.345,
+          "p90": 0.6872,
+          "p95": 0.8159,
+          "p99": 1.7748,
+          "max": 5.402
+        },
+        "consumerMs": {
+          "count": 678,
+          "min": 1.6775,
+          "median": 37.15195,
+          "p90": 38.0713,
+          "p95": 38.2844,
+          "p99": 41.4962,
+          "max": 46.854
+        }
+      },
+      "laterResponseThresholdCounts": {
+        "40": 9,
+        "45": 1,
+        "50": 0
+      },
+      "slowestLaterResponses": [
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-2.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904146009.json",
+          "turn": 49,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.5672,
+          "responseMs": 46.7275,
+          "consumerMs": 46.854,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-3.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904148181.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.4982,
+          "responseMs": 43.5389,
+          "consumerMs": 43.6543,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-2.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904146009.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.5789,
+          "responseMs": 41.8707,
+          "consumerMs": 41.9779,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-3.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904148181.json",
+          "turn": 39,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 4.268,
+          "responseMs": 41.6962,
+          "consumerMs": 41.8701,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-2.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904146009.json",
+          "turn": 36,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 4.5756,
+          "responseMs": 41.6268,
+          "consumerMs": 41.7917,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-4.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904147739.json",
+          "turn": 44,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 5.402,
+          "responseMs": 41.5061,
+          "consumerMs": 41.7828,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-4.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904147739.json",
+          "turn": 6,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.3499,
+          "responseMs": 41.3965,
+          "consumerMs": 41.4962,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-4.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904147739.json",
+          "turn": 6,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.5585,
+          "responseMs": 41.1329,
+          "consumerMs": 41.2418,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-2.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904146009.json",
+          "turn": 6,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.225,
+          "responseMs": 40.2502,
+          "consumerMs": 40.3401,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/v09-batched-refresh-v1/process-1.json",
+          "game": 1,
+          "seat": 1,
+          "map": "903510176.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.3925,
+          "responseMs": 39.7173,
+          "consumerMs": 39.8331,
+          "status": "OK",
+          "io": null
+        }
+      ],
+      "timeouts": 0,
+      "nominalOverruns": 0,
+      "scope": "Local exact-artifact strict process recordings; no new run and no inference of CG response distribution."
+    },
+    "control": {
+      "reports": [
+        {
+          "path": "build/analysis/neural-v7/control-process/process-903510176.json",
+          "sha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26",
+          "bytes": 37179
+        },
+        {
+          "path": "build/analysis/neural-v7/control-process/process-904146009.json",
+          "sha256": "40d9c996c62367adef01c99934fda1d5d998ecda289fe9fa7b70a7c42dc15fa7",
+          "bytes": 45123
+        },
+        {
+          "path": "build/analysis/neural-v7/control-process/process-904148181.json",
+          "sha256": "5c6861a32c9992dfae40c87fd2215375fff0398adfe1cc30693d1bec8328aa58",
+          "bytes": 52812
+        },
+        {
+          "path": "build/analysis/neural-v7/control-process/process-904147739.json",
+          "sha256": "d95b84413b0f7d56e90d9e53bac566aa329fcd183065e0687a0929d4587e989d",
+          "bytes": 44632
+        }
+      ],
+      "games": 8,
+      "allTurns": 665,
+      "laterTurns": 657,
+      "firstTurnTimingMs": {
+        "responseMs": {
+          "count": 8,
+          "min": 567.1929,
+          "median": 619.19965,
+          "p90": 655.1211,
+          "p95": 655.1211,
+          "p99": 655.1211,
+          "max": 655.1211
+        },
+        "sendMs": {
+          "count": 8,
+          "min": 67.0417,
+          "median": 104.82615000000001,
+          "p90": 147.9257,
+          "p95": 147.9257,
+          "p99": 147.9257,
+          "max": 147.9257
+        },
+        "consumerMs": {
+          "count": 8,
+          "min": 567.9774,
+          "median": 621.19695,
+          "p90": 655.2772,
+          "p95": 655.2772,
+          "p99": 655.2772,
+          "max": 655.2772
+        }
+      },
+      "laterTimingMs": {
+        "responseMs": {
+          "count": 657,
+          "min": 2.048,
+          "median": 37.468,
+          "p90": 38.3678,
+          "p95": 38.692,
+          "p99": 40.4345,
+          "max": 41.444
+        },
+        "sendMs": {
+          "count": 657,
+          "min": 0.1093,
+          "median": 0.4281,
+          "p90": 0.7979,
+          "p95": 1.0008,
+          "p99": 1.7145,
+          "max": 12.4894
+        },
+        "consumerMs": {
+          "count": 657,
+          "min": 2.3028,
+          "median": 37.6198,
+          "p90": 38.5753,
+          "p95": 38.9465,
+          "p99": 40.6773,
+          "max": 41.5962
+        }
+      },
+      "laterResponseThresholdCounts": {
+        "40": 9,
+        "45": 0,
+        "50": 0
+      },
+      "slowestLaterResponses": [
+        {
+          "report": "build/analysis/neural-v7/control-process/process-903510176.json",
+          "game": 1,
+          "seat": 1,
+          "map": "903510176.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.219,
+          "responseMs": 41.444,
+          "consumerMs": 41.5962,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904146009.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904146009.json",
+          "turn": 5,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.42,
+          "responseMs": 40.814,
+          "consumerMs": 40.9031,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-903510176.json",
+          "game": 0,
+          "seat": 0,
+          "map": "903510176.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.3335,
+          "responseMs": 40.6629,
+          "consumerMs": 40.7629,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904147739.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904147739.json",
+          "turn": 7,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.2408,
+          "responseMs": 40.6371,
+          "consumerMs": 40.9321,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904148181.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904148181.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.5103,
+          "responseMs": 40.6355,
+          "consumerMs": 40.7282,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904148181.json",
+          "game": 1,
+          "seat": 1,
+          "map": "904148181.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.4083,
+          "responseMs": 40.5306,
+          "consumerMs": 40.6927,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904148181.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904148181.json",
+          "turn": 29,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.7469,
+          "responseMs": 40.4345,
+          "consumerMs": 40.6773,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904147739.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904147739.json",
+          "turn": 4,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.5268,
+          "responseMs": 40.2802,
+          "consumerMs": 40.3876,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904148181.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904148181.json",
+          "turn": 43,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.6462,
+          "responseMs": 40.1963,
+          "consumerMs": 40.3605,
+          "status": "OK",
+          "io": null
+        },
+        {
+          "report": "build/analysis/neural-v7/control-process/process-904147739.json",
+          "game": 0,
+          "seat": 0,
+          "map": "904147739.json",
+          "turn": 44,
+          "budgetMs": 50,
+          "graceMs": 0,
+          "sendMs": 0.6323,
+          "responseMs": 39.8525,
+          "consumerMs": 40.0701,
+          "status": "OK",
+          "io": null
+        }
+      ],
+      "timeouts": 0,
+      "nominalOverruns": 0,
+      "scope": "Local exact-artifact strict process recordings; no new run and no inference of CG response distribution."
+    }
+  },
+  "tails": {
+    "schema": "v09-budget-tail-summary-v1",
+    "readOnlyDerived": true,
+    "source": {
+      "path": "build/analysis/v09-budget-telemetry-v1/telemetry.json",
+      "sha256": "944d9e3f000d4f298b42141ab8786d44f6ca14ce31a27db17500c49f9a52b9be"
+    },
+    "quantileMethod": "empirical nearest rank ceil(p*N); p50 uses conventional median",
+    "strictProcess": {
+      "candidate": {
+        "allResponses": 686,
+        "firstResponsesExcluded": 8,
+        "laterResponses": 678,
+        "responseMs": {
+          "p50": 37.02365,
+          "p95": 38.1225,
+          "p99": 41.3965,
+          "p99_9": 46.7275,
+          "max": 46.7275
+        },
+        "countStrictlyAbove45Ms": 1,
+        "countStrictlyAbove48Ms": 0,
+        "arithmeticOnlyMaximumPlus2Ms": 48.7275,
+        "arithmeticOnlyMaximumPlus5Ms": 51.7275
+      },
+      "control": {
+        "allResponses": 665,
+        "firstResponsesExcluded": 8,
+        "laterResponses": 657,
+        "responseMs": {
+          "p50": 37.468,
+          "p95": 38.692,
+          "p99": 40.4345,
+          "p99_9": 41.444,
+          "max": 41.444
+        },
+        "countStrictlyAbove45Ms": 0,
+        "countStrictlyAbove48Ms": 0,
+        "arithmeticOnlyMaximumPlus2Ms": 43.444,
+        "arithmeticOnlyMaximumPlus5Ms": 46.444
+      }
+    },
+    "liveInternalCensored": {
+      "candidate": {
+        "laterTurnDenominator": 4811,
+        "retainedWarnings": 1599,
+        "allTurnIntegerMsBoundsAssumingCompleteCapture": {
+          "p99": {
+            "lower": 46,
+            "upper": 46,
+            "realIntervalUpperExclusiveMs": 47
+          },
+          "p99_9": {
+            "lower": 53,
+            "upper": 53,
+            "realIntervalUpperExclusiveMs": 54
+          }
+        },
+        "conditionalWarnIntegerMs": {
+          "p99": 49,
+          "p99_9": 73,
+          "max": 98
+        }
+      },
+      "control": {
+        "laterTurnDenominator": 5717,
+        "retainedWarnings": 2096,
+        "allTurnIntegerMsBoundsAssumingCompleteCapture": {
+          "p99": {
+            "lower": 47,
+            "upper": 47,
+            "realIntervalUpperExclusiveMs": 48
+          },
+          "p99_9": {
+            "lower": 56,
+            "upper": 56,
+            "realIntervalUpperExclusiveMs": 57
+          }
+        },
+        "conditionalWarnIntegerMs": {
+          "p99": 49,
+          "p99_9": 64,
+          "max": 106
+        }
+      }
+    },
+    "newGames": 0,
+    "newPolicyCalls": 0,
+    "caveat": "The offset headroom counts are arithmetic on old full responses, not predictions under more search work. Internal all-turn quantiles assume complete capture of post-flush WARN logging and are not server-response quantiles."
+  },
+  "decision": {
+    "budgetChanged": false,
+    "strategyChanged": false,
+    "proposedExperimentInternalMs": 38,
+    "proposedMarginMs": 12,
+    "proposedExperimentStarted": false,
+    "safeIncreaseEstablished": false,
+    "reason": "Censored internal WARN median/max cannot establish server headroom; retained full local response max46.7275 already yields51.7275 under a purely illustrative+5ms shift.",
+    "nextMeasurement": "One separate exact artifact, fixed strict50ms response panel; whole-response tail, actual per-game failures and prospective strength evidence.",
+    "priorVerdicts": "Unchanged; no retry or continuation of the incomplete live series."
+  },
+  "verification": {
+    "schema": "v09-budget-telemetry-v1-verification",
+    "complete": true,
+    "auditStatus": "PASS",
+    "verifiedInputFiles": 317,
+    "checks": {
+      "candidate": {
+        "liveGames": 68,
+        "laterTurns": 4811,
+        "warns": 1599,
+        "strictGames": 8,
+        "fullLaterResponses": 678,
+        "fullResponseAbove45": 1,
+        "fullResponseAbove48": 0,
+        "fullResponseP999": 46.7275
+      },
+      "control": {
+        "liveGames": 80,
+        "laterTurns": 5717,
+        "warns": 2096,
+        "strictGames": 8,
+        "fullLaterResponses": 657,
+        "fullResponseAbove45": 0,
+        "fullResponseAbove48": 0,
+        "fullResponseP999": 41.444
+      }
+    },
+    "scope": "Rehashed all pinned inputs; independently recounted retained per-game warnings and recomputed raw strict response percentiles. No new bot/game calls."
+  },
+  "inputs": [
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/study.py",
+      "sha256": "db6ab3aec8d34438fd787542f9ddf9ed911c83f06cbe19da9acd9001343a4505",
+      "bytes": 14811
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/source-freeze.json",
+      "sha256": "1b594dc6bbcf5bb6365e0794b7fe874a0ab6675fa7624e391b798ae35f46813a",
+      "bytes": 46603
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/telemetry.json",
+      "sha256": "944d9e3f000d4f298b42141ab8786d44f6ca14ce31a27db17500c49f9a52b9be",
+      "bytes": 649733
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/tail-summary.json",
+      "sha256": "567698b62f922f44547f730384e2ab941e71b3718f5ab73bc759541e9563cd7a",
+      "bytes": 2520
+    },
+    {
+      "path": "build/analysis/v09-budget-telemetry-v1/verification.json",
+      "sha256": "9562800dc9cbdb43f6b2c3d2f469e61881c1f16f0911c2ad90fe4602bc22cc0f",
+      "bytes": 810
+    }
+  ],
+  "limitations": [
+    "WARN quantiles are conditional on a warning being retained; they are not the full distribution of turn response times.",
+    "No warning gives no exact measured duration; under complete stderr capture it implies internal integer totalMs <=36, i.e. actual measured interval <37 ms.",
+    "Censored bounds assume every emitted warning was retained; because logging follows output flush, stderr capture completeness is not independently proven.",
+    "CGRunner wall interval starts after hasNext() and excludes some input/remote transport costs; it ends after flush. It is not the server deadline clock.",
+    "An internal warning above50 does not establish a server timeout; raw recorded explicit failure signals are reported separately.",
+    "First turns have a1000ms limit and warmup; exclude them from all50ms comparisons.",
+    "Full local responseMs includes protocol preparation/sending plus response arrival at the stdout reader; consumerMs can include later scheduling delay.",
+    "Observed maxima and warning medians do not establish safe unused budget or the tail under an increased search allowance.",
+    "Candidate slot29 in v2 remains unknown transport; later slots unstarted. No unknown outcome or turn enters telemetry denominators."
+  ],
+  "retainedArchive": "docs/evidence/v09-budget-telemetry-v1-artifacts.zip"
+}
