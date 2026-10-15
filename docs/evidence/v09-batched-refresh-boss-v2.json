@@ -1,0 +1,3721 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T22:16:19.668956+00:00",
+  "status": "INCOMPLETE_TRANSPORT",
+  "complete": false,
+  "auditStatus": "PASS_RETAINED_EVIDENCE",
+  "exploratoryOnly": true,
+  "formalVerdict": "NOT_PASSED_UNCHANGED",
+  "promotionEligible": false,
+  "promotionPerformed": false,
+  "offlineOnly": true,
+  "gamesCreated": 0,
+  "actualCounts": {
+    "controlCompleted": 40,
+    "candidateCompleted": 28,
+    "candidateUnknown": 1,
+    "candidateUnstarted": 11
+  },
+  "plannedCounts": {
+    "control": 40,
+    "candidate": 40
+  },
+  "retainedCanonicalCount": 68,
+  "issuedRequestCount": 69,
+  "uncertainRequestIsNotScored": true,
+  "unknownGameCreationCount": 1,
+  "originalFormalAudit": {
+    "path": "build/analysis/v09-batched-refresh-boss-v1/independent-audit.json",
+    "sha256": "12bdb615f578eb787c6d2a6df9878e274f37dc9e0f53ace3429d5906235cca2f"
+  },
+  "auditor": {
+    "path": "build/analysis/v09-batched-refresh-boss-v2/audit_partial.py",
+    "sha256": "d7e7ef6ca93d4585c20bba44e2db51e409d67cb6fb11705758a2fff1f1487a55"
+  },
+  "importedFrozenAuditor": {
+    "path": "build/analysis/v09-batched-refresh-boss-v2/audit_results.py",
+    "sha256": "1e0806f07d71af5216461f485aa34eb410fd433d0dcd6f215dd710e1abf9026e"
+  },
+  "freezeVerification": {
+    "verifiedAt": "2026-10-15T22:16:10.866480+00:00",
+    "unchangedFiles": 2912,
+    "unchangedRuntimes": 7,
+    "unchangedV1LiveFiles": 85,
+    "unchangedV2LiveFiles": 109,
+    "v1": {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/frozen-before-live.json",
+      "sha256": "e7b2b4014dbb559a119d1748aec38b323bfd43f85ec863483f1793b727195c13"
+    },
+    "v2": {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/frozen-before-live.json",
+      "sha256": "bac938c1109d9f37f9a57e86a33e086f58e8b25fbcdf29db867ad0db15c5a40d"
+    }
+  },
+  "processChecks": [
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-1.json",
+      "sha256": "5c26f2f46751f6ca85db0c0321ed8310ab91d519dbcf5596cf46fa9f0ad07480"
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-2.json",
+      "sha256": "30030d55e86d5f6cad7d5ef7198fa6f539134e92ed6e6c57035dc7f05eb815d0"
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-3.json",
+      "sha256": "b7c18d4d6999a852ea5d78c1e8b679c99c1c511667e014743012a69d21118066"
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-4.json",
+      "sha256": "93a904c1ade7e53870ad9e6affde0b4ea13d345644f84da46b71782a13ae8a1a"
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-903510176.json",
+      "sha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26"
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904146009.json",
+      "sha256": "40d9c996c62367adef01c99934fda1d5d998ecda289fe9fa7b70a7c42dc15fa7"
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904148181.json",
+      "sha256": "5c6861a32c9992dfae40c87fd2215375fff0398adfe1cc30693d1bec8328aa58"
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904147739.json",
+      "sha256": "d95b84413b0f7d56e90d9e53bac566aa329fcd183065e0687a0929d4587e989d"
+    }
+  ],
+  "mapPreflight": {
+    "path": "build/analysis/v09-batched-refresh-boss-v2/map-preflight.json",
+    "sha256": "27124f17e78fb9d003efb7aec5e0168e14145549661a04a18408c26b30c74365"
+  },
+  "excludedCoreMaps": 23584,
+  "control": {
+    "plan": {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/plan.json",
+      "sha256": "1fc3723c350a6237ef69c76d829a8c82b9251284e67cbfab073ddb7a1b3bf63f"
+    },
+    "planId": "719de6330ba3b1f86e592564af55ed53dba968aabea1832ecd6807c08e1a2ff4",
+    "build": {
+      "buildId": "b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2",
+      "classesSha256": "e1eaf5d0aad126d46bbdcf2649d7d103cf21345cd1422e2e23226aea2706940d",
+      "configSha256": "fb58180584ec9d79938e4332861e5d3c018fb7333a5ecf4ecc3ce6494ee1830a",
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-batched-refresh-v1\\artifact-v09",
+      "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\neural-v7\\control-process\\process-903510176.json",
+      "processCheckSha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26",
+      "sourceSha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "strategy": "v09?NOISE=0.1"
+    },
+    "summary": {
+      "games": 40,
+      "wins": 11,
+      "draws": 0,
+      "losses": 29,
+      "halfPoints": 22,
+      "points": 11.0,
+      "seats": {
+        "P0": 20,
+        "P1": 20
+      },
+      "dates": {
+        "firstCompletedAt": "2026-10-15T21:19:04.088251+00:00",
+        "lastCompletedAt": "2026-10-15T21:45:59.171503+00:00",
+        "recordedDates": 40
+      },
+      "technicalFailures": 0,
+      "requestAttempts": 40,
+      "replacements": 0
+    },
+    "games": [
+      {
+        "gameId": 909157327,
+        "seed": "1807486512",
+        "seat": 0,
+        "mapHash": "3eb29305d68a23bccbf7386661d3a05d094bc8c75b62a55af59d15a783d78e8b",
+        "result": "W",
+        "scores": [
+          1404,
+          1117
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 1,
+        "completedAt": "2026-10-15T21:19:04.088251+00:00",
+        "rawSha256": "060138e31b978b067f399d3d687c1daab855cb3528569248679fefe6da24e134"
+      },
+      {
+        "gameId": 909157384,
+        "seed": "1297382672",
+        "seat": 1,
+        "mapHash": "e668458ece2b99ba80e910412a611bf7c5725f797d07f5603ac51e0caa8063dd",
+        "result": "L",
+        "scores": [
+          2009,
+          1868
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 2,
+        "completedAt": "2026-10-15T21:19:39.485585+00:00",
+        "rawSha256": "2361a1b183afc579cbda0c5e4a9aaf59b0408fb41826d55fb101bda694d31e67"
+      },
+      {
+        "gameId": 909157419,
+        "seed": "1192277489",
+        "seat": 0,
+        "mapHash": "ccad2c093ea599afd02716a98452fba352f54fd469febaaab2d0e02d665cf8ad",
+        "result": "L",
+        "scores": [
+          971,
+          1400
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 3,
+        "completedAt": "2026-10-15T21:20:15.087329+00:00",
+        "rawSha256": "9e351ea21d710aa02d8efe453a0dad3bac47ace5a48cfd8299ce968632118005"
+      },
+      {
+        "gameId": 909157467,
+        "seed": "1031438492",
+        "seat": 1,
+        "mapHash": "c5cbd9747ac8a57d230d76af9125439a6ee22759b26255b19948eb3831ff74e5",
+        "result": "L",
+        "scores": [
+          1159,
+          1013
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 4,
+        "completedAt": "2026-10-15T21:20:45.068966+00:00",
+        "rawSha256": "9b27dbb87fe4b4cac972c8840264606118be4fff75737c3de37b01ef80902357"
+      },
+      {
+        "gameId": 909157507,
+        "seed": "389409389",
+        "seat": 0,
+        "mapHash": "e936a8dca00e0d3d7c295953fd22e36e456c9a3e8ac56380533b3da7fcf9d839",
+        "result": "W",
+        "scores": [
+          3375,
+          3333
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 5,
+        "completedAt": "2026-10-15T21:21:18.296220+00:00",
+        "rawSha256": "6d92a7dd2822f0f01e3b41a0c40cd15246e91886e1c274bbd496127d40c492ca"
+      },
+      {
+        "gameId": 909157551,
+        "seed": "654947146",
+        "seat": 1,
+        "mapHash": "869524086941dcfa81a5e378fb59562eb0998dbc6cc2646a091459100bcd0b35",
+        "result": "L",
+        "scores": [
+          3578,
+          2948
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 6,
+        "completedAt": "2026-10-15T21:21:51.570447+00:00",
+        "rawSha256": "446dd9119fe7087aef3243918fd5bbf02b37bbf67742e93db40b701dd638c5f5"
+      },
+      {
+        "gameId": 909157602,
+        "seed": "1364386181",
+        "seat": 0,
+        "mapHash": "310d23d8960f92f302a6bb3b0c5f250be9a048f4f220ee1092eb351e8edeb983",
+        "result": "L",
+        "scores": [
+          4301,
+          8408
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 7,
+        "completedAt": "2026-10-15T21:22:31.411291+00:00",
+        "rawSha256": "3c6e3bc9327c6ee9a762fbaa733e6925f466f26587810230716bfb0422c698b6"
+      },
+      {
+        "gameId": 909157669,
+        "seed": "1226602220",
+        "seat": 0,
+        "mapHash": "5e253eb744ed0a4744a71a8c320f666bd48ec72c14c76a20687549871323b353",
+        "result": "L",
+        "scores": [
+          3006,
+          5357
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 8,
+        "completedAt": "2026-10-15T21:23:10.475264+00:00",
+        "rawSha256": "f4e6040d16b9f2537e80022be355b022f5d97f4102524db4163060f8e5711e62"
+      },
+      {
+        "gameId": 909157731,
+        "seed": "583578548",
+        "seat": 1,
+        "mapHash": "ca97311a00fcc85b58ea54c210674d0725a197b44d1874b6724e7d6ca7f6ac30",
+        "result": "L",
+        "scores": [
+          570,
+          339
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 9,
+        "completedAt": "2026-10-15T21:23:41.258904+00:00",
+        "rawSha256": "6a1c4fe94c1fafa70c63f2fcc7326d06e05bc8dba984e998dea8908857f86646"
+      },
+      {
+        "gameId": 909157779,
+        "seed": "1200332969",
+        "seat": 0,
+        "mapHash": "256c08cfc77fc907d51e22da4f1b5ddef032453f17657d60737808d52d759be0",
+        "result": "W",
+        "scores": [
+          999,
+          639
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 10,
+        "completedAt": "2026-10-15T21:24:11.757302+00:00",
+        "rawSha256": "86b557827d6ce0463266488a70cff68add83c2c75a98b55c4614a8b12eaab678"
+      },
+      {
+        "gameId": 909157819,
+        "seed": "713730022",
+        "seat": 1,
+        "mapHash": "4672361318e53e607b2479604ad13b20ba3b94c1bff59b0086a89cce6300fd4e",
+        "result": "L",
+        "scores": [
+          1577,
+          940
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 11,
+        "completedAt": "2026-10-15T21:24:42.753011+00:00",
+        "rawSha256": "f3c333c6c56d273dfabe7405c49975d8f3227270444781e0b71639f9c8559fa0"
+      },
+      {
+        "gameId": 909157873,
+        "seed": "1015927095",
+        "seat": 0,
+        "mapHash": "15a4cf60c8ce714f12454445de2f29562aa2a11b7199aa16aa70e8791699e387",
+        "result": "L",
+        "scores": [
+          1444,
+          1987
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 12,
+        "completedAt": "2026-10-15T21:25:16.654969+00:00",
+        "rawSha256": "c111b7e977689624340a1e5c8a4c03929e92c17c7c20366c9be47185e21402fd"
+      },
+      {
+        "gameId": 909157931,
+        "seed": "719431138",
+        "seat": 0,
+        "mapHash": "694210d3147ff895be91f6d713ba140506f040b3e48916cf468fc5deb3c36911",
+        "result": "L",
+        "scores": [
+          2193,
+          4329
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 13,
+        "completedAt": "2026-10-15T21:25:55.485702+00:00",
+        "rawSha256": "c3928be643fe2f44481e0e4bb90bdd6b1e5a13a8b2c91e1a5d02ff5141b8d0ef"
+      },
+      {
+        "gameId": 909157990,
+        "seed": "2141398536",
+        "seat": 1,
+        "mapHash": "e471239eb70c33b42e4370f40b3254169044559909ee4d72658e1ffa6c285c6b",
+        "result": "L",
+        "scores": [
+          910,
+          589
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 14,
+        "completedAt": "2026-10-15T21:26:25.500013+00:00",
+        "rawSha256": "153a1d6f547ecfb2897ce6847a4e8cf726e8ce6b73263358f1f2f613ad89b8e1"
+      },
+      {
+        "gameId": 909158010,
+        "seed": "992276776",
+        "seat": 1,
+        "mapHash": "21ec2bea8d6f22062d87020e0ebbe6ee0becb3cb7ef251aecf34c6908563987d",
+        "result": "L",
+        "scores": [
+          4472,
+          3512
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 15,
+        "completedAt": "2026-10-15T21:27:01.367392+00:00",
+        "rawSha256": "838263d8e0e8435ab70aebc37735abf8168e3a7e510ec640f19f3d62607587b7"
+      },
+      {
+        "gameId": 909158045,
+        "seed": "1487513744",
+        "seat": 1,
+        "mapHash": "526b6ad9e5b9e654c33aa2656c773a2d3cf64f2f36ca07b4ccdba1735f8ff1fa",
+        "result": "L",
+        "scores": [
+          1608,
+          1299
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 16,
+        "completedAt": "2026-10-15T21:27:34.887450+00:00",
+        "rawSha256": "5a32d55b751ddd495320d35fc478d94116942d11b9dcdfbe19c282816ae28b0c"
+      },
+      {
+        "gameId": 909158082,
+        "seed": "1123603624",
+        "seat": 1,
+        "mapHash": "f9cd718162a0b796df6a93f609bfb0deb49ff028cc7cece248ef4a1e4d298b67",
+        "result": "W",
+        "scores": [
+          4998,
+          6164
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 17,
+        "completedAt": "2026-10-15T21:28:10.468451+00:00",
+        "rawSha256": "cda913aab8229796cba9224af3b3d25210bb3493f6872143aa58def04a0dd078"
+      },
+      {
+        "gameId": 909158127,
+        "seed": "1560558023",
+        "seat": 0,
+        "mapHash": "021f350b6088887d7a4ec1f82a6946d933c266c25b3df0cb83b0912e88329c9f",
+        "result": "L",
+        "scores": [
+          3144,
+          5230
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 18,
+        "completedAt": "2026-10-15T21:28:46.912580+00:00",
+        "rawSha256": "c7e183f00c14bc3b8bc5e7a80f57955320b0a6704f25f5f1bcc58c35e58a005b"
+      },
+      {
+        "gameId": 909158178,
+        "seed": "1846105241",
+        "seat": 1,
+        "mapHash": "143ce77c0b77cf1098c17017ab0abfc70247d3ba0c001a074feeec507317c445",
+        "result": "L",
+        "scores": [
+          2537,
+          2173
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 19,
+        "completedAt": "2026-10-15T21:29:18.366372+00:00",
+        "rawSha256": "38bcc7c5cd95f3bfa33a3b4ad0551b2eecd4b314d68b8c4b2694ccb2b5bf64f4"
+      },
+      {
+        "gameId": 909158212,
+        "seed": "1747517070",
+        "seat": 1,
+        "mapHash": "5984af618c9b449c242004347b2c87bf86702e23ab649c691eb8016aae8a0eff",
+        "result": "L",
+        "scores": [
+          5297,
+          4555
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 20,
+        "completedAt": "2026-10-15T21:29:51.354463+00:00",
+        "rawSha256": "2c26df8fc286573eb288e52c0bca33dc06230a624969745bf6437968de37b9ff"
+      },
+      {
+        "gameId": 909158618,
+        "seed": "1683847327",
+        "seat": 1,
+        "mapHash": "d164b685d4136de7631a6eac5607479db057cbc18316b550c0ea5c82de9344db",
+        "result": "W",
+        "scores": [
+          8278,
+          8992
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 21,
+        "completedAt": "2026-10-15T21:35:05.931001+00:00",
+        "rawSha256": "99537aafe7fabc77b393b8e9e6061f9b0557b8d5ae4566299ddb88f2ccf2a61b"
+      },
+      {
+        "gameId": 909158675,
+        "seed": "526738229",
+        "seat": 0,
+        "mapHash": "53ad64520d556e7479c02b5c02c1191858990d7aa57abc0170fdbacc21187456",
+        "result": "L",
+        "scores": [
+          645,
+          1957
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 22,
+        "completedAt": "2026-10-15T21:35:38.286256+00:00",
+        "rawSha256": "0d78ce493b8d729d08114def4e645149d083ac1cd77dd86621f09a55bc03c706"
+      },
+      {
+        "gameId": 909158723,
+        "seed": "2095622718",
+        "seat": 0,
+        "mapHash": "b3b34800d9c14cd4608932a34f46b8d253625dbae13efb1007ba37d3d1d6c354",
+        "result": "L",
+        "scores": [
+          1507,
+          2404
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 23,
+        "completedAt": "2026-10-15T21:36:11.633927+00:00",
+        "rawSha256": "c84b8c3475131acace178d40cbf1a734146933bcc889e264e42d8fca48a79710"
+      },
+      {
+        "gameId": 909158758,
+        "seed": "40992827",
+        "seat": 1,
+        "mapHash": "72dc1a812901c87ff0013b895d6394f799d9068b29af44e798caa83aaac04ac8",
+        "result": "L",
+        "scores": [
+          3060,
+          2723
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 24,
+        "completedAt": "2026-10-15T21:36:43.510356+00:00",
+        "rawSha256": "eef4fb27eb50747fab7eca320833bec4289e9418db99766acb35c8c446d2338e"
+      },
+      {
+        "gameId": 909158811,
+        "seed": "1030268835",
+        "seat": 0,
+        "mapHash": "25d87c344df2a1ddb5e07d53b892f065782252562fbe2e989df9d56d9dee78be",
+        "result": "L",
+        "scores": [
+          4632,
+          5427
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 25,
+        "completedAt": "2026-10-15T21:37:23.392706+00:00",
+        "rawSha256": "7c399d2e2405babf7f91a2b893780c71c3e1bb32d53c412d1c144ae859687335"
+      },
+      {
+        "gameId": 909158870,
+        "seed": "1598144009",
+        "seat": 0,
+        "mapHash": "2ca654407ebe51167f3586ec82ac48ce59463adfb99eae50de8e57f576ff1eff",
+        "result": "L",
+        "scores": [
+          2181,
+          2632
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 26,
+        "completedAt": "2026-10-15T21:37:56.051270+00:00",
+        "rawSha256": "0a7a4c622885ebba21fb570a877335d50b7fb94b7dfeb5f088a85b1e0e444e4e"
+      },
+      {
+        "gameId": 909158912,
+        "seed": "1636952962",
+        "seat": 0,
+        "mapHash": "8263d5029eae5db6f347073f6080496d6cb748a476c686258af3ab712a0634ef",
+        "result": "W",
+        "scores": [
+          3182,
+          2845
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 27,
+        "completedAt": "2026-10-15T21:38:31.234537+00:00",
+        "rawSha256": "ec7dbb4cf85d577a90c34c8ed71cb35d19c8cf01d2e79369739ec0d3d6d9ef49"
+      },
+      {
+        "gameId": 909159000,
+        "seed": "1037563823",
+        "seat": 1,
+        "mapHash": "9eb71ef772cd14d9ecaec329c1f21c5109d87816e80c35c26695579134be2ce1",
+        "result": "L",
+        "scores": [
+          4326,
+          3022
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 28,
+        "completedAt": "2026-10-15T21:39:08.486772+00:00",
+        "rawSha256": "35544b9bf074ec8b0aa48e7098710335c8e80856f813d89e4cfd929192936c31"
+      },
+      {
+        "gameId": 909159341,
+        "seed": "4199147",
+        "seat": 1,
+        "mapHash": "64776c127a0144466772898ef208009c159958884bef17bd6f6905e47656dff8",
+        "result": "L",
+        "scores": [
+          3932,
+          3781
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 29,
+        "completedAt": "2026-10-15T21:39:45.857129+00:00",
+        "rawSha256": "53f7d241ae731071294ec10f599bbfb3cedda70d1038be538bef3544fabb5a38"
+      },
+      {
+        "gameId": 909159786,
+        "seed": "1226337336",
+        "seat": 1,
+        "mapHash": "75369a392d9e935a95571629cd95255808954d1104169c8595b6346b0d8be893",
+        "result": "W",
+        "scores": [
+          4664,
+          4737
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 30,
+        "completedAt": "2026-10-15T21:40:21.870057+00:00",
+        "rawSha256": "f17c2784d46ea9b60b3596afb028b18acbf7c477fcafccfaa05b4ed12e8161ca"
+      },
+      {
+        "gameId": 909160210,
+        "seed": "1660706735",
+        "seat": 0,
+        "mapHash": "120438a6d5b043dcf40115f2ed4571d57494c7a3566583b72e880378fa8fc232",
+        "result": "W",
+        "scores": [
+          3745,
+          3444
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 31,
+        "completedAt": "2026-10-15T21:40:53.758089+00:00",
+        "rawSha256": "1e5b9ae58efc34884d6fab57b33bf0c284a13b9e0e049119ba786867a82d09de"
+      },
+      {
+        "gameId": 909160621,
+        "seed": "411649520",
+        "seat": 0,
+        "mapHash": "ff2166ea7a80ea4d05bd58c3d62f461f121e5adb3a698f5564456dd14c0c79e7",
+        "result": "L",
+        "scores": [
+          2761,
+          5095
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 32,
+        "completedAt": "2026-10-15T21:41:29.451446+00:00",
+        "rawSha256": "bfdeefe5047b2f117fb8b8780fb275628d8a4cf53aaafb6731ba3d881270e3d6"
+      },
+      {
+        "gameId": 909161099,
+        "seed": "692557103",
+        "seat": 1,
+        "mapHash": "0e92b67e68bc7cdc999fa2fa8a183efb11924f7e68784c8ce6d9bbfba2672b87",
+        "result": "W",
+        "scores": [
+          1053,
+          1073
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 33,
+        "completedAt": "2026-10-15T21:41:58.973103+00:00",
+        "rawSha256": "011e762bc48854494b059ea577ed2adfc90ae5ff0ac9bbd4b26f128b43e0ca18"
+      },
+      {
+        "gameId": 909161456,
+        "seed": "1875072073",
+        "seat": 0,
+        "mapHash": "84e4169504a4ea49a8851447fb13d89e94e338c16ca25662a615b81e6959d38e",
+        "result": "W",
+        "scores": [
+          4438,
+          3104
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 34,
+        "completedAt": "2026-10-15T21:42:31.757309+00:00",
+        "rawSha256": "58846292d0d13c11409db8e26dca6ee7d29afaa5e94c0650e700f7681207a86b"
+      },
+      {
+        "gameId": 909161931,
+        "seed": "1598373929",
+        "seat": 1,
+        "mapHash": "db5f7a77aea33cd560a9993b95c57bb87600ae595d57c0bebb26bb35cba21154",
+        "result": "L",
+        "scores": [
+          2783,
+          2505
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 35,
+        "completedAt": "2026-10-15T21:43:05.404499+00:00",
+        "rawSha256": "31132be28dc2f8036950e5802f15ec95735e0522f28476284da2ee2b2f572408"
+      },
+      {
+        "gameId": 909162459,
+        "seed": "1124741568",
+        "seat": 1,
+        "mapHash": "902a2420d81794aff5fd76ecde33b219175b1fcdda17f3e588ca0de4a4b677dc",
+        "result": "L",
+        "scores": [
+          9371,
+          5528
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 36,
+        "completedAt": "2026-10-15T21:43:42.310578+00:00",
+        "rawSha256": "e32c3a8af5156ed7984a38e0b0bbd9284a35b95c3ad11cd777c5ab0c3ea51f45"
+      },
+      {
+        "gameId": 909163036,
+        "seed": "479973053",
+        "seat": 0,
+        "mapHash": "220894da4d9cd4d189f3ca45aae7f9614d75dab36085d5636fb7ca973088deee",
+        "result": "L",
+        "scores": [
+          7152,
+          12198
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 37,
+        "completedAt": "2026-10-15T21:44:18.633214+00:00",
+        "rawSha256": "919ed4714cd5657e6278e8eae752fdc213e5d024ff308cd998f280e6795b339e"
+      },
+      {
+        "gameId": 909163622,
+        "seed": "1660338636",
+        "seat": 0,
+        "mapHash": "55e31abc93affa0b2431621c5c1cf7607072fd5c1903e94839bd079714d5259e",
+        "result": "L",
+        "scores": [
+          1524,
+          3209
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 38,
+        "completedAt": "2026-10-15T21:44:53.632084+00:00",
+        "rawSha256": "aef91f13c96e4401d67153050a7b2132845cde812f841d1e6732cfb606a39326"
+      },
+      {
+        "gameId": 909164202,
+        "seed": "288195347",
+        "seat": 0,
+        "mapHash": "95007cf13056fc2cbf69e8619a3880a0fa8b48874983af9875335919651b77c9",
+        "result": "W",
+        "scores": [
+          2409,
+          1874
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 39,
+        "completedAt": "2026-10-15T21:45:26.541651+00:00",
+        "rawSha256": "fcc8a2a5d5a41a9c7010fcf2246dbeee7b01b7ae0842d31a262d07c0cc156a58"
+      },
+      {
+        "gameId": 909164726,
+        "seed": "1084670540",
+        "seat": 1,
+        "mapHash": "362c2ce9dbaf91ebd949fdbf494aebe3dc9737d9ef83089ffe83a609ebb4a6f7",
+        "result": "L",
+        "scores": [
+          2460,
+          1917
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 40,
+        "completedAt": "2026-10-15T21:45:59.171503+00:00",
+        "rawSha256": "f7087380dd40b4a76c2bab70f697b1ec0d19d95b73937e6fcdfd59ad03a237e0"
+      }
+    ],
+    "files": [
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/result.json",
+        "sha256": "39a875d2e45069f8478b90bbca308cbc443a10a0956142048b8d2e9ae5fdb41e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/intent.json",
+        "sha256": "89308b3f11bb1b69f9734cd1f00d8689639bb7332af81eb893a5b6d8fca00999"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/canonical.json",
+        "sha256": "060138e31b978b067f399d3d687c1daab855cb3528569248679fefe6da24e134"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157327.json",
+        "sha256": "060138e31b978b067f399d3d687c1daab855cb3528569248679fefe6da24e134"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/play-response.json",
+        "sha256": "49c535bc93f93f0345c868e6849ea8ff268520a446c95b2c3bcc77f2e1bb79ce"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/result.json",
+        "sha256": "4744f7a1175aa3bd1713390a96286ae67c153ff54ce9c24a299092c227007dba"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/intent.json",
+        "sha256": "d6f380410ae2081db7c95a3a56774869308aab7944d4844fc41b87672d685ad3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/canonical.json",
+        "sha256": "2361a1b183afc579cbda0c5e4a9aaf59b0408fb41826d55fb101bda694d31e67"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157384.json",
+        "sha256": "2361a1b183afc579cbda0c5e4a9aaf59b0408fb41826d55fb101bda694d31e67"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/play-response.json",
+        "sha256": "bd2bc1ce07de3c92f538aef5cc67d88b9afac9de15245c4b81f45b8231b5bcbe"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/result.json",
+        "sha256": "cec66b6c88fafba1e9eb78afc29a98b078dbe7f2f196d10d57c72af70937f832"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/intent.json",
+        "sha256": "83d09c886c25151d365de27cf098716d3a096c4fcffb420daae214983ff256f4"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/canonical.json",
+        "sha256": "9e351ea21d710aa02d8efe453a0dad3bac47ace5a48cfd8299ce968632118005"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157419.json",
+        "sha256": "9e351ea21d710aa02d8efe453a0dad3bac47ace5a48cfd8299ce968632118005"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/play-response.json",
+        "sha256": "c5b44ec57f43b6c210be665fa626ab169d7f14183eff446b65d962fd08d70b43"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/result.json",
+        "sha256": "34614fe1d873f15349efb947f5c048610085255399aaa9702b57eef663a8ef9f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/intent.json",
+        "sha256": "8ae321317736c47bd5a9dc816bbb8aeffe76e14123adec1087f0a7bd3e62007a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/canonical.json",
+        "sha256": "9b27dbb87fe4b4cac972c8840264606118be4fff75737c3de37b01ef80902357"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157467.json",
+        "sha256": "9b27dbb87fe4b4cac972c8840264606118be4fff75737c3de37b01ef80902357"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/play-response.json",
+        "sha256": "457e98e75e48cbd9db292d818093a0406271fd3539f79eab06c4ebef7705d1e3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/result.json",
+        "sha256": "6d4936fb20260edd3bcfc6e95f73e4ff4ebfd795ddcfecf1c20dfc4ea820372d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/intent.json",
+        "sha256": "65f01d68b0c296801bd163efd7d499f46abf8d6532b7dad860d2f15ef5c86828"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/canonical.json",
+        "sha256": "6d92a7dd2822f0f01e3b41a0c40cd15246e91886e1c274bbd496127d40c492ca"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157507.json",
+        "sha256": "6d92a7dd2822f0f01e3b41a0c40cd15246e91886e1c274bbd496127d40c492ca"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/play-response.json",
+        "sha256": "74d60b0ce4066e36e94fbd5612f3814e9f85ab09e2cc92ca05208ac200331cda"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/result.json",
+        "sha256": "e1b60c54ca3d2597ad3a7ad0c4d2f9f1a23ccc38b5c7b3357ca10ac7dacb432a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/intent.json",
+        "sha256": "a66d8a2388d870f197d492d682ecb78e9c5367631e9e3b4bac202a3592e03e36"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/canonical.json",
+        "sha256": "446dd9119fe7087aef3243918fd5bbf02b37bbf67742e93db40b701dd638c5f5"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157551.json",
+        "sha256": "446dd9119fe7087aef3243918fd5bbf02b37bbf67742e93db40b701dd638c5f5"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/play-response.json",
+        "sha256": "7ae2be5569711ebbe74dd90716ded77bd6062883ab706c8cfce36b85483920fa"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/result.json",
+        "sha256": "f794462166395519456fe038b73143759feec2667ef25ee442876226a36b363f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/intent.json",
+        "sha256": "1f07cefeb2df5993df2d54076a4192bc6c00d8eca48942b99de397ffce614515"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/canonical.json",
+        "sha256": "3c6e3bc9327c6ee9a762fbaa733e6925f466f26587810230716bfb0422c698b6"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157602.json",
+        "sha256": "3c6e3bc9327c6ee9a762fbaa733e6925f466f26587810230716bfb0422c698b6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/play-response.json",
+        "sha256": "c7e0ddeae9e85c9a43debd2b5ce37b643498d889ec64d00a33d766999d449d22"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/result.json",
+        "sha256": "cf6ee9db207ca2ef81a5394c078410f77fd12d3bcb8e3ea95a1d29fe3a709e17"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/intent.json",
+        "sha256": "1204c734fdb9a91b55e869a7e39d9a714da0498e82fb9d7c3073565c2fc3cf75"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/canonical.json",
+        "sha256": "f4e6040d16b9f2537e80022be355b022f5d97f4102524db4163060f8e5711e62"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157669.json",
+        "sha256": "f4e6040d16b9f2537e80022be355b022f5d97f4102524db4163060f8e5711e62"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/play-response.json",
+        "sha256": "3281144be78039e249d05c70dca88a867520a6d830ac206db186693986a18e5d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/result.json",
+        "sha256": "dc250e66a4dcad7fcffa577bc55ec0f5442f36be94c5e72b225dcaa72d2df40a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/intent.json",
+        "sha256": "61ce687b6e5208ca92dcd4a5c1df13210d85ea18ee45b65031e12c13272ddef0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/canonical.json",
+        "sha256": "6a1c4fe94c1fafa70c63f2fcc7326d06e05bc8dba984e998dea8908857f86646"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157731.json",
+        "sha256": "6a1c4fe94c1fafa70c63f2fcc7326d06e05bc8dba984e998dea8908857f86646"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/play-response.json",
+        "sha256": "0c76d1a700414034ed107fc70c00fd3389846ec668eb81cb124489b63fa62bd9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/result.json",
+        "sha256": "1c49ee3620b5b64ab625781f9f7e96f9766da098532a2dfedf3888ff90fd59ec"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/intent.json",
+        "sha256": "3942cf2fce7880ae61540f3ab38814fa7fe6079843316a80875abca8899082b6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/canonical.json",
+        "sha256": "86b557827d6ce0463266488a70cff68add83c2c75a98b55c4614a8b12eaab678"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157779.json",
+        "sha256": "86b557827d6ce0463266488a70cff68add83c2c75a98b55c4614a8b12eaab678"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/play-response.json",
+        "sha256": "bb8b0939562819254ebf90a38878d192ec683ad788f5777e5dd8f2910548b158"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/result.json",
+        "sha256": "0f52faeb77ab35ab725ac5016c4d38aecfbf598c48229beafa25ba338fd4801f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/intent.json",
+        "sha256": "157eae59fa85a1e1242fe62c8173eb3940a1c3ba13bb7905f85e83d721316142"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/canonical.json",
+        "sha256": "f3c333c6c56d273dfabe7405c49975d8f3227270444781e0b71639f9c8559fa0"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157819.json",
+        "sha256": "f3c333c6c56d273dfabe7405c49975d8f3227270444781e0b71639f9c8559fa0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/play-response.json",
+        "sha256": "8aa6d624d1c541c8de4c6e6005f46f3e61789a5a7734dde4ef40872b6e77aad9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/result.json",
+        "sha256": "47fd7d4e532014639f83cba803baec0a73f61c05cae999c9790d10be0e167fd2"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/intent.json",
+        "sha256": "c9adb9bf6202ada292b5bda64f56029f0d966f07e30dfabce28af42f1479a4be"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/canonical.json",
+        "sha256": "c111b7e977689624340a1e5c8a4c03929e92c17c7c20366c9be47185e21402fd"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157873.json",
+        "sha256": "c111b7e977689624340a1e5c8a4c03929e92c17c7c20366c9be47185e21402fd"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/play-response.json",
+        "sha256": "a87a92dbb5672c885bfba9bef0aaf66a1a58acc5df5f84ec8f15e0d312ce982c"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/result.json",
+        "sha256": "7f7d4365b1a19150bc97a2bbac5a1de6dfe63b04e59f71bc76f7509061b3410f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/intent.json",
+        "sha256": "a72986076d0739f507fab936a6f7bb9ee73663ab86eb9703cf6914e1dfcc5cf9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/canonical.json",
+        "sha256": "c3928be643fe2f44481e0e4bb90bdd6b1e5a13a8b2c91e1a5d02ff5141b8d0ef"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157931.json",
+        "sha256": "c3928be643fe2f44481e0e4bb90bdd6b1e5a13a8b2c91e1a5d02ff5141b8d0ef"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/play-response.json",
+        "sha256": "7d2c19c69a8b99e0a12f6f86d17b01fd389ddf038011941af434c8927c57f8ca"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/result.json",
+        "sha256": "513a6ad51840649f706c601d2f20964c551858b9c43ebbf02ed5c7eb57313ef6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/intent.json",
+        "sha256": "d671f8a33b67c6af0b77b1e32bf7a124ef513f89a64417cc9f5467888dfbccde"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/canonical.json",
+        "sha256": "153a1d6f547ecfb2897ce6847a4e8cf726e8ce6b73263358f1f2f613ad89b8e1"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157990.json",
+        "sha256": "153a1d6f547ecfb2897ce6847a4e8cf726e8ce6b73263358f1f2f613ad89b8e1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/play-response.json",
+        "sha256": "ad5f48aacfc6564346465282452a6c9ee47489faecd08710c011c43dad177624"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/result.json",
+        "sha256": "1f244d4597c2b0f5bfdbc939bc1a04ed417c0dc8e040fa323fcdbdeb7c0685b1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/intent.json",
+        "sha256": "3bc7fee885402426e053243f0fd720ad497708f6b0cc7918328519c05bf93c88"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/canonical.json",
+        "sha256": "838263d8e0e8435ab70aebc37735abf8168e3a7e510ec640f19f3d62607587b7"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158010.json",
+        "sha256": "838263d8e0e8435ab70aebc37735abf8168e3a7e510ec640f19f3d62607587b7"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/play-response.json",
+        "sha256": "a519c90290d28aebb26d95a3687719a0520c86902d7ae921c2c47062fc5c0a75"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/result.json",
+        "sha256": "9dfc07e427e0216db7b7eef10efaa4e062b02049700ea33920e9a851972e0a47"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/intent.json",
+        "sha256": "a0be4be42c02288b7c75580cf7fd47ff53a0b743f8b9a03261cc728750a99746"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/canonical.json",
+        "sha256": "5a32d55b751ddd495320d35fc478d94116942d11b9dcdfbe19c282816ae28b0c"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158045.json",
+        "sha256": "5a32d55b751ddd495320d35fc478d94116942d11b9dcdfbe19c282816ae28b0c"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/play-response.json",
+        "sha256": "dcdeb40f6053f6331780c5b6642c177a88322a3e8640a4443b5b3f87027cc16e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/result.json",
+        "sha256": "a97653405cf920fdbd63ecdb3fd8e004a7d4eb83187c02342bc5db1a874c3cfb"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/intent.json",
+        "sha256": "955de1e75f9e01020991107578d3c927417941870b9f608c4c97676503a7cf12"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/canonical.json",
+        "sha256": "cda913aab8229796cba9224af3b3d25210bb3493f6872143aa58def04a0dd078"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158082.json",
+        "sha256": "cda913aab8229796cba9224af3b3d25210bb3493f6872143aa58def04a0dd078"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/play-response.json",
+        "sha256": "c9ae3960fc4d248fca56a6e9e47e8bb8ade574b85e735f28ae8adae2374913a9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/result.json",
+        "sha256": "1aa227185d3d32d9bef473fd736762ad58d9dacb07c482905d09c7a75ce9e4b3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/intent.json",
+        "sha256": "78c4629eede0f738cc6da64fcc7d134b4eaa7782b70384d7dbaf31acdbcc1b91"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/canonical.json",
+        "sha256": "c7e183f00c14bc3b8bc5e7a80f57955320b0a6704f25f5f1bcc58c35e58a005b"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158127.json",
+        "sha256": "c7e183f00c14bc3b8bc5e7a80f57955320b0a6704f25f5f1bcc58c35e58a005b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/play-response.json",
+        "sha256": "2db9d75fcfbcee488e45ccb89585e95c770f1aa4856ac1c1eee9b1f43ec3e544"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/result.json",
+        "sha256": "fa96d71611cc92c0580dbbbc64ed7e5380918ce2ac7863fbc6a2e86471286088"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/intent.json",
+        "sha256": "98ef8be035c75788157aedd70dfd3c645fddafaa4f6b01771fa9ae4890af6f90"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/canonical.json",
+        "sha256": "38bcc7c5cd95f3bfa33a3b4ad0551b2eecd4b314d68b8c4b2694ccb2b5bf64f4"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158178.json",
+        "sha256": "38bcc7c5cd95f3bfa33a3b4ad0551b2eecd4b314d68b8c4b2694ccb2b5bf64f4"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/play-response.json",
+        "sha256": "3b46986f907457fe6f542998ddf52f52a197f2b1b0e04bf3b78b015c676b89d2"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/result.json",
+        "sha256": "d8cbd61e8079a76e5fe38c1720ad27cf72993500c7585f8cd23fe5e3e4ce9126"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/intent.json",
+        "sha256": "8b8a799d570b2e9114e9a870df18d9dde7ece91312b65a86113d187aa380a17b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/canonical.json",
+        "sha256": "2c26df8fc286573eb288e52c0bca33dc06230a624969745bf6437968de37b9ff"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158212.json",
+        "sha256": "2c26df8fc286573eb288e52c0bca33dc06230a624969745bf6437968de37b9ff"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/play-response.json",
+        "sha256": "df25d3303bc8f34d65905152a7691c74b01901ec216e380448e73470295781c1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/result.json",
+        "sha256": "3408dfa2550eb4267e1febfb01a15cd1c369d8978e055d0e053f1e19be493259"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/intent.json",
+        "sha256": "0915cc0b3c36b09e8a66a15cc358d0dd96fba07ea6835dde81ae76404cb7b916"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/canonical.json",
+        "sha256": "99537aafe7fabc77b393b8e9e6061f9b0557b8d5ae4566299ddb88f2ccf2a61b"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158618.json",
+        "sha256": "99537aafe7fabc77b393b8e9e6061f9b0557b8d5ae4566299ddb88f2ccf2a61b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/play-response.json",
+        "sha256": "71fd7a6a9b10945c585a47c654c7796489a8e98f9c1297c11fa543c007d05e2a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/result.json",
+        "sha256": "ea71c9cbdd5d39472fb152adde2c16e885139a09447f9421c2eb885f662de850"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/intent.json",
+        "sha256": "39006f4a543635073c2ce43be4162cbd3daf7aa6acd11d2d93f47af41eb2bde7"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/canonical.json",
+        "sha256": "0d78ce493b8d729d08114def4e645149d083ac1cd77dd86621f09a55bc03c706"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158675.json",
+        "sha256": "0d78ce493b8d729d08114def4e645149d083ac1cd77dd86621f09a55bc03c706"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/play-response.json",
+        "sha256": "38ab08b10e72ce688c3435be21aaf326a1aefea431ea31582947172a86ab80fb"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/result.json",
+        "sha256": "39d199d43a108e890e7e32817da6118f8ed3e79be00e6175ba829cc37a8872e3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/intent.json",
+        "sha256": "527b3b4cb8b7523a944d66b8e88c6974e478277e13db4fa140427237aa6386aa"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/canonical.json",
+        "sha256": "c84b8c3475131acace178d40cbf1a734146933bcc889e264e42d8fca48a79710"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158723.json",
+        "sha256": "c84b8c3475131acace178d40cbf1a734146933bcc889e264e42d8fca48a79710"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/play-response.json",
+        "sha256": "509c228f9bb27af4244157c41d1bc3ba65b61779d88e095264c05c2662f431f2"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/result.json",
+        "sha256": "39968393e25b21348623965c588e3d0f307607d6bd6858ac515bbf4738173654"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/intent.json",
+        "sha256": "083d7445584e54da718757ecb803f28b8cd1b5ffce34ca46280f1712c25f8997"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/canonical.json",
+        "sha256": "eef4fb27eb50747fab7eca320833bec4289e9418db99766acb35c8c446d2338e"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158758.json",
+        "sha256": "eef4fb27eb50747fab7eca320833bec4289e9418db99766acb35c8c446d2338e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/play-response.json",
+        "sha256": "77a5bce4eb4e415841cea0b81b2f8beead1e0974f2d0c2251a62ae81e4d436ed"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/result.json",
+        "sha256": "ae3adef8b93b1a598ada5ddbc5f37a74c793a925400eaa8ea8fe14eb0e1fe629"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/intent.json",
+        "sha256": "fb9914c83ce8e0205d7e5de0382c3d589afec3eb878c305e3985ca68f4166404"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/canonical.json",
+        "sha256": "7c399d2e2405babf7f91a2b893780c71c3e1bb32d53c412d1c144ae859687335"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158811.json",
+        "sha256": "7c399d2e2405babf7f91a2b893780c71c3e1bb32d53c412d1c144ae859687335"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/play-response.json",
+        "sha256": "0f6e863d39f18a8554306f567d43ce082f30ba9b76f62e9845431de221066bde"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/result.json",
+        "sha256": "057903287732c53894dbc2600897676b90325516513fe1d002ffe59a4745ec2e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/intent.json",
+        "sha256": "bd1c5e88e36d72beb4fc0b2981af2f683a2a4d31d2c3572a8993f3ed928730d9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/canonical.json",
+        "sha256": "0a7a4c622885ebba21fb570a877335d50b7fb94b7dfeb5f088a85b1e0e444e4e"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158870.json",
+        "sha256": "0a7a4c622885ebba21fb570a877335d50b7fb94b7dfeb5f088a85b1e0e444e4e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/play-response.json",
+        "sha256": "6a15a2643cb9a8f30d93ae1bd065d3aa52a69107b38b1c2d816bea88d176d059"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/result.json",
+        "sha256": "2f0443cf80168d71c587a33b39c3ffb161790521b492813657c873281b367129"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/intent.json",
+        "sha256": "f20104664bbb454e02fd8cc9492d6a79742e8c6a8cac52c1815df32b2c9cc198"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/canonical.json",
+        "sha256": "ec7dbb4cf85d577a90c34c8ed71cb35d19c8cf01d2e79369739ec0d3d6d9ef49"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158912.json",
+        "sha256": "ec7dbb4cf85d577a90c34c8ed71cb35d19c8cf01d2e79369739ec0d3d6d9ef49"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/play-response.json",
+        "sha256": "9749a9c2015cc78495a8ef976611041a7c4375d5b7ac2b53db405b3c5567ad18"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/result.json",
+        "sha256": "8200fee70034504d9251e588ac6fb4ce47781922147d1d8161f90c3af651efea"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/intent.json",
+        "sha256": "bb5f8913426b284e1dd8ea76c70bbe60e392e3408ba2d959461c43cf4aa21af0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/canonical.json",
+        "sha256": "35544b9bf074ec8b0aa48e7098710335c8e80856f813d89e4cfd929192936c31"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909159000.json",
+        "sha256": "35544b9bf074ec8b0aa48e7098710335c8e80856f813d89e4cfd929192936c31"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/play-response.json",
+        "sha256": "5d4abbff52deab76f4eab2e30d169bc6bbb0a07aaa7c19ae518088ed649b978a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/result.json",
+        "sha256": "16f9aff0d58d7dc0c9c07f31690c19c4eceab6c623b40d089278f418b0d1a93a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/intent.json",
+        "sha256": "f3ff38ddf4878e51273f8851a86ee49aa8568debeec00403271c353a8abd2f13"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/canonical.json",
+        "sha256": "53f7d241ae731071294ec10f599bbfb3cedda70d1038be538bef3544fabb5a38"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909159341.json",
+        "sha256": "53f7d241ae731071294ec10f599bbfb3cedda70d1038be538bef3544fabb5a38"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/play-response.json",
+        "sha256": "0eb2fd38c3017c9940f44c42d5155d214ec6d8d567c5b5b87456055309ec45f9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/result.json",
+        "sha256": "8f57fe88bec1936328165846977e9cde4b41d594ed1f072401bbf4c6fb757ce2"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/intent.json",
+        "sha256": "8c702d7207741bc93d17cb082bac16e50dcd4e55b052b618b1997f7938e2eb24"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/canonical.json",
+        "sha256": "f17c2784d46ea9b60b3596afb028b18acbf7c477fcafccfaa05b4ed12e8161ca"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909159786.json",
+        "sha256": "f17c2784d46ea9b60b3596afb028b18acbf7c477fcafccfaa05b4ed12e8161ca"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/play-response.json",
+        "sha256": "8b563206c82986978feb37c72d4e48c97a191854ebc51e186d8960017127aa39"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/result.json",
+        "sha256": "df1ca4b8f11bff2482e84bbc1b19215f2f18c299c5df362a4c1994f417ee180c"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/intent.json",
+        "sha256": "5114b6ceba443eeb9b15ea7660459b3c565cda754dd05e3af8ae25364c8730a0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/canonical.json",
+        "sha256": "1e5b9ae58efc34884d6fab57b33bf0c284a13b9e0e049119ba786867a82d09de"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909160210.json",
+        "sha256": "1e5b9ae58efc34884d6fab57b33bf0c284a13b9e0e049119ba786867a82d09de"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/play-response.json",
+        "sha256": "40d082c4e9b0ac8f750e6e9814827d0ea6689bdb047b80f2bf92b186a0119bb7"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/result.json",
+        "sha256": "49ebfe29955d98563e1367493c03c068b9538c0d0fa112be9e8a92837d28bd36"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/intent.json",
+        "sha256": "fecf9b1b0f59a29af8c28431966e9a57b090406ecf9cb4cf9c94978442e508a8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/canonical.json",
+        "sha256": "bfdeefe5047b2f117fb8b8780fb275628d8a4cf53aaafb6731ba3d881270e3d6"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909160621.json",
+        "sha256": "bfdeefe5047b2f117fb8b8780fb275628d8a4cf53aaafb6731ba3d881270e3d6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/play-response.json",
+        "sha256": "dac78199695145bef918482cb9a854372923a997f7b8f8cc3a23101641fbc043"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/result.json",
+        "sha256": "3ba981b34ca775ebe51c6a8893381ff4340f7cb3b54173db7377bc88c9ccd28b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/intent.json",
+        "sha256": "7cf080df90d132a137db2605f03ec709f0d1f7ee4e68402a11c55299d7079365"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/canonical.json",
+        "sha256": "011e762bc48854494b059ea577ed2adfc90ae5ff0ac9bbd4b26f128b43e0ca18"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909161099.json",
+        "sha256": "011e762bc48854494b059ea577ed2adfc90ae5ff0ac9bbd4b26f128b43e0ca18"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/play-response.json",
+        "sha256": "b2755e72edb93a731a0ce599e8c9f27cda58afc54a6deec57da003a6a12547d6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/result.json",
+        "sha256": "e6e99a0aa1216d6ac57e4b70b9f65bc93813369da9d0670dfe0ecc0ab60e81f2"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/intent.json",
+        "sha256": "2f976108eb52afe79d0677986147777ab0b479214019244ce73c681ec8440ed8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/canonical.json",
+        "sha256": "58846292d0d13c11409db8e26dca6ee7d29afaa5e94c0650e700f7681207a86b"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909161456.json",
+        "sha256": "58846292d0d13c11409db8e26dca6ee7d29afaa5e94c0650e700f7681207a86b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/play-response.json",
+        "sha256": "66656fb2315ba76436e2c35217a02252b7178b96f60e9507c41f79fa6d0c4e57"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/result.json",
+        "sha256": "a87a43fe4b59c0d6c27840346a55575f5b3addac50a41ad69317c1eb05bdb42e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/intent.json",
+        "sha256": "22ec54746ec5876cbb5a8d7e4dd34cf41086abc3a82a4f8e6ae7645c26cac9ce"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/canonical.json",
+        "sha256": "31132be28dc2f8036950e5802f15ec95735e0522f28476284da2ee2b2f572408"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909161931.json",
+        "sha256": "31132be28dc2f8036950e5802f15ec95735e0522f28476284da2ee2b2f572408"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/play-response.json",
+        "sha256": "b2859555f6f56b39c3359f2092c75bc1b24289fc49b972e9002be428f236976d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/result.json",
+        "sha256": "ccb4140077da17a5eaec28bb3b7715eac5f624bd24b8ea2883396cb3c1b6da5f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/intent.json",
+        "sha256": "153062c593168655706b38ff3dd0fd2156fbdd3b8f9eb2f4d08e7bea6a3be10c"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/canonical.json",
+        "sha256": "e32c3a8af5156ed7984a38e0b0bbd9284a35b95c3ad11cd777c5ab0c3ea51f45"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909162459.json",
+        "sha256": "e32c3a8af5156ed7984a38e0b0bbd9284a35b95c3ad11cd777c5ab0c3ea51f45"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/play-response.json",
+        "sha256": "3cc965df4ac17e60e56e345be5d29b43b5f0729029517b133224d49b2722a567"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/result.json",
+        "sha256": "1d6c90403bda32dace43ef0acaac1c5b60b959e7e082a4460c921ad245c37e6e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/intent.json",
+        "sha256": "2b6d5e89e559257c13c4d7220db64118e6ccef20618062ab268171b498eebd22"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/canonical.json",
+        "sha256": "919ed4714cd5657e6278e8eae752fdc213e5d024ff308cd998f280e6795b339e"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909163036.json",
+        "sha256": "919ed4714cd5657e6278e8eae752fdc213e5d024ff308cd998f280e6795b339e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/play-response.json",
+        "sha256": "4a6d1bfd7f2374a72c13e704b7f8c59efc37e2d01e5e4aa29739e276cf5c1ce8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/result.json",
+        "sha256": "b99b8be20d1bf1d7aebe2574f6b16a69a26dd5ea2ac73951840cf85b11448068"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/intent.json",
+        "sha256": "13d53c67cea9b33454470d805287e0e66c6e0917e76b3540c7057c74d77cadd8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/canonical.json",
+        "sha256": "aef91f13c96e4401d67153050a7b2132845cde812f841d1e6732cfb606a39326"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909163622.json",
+        "sha256": "aef91f13c96e4401d67153050a7b2132845cde812f841d1e6732cfb606a39326"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/play-response.json",
+        "sha256": "752f087ccc5d7b505df7bd82d0462e30db7bd7206742121e86d38d4951a27148"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/result.json",
+        "sha256": "799056eb62d5ad913abb3f959ff9908f3e60e3535d53ba9f261ff6931ced8080"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/intent.json",
+        "sha256": "b8bb0005c13a8427decf25d8494e86c66caf9e7466c95cd7c8bce69ae7600f1d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/canonical.json",
+        "sha256": "fcc8a2a5d5a41a9c7010fcf2246dbeee7b01b7ae0842d31a262d07c0cc156a58"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909164202.json",
+        "sha256": "fcc8a2a5d5a41a9c7010fcf2246dbeee7b01b7ae0842d31a262d07c0cc156a58"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/play-response.json",
+        "sha256": "b726fc50e99fefa8a049cbfb1dd69b5a1f5491c9fad56e61864206eecca506ce"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/result.json",
+        "sha256": "aa8e1c7b35c47ef91e69857707b21081e06e30dd4cd33d36b921784b52e7fad0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/intent.json",
+        "sha256": "d6855fa474f4d4e6c1a4084ffcfdbe6e7166a0a78faa5e65f126a109eafc3913"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/canonical.json",
+        "sha256": "f7087380dd40b4a76c2bab70f697b1ec0d19d95b73937e6fcdfd59ad03a237e0"
+      },
+      {
+        "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909164726.json",
+        "sha256": "f7087380dd40b4a76c2bab70f697b1ec0d19d95b73937e6fcdfd59ad03a237e0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/play-response.json",
+        "sha256": "37f5bfacd7f245b30a28484314a04d63de33dd67e7a444992e6ccc5e1af38e2d"
+      }
+    ],
+    "actualMapAudit": {
+      "pin": {
+        "path": "build/analysis/v09-batched-refresh-boss-v2/control-map-audit.json",
+        "sha256": "465f808578d082dad9b6d3817fb3a4d12be9c3128bc5aa53511a89982336f17e"
+      },
+      "complete": true,
+      "passed": true,
+      "games": 40,
+      "distinctMaps": 40,
+      "zeroDivergences": true
+    }
+  },
+  "candidateRetained": {
+    "plan": {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/plan.json",
+      "sha256": "f314aeadea19e4b443e83e6d9bd93bcf33eb783b3ae261eb8b992e36082b2f48"
+    },
+    "build": {
+      "buildId": "c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03",
+      "classesSha256": "92618d9ec27ae8838e4d02fc35f7234c3f83f6480c98e097f67543d55bd3b4a0",
+      "configSha256": "7b69ba4b9b32b1338a2ff3663ade6798241103d571efa7141ef2310752cc0c27",
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-batched-refresh-v1\\artifact",
+      "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-batched-refresh-v1\\process-1.json",
+      "processCheckSha256": "5c26f2f46751f6ca85db0c0321ed8310ab91d519dbcf5596cf46fa9f0ad07480",
+      "sourceSha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true"
+    },
+    "summary": {
+      "games": 28,
+      "wins": 9,
+      "draws": 0,
+      "losses": 19,
+      "points": 9.0,
+      "score": 0.32142857142857145
+    },
+    "games": [
+      {
+        "gameId": 909168309,
+        "seed": "1807486512",
+        "seat": 0,
+        "mapHash": "3eb29305d68a23bccbf7386661d3a05d094bc8c75b62a55af59d15a783d78e8b",
+        "result": "W",
+        "scores": [
+          1879,
+          1847
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 1,
+        "completedAt": "2026-10-15T21:51:11.820301+00:00",
+        "rawSha256": "86615d6782bdc74960e2763afc6e4607423f4c367dcd385c007f17c701c7830f"
+      },
+      {
+        "gameId": 909168453,
+        "seed": "1297382672",
+        "seat": 1,
+        "mapHash": "e668458ece2b99ba80e910412a611bf7c5725f797d07f5603ac51e0caa8063dd",
+        "result": "W",
+        "scores": [
+          1701,
+          2119
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 2,
+        "completedAt": "2026-10-15T21:51:45.381171+00:00",
+        "rawSha256": "61b58ee8eb395f518220dc7d8cc1fbd7a60f6f9284a73af3b6d024958ea30e41"
+      },
+      {
+        "gameId": 909168576,
+        "seed": "1192277489",
+        "seat": 0,
+        "mapHash": "ccad2c093ea599afd02716a98452fba352f54fd469febaaab2d0e02d665cf8ad",
+        "result": "L",
+        "scores": [
+          1110,
+          2172
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 3,
+        "completedAt": "2026-10-15T21:52:19.915950+00:00",
+        "rawSha256": "cd2e8bcdc2bc223c66d96aeddf130999486a5b0e9f36acf5f0538115384f1468"
+      },
+      {
+        "gameId": 909168641,
+        "seed": "1031438492",
+        "seat": 1,
+        "mapHash": "c5cbd9747ac8a57d230d76af9125439a6ee22759b26255b19948eb3831ff74e5",
+        "result": "W",
+        "scores": [
+          1101,
+          1295
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 4,
+        "completedAt": "2026-10-15T21:52:51.694669+00:00",
+        "rawSha256": "580df4d85d6662f78e241e2acefa34ab990094ac07f1414afd894cd43e0604d2"
+      },
+      {
+        "gameId": 909168672,
+        "seed": "389409389",
+        "seat": 0,
+        "mapHash": "e936a8dca00e0d3d7c295953fd22e36e456c9a3e8ac56380533b3da7fcf9d839",
+        "result": "L",
+        "scores": [
+          2416,
+          3108
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 5,
+        "completedAt": "2026-10-15T21:53:26.794802+00:00",
+        "rawSha256": "bbca69f3c5f39a80169a52bc90f7dc4dfbacf057bbb8e54a592f49e5af2a2677"
+      },
+      {
+        "gameId": 909168714,
+        "seed": "654947146",
+        "seat": 1,
+        "mapHash": "869524086941dcfa81a5e378fb59562eb0998dbc6cc2646a091459100bcd0b35",
+        "result": "L",
+        "scores": [
+          5613,
+          3830
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 6,
+        "completedAt": "2026-10-15T21:54:03.404570+00:00",
+        "rawSha256": "32a8a706bb003f988e22b068d9e30c3d664510fab8be3706c7b58fb5908e2cfe"
+      },
+      {
+        "gameId": 909168753,
+        "seed": "1364386181",
+        "seat": 0,
+        "mapHash": "310d23d8960f92f302a6bb3b0c5f250be9a048f4f220ee1092eb351e8edeb983",
+        "result": "L",
+        "scores": [
+          7005,
+          8614
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 7,
+        "completedAt": "2026-10-15T21:54:43.389171+00:00",
+        "rawSha256": "2107bcb104b38edc2efda3e104fbe22d9d883c8f88cf8e5918dd4a58f5c7f737"
+      },
+      {
+        "gameId": 909168815,
+        "seed": "1226602220",
+        "seat": 0,
+        "mapHash": "5e253eb744ed0a4744a71a8c320f666bd48ec72c14c76a20687549871323b353",
+        "result": "L",
+        "scores": [
+          5061,
+          6182
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 8,
+        "completedAt": "2026-10-15T21:55:21.923632+00:00",
+        "rawSha256": "41b48ef6e541cfb2e55d0d7356099eb79fab901f76e2ea0aa4f6ad56c919f472"
+      },
+      {
+        "gameId": 909168848,
+        "seed": "583578548",
+        "seat": 1,
+        "mapHash": "ca97311a00fcc85b58ea54c210674d0725a197b44d1874b6724e7d6ca7f6ac30",
+        "result": "L",
+        "scores": [
+          2220,
+          971
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 9,
+        "completedAt": "2026-10-15T21:55:55.121121+00:00",
+        "rawSha256": "e4557b8dc6ce6275aae427a4527a57e7bcb7696e4dd23f88d77bdb559f6ec956"
+      },
+      {
+        "gameId": 909168879,
+        "seed": "1200332969",
+        "seat": 0,
+        "mapHash": "256c08cfc77fc907d51e22da4f1b5ddef032453f17657d60737808d52d759be0",
+        "result": "L",
+        "scores": [
+          983,
+          1007
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 10,
+        "completedAt": "2026-10-15T21:56:28.761087+00:00",
+        "rawSha256": "449321d6735c82f1d982d16fec4b2734245c6ab7791b4eccca87c21897ea005c"
+      },
+      {
+        "gameId": 909168908,
+        "seed": "713730022",
+        "seat": 1,
+        "mapHash": "4672361318e53e607b2479604ad13b20ba3b94c1bff59b0086a89cce6300fd4e",
+        "result": "L",
+        "scores": [
+          1448,
+          782
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 11,
+        "completedAt": "2026-10-15T21:57:02.665888+00:00",
+        "rawSha256": "3d5c791f07df9a1f03af2fb64aaa406552342500a8cb7fef4b82ccedaa61e3ad"
+      },
+      {
+        "gameId": 909168940,
+        "seed": "1015927095",
+        "seat": 0,
+        "mapHash": "15a4cf60c8ce714f12454445de2f29562aa2a11b7199aa16aa70e8791699e387",
+        "result": "L",
+        "scores": [
+          1088,
+          1727
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 12,
+        "completedAt": "2026-10-15T21:57:34.862730+00:00",
+        "rawSha256": "3a7e862cd587c3953b38f7ee98f0852cfc2a18ef723ca9b870986ae9897bda48"
+      },
+      {
+        "gameId": 909168974,
+        "seed": "719431138",
+        "seat": 0,
+        "mapHash": "694210d3147ff895be91f6d713ba140506f040b3e48916cf468fc5deb3c36911",
+        "result": "L",
+        "scores": [
+          5109,
+          6947
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 13,
+        "completedAt": "2026-10-15T21:58:09.292352+00:00",
+        "rawSha256": "784686e5ea112d9b05a19299d4e02af90c0c102c8ee709e674d9be272c1f6930"
+      },
+      {
+        "gameId": 909169013,
+        "seed": "2141398536",
+        "seat": 1,
+        "mapHash": "e471239eb70c33b42e4370f40b3254169044559909ee4d72658e1ffa6c285c6b",
+        "result": "L",
+        "scores": [
+          936,
+          500
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 14,
+        "completedAt": "2026-10-15T21:58:41.400183+00:00",
+        "rawSha256": "2ed6eb4fe9f5cce54230633bdeddd1b5ea5f14fe2f494c5b5781b4164cf80c79"
+      },
+      {
+        "gameId": 909169040,
+        "seed": "992276776",
+        "seat": 1,
+        "mapHash": "21ec2bea8d6f22062d87020e0ebbe6ee0becb3cb7ef251aecf34c6908563987d",
+        "result": "W",
+        "scores": [
+          1523,
+          2773
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 15,
+        "completedAt": "2026-10-15T21:59:14.382019+00:00",
+        "rawSha256": "8384ab0e7f1d936f8049ae1103c4b4748f691fa8c01c1ed11ab51d9ad8b4c6da"
+      },
+      {
+        "gameId": 909169073,
+        "seed": "1487513744",
+        "seat": 1,
+        "mapHash": "526b6ad9e5b9e654c33aa2656c773a2d3cf64f2f36ca07b4ccdba1735f8ff1fa",
+        "result": "L",
+        "scores": [
+          2356,
+          1960
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 16,
+        "completedAt": "2026-10-15T21:59:48.626501+00:00",
+        "rawSha256": "2ca5e4d5cc51f7daa9a23719674fea4a3ec9c47bbf4330e0521f2e3635bc245e"
+      },
+      {
+        "gameId": 909169114,
+        "seed": "1123603624",
+        "seat": 1,
+        "mapHash": "f9cd718162a0b796df6a93f609bfb0deb49ff028cc7cece248ef4a1e4d298b67",
+        "result": "L",
+        "scores": [
+          6135,
+          4761
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 17,
+        "completedAt": "2026-10-15T22:00:26.901518+00:00",
+        "rawSha256": "e54aa39bb78768bb20a8bae15ff11245a840e81c409e946f92147dd2e609716a"
+      },
+      {
+        "gameId": 909169172,
+        "seed": "1560558023",
+        "seat": 0,
+        "mapHash": "021f350b6088887d7a4ec1f82a6946d933c266c25b3df0cb83b0912e88329c9f",
+        "result": "L",
+        "scores": [
+          2729,
+          3657
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 18,
+        "completedAt": "2026-10-15T22:00:59.754881+00:00",
+        "rawSha256": "3d4278e7c4765a9d505d410cf9f06a3d5f4a6c2dd007f3204ff767e911ef0df8"
+      },
+      {
+        "gameId": 909169203,
+        "seed": "1846105241",
+        "seat": 1,
+        "mapHash": "143ce77c0b77cf1098c17017ab0abfc70247d3ba0c001a074feeec507317c445",
+        "result": "W",
+        "scores": [
+          2242,
+          2517
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 19,
+        "completedAt": "2026-10-15T22:01:31.948464+00:00",
+        "rawSha256": "e51d2f458dd354b18e33275e301de817a856e7b72b0aa9c900f6f3b6a20105ee"
+      },
+      {
+        "gameId": 909169236,
+        "seed": "1747517070",
+        "seat": 1,
+        "mapHash": "5984af618c9b449c242004347b2c87bf86702e23ab649c691eb8016aae8a0eff",
+        "result": "W",
+        "scores": [
+          3012,
+          3311
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 20,
+        "completedAt": "2026-10-15T22:02:05.327836+00:00",
+        "rawSha256": "e4ae6dfd312e325e604a734c52127aac0f6e70651e20cfeb52501eac1a00d9e6"
+      },
+      {
+        "gameId": 909169636,
+        "seed": "1683847327",
+        "seat": 1,
+        "mapHash": "d164b685d4136de7631a6eac5607479db057cbc18316b550c0ea5c82de9344db",
+        "result": "W",
+        "scores": [
+          7293,
+          8463
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 21,
+        "completedAt": "2026-10-15T22:07:21.573212+00:00",
+        "rawSha256": "4101c8b57361507906742f828d11aafee69fd798fd4d7c015be7ed890d70867f"
+      },
+      {
+        "gameId": 909169676,
+        "seed": "526738229",
+        "seat": 0,
+        "mapHash": "53ad64520d556e7479c02b5c02c1191858990d7aa57abc0170fdbacc21187456",
+        "result": "L",
+        "scores": [
+          878,
+          1085
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 22,
+        "completedAt": "2026-10-15T22:07:52.839475+00:00",
+        "rawSha256": "71ea7dc621311bbc9ed223788076aeca3870e3e044259e63955b4ba4613a3d42"
+      },
+      {
+        "gameId": 909169711,
+        "seed": "2095622718",
+        "seat": 0,
+        "mapHash": "b3b34800d9c14cd4608932a34f46b8d253625dbae13efb1007ba37d3d1d6c354",
+        "result": "L",
+        "scores": [
+          1861,
+          2768
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 23,
+        "completedAt": "2026-10-15T22:08:25.456818+00:00",
+        "rawSha256": "283f7c9fb0dfe6d8ad8afd333718ce35186292328835b4305bcb2767bdb30483"
+      },
+      {
+        "gameId": 909169756,
+        "seed": "40992827",
+        "seat": 1,
+        "mapHash": "72dc1a812901c87ff0013b895d6394f799d9068b29af44e798caa83aaac04ac8",
+        "result": "L",
+        "scores": [
+          3288,
+          2080
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 24,
+        "completedAt": "2026-10-15T22:08:58.943859+00:00",
+        "rawSha256": "4b1bb0ff720b9c0126e3caddde0c85821e6c58d507d474b337299a4c3a001dee"
+      },
+      {
+        "gameId": 909169809,
+        "seed": "1030268835",
+        "seat": 0,
+        "mapHash": "25d87c344df2a1ddb5e07d53b892f065782252562fbe2e989df9d56d9dee78be",
+        "result": "W",
+        "scores": [
+          5657,
+          5005
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 25,
+        "completedAt": "2026-10-15T22:09:36.471175+00:00",
+        "rawSha256": "7ece0596db9f653c66ca1272f619141f976e31d81586ce5de0ce7a471e941df4"
+      },
+      {
+        "gameId": 909169837,
+        "seed": "1598144009",
+        "seat": 0,
+        "mapHash": "2ca654407ebe51167f3586ec82ac48ce59463adfb99eae50de8e57f576ff1eff",
+        "result": "L",
+        "scores": [
+          1782,
+          2941
+        ],
+        "ranks": [
+          1,
+          0
+        ],
+        "slot": 26,
+        "completedAt": "2026-10-15T22:10:10.939444+00:00",
+        "rawSha256": "16bb620223d5bfd797b242023a3ee0069e4ec8d7bb4b1a94f4e0751b6dffcba5"
+      },
+      {
+        "gameId": 909169876,
+        "seed": "1636952962",
+        "seat": 0,
+        "mapHash": "8263d5029eae5db6f347073f6080496d6cb748a476c686258af3ab712a0634ef",
+        "result": "W",
+        "scores": [
+          5876,
+          4848
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 27,
+        "completedAt": "2026-10-15T22:10:48.209300+00:00",
+        "rawSha256": "d815bc0e82b65fe43a1441220b2ebe9bc64a8d7b79c6cc9b1ff4e0c6af821550"
+      },
+      {
+        "gameId": 909169932,
+        "seed": "1037563823",
+        "seat": 1,
+        "mapHash": "9eb71ef772cd14d9ecaec329c1f21c5109d87816e80c35c26695579134be2ce1",
+        "result": "L",
+        "scores": [
+          5122,
+          4407
+        ],
+        "ranks": [
+          0,
+          1
+        ],
+        "slot": 28,
+        "completedAt": "2026-10-15T22:11:22.674122+00:00",
+        "rawSha256": "8acc3debe6db63d90384b784377d8b5977e8faea49b898f7f7c61b9d4644c853"
+      }
+    ],
+    "files": [
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/result.json",
+        "sha256": "e15ba2dd5313d384a60f542b14380fd16dca8a12434b6c80ef48f9bc5df9cbb1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/intent.json",
+        "sha256": "7bbdd4a9c97cd727d80d194afe5b34dcae2232364bcc00643edc373eafa0a129"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/canonical.json",
+        "sha256": "86615d6782bdc74960e2763afc6e4607423f4c367dcd385c007f17c701c7830f"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168309.json",
+        "sha256": "86615d6782bdc74960e2763afc6e4607423f4c367dcd385c007f17c701c7830f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/play-response.json",
+        "sha256": "36c73e00b68e281e5e07ae16f8f3705db16fa172188514861f896fa9b1a3ccd6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/result.json",
+        "sha256": "35c47d7abb543a5bd67030eba0448c09e1ad961baf7e390b235409464919ba53"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/intent.json",
+        "sha256": "9f0aba02e886f18220937f5cf7ab4130a7e9c78646eb1f298241047b99faf531"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/canonical.json",
+        "sha256": "61b58ee8eb395f518220dc7d8cc1fbd7a60f6f9284a73af3b6d024958ea30e41"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168453.json",
+        "sha256": "61b58ee8eb395f518220dc7d8cc1fbd7a60f6f9284a73af3b6d024958ea30e41"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/play-response.json",
+        "sha256": "ff27dcc08cd4e462cbd4f0caa8db247d5cd7ae68bc6ec190c374ea59b5ac1201"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/result.json",
+        "sha256": "00a9f9827ac89877702f551695eb1c4dc21a6caa05c1aa877c09836c9650bcbc"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/intent.json",
+        "sha256": "380c01517c9b6087f008b99596475d3f59b8d71240a14a22926696091eddb703"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/canonical.json",
+        "sha256": "cd2e8bcdc2bc223c66d96aeddf130999486a5b0e9f36acf5f0538115384f1468"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168576.json",
+        "sha256": "cd2e8bcdc2bc223c66d96aeddf130999486a5b0e9f36acf5f0538115384f1468"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/play-response.json",
+        "sha256": "1aa27ea407a13f51bb90b4e4359b62275b7e85e702d069d8bbf121949689b899"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/result.json",
+        "sha256": "d792794bf38d39239f7fb3c7138e17d3b566079e6e2800276ab95ce5a605e971"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/intent.json",
+        "sha256": "7ac67e1da60001e8e0f65325c2b88579ebf02964fc77ea0bd8661babb0721ed3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/canonical.json",
+        "sha256": "580df4d85d6662f78e241e2acefa34ab990094ac07f1414afd894cd43e0604d2"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168641.json",
+        "sha256": "580df4d85d6662f78e241e2acefa34ab990094ac07f1414afd894cd43e0604d2"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/play-response.json",
+        "sha256": "d92bb641dad1034b757c63dd63c6b122f2bcd014967ef311f0854b97b6fe127f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/result.json",
+        "sha256": "7b2960e6a05df22cf043c72d333d559b25921b4217b6001caf2bbac25f71ea08"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/intent.json",
+        "sha256": "46e5f226f15b65f67148d128c8af0529e78c6a55e9f8623c9c168e7f9c691c0e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/canonical.json",
+        "sha256": "bbca69f3c5f39a80169a52bc90f7dc4dfbacf057bbb8e54a592f49e5af2a2677"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168672.json",
+        "sha256": "bbca69f3c5f39a80169a52bc90f7dc4dfbacf057bbb8e54a592f49e5af2a2677"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/play-response.json",
+        "sha256": "2c641026e514bfbc26b355ba6c38f17dd0dd517e107b16af5c254cfb5dfcc8a1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/result.json",
+        "sha256": "f0d4213841e28cb6be0a6d67ec93a35e3f56108d7851327b79401d0ac01e9f2a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/intent.json",
+        "sha256": "0782731d7ead54ec5a6d9dabf8ae6c057ac8b3bfa26394e77de3447668bd6548"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/canonical.json",
+        "sha256": "32a8a706bb003f988e22b068d9e30c3d664510fab8be3706c7b58fb5908e2cfe"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168714.json",
+        "sha256": "32a8a706bb003f988e22b068d9e30c3d664510fab8be3706c7b58fb5908e2cfe"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/play-response.json",
+        "sha256": "4fdacd5da5d024d70cc9a18836000b742e1ee003c760c7f4ce244c87957edcf1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/result.json",
+        "sha256": "557e511394592d4ae24e24558167165bf0c79169959f229fc59ee0d69f932051"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/intent.json",
+        "sha256": "d584fa3670824fce908369f9bffda6b439ffc00b64288703175eeb09474b8342"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/canonical.json",
+        "sha256": "2107bcb104b38edc2efda3e104fbe22d9d883c8f88cf8e5918dd4a58f5c7f737"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168753.json",
+        "sha256": "2107bcb104b38edc2efda3e104fbe22d9d883c8f88cf8e5918dd4a58f5c7f737"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/play-response.json",
+        "sha256": "b48c313ee533b6e4fa28059d19f7e848e7e3d70c5318c2d7264f9d7b55e6043b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/result.json",
+        "sha256": "a8c3f312ac737af02d35e82c66bbf47aa45d10a68f4deafa387afb4b97b787e6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/intent.json",
+        "sha256": "f7127c67a1070f910c674d58fc1e75d10fc3dd42b969ebf390c0bf5308df3022"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/canonical.json",
+        "sha256": "41b48ef6e541cfb2e55d0d7356099eb79fab901f76e2ea0aa4f6ad56c919f472"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168815.json",
+        "sha256": "41b48ef6e541cfb2e55d0d7356099eb79fab901f76e2ea0aa4f6ad56c919f472"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/play-response.json",
+        "sha256": "9d22d63b954f218f27572a7cad021acb7083f554d1659537bc07beaffd7c9339"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/result.json",
+        "sha256": "ba7ba88e9b64d944d7d3e758fed2946d28445df66fcd70e5c2bfdd3e3e50737a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/intent.json",
+        "sha256": "20703e4836d4b1d6e8d621d95fa8f968e243338922b6004855b0d6a5e95d6b2d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/canonical.json",
+        "sha256": "e4557b8dc6ce6275aae427a4527a57e7bcb7696e4dd23f88d77bdb559f6ec956"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168848.json",
+        "sha256": "e4557b8dc6ce6275aae427a4527a57e7bcb7696e4dd23f88d77bdb559f6ec956"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/play-response.json",
+        "sha256": "ba428a733c4161f75c21b09b02934292f1cb5c8b4583f9647a5573361e8364e5"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/result.json",
+        "sha256": "d6c0acba9f2404f6ae3e22f41a69fe8f3d24114a891b4590730b422d950fba4d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/intent.json",
+        "sha256": "a09d65cda13dfbf483635a0710da811e98cd7df3e307cc8d4440751244cb35d6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/canonical.json",
+        "sha256": "449321d6735c82f1d982d16fec4b2734245c6ab7791b4eccca87c21897ea005c"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168879.json",
+        "sha256": "449321d6735c82f1d982d16fec4b2734245c6ab7791b4eccca87c21897ea005c"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/play-response.json",
+        "sha256": "56d743d6fd354ed48eae9ebff9b123bd9162eccc17b41529c371f9747db9a291"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/result.json",
+        "sha256": "60ea982e68e5156fd3ebe9481217b0456d51f2b88601fdc2fe55d2c45b04db23"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/intent.json",
+        "sha256": "03bd0e8dcf407ad8df31802e6883a5229f0eb86628c72c9423f114b678ce69b4"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/canonical.json",
+        "sha256": "3d5c791f07df9a1f03af2fb64aaa406552342500a8cb7fef4b82ccedaa61e3ad"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168908.json",
+        "sha256": "3d5c791f07df9a1f03af2fb64aaa406552342500a8cb7fef4b82ccedaa61e3ad"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/play-response.json",
+        "sha256": "e2b59e882943e063d8398b7442b9378d745eb130b8aa056a83898a4ca14129cd"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/result.json",
+        "sha256": "84c7e7a7adf9d99347dd1f45acdbff592fa76963a19cf33457857bec53249575"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/intent.json",
+        "sha256": "0ee1c2b0a5eb7d027de7a1b1a48c4b91c3bfdac0a3bfa5e8ce2c8c6b38377af1"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/canonical.json",
+        "sha256": "3a7e862cd587c3953b38f7ee98f0852cfc2a18ef723ca9b870986ae9897bda48"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168940.json",
+        "sha256": "3a7e862cd587c3953b38f7ee98f0852cfc2a18ef723ca9b870986ae9897bda48"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/play-response.json",
+        "sha256": "082c51224a60ce0427135c78ae70bb860f0e9860d99888e2c27a9e99f990bf54"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/result.json",
+        "sha256": "1fd2df30315e8d09f4facf5a0ecffde9fcdfd01ae1ecbc86388560fff7cc18a3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/intent.json",
+        "sha256": "5c1a1bdae6ee45b536f6357a5fdb8d48f9704208aa6e9eb90c25a1e8085f4171"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/canonical.json",
+        "sha256": "784686e5ea112d9b05a19299d4e02af90c0c102c8ee709e674d9be272c1f6930"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168974.json",
+        "sha256": "784686e5ea112d9b05a19299d4e02af90c0c102c8ee709e674d9be272c1f6930"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/play-response.json",
+        "sha256": "496c35918c04cedc6224146a267e8380ad47b62d6be2adc7a528b1bb69afa714"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/result.json",
+        "sha256": "d81cfb037ed3ed6ade17a0475d58ac399f9cd256c8964c937eb1e7686ad21a55"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/intent.json",
+        "sha256": "7a5e7a268f6fc5fe8d36a365d35fdca084e5de6807012be4434d768c6694d335"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/canonical.json",
+        "sha256": "2ed6eb4fe9f5cce54230633bdeddd1b5ea5f14fe2f494c5b5781b4164cf80c79"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169013.json",
+        "sha256": "2ed6eb4fe9f5cce54230633bdeddd1b5ea5f14fe2f494c5b5781b4164cf80c79"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/play-response.json",
+        "sha256": "c5a62fd465921de0abe95b9b88dc48b374419337e19021e19072088f8b74fa42"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/result.json",
+        "sha256": "05e4036acc66d123944d478b9998fc248d1557698a887bf56b5dff88507af2c8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/intent.json",
+        "sha256": "a18ef43888a49ce1129ec91e384e25aa6ba4f53cf7ec7b50738b9975460fcb97"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/canonical.json",
+        "sha256": "8384ab0e7f1d936f8049ae1103c4b4748f691fa8c01c1ed11ab51d9ad8b4c6da"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169040.json",
+        "sha256": "8384ab0e7f1d936f8049ae1103c4b4748f691fa8c01c1ed11ab51d9ad8b4c6da"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/play-response.json",
+        "sha256": "716d84a0ddb7ae5e5dd7896e50a729eaf71291f4f44bd73df8d752d4007b1042"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/result.json",
+        "sha256": "a94e611542514ca6237674a517e9df113fded38e6b7b757731ca86bc2ac0fc28"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/intent.json",
+        "sha256": "c4dedd8a5d2afc6fc16ece5502084a197706383fab48a4a17b8181ff5192c6ff"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/canonical.json",
+        "sha256": "2ca5e4d5cc51f7daa9a23719674fea4a3ec9c47bbf4330e0521f2e3635bc245e"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169073.json",
+        "sha256": "2ca5e4d5cc51f7daa9a23719674fea4a3ec9c47bbf4330e0521f2e3635bc245e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/play-response.json",
+        "sha256": "b2112b8d6c608e532ccda84752d31c90325fbc47e3e771022777390b2ad9fcd7"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/result.json",
+        "sha256": "9f3746c961702ee351e9903965a032e664fd15850882c0b62f80d75d0771478d"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/intent.json",
+        "sha256": "a1b39d2ad9d2453d32e8adad4324530568a5e7fafb88e893f4cd64da3b402429"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/canonical.json",
+        "sha256": "e54aa39bb78768bb20a8bae15ff11245a840e81c409e946f92147dd2e609716a"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169114.json",
+        "sha256": "e54aa39bb78768bb20a8bae15ff11245a840e81c409e946f92147dd2e609716a"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/play-response.json",
+        "sha256": "b2f609e54f16e3ee8c113e0a7c9679fecdaa67bf04d8cbdddfc4fa271d1aff9b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/result.json",
+        "sha256": "ce4bae259c3c496eec77360aecab9d274b0e15d85456bb5eaae6b0a950843405"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/intent.json",
+        "sha256": "98e1859f57b4723db4732c086730086d48a5402e34a30e76d4f32d0c340ece19"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/canonical.json",
+        "sha256": "3d4278e7c4765a9d505d410cf9f06a3d5f4a6c2dd007f3204ff767e911ef0df8"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169172.json",
+        "sha256": "3d4278e7c4765a9d505d410cf9f06a3d5f4a6c2dd007f3204ff767e911ef0df8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/play-response.json",
+        "sha256": "2f069ab47050f721043a42f60df347e42cd8ca461dbf60cdc3e1ba1ba1f921f8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/result.json",
+        "sha256": "d9d324692092a9c0a275b70d7a3b2d76c7a08769acf86ba700a7717b10c01494"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/intent.json",
+        "sha256": "de005209210ccf5ec7a740ec75e6ba672539e93d8f438960f223d1f30044f595"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/canonical.json",
+        "sha256": "e51d2f458dd354b18e33275e301de817a856e7b72b0aa9c900f6f3b6a20105ee"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169203.json",
+        "sha256": "e51d2f458dd354b18e33275e301de817a856e7b72b0aa9c900f6f3b6a20105ee"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/play-response.json",
+        "sha256": "56112bcc1769cbd95628a3f510d0a8dae583d6f5d56a2fe2e9f17c52ddad1c4b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/result.json",
+        "sha256": "4675ba4012a0eda8b840cd94e079c3f672e66094d70942bdd564c8d25ecb2c54"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/intent.json",
+        "sha256": "4577ba51e6f96d25d1bc70de4050d911629d14c82e99f6d7a0d63fc1db2dbaa0"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/canonical.json",
+        "sha256": "e4ae6dfd312e325e604a734c52127aac0f6e70651e20cfeb52501eac1a00d9e6"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169236.json",
+        "sha256": "e4ae6dfd312e325e604a734c52127aac0f6e70651e20cfeb52501eac1a00d9e6"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/play-response.json",
+        "sha256": "58d81ded1b7f1583d60b87f69c2b73f6c0984d9d1db2005e47425edb09f682c9"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/result.json",
+        "sha256": "8b812c38d790bd824c2169793951552e55e6c13e0514e93c7147287eb6d89e08"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/intent.json",
+        "sha256": "60b9ccaa4a248f6f0282c72759dcb63aaca9e9069c9217d30a3f5e61f2fe3b7e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/canonical.json",
+        "sha256": "4101c8b57361507906742f828d11aafee69fd798fd4d7c015be7ed890d70867f"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169636.json",
+        "sha256": "4101c8b57361507906742f828d11aafee69fd798fd4d7c015be7ed890d70867f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/play-response.json",
+        "sha256": "7b0cbfedd4997077f66557b67fcf0c1216902e82c9b53d0065f263801dd23efa"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/result.json",
+        "sha256": "ca97fbde5acfcec591c08af39f399b65eb6443f3ca41e805463336d441b37187"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/intent.json",
+        "sha256": "4849dd1857b5445726c246f36205414e3305d2373c8406d97a7945bab818e451"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/canonical.json",
+        "sha256": "71ea7dc621311bbc9ed223788076aeca3870e3e044259e63955b4ba4613a3d42"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169676.json",
+        "sha256": "71ea7dc621311bbc9ed223788076aeca3870e3e044259e63955b4ba4613a3d42"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/play-response.json",
+        "sha256": "e84833e8d4721d9f5ad457cb8a96feda028e0bdfaa2ad9cb00cf9f7eaba601bf"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/result.json",
+        "sha256": "43786ed965cc34b81774a77230aa02f618f0397bb8c59ed0a3110b36b6c97e22"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/intent.json",
+        "sha256": "567923a0be150914f66bb1bb27e94dd87617474c517c25bb9a5d171246ee73f3"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/canonical.json",
+        "sha256": "283f7c9fb0dfe6d8ad8afd333718ce35186292328835b4305bcb2767bdb30483"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169711.json",
+        "sha256": "283f7c9fb0dfe6d8ad8afd333718ce35186292328835b4305bcb2767bdb30483"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/play-response.json",
+        "sha256": "ec1617e740cdcd6e17dc0af31918e22a1e3e39278fee1844bcdbd9b9b0922708"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/result.json",
+        "sha256": "4cf72c3b2a345017352eab8f7bba7fd946659d0066cbf69826f06d02de1bbbc8"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/intent.json",
+        "sha256": "f6347ac0128c6c2670a752f88f562bbfd05f3324947f875cc94029c90256db65"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/canonical.json",
+        "sha256": "4b1bb0ff720b9c0126e3caddde0c85821e6c58d507d474b337299a4c3a001dee"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169756.json",
+        "sha256": "4b1bb0ff720b9c0126e3caddde0c85821e6c58d507d474b337299a4c3a001dee"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/play-response.json",
+        "sha256": "9ddacaf4fda1e2b9de07d9663d6d48dc4c3ee8e602d5d898ea3c0256a67f736e"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/result.json",
+        "sha256": "f6ec7b1b638a503e6dbf83cacb8daa5b8f6e0b89f03402da9716115af61e1617"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/intent.json",
+        "sha256": "3a29d1a676bfe540b2d2b1eac0ba35ae0b5e4c05264da1a2bc588e51485bb02b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/canonical.json",
+        "sha256": "7ece0596db9f653c66ca1272f619141f976e31d81586ce5de0ce7a471e941df4"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169809.json",
+        "sha256": "7ece0596db9f653c66ca1272f619141f976e31d81586ce5de0ce7a471e941df4"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/play-response.json",
+        "sha256": "835e71117a5e35c26154aa6e41a1aeed0a107b29b4d7a8a16c56b16874191efc"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/result.json",
+        "sha256": "46cd172fcab95e4098167677099befee12cdece77af4a703a1c5ce55104ec5b5"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/intent.json",
+        "sha256": "960ccdbfffcea77add3ab59c0977717fbcb652b3853dbe8ab21fd1cdf0ded74b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/canonical.json",
+        "sha256": "16bb620223d5bfd797b242023a3ee0069e4ec8d7bb4b1a94f4e0751b6dffcba5"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169837.json",
+        "sha256": "16bb620223d5bfd797b242023a3ee0069e4ec8d7bb4b1a94f4e0751b6dffcba5"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/play-response.json",
+        "sha256": "62d56c6be0a611e0e7bf443a32e4348dbca9d222787841a91aa479874ae29585"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/result.json",
+        "sha256": "487c6a06f7ed3d1c1e30a8161812a052358a0820ec0eb67a6525f8e75b84fee5"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/intent.json",
+        "sha256": "41aae31329ed44797ed1964674cd277019a7d1a5f7d01a920ce76dd45fceaa6f"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/canonical.json",
+        "sha256": "d815bc0e82b65fe43a1441220b2ebe9bc64a8d7b79c6cc9b1ff4e0c6af821550"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169876.json",
+        "sha256": "d815bc0e82b65fe43a1441220b2ebe9bc64a8d7b79c6cc9b1ff4e0c6af821550"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/play-response.json",
+        "sha256": "6f2c31685c166908b5a0ef3f934c6a2e7675d4bb135cbe71114b4a76b3a359ee"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/result.json",
+        "sha256": "32fa45da0ed70ad7f4cbccd8692f44065f9aa04fd2db5d3979c6890817444f97"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/intent.json",
+        "sha256": "8c7f01a85eb18d8e2206fb093c6e5acb82506081cea0aaf3492aa5c86778dd9b"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/canonical.json",
+        "sha256": "8acc3debe6db63d90384b784377d8b5977e8faea49b898f7f7c61b9d4644c853"
+      },
+      {
+        "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169932.json",
+        "sha256": "8acc3debe6db63d90384b784377d8b5977e8faea49b898f7f7c61b9d4644c853"
+      },
+      {
+        "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/play-response.json",
+        "sha256": "8b1f8df70dd5a7b105b965fbb31659fa813095477bc6fecc83e75e46964b3c1d"
+      }
+    ],
+    "actualMapAudit": {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-partial-map-audit.json",
+      "sha256": "3337de6bd9ffb55d408fd7fa3cc1beef121bfe9416fe3d923aab1c22a5a58471"
+    },
+    "technicalFailures": 0,
+    "collectionDates": {
+      "firstCompletedAt": "2026-10-15T21:51:11.820301+00:00",
+      "lastCompletedAt": "2026-10-15T22:11:22.674122+00:00",
+      "recordedDates": 28
+    }
+  },
+  "interruption": {
+    "slot": 29,
+    "globalRequestOrdinal": 69,
+    "httpStatus": 422,
+    "apiCode": 407,
+    "uncertain": true,
+    "retryAfterSeconds": null,
+    "replacementAttempts": 0,
+    "intent": {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0029/intent.json",
+      "sha256": "89dbc7ffefa942f11d87db87449a72e75ed7f9e66e5220b3b70e79eb1d669482"
+    },
+    "apiError": {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0029/api-error.json",
+      "sha256": "999e88a039674fa71f5814ecbb4f24754029819450bb2671a852bef816aee553"
+    },
+    "runExit": {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-run-exit.json",
+      "sha256": "a147fa303fa0622f1db5dbad7f6e1a24bb3e2f23bb98a31e5703858c7b7e1b95"
+    },
+    "interpretation": "No unique created game ID is available in retained public evidence; do not retry or score this request."
+  },
+  "cooldown": {
+    "passed": true,
+    "transitions": [
+      {
+        "globalRequestOrdinal": 21,
+        "previousResult": {
+          "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/result.json",
+          "sha256": "d8cbd61e8079a76e5fe38c1720ad27cf72993500c7585f8cd23fe5e3e4ce9126"
+        },
+        "nextIntent": {
+          "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/intent.json",
+          "sha256": "0915cc0b3c36b09e8a66a15cc358d0dd96fba07ea6835dde81ae76404cb7b916"
+        },
+        "gapSeconds": 300.015003,
+        "minimumGapSeconds": 300,
+        "startedProof": {
+          "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0021-started.json",
+          "sha256": "91c8d07d7406d93e6b1a144e29a695e50e33c86b483532bb791f1c5c0101a0f4"
+        },
+        "completedProof": {
+          "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0021-completed.json",
+          "sha256": "2fb4991ad849efc3cb1f154973e03b198addb54f609f8fef31a608022bf0be93"
+        }
+      },
+      {
+        "globalRequestOrdinal": 41,
+        "previousResult": {
+          "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/result.json",
+          "sha256": "aa8e1c7b35c47ef91e69857707b21081e06e30dd4cd33d36b921784b52e7fad0"
+        },
+        "nextIntent": {
+          "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/intent.json",
+          "sha256": "7bbdd4a9c97cd727d80d194afe5b34dcae2232364bcc00643edc373eafa0a129"
+        },
+        "gapSeconds": 300.030197,
+        "minimumGapSeconds": 300,
+        "startedProof": {
+          "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0041-started.json",
+          "sha256": "a66eb9b572fb4d80c5ecdf0b449ebcc5f63f62967752c8f10e6286d9a7fd095f"
+        },
+        "completedProof": {
+          "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0041-completed.json",
+          "sha256": "77a036175e7b45e56273c837cd6edc2234394af6611d95d198b4b43cb7b67be3"
+        }
+      },
+      {
+        "globalRequestOrdinal": 61,
+        "previousResult": {
+          "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/result.json",
+          "sha256": "4675ba4012a0eda8b840cd94e079c3f672e66094d70942bdd564c8d25ecb2c54"
+        },
+        "nextIntent": {
+          "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/intent.json",
+          "sha256": "60b9ccaa4a248f6f0282c72759dcb63aaca9e9069c9217d30a3f5e61f2fe3b7e"
+        },
+        "gapSeconds": 300.030033,
+        "minimumGapSeconds": 300,
+        "startedProof": {
+          "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0061-started.json",
+          "sha256": "9b3cff05a86a4c810e9c5a0da08f74acb445e6297320a98f4256ff306da76056"
+        },
+        "completedProof": {
+          "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0061-completed.json",
+          "sha256": "881ce547f99753e4c29f1e5a4c6cb0d4715b3320c985899eafe07ead0986fa12"
+        }
+      }
+    ],
+    "method": "Actual next intent.startedAt minus preceding result.completedAt; independent adapter proof linkage"
+  },
+  "incompleteAssessor": {
+    "complete": false,
+    "bossStage": "INCOMPLETE",
+    "readinessPassed": false,
+    "issuesInRetainedGames": [],
+    "candidateRetainedGames": 28,
+    "controlCacheGames": 40,
+    "comparisonVerdict": "NONE_INCOMPLETE"
+  },
+  "partialMatched28": {
+    "candidate": {
+      "games": 28,
+      "wins": 9,
+      "draws": 0,
+      "losses": 19,
+      "points": 9.0,
+      "score": 0.32142857142857145
+    },
+    "control": {
+      "games": 28,
+      "wins": 6,
+      "draws": 0,
+      "losses": 22,
+      "points": 6.0,
+      "score": 0.21428571428571427
+    },
+    "paired": {
+      "better": 6,
+      "worse": 3,
+      "equal": 19,
+      "pointDifference": 3.0,
+      "controlToCandidateOutcomeMatrix": {
+        "L->L": 16,
+        "L->W": 6,
+        "W->L": 3,
+        "W->W": 3
+      },
+      "pairs": [
+        {
+          "candidateGameId": 909168309,
+          "controlGameId": 909157327,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168453,
+          "controlGameId": 909157384,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909168576,
+          "controlGameId": 909157419,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168641,
+          "controlGameId": 909157467,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909168672,
+          "controlGameId": 909157507,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909168714,
+          "controlGameId": 909157551,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168753,
+          "controlGameId": 909157602,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168815,
+          "controlGameId": 909157669,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168848,
+          "controlGameId": 909157731,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168879,
+          "controlGameId": 909157779,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909168908,
+          "controlGameId": 909157819,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168940,
+          "controlGameId": 909157873,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168974,
+          "controlGameId": 909157931,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169013,
+          "controlGameId": 909157990,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169040,
+          "controlGameId": 909158010,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169073,
+          "controlGameId": 909158045,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169114,
+          "controlGameId": 909158082,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909169172,
+          "controlGameId": 909158127,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169203,
+          "controlGameId": 909158178,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169236,
+          "controlGameId": 909158212,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169636,
+          "controlGameId": 909158618,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169676,
+          "controlGameId": 909158675,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169711,
+          "controlGameId": 909158723,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169756,
+          "controlGameId": 909158758,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169809,
+          "controlGameId": 909158811,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169837,
+          "controlGameId": 909158870,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169876,
+          "controlGameId": 909158912,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169932,
+          "controlGameId": 909159000,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        }
+      ]
+    },
+    "controlSlots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "interpretation": "Incomplete descriptive prefix only; candidate28 is paired with the exact same28 control maps/seats."
+  },
+  "pooledMatched68Descriptive": {
+    "candidate": {
+      "games": 68,
+      "wins": 19,
+      "draws": 0,
+      "losses": 49,
+      "points": 19.0,
+      "score": 0.27941176470588236
+    },
+    "control": {
+      "games": 68,
+      "wins": 17,
+      "draws": 0,
+      "losses": 51,
+      "points": 17.0,
+      "score": 0.25
+    },
+    "paired": {
+      "better": 12,
+      "worse": 10,
+      "equal": 46,
+      "pointDifference": 2.0,
+      "controlToCandidateOutcomeMatrix": {
+        "L->L": 39,
+        "L->W": 12,
+        "W->L": 10,
+        "W->W": 7
+      },
+      "pairs": [
+        {
+          "candidateGameId": 909153453,
+          "controlGameId": 909150424,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153508,
+          "controlGameId": 909150492,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909153564,
+          "controlGameId": 909150553,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153605,
+          "controlGameId": 909150614,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153652,
+          "controlGameId": 909150680,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153741,
+          "controlGameId": 909150731,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909153798,
+          "controlGameId": 909150775,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153867,
+          "controlGameId": 909150864,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153929,
+          "controlGameId": 909150934,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909153992,
+          "controlGameId": 909151018,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154041,
+          "controlGameId": 909151076,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909154106,
+          "controlGameId": 909151205,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154174,
+          "controlGameId": 909151342,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909154239,
+          "controlGameId": 909151454,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154298,
+          "controlGameId": 909151554,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154333,
+          "controlGameId": 909151621,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909154372,
+          "controlGameId": 909151677,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154429,
+          "controlGameId": 909151754,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154481,
+          "controlGameId": 909151830,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909154529,
+          "controlGameId": 909151906,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909154597,
+          "controlGameId": 909151959,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909154639,
+          "controlGameId": 909152043,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154694,
+          "controlGameId": 909152115,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909154749,
+          "controlGameId": 909152167,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154806,
+          "controlGameId": 909152222,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154849,
+          "controlGameId": 909152280,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154892,
+          "controlGameId": 909152338,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909154935,
+          "controlGameId": 909152412,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909154992,
+          "controlGameId": 909152509,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909155057,
+          "controlGameId": 909152586,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155105,
+          "controlGameId": 909152668,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155154,
+          "controlGameId": 909152757,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155201,
+          "controlGameId": 909152842,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155242,
+          "controlGameId": 909152903,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909155283,
+          "controlGameId": 909152989,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155317,
+          "controlGameId": 909153059,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909155357,
+          "controlGameId": 909153130,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155394,
+          "controlGameId": 909153198,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155434,
+          "controlGameId": 909153271,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909155482,
+          "controlGameId": 909153323,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168309,
+          "controlGameId": 909157327,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168453,
+          "controlGameId": 909157384,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909168576,
+          "controlGameId": 909157419,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168641,
+          "controlGameId": 909157467,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909168672,
+          "controlGameId": 909157507,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909168714,
+          "controlGameId": 909157551,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168753,
+          "controlGameId": 909157602,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168815,
+          "controlGameId": 909157669,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168848,
+          "controlGameId": 909157731,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168879,
+          "controlGameId": 909157779,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909168908,
+          "controlGameId": 909157819,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168940,
+          "controlGameId": 909157873,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909168974,
+          "controlGameId": 909157931,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169013,
+          "controlGameId": 909157990,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169040,
+          "controlGameId": 909158010,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169073,
+          "controlGameId": 909158045,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169114,
+          "controlGameId": 909158082,
+          "candidateResult": "L",
+          "controlResult": "W",
+          "pointDifference": -1.0
+        },
+        {
+          "candidateGameId": 909169172,
+          "controlGameId": 909158127,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169203,
+          "controlGameId": 909158178,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169236,
+          "controlGameId": 909158212,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169636,
+          "controlGameId": 909158618,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169676,
+          "controlGameId": 909158675,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169711,
+          "controlGameId": 909158723,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169756,
+          "controlGameId": 909158758,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169809,
+          "controlGameId": 909158811,
+          "candidateResult": "W",
+          "controlResult": "L",
+          "pointDifference": 1.0
+        },
+        {
+          "candidateGameId": 909169837,
+          "controlGameId": 909158870,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169876,
+          "controlGameId": 909158912,
+          "candidateResult": "W",
+          "controlResult": "W",
+          "pointDifference": 0.0
+        },
+        {
+          "candidateGameId": 909169932,
+          "controlGameId": 909159000,
+          "candidateResult": "L",
+          "controlResult": "L",
+          "pointDifference": 0.0
+        }
+      ]
+    },
+    "interpretation": "Original40 pairs plus incomplete new28 pairs; descriptive only, no selection decision."
+  },
+  "unpairedControlSlotsExcludedFromComparisons": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "limits": [
+    "The requested40-candidate series is incomplete; the12missing outcomes are neither losses nor wins.",
+    "Five-minute pauses were observed; they do not establish an official quota or eliminate service refusals.",
+    "The original formal NOT_PASSED and unresolved75-ms native call remain unchanged."
+  ],
+  "retainedAudit": {
+    "path": "build/analysis/v09-batched-refresh-boss-v2/partial-audit.json",
+    "sha256": "811509bb96a65ebde9a138e47be7c3f88f5b5c133d4d07c680c1de0c3340cb12"
+  },
+  "quotaFailureClassification": {
+    "pin": {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/failure-classification.json",
+      "sha256": "fd1d1f23418552a8f202f7d1d2624f9cc8338ef2a6c3bc4a2529df722ad878b6"
+    },
+    "data": {
+      "classification": "SERVICE_PLAY_LIMIT",
+      "apiCode": 407,
+      "httpStatus": 422,
+      "serviceMessage": "You reached the limit of plays for a period of time.",
+      "privateErrorResponseSha256": "d2b88cae2c0bf5ccbd507ae4aef0d80acf708549f9453f9abadd82fe54724dd5",
+      "privateErrorBytes": 75,
+      "requestSlot": 29,
+      "globalRequestOrdinal": 69,
+      "retryAfterSeconds": null,
+      "uncertainCreationFlagPreserved": true,
+      "gameIdReturned": false,
+      "automaticRetry": false,
+      "controlCompleted": 40,
+      "candidateCompleted": 28,
+      "candidateScheduled": 40,
+      "uncompletedCandidateSlots": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "interpretation": "Explicit service quota rejection; no game ID or completion received. Preserve conservative unknown-creation guard and do not repeat play."
+    }
+  },
+  "finalIdeIdentity": {
+    "pin": {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/ide-after.json",
+      "sha256": "454387ac734899d09a92ee1e0f63ddf36625b557379b4f7b828eac2c82d66756"
+    },
+    "data": {
+      "at": "2026-10-15T22:13:56.202630+00:00",
+      "readOnly": true,
+      "gamesCreated": 0,
+      "matchesCandidate": true,
+      "sourceSha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "language": "Java",
+      "originalIdeSourceBackupSha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "privateResponseSha256": "2e7afcb2e2253984f974d6e67fa3b15e0aa76df53965c0536f2306716fb3415d"
+    }
+  },
+  "decision": {
+    "batchingEnabled": false,
+    "selectedControl": "v09",
+    "candidateRemaining": 12,
+    "promotion": false,
+    "arenaPublication": false,
+    "push": false,
+    "reason": "Additional requested series interrupted by service play limit; retained positive paired difference is incomplete descriptive evidence."
+  }
+}

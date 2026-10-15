@@ -1,0 +1,3262 @@
+{
+  "schema": "v09-batched-refresh-boss-v2-archive-v1",
+  "archive": {
+    "path": "docs/evidence/v09-batched-refresh-boss-v2-artifacts.zip",
+    "sha256": "0ac9d4146047c74032fe334e5c37811acad3f17502447d65188745b7e8185524",
+    "bytes": 4003184
+  },
+  "files": [
+    {
+      "path": "build/analysis/neural-v7/control-process/process-903510176.json",
+      "sha256": "0e759b79804aaeb4e9419872ebffca8f872081780bf0e2f2f2828d3c24955d26",
+      "bytes": 37179
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904146009.json",
+      "sha256": "40d9c996c62367adef01c99934fda1d5d998ecda289fe9fa7b70a7c42dc15fa7",
+      "bytes": 45123
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904147739.json",
+      "sha256": "d95b84413b0f7d56e90d9e53bac566aa329fcd183065e0687a0929d4587e989d",
+      "bytes": 44632
+    },
+    {
+      "path": "build/analysis/neural-v7/control-process/process-904148181.json",
+      "sha256": "5c6861a32c9992dfae40c87fd2215375fff0398adfe1cc30693d1bec8328aa58",
+      "bytes": 52812
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/audit_results.py",
+      "sha256": "5dfe1b3f18668ca49064ba989824ebd453bf6d80aecdebd931b36bb96de2504d",
+      "bytes": 14778
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/BossMapAudit.java",
+      "sha256": "ae4b4f9985ea204d9c6c087f984ac99cbee45b0a3e907bd449becc9f09ab5f00",
+      "bytes": 14698
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/cache-audit.json",
+      "sha256": "cbfad453cd77cfbeafacffc481ffdf519335a55ed9fac6e3c6272983c6262323",
+      "bytes": 72147
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/discovery.json",
+      "sha256": "410f1fb9f38e6c4c3cf4cb51d6a651cf1053a95a68fa4143c893c24baacdea95",
+      "bytes": 3186
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/frozen-before-live.json",
+      "sha256": "e7b2b4014dbb559a119d1748aec38b323bfd43f85ec863483f1793b727195c13",
+      "bytes": 12594
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/actual-historical.json",
+      "sha256": "347e4d989be25cc8581793786e58d48325b1b242795a207c8666556bea85d0e1",
+      "bytes": 39380
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/actual-historical.log",
+      "sha256": "7183a65a0b6d4c7cfd588806880d6ad353cf2d045c5428e33514c609f10b9e97",
+      "bytes": 111
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/known-map-rejection.log",
+      "sha256": "5637a85b9f73f64adaf2b50478d35d7586c8cfc34a5d8500b1cad484bf66deae",
+      "bytes": 252
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/overlap-prior.json",
+      "sha256": "4a89ec227313476ca2fa25f4cda6fd43185b59f2594dcb78393e3b8bdfaeea99",
+      "bytes": 154
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/prior-fixture.json",
+      "sha256": "80dbafd261709cc9871ea47981ff9d98d160d66b33e6be232c7793a101359cf1",
+      "bytes": 154
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/prospective-fixture.json",
+      "sha256": "d50ff08e27687741f8b1f035439ad50b61b17a5b2cce58fb14ba3e3a73490cc4",
+      "bytes": 8261
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/prospective-historical-fixture.log",
+      "sha256": "cc913708d73bdba4fdd4b3a7ad02e1c2aed0f0fbab4450c4e4baf6a2a0d2eb68",
+      "bytes": 80
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/results.json",
+      "sha256": "58a84ddb519fe8cc94090ba3ff6f2c93b0421039981be7ecc27a8973f97e09d9",
+      "bytes": 3668
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-checks/write-once-rejection.log",
+      "sha256": "569549c3f15d879ac45a0fb860c488acdfa1af0e246329c26ab86fe5a4972359",
+      "bytes": 237
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/helper-classes/BossMapAudit.class",
+      "sha256": "8b5e5489b2ea98ad694394b83359223b5248120fb3ae63da2faceb87d208ae1a",
+      "bytes": 14990
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/independent-audit.json",
+      "sha256": "12bdb615f578eb787c6d2a6df9878e274f37dc9e0f53ace3429d5906235cca2f",
+      "bytes": 1328906
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/map-preflight-command.json",
+      "sha256": "c7131ccd6406eee1bf424390d889bee333ec9a6d273fca5e88c901a04ea39cd3",
+      "bytes": 1356
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/map-preflight-exit.json",
+      "sha256": "d45db54bba0c56e2691a52869729c0a3eade7f5d50545e7832a20e3262a9d422",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/map-preflight.json",
+      "sha256": "3fc29edc4d2da325b0b1625b75bff453b3f7dbeb56a9d7bf8cc789af135c46c6",
+      "bytes": 8250
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/map-preflight.log",
+      "sha256": "139ff481ce59c9ce09aa429eb7732c252a920463140d6833b806bb11e157cdf3",
+      "bytes": 82
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/map-source-scan.json",
+      "sha256": "c8b94e9a761da74741181efddcbca3074f450f80570afd6a167519a8f7b4c216",
+      "bytes": 46703
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/preparation-repair.json",
+      "sha256": "536f247f35ec121833d052d68fe9f9df2f9c709cdd8d843da718a5713584c5f7",
+      "bytes": 373
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/prepare.py",
+      "sha256": "cdf8b497da7bd4baed0eb038b866cae7bba717391be5901a5d18c22453fa7759",
+      "bytes": 8814
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/prior-verification.json",
+      "sha256": "82dd171b9b12680e2c9c5a9f2e7297297a51ab7858adaf994d78d96b54c494a4",
+      "bytes": 92
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v1/prospective-candidate-schedule.json",
+      "sha256": "884e1498a3b5c9120e414193509d80cf90c55e28bb9724006a8a8f8d1ca96399",
+      "bytes": 5841
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/archive-complete-only.py",
+      "sha256": "10465bf33037b3ea0fedc4d4e89723216fd7a7803d0c71da5d5cf369f15466aa",
+      "bytes": 8632
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/archive-interruption-adaptation.json",
+      "sha256": "e6b197f31693c9b93ee65d255f3c75ebdcf080805256ac9de0a2cff53b2d5385",
+      "bytes": 930
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/archive-precheck.json",
+      "sha256": "3537864af4c716f978a29b93ae7b77b8b702629b48bf57b6e0fa7dfbee508ebc",
+      "bytes": 583
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/archive.py",
+      "sha256": "54dff9c861948be2c5a9683b7f35b4eaf67b12a87bae67035f921215c5761c6e",
+      "bytes": 10416
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/audit_partial.py",
+      "sha256": "d7e7ef6ca93d4585c20bba44e2db51e409d67cb6fb11705758a2fff1f1487a55",
+      "bytes": 11308
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/audit_results.py",
+      "sha256": "1e0806f07d71af5216461f485aa34eb410fd433d0dcd6f215dd710e1abf9026e",
+      "bytes": 15804
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/BossMapAuditPartial.java",
+      "sha256": "fd510eaa3d18b7aebfaccce2f282b4d48c3161266cf90353b3a61e8380139b7a",
+      "bytes": 15295
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-launch.json",
+      "sha256": "aeaf71ba22bbb16564c3a2db972866afbfd28d89ddc162af108a6aaeecee8fcf",
+      "bytes": 555
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-partial-map-audit-command.json",
+      "sha256": "c850cf6c1d3bd2d1fecadf2c253825e411667217a5971100fb3124cadaa17c28",
+      "bytes": 1704
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-partial-map-audit-exit.json",
+      "sha256": "b1e5019d2826ce6b1f84cc009e978e11174ec71893a5b7598b06e74c9c22ed21",
+      "bytes": 207
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-partial-map-audit.json",
+      "sha256": "3337de6bd9ffb55d408fd7fa3cc1beef121bfe9416fe3d923aab1c22a5a58471",
+      "bytes": 28516
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-partial-map-audit.log",
+      "sha256": "84916e3cf2f5cd3ad02b3fab656b4dace88bc6eb406d8b81482f10caf1205ca9",
+      "bytes": 118
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-run-exit.json",
+      "sha256": "a147fa303fa0622f1db5dbad7f6e1a24bb3e2f23bb98a31e5703858c7b7e1b95",
+      "bytes": 103
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/candidate-run.log",
+      "sha256": "4c3737a18a10e33af68601da79a48d2ea12097c7216f0abe2e74011e19b22f91",
+      "bytes": 3160
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/classify_failure.py",
+      "sha256": "a5e7f61257a42e14a80ab647269591d52dad0fd8b184aad6f6aabf6ab40ec179",
+      "bytes": 1675
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-audit.json",
+      "sha256": "fb0db6ca376c95953a18dd74e0f83207823118b0825862a8e52be9dcc45324ba",
+      "bytes": 128775
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-launch.json",
+      "sha256": "92776f87eb38543f079d18ae1cbf0cdcccbcf60d351218e6409a09db4fb61b98",
+      "bytes": 553
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-map-audit-command.json",
+      "sha256": "b26480d16ec9cf2f3d4a1c69f4f71227c6d6580a4f8be39a3a3395d0197b548e",
+      "bytes": 2616
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-map-audit-exit.json",
+      "sha256": "8ff8f73fb7ee88a90fdb46153eab701c1a55c6b7141fd315127295cd7cb09d9c",
+      "bytes": 466
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-map-audit.json",
+      "sha256": "465f808578d082dad9b6d3817fb3a4d12be9c3128bc5aa53511a89982336f17e",
+      "bytes": 39996
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-map-audit.log",
+      "sha256": "7183a65a0b6d4c7cfd588806880d6ad353cf2d045c5428e33514c609f10b9e97",
+      "bytes": 111
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-run-exit.json",
+      "sha256": "1632f25c37dc38dd0bb1e852c8543a17656bbc1886dce2a58bbe609e4887a138",
+      "bytes": 103
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/control-run.log",
+      "sha256": "dc59a0fca5f069067556e1bdd476a5dbfd938ffc895985791c327a9df80e59ff",
+      "bytes": 7116
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldown-test-infrastructure-repair.json",
+      "sha256": "875376263932da2a222750cdf773740c81a5d6f4718dc3363541f5450ce46ede",
+      "bytes": 355
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldown-tests.json",
+      "sha256": "3a453e513b5eeb76d3411b3022b8756b9890a47b5a90ee76c898b0b8c1e38fc7",
+      "bytes": 304
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldown-tests.log",
+      "sha256": "661ba52e1387aeffb1c0d6e578d90b312a1200b560f108f69bf83f3ac2bd3be4",
+      "bytes": 2413
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldown.py",
+      "sha256": "8464349eaa8f48f5350ba4bff1d779c2593af26f8af60c61f64c56a42748f34d",
+      "bytes": 8263
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0021-completed.json",
+      "sha256": "2fb4991ad849efc3cb1f154973e03b198addb54f609f8fef31a608022bf0be93",
+      "bytes": 1514
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0021-started.json",
+      "sha256": "91c8d07d7406d93e6b1a144e29a695e50e33c86b483532bb791f1c5c0101a0f4",
+      "bytes": 1196
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0041-completed.json",
+      "sha256": "77a036175e7b45e56273c837cd6edc2234394af6611d95d198b4b43cb7b67be3",
+      "bytes": 1500
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0041-started.json",
+      "sha256": "a66eb9b572fb4d80c5ecdf0b449ebcc5f63f62967752c8f10e6286d9a7fd095f",
+      "bytes": 1196
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0061-completed.json",
+      "sha256": "881ce547f99753e4c29f1e5a4c6cb0d4715b3320c985899eafe07ead0986fa12",
+      "bytes": 1520
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/cooldowns/0061-started.json",
+      "sha256": "9b3cff05a86a4c810e9c5a0da08f74acb445e6297320a98f4256ff306da76056",
+      "bytes": 1201
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/discovery.json",
+      "sha256": "8dfba02eab968850d08a946a4c3783f01eec059fe7259eee02dfa4822dda0aba",
+      "bytes": 3186
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/driver.py",
+      "sha256": "817f8d5433ea2a51d4706a219ddb5e84ba1590df1105226ccba077f51aa6d41a",
+      "bytes": 1912
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/failure-classification.json",
+      "sha256": "fd1d1f23418552a8f202f7d1d2624f9cc8338ef2a6c3bc4a2529df722ad878b6",
+      "bytes": 871
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/freeze.py",
+      "sha256": "c82a956dde18b41c1b0482da52da3460f09e2f76b3965f4d8bcce71846d3cd2a",
+      "bytes": 1476
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/frozen-before-live.json",
+      "sha256": "bac938c1109d9f37f9a57e86a33e086f58e8b25fbcdf29db867ad0db15c5a40d",
+      "bytes": 16051
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/ide-after.json",
+      "sha256": "454387ac734899d09a92ee1e0f63ddf36625b557379b4f7b828eac2c82d66756",
+      "bytes": 432
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/map-preflight-command.json",
+      "sha256": "d0eade6a5773cb3af9897fa5922e363c1442855218479848a575f269f969260b",
+      "bytes": 2195
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/map-preflight-exit.json",
+      "sha256": "36eb4ddf35fc14ff2259bab54b8fe2dafb2adef4d0a8f7a3693c8ec0d4026e99",
+      "bytes": 193
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/map-preflight.json",
+      "sha256": "27124f17e78fb9d003efb7aec5e0168e14145549661a04a18408c26b30c74365",
+      "bytes": 8265
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/map-preflight.log",
+      "sha256": "b769413b4d4577765e12a813049ee070084db29d90d2005f0b4a1cdab837052a",
+      "bytes": 82
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/map-source-scan.json",
+      "sha256": "11b7c31dbeeb34587329cd5ff315337e4b4b4f0627cf20baf22525acd82430f3",
+      "bytes": 33255
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/partial-audit.json",
+      "sha256": "811509bb96a65ebde9a138e47be7c3f88f5b5c133d4d07c680c1de0c3340cb12",
+      "bytes": 133790
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/partial-classes/BossMapAuditPartial.class",
+      "sha256": "03f92e64fa959fd2a77be7b31fdadbd0cab98e3f334964abbaac5d8119e86940",
+      "bytes": 15508
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/partial-compile-command.json",
+      "sha256": "b9f70159c5502be6dfcd94181b21059ced41f0d73e6f89cd108ff4faa23aca01",
+      "bytes": 1401
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/partial-compile-exit.json",
+      "sha256": "8f0813cf1703852943e75bc0ddac6f2bd1293aa6dec7cdd24151c43a03ce975a",
+      "bytes": 195
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/partial-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/partial-validator-derivation.json",
+      "sha256": "4214f4d0bdc785624f5abc56fd139320d19bb1306d3ee108166189f51406cdce",
+      "bytes": 3062
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/prior-maps.json",
+      "sha256": "6dd97897d320cedd4f23185f6ee197a226c01e01b3fbbcb31a072bafc2d73a44",
+      "bytes": 1770390
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/prior-verification.json",
+      "sha256": "859389212ffba97306ed7de74356877dce1638e068719efca86cc69effd6093f",
+      "bytes": 507
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/prospective-candidate-schedule.json",
+      "sha256": "2a4f48854b1f7ab222015664505b3aad1b374f8593267e7121d42a667c77bbea",
+      "bytes": 5848
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/readback.py",
+      "sha256": "c25bcda41b4e7a138a0a6cf2868fcd9ccd5d45e16097e9eb41e429d642b2ffdf",
+      "bytes": 1703
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/save_summary.py",
+      "sha256": "76b70640b0e15660384f96807971e9eab9f39b4daf072a96d46d34727cf1d170",
+      "bytes": 1468
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/candidate/0020/result.json",
+      "sha256": "ad14338a4ff8566255a240b254ca82fd57ec5ec2454d858f48b870b337f974ce",
+      "bytes": 310
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/candidate/plan.json",
+      "sha256": "852a42c7cf770f096c6ef193bea5575ca982c12775501805747e2dd6b44cd001",
+      "bytes": 5414
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/control/0020/result.json",
+      "sha256": "742369aca507b0c920aa057421dd1bfd4b6a82fdfad54823d2ed6a40ddd1b3fa",
+      "bytes": 310
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/control/0040/result.json",
+      "sha256": "1dc98fb548a3455d59802fe01f02f6650ef295093192266dbeb723671a3f69c9",
+      "bytes": 310
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/control/plan.json",
+      "sha256": "9559b2f07d5c46d553c052366e33f90904f45546be9ca7e53651895bcc92de67",
+      "bytes": 4962
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/pauses/0021-completed.json",
+      "sha256": "9dcff35910e2890636fc912d62b531b21f633b3126bdbec219dd5c4247ed4715",
+      "bytes": 1725
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/pauses/0021-started.json",
+      "sha256": "128466a1f2832b8f853d812e80db0b0435792608c9bfaf0a4bbdc13245bf9389",
+      "bytes": 1438
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/pauses/0041-completed.json",
+      "sha256": "dbfaa5e4a7be6165c25981c77d6f7ee93d64bc7eab59e7bc051f7731f1eb61fc",
+      "bytes": 1726
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/pauses/0041-started.json",
+      "sha256": "1b31ea58dc9e2990df6bd076a4c716f6c5f741da9b38ff28ab9c2cca5db8b054",
+      "bytes": 1439
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/pauses/0061-completed.json",
+      "sha256": "a93f2ee6683c308c73995b2337ab6db16940db7f8d31dd382daed846164a33c6",
+      "bytes": 1731
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_all_three_boundaries_and_payload_parity-46a860f3875643999bb65f66b4924c6d/pauses/0061-started.json",
+      "sha256": "1a81a5e0a1a39ee1e75b6fee7b2fa060fd375934590d7d1616f99793e340be4e",
+      "bytes": 1444
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_already_elapsed_gap_is_recorded_without_extra_sleep-9e5e4f23e2814f14b58adffa0aa15a39/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_already_elapsed_gap_is_recorded_without_extra_sleep-9e5e4f23e2814f14b58adffa0aa15a39/candidate/plan.json",
+      "sha256": "6d840f458a72abcae250141359b36d27b5483cbe4afde35e45d474e26076fc10",
+      "bytes": 5438
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_already_elapsed_gap_is_recorded_without_extra_sleep-9e5e4f23e2814f14b58adffa0aa15a39/control/0020/result.json",
+      "sha256": "afe42a939c2610c08a8c63da5dda6677a78763eccd39c7778789183ba436b055",
+      "bytes": 310
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_already_elapsed_gap_is_recorded_without_extra_sleep-9e5e4f23e2814f14b58adffa0aa15a39/control/plan.json",
+      "sha256": "68c9bbbee91eb916848b0e9ea4395b094b682e81254b449000262a36d048d5c9",
+      "bytes": 4974
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_already_elapsed_gap_is_recorded_without_extra_sleep-9e5e4f23e2814f14b58adffa0aa15a39/pauses/0021-completed.json",
+      "sha256": "d8bd0372a77c5b7f1a9015a3d9c2ab527189f17b940264440b1e9ad892e83319",
+      "bytes": 1673
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_already_elapsed_gap_is_recorded_without_extra_sleep-9e5e4f23e2814f14b58adffa0aa15a39/pauses/0021-started.json",
+      "sha256": "31e2141d9131d1b7b0293adb598c0261e2309567e2d144bf307cf8a131e38a53",
+      "bytes": 1475
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_changed_previous_result_cannot_reuse_pause_record-e449dbca5c434f6cacc3e52a36f42d72/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_changed_previous_result_cannot_reuse_pause_record-e449dbca5c434f6cacc3e52a36f42d72/candidate/plan.json",
+      "sha256": "287d631836f80f577764446ba7ef91c682c23fe4092f183a558cd1ea699e8189",
+      "bytes": 5434
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_changed_previous_result_cannot_reuse_pause_record-e449dbca5c434f6cacc3e52a36f42d72/control/0020/result.json",
+      "sha256": "7f423da343ba39542da8ed775ba6560c66500485405b4a55f3d73bca9bc2312a",
+      "bytes": 325
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_changed_previous_result_cannot_reuse_pause_record-e449dbca5c434f6cacc3e52a36f42d72/control/plan.json",
+      "sha256": "2788d121f0d9ef12b0c8c9fd77a1a44f5c44e3ab9ca730b9da92597989e77742",
+      "bytes": 4972
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_changed_previous_result_cannot_reuse_pause_record-e449dbca5c434f6cacc3e52a36f42d72/pauses/0021-completed.json",
+      "sha256": "7093162bdcaf8b9262faf07ff57e08b1d3d9357440c6d5723e36432167914b80",
+      "bytes": 1667
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_changed_previous_result_cannot_reuse_pause_record-e449dbca5c434f6cacc3e52a36f42d72/pauses/0021-started.json",
+      "sha256": "f073dbe0b76d3f18a9327a165589c7d305c54305b03983fe02019a07e0bea051",
+      "bytes": 1469
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_completed_resume_adds_no_wait_and_does_not_change_proofs-d510a2009e3045769b04922528ece3a6/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_completed_resume_adds_no_wait_and_does_not_change_proofs-d510a2009e3045769b04922528ece3a6/candidate/plan.json",
+      "sha256": "2ac709cfa62a467fd64232c1806236fd087bb483fec1a4557aebee87de8ebe7e",
+      "bytes": 5448
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_completed_resume_adds_no_wait_and_does_not_change_proofs-d510a2009e3045769b04922528ece3a6/control/0020/result.json",
+      "sha256": "0487f070044b1b737861e7533ee24b6bf0347f8eca6cdba0b83ee15c49c8e8d0",
+      "bytes": 310
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_completed_resume_adds_no_wait_and_does_not_change_proofs-d510a2009e3045769b04922528ece3a6/control/plan.json",
+      "sha256": "e05f6501efffcf1ad618a553b4f149e4cad773107a5cba1c4b5028c657fc3d9a",
+      "bytes": 4979
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_completed_resume_adds_no_wait_and_does_not_change_proofs-d510a2009e3045769b04922528ece3a6/pauses/0021-completed.json",
+      "sha256": "f03abbc518533f6eb1d32b2a859069fbdb1ee4f2924fccfb608d27aa5450e074",
+      "bytes": 1776
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_completed_resume_adds_no_wait_and_does_not_change_proofs-d510a2009e3045769b04922528ece3a6/pauses/0021-started.json",
+      "sha256": "22de54c5bee9e3f1054af1bd1d4f24716b354b1c59ea6f9afc7df1bdaf566e0e",
+      "bytes": 1489
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_existing_uncertain_intent_rejects_payload_without_wait-b9868233be39425ca9571ea51fb9e874/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_existing_uncertain_intent_rejects_payload_without_wait-b9868233be39425ca9571ea51fb9e874/candidate/plan.json",
+      "sha256": "fc140ce212466ba67801b0f66c2eb29b0ba817372d410a59ce11a2d429d765f1",
+      "bytes": 5444
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_existing_uncertain_intent_rejects_payload_without_wait-b9868233be39425ca9571ea51fb9e874/control/0021/intent.json",
+      "sha256": "3e8cc9c997e7e70842273f317d568c883dba8e1cbf292a29e9059222fe625385",
+      "bytes": 24
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_existing_uncertain_intent_rejects_payload_without_wait-b9868233be39425ca9571ea51fb9e874/control/plan.json",
+      "sha256": "4a4a53af62720d10a9e32417590bd357eec1796be11f588a08a7d9173b83033d",
+      "bytes": 4977
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_missing_preceding_result_rejects_without_wait-7343c9ca7cb84149a61a00a1e18f4371/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_missing_preceding_result_rejects_without_wait-7343c9ca7cb84149a61a00a1e18f4371/candidate/plan.json",
+      "sha256": "d584357c51c22550091d3212260a435bb9b9494182cc3bec7168740e6663f782",
+      "bytes": 5426
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_missing_preceding_result_rejects_without_wait-7343c9ca7cb84149a61a00a1e18f4371/control/plan.json",
+      "sha256": "06c7a4f1cb5cb65848742d4413264db884e8166ae54a3fb073748fbdc7fb50b0",
+      "bytes": 4968
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_no_module_change_when_context_body_raises-e15c75cdc1f443388fee3480992235cb/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_no_module_change_when_context_body_raises-e15c75cdc1f443388fee3480992235cb/candidate/plan.json",
+      "sha256": "e741ca107f52fcba0a88ac1456ee40e40a6f4f78ad912b90ca3bbd270cc11bc4",
+      "bytes": 5418
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_no_module_change_when_context_body_raises-e15c75cdc1f443388fee3480992235cb/control/plan.json",
+      "sha256": "e90b99e78ffb6b411cc3d49f20d81ba6d34ffa38d81ef28646b7b7ecd75150eb",
+      "bytes": 4964
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_no_wait_or_proof_at_other_slots-9806ea8061304d43865886b4114d8bf6/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_no_wait_or_proof_at_other_slots-9806ea8061304d43865886b4114d8bf6/candidate/plan.json",
+      "sha256": "ae9a5f9ab03d53b63560259120cd7299d1506d2ec883e78f6b2aaedfcceb61a9",
+      "bytes": 5398
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_no_wait_or_proof_at_other_slots-9806ea8061304d43865886b4114d8bf6/control/plan.json",
+      "sha256": "982b90c6d1d6bb5aed33c0a49795f1d23d5a2ac522cfe69cdfd10242da0e796b",
+      "bytes": 4954
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_resume_after_interrupted_wait_preserves_start-f496ba531d3841698d206b609a4f5425/artifact/Player.java",
+      "sha256": "2da6119374c442360b35b2fe010956ebb487364d617d8496cf52580bb3ebe827",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_resume_after_interrupted_wait_preserves_start-f496ba531d3841698d206b609a4f5425/candidate/plan.json",
+      "sha256": "488984630dfbf9f66d6f1daa62eb7c246614686315c75562d9f736562d47f31b",
+      "bytes": 5426
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_resume_after_interrupted_wait_preserves_start-f496ba531d3841698d206b609a4f5425/control/0020/result.json",
+      "sha256": "066155f682e3db28e1c825a3f54f721084ab0ee771faad721bb106a6db63a47a",
+      "bytes": 310
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_resume_after_interrupted_wait_preserves_start-f496ba531d3841698d206b609a4f5425/control/plan.json",
+      "sha256": "b494580045310058bf647f52063b312c5f1d52f828912049958cb2f291852754",
+      "bytes": 4968
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_resume_after_interrupted_wait_preserves_start-f496ba531d3841698d206b609a4f5425/pauses/0021-completed.json",
+      "sha256": "4c1d679878fc122593ed79f206ff65a98e467b4d4ea2cce1cbe48172e347cbc7",
+      "bytes": 1735
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test-fixtures/test_resume_after_interrupted_wait_preserves_start-f496ba531d3841698d206b609a4f5425/pauses/0021-started.json",
+      "sha256": "366ba4604797c18cb3baf8015bbbb0eba2424d5cd1b74155c179da7a5b17e439",
+      "bytes": 1456
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/test_cooldown.py",
+      "sha256": "b8104c6c29d8331f7b99d754e6504ba3245fe0250190de18fc70585eb62d14ab",
+      "bytes": 8188
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-boss-v2/validate_stage.py",
+      "sha256": "cf6698597fa31faab3627062c11f1df3bc13c226cba7d1e997cf654abbe07b94",
+      "bytes": 5395
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$1.class",
+      "sha256": "1196939eb0be432abe1982a0a62577609a60a14be87d3fbea1b6e77ae602f7b4",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Action$Type.class",
+      "sha256": "7ba8b4522bc172b0358abb16095bca4481e8cbe9aef5daba837e35c9c62fd929",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Action.class",
+      "sha256": "7c1913be4bf21465ead5738b93a3c8d19b7a27217630acdaee087e3f3ae7afc0",
+      "bytes": 4604
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Bot.class",
+      "sha256": "5578fb39b76a2eaaa6b891254df962410365f628153aa7852001477cf685382e",
+      "bytes": 889
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$CGRunner.class",
+      "sha256": "1d27b649ce66c490704cd96e225e5505ccbddbf71a1457df2010715683f9da97",
+      "bytes": 5755
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$EvalBot.class",
+      "sha256": "e549d9d09ff523d1a8fc02f69656e405d74eb3addb30a220cf3fad28dbd20a51",
+      "bytes": 30743
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$GameState.class",
+      "sha256": "fd4ea570e2db114b016291959fa745cfd502f0dab0a8ebedad01806aaccb1549",
+      "bytes": 4686
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$MainBot.class",
+      "sha256": "38e45d27441df5e8ac51569e32a7f71203613957d41f6922f572d4aafbd340df",
+      "bytes": 5559
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$NetworkCells.class",
+      "sha256": "e95e05353f5d650e72867354fa8007ce87907dd2a69fe5bbc203c63d63a8ef35",
+      "bytes": 980
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$NetworkChords.class",
+      "sha256": "557857d7588010d90e47f4bc4d558f2a745427f5b50080695a78331269faad18",
+      "bytes": 1273
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Params.class",
+      "sha256": "abc62c4387d372fad64a73a2d44c1d81b74808f46bbb51037a477986019adf36",
+      "bytes": 10100
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Pathing.class",
+      "sha256": "a914e23b2bf4529d3972f376a51fa7bf8775d9eb43c5cbaed7bc03a5998d23c9",
+      "bytes": 6350
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$ProtectedOpening.class",
+      "sha256": "7fcbbd40fb7593858008abee3220af2350571f683f9fd4d3a5829ee220ac7f4c",
+      "bytes": 3359
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$Init.class",
+      "sha256": "243db886f46c306954eddb46c9f859a77f6a82f0bcb4b50039d764167900ad22",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$TokenReader.class",
+      "sha256": "677c386b10ae3094919e961045593fd37ae6165045f2b215ab25d949e0bc8a49",
+      "bytes": 1381
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "7611093e5731a4f210a83d17d3d9a06c2f61d1d34ee6c9dc4a6c0d1c17ff89c2",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol.class",
+      "sha256": "880783612c5ef42811e85584455c059688a3b9524a27591a63909e8daac0b800",
+      "bytes": 4468
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "356d3795179bdf884f772dad1287cb3540f1c695441b6c984836c5627e4e4bf7",
+      "bytes": 1014
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules$TurnResult.class",
+      "sha256": "8a1f38e5819829b35cf028d806985784532332816480317e276d56c166043771",
+      "bytes": 879
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules.class",
+      "sha256": "2ba577e2ccf9bbc2407fb8b989088cbbb0c48f7a69309d607996db817f2c1bf7",
+      "bytes": 7291
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$SearchState.class",
+      "sha256": "29e1131e061c3ba639c6e8a10c01aa0eecc2d9dd253003b0a9b2f88a474eff79",
+      "bytes": 2081
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$TacticalPathing.class",
+      "sha256": "543f621041af253963078461ba9ae6a9e02ceaffeed8c3a2b86c069e718eccd2",
+      "bytes": 3089
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Timer.class",
+      "sha256": "df87377e4ce138d1d2878225f70737ec92d62884c85545f7bd16c76f6198e0b8",
+      "bytes": 801
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player.class",
+      "sha256": "c5391032441331e18c269942e685394d60f6ac083e13c688b24caaa157fa3b88",
+      "bytes": 1330
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/manifest.json",
+      "sha256": "fb468573b41610310c92f74c8f88aac1c7ee523b0a02b0c4851b5e2a14afe548",
+      "bytes": 4922
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/Player.java",
+      "sha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "bytes": 90129
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$CGRunner.class",
+      "sha256": "cdbaf238e07f987ac8e0ba3dd4883ee4011ca160fb802e5c36dee99b5fc84aae",
+      "bytes": 5991
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$EvalBot.class",
+      "sha256": "2727ab8aa610f8c4f2546a7479b0cdcc9f47104d2f249d3839e730fa46998708",
+      "bytes": 31630
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$MainBot.class",
+      "sha256": "8c2c925f8aa6f9110735a399d463e711a72487ef6b7fb6f5b9b959e3b1b6f315",
+      "bytes": 5578
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Params.class",
+      "sha256": "da0deb3ec092489de6198f2184b7f7e95fa9af346f997d7ad06fb6b5d59c976f",
+      "bytes": 11062
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Timer.class",
+      "sha256": "654e8a8fc607e2116cf1c4e57b2c946c90d4e91ab8ab67c935e6609012ea485f",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player.class",
+      "sha256": "d23537f96e1340b83f0a2a77655250683a55b6d276159425f9e11b192b345cb7",
+      "bytes": 1278
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/manifest.json",
+      "sha256": "9789f55cabcc526075c3efd59eed68f2ab3bd219946d9be99422dab64ce66d95",
+      "bytes": 4765
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/Player.java",
+      "sha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "bytes": 95312
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/freeze.json",
+      "sha256": "74f5e28bf32ee23b61ba5c9d9258d09e4a1ac4e066d2ee391c43d8d319a37a36",
+      "bytes": 454154
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-1.json",
+      "sha256": "5c26f2f46751f6ca85db0c0321ed8310ab91d519dbcf5596cf46fa9f0ad07480",
+      "bytes": 45915
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-2.json",
+      "sha256": "30030d55e86d5f6cad7d5ef7198fa6f539134e92ed6e6c57035dc7f05eb815d0",
+      "bytes": 46389
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-3.json",
+      "sha256": "b7c18d4d6999a852ea5d78c1e8b679c99c1c511667e014743012a69d21118066",
+      "bytes": 49194
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/process-4.json",
+      "sha256": "93a904c1ade7e53870ad9e6affde0b4ea13d345644f84da46b71782a13ae8a1a",
+      "bytes": 43603
+    },
+    {
+      "path": "build/bench/v09-batched-refresh-v1/block1.json",
+      "sha256": "0d586022e1e573520cf50092e83ae4745e8cab20a8eceecf8a56b7998f4ccba8",
+      "bytes": 286370
+    },
+    {
+      "path": "build/bench/v09-batched-refresh-v1/block2.json",
+      "sha256": "df38ef4b40a72174e560054be93c49859501b357f95cef38d1fa052dd1fb21fe",
+      "bytes": 196296
+    },
+    {
+      "path": "build/bench/v09-batched-refresh-v1/block3.json",
+      "sha256": "8ef2cefcb8326b50d51fea8f6b84a1d510d5c15430764b0986cbc49697b7422a",
+      "bytes": 466466
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/plan.json",
+      "sha256": "64615a8599ab14fb44ff44d201cdd4269651545f2f79a0877167d17060282bdb",
+      "bytes": 40063
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/canonical.json",
+      "sha256": "86615d6782bdc74960e2763afc6e4607423f4c367dcd385c007f17c701c7830f",
+      "bytes": 64532
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/intent.json",
+      "sha256": "7bbdd4a9c97cd727d80d194afe5b34dcae2232364bcc00643edc373eafa0a129",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/result.json",
+      "sha256": "e15ba2dd5313d384a60f542b14380fd16dca8a12434b6c80ef48f9bc5df9cbb1",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/canonical.json",
+      "sha256": "61b58ee8eb395f518220dc7d8cc1fbd7a60f6f9284a73af3b6d024958ea30e41",
+      "bytes": 60187
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/intent.json",
+      "sha256": "9f0aba02e886f18220937f5cf7ab4130a7e9c78646eb1f298241047b99faf531",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/result.json",
+      "sha256": "35c47d7abb543a5bd67030eba0448c09e1ad961baf7e390b235409464919ba53",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/canonical.json",
+      "sha256": "cd2e8bcdc2bc223c66d96aeddf130999486a5b0e9f36acf5f0538115384f1468",
+      "bytes": 61236
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/intent.json",
+      "sha256": "380c01517c9b6087f008b99596475d3f59b8d71240a14a22926696091eddb703",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/result.json",
+      "sha256": "00a9f9827ac89877702f551695eb1c4dc21a6caa05c1aa877c09836c9650bcbc",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/canonical.json",
+      "sha256": "580df4d85d6662f78e241e2acefa34ab990094ac07f1414afd894cd43e0604d2",
+      "bytes": 44990
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/intent.json",
+      "sha256": "7ac67e1da60001e8e0f65325c2b88579ebf02964fc77ea0bd8661babb0721ed3",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/result.json",
+      "sha256": "d792794bf38d39239f7fb3c7138e17d3b566079e6e2800276ab95ce5a605e971",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/canonical.json",
+      "sha256": "bbca69f3c5f39a80169a52bc90f7dc4dfbacf057bbb8e54a592f49e5af2a2677",
+      "bytes": 78290
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/intent.json",
+      "sha256": "46e5f226f15b65f67148d128c8af0529e78c6a55e9f8623c9c168e7f9c691c0e",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/result.json",
+      "sha256": "7b2960e6a05df22cf043c72d333d559b25921b4217b6001caf2bbac25f71ea08",
+      "bytes": 2244
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/canonical.json",
+      "sha256": "32a8a706bb003f988e22b068d9e30c3d664510fab8be3706c7b58fb5908e2cfe",
+      "bytes": 100018
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/intent.json",
+      "sha256": "0782731d7ead54ec5a6d9dabf8ae6c057ac8b3bfa26394e77de3447668bd6548",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/result.json",
+      "sha256": "f0d4213841e28cb6be0a6d67ec93a35e3f56108d7851327b79401d0ac01e9f2a",
+      "bytes": 2244
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/canonical.json",
+      "sha256": "2107bcb104b38edc2efda3e104fbe22d9d883c8f88cf8e5918dd4a58f5c7f737",
+      "bytes": 136466
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/intent.json",
+      "sha256": "d584fa3670824fce908369f9bffda6b439ffc00b64288703175eeb09474b8342",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/result.json",
+      "sha256": "557e511394592d4ae24e24558167165bf0c79169959f229fc59ee0d69f932051",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/canonical.json",
+      "sha256": "41b48ef6e541cfb2e55d0d7356099eb79fab901f76e2ea0aa4f6ad56c919f472",
+      "bytes": 118739
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/intent.json",
+      "sha256": "f7127c67a1070f910c674d58fc1e75d10fc3dd42b969ebf390c0bf5308df3022",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/result.json",
+      "sha256": "a8c3f312ac737af02d35e82c66bbf47aa45d10a68f4deafa387afb4b97b787e6",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/canonical.json",
+      "sha256": "e4557b8dc6ce6275aae427a4527a57e7bcb7696e4dd23f88d77bdb559f6ec956",
+      "bytes": 62518
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/intent.json",
+      "sha256": "20703e4836d4b1d6e8d621d95fa8f968e243338922b6004855b0d6a5e95d6b2d",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/result.json",
+      "sha256": "ba7ba88e9b64d944d7d3e758fed2946d28445df66fcd70e5c2bfdd3e3e50737a",
+      "bytes": 2243
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/canonical.json",
+      "sha256": "449321d6735c82f1d982d16fec4b2734245c6ab7791b4eccca87c21897ea005c",
+      "bytes": 54721
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/intent.json",
+      "sha256": "a09d65cda13dfbf483635a0710da811e98cd7df3e307cc8d4440751244cb35d6",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/result.json",
+      "sha256": "d6c0acba9f2404f6ae3e22f41a69fe8f3d24114a891b4590730b422d950fba4d",
+      "bytes": 2248
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/canonical.json",
+      "sha256": "3d5c791f07df9a1f03af2fb64aaa406552342500a8cb7fef4b82ccedaa61e3ad",
+      "bytes": 60975
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/intent.json",
+      "sha256": "03bd0e8dcf407ad8df31802e6883a5229f0eb86628c72c9423f114b678ce69b4",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/result.json",
+      "sha256": "60ea982e68e5156fd3ebe9481217b0456d51f2b88601fdc2fe55d2c45b04db23",
+      "bytes": 2245
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/canonical.json",
+      "sha256": "3a7e862cd587c3953b38f7ee98f0852cfc2a18ef723ca9b870986ae9897bda48",
+      "bytes": 50274
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/intent.json",
+      "sha256": "0ee1c2b0a5eb7d027de7a1b1a48c4b91c3bfdac0a3bfa5e8ce2c8c6b38377af1",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/result.json",
+      "sha256": "84c7e7a7adf9d99347dd1f45acdbff592fa76963a19cf33457857bec53249575",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/canonical.json",
+      "sha256": "784686e5ea112d9b05a19299d4e02af90c0c102c8ee709e674d9be272c1f6930",
+      "bytes": 101452
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/intent.json",
+      "sha256": "5c1a1bdae6ee45b536f6357a5fdb8d48f9704208aa6e9eb90c25a1e8085f4171",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/result.json",
+      "sha256": "1fd2df30315e8d09f4facf5a0ecffde9fcdfd01ae1ecbc86388560fff7cc18a3",
+      "bytes": 2246
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/canonical.json",
+      "sha256": "2ed6eb4fe9f5cce54230633bdeddd1b5ea5f14fe2f494c5b5781b4164cf80c79",
+      "bytes": 41776
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/intent.json",
+      "sha256": "7a5e7a268f6fc5fe8d36a365d35fdca084e5de6807012be4434d768c6694d335",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/result.json",
+      "sha256": "d81cfb037ed3ed6ade17a0475d58ac399f9cd256c8964c937eb1e7686ad21a55",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/canonical.json",
+      "sha256": "8384ab0e7f1d936f8049ae1103c4b4748f691fa8c01c1ed11ab51d9ad8b4c6da",
+      "bytes": 69049
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/intent.json",
+      "sha256": "a18ef43888a49ce1129ec91e384e25aa6ba4f53cf7ec7b50738b9975460fcb97",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/result.json",
+      "sha256": "05e4036acc66d123944d478b9998fc248d1557698a887bf56b5dff88507af2c8",
+      "bytes": 2246
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/canonical.json",
+      "sha256": "2ca5e4d5cc51f7daa9a23719674fea4a3ec9c47bbf4330e0521f2e3635bc245e",
+      "bytes": 73681
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/intent.json",
+      "sha256": "c4dedd8a5d2afc6fc16ece5502084a197706383fab48a4a17b8181ff5192c6ff",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/result.json",
+      "sha256": "a94e611542514ca6237674a517e9df113fded38e6b7b757731ca86bc2ac0fc28",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/canonical.json",
+      "sha256": "e54aa39bb78768bb20a8bae15ff11245a840e81c409e946f92147dd2e609716a",
+      "bytes": 107996
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/intent.json",
+      "sha256": "a1b39d2ad9d2453d32e8adad4324530568a5e7fafb88e893f4cd64da3b402429",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/result.json",
+      "sha256": "9f3746c961702ee351e9903965a032e664fd15850882c0b62f80d75d0771478d",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/canonical.json",
+      "sha256": "3d4278e7c4765a9d505d410cf9f06a3d5f4a6c2dd007f3204ff767e911ef0df8",
+      "bytes": 73569
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/intent.json",
+      "sha256": "98e1859f57b4723db4732c086730086d48a5402e34a30e76d4f32d0c340ece19",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/result.json",
+      "sha256": "ce4bae259c3c496eec77360aecab9d274b0e15d85456bb5eaae6b0a950843405",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/canonical.json",
+      "sha256": "e51d2f458dd354b18e33275e301de817a856e7b72b0aa9c900f6f3b6a20105ee",
+      "bytes": 50720
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/intent.json",
+      "sha256": "de005209210ccf5ec7a740ec75e6ba672539e93d8f438960f223d1f30044f595",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/result.json",
+      "sha256": "d9d324692092a9c0a275b70d7a3b2d76c7a08769acf86ba700a7717b10c01494",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/canonical.json",
+      "sha256": "e4ae6dfd312e325e604a734c52127aac0f6e70651e20cfeb52501eac1a00d9e6",
+      "bytes": 63594
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/intent.json",
+      "sha256": "4577ba51e6f96d25d1bc70de4050d911629d14c82e99f6d7a0d63fc1db2dbaa0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/result.json",
+      "sha256": "4675ba4012a0eda8b840cd94e079c3f672e66094d70942bdd564c8d25ecb2c54",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/canonical.json",
+      "sha256": "4101c8b57361507906742f828d11aafee69fd798fd4d7c015be7ed890d70867f",
+      "bytes": 127233
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/intent.json",
+      "sha256": "60b9ccaa4a248f6f0282c72759dcb63aaca9e9069c9217d30a3f5e61f2fe3b7e",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/result.json",
+      "sha256": "8b812c38d790bd824c2169793951552e55e6c13e0514e93c7147287eb6d89e08",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/canonical.json",
+      "sha256": "71ea7dc621311bbc9ed223788076aeca3870e3e044259e63955b4ba4613a3d42",
+      "bytes": 51518
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/intent.json",
+      "sha256": "4849dd1857b5445726c246f36205414e3305d2373c8406d97a7945bab818e451",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/result.json",
+      "sha256": "ca97fbde5acfcec591c08af39f399b65eb6443f3ca41e805463336d441b37187",
+      "bytes": 2245
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/canonical.json",
+      "sha256": "283f7c9fb0dfe6d8ad8afd333718ce35186292328835b4305bcb2767bdb30483",
+      "bytes": 53262
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/intent.json",
+      "sha256": "567923a0be150914f66bb1bb27e94dd87617474c517c25bb9a5d171246ee73f3",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/result.json",
+      "sha256": "43786ed965cc34b81774a77230aa02f618f0397bb8c59ed0a3110b36b6c97e22",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/canonical.json",
+      "sha256": "4b1bb0ff720b9c0126e3caddde0c85821e6c58d507d474b337299a4c3a001dee",
+      "bytes": 80757
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/intent.json",
+      "sha256": "f6347ac0128c6c2670a752f88f562bbfd05f3324947f875cc94029c90256db65",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/result.json",
+      "sha256": "4cf72c3b2a345017352eab8f7bba7fd946659d0066cbf69826f06d02de1bbbc8",
+      "bytes": 2243
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/canonical.json",
+      "sha256": "7ece0596db9f653c66ca1272f619141f976e31d81586ce5de0ce7a471e941df4",
+      "bytes": 117865
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/intent.json",
+      "sha256": "3a29d1a676bfe540b2d2b1eac0ba35ae0b5e4c05264da1a2bc588e51485bb02b",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/result.json",
+      "sha256": "f6ec7b1b638a503e6dbf83cacb8daa5b8f6e0b89f03402da9716115af61e1617",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/canonical.json",
+      "sha256": "16bb620223d5bfd797b242023a3ee0069e4ec8d7bb4b1a94f4e0751b6dffcba5",
+      "bytes": 80430
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/intent.json",
+      "sha256": "960ccdbfffcea77add3ab59c0977717fbcb652b3853dbe8ab21fd1cdf0ded74b",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/result.json",
+      "sha256": "46cd172fcab95e4098167677099befee12cdece77af4a703a1c5ce55104ec5b5",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/canonical.json",
+      "sha256": "d815bc0e82b65fe43a1441220b2ebe9bc64a8d7b79c6cc9b1ff4e0c6af821550",
+      "bytes": 129165
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/intent.json",
+      "sha256": "41aae31329ed44797ed1964674cd277019a7d1a5f7d01a920ce76dd45fceaa6f",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/result.json",
+      "sha256": "487c6a06f7ed3d1c1e30a8161812a052358a0820ec0eb67a6525f8e75b84fee5",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/canonical.json",
+      "sha256": "8acc3debe6db63d90384b784377d8b5977e8faea49b898f7f7c61b9d4644c853",
+      "bytes": 95755
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/intent.json",
+      "sha256": "8c7f01a85eb18d8e2206fb093c6e5acb82506081cea0aaf3492aa5c86778dd9b",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/result.json",
+      "sha256": "32fa45da0ed70ad7f4cbccd8692f44065f9aa04fd2db5d3979c6890817444f97",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0029/api-error.json",
+      "sha256": "999e88a039674fa71f5814ecbb4f24754029819450bb2671a852bef816aee553",
+      "bytes": 155
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0029/intent.json",
+      "sha256": "89dbc7ffefa942f11d87db87449a72e75ed7f9e66e5220b3b70e79eb1d669482",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/owner-lookup.json",
+      "sha256": "f49d49cf1574cf6f7f3b099da9c7de1cdada79a561308b734bc1fdabb29a13b7",
+      "bytes": 1061
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/plan.json",
+      "sha256": "f314aeadea19e4b443e83e6d9bd93bcf33eb783b3ae261eb8b992e36082b2f48",
+      "bytes": 106105
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/canonical.json",
+      "sha256": "060138e31b978b067f399d3d687c1daab855cb3528569248679fefe6da24e134",
+      "bytes": 55332
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/intent.json",
+      "sha256": "89308b3f11bb1b69f9734cd1f00d8689639bb7332af81eb893a5b6d8fca00999",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/result.json",
+      "sha256": "39a875d2e45069f8478b90bbca308cbc443a10a0956142048b8d2e9ae5fdb41e",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/canonical.json",
+      "sha256": "2361a1b183afc579cbda0c5e4a9aaf59b0408fb41826d55fb101bda694d31e67",
+      "bytes": 72728
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/intent.json",
+      "sha256": "d6f380410ae2081db7c95a3a56774869308aab7944d4844fc41b87672d685ad3",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/result.json",
+      "sha256": "4744f7a1175aa3bd1713390a96286ae67c153ff54ce9c24a299092c227007dba",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/canonical.json",
+      "sha256": "9e351ea21d710aa02d8efe453a0dad3bac47ace5a48cfd8299ce968632118005",
+      "bytes": 65187
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/intent.json",
+      "sha256": "83d09c886c25151d365de27cf098716d3a096c4fcffb420daae214983ff256f4",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/result.json",
+      "sha256": "cec66b6c88fafba1e9eb78afc29a98b078dbe7f2f196d10d57c72af70937f832",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/canonical.json",
+      "sha256": "9b27dbb87fe4b4cac972c8840264606118be4fff75737c3de37b01ef80902357",
+      "bytes": 46086
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/intent.json",
+      "sha256": "8ae321317736c47bd5a9dc816bbb8aeffe76e14123adec1087f0a7bd3e62007a",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/result.json",
+      "sha256": "34614fe1d873f15349efb947f5c048610085255399aaa9702b57eef663a8ef9f",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/canonical.json",
+      "sha256": "6d92a7dd2822f0f01e3b41a0c40cd15246e91886e1c274bbd496127d40c492ca",
+      "bytes": 89668
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/intent.json",
+      "sha256": "65f01d68b0c296801bd163efd7d499f46abf8d6532b7dad860d2f15ef5c86828",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/result.json",
+      "sha256": "6d4936fb20260edd3bcfc6e95f73e4ff4ebfd795ddcfecf1c20dfc4ea820372d",
+      "bytes": 2232
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/canonical.json",
+      "sha256": "446dd9119fe7087aef3243918fd5bbf02b37bbf67742e93db40b701dd638c5f5",
+      "bytes": 79304
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/intent.json",
+      "sha256": "a66d8a2388d870f197d492d682ecb78e9c5367631e9e3b4bac202a3592e03e36",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/result.json",
+      "sha256": "e1b60c54ca3d2597ad3a7ad0c4d2f9f1a23ccc38b5c7b3357ca10ac7dacb432a",
+      "bytes": 2232
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/canonical.json",
+      "sha256": "3c6e3bc9327c6ee9a762fbaa733e6925f466f26587810230716bfb0422c698b6",
+      "bytes": 117806
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/intent.json",
+      "sha256": "1f07cefeb2df5993df2d54076a4192bc6c00d8eca48942b99de397ffce614515",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/result.json",
+      "sha256": "f794462166395519456fe038b73143759feec2667ef25ee442876226a36b363f",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/canonical.json",
+      "sha256": "f4e6040d16b9f2537e80022be355b022f5d97f4102524db4163060f8e5711e62",
+      "bytes": 100082
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/intent.json",
+      "sha256": "1204c734fdb9a91b55e869a7e39d9a714da0498e82fb9d7c3073565c2fc3cf75",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/result.json",
+      "sha256": "cf6ee9db207ca2ef81a5394c078410f77fd12d3bcb8e3ea95a1d29fe3a709e17",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/canonical.json",
+      "sha256": "6a1c4fe94c1fafa70c63f2fcc7326d06e05bc8dba984e998dea8908857f86646",
+      "bytes": 34255
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/intent.json",
+      "sha256": "61ce687b6e5208ca92dcd4a5c1df13210d85ea18ee45b65031e12c13272ddef0",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/result.json",
+      "sha256": "dc250e66a4dcad7fcffa577bc55ec0f5442f36be94c5e72b225dcaa72d2df40a",
+      "bytes": 2230
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/canonical.json",
+      "sha256": "86b557827d6ce0463266488a70cff68add83c2c75a98b55c4614a8b12eaab678",
+      "bytes": 45304
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/intent.json",
+      "sha256": "3942cf2fce7880ae61540f3ab38814fa7fe6079843316a80875abca8899082b6",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/result.json",
+      "sha256": "1c49ee3620b5b64ab625781f9f7e96f9766da098532a2dfedf3888ff90fd59ec",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/canonical.json",
+      "sha256": "f3c333c6c56d273dfabe7405c49975d8f3227270444781e0b71639f9c8559fa0",
+      "bytes": 56525
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/intent.json",
+      "sha256": "157eae59fa85a1e1242fe62c8173eb3940a1c3ba13bb7905f85e83d721316142",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/result.json",
+      "sha256": "0f52faeb77ab35ab725ac5016c4d38aecfbf598c48229beafa25ba338fd4801f",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/canonical.json",
+      "sha256": "c111b7e977689624340a1e5c8a4c03929e92c17c7c20366c9be47185e21402fd",
+      "bytes": 70047
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/intent.json",
+      "sha256": "c9adb9bf6202ada292b5bda64f56029f0d966f07e30dfabce28af42f1479a4be",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/result.json",
+      "sha256": "47fd7d4e532014639f83cba803baec0a73f61c05cae999c9790d10be0e167fd2",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/canonical.json",
+      "sha256": "c3928be643fe2f44481e0e4bb90bdd6b1e5a13a8b2c91e1a5d02ff5141b8d0ef",
+      "bytes": 94668
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/intent.json",
+      "sha256": "a72986076d0739f507fab936a6f7bb9ee73663ab86eb9703cf6914e1dfcc5cf9",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/result.json",
+      "sha256": "7f7d4365b1a19150bc97a2bbac5a1de6dfe63b04e59f71bc76f7509061b3410f",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/canonical.json",
+      "sha256": "153a1d6f547ecfb2897ce6847a4e8cf726e8ce6b73263358f1f2f613ad89b8e1",
+      "bytes": 37026
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/intent.json",
+      "sha256": "d671f8a33b67c6af0b77b1e32bf7a124ef513f89a64417cc9f5467888dfbccde",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/result.json",
+      "sha256": "513a6ad51840649f706c601d2f20964c551858b9c43ebbf02ed5c7eb57313ef6",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/canonical.json",
+      "sha256": "838263d8e0e8435ab70aebc37735abf8168e3a7e510ec640f19f3d62607587b7",
+      "bytes": 105750
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/intent.json",
+      "sha256": "3bc7fee885402426e053243f0fd720ad497708f6b0cc7918328519c05bf93c88",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/result.json",
+      "sha256": "1f244d4597c2b0f5bfdbc939bc1a04ed417c0dc8e040fa323fcdbdeb7c0685b1",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/canonical.json",
+      "sha256": "5a32d55b751ddd495320d35fc478d94116942d11b9dcdfbe19c282816ae28b0c",
+      "bytes": 70354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/intent.json",
+      "sha256": "a0be4be42c02288b7c75580cf7fd47ff53a0b743f8b9a03261cc728750a99746",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/result.json",
+      "sha256": "9dfc07e427e0216db7b7eef10efaa4e062b02049700ea33920e9a851972e0a47",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/canonical.json",
+      "sha256": "cda913aab8229796cba9224af3b3d25210bb3493f6872143aa58def04a0dd078",
+      "bytes": 95589
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/intent.json",
+      "sha256": "955de1e75f9e01020991107578d3c927417941870b9f608c4c97676503a7cf12",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/result.json",
+      "sha256": "a97653405cf920fdbd63ecdb3fd8e004a7d4eb83187c02342bc5db1a874c3cfb",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/canonical.json",
+      "sha256": "c7e183f00c14bc3b8bc5e7a80f57955320b0a6704f25f5f1bcc58c35e58a005b",
+      "bytes": 95395
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/intent.json",
+      "sha256": "78c4629eede0f738cc6da64fcc7d134b4eaa7782b70384d7dbaf31acdbcc1b91",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/result.json",
+      "sha256": "1aa227185d3d32d9bef473fd736762ad58d9dacb07c482905d09c7a75ce9e4b3",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/canonical.json",
+      "sha256": "38bcc7c5cd95f3bfa33a3b4ad0551b2eecd4b314d68b8c4b2694ccb2b5bf64f4",
+      "bytes": 57442
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/intent.json",
+      "sha256": "98ef8be035c75788157aedd70dfd3c645fddafaa4f6b01771fa9ae4890af6f90",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/result.json",
+      "sha256": "fa96d71611cc92c0580dbbbc64ed7e5380918ce2ac7863fbc6a2e86471286088",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/canonical.json",
+      "sha256": "2c26df8fc286573eb288e52c0bca33dc06230a624969745bf6437968de37b9ff",
+      "bytes": 86696
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/intent.json",
+      "sha256": "8b8a799d570b2e9114e9a870df18d9dde7ece91312b65a86113d187aa380a17b",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/result.json",
+      "sha256": "d8cbd61e8079a76e5fe38c1720ad27cf72993500c7585f8cd23fe5e3e4ce9126",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/canonical.json",
+      "sha256": "99537aafe7fabc77b393b8e9e6061f9b0557b8d5ae4566299ddb88f2ccf2a61b",
+      "bytes": 137034
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/intent.json",
+      "sha256": "0915cc0b3c36b09e8a66a15cc358d0dd96fba07ea6835dde81ae76404cb7b916",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/result.json",
+      "sha256": "3408dfa2550eb4267e1febfb01a15cd1c369d8978e055d0e053f1e19be493259",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/canonical.json",
+      "sha256": "0d78ce493b8d729d08114def4e645149d083ac1cd77dd86621f09a55bc03c706",
+      "bytes": 53035
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/intent.json",
+      "sha256": "39006f4a543635073c2ce43be4162cbd3daf7aa6acd11d2d93f47af41eb2bde7",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/result.json",
+      "sha256": "ea71c9cbdd5d39472fb152adde2c16e885139a09447f9421c2eb885f662de850",
+      "bytes": 2233
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/canonical.json",
+      "sha256": "c84b8c3475131acace178d40cbf1a734146933bcc889e264e42d8fca48a79710",
+      "bytes": 67733
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/intent.json",
+      "sha256": "527b3b4cb8b7523a944d66b8e88c6974e478277e13db4fa140427237aa6386aa",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/result.json",
+      "sha256": "39d199d43a108e890e7e32817da6118f8ed3e79be00e6175ba829cc37a8872e3",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/canonical.json",
+      "sha256": "eef4fb27eb50747fab7eca320833bec4289e9418db99766acb35c8c446d2338e",
+      "bytes": 66993
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/intent.json",
+      "sha256": "083d7445584e54da718757ecb803f28b8cd1b5ffce34ca46280f1712c25f8997",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/result.json",
+      "sha256": "39968393e25b21348623965c588e3d0f307607d6bd6858ac515bbf4738173654",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/canonical.json",
+      "sha256": "7c399d2e2405babf7f91a2b893780c71c3e1bb32d53c412d1c144ae859687335",
+      "bytes": 108659
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/intent.json",
+      "sha256": "fb9914c83ce8e0205d7e5de0382c3d589afec3eb878c305e3985ca68f4166404",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/result.json",
+      "sha256": "ae3adef8b93b1a598ada5ddbc5f37a74c793a925400eaa8ea8fe14eb0e1fe629",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/canonical.json",
+      "sha256": "0a7a4c622885ebba21fb570a877335d50b7fb94b7dfeb5f088a85b1e0e444e4e",
+      "bytes": 74186
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/intent.json",
+      "sha256": "bd1c5e88e36d72beb4fc0b2981af2f683a2a4d31d2c3572a8993f3ed928730d9",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/result.json",
+      "sha256": "057903287732c53894dbc2600897676b90325516513fe1d002ffe59a4745ec2e",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/canonical.json",
+      "sha256": "ec7dbb4cf85d577a90c34c8ed71cb35d19c8cf01d2e79369739ec0d3d6d9ef49",
+      "bytes": 88093
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/intent.json",
+      "sha256": "f20104664bbb454e02fd8cc9492d6a79742e8c6a8cac52c1815df32b2c9cc198",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/result.json",
+      "sha256": "2f0443cf80168d71c587a33b39c3ffb161790521b492813657c873281b367129",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/canonical.json",
+      "sha256": "35544b9bf074ec8b0aa48e7098710335c8e80856f813d89e4cfd929192936c31",
+      "bytes": 96154
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/intent.json",
+      "sha256": "bb5f8913426b284e1dd8ea76c70bbe60e392e3408ba2d959461c43cf4aa21af0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/result.json",
+      "sha256": "8200fee70034504d9251e588ac6fb4ce47781922147d1d8161f90c3af651efea",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/canonical.json",
+      "sha256": "53f7d241ae731071294ec10f599bbfb3cedda70d1038be538bef3544fabb5a38",
+      "bytes": 97264
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/intent.json",
+      "sha256": "f3ff38ddf4878e51273f8851a86ee49aa8568debeec00403271c353a8abd2f13",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/result.json",
+      "sha256": "16f9aff0d58d7dc0c9c07f31690c19c4eceab6c623b40d089278f418b0d1a93a",
+      "bytes": 2228
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/canonical.json",
+      "sha256": "f17c2784d46ea9b60b3596afb028b18acbf7c477fcafccfaa05b4ed12e8161ca",
+      "bytes": 96203
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/intent.json",
+      "sha256": "8c702d7207741bc93d17cb082bac16e50dcd4e55b052b618b1997f7938e2eb24",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/result.json",
+      "sha256": "8f57fe88bec1936328165846977e9cde4b41d594ed1f072401bbf4c6fb757ce2",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/canonical.json",
+      "sha256": "1e5b9ae58efc34884d6fab57b33bf0c284a13b9e0e049119ba786867a82d09de",
+      "bytes": 81704
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/intent.json",
+      "sha256": "5114b6ceba443eeb9b15ea7660459b3c565cda754dd05e3af8ae25364c8730a0",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/result.json",
+      "sha256": "df1ca4b8f11bff2482e84bbc1b19215f2f18c299c5df362a4c1994f417ee180c",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/canonical.json",
+      "sha256": "bfdeefe5047b2f117fb8b8780fb275628d8a4cf53aaafb6731ba3d881270e3d6",
+      "bytes": 86352
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/intent.json",
+      "sha256": "fecf9b1b0f59a29af8c28431966e9a57b090406ecf9cb4cf9c94978442e508a8",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/result.json",
+      "sha256": "49ebfe29955d98563e1367493c03c068b9538c0d0fa112be9e8a92837d28bd36",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/canonical.json",
+      "sha256": "011e762bc48854494b059ea577ed2adfc90ae5ff0ac9bbd4b26f128b43e0ca18",
+      "bytes": 35946
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/intent.json",
+      "sha256": "7cf080df90d132a137db2605f03ec709f0d1f7ee4e68402a11c55299d7079365",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/result.json",
+      "sha256": "3ba981b34ca775ebe51c6a8893381ff4340f7cb3b54173db7377bc88c9ccd28b",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/canonical.json",
+      "sha256": "58846292d0d13c11409db8e26dca6ee7d29afaa5e94c0650e700f7681207a86b",
+      "bytes": 69853
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/intent.json",
+      "sha256": "2f976108eb52afe79d0677986147777ab0b479214019244ce73c681ec8440ed8",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/result.json",
+      "sha256": "e6e99a0aa1216d6ac57e4b70b9f65bc93813369da9d0670dfe0ecc0ab60e81f2",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/canonical.json",
+      "sha256": "31132be28dc2f8036950e5802f15ec95735e0522f28476284da2ee2b2f572408",
+      "bytes": 79082
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/intent.json",
+      "sha256": "22ec54746ec5876cbb5a8d7e4dd34cf41086abc3a82a4f8e6ae7645c26cac9ce",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/result.json",
+      "sha256": "a87a43fe4b59c0d6c27840346a55575f5b3addac50a41ad69317c1eb05bdb42e",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/canonical.json",
+      "sha256": "e32c3a8af5156ed7984a38e0b0bbd9284a35b95c3ad11cd777c5ab0c3ea51f45",
+      "bytes": 127729
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/intent.json",
+      "sha256": "153062c593168655706b38ff3dd0fd2156fbdd3b8f9eb2f4d08e7bea6a3be10c",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/result.json",
+      "sha256": "ccb4140077da17a5eaec28bb3b7715eac5f624bd24b8ea2883396cb3c1b6da5f",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/canonical.json",
+      "sha256": "919ed4714cd5657e6278e8eae752fdc213e5d024ff308cd998f280e6795b339e",
+      "bytes": 127841
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/intent.json",
+      "sha256": "2b6d5e89e559257c13c4d7220db64118e6ccef20618062ab268171b498eebd22",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/result.json",
+      "sha256": "1d6c90403bda32dace43ef0acaac1c5b60b959e7e082a4460c921ad245c37e6e",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/canonical.json",
+      "sha256": "aef91f13c96e4401d67153050a7b2132845cde812f841d1e6732cfb606a39326",
+      "bytes": 70174
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/intent.json",
+      "sha256": "13d53c67cea9b33454470d805287e0e66c6e0917e76b3540c7057c74d77cadd8",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/result.json",
+      "sha256": "b99b8be20d1bf1d7aebe2574f6b16a69a26dd5ea2ac73951840cf85b11448068",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/canonical.json",
+      "sha256": "fcc8a2a5d5a41a9c7010fcf2246dbeee7b01b7ae0842d31a262d07c0cc156a58",
+      "bytes": 78444
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/intent.json",
+      "sha256": "b8bb0005c13a8427decf25d8494e86c66caf9e7466c95cd7c8bce69ae7600f1d",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/result.json",
+      "sha256": "799056eb62d5ad913abb3f959ff9908f3e60e3535d53ba9f261ff6931ced8080",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/canonical.json",
+      "sha256": "f7087380dd40b4a76c2bab70f697b1ec0d19d95b73937e6fcdfd59ad03a237e0",
+      "bytes": 66831
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/intent.json",
+      "sha256": "d6855fa474f4d4e6c1a4084ffcfdbe6e7166a0a78faa5e65f126a109eafc3913",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/result.json",
+      "sha256": "aa8e1c7b35c47ef91e69857707b21081e06e30dd4cd33d36b921784b52e7fad0",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/owner-lookup.json",
+      "sha256": "491b798b4f5b6fa479b3a4ff34293fb67f11a8559c512ba51208651023f897f6",
+      "bytes": 1061
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/plan.json",
+      "sha256": "1fc3723c350a6237ef69c76d829a8c82b9251284e67cbfab073ddb7a1b3bf63f",
+      "bytes": 42950
+    },
+    {
+      "path": "build/spatial-runtime.json",
+      "sha256": "2f6152d5a1078d5a6e4fd9e5608f8472302cdbc746f0fda649d9967a9bd11264",
+      "bytes": 606
+    },
+    {
+      "path": "docs/BOTS.md",
+      "sha256": "b913718d9dbcb0a24c4013b1277eadcc2008b4a1ba653bb19735a78fa892a901",
+      "bytes": 163665
+    },
+    {
+      "path": "docs/DEVLOG.md",
+      "sha256": "68de7e58ca21eb6554b4ae9b738107d2b660533ca5edefecc83d71431d377406",
+      "bytes": 564227
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v2.json",
+      "sha256": "822827e394bf9abf8fe9def1bf6bd4ac4cd5b1acbfe00f208d6289330a53bb91",
+      "bytes": 139913
+    },
+    {
+      "path": "docs/PLAN.md",
+      "sha256": "7bc9508d78267b3c0e380748b0c43d2a366509a22c780f066649a80fa008e96f",
+      "bytes": 103342
+    },
+    {
+      "path": "docs/v09-batched-refresh-boss-v1.md",
+      "sha256": "617f0dc8eaf6d45f2b48212138c1af59e99624968cde0da942c2bfa496d3c1d0",
+      "bytes": 4189
+    },
+    {
+      "path": "docs/v09-batched-refresh-boss-v2-result.md",
+      "sha256": "ef8f04e770d5ed18683bc582b87e3fb8d0d15bee0dda7c1a630849d735d58b16",
+      "bytes": 5023
+    },
+    {
+      "path": "docs/v09-batched-refresh-boss-v2.md",
+      "sha256": "2bec69d21bb96b5a855ff7d569eee5f0da17c093bb350af13f7f227d99cbca6c",
+      "bytes": 3794
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157327.json",
+      "sha256": "b04390c4e3012d6ae162aa57a90077188556c1020f78304aa7a8d443440181b0",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157384.json",
+      "sha256": "2eef2f2e5edf81b6c536534f1561e7fbc9de3ba4abe8a2a1a510a6ae6de88f6e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157419.json",
+      "sha256": "7879176b555891d97387a829dd8aff400bf8f662ceeef721c669ae4407c8731e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157467.json",
+      "sha256": "1a5e9d9671a0a4931614afe6121c465337b571c7733236897e4688f64717e9d4",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157507.json",
+      "sha256": "d495406b30f4119aec46e560e4beb02455cd29d0494ca514512aafeb91712e86",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157551.json",
+      "sha256": "8e7ef6659045100bc192619be91cfba54ec262d5d3aeac279170268bc4554012",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157602.json",
+      "sha256": "bd36d4e3a6b21413d9783bb27f3358d50709f57f5b71e5fd69cd9ab4e9f8a0d2",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157669.json",
+      "sha256": "e07bca678abdbb4fa611477d58de828a40f648b29ed9592ce828f8d4fe8f26e5",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157731.json",
+      "sha256": "7e442ae8777dc61e713a301bde31c19a34b161b9d7d30786562f37940c48a2b3",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157779.json",
+      "sha256": "c2f6e29b9ea23470fa9de138f46124c4cd2bf9c43842ded44aa36d833ca19413",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157819.json",
+      "sha256": "d10abfb9836201b9acd9be62ea7a7c7a3baf6372344bc2f01d686fb596a622ac",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157873.json",
+      "sha256": "4f1f6b5a70b998e0c69ea65c398a349ac4a709347cc7d9d246c0fde90aba15ce",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157931.json",
+      "sha256": "98dd40aa9acc4a9372f65f4a33eeabe753697ce7128e12165ecbb1c768728b21",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157990.json",
+      "sha256": "7ac4cba39e1147ca83d42dc4ceafba7e250ccb3ae55e5b0b2c37c02ebff6ba54",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158010.json",
+      "sha256": "994b48bb23b0c4e002add75a5be967e22304fa758a0c87fd43b4bc3d41e93f0e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158045.json",
+      "sha256": "125874580f0286ceef0601b64891e225a7a148a901f7afc509c636196760f464",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158082.json",
+      "sha256": "7390f4451d194d4765a4dd2e59be1c6b7afc2df1322f7d963cb327623408087e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158127.json",
+      "sha256": "142209f07695cc7663f48ac60b3ddbf160b5da62025c4ab727261034467a4e76",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158178.json",
+      "sha256": "6b26915b710cb526a6ad926e91f2933344d0ca41cf503445f38f34005d75176f",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158212.json",
+      "sha256": "c76daae1cea14dcf09302abc90483e758d0cf368330e39444a5ff084edc1e8a1",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158618.json",
+      "sha256": "539a66a7e59c6a16611da84a00561054a37cacadd4da96679e7317c200922d36",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158675.json",
+      "sha256": "a8470f6400aaf0b765726b9aadcf993504712b494639ca0f12dcb921befd0a6e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158723.json",
+      "sha256": "efaf4fb0c0397a0da527b26cf35a9090dd18200b85f8c9ed8d76614e5c6610fb",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158758.json",
+      "sha256": "e5b0dd3e76ee0f63e615caa48fef57bcaf7758673bb2287a755cd01ee2a911d0",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158811.json",
+      "sha256": "7d84f5f4842f84c59e4ba3b1dc0cf76d86003bdc1a67f1d28319eb1cf8fed97b",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158870.json",
+      "sha256": "f585c3abb8a6293d476c5b730861c63f9d99011a3bafc281bc09a4e8bd7eb088",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158912.json",
+      "sha256": "199e8b51e17561f9db2e02d6395aa623c2d757f5ce49681234ae396572fac394",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909159000.json",
+      "sha256": "c248461900d17548f7466042ea65eef43a4193bc040d7c3d04fd7e9a48c967ba",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909159341.json",
+      "sha256": "6553a5d697c56b8408c585cce729479c5fe6111999ae94e800c32e577d95ce44",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909159786.json",
+      "sha256": "990a5a35dafe755e1ee5fd0e9f48dc774988f38a591b14f38efadb2e0ae69094",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909160210.json",
+      "sha256": "11bf67020541952df7235733ec72ce924a0ec6b86901c519d413375795eb5615",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909160621.json",
+      "sha256": "5c68d868c15ebb12b3c5afe6b1043a6a994a03213e890a4de26d080c7c635237",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909161099.json",
+      "sha256": "c7a06650e3ec62fa4ca33d706615858e6c09bdb67afd76d5dfcc88f8014df8a5",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909161456.json",
+      "sha256": "4abf824be3b332e22c43841721cd1782132035c38309cbccfd8ff5fc0365021d",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909161931.json",
+      "sha256": "665a132232785e206867b9f154faa491313dc4092f1db5d0a27e9027a52b6b25",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909162459.json",
+      "sha256": "980666c7d961e63fc0d57dd364d982bd5a30836111a6829145420c42b6b0d08c",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909163036.json",
+      "sha256": "235821cd5b08229d2ba5e40b30adc4cbfd2989c5b8632b333fa5b518c3380f7e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909163622.json",
+      "sha256": "f6ffb6f7826fcfe67b3a44da9ab9b5c07ce4c8d9ab9fa6fbd8ef4006d46c44ce",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909164202.json",
+      "sha256": "25c10496f08d81349cf3ff894c84004aadde0f1cf3f5bb1d60389f2d90c6834a",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909164726.json",
+      "sha256": "673257cf28c7183de05f6a7e1bb7aa602321da6ccd1bd4b9f51af8d3397d96df",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168309.json",
+      "sha256": "07c89f6387d6a0b5b358190e662087a9b4388a7fecf8f9f506b32f1242a5f21c",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168453.json",
+      "sha256": "a048e8c89c2832e3098724258e06b156e49ac40e6f51e6d211ab199a7f6d50fc",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168576.json",
+      "sha256": "dc1ed8d76eca9ec4c1615f39fcd50a3be9b67eecb0f82078e641ceb53354e858",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168641.json",
+      "sha256": "447b011e213fc1dc2c318437f333ffbe97a10389513fc68e4c08364cc42b15ac",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168672.json",
+      "sha256": "c2e7640205c8f3e1294a73db7a1dacd3ba30f662447c3355d5ff8261c55cd597",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168714.json",
+      "sha256": "cedf765e96a55f4b0c171bce9c0585919ccf1a7bfa859a13db84e9d869fb74d5",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168753.json",
+      "sha256": "ab2c2928ceee90a741629d4e8fc859449599661142be0c26b76d60ee88e329f6",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168815.json",
+      "sha256": "026eb01c16d75b0a9df49b1e43fed28ac6a1d55d3af609b1f415f4c416668c06",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168848.json",
+      "sha256": "a7c8f1844548f82d8b0dfb35712373c99e7eef5aa25ff6fb6d5bdb9cc6cfea20",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168879.json",
+      "sha256": "2107071d0babcba9442c0f7cf4200c2c900d62df527bbf98d64dc1c8fce08546",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168908.json",
+      "sha256": "049fd4193e81b445dea108fb042edfb997eb88813f1e8d6a2a3ebd25c115b411",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168940.json",
+      "sha256": "80cecc24e973e999589fb9df69a502cbd5be949b5d802c561b4d7169d6a6e108",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168974.json",
+      "sha256": "75532a498e4de8f542602fad2583d586a38a13025715c50ad216a3b6b128cd3c",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169013.json",
+      "sha256": "af466e041d2ffecbbd2d2231e3d5004c31f9af4f98c635134af01d7400196ba7",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169040.json",
+      "sha256": "79b9fa465ec9a49ff0b5a13980e55f422f5692bb8371a52574ea27fed32d8012",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169073.json",
+      "sha256": "e3511ff35a53e2064085fc3857eb291fbb53126a505a1430a088052b8f442695",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169114.json",
+      "sha256": "9af87dbf70825b6ed7b4528f87c13a38f9ec08e5ccb7b92e69c1e2fbca1949c5",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169172.json",
+      "sha256": "cc2d7ab734f69110455a381daae7cd74790e1f061bae54317faab0e1517b805f",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169203.json",
+      "sha256": "3127c44c8c07ee5cd8ca85ad50ba5f8bdf4abbbe41c599fc2b1f6add472cbe51",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169236.json",
+      "sha256": "abd68ee3c5a6f441e993f35d48faf3d58310b757b7a7423ad94d90003cf99842",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169636.json",
+      "sha256": "c55eb6f9cf7ab73a0de4d7cc222197c0eb1820e270b2faa5afe729782bc2cd3c",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169676.json",
+      "sha256": "b9236f60150e62299639294738dc3f7e6d42f6b0d92c34df04d267684e2e2807",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169711.json",
+      "sha256": "bb7cad3b32452d8fb1a716aa46c734355a5301e42040c6a723fc44befe1a1b8f",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169756.json",
+      "sha256": "4d03a5bd6a06efdb0c75a80f43d433668cf6579b04b1e4993e4c94a866ddd234",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169809.json",
+      "sha256": "f4c9fe76b6cd07eec163eab290590ba4d72ae23e6be05fa189526555f8b8ed53",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169837.json",
+      "sha256": "ec534719d8874dbcb8722abdf49593f1678d4a70ecd131e6740a9ad9e1b69ab6",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169876.json",
+      "sha256": "f43212aace2bb5d3788f79196bbfac483c8e1ebd6d7575580867dd839293de7e",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169932.json",
+      "sha256": "0c3e9a2a4fe69e9a4c8488170c23880afc798ee0b048bca9477a036f33b07d6f",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168309.json",
+      "sha256": "86615d6782bdc74960e2763afc6e4607423f4c367dcd385c007f17c701c7830f",
+      "bytes": 64532
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168453.json",
+      "sha256": "61b58ee8eb395f518220dc7d8cc1fbd7a60f6f9284a73af3b6d024958ea30e41",
+      "bytes": 60187
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168576.json",
+      "sha256": "cd2e8bcdc2bc223c66d96aeddf130999486a5b0e9f36acf5f0538115384f1468",
+      "bytes": 61236
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168641.json",
+      "sha256": "580df4d85d6662f78e241e2acefa34ab990094ac07f1414afd894cd43e0604d2",
+      "bytes": 44990
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168672.json",
+      "sha256": "bbca69f3c5f39a80169a52bc90f7dc4dfbacf057bbb8e54a592f49e5af2a2677",
+      "bytes": 78290
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168714.json",
+      "sha256": "32a8a706bb003f988e22b068d9e30c3d664510fab8be3706c7b58fb5908e2cfe",
+      "bytes": 100018
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168753.json",
+      "sha256": "2107bcb104b38edc2efda3e104fbe22d9d883c8f88cf8e5918dd4a58f5c7f737",
+      "bytes": 136466
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168815.json",
+      "sha256": "41b48ef6e541cfb2e55d0d7356099eb79fab901f76e2ea0aa4f6ad56c919f472",
+      "bytes": 118739
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168848.json",
+      "sha256": "e4557b8dc6ce6275aae427a4527a57e7bcb7696e4dd23f88d77bdb559f6ec956",
+      "bytes": 62518
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168879.json",
+      "sha256": "449321d6735c82f1d982d16fec4b2734245c6ab7791b4eccca87c21897ea005c",
+      "bytes": 54721
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168908.json",
+      "sha256": "3d5c791f07df9a1f03af2fb64aaa406552342500a8cb7fef4b82ccedaa61e3ad",
+      "bytes": 60975
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168940.json",
+      "sha256": "3a7e862cd587c3953b38f7ee98f0852cfc2a18ef723ca9b870986ae9897bda48",
+      "bytes": 50274
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909168974.json",
+      "sha256": "784686e5ea112d9b05a19299d4e02af90c0c102c8ee709e674d9be272c1f6930",
+      "bytes": 101452
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169013.json",
+      "sha256": "2ed6eb4fe9f5cce54230633bdeddd1b5ea5f14fe2f494c5b5781b4164cf80c79",
+      "bytes": 41776
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169040.json",
+      "sha256": "8384ab0e7f1d936f8049ae1103c4b4748f691fa8c01c1ed11ab51d9ad8b4c6da",
+      "bytes": 69049
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169073.json",
+      "sha256": "2ca5e4d5cc51f7daa9a23719674fea4a3ec9c47bbf4330e0521f2e3635bc245e",
+      "bytes": 73681
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169114.json",
+      "sha256": "e54aa39bb78768bb20a8bae15ff11245a840e81c409e946f92147dd2e609716a",
+      "bytes": 107996
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169172.json",
+      "sha256": "3d4278e7c4765a9d505d410cf9f06a3d5f4a6c2dd007f3204ff767e911ef0df8",
+      "bytes": 73569
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169203.json",
+      "sha256": "e51d2f458dd354b18e33275e301de817a856e7b72b0aa9c900f6f3b6a20105ee",
+      "bytes": 50720
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169236.json",
+      "sha256": "e4ae6dfd312e325e604a734c52127aac0f6e70651e20cfeb52501eac1a00d9e6",
+      "bytes": 63594
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169636.json",
+      "sha256": "4101c8b57361507906742f828d11aafee69fd798fd4d7c015be7ed890d70867f",
+      "bytes": 127233
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169676.json",
+      "sha256": "71ea7dc621311bbc9ed223788076aeca3870e3e044259e63955b4ba4613a3d42",
+      "bytes": 51518
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169711.json",
+      "sha256": "283f7c9fb0dfe6d8ad8afd333718ce35186292328835b4305bcb2767bdb30483",
+      "bytes": 53262
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169756.json",
+      "sha256": "4b1bb0ff720b9c0126e3caddde0c85821e6c58d507d474b337299a4c3a001dee",
+      "bytes": 80757
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169809.json",
+      "sha256": "7ece0596db9f653c66ca1272f619141f976e31d81586ce5de0ce7a471e941df4",
+      "bytes": 117865
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169837.json",
+      "sha256": "16bb620223d5bfd797b242023a3ee0069e4ec8d7bb4b1a94f4e0751b6dffcba5",
+      "bytes": 80430
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169876.json",
+      "sha256": "d815bc0e82b65fe43a1441220b2ebe9bc64a8d7b79c6cc9b1ff4e0c6af821550",
+      "bytes": 129165
+    },
+    {
+      "path": "replays/cg/boss/current/c6b5ed795e426be03fd0bc976a6ca13302dfa17341b2c6275a59133d23ae5f03/909169932.json",
+      "sha256": "8acc3debe6db63d90384b784377d8b5977e8faea49b898f7f7c61b9d4644c853",
+      "bytes": 95755
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157327.json",
+      "sha256": "060138e31b978b067f399d3d687c1daab855cb3528569248679fefe6da24e134",
+      "bytes": 55332
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157384.json",
+      "sha256": "2361a1b183afc579cbda0c5e4a9aaf59b0408fb41826d55fb101bda694d31e67",
+      "bytes": 72728
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157419.json",
+      "sha256": "9e351ea21d710aa02d8efe453a0dad3bac47ace5a48cfd8299ce968632118005",
+      "bytes": 65187
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157467.json",
+      "sha256": "9b27dbb87fe4b4cac972c8840264606118be4fff75737c3de37b01ef80902357",
+      "bytes": 46086
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157507.json",
+      "sha256": "6d92a7dd2822f0f01e3b41a0c40cd15246e91886e1c274bbd496127d40c492ca",
+      "bytes": 89668
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157551.json",
+      "sha256": "446dd9119fe7087aef3243918fd5bbf02b37bbf67742e93db40b701dd638c5f5",
+      "bytes": 79304
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157602.json",
+      "sha256": "3c6e3bc9327c6ee9a762fbaa733e6925f466f26587810230716bfb0422c698b6",
+      "bytes": 117806
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157669.json",
+      "sha256": "f4e6040d16b9f2537e80022be355b022f5d97f4102524db4163060f8e5711e62",
+      "bytes": 100082
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157731.json",
+      "sha256": "6a1c4fe94c1fafa70c63f2fcc7326d06e05bc8dba984e998dea8908857f86646",
+      "bytes": 34255
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157779.json",
+      "sha256": "86b557827d6ce0463266488a70cff68add83c2c75a98b55c4614a8b12eaab678",
+      "bytes": 45304
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157819.json",
+      "sha256": "f3c333c6c56d273dfabe7405c49975d8f3227270444781e0b71639f9c8559fa0",
+      "bytes": 56525
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157873.json",
+      "sha256": "c111b7e977689624340a1e5c8a4c03929e92c17c7c20366c9be47185e21402fd",
+      "bytes": 70047
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157931.json",
+      "sha256": "c3928be643fe2f44481e0e4bb90bdd6b1e5a13a8b2c91e1a5d02ff5141b8d0ef",
+      "bytes": 94668
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909157990.json",
+      "sha256": "153a1d6f547ecfb2897ce6847a4e8cf726e8ce6b73263358f1f2f613ad89b8e1",
+      "bytes": 37026
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158010.json",
+      "sha256": "838263d8e0e8435ab70aebc37735abf8168e3a7e510ec640f19f3d62607587b7",
+      "bytes": 105750
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158045.json",
+      "sha256": "5a32d55b751ddd495320d35fc478d94116942d11b9dcdfbe19c282816ae28b0c",
+      "bytes": 70354
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158082.json",
+      "sha256": "cda913aab8229796cba9224af3b3d25210bb3493f6872143aa58def04a0dd078",
+      "bytes": 95589
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158127.json",
+      "sha256": "c7e183f00c14bc3b8bc5e7a80f57955320b0a6704f25f5f1bcc58c35e58a005b",
+      "bytes": 95395
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158178.json",
+      "sha256": "38bcc7c5cd95f3bfa33a3b4ad0551b2eecd4b314d68b8c4b2694ccb2b5bf64f4",
+      "bytes": 57442
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158212.json",
+      "sha256": "2c26df8fc286573eb288e52c0bca33dc06230a624969745bf6437968de37b9ff",
+      "bytes": 86696
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158618.json",
+      "sha256": "99537aafe7fabc77b393b8e9e6061f9b0557b8d5ae4566299ddb88f2ccf2a61b",
+      "bytes": 137034
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158675.json",
+      "sha256": "0d78ce493b8d729d08114def4e645149d083ac1cd77dd86621f09a55bc03c706",
+      "bytes": 53035
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158723.json",
+      "sha256": "c84b8c3475131acace178d40cbf1a734146933bcc889e264e42d8fca48a79710",
+      "bytes": 67733
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158758.json",
+      "sha256": "eef4fb27eb50747fab7eca320833bec4289e9418db99766acb35c8c446d2338e",
+      "bytes": 66993
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158811.json",
+      "sha256": "7c399d2e2405babf7f91a2b893780c71c3e1bb32d53c412d1c144ae859687335",
+      "bytes": 108659
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158870.json",
+      "sha256": "0a7a4c622885ebba21fb570a877335d50b7fb94b7dfeb5f088a85b1e0e444e4e",
+      "bytes": 74186
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909158912.json",
+      "sha256": "ec7dbb4cf85d577a90c34c8ed71cb35d19c8cf01d2e79369739ec0d3d6d9ef49",
+      "bytes": 88093
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909159000.json",
+      "sha256": "35544b9bf074ec8b0aa48e7098710335c8e80856f813d89e4cfd929192936c31",
+      "bytes": 96154
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909159341.json",
+      "sha256": "53f7d241ae731071294ec10f599bbfb3cedda70d1038be538bef3544fabb5a38",
+      "bytes": 97264
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909159786.json",
+      "sha256": "f17c2784d46ea9b60b3596afb028b18acbf7c477fcafccfaa05b4ed12e8161ca",
+      "bytes": 96203
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909160210.json",
+      "sha256": "1e5b9ae58efc34884d6fab57b33bf0c284a13b9e0e049119ba786867a82d09de",
+      "bytes": 81704
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909160621.json",
+      "sha256": "bfdeefe5047b2f117fb8b8780fb275628d8a4cf53aaafb6731ba3d881270e3d6",
+      "bytes": 86352
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909161099.json",
+      "sha256": "011e762bc48854494b059ea577ed2adfc90ae5ff0ac9bbd4b26f128b43e0ca18",
+      "bytes": 35946
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909161456.json",
+      "sha256": "58846292d0d13c11409db8e26dca6ee7d29afaa5e94c0650e700f7681207a86b",
+      "bytes": 69853
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909161931.json",
+      "sha256": "31132be28dc2f8036950e5802f15ec95735e0522f28476284da2ee2b2f572408",
+      "bytes": 79082
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909162459.json",
+      "sha256": "e32c3a8af5156ed7984a38e0b0bbd9284a35b95c3ad11cd777c5ab0c3ea51f45",
+      "bytes": 127729
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909163036.json",
+      "sha256": "919ed4714cd5657e6278e8eae752fdc213e5d024ff308cd998f280e6795b339e",
+      "bytes": 127841
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909163622.json",
+      "sha256": "aef91f13c96e4401d67153050a7b2132845cde812f841d1e6732cfb606a39326",
+      "bytes": 70174
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909164202.json",
+      "sha256": "fcc8a2a5d5a41a9c7010fcf2246dbeee7b01b7ae0842d31a262d07c0cc156a58",
+      "bytes": 78444
+    },
+    {
+      "path": "replays/cg/boss/v09/b732550e6eafbaaab3039c00b85a564632dd0add80dbd0a84e6df62780a3c1a2/909164726.json",
+      "sha256": "f7087380dd40b4a76c2bab70f697b1ec0d19d95b73937e6fcdfd59ad03a237e0",
+      "bytes": 66831
+    },
+    {
+      "path": "tools/boss_api.py",
+      "sha256": "4eaacfa946a80a58bb59c645b8a70244896657ea0a3c6c4139f22eecd8d5410c",
+      "bytes": 21355
+    },
+    {
+      "path": "tools/boss_batch.py",
+      "sha256": "7fc6d56669bcdcc1c382a674b5d713b6aa8b4dea041100c79a2c0685d54f834b",
+      "bytes": 45351
+    },
+    {
+      "path": "tools/boss_cached.py",
+      "sha256": "4bad58e9f446cd522e8d4b22197c7b9a3aa1439cb5700aa6950b4037dd4c4a46",
+      "bytes": 22135
+    },
+    {
+      "path": "tools/boss_owner_lookup.py",
+      "sha256": "a26f15a6c02c3852c04b585888031db7fdf794af9d85a4a9f7ab75bed08ba8b5",
+      "bytes": 5669
+    },
+    {
+      "path": "tools/boss_practical_gate.py",
+      "sha256": "4ab6ba8f1345ab4eb1a9a0af843fb5a1a7c186ab4eb5bbe628729616891e763e",
+      "bytes": 9025
+    },
+    {
+      "path": "tools/practical_gate.py",
+      "sha256": "b9d8707cf5d41774b0812b179ae410c975708bc48a4f9de8196a23052b9d652a",
+      "bytes": 9389
+    },
+    {
+      "path": "tools/practical_gate_v4.py",
+      "sha256": "1b632549cf8bad373db1d8244d6d5b8c80249435c4553e803967659a5d6479f7",
+      "bytes": 11150
+    },
+    {
+      "path": "tools/replay_capture.py",
+      "sha256": "5a2b14c38dc30a5bf5687cfb00c1c27203d8db964adbbcf164ba48552c0fd2a4",
+      "bytes": 14012
+    }
+  ],
+  "hashOnlyPriorEvidence": [
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.zip",
+      "sha256": "cfbca48cb1ce6ae3689ea3e5da317e07ff1f672a304ac08927b2662ef6687cd0",
+      "bytes": 4611953
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.json",
+      "sha256": "552f18b6eef9123ec890c84590bb6c20c5c8c07a518ff2d0458a6a52d952a761",
+      "bytes": 128850
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1.json",
+      "sha256": "9cf68b6cedee881c84f1e84893210d7b59fa4e9d185a5a9bda982189aa5923b2",
+      "bytes": 1384561
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1-artifacts.zip",
+      "sha256": "d9f4060cf888c12d5a33e0b670f28205ccca7548e1465bc5167c979e75707728",
+      "bytes": 28307701
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1-artifacts.json",
+      "sha256": "6eb28d7a194718dc27717bdaad38be5120837e915af3d46cb4bc98ed38e3d25b",
+      "bytes": 568338
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1.json",
+      "sha256": "a75ca8da5bfd0561e3aa24148fb5fff8e25fe0cce1d51f6988abdac78c39fc70",
+      "bytes": 1097791
+    },
+    {
+      "path": "docs/evidence/neural-v7-control-boss.json",
+      "sha256": "bad756d65fbc1cb8d02f29e94b777bc2eae06cf0ea21a4977629dc48c1325981",
+      "bytes": 29929
+    }
+  ],
+  "hashOnlyOmittedTransportEvidence": [
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0001/play-response.json",
+      "sha256": "49c535bc93f93f0345c868e6849ea8ff268520a446c95b2c3bcc77f2e1bb79ce",
+      "bytes": 55052,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0002/play-response.json",
+      "sha256": "bd2bc1ce07de3c92f538aef5cc67d88b9afac9de15245c4b81f45b8231b5bcbe",
+      "bytes": 72448,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0003/play-response.json",
+      "sha256": "c5b44ec57f43b6c210be665fa626ab169d7f14183eff446b65d962fd08d70b43",
+      "bytes": 64907,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0004/play-response.json",
+      "sha256": "457e98e75e48cbd9db292d818093a0406271fd3539f79eab06c4ebef7705d1e3",
+      "bytes": 45806,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/play-response.json",
+      "sha256": "74d60b0ce4066e36e94fbd5612f3814e9f85ab09e2cc92ca05208ac200331cda",
+      "bytes": 89388,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0006/play-response.json",
+      "sha256": "7ae2be5569711ebbe74dd90716ded77bd6062883ab706c8cfce36b85483920fa",
+      "bytes": 79024,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0007/play-response.json",
+      "sha256": "c7e0ddeae9e85c9a43debd2b5ce37b643498d889ec64d00a33d766999d449d22",
+      "bytes": 117526,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0008/play-response.json",
+      "sha256": "3281144be78039e249d05c70dca88a867520a6d830ac206db186693986a18e5d",
+      "bytes": 99802,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0009/play-response.json",
+      "sha256": "0c76d1a700414034ed107fc70c00fd3389846ec668eb81cb124489b63fa62bd9",
+      "bytes": 33975,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/play-response.json",
+      "sha256": "bb8b0939562819254ebf90a38878d192ec683ad788f5777e5dd8f2910548b158",
+      "bytes": 45024,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0011/play-response.json",
+      "sha256": "8aa6d624d1c541c8de4c6e6005f46f3e61789a5a7734dde4ef40872b6e77aad9",
+      "bytes": 56245,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0012/play-response.json",
+      "sha256": "a87a92dbb5672c885bfba9bef0aaf66a1a58acc5df5f84ec8f15e0d312ce982c",
+      "bytes": 69767,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0013/play-response.json",
+      "sha256": "7d2c19c69a8b99e0a12f6f86d17b01fd389ddf038011941af434c8927c57f8ca",
+      "bytes": 94388,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0014/play-response.json",
+      "sha256": "ad5f48aacfc6564346465282452a6c9ee47489faecd08710c011c43dad177624",
+      "bytes": 36746,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0015/play-response.json",
+      "sha256": "a519c90290d28aebb26d95a3687719a0520c86902d7ae921c2c47062fc5c0a75",
+      "bytes": 105470,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0016/play-response.json",
+      "sha256": "dcdeb40f6053f6331780c5b6642c177a88322a3e8640a4443b5b3f87027cc16e",
+      "bytes": 70074,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/play-response.json",
+      "sha256": "c9ae3960fc4d248fca56a6e9e47e8bb8ade574b85e735f28ae8adae2374913a9",
+      "bytes": 95309,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0018/play-response.json",
+      "sha256": "2db9d75fcfbcee488e45ccb89585e95c770f1aa4856ac1c1eee9b1f43ec3e544",
+      "bytes": 95115,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0019/play-response.json",
+      "sha256": "3b46986f907457fe6f542998ddf52f52a197f2b1b0e04bf3b78b015c676b89d2",
+      "bytes": 57162,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0020/play-response.json",
+      "sha256": "df25d3303bc8f34d65905152a7691c74b01901ec216e380448e73470295781c1",
+      "bytes": 86416,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0021/play-response.json",
+      "sha256": "71fd7a6a9b10945c585a47c654c7796489a8e98f9c1297c11fa543c007d05e2a",
+      "bytes": 136754,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0022/play-response.json",
+      "sha256": "38ab08b10e72ce688c3435be21aaf326a1aefea431ea31582947172a86ab80fb",
+      "bytes": 52755,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0023/play-response.json",
+      "sha256": "509c228f9bb27af4244157c41d1bc3ba65b61779d88e095264c05c2662f431f2",
+      "bytes": 67453,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0024/play-response.json",
+      "sha256": "77a5bce4eb4e415841cea0b81b2f8beead1e0974f2d0c2251a62ae81e4d436ed",
+      "bytes": 66713,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0025/play-response.json",
+      "sha256": "0f6e863d39f18a8554306f567d43ce082f30ba9b76f62e9845431de221066bde",
+      "bytes": 108379,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0026/play-response.json",
+      "sha256": "6a15a2643cb9a8f30d93ae1bd065d3aa52a69107b38b1c2d816bea88d176d059",
+      "bytes": 73906,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0027/play-response.json",
+      "sha256": "9749a9c2015cc78495a8ef976611041a7c4375d5b7ac2b53db405b3c5567ad18",
+      "bytes": 87813,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0028/play-response.json",
+      "sha256": "5d4abbff52deab76f4eab2e30d169bc6bbb0a07aaa7c19ae518088ed649b978a",
+      "bytes": 95874,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0029/play-response.json",
+      "sha256": "0eb2fd38c3017c9940f44c42d5155d214ec6d8d567c5b5b87456055309ec45f9",
+      "bytes": 96984,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0030/play-response.json",
+      "sha256": "8b563206c82986978feb37c72d4e48c97a191854ebc51e186d8960017127aa39",
+      "bytes": 95923,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0031/play-response.json",
+      "sha256": "40d082c4e9b0ac8f750e6e9814827d0ea6689bdb047b80f2bf92b186a0119bb7",
+      "bytes": 81424,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0032/play-response.json",
+      "sha256": "dac78199695145bef918482cb9a854372923a997f7b8f8cc3a23101641fbc043",
+      "bytes": 86072,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0033/play-response.json",
+      "sha256": "b2755e72edb93a731a0ce599e8c9f27cda58afc54a6deec57da003a6a12547d6",
+      "bytes": 35666,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0034/play-response.json",
+      "sha256": "66656fb2315ba76436e2c35217a02252b7178b96f60e9507c41f79fa6d0c4e57",
+      "bytes": 69573,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0035/play-response.json",
+      "sha256": "b2859555f6f56b39c3359f2092c75bc1b24289fc49b972e9002be428f236976d",
+      "bytes": 78802,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0036/play-response.json",
+      "sha256": "3cc965df4ac17e60e56e345be5d29b43b5f0729029517b133224d49b2722a567",
+      "bytes": 127449,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0037/play-response.json",
+      "sha256": "4a6d1bfd7f2374a72c13e704b7f8c59efc37e2d01e5e4aa29739e276cf5c1ce8",
+      "bytes": 127561,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0038/play-response.json",
+      "sha256": "752f087ccc5d7b505df7bd82d0462e30db7bd7206742121e86d38d4951a27148",
+      "bytes": 69894,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0039/play-response.json",
+      "sha256": "b726fc50e99fefa8a049cbfb1dd69b5a1f5491c9fad56e61864206eecca506ce",
+      "bytes": 78164,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0040/play-response.json",
+      "sha256": "37f5bfacd7f245b30a28484314a04d63de33dd67e7a444992e6ccc5e1af38e2d",
+      "bytes": 66551,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0001/play-response.json",
+      "sha256": "36c73e00b68e281e5e07ae16f8f3705db16fa172188514861f896fa9b1a3ccd6",
+      "bytes": 64252,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0002/play-response.json",
+      "sha256": "ff27dcc08cd4e462cbd4f0caa8db247d5cd7ae68bc6ec190c374ea59b5ac1201",
+      "bytes": 59907,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0003/play-response.json",
+      "sha256": "1aa27ea407a13f51bb90b4e4359b62275b7e85e702d069d8bbf121949689b899",
+      "bytes": 60956,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0004/play-response.json",
+      "sha256": "d92bb641dad1034b757c63dd63c6b122f2bcd014967ef311f0854b97b6fe127f",
+      "bytes": 44710,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/play-response.json",
+      "sha256": "2c641026e514bfbc26b355ba6c38f17dd0dd517e107b16af5c254cfb5dfcc8a1",
+      "bytes": 78010,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0006/play-response.json",
+      "sha256": "4fdacd5da5d024d70cc9a18836000b742e1ee003c760c7f4ce244c87957edcf1",
+      "bytes": 99738,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0007/play-response.json",
+      "sha256": "b48c313ee533b6e4fa28059d19f7e848e7e3d70c5318c2d7264f9d7b55e6043b",
+      "bytes": 136186,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0008/play-response.json",
+      "sha256": "9d22d63b954f218f27572a7cad021acb7083f554d1659537bc07beaffd7c9339",
+      "bytes": 118459,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0009/play-response.json",
+      "sha256": "ba428a733c4161f75c21b09b02934292f1cb5c8b4583f9647a5573361e8364e5",
+      "bytes": 62238,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/play-response.json",
+      "sha256": "56d743d6fd354ed48eae9ebff9b123bd9162eccc17b41529c371f9747db9a291",
+      "bytes": 54441,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0011/play-response.json",
+      "sha256": "e2b59e882943e063d8398b7442b9378d745eb130b8aa056a83898a4ca14129cd",
+      "bytes": 60695,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0012/play-response.json",
+      "sha256": "082c51224a60ce0427135c78ae70bb860f0e9860d99888e2c27a9e99f990bf54",
+      "bytes": 49994,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0013/play-response.json",
+      "sha256": "496c35918c04cedc6224146a267e8380ad47b62d6be2adc7a528b1bb69afa714",
+      "bytes": 101172,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0014/play-response.json",
+      "sha256": "c5a62fd465921de0abe95b9b88dc48b374419337e19021e19072088f8b74fa42",
+      "bytes": 41496,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0015/play-response.json",
+      "sha256": "716d84a0ddb7ae5e5dd7896e50a729eaf71291f4f44bd73df8d752d4007b1042",
+      "bytes": 68769,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0016/play-response.json",
+      "sha256": "b2112b8d6c608e532ccda84752d31c90325fbc47e3e771022777390b2ad9fcd7",
+      "bytes": 73401,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/play-response.json",
+      "sha256": "b2f609e54f16e3ee8c113e0a7c9679fecdaa67bf04d8cbdddfc4fa271d1aff9b",
+      "bytes": 107716,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0018/play-response.json",
+      "sha256": "2f069ab47050f721043a42f60df347e42cd8ca461dbf60cdc3e1ba1ba1f921f8",
+      "bytes": 73289,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0019/play-response.json",
+      "sha256": "56112bcc1769cbd95628a3f510d0a8dae583d6f5d56a2fe2e9f17c52ddad1c4b",
+      "bytes": 50440,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0020/play-response.json",
+      "sha256": "58d81ded1b7f1583d60b87f69c2b73f6c0984d9d1db2005e47425edb09f682c9",
+      "bytes": 63314,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0021/play-response.json",
+      "sha256": "7b0cbfedd4997077f66557b67fcf0c1216902e82c9b53d0065f263801dd23efa",
+      "bytes": 126953,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0022/play-response.json",
+      "sha256": "e84833e8d4721d9f5ad457cb8a96feda028e0bdfaa2ad9cb00cf9f7eaba601bf",
+      "bytes": 51238,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0023/play-response.json",
+      "sha256": "ec1617e740cdcd6e17dc0af31918e22a1e3e39278fee1844bcdbd9b9b0922708",
+      "bytes": 52982,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0024/play-response.json",
+      "sha256": "9ddacaf4fda1e2b9de07d9663d6d48dc4c3ee8e602d5d898ea3c0256a67f736e",
+      "bytes": 80477,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0025/play-response.json",
+      "sha256": "835e71117a5e35c26154aa6e41a1aeed0a107b29b4d7a8a16c56b16874191efc",
+      "bytes": 117585,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0026/play-response.json",
+      "sha256": "62d56c6be0a611e0e7bf443a32e4348dbca9d222787841a91aa479874ae29585",
+      "bytes": 80150,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0027/play-response.json",
+      "sha256": "6f2c31685c166908b5a0ef3f934c6a2e7675d4bb135cbe71114b4a76b3a359ee",
+      "bytes": 128885,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0028/play-response.json",
+      "sha256": "8b1f8df70dd5a7b105b965fbb31659fa813095477bc6fecc83e75e46964b3c1d",
+      "bytes": 95475,
+      "reason": "Raw transport body omitted; canonical replay and bound outcome retained"
+    }
+  ],
+  "privateSessionMaterialIncluded": false,
+  "rawTransportBodiesIncluded": false,
+  "formalVerdict": "NOT_PASSED_UNCHANGED",
+  "exploratoryOnly": true,
+  "audit": {
+    "path": "build/analysis/v09-batched-refresh-boss-v2/partial-audit.json",
+    "sha256": "811509bb96a65ebde9a138e47be7c3f88f5b5c133d4d07c680c1de0c3340cb12",
+    "bytes": 133790
+  },
+  "evidenceStatus": "INCOMPLETE_TRANSPORT",
+  "complete": false,
+  "plannedGamesPerArm": 40,
+  "actualCounts": {
+    "controlCompleted": 40,
+    "candidateCompleted": 28,
+    "candidateUnknown": 1,
+    "candidateUnstarted": 11
+  },
+  "completedCanonicalGames": 68,
+  "purpose": "Retained interrupted second fixed forty-plus-forty boss series: forty control and twenty-eight candidate canonical games, one unknown request, eleven unstarted slots; cooldown proof, unchanged artifacts/process checks, imported helpers, partial audit and final documents. Original formal decision retained."
+}

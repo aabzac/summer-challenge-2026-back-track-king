@@ -7262,3 +7262,52 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [Protocol](v09-batched-refresh-boss-v1.md),
   [result](v09-batched-refresh-boss-v1-result.md),
   [evidence](evidence/v09-batched-refresh-boss-v1.json).
+
+## 2026-10-16 - v09-batched-refresh-boss-v2: five-minute pauses still hit service limit
+
+- User explicitly requests another40 games per bot and a five-minute pause
+  between each20 games. Hypothesis: collect more paired boss evidence for the
+  unchanged batching optimization while avoiding the play quota. This is a
+  separate exploratory follow-up after the original failed formal comparison;
+  preserve v1 NOT_PASSED and make no retrospective promotion decision.
+- Freeze the same exact candidate/control artifacts, full parameters and
+  strict process evidence. Fixed schedule seed2026101609; forty unique maps,
+  twenty per seat, fresh against23,584 prior core identities. Scan151 completed
+  local reports. Freeze109 inputs before live; original85 live inputs and
+  2,912 implementation files plus7 runtime components remain exact.
+- Add a separate pacing adapter before the existing request-intent creation.
+  Keep ordinary20-second spacing and all owner/artifact/uncertain-request
+  protections. Nine offline tests pass. Initial Windows Temp test-fixture
+  creation fails before any live work; move fixtures to the writable experiment
+  directory and retain the infrastructure repair. Independently review the
+  integration before launch. No bot, core, parameter or timing change.
+- Control40 completes11W29L0D, all40 canonical replays exact. Validate the fresh
+  cache, then launch candidate on its identical maps/seeds/seats. Actual gaps
+  completion-to-next-intent before global21/41/61 are300.015003,300.030197,
+  300.030033seconds. All prescribed pauses are therefore satisfied.
+- Candidate28 completes9W19L0D. Request29/global69 at2026-10-15 22:11:44UTC
+  receives HTTP422/API407: "You reached the limit of plays for a period of time."
+  No Retry-After or gameID is returned. Preserve the uncertain-creation flag,
+  write-once intent and error. No automatic replay, recovery, retry or slot
+  replacement. Candidate30–40 were never requested; twelve candidate slots
+  remain uncompleted. Five-minute pauses did not avoid the service quota in
+  this run; quota size/reset time remain unknown. Final read-only IDE lookup
+  confirms exact candidate source, with no game creation or arena publication.
+- A separately named offline partial validator reuses unchanged core/CG replay
+  validation for the28 retained games; all28 reproduce exactly, totaling68
+  validated new games. Preserve the frozen complete-stage validators unchanged.
+  Retain derivation/source/compile/validation evidence for the partial helper.
+- Compare only28 matched pairs: candidate9W19L vscontrol6W22L; better6/worse3/
+  equal19 (bothwin3,bothlose16). The other12 control outcomes remain visible and
+  unmatched. Original40pairs +new28pairs gives candidate19W49L/68 versus
+  control17W51L/68, descriptive only. Do not compare9/28 with11/40, label this
+  80pairs, or claim the incomplete stage passed.
+- Decision: INCOMPLETE_TRANSPORT for v2, original formal NOT_PASSED unchanged.
+  Retained results are encouraging but insufficient to enable batching. Keep
+  flag OFF and selectedv09; prior75-ms limitation unchanged. Finish the evidence
+  audit, archive public data without credentials, and commit locally. Further
+  play first needs the service restriction resolved and the failed request
+  reconciled; none is attempted here. No promotion, arena upload or push.
+  [Protocol](v09-batched-refresh-boss-v2.md),
+  [interrupted result](v09-batched-refresh-boss-v2-result.md),
+  [evidence](evidence/v09-batched-refresh-boss-v2.json).

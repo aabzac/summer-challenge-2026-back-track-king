@@ -13,6 +13,20 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Additional exploratory boss series 2026-10-16: **v09-batched-refresh-boss-v2**,
+**INCOMPLETE_TRANSPORT / ORIGINAL_NOT_PASSED_UNCHANGED**. User requests another
+40 games per arm with five-minute pauses after each twenty. Fresh control40
+completes at **11W/29L**; candidate stops after **9W/19L over 28 games** when
+request29 receives HTTP422/API407 (service play limit, no Retry-After/game ID).
+Matched control prefix28 is **6W/22L**; candidate better6/worse3/equal19.
+All68 retained canonical replays exact; all40 maps fresh against23,584 prior
+identities. Actual three gaps300.015003/300.030197/300.030033seconds. No retries
+or replacements; preserve uncertain intent29 and11 unstarted slots. Pooling
+only completed matched pairs gives19/68 candidate versus17/68 control,
+descriptive only. Twelve candidate slots remain unfinished; no full-series
+pass or promotion. Exact builds/parameters/process panels unchanged; batching
+stays OFF, v09 selected. [Retained result and evidence](v09-batched-refresh-boss-v2-result.md).
+
 Completed boss continuation 2026-10-15: **v09-batched-refresh-boss-v1**,
 **LOCAL_PASS_1000 / BOSS_NOT_PASSED / OVERALL_NOT_PASSED**. The unchanged
 batched-refresh candidate scores **10W/30L/0D** against a fresh v09 control's

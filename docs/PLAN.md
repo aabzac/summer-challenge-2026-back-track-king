@@ -27,6 +27,19 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       All 80 replays exact, zero technical failures/replacements; no extension.
       Keep batching OFF and v09 selected; preserve the timing limitation and
       commit the completed result. [Boss report](v09-batched-refresh-boss-v1-result.md).
+- [x] On the explicit request for another40+40 games, freeze a separate
+      exploratory schedule and exact unchanged builds; implement and verify
+      >=300-second gaps before global requests21/41/61. All40 maps fresh against
+      23,584 known identities. Original formal NOT_PASSED remains unchanged.
+- [ ] Finish the additional candidate40 stage: **blocked by service play limit**.
+      Control40 complete11W29L; candidate28 complete9W19L versus matched
+      control28=6W22L. Request29 receives HTTP422/API407, no gameID/Retry-After;
+      preserve uncertain intent, no automatic retry; slots30–40 unrequested.
+      Three actual gaps>=300s did not prevent the limit. Do not count the
+      unfinished series as a pass. [Interrupted result](v09-batched-refresh-boss-v2-result.md).
+- [x] Validate all68 retained replays, paired outcomes, cooldown timestamps and
+      original/new input pins; archive the incomplete evidence and record it
+      locally. Keep batching OFF and selected v09; no promotion or arena upload.
 
 ## v09 continuation diagnosis (2026-10-11)
 
