@@ -7217,3 +7217,48 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-batched-refresh-v1.json),
   [archive index](evidence/v09-batched-refresh-v1-artifacts.json),
   [archive](evidence/v09-batched-refresh-v1-artifacts.zip).
+
+## 2026-10-15 - v09-batched-refresh-boss-v1: refreshed boss check rejects promotion
+
+- User requested the remaining 40 candidate games, verification of the v09 cache,
+  and a decision on enabling batching. Keep the exact locally tested candidate:
+  `current?NOISE=0.1,USE_BATCHED_REFRESH=true`, missed-deadline OFF, source
+  2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a.
+  Control `v09?NOISE=0.1`, source aca0be45...8fac, exact full parameters/classes
+  from the completed local comparison. Prior strict process panels remain exact
+  and successful (8 games per arm); no new timed process or local strength trial.
+- Cache audit: October 4 v09 15W/25L is intact, including all 40 unique games,
+  20/20 seats and 200 individual file pins. It was subsequently used in all-40
+  continuation diagnostics and this development cycle; refresh is required for
+  suitability, not because of a universal age limit. Preserve old evidence.
+- Before play, fix schedule seed 2026101509 and both artifacts. Scan 254 saved
+  map sources; all 40 proposed maps are distinct from 23,544 prior identities.
+  Read-only discovery confirms Boss 4 agent 6767608, league 6/3/0. Preserve
+  the user's existing IDE source privately before any source-saving test call.
+- A local preparation glob accidentally included process command-intent JSON;
+  artifact validation rejects it before any network call or game. Retain the
+  failure, narrow to the four exact numeric report names, proceed unchanged.
+  Four offline map-auditor checks pass; no bot/core changes or measured retries.
+- Fresh control: exactly 40 games, **11W/29L/0D**, 20/20 seats. All actual maps
+  match the declared generator identities and all canonical replays reproduce
+  exactly. Independent cache audit passes before the candidate stage.
+- Candidate: exactly 40 new games on the same maps/seeds/seats, **10W/30L/0D**.
+  All 40 replays exact; zero technical failures, uncertain creations, repeats,
+  replacements or amendments across the full 80 games. Requests sequential,
+  with 20-second spacing. Control collected 20:07:05-20:29:59 UTC, candidate
+  20:31:35-20:54:56 UTC. Final read-only IDE lookup matches the tested candidate.
+- Paired outcomes: 6 better, 7 worse, 27 equal. Unchanged practical-v4 reports
+  local PASS_1000 (535W/402L/63D, 56.65%), boss NOT_PASSED (10 < 11 points),
+  combined NOT_PASSED. A one-point difference is not statistical proof of harm;
+  it nevertheless fails the fixed practical rule. No extension to seek a pass.
+- Independent final audit verifies 2,912 frozen local files, seven runtimes and
+  85 pre-live inputs unchanged. Prior 75-ms native-call limitation remains:
+  turn number and cause unknown; the counter includes first turns. No new claim
+  of universal 50-ms safety or unchanged hidden boss execution conditions.
+- Decision: keep batching OFF and selected v09. Retain the optional speed
+  optimization and the new individually verified v09 cache for separately
+  designed work, with suitability checked again before reuse. No defaults,
+  strategy promotion, arena publication or push. Archive and commit locally.
+  [Protocol](v09-batched-refresh-boss-v1.md),
+  [result](v09-batched-refresh-boss-v1-result.md),
+  [evidence](evidence/v09-batched-refresh-boss-v1.json).

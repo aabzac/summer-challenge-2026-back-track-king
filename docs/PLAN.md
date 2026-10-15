@@ -20,10 +20,13 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       outlier retained, turn/cause unknown (counter includes first turns).
       Verify2,912 frozen files+7 runtimes; keep flag OFF and selected v09.
       [Protocol, results and evidence](v09-batched-refresh-v1.md).
-- [ ] Before any separately authorized promotion, validate/refresh the matched
-      boss-control cache as required and play exactly40 new candidate boss games.
-      No boss upload, strategy promotion or push is part of the completed local
-      experiment; the native-call timing outlier remains a documented limitation.
+- [x] On the user's follow-up, audit the old v09 cache: intact but exposed to
+      outcome-guided development. Refresh exactly 40 control games, then play
+      exactly 40 candidate games on the same fresh maps/seeds/seats. Candidate
+      10W/30L versus control 11W/29L: BOSS_NOT_PASSED, overall NOT_PASSED.
+      All 80 replays exact, zero technical failures/replacements; no extension.
+      Keep batching OFF and v09 selected; preserve the timing limitation and
+      commit the completed result. [Boss report](v09-batched-refresh-boss-v1-result.md).
 
 ## v09 continuation diagnosis (2026-10-11)
 

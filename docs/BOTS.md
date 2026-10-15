@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed boss continuation 2026-10-15: **v09-batched-refresh-boss-v1**,
+**LOCAL_PASS_1000 / BOSS_NOT_PASSED / OVERALL_NOT_PASSED**. The unchanged
+batched-refresh candidate scores **10W/30L/0D** against a fresh v09 control's
+**11W/29L/0D**, exactly 40 matched maps/seeds/seats. The old October 4 cache
+passes integrity checks but was used in outcome-guided diagnostics; refresh
+40 control games before the fixed 40 candidate games. All maps fresh against
+23,544 prior identities; all 80 canonical replays exact, zero technical failures
+or replacements. Exact candidate/control source, classes and full parameters
+match the completed local comparison; strict process evidence remains valid.
+Local 56.65% does not rescue the failed boss stage. Keep batching OFF and v09
+selected; no extension, promotion, arena publication or push. The prior 75-ms
+native-call limitation remains. [Full result and evidence](v09-batched-refresh-boss-v1-result.md).
+
 Completed optimization experiment 2026-10-15: **v09-batched-refresh-v1**,
 **LOCAL_PASS_1000 / PROCESS_SAMPLE_PASS / BOSS_NOT_RUN**. Candidate
 `current?NOISE=0.1,USE_BATCHED_REFRESH=true` versus `v09?NOISE=0.1`,
@@ -27,8 +40,8 @@ Strict process8/8 clean,678 later responses,max46.7275ms. Local strength has
 one75ms native-call outlier; its turn/cause are unknown and the counter also
 includes first turns. Preserve this limitation, no timing retry. All2,912
 frozen inputs+7 runtimes unchanged. Batch flag stays OFF, v09 stays selected;
-40 matched boss games remain required before promotion, with cache validity
-checked first. [Protocol and evidence](v09-batched-refresh-v1.md).
+Boss games were pending at this local-only snapshot; the later continuation
+above completes and rejects the combined gate. [Local protocol and evidence](v09-batched-refresh-v1.md).
 
 Completed local strength experiment 2026-10-11: **v09-deferred-strength-v1**,
 **STOP_FUTILITY_300 / LOCAL_NOT_PASSED_AND_PROCESS_FAILED**. Exact tested
