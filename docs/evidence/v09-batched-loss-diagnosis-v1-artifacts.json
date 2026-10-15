@@ -1,0 +1,1159 @@
+{
+  "schemaVersion": 1,
+  "experiment": "v09-batched-loss-diagnosis-v1",
+  "archive": {
+    "path": "docs/evidence/v09-batched-loss-diagnosis-v1-artifacts.zip",
+    "sha256": "bfec44048798a220391acc31fb8c9a5407dcf61fe7e858c90954eea833a0fab3",
+    "bytes": 2096211
+  },
+  "files": [
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/archive.py",
+      "sha256": "65d6d717aef9c0c0311650c80683d7ad2d78617fa4a7b43a111e64014bac788f",
+      "bytes": 6988
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/classes/PairedLossStudy$Move.class",
+      "sha256": "83d0fcdc020cb6a599efde15513a0fe5114e142f59c2fd2e430b1731637dee71",
+      "bytes": 2251
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/classes/PairedLossStudy$Run.class",
+      "sha256": "1d711c5a0e45ff0c0963b2a1fe733b1f490bde78e185b8a1e0c11d5dd4240149",
+      "bytes": 1972
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/classes/PairedLossStudy$Turn.class",
+      "sha256": "0c6a108f9e0a14ff9f2e97d99b4865a237f5dfc6fe59efbd58085aba25c8b7ff",
+      "bytes": 2000
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/classes/PairedLossStudy.class",
+      "sha256": "5ad90b8f0aef5925f34cd14dca18729e55594c4d242e7b536ef9c0b7bfc47a9c",
+      "bytes": 31757
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/cohort.json",
+      "sha256": "e395518ea2c9565009e58abc9ca0958a61185794b35b8eba182b5c5f2685c08b",
+      "bytes": 1561545
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-check.json",
+      "sha256": "cd23e5315d8d07e1d09a08d94e78063e1e5b4c795c363e92de2754914abacd3f",
+      "bytes": 121736
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-classes/CoreReplyCheck$Move.class",
+      "sha256": "f142b35f8a7548334b8019941f0e43176eff7649f155a4a4c962d00bcc73cf76",
+      "bytes": 1426
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-classes/CoreReplyCheck.class",
+      "sha256": "6a1e39ae7e4069962701df049af2c7cfa0b8d2fa8a0a0fc7e9c60ca0db701f58",
+      "bytes": 10922
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-command.json",
+      "sha256": "1b00078c6579c16d57cf25b11a35328cdd79b686a9e644701527dc88c87747ba",
+      "bytes": 1209
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-compile-command.json",
+      "sha256": "542a6265f0224b5e2d2081f9857dddb5f9d82eb4d0e0f8ea722d30f145487529",
+      "bytes": 925
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-compile-exit.json",
+      "sha256": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+      "bytes": 15
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-exit.json",
+      "sha256": "47b8b6b49d4695fe6e036bd916538aff4f46773e212ca0d429db80f3963e2cfe",
+      "bytes": 15
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-freeze.json",
+      "sha256": "af3f735fa24ee329f3486b33009f7a55a97ce1639cab52d31c2db57dd5214e03",
+      "bytes": 1388
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-plan.json",
+      "sha256": "55bf2226a9671beb7b51f4f2b0201f3f6c0de58e808c54ad4860c04db6a12d10",
+      "bytes": 1548
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-summary.json",
+      "sha256": "1a556e91429f6bbdc9316d18a494b6c1310a00fbb6e581ec8c0ffa12206c5ab7",
+      "bytes": 56412
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply.log",
+      "sha256": "6394ff0b5845bd9ed03976c7184f719bcf6f3f265c36858c2593ff1b88007cf6",
+      "bytes": 86
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/CoreReplyCheck.java",
+      "sha256": "1e4328843468b9e622c0fdfd8b1d68517cdabd0616c97d7dee74962887e15fb3",
+      "bytes": 7145
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/finalize_summary.py",
+      "sha256": "25a8e471b52ea50cbd5b7cc40b49dbd424d877d71567375655ca300824079bef",
+      "bytes": 9386
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/GeneratedLossModelStudy.java",
+      "sha256": "409f3c271400948d6b217fd4484ba8d114f29454a6c1b10da39d3b8a1fff2c94",
+      "bytes": 22638
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/independent-review.json",
+      "sha256": "366f1a7a3949db80d6a6539f26c0051c18f2ad803bfae87193d4381840de40c2",
+      "bytes": 26591
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/input-freeze.json",
+      "sha256": "745012d0443858e3a50d9734ca43f123e67ed3e4bbb5811fa2e8d0281f3321d4",
+      "bytes": 474176
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-classes/btk/tools/GeneratedLossModelStudy$Context.class",
+      "sha256": "17882181a7d976126f479003d34dc1afb68f34c90aeddf9743aa81bfaf04cd17",
+      "bytes": 3295
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-classes/btk/tools/GeneratedLossModelStudy.class",
+      "sha256": "4bf3d427bac3ed173797531883cfb965204c570fabd26015e52d674bcd529f9d",
+      "bytes": 26349
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-command.json",
+      "sha256": "f0d797dc79d034aea0cdf27625068f63a8c0bc024337be7223d88be6f94542b4",
+      "bytes": 1436
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-compile-command.json",
+      "sha256": "2f54a35f2356c0fd9594c03d85e726ef6af7dd4b3bea44f010e8ab996bbbeebb",
+      "bytes": 920
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-compile-exit.json",
+      "sha256": "9d3c6513da5908ee02680d238ecaefc2162e83c553277c162a0823b9cfd5f74e",
+      "bytes": 57
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-compile2-command.json",
+      "sha256": "b775563fd29b0cd8e5fc4430fcf4490196910b6babc9cb6700867b917d49fea2",
+      "bytes": 1261
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-compile2-exit.json",
+      "sha256": "446f8e93f767e1525bef461ac9fbd8f539103695c6c891a46c2a652d9a391018",
+      "bytes": 57
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-compile2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-exit.json",
+      "sha256": "961a18846ec2a1f2bd77788dc54d7e7013189c812714092d82325fd69a326d60",
+      "bytes": 274
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-freeze.json",
+      "sha256": "b7605e006ec70f8f2cbd7e739970757fe83aee8814f16546b97163f02e4e0040",
+      "bytes": 1261
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-summary.json",
+      "sha256": "fb04932fd610ce9b2ff10a38fabd665ffb5e95be2c82250881ee77cdc77c16ba",
+      "bytes": 58795
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model.json",
+      "sha256": "f74964f4d1ae07fd081e8fd9380cf8573733ea1fc3ee34fe5942416c7afa1e21",
+      "bytes": 3376917
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model.log",
+      "sha256": "e6d21089ec31e7f059316f3481c2b3941aea98c1fc9ffae019bd5d42b5d50104",
+      "bytes": 101
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/PairedLossStudy.java",
+      "sha256": "85265b64fa2ad12b8c1dae33df0e90f5be1ff8fbefaf9239c6bb13dff8a04cfb",
+      "bytes": 26852
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/prepare_cohort.py",
+      "sha256": "c6985c715ffa40878181cd8a018a6496cee35c6299d88196b0755b55b150e8f7",
+      "bytes": 12706
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/review_results.py",
+      "sha256": "7b458e869cce216ace267badf86a47649927335a35e9d8fa3cd476c485dc13d1",
+      "bytes": 33000
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/scope.json",
+      "sha256": "17d3e6672343ad8d4389338a5c119c73680cc3dd01a172f9ac857bf1d26ba519",
+      "bytes": 1874
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/telemetry-summary.json",
+      "sha256": "ee52d584d8a41d2b42d320b881daef8d47e776d4f50fa59d24978ebc4aed441c",
+      "bytes": 18913
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-command.json",
+      "sha256": "92846c46c112c4e06c605c9e4ee99bffd694c614638f63dd37d28e3a93890bd1",
+      "bytes": 1009
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-compile-command.json",
+      "sha256": "77f120735c61ddd0d3950ff86bce19263bbe0b3353767400e4796f9200ca046d",
+      "bytes": 804
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-exit.json",
+      "sha256": "d45db54bba0c56e2691a52869729c0a3eade7f5d50545e7832a20e3262a9d422",
+      "bytes": 17
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-freeze.json",
+      "sha256": "1b71f3a4b997d576c3377aece69461eb9cfd572934f54b02dd4e9c88dde1cbac",
+      "bytes": 1061
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-schema-notes.json",
+      "sha256": "7e5b88b1b0176ac8e71c82b0b9939eef21076500ef09e2599c3a176504cf1d20",
+      "bytes": 790
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-summary.json",
+      "sha256": "2766c3cd358075a4da0716f30775b8410aac8c5ca7fd1fb3a31400126d9b8e52",
+      "bytes": 61714
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory.json",
+      "sha256": "c219c598fd5c16a6365316b9f950f9e93aadc95548128e9078ab5b20a644461d",
+      "bytes": 18095484
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory.log",
+      "sha256": "4cd8d76751df0f9a96ac36929ca6b01805b2962ea60f6d8fe79cec9845d5226c",
+      "bytes": 518
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$1.class",
+      "sha256": "1196939eb0be432abe1982a0a62577609a60a14be87d3fbea1b6e77ae602f7b4",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Action$Type.class",
+      "sha256": "7ba8b4522bc172b0358abb16095bca4481e8cbe9aef5daba837e35c9c62fd929",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Action.class",
+      "sha256": "7c1913be4bf21465ead5738b93a3c8d19b7a27217630acdaee087e3f3ae7afc0",
+      "bytes": 4604
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Bot.class",
+      "sha256": "5578fb39b76a2eaaa6b891254df962410365f628153aa7852001477cf685382e",
+      "bytes": 889
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$CGRunner.class",
+      "sha256": "1d27b649ce66c490704cd96e225e5505ccbddbf71a1457df2010715683f9da97",
+      "bytes": 5755
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$EvalBot.class",
+      "sha256": "e549d9d09ff523d1a8fc02f69656e405d74eb3addb30a220cf3fad28dbd20a51",
+      "bytes": 30743
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$GameState.class",
+      "sha256": "fd4ea570e2db114b016291959fa745cfd502f0dab0a8ebedad01806aaccb1549",
+      "bytes": 4686
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$MainBot.class",
+      "sha256": "38e45d27441df5e8ac51569e32a7f71203613957d41f6922f572d4aafbd340df",
+      "bytes": 5559
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$NetworkCells.class",
+      "sha256": "e95e05353f5d650e72867354fa8007ce87907dd2a69fe5bbc203c63d63a8ef35",
+      "bytes": 980
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$NetworkChords.class",
+      "sha256": "557857d7588010d90e47f4bc4d558f2a745427f5b50080695a78331269faad18",
+      "bytes": 1273
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Params.class",
+      "sha256": "abc62c4387d372fad64a73a2d44c1d81b74808f46bbb51037a477986019adf36",
+      "bytes": 10100
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Pathing.class",
+      "sha256": "a914e23b2bf4529d3972f376a51fa7bf8775d9eb43c5cbaed7bc03a5998d23c9",
+      "bytes": 6350
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$ProtectedOpening.class",
+      "sha256": "7fcbbd40fb7593858008abee3220af2350571f683f9fd4d3a5829ee220ac7f4c",
+      "bytes": 3359
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$Init.class",
+      "sha256": "243db886f46c306954eddb46c9f859a77f6a82f0bcb4b50039d764167900ad22",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$TokenReader.class",
+      "sha256": "677c386b10ae3094919e961045593fd37ae6165045f2b215ab25d949e0bc8a49",
+      "bytes": 1381
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "7611093e5731a4f210a83d17d3d9a06c2f61d1d34ee6c9dc4a6c0d1c17ff89c2",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol.class",
+      "sha256": "880783612c5ef42811e85584455c059688a3b9524a27591a63909e8daac0b800",
+      "bytes": 4468
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "356d3795179bdf884f772dad1287cb3540f1c695441b6c984836c5627e4e4bf7",
+      "bytes": 1014
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules$TurnResult.class",
+      "sha256": "8a1f38e5819829b35cf028d806985784532332816480317e276d56c166043771",
+      "bytes": 879
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules.class",
+      "sha256": "2ba577e2ccf9bbc2407fb8b989088cbbb0c48f7a69309d607996db817f2c1bf7",
+      "bytes": 7291
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$SearchState.class",
+      "sha256": "29e1131e061c3ba639c6e8a10c01aa0eecc2d9dd253003b0a9b2f88a474eff79",
+      "bytes": 2081
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$TacticalPathing.class",
+      "sha256": "543f621041af253963078461ba9ae6a9e02ceaffeed8c3a2b86c069e718eccd2",
+      "bytes": 3089
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Timer.class",
+      "sha256": "df87377e4ce138d1d2878225f70737ec92d62884c85545f7bd16c76f6198e0b8",
+      "bytes": 801
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player.class",
+      "sha256": "c5391032441331e18c269942e685394d60f6ac083e13c688b24caaa157fa3b88",
+      "bytes": 1330
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/manifest.json",
+      "sha256": "fb468573b41610310c92f74c8f88aac1c7ee523b0a02b0c4851b5e2a14afe548",
+      "bytes": 4922
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/Player.java",
+      "sha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "bytes": 90129
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$1.class",
+      "sha256": "7415c81c52594d8ad64a39bb3379c9b5a489efb4adee9bb6e5af070dff1870be",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Action$Type.class",
+      "sha256": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Action.class",
+      "sha256": "be3c0f033d06811f7ed7bd1dc1fcba6a0ef09630fe783bf28a496499d5c398a7",
+      "bytes": 4636
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Bot.class",
+      "sha256": "aaed4eece10f9a05f72b6322602ceb4650ffafd73a8602b5d2742c19965d79f9",
+      "bytes": 889
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$CGRunner.class",
+      "sha256": "51b4d585f47d5981f7c0f9f0e8acdf9bd17c80d4c2efe1ae38924e16b21900d3",
+      "bytes": 5771
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$EvalBot.class",
+      "sha256": "4bcdfa3c9a53c9d773c56af45091abb626be513f27b5a54e7c5dcbae054c3133",
+      "bytes": 31131
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$GameState.class",
+      "sha256": "2f164a59d06b8b6140dd6241517f955b49ebb68a9482c69f5bc0a1b5edc8a810",
+      "bytes": 4702
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$MainBot.class",
+      "sha256": "bf7a2ede738d7016e7d7db7bcaa93a37975a87cbc033c3e95196f867b1aa44a7",
+      "bytes": 5546
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$NetworkCells.class",
+      "sha256": "052b8a0b326d324159bc21f9d08b61ab68dae7a5c6264909e9cbae1c09412606",
+      "bytes": 980
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$NetworkChords.class",
+      "sha256": "0cfe74f020d01e514210558363d5643b071ae1e98279b3e3d3d1d6acb888e323",
+      "bytes": 1285
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Params.class",
+      "sha256": "16951bac56242b2ca4c5c39eca4fd71137d9b5cc02cffe8205b8bef83461e130",
+      "bytes": 10050
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Pathing.class",
+      "sha256": "f6ef3c8bc246ea28ac5437c7b2d7c0107c51ceafeac923456c5010144c3704be",
+      "bytes": 6060
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$ProtectedOpening.class",
+      "sha256": "1874344eeb72647e2b33351b917a0cc06cd1d86ba25e952468e0a5720b1b6bf1",
+      "bytes": 3391
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol$Init.class",
+      "sha256": "a39c89a951f5c5ae2caf9100dc54089147caf2c3d4d0a91207e1cf503ac337d9",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3cdb2c2554faa17f16c2c1d41d41f95f649abbe82aed65e78cd28130bedae824",
+      "bytes": 1381
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "235c22b63eac40adf8b2875cd4c12828f9499494e90e707592372d752d3fde25",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol.class",
+      "sha256": "661be085162111894e54cba54109ac946221495b7f5cafac9f5424bf19ee25a3",
+      "bytes": 4500
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "955fd0b92eabeec488955ee4c3c89d19d22cc70f5b1d8064276c9689421ba6b8",
+      "bytes": 1014
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Rules$TurnResult.class",
+      "sha256": "74c2f4da248baaf96437673dcfb84110903b2c663eae75b1be4167a411d45173",
+      "bytes": 879
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Rules.class",
+      "sha256": "775e4e15266ec1b9a9f37b23808494a45f8b2d1b3b54c6c6fe7721fa98903358",
+      "bytes": 7303
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$SearchState.class",
+      "sha256": "942acffa093759b02499d4f3bd04fccf5dbd652983bda48b4342038f11511c10",
+      "bytes": 1869
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$TacticalPathing.class",
+      "sha256": "951b201c8776d5fbea8bb78dc21b9c08a411bb6ebed471f06724acb5f242e507",
+      "bytes": 3109
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Timer.class",
+      "sha256": "3e21445a1ade5443167209a39021bea613a338b5bfe57668fc9aa8f2219fc072",
+      "bytes": 801
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player.class",
+      "sha256": "93a0c9e0588f816d7b0e0633c9a59040fd0f37e867df9c671eb390ee0eb822df",
+      "bytes": 1334
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/manifest.json",
+      "sha256": "912ab07a905d674fff3f1ed2986d93a2815dd3a30e8abe695067529a842a1081",
+      "bytes": 4857
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/Player.java",
+      "sha256": "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+      "bytes": 98709
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$CGRunner.class",
+      "sha256": "cdbaf238e07f987ac8e0ba3dd4883ee4011ca160fb802e5c36dee99b5fc84aae",
+      "bytes": 5991
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$EvalBot.class",
+      "sha256": "2727ab8aa610f8c4f2546a7479b0cdcc9f47104d2f249d3839e730fa46998708",
+      "bytes": 31630
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$MainBot.class",
+      "sha256": "8c2c925f8aa6f9110735a399d463e711a72487ef6b7fb6f5b9b959e3b1b6f315",
+      "bytes": 5578
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Params.class",
+      "sha256": "da0deb3ec092489de6198f2184b7f7e95fa9af346f997d7ad06fb6b5d59c976f",
+      "bytes": 11062
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Timer.class",
+      "sha256": "654e8a8fc607e2116cf1c4e57b2c946c90d4e91ab8ab67c935e6609012ea485f",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player.class",
+      "sha256": "d23537f96e1340b83f0a2a77655250683a55b6d276159425f9e11b192b345cb7",
+      "bytes": 1278
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/manifest.json",
+      "sha256": "9789f55cabcc526075c3efd59eed68f2ab3bd219946d9be99422dab64ce66d95",
+      "bytes": 4765
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/Player.java",
+      "sha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "bytes": 95312
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0006/canonical.json",
+      "sha256": "885738e337cffb7152581da095b7ca7fecb2a097ad0cde3f1e952be030f211e4",
+      "bytes": 82635
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0006/intent.json",
+      "sha256": "ffec018e37c8d408ce870189b6d93811aa00a267265797844dbfc08b2766ce17",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0006/result.json",
+      "sha256": "77c14aa4ec88620ab0898e0e11448064f79b85efef066ee97cc48c150f24d99f",
+      "bytes": 2247
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0011/canonical.json",
+      "sha256": "40ced90559790ef138b79387b3db095bcb79068f2ca34a913a2e37cb5429456e",
+      "bytes": 98789
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0011/intent.json",
+      "sha256": "e72e15202111e0494095d76431820eebddcde5a2ca8064fd092e8a0fa46db5e8",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0011/result.json",
+      "sha256": "55e65170797488baf4d947383913a8da3f8c070a9ddcf370b2daa78c976ae7ec",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0020/canonical.json",
+      "sha256": "90daf35dadb428b7f890c221f1f7a31eca78d3249b7ac6131f0d10b2ea976bbb",
+      "bytes": 61268
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0020/intent.json",
+      "sha256": "11ea5ca0137380aa5c2b3516cbe7c43c75b7a4fbc9ae33874c9f4f4a2126acd8",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0020/result.json",
+      "sha256": "3cca093fcaf9656e87fc98f8e54abb9c773a449893e862941a93aa22fc9a9f1e",
+      "bytes": 2246
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0021/canonical.json",
+      "sha256": "fb7b662d8ef4a4743a0ca56cf86995c61429e94521ff2123687b1689eaaa214c",
+      "bytes": 87813
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0021/intent.json",
+      "sha256": "e05a0abb56f1d5bb434cd0713cb64ad28c5dd4c22243392863b53fa485fdd822",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0021/result.json",
+      "sha256": "53f99b63eee3d1e65195d7131efee2ff5f8f4eb8cf48322790cc0d7b850c6f91",
+      "bytes": 2246
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0027/canonical.json",
+      "sha256": "f9d27485370ab14fa5d184cb47eb428104690cc339dfd589f7d29d34cf327e06",
+      "bytes": 89643
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0027/intent.json",
+      "sha256": "de1f6c16f1d6eecff329a9a49cc99641d12412373a294e66ff94c97de665cb96",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0027/result.json",
+      "sha256": "0d6b59e45327cd373ba11bb85a6804a8899f0f8d7c2b6904c04d448dc0685157",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0029/canonical.json",
+      "sha256": "8557af152fda9925f91ea9270dc7f54e25cdbe66ace6bcafcb229cd3b5282658",
+      "bytes": 80592
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0029/intent.json",
+      "sha256": "a71d4bfe5074f7aea2144177e28a0a2e67b742f92e9afb62989cdf5d85a87872",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0029/result.json",
+      "sha256": "de702070c81bdb7fc2729bf14555103705cd19d5f79d3e355b9adcd72f112243",
+      "bytes": 2243
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0036/canonical.json",
+      "sha256": "edc7bc7a4709f37d12a9bbb65eda8dafbdf8de927d7b8c82e8c8c90c243a2e52",
+      "bytes": 63994
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0036/intent.json",
+      "sha256": "373d833532f0f9c8089cd3aed6ecdbc7075a3b59264656603e153177c70ad94c",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/0036/result.json",
+      "sha256": "f3c7e2b3edd8d9db23912ab88f1be40d764d90d5d71c09827f71cc6efc0bcc7b",
+      "bytes": 2246
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-candidate-40/plan.json",
+      "sha256": "84039554ca371167faa0de11fc21cc6829f3769429a38d1541f816646a387d8b",
+      "bytes": 103211
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0006/canonical.json",
+      "sha256": "06dcd0a8cf0209ec80862fb0942d32426d79b3b16905ba1031895633883ec457",
+      "bytes": 67977
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0006/intent.json",
+      "sha256": "47198cf587000c72aba12deb5c264cda7b44b052c7a964cd106e1a1d867434f9",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0006/result.json",
+      "sha256": "24f820e4d8d130bdd1f48a665044e9f6f457fd7f88e0dfbe8fde3cc7958559d4",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0011/canonical.json",
+      "sha256": "c3fe76cf966aed3540a4e52c93ed9200ceb0f623ed6d6487c4be9998dc1c7883",
+      "bytes": 116860
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0011/intent.json",
+      "sha256": "4f7a435c3592b15815c9e14bfccd5663212da4abdbedc322df5e92f18fd423f1",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0011/result.json",
+      "sha256": "9261c351ce486fc1e82bc1dde8870703db6c7715e36af36d083d76fa638db918",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0020/canonical.json",
+      "sha256": "fcda184397475de7529022778ab1f519e17133fdca4025b022edbcd464045627",
+      "bytes": 46915
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0020/intent.json",
+      "sha256": "82d0ab6abcd0c755863727806934c2acb5e83cc73f547e33a2d321dc1c294beb",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0020/result.json",
+      "sha256": "b6fb40c12805b2029f246ec588c1196e51223a3565eba5bbd4015b2098e04736",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0021/canonical.json",
+      "sha256": "c5d4d097b288e10e7547f0a4065d36d8d4f1230d3943570a3d05d2423106a98b",
+      "bytes": 82107
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0021/intent.json",
+      "sha256": "a72e7192e9985d8777ed8c0c9ce9231473c34a4fa3d6f3ef512a53193e5ac380",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0021/result.json",
+      "sha256": "37e882b8c353febd875b0adf98e2e5036d261c7ac9a2f4209242d4340b242e9e",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0027/canonical.json",
+      "sha256": "688852fc6a8ad158d39fd3287d45740cb1d7f51371a042389a55693a70d15ec8",
+      "bytes": 96604
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0027/intent.json",
+      "sha256": "b005ff355d61eb8fea92860fc52e4c0347bd2c1958abb2c78e2bbb241b70af74",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0027/result.json",
+      "sha256": "cb2b4aa5ef821067573ac89cce34db2298b06937137f7f3e8aec0e51294b72a2",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0029/canonical.json",
+      "sha256": "17f6ef88edde0ce2f4da22f1353dd86e3f50a5db50b6711ef93ddd1b945b0836",
+      "bytes": 63382
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0029/intent.json",
+      "sha256": "7de4caeb644a2bbb9d14cec1554f01d46e0659f66138c5e234f11bb9e3c54140",
+      "bytes": 354
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0029/result.json",
+      "sha256": "30999ec3a9290d0ddc92a22cb0216a71fb4ade6b4d6593dfad00eb50b63ec983",
+      "bytes": 2231
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0036/canonical.json",
+      "sha256": "fe3d0d312f6055b49fcd1068b31776bc995eccac2d81763eb920137971aca823",
+      "bytes": 66607
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0036/intent.json",
+      "sha256": "d81f3ca5cb010d231eec1f31fd5a2a957602e6f111002eef8b50869bcdf8ec7d",
+      "bytes": 355
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/0036/result.json",
+      "sha256": "47df5e16bcf50e153bb2a51f267f08b09cdfbf7337953d0e9b171b11d9972f9e",
+      "bytes": 2234
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v1-control-40/plan.json",
+      "sha256": "64615a8599ab14fb44ff44d201cdd4269651545f2f79a0877167d17060282bdb",
+      "bytes": 40063
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/canonical.json",
+      "sha256": "bbca69f3c5f39a80169a52bc90f7dc4dfbacf057bbb8e54a592f49e5af2a2677",
+      "bytes": 78290
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/intent.json",
+      "sha256": "46e5f226f15b65f67148d128c8af0529e78c6a55e9f8623c9c168e7f9c691c0e",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0005/result.json",
+      "sha256": "7b2960e6a05df22cf043c72d333d559b25921b4217b6001caf2bbac25f71ea08",
+      "bytes": 2244
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/canonical.json",
+      "sha256": "449321d6735c82f1d982d16fec4b2734245c6ab7791b4eccca87c21897ea005c",
+      "bytes": 54721
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/intent.json",
+      "sha256": "a09d65cda13dfbf483635a0710da811e98cd7df3e307cc8d4440751244cb35d6",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0010/result.json",
+      "sha256": "d6c0acba9f2404f6ae3e22f41a69fe8f3d24114a891b4590730b422d950fba4d",
+      "bytes": 2248
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/canonical.json",
+      "sha256": "e54aa39bb78768bb20a8bae15ff11245a840e81c409e946f92147dd2e609716a",
+      "bytes": 107996
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/intent.json",
+      "sha256": "a1b39d2ad9d2453d32e8adad4324530568a5e7fafb88e893f4cd64da3b402429",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/0017/result.json",
+      "sha256": "9f3746c961702ee351e9903965a032e664fd15850882c0b62f80d75d0771478d",
+      "bytes": 2249
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-candidate-40/plan.json",
+      "sha256": "f314aeadea19e4b443e83e6d9bd93bcf33eb783b3ae261eb8b992e36082b2f48",
+      "bytes": 106105
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/canonical.json",
+      "sha256": "6d92a7dd2822f0f01e3b41a0c40cd15246e91886e1c274bbd496127d40c492ca",
+      "bytes": 89668
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/intent.json",
+      "sha256": "65f01d68b0c296801bd163efd7d499f46abf8d6532b7dad860d2f15ef5c86828",
+      "bytes": 353
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0005/result.json",
+      "sha256": "6d4936fb20260edd3bcfc6e95f73e4ff4ebfd795ddcfecf1c20dfc4ea820372d",
+      "bytes": 2232
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/canonical.json",
+      "sha256": "86b557827d6ce0463266488a70cff68add83c2c75a98b55c4614a8b12eaab678",
+      "bytes": 45304
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/intent.json",
+      "sha256": "3942cf2fce7880ae61540f3ab38814fa7fe6079843316a80875abca8899082b6",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0010/result.json",
+      "sha256": "1c49ee3620b5b64ab625781f9f7e96f9766da098532a2dfedf3888ff90fd59ec",
+      "bytes": 2235
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/canonical.json",
+      "sha256": "cda913aab8229796cba9224af3b3d25210bb3493f6872143aa58def04a0dd078",
+      "bytes": 95589
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/intent.json",
+      "sha256": "955de1e75f9e01020991107578d3c927417941870b9f608c4c97676503a7cf12",
+      "bytes": 356
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/0017/result.json",
+      "sha256": "a97653405cf920fdbd63ecdb3fd8e004a7d4eb83187c02342bc5db1a874c3cfb",
+      "bytes": 2237
+    },
+    {
+      "path": "build/cg-boss/v09-batched-refresh-boss-v2-control-40/plan.json",
+      "sha256": "1fc3723c350a6237ef69c76d829a8c82b9251284e67cbfab073ddb7a1b3bf63f",
+      "bytes": 42950
+    },
+    {
+      "path": "docs/BOTS.md",
+      "sha256": "6df7f8404bb529fb141ead711861b808877847d69488d8fea63bb377373a29ce",
+      "bytes": 165095
+    },
+    {
+      "path": "docs/DEVLOG.md",
+      "sha256": "18101399a5cd6b37f5ec45c8d68fa0774ca0ac98b54bb36156290ac5e2525eef",
+      "bytes": 568543
+    },
+    {
+      "path": "docs/evidence/v09-batched-loss-diagnosis-v1.json",
+      "sha256": "346a33027dd07afadeb391034e33fcebba681aaa17ba46132f0026f0a8fc9a85",
+      "bytes": 16724
+    },
+    {
+      "path": "docs/PLAN.md",
+      "sha256": "8595800e08c8f78f3fcfedc0159a4a27751c4ff376ad796da8e84431b2447bce",
+      "bytes": 104351
+    },
+    {
+      "path": "docs/v09-batched-loss-diagnosis-v1.md",
+      "sha256": "005f88e1c9b21faa6691653ab81072bc8a524a3149204fe4ce0cf7f05f0e3391",
+      "bytes": 12779
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909150731.json",
+      "sha256": "6ede67bd8065fbcaa575526ab162382672ffa41b99b1d077e90479da4ebb0a72",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909151076.json",
+      "sha256": "06537da8e4e930b35a3f134c739ffaeabf0d929e5714a0ed885d2566f111da23",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909151906.json",
+      "sha256": "cf1c7d87e75fb6b832e561e72cbe56179b2c56e636e10b6730a3f4d699b03ee7",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909151959.json",
+      "sha256": "ba52b7fa6a92d0ea6921f7393e18cc9a87fef3d131741db22c962ca0be76c312",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909152338.json",
+      "sha256": "50877acab4aa18b79853c07360e225fedfab14ed446da450efec2bbe5b4f15de",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909152509.json",
+      "sha256": "67f528d99159cbea8bf65b03d5f246042100670f070899c7165fb1d3c2f603d1",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909153059.json",
+      "sha256": "d5571af7bae2243e31e93357cbcc05bb5b9c00be523e791f6f563ff97f1c4ee4",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909153741.json",
+      "sha256": "082b5c90350ec899661b38aa81d70d90266c9b2b34ce77680dfa2bd93b29c183",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909154041.json",
+      "sha256": "a8ce6cd45c84671900a2f04a8f9a5c01562e6d5a0c4e819afdbc853771c1b372",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909154529.json",
+      "sha256": "3adf75e6b9647e4bef7f25e213ecb006f136de3d796ab53354a5cce4a6251793",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909154597.json",
+      "sha256": "5ba9745639908412638561324e16196c4da9e5d34930ca59d463c1c4f9bdc602",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909154892.json",
+      "sha256": "43f3d8324c841ddec582645f12c2dd3d943bcb0391063ab868a523a6ec2d6723",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909154992.json",
+      "sha256": "bf2034612ae0e4767bd9ae519f473dcc9978ffc8e8ff0d68f4a7b956ef6689e2",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909155317.json",
+      "sha256": "c7273ab3c45ed215695225f5fc35d362a096d1cd69dbf052b3178a08a99e8c72",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157507.json",
+      "sha256": "d495406b30f4119aec46e560e4beb02455cd29d0494ca514512aafeb91712e86",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909157779.json",
+      "sha256": "c2f6e29b9ea23470fa9de138f46124c4cd2bf9c43842ded44aa36d833ca19413",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909158082.json",
+      "sha256": "7390f4451d194d4765a4dd2e59be1c6b7afc2df1322f7d963cb327623408087e",
+      "bytes": 1117
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168672.json",
+      "sha256": "c2e7640205c8f3e1294a73db7a1dacd3ba30f662447c3355d5ff8261c55cd597",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909168879.json",
+      "sha256": "2107071d0babcba9442c0f7cf4200c2c900d62df527bbf98d64dc1c8fce08546",
+      "bytes": 1129
+    },
+    {
+      "path": "replays/cg/boss/_metadata/909169114.json",
+      "sha256": "9af87dbf70825b6ed7b4528f87c13a38f9ec08e5ccb7b92e69c1e2fbca1949c5",
+      "bytes": 1129
+    }
+  ],
+  "fileCount": 217,
+  "bytesBeforeCompression": 27477186,
+  "priorArchiveAndSummaryReferences": [
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1.json",
+      "sha256": "a75ca8da5bfd0561e3aa24148fb5fff8e25fe0cce1d51f6988abdac78c39fc70",
+      "bytes": 1097791
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1-artifacts.json",
+      "sha256": "6eb28d7a194718dc27717bdaad38be5120837e915af3d46cb4bc98ed38e3d25b",
+      "bytes": 568338
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1-artifacts.zip",
+      "sha256": "d9f4060cf888c12d5a33e0b670f28205ccca7548e1465bc5167c979e75707728",
+      "bytes": 28307701
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1.json",
+      "sha256": "9cf68b6cedee881c84f1e84893210d7b59fa4e9d185a5a9bda982189aa5923b2",
+      "bytes": 1384561
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.json",
+      "sha256": "552f18b6eef9123ec890c84590bb6c20c5c8c07a518ff2d0458a6a52d952a761",
+      "bytes": 128850
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.zip",
+      "sha256": "cfbca48cb1ce6ae3689ea3e5da317e07ff1f672a304ac08927b2662ef6687cd0",
+      "bytes": 4611953
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v2.json",
+      "sha256": "822827e394bf9abf8fe9def1bf6bd4ac4cd5b1acbfe00f208d6289330a53bb91",
+      "bytes": 139913
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v2-artifacts.json",
+      "sha256": "02343e422c980504f8a1248afad8734da6fe5f222ffa8ba2ff8806098906160d",
+      "bytes": 144787
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-boss-v2-artifacts.zip",
+      "sha256": "0ac9d4146047c74032fe334e5c37811acad3f17502447d65188745b7e8185524",
+      "bytes": 4003184
+    }
+  ],
+  "unchangedFrozenInputs": 3497,
+  "externalRuntimeHashReferences": {
+    "C:\\Disk_D\\Programs\\Python\\python.exe": "fda7026477256845afab371e354c4d512896665f1761939cb5887d0a9dec257a",
+    "C:\\Program Files\\Java\\jdk-17\\bin\\java.exe": "9da06bd6c880c0c8d1a63e3716f8ef7996f146c41e6d339e4eafc93df28392f9",
+    "C:\\Program Files\\Java\\jdk-17\\bin\\server\\jvm.dll": "0d0dffd2f99760ff850b03afa179e60b4730f982377fdf475d6428084889ae25",
+    "C:\\Program Files\\Java\\jdk-17\\lib\\modules": "81f0e1bb87cd303ddcce2b216e27da416bd20799d9a9811ea1b070123cefff0f",
+    "C:\\Program Files\\Java\\jdk-17\\release": "00d3211a59bc9f2577f93962e9210de8578c49fd2625022cb38606817d3a71f9",
+    "C:\\Users\\garus\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.gson\\gson\\2.11.0\\527175ca6d81050b53bdd4c457a6d6e017626b0e\\gson-2.11.0.jar": "57928d6e5a6edeb2abd3770a8f95ba44dce45f3b23b7a9dc2b309c581552a78b",
+    "C:\\Users\\garus\\.gradle\\caches\\modules-2\\files-2.1\\com.google.errorprone\\error_prone_annotations\\2.27.0\\91b2c29d8a6148b5e2e4930f070d4840e2e48e34\\error_prone_annotations-2.27.0.jar": "24c923372c58e35d0b9f16a028929bb9aedc77521867c274f2bd0735df5ba1f5"
+  },
+  "scope": "Offline diagnosis only; ten paired regression canonical sets embedded; remaining historical inputs retained by individual pins and prior archive references.",
+  "privateMaterialIncluded": false,
+  "transportBodiesIncluded": false,
+  "verification": "All frozen inputs and every ZIP entry verified by SHA256; write-once output."
+}

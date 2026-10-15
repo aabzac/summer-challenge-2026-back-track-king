@@ -13,6 +13,25 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Offline diagnosis 2026-10-16: **v09-batched-loss-diagnosis-v1**, completed with
+no strategy change or new games. All10 candidate-loss/v09-win pairs among68
+completed pairs included (7 original+3 additional);20 replays/1363 turns exact.
+All first own differences occur on identical states at turns1–3, before the
+boss diverges;6 are protected-opening decisions. Actual-parameter ample panel:
+761states/2283calls, frozen v09/current OFF/ON actions, work and value bits exact.
+Zero missed guaranteed immediate one-hit winning closures in761 candidate states.
+Six largest income drops involve known one-hit cuts; both native replies already
+predict the correct target in6/6, and one-turn consequences match in5/6 with
+recorded own actions. Thus omitted sabotage is not the supported explanation.
+Core-only60 crossings identify v2-010/t11 as a concrete recovery hypothesis:
+forecast income3:15→62:13 over8 turns, recorded continuation14:28; different
+later actions/RNG prevent causal attribution. Next diagnostic: repeated selection
+of the promised repair, with saved wins as controls. Late v1-020 self-closing
+loss already has a forced boss win via region19; no recovered win is claimed.
+Batching OFF, selected v09 and prior verdicts unchanged. These ten pairs are
+development-exposed; refresh boss control before confirming a new strategy.
+[Diagnosis and retained evidence](v09-batched-loss-diagnosis-v1.md).
+
 Additional exploratory boss series 2026-10-16: **v09-batched-refresh-boss-v2**,
 **INCOMPLETE_TRANSPORT / ORIGINAL_NOT_PASSED_UNCHANGED**. User requests another
 40 games per arm with five-minute pauses after each twenty. Fresh control40

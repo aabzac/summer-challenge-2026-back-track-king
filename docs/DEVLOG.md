@@ -7311,3 +7311,62 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [Protocol](v09-batched-refresh-boss-v2.md),
   [interrupted result](v09-batched-refresh-boss-v2-result.md),
   [evidence](evidence/v09-batched-refresh-boss-v2.json).
+
+## 2026-10-16 - v09-batched-loss-diagnosis-v1: known cuts, uncertain recovery
+
+- Request/hypothesis: while the extra boss run is service-limited, inspect
+  candidate defeats on maps where v09 won. Look for construction, sabotage,
+  closing or model weaknesses without new games or changing the candidate.
+- Fixed cohort: all10 such pairs among68 completed matched pairs,7 original and
+  3 additional. Overall paired counts12 better/10 worse/7 both win/39 both lose
+  are descriptive; the unfinished12 candidate slots remain unscored. Preserve
+  original NOT_PASSED and additional INCOMPLETE_TRANSPORT verdicts.
+- Engine/trajectory check:20/20 canonical replays exact,761 candidate+602 control
+  turns. All first own accepted-action differences occur on identical full states
+  at turns1–3, before boss differences. Nine involve construction;6 occur in
+  protected opening. Same-state first-action swaps tie immediate points9/10;
+  v2-010 candidate loses4 immediate points and earns first on turn6 versus3.
+  These are not full-game causal counterfactuals.
+- Exact generated-artifact check: actual NOISE0.1, 5000ms ample, persistent
+  instances per recorded candidate trajectory, serial rotating order. All2283
+  calls complete;761/761 actions/shared work/value bits match across frozen
+  v09/current OFF/ON. Recorded candidate actions match369 and differ392; ample
+  RNG history does not reconstruct live timed searches. No semantic batching
+  defect found in this panel, no new timing certification.
+- Fixed native probes: first own divergence, earliest largest income-margin
+  drop and terminal pre-turn per pair,30states/90 artifact inspections. Six
+  are protected opening;24 expose the selected native root. All three artifacts
+  match. Six have unmodelled final fill, a known issue already tested by the
+  rejected root-fill experiment, not a new batching bug.
+- Main observation:6 largest income-margin drops involve a visible instability3
+  region hit by the boss. Possible pair counts do not fall; active income and
+  route allocation change. Both native replies predict the actual target6/6,
+  full boss action matches2/6. A distinct post-hoc magnitude subgroup in the
+  derived summary is explicitly labelled and is not this six-case panel.
+- Bounded follow-up:54 core-only crossings (recorded/ample raw/ample full own
+  action versus recorded/native0/native1 reply) plus6 terminal combinations;
+  all60 complete with zero policy calls. With recorded own action, one native
+  reply matches immediate score/income/terminal in5/6. Eight-turn model score
+  margins versus recorded continuation are both higher3/6, lower2/6, mixed1/6;
+  general over-optimism is not established.
+- Concrete hypothesis: v2-010/t11 native reply1 exactly matches the boss and
+  reproduces income3:15, score margin+70 with the ample own action. Native
+  eight-turn continuation reaches62:13,+180; actual continuation14:28,+24,
+  final loss24. Subsequent own/boss decisions and RNG differ. Check whether
+  repeated selection executes the promised repair before choosing a narrow fix.
+- Closing/timing: zero candidate missed guaranteed immediate one-hit winning
+  closures, zero against the recorded boss reply with the same construction.
+  v1-020/t83 own/boss DISRUPT18 jointly ends a loss; withholding own hit survives
+  that reply but boss DISRUPT19 already forces the loss. No recovered win.
+  Two later WARN>50ms events in the ten defeats are not recorded server failures
+  or proof of causality; missing live search counters prevent attribution.
+- Decision: diagnostic complete, no production changes or new strength/live
+  games. Keep batching OFF/v09 selected. Do not blindly reopen rejected risk,
+  root-fill, diverse-reply or own-replan experiments. Next optional bounded
+  diagnostic is recovery execution on v2-010 plus other cut states and saved
+  wins. Mark the ten pairs development-exposed and refresh boss control before
+  confirmation of any outcome-guided strategy candidate. Retain raw results,
+  exact artifacts, independent review and archive; commit locally, no push.
+  [Report](v09-batched-loss-diagnosis-v1.md),
+  [evidence](evidence/v09-batched-loss-diagnosis-v1.json),
+  [archive index](evidence/v09-batched-loss-diagnosis-v1-artifacts.json).

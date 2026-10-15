@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 1,
+  "experiment": "v09-batched-loss-diagnosis-v1",
+  "at": "2026-10-15T22:43:07.405548+00:00",
+  "status": "DIAGNOSIS_COMPLETE_NO_STRATEGY_CHANGE",
+  "complete": true,
+  "offlineOnly": true,
+  "gamesCreated": 0,
+  "productionCodeChanged": false,
+  "promotionPerformed": false,
+  "selectedVersion": "v09",
+  "batchingDefault": false,
+  "originalFormalVerdict": "NOT_PASSED_UNCHANGED",
+  "additionalBossSeriesStatus": "INCOMPLETE_TRANSPORT_UNCHANGED",
+  "candidateSlotsStillUnfinished": 12,
+  "cohort": {
+    "matchedPairs": 68,
+    "candidateWins": 19,
+    "controlWins": 17,
+    "classCounts": {
+      "BOTH_LOSS": 39,
+      "IMPROVEMENT": 12,
+      "BOTH_WIN": 7,
+      "REGRESSION": 10
+    },
+    "regressionsAnalysed": 10,
+    "originalSeriesRegressions": 7,
+    "additionalSeriesRegressions": 3,
+    "selection": "All completed matched pairs with candidate LOSS and v09 WIN; no failure-case cherry-picking within that condition."
+  },
+  "conventions": {
+    "turns": "zero-based",
+    "income": "[our bot, boss]",
+    "scoreMargins": "our score minus boss score"
+  },
+  "replayValidation": {
+    "exactCanonicalReplays": 20,
+    "candidateTurns": 761,
+    "controlTurns": 602
+  },
+  "firstDivergences": {
+    "sameFullStateAll10": true,
+    "turnRangeInclusive": [
+      1,
+      3
+    ],
+    "beforeBossDivergenceAll10": true,
+    "constructionDifferences": 9,
+    "targetOnlyDifferences": 1,
+    "protectedOpeningDifferences": 6,
+    "immediatePointTies": 9,
+    "immediateCandidateWorse": 1,
+    "worseCase": "v2-010",
+    "worseDelta": -4
+  },
+  "model": {
+    "ampleMs": 5000,
+    "noise": 0.1,
+    "mainPlayCalls": 2283,
+    "completePositions": 761,
+    "artifacts": [
+      "frozen-v09",
+      "current-OFF",
+      "current-ON"
+    ],
+    "actionCommonWorkValueParity": true,
+    "pairwisePositionComparisons": 1522,
+    "selectedProbePositions": 30,
+    "crossArtifactProbeInspections": 90,
+    "openingProbePositions": 6,
+    "nativeRootProbePositions": 24,
+    "additionalNativeRolloutEvaluations": 114,
+    "recordedCandidateActionMatches": 369,
+    "recordedCandidateActionDifferences": 392,
+    "firstSplitAmpleMatch": {
+      "recordedControl": 5,
+      "recordedCandidate": 2,
+      "neither": 3
+    },
+    "rawFullConstructionMismatchPositions": 6,
+    "workPerArtifact": {
+      "identicalAcrossV09OffOn": true,
+      "routeQueries": 75017,
+      "completedComparisons": 6411,
+      "simulatedTurns": 94734,
+      "ordinaryComparisons": 4929,
+      "networkComparisons": 1482,
+      "selectedValueRawBitsParityComparisons": 1522
+    },
+    "historicalRngOrCutoffReconstructed": false,
+    "newTimingCertification": false
+  },
+  "oneHitIncomeCollapses": {
+    "cases": [
+      "v1-006/t21",
+      "v1-011/t21",
+      "v1-020/t19",
+      "v1-021/t20",
+      "v2-010/t11",
+      "v2-017/t25"
+    ],
+    "visibleRegionInstability": 3,
+    "possiblePairCountUnchanged": 6,
+    "nativeTargetMatchesBothReplies": 6,
+    "nativeFullFirstBossActionMatchesAnyReply": 2,
+    "immediateScoreIncomeTerminalMatchesAnyReplyWithRecordedOwnAction": 5,
+    "eightTurnNativeScoreMarginsVersusRecorded": {
+      "bothHigher": 3,
+      "bothLower": 2,
+      "mixed": 1
+    },
+    "coreOnlyCrossings": 54,
+    "notEvidenceThatAllContinuationForecastsAreOptimistic": true
+  },
+  "closing": {
+    "missedGuaranteedImmediateOneHitWins": 0,
+    "missedImmediateWinsAgainstRecordedReplyWithSameConstruction": 0,
+    "selfContributedPrematureLossCases": [
+      "v1-020/t83"
+    ],
+    "terminalCoreOnlyCrossings": 6,
+    "qualification": "Withholding own DISRUPT18 survives the recorded boss18 reply, but boss DISRUPT19 forces a loss against either own action. No recovered win."
+  },
+  "timing": {
+    "recordedServerFailuresInSelectedPairs": 0,
+    "candidateLaterWarnAbove50Ms": [
+      {
+        "case": "v1-020/t32",
+        "ms": 51
+      },
+      {
+        "case": "v1-036/t12",
+        "ms": 58
+      }
+    ],
+    "warningsAreNotServerTimeoutProof": true,
+    "historicalSearchCountersAvailable": false,
+    "prior75MsNativeObservationResolved": false
+  },
+  "nextDiagnostic": {
+    "status": "PROPOSED_NOT_STARTED",
+    "hypothesis": "Forecast repair/recovery after a correctly anticipated cut may not be executed by repeated actual move selection.",
+    "primaryCase": "v2-010/t11",
+    "exactRecordedBossReply": 1,
+    "ampleActionFirstStep": {
+      "income": [
+        3,
+        15
+      ],
+      "scoreMargin": 70
+    },
+    "nativeEightTurnContinuation": {
+      "income": [
+        62,
+        13
+      ],
+      "scoreMargin": 180
+    },
+    "recordedEightTurnContinuation": {
+      "income": [
+        14,
+        28
+      ],
+      "scoreMargin": 24
+    },
+    "recordedFinalMargin": -24,
+    "candidateControls": "Other five cut cases and saved wins; exact complete first action, actual noise and time budget.",
+    "causalRecoveredWinEstablished": false,
+    "qualification": "Own initial construction, later own/boss actions and RNG history differ; these values are a diagnostic lead, not an identical-policy forecast error."
+  },
+  "cacheExposure": {
+    "developmentExposedPairs": [
+      "v1-006",
+      "v1-011",
+      "v1-020",
+      "v1-021",
+      "v1-027",
+      "v1-029",
+      "v1-036",
+      "v2-005",
+      "v2-010",
+      "v2-017"
+    ],
+    "refreshBossControlBeforeNewOutcomeGuidedStrategyConfirmation": true,
+    "unfinishedUnchangedCandidateSeriesRemainsExploratory": true
+  },
+  "pairSummaries": [
+    {
+      "pairKey": "v1-006",
+      "candidateGameId": 909153741,
+      "controlGameId": 909150731,
+      "seat": 0,
+      "candidateControlTurns": [
+        100,
+        47
+      ],
+      "candidateControlFinalMargins": [
+        -985,
+        1174
+      ],
+      "firstOwnDivergenceTurn": 1,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 2,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 21,
+        "before": [
+          201,
+          38
+        ],
+        "after": [
+          54,
+          20
+        ],
+        "bossTarget": 37,
+        "inkedRegions": [
+          3,
+          37
+        ]
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v1-011",
+      "candidateGameId": 909154041,
+      "controlGameId": 909151076,
+      "seat": 0,
+      "candidateControlTurns": [
+        100,
+        69
+      ],
+      "candidateControlFinalMargins": [
+        -1521,
+        1621
+      ],
+      "firstOwnDivergenceTurn": 2,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 4,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 21,
+        "before": [
+          154,
+          93
+        ],
+        "after": [
+          108,
+          242
+        ],
+        "bossTarget": 43,
+        "inkedRegions": [
+          43
+        ]
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v1-020",
+      "candidateGameId": 909154529,
+      "controlGameId": 909151906,
+      "seat": 1,
+      "candidateControlTurns": [
+        84,
+        44
+      ],
+      "candidateControlFinalMargins": [
+        -191,
+        50
+      ],
+      "firstOwnDivergenceTurn": 3,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 5,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 19,
+        "before": [
+          60,
+          32
+        ],
+        "after": [
+          33,
+          51
+        ],
+        "bossTarget": 22,
+        "inkedRegions": [
+          22
+        ]
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": true
+    },
+    {
+      "pairKey": "v1-021",
+      "candidateGameId": 909154597,
+      "controlGameId": 909151959,
+      "seat": 0,
+      "candidateControlTurns": [
+        64,
+        63
+      ],
+      "candidateControlFinalMargins": [
+        -788,
+        921
+      ],
+      "firstOwnDivergenceTurn": 1,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 4,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 20,
+        "before": [
+          271,
+          94
+        ],
+        "after": [
+          53,
+          55
+        ],
+        "bossTarget": 20,
+        "inkedRegions": [
+          20
+        ]
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v1-027",
+      "candidateGameId": 909154892,
+      "controlGameId": 909152338,
+      "seat": 1,
+      "candidateControlTurns": [
+        68,
+        100
+      ],
+      "candidateControlFinalMargins": [
+        -2186,
+        662
+      ],
+      "firstOwnDivergenceTurn": 1,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 4,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 36,
+        "before": [
+          17,
+          50
+        ],
+        "after": [
+          67,
+          288
+        ],
+        "bossTarget": 22,
+        "inkedRegions": []
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v1-029",
+      "candidateGameId": 909154992,
+      "controlGameId": 909152509,
+      "seat": 1,
+      "candidateControlTurns": [
+        100,
+        51
+      ],
+      "candidateControlFinalMargins": [
+        -1006,
+        1314
+      ],
+      "firstOwnDivergenceTurn": 3,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 4,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 15,
+        "before": [
+          33,
+          25
+        ],
+        "after": [
+          65,
+          122
+        ],
+        "bossTarget": 24,
+        "inkedRegions": []
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v1-036",
+      "candidateGameId": 909155317,
+      "controlGameId": 909153059,
+      "seat": 1,
+      "candidateControlTurns": [
+        47,
+        59
+      ],
+      "candidateControlFinalMargins": [
+        -464,
+        793
+      ],
+      "firstOwnDivergenceTurn": 2,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 6,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 18,
+        "before": [
+          97,
+          95
+        ],
+        "after": [
+          121,
+          180
+        ],
+        "bossTarget": 42,
+        "inkedRegions": []
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v2-005",
+      "candidateGameId": 909168672,
+      "controlGameId": 909157507,
+      "seat": 0,
+      "candidateControlTurns": [
+        72,
+        63
+      ],
+      "candidateControlFinalMargins": [
+        -692,
+        42
+      ],
+      "firstOwnDivergenceTurn": 3,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 4,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 29,
+        "before": [
+          73,
+          17
+        ],
+        "after": [
+          59,
+          90
+        ],
+        "bossTarget": 40,
+        "inkedRegions": []
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v2-010",
+      "candidateGameId": 909168879,
+      "controlGameId": 909157779,
+      "seat": 0,
+      "candidateControlTurns": [
+        53,
+        44
+      ],
+      "candidateControlFinalMargins": [
+        -24,
+        360
+      ],
+      "firstOwnDivergenceTurn": 3,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 4,
+      "immediateFirstActionPointDifference": -4,
+      "largestIncomeMarginDrop": {
+        "turn": 11,
+        "before": [
+          52,
+          13
+        ],
+        "after": [
+          3,
+          15
+        ],
+        "bossTarget": 22,
+        "inkedRegions": [
+          22
+        ]
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    },
+    {
+      "pairKey": "v2-017",
+      "candidateGameId": 909169114,
+      "controlGameId": 909158082,
+      "seat": 1,
+      "candidateControlTurns": [
+        73,
+        62
+      ],
+      "candidateControlFinalMargins": [
+        -1374,
+        1166
+      ],
+      "firstOwnDivergenceTurn": 1,
+      "sameFullState": true,
+      "firstBossDivergenceTurn": 7,
+      "immediateFirstActionPointDifference": 0,
+      "largestIncomeMarginDrop": {
+        "turn": 25,
+        "before": [
+          215,
+          187
+        ],
+        "after": [
+          115,
+          246
+        ],
+        "bossTarget": 34,
+        "inkedRegions": [
+          34
+        ]
+      },
+      "missedGuaranteedClosingTurns": 0,
+      "missedClosingAgainstRecordedReplyTurns": 0,
+      "selfContributedPrematureLoss": false
+    }
+  ],
+  "inputs": [
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/scope.json",
+      "sha256": "17d3e6672343ad8d4389338a5c119c73680cc3dd01a172f9ac857bf1d26ba519",
+      "bytes": 1874
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/cohort.json",
+      "sha256": "e395518ea2c9565009e58abc9ca0958a61185794b35b8eba182b5c5f2685c08b",
+      "bytes": 1561545
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/input-freeze.json",
+      "sha256": "745012d0443858e3a50d9734ca43f123e67ed3e4bbb5811fa2e8d0281f3321d4",
+      "bytes": 474176
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/telemetry-summary.json",
+      "sha256": "ee52d584d8a41d2b42d320b881daef8d47e776d4f50fa59d24978ebc4aed441c",
+      "bytes": 18913
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory.json",
+      "sha256": "c219c598fd5c16a6365316b9f950f9e93aadc95548128e9078ab5b20a644461d",
+      "bytes": 18095484
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/trajectory-summary.json",
+      "sha256": "2766c3cd358075a4da0716f30775b8410aac8c5ca7fd1fb3a31400126d9b8e52",
+      "bytes": 61714
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-freeze.json",
+      "sha256": "b7605e006ec70f8f2cbd7e739970757fe83aee8814f16546b97163f02e4e0040",
+      "bytes": 1261
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model.json",
+      "sha256": "f74964f4d1ae07fd081e8fd9380cf8573733ea1fc3ee34fe5942416c7afa1e21",
+      "bytes": 3376917
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/model-summary.json",
+      "sha256": "fb04932fd610ce9b2ff10a38fabd665ffb5e95be2c82250881ee77cdc77c16ba",
+      "bytes": 58795
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-plan.json",
+      "sha256": "55bf2226a9671beb7b51f4f2b0201f3f6c0de58e808c54ad4860c04db6a12d10",
+      "bytes": 1548
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-check.json",
+      "sha256": "cd23e5315d8d07e1d09a08d94e78063e1e5b4c795c363e92de2754914abacd3f",
+      "bytes": 121736
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/core-reply-summary.json",
+      "sha256": "1a556e91429f6bbdc9316d18a494b6c1310a00fbb6e581ec8c0ffa12206c5ab7",
+      "bytes": 56412
+    },
+    {
+      "path": "build/analysis/v09-batched-loss-diagnosis-v1/independent-review.json",
+      "sha256": "366f1a7a3949db80d6a6539f26c0051c18f2ad803bfae87193d4381840de40c2",
+      "bytes": 26591
+    }
+  ],
+  "retention": {
+    "archive": "docs/evidence/v09-batched-loss-diagnosis-v1-artifacts.zip",
+    "archiveIndex": "docs/evidence/v09-batched-loss-diagnosis-v1-artifacts.json",
+    "frozenInputFiles": 3497,
+    "frozenExternalRuntimeComponents": 7
+  },
+  "limitations": [
+    "Outcome-selected regression diagnosis, not a strength estimate.",
+    "Replay differences do not isolate the causal effect of timing or noise.",
+    "One-turn action swaps do not simulate an adapting boss or establish recovered wins.",
+    "Ample diagnostics do not certify the 50ms deadline.",
+    "Known broad risk/root-fill/diverse-reply/own-replan rejections are not reopened."
+  ]
+}

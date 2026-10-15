@@ -40,6 +40,19 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Validate all68 retained replays, paired outcomes, cooldown timestamps and
       original/new input pins; archive the incomplete evidence and record it
       locally. Keep batching OFF and selected v09; no promotion or arena upload.
+- [x] Diagnose all10 paired candidate losses where v09 won:20 exact replays,
+      761 candidate+602 control turns;761-state/2283-call exact ample parity,
+      30 selected native probes and60 core-only action/reply crossings. No new
+      games or missed guaranteed immediate winning one-hit closures. All six
+      largest-drop one-hit attacks are already predicted; investigate forecast
+      recovery rather than simply adding the same threat. No strategy change.
+      [Diagnosis](v09-batched-loss-diagnosis-v1.md).
+- [ ] Optional next diagnostic, not started: test repeated selection of the
+      forecast repair after v2-010/t11's known cut, with the other five cut cases
+      and saved wins as controls. Preserve full first action, actual noise and
+      time budget; distinguish abandoned repairs from wrong boss continuation.
+      Do not reopen rejected broad risk/root-fill flags or promote from this
+      outcome-selected sample. Refresh boss control for a new strategy candidate.
 
 ## v09 continuation diagnosis (2026-10-11)
 
