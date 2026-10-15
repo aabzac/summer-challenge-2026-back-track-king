@@ -213,12 +213,29 @@ public class FileMerger {
         StringBuilder body = new StringBuilder();
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
+        boolean turnBudgetOverride = BotFactory.parameters(spec).TURN_BUDGET_MS != 36;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             boolean deadlineBlock = false;
             boolean batchBlock = false;
+            boolean turnBudgetBlock = false;
             for (String line : Files.readAllLines(file)) {
+                if (line.trim().equals("// TURN_BUDGET_BEGIN")) {
+                    if (turnBudgetBlock) throw new IllegalArgumentException("Nested turn-budget block: " + file);
+                    turnBudgetBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// TURN_BUDGET_END")) {
+                    if (!turnBudgetBlock) throw new IllegalArgumentException("Unbalanced turn-budget block: " + file);
+                    turnBudgetBlock = false;
+                    continue;
+                }
+                if (turnBudgetBlock && !turnBudgetOverride) continue;
+                // Export preflight rejects the local-only neural proposal flag; its Params field
+                // is omitted from submissions, so fold only this guarded constructor check.
+                if (turnBudgetBlock && file.endsWith("MainBot.java"))
+                    line = line.replace("params.USE_NEURAL_TARGET_PROPOSAL", "false");
                 if (line.trim().equals("// BATCHED_REFRESH_BEGIN")) {
                     if (batchBlock) throw new IllegalArgumentException("Nested batch block: " + file);
                     batchBlock = true;
@@ -383,6 +400,7 @@ public class FileMerger {
             }
             if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
             if (batchBlock) throw new IllegalArgumentException("Unclosed batch block: " + file);
+            if (turnBudgetBlock) throw new IllegalArgumentException("Unclosed turn-budget block: " + file);
         }
 
         StringBuilder sb = new StringBuilder();

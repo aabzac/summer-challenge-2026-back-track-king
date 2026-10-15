@@ -22,12 +22,23 @@ public final class MainBot implements Bot {
 
     public MainBot(Params params) {
         this.params = params.copy();
+        // TURN_BUDGET_BEGIN
+        if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38)
+            throw new IllegalArgumentException("Turn budget must be 36 or 38 ms");
+        if (params.TURN_BUDGET_MS != 36 && (!params.USE_ROLLOUT_POLICY || params.USE_HEURISTIC_POLICY
+                || params.USE_NEURAL_TARGET_PROPOSAL))
+            throw new IllegalArgumentException("38 ms requires the current native rollout policy");
+        // TURN_BUDGET_END
         if (params.ISOLATED_ROUTE_WARMUP && (params.WARMUP_SLICE_MS <= 0
                 || params.USE_DISRUPT && params.WARMUP_SLICE_MS <= params.DISRUPT_RESERVE_MS)) {
             throw new IllegalArgumentException("Warmup slice must leave time beyond the sabotage reserve");
         }
         delegate = newStrategy(this.params);
     }
+
+    // TURN_BUDGET_BEGIN
+    public long turnBudgetMs() { return params.TURN_BUDGET_MS; }
+    // TURN_BUDGET_END
 
     public static Bot newStrategy(Params params) {
         if (params.USE_ROLLOUT_POLICY) return new RolloutBot(params);

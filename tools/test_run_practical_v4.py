@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import shutil
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 import uuid
 
 import run_practical_v4 as runner
@@ -64,6 +64,22 @@ class PracticalV4ExclusionTest(unittest.TestCase):
                 with self.assertRaisesRegex(SystemExit, 'expected positive integer map count'):
                     self.build()
                 self.assertFalse((self.folder / 'block2-excluded.json').exists())
+
+    def test_completed_block_uses_v4_budget_validator(self):
+        process = Mock(stdout=[], returncode=0)
+        validated = object()
+        pool = self.root / 'bench/pools/fixed.json'
+        excluded = self.folder / 'block1-excluded.json'
+        with patch.object(runner, 'ensure_pool', return_value=pool), \
+                patch.object(runner, 'build_exclusion_index', return_value=excluded), \
+                patch.object(runner.subprocess, 'Popen', return_value=process), \
+                patch.object(runner.gate, 'read_report', return_value=validated) as read, \
+                contextlib.redirect_stdout(io.StringIO()):
+            actual = runner.run_block('candidate', 'current?TURN_BUDGET_MS=38',
+                                      'current?TURN_BUDGET_MS=36', 'block1', 300, 150, 1)
+        self.assertIs(validated, actual)
+        read.assert_called_once_with(self.folder / 'block1.json', 300)
+        process.wait.assert_called_once_with()
 
 
 if __name__ == '__main__':

@@ -95,8 +95,12 @@ public final class BenchmarkRunner {
         public final Stratum behavior = new Stratum();
         public final Map<Integer, Stratum> byHeight = new TreeMap<>();
         public TimingProfile timingProfile = TimingProfile.CG;
+        /** Historical profile baselines; effective per-arm allowances are recorded separately. */
         public long firstSearchBudgetMs = TimingProfile.CG.firstSearchMs;
         public long turnSearchBudgetMs = TimingProfile.CG.turnSearchMs;
+        /** Effective nominal budgets by bot identity, independent of paired-game seat order. */
+        public long firstSearchBudgetMsA = TimingProfile.CG.firstSearchMs, firstSearchBudgetMsB = TimingProfile.CG.firstSearchMs;
+        public long turnSearchBudgetMsA = TimingProfile.CG.turnSearchMs, turnSearchBudgetMsB = TimingProfile.CG.turnSearchMs;
         public int games, winsA, winsB, draws, errorsA, errorsB;
         public int winsAasP0, gamesAasP0, winsAasP1, gamesAasP1;
         public long sumDiff;
@@ -169,8 +173,8 @@ public final class BenchmarkRunner {
                     botA.displayName(), botB.displayName(), games, pairs.size(), gamesPerMap.size()));
             sb.append("  catalog status A/B: ").append(botA.status()).append(" / ").append(botB.status()).append('\n');
             sb.append(String.format("  A win rate: %.1f%%  W-L-D %d-%d-%d%n", rateA() * 100, winsA, winsB, draws));
-            sb.append(String.format("  search timing: %s, first %d ms / later %d ms (nominal, no protocol/JIT warm-up)%n",
-                    timingProfile, firstSearchBudgetMs, turnSearchBudgetMs));
+            sb.append(String.format("  search timing: %s, effective first A/B %d/%d ms, later A/B %d/%d ms (nominal, no protocol/JIT warm-up)%n",
+                    timingProfile, firstSearchBudgetMsA, firstSearchBudgetMsB, turnSearchBudgetMsA, turnSearchBudgetMsB));
             sb.append(String.format("  map-grouped 95%% CI (Hoeffding): %.1f%% .. %.1f%%%n", ci[0] * 100, ci[1] * 100));
             sb.append(String.format("  legacy per-game Wilson (diagnostic only): %.1f%% .. %.1f%%%n", legacy[0] * 100, legacy[1] * 100));
             sb.append(String.format("  A as P0: %d/%d (%.1f%%)   A as P1: %d/%d (%.1f%%)%n",
@@ -199,6 +203,7 @@ public final class BenchmarkRunner {
             var gson = new GsonBuilder().setPrettyPrinting().create();
             var json = gson.toJsonTree(this).getAsJsonObject();
             json.addProperty("schemaVersion", 3);
+            json.addProperty("searchBudgetSemantics", "firstSearchBudgetMs/turnSearchBudgetMs are profile baselines; A/B-suffixed fields are effective per-bot nominal budgets, preserved when seats swap");
             json.addProperty("confidenceMethod", "map-grouped Hoeffding 95%; assumes independent representative maps");
             json.add("confidence95", gson.toJsonTree(confidence95()));
             json.addProperty("promotionGatePassed", promotionGatePassed());
@@ -284,6 +289,9 @@ public final class BenchmarkRunner {
         stats.timingProfile = timing;
         stats.firstSearchBudgetMs = timing.firstSearchMs;
         stats.turnSearchBudgetMs = timing.turnSearchMs;
+        stats.firstSearchBudgetMsA = stats.firstSearchBudgetMsB = timing.firstSearchMs;
+        stats.turnSearchBudgetMsA = timing.turnBudget(specA);
+        stats.turnSearchBudgetMsB = timing.turnBudget(specB);
         stats.baseSeed = baseSeed;
         stats.threads = threads;
         long started = System.nanoTime();
@@ -308,9 +316,10 @@ public final class BenchmarkRunner {
                     GameState initial = initialMaps.get(pairIndex);
                     String hash = hashes.get(pairIndex);
                     Referee referee = new Referee();
-                    timing.apply(referee);
+                    timing.apply(referee, specA, specB);
                     Referee.Result first = referee.play(initial, bots.apply(specA), bots.apply(specB), seed, false);
                     if (Thread.currentThread().isInterrupted()) throw new InterruptedException("benchmark cancelled");
+                    timing.apply(referee, specB, specA);
                     Referee.Result second = referee.play(initial, bots.apply(specB), bots.apply(specA), seed, false);
                     return new PairResult(pairIndex, seed, maps.name(pairIndex, seed), hash,
                             initial.width, initial.height, initial.townCount, initial.pairCount, first, second);

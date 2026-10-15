@@ -14,6 +14,7 @@ final class FrozenParams {
             Properties snapshot = new Properties();
             snapshot.load(input);
             if (snapshot.isEmpty()) throw new IllegalStateException("empty frozen parameters: " + resource);
+            if (!snapshot.containsKey("TURN_BUDGET_MS")) params.TURN_BUDGET_MS = 36;
             // Pre-v06 snapshots predate this selector and retain their original false value.
             if (!snapshot.containsKey("USE_ROLLOUT_POLICY")) params.USE_ROLLOUT_POLICY = false;
             // Pre-v07 snapshots must not inherit the newly selected construction policies.

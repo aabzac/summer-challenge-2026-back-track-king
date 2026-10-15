@@ -13,6 +13,11 @@ import java.lang.reflect.Modifier;
  */
 public class Params {
 
+    // TURN_BUDGET_BEGIN
+    /** Current native rollout experiment: later-turn allowance including input preparation. */
+    public int TURN_BUDGET_MS = 36;
+    // TURN_BUDGET_END
+
     /** Local strength prototype only; FileMerger refuses this option until packaging is implemented. */
     public boolean USE_NEURAL_TARGET_PROPOSAL = false;
 

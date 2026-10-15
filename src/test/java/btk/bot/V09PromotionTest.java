@@ -73,8 +73,9 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 21, fields, "19 retained later fields plus the neural-target proposal and missed-deadline flags");
+        assertEquals(expected.size() + 23, fields, "retained later fields plus proposal/deadline/batched flags and turn-budget override");
         FrozenParams.applyTo("v09", dirty);
+        assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);
         assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
         assertFalse(dirty.USE_ROLLOUT_MISSED_DEADLINE);

@@ -35,6 +35,19 @@ def local_fixture(n, half_wins, start=1, a='candidate', b='v08'):
             'gamesPerMap': {pair['mapHash']: 2 for pair in pairs}}
 
 
+def budget_fixture(n=300, half_wins=300, start=1, budget_a=38, budget_b=36):
+    data = local_fixture(n, half_wins, start)
+    for side, budget in (('A', budget_a), ('B', budget_b)):
+        data[side.lower()] = 'current?USE_BATCHED_REFRESH=true,TURN_BUDGET_MS=' + str(budget)
+        data['params' + side] = {'NOISE': '0.1', 'USE_BATCHED_REFRESH': 'true',
+                                 'USE_ROLLOUT_POLICY': 'true', 'USE_HEURISTIC_POLICY': 'false'}
+        if budget != 36:
+            data['params' + side]['TURN_BUDGET_MS'] = str(budget)
+        data['firstSearchBudgetMs' + side] = 486
+        data['turnSearchBudgetMs' + side] = budget
+    return data
+
+
 def cached_fixture(candidate_units=25, control_units=25, candidate_games=40):
     def arm(spec, feature, units, games, marker):
         wins, draws = divmod(units, 2)
@@ -207,6 +220,80 @@ class PracticalGateV4Test(unittest.TestCase):
             gate.assess(self.b1(320), self.b3(300))
         with self.assertRaisesRegex(ValueError, '500 games in block 3'):
             gate.assess(self.b1(320), self.b2(180), self.report(local_fixture(400, 240, start=S3)))
+
+    def test_explicit_asymmetric_budgets_preserve_raw_evidence_and_futility_rules(self):
+        report = self.report(budget_fixture(half_wins=299))
+        original = Path(report['path']).read_bytes()
+        self.assertEqual(hashlib.sha256(original).hexdigest(), report['sha256'])
+        self.assertEqual(json.loads(original), report['data'])
+        result = gate.assess(report)
+        self.assertEqual('STOP_FUTILITY_300', result['directStage'])
+        self.assertEqual('explicit per arm', result['searchBudgetEvidence'])
+        self.assertEqual({'firstSearchBudgetMsA': 486, 'firstSearchBudgetMsB': 486,
+                          'turnSearchBudgetMsA': 38, 'turnSearchBudgetMsB': 36},
+                         result['effectiveSearchBudgetsMs'])
+        self.assertEqual(original, Path(report['path']).read_bytes())
+
+    def test_legacy_default_and_explicit_default_budgets_are_equivalent(self):
+        legacy = self.b1(300)
+        data = local_fixture(200, 200, S2)
+        data.update(dict(zip(gate.ARM_BUDGET_FIELDS, (486, 486, 36, 36))))
+        explicit = self.report(data)
+        result = gate.assess(legacy, explicit)
+        self.assertEqual('NEEDS_BLOCK3_1000', result['directStage'])
+        self.assertEqual(gate.effective_budgets(legacy), gate.effective_budgets(explicit))
+        self.assertNotIn('turnSearchBudgetMsA', legacy['data'])
+        self.assertIn('legacy', result['searchBudgetEvidence'])
+
+    def test_missing_partial_or_invalid_arm_budget_evidence_is_rejected(self):
+        for missing in (list(gate.ARM_BUDGET_FIELDS), [gate.ARM_BUDGET_FIELDS[0]]):
+            data = budget_fixture()
+            for field in missing:
+                del data[field]
+            with self.subTest(missing=missing), self.assertRaisesRegex(ValueError, 'budget evidence'):
+                self.report(data)
+        for field, value in [('firstSearchBudgetMsA', 1000), ('firstSearchBudgetMsB', 485),
+                             ('turnSearchBudgetMsA', 36), ('turnSearchBudgetMsB', 38),
+                             ('turnSearchBudgetMsA', 38.0), ('turnSearchBudgetMsA', '38'),
+                             ('turnSearchBudgetMsA', True), ('turnSearchBudgetMsA', None)]:
+            data = budget_fixture()
+            data[field] = value
+            with self.subTest(field=field, value=value), self.assertRaisesRegex(ValueError, 'Effective search budget'):
+                self.report(data)
+
+    def test_nondefault_budget_requires_matching_current_native_recipe(self):
+        mutations = [lambda d: d.update(a='current'),
+                     lambda d: d['paramsA'].pop('TURN_BUDGET_MS'),
+                     lambda d: d['paramsA'].update(TURN_BUDGET_MS='37'),
+                     lambda d: d.update(a=d['a'].replace('current', 'v09')),
+                     lambda d: d['paramsA'].update(USE_ROLLOUT_POLICY='false'),
+                     lambda d: d['paramsA'].pop('USE_ROLLOUT_POLICY'),
+                     lambda d: d['paramsA'].update(USE_HEURISTIC_POLICY='true'),
+                     lambda d: d['paramsA'].update(USE_NEURAL_TARGET_PROPOSAL='true')]
+        for index, mutate in enumerate(mutations):
+            data = budget_fixture()
+            mutate(data)
+            with self.subTest(mutation=index), self.assertRaises(ValueError):
+                self.report(data)
+
+    def test_effective_budget_changes_and_arm_swaps_between_blocks_are_rejected(self):
+        first = self.report(budget_fixture())
+        for a, b in ((36, 36), (36, 38), (38, 38)):
+            with self.subTest(a=a, b=b), self.assertRaisesRegex(ValueError, 'budgets changed'):
+                gate.assess(first, self.report(budget_fixture(200, 200, S2, a, b)))
+        result = gate.assess(first, self.report(budget_fixture(200, 200, S2)))
+        self.assertEqual('NEEDS_BLOCK3_1000', result['directStage'])
+
+    def test_assess_cannot_bypass_validation_using_legacy_reader(self):
+        report = self.report(budget_fixture())
+        data = json.loads(Path(report['path']).read_bytes())
+        for field in gate.ARM_BUDGET_FIELDS:
+            del data[field]
+        bypass_path = self.directory / 'legacy-reader.json'
+        bypass_path.write_text(json.dumps(data), encoding='utf-8')
+        parsed = v2_gate.read_report(bypass_path, 300)
+        with self.assertRaisesRegex(ValueError, 'Nondefault budget'):
+            gate.assess(parsed)
 
     def test_policy_labels_are_distinct_from_v2_and_v3(self):
         self.assertEqual('practical-1000-futility-boss-cache-v4', gate.POLICY)

@@ -60,7 +60,7 @@ public final class ProcessCheck {
             ProcessBot pb = ProcessBot.javaPlayer(classes.getParent().toString());
             if (diagnostics) pb.enableIoDiagnostics();
             pb.graceMs = graceMs;
-            Bot other = TimingProfile.CG.cap(BotFactory.create(opp));
+            Bot other = TimingProfile.CG.cap(BotFactory.create(opp), opp);
             boolean asP0 = g % 2 == 0;
             Referee ref = new Referee();
             // Process IO deadlines must not be reduced to the in-process search budget.

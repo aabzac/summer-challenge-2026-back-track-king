@@ -22,6 +22,8 @@ public final class Referee {
     public long slowMoveMs = 50;
     public long firstTurnBudgetMs = 1000;
     public long turnBudgetMs = 50;
+    /** Optional later-turn budgets by seat; -1 preserves the existing global allowance. */
+    public final long[] playerTurnBudgetMs = {-1, -1};
 
     public static final class Result {
         public final int[] score = new int[2];
@@ -49,6 +51,8 @@ public final class Referee {
     }
 
     public Result play(GameState initial, Bot b0, Bot b1, long seed, boolean record) {
+        for (long budget : playerTurnBudgetMs)
+            if (budget != -1 && budget <= 0) throw new IllegalArgumentException("Positive per-seat budget or -1 required");
         GameState s = initial.copy();
         Pathing pathing = new Pathing(s.size);
         Rules.updateConnections(s, pathing);
@@ -60,8 +64,9 @@ public final class Referee {
         while (!Rules.gameOver(s, pathing)) {
             @SuppressWarnings("unchecked")
             List<Action>[] acts = new List[2];
-            long budget = s.turn == 0 ? firstTurnBudgetMs : turnBudgetMs;
             for (int p = 0; p < 2; p++) {
+                long budget = s.turn == 0 ? firstTurnBudgetMs
+                        : playerTurnBudgetMs[p] < 0 ? turnBudgetMs : playerTurnBudgetMs[p];
                 long t0 = System.nanoTime();
                 try {
                     acts[p] = bots[p].play(s.copy(), p, budget);

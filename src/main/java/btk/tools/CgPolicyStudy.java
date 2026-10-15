@@ -31,8 +31,9 @@ public final class CgPolicyStudy {
         Path dir = Path.of(args.length > 0 && !args[0].isEmpty() ? args[0] : "replays/cg");
         String botSpec = args.length > 1 && !args[1].isEmpty() ? args[1] : null;
         TimingProfile timing = TimingProfile.parse(args.length > 2 ? args[2] : "cg");
+        long laterBudgetMs = botSpec == null ? timing.turnSearchMs : timing.turnBudget(botSpec);
         if (botSpec != null) System.out.printf("search timing: %s, first %d ms / later %d ms%n",
-                timing, timing.firstSearchMs, timing.turnSearchMs);
+                timing, timing.firstSearchMs, laterBudgetMs);
 
         int games = 0, ended100 = 0, closedByLeader = 0, closedByTrailer = 0, leaderWonEarly = 0;
         long topTurns = 0, topDisruptTurns = 0, topPaint = 0, topPaintMax = 0, topXY = 0;
@@ -95,7 +96,7 @@ public final class CgPolicyStudy {
                 }
                 // --- our bot on the same state ---
                 if (bot != null) {
-                    List<Action> mine = bot.play(s.copy(), top, timing.budget(t));
+                    List<Action> mine = bot.play(s.copy(), top, t == 0 ? timing.firstSearchMs : laterBudgetMs);
                     Set<Integer> myCells = new HashSet<>();
                     int myRegion = -1;
                     for (Action a : mine) {

@@ -3,6 +3,21 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 budget38 experiment (2026-10-16)
+
+- [x] Isolate38ms against36ms on the same batched-refresh/NOISE0.1 base.
+      Preserve first-turn/warmup/external deadlines and default/frozen exports;
+      verify actual per-arm budgets and seat swaps. Candidate90,607 characters,
+      engine292/292 exact; retain unrelated preflight-suite failures transparently.
+- [x] Complete fixed16 exact-artifact process games: PASS, zero errors/timeouts/
+      overruns/missing replies,1,505 later responses, p9940.7075/max44.3156ms.
+- [x] After process PASS, complete300 local paired games on150 fresh maps,
+      two workers:143W145L12D,49.6667%,zero errors. STOP_FUTILITY_300;
+      no block2/3, retry, extension or boss games. No strength gain established.
+- [x] Retain36ms, batching OFF and selected v09; archive exact inputs/results,
+      record this completed experiment and commit locally without promotion.
+      [Protocol and result](v09-budget38-v1.md).
+
 ## v09 batched refresh (2026-10-15)
 
 - [x] On the user's selection, implement the destination-batched refresh as a

@@ -22,9 +22,10 @@ rescued by boss results. The v2 and v3 checkers and their historical verdicts st
 import argparse
 import json
 from pathlib import Path
+import re
 
 from boss_practical_gate import BOSS_GAMES, checked_boss
-from practical_gate import compact, fresh, read_report, require, same_bot, same_conditions
+from practical_gate import compact, fresh, read_report as _legacy_read_report, require, same_bot, same_conditions
 
 POLICY = 'practical-1000-futility-boss-cache-v4'
 BLOCK_GAMES = (300, 200, 500)
@@ -32,6 +33,63 @@ CUMULATIVE = (300, 500, 1000)
 PASS_GAMES = 1000
 PASS_PERCENT = 55
 FUTILITY_PERCENT = 50
+ARM_BUDGET_FIELDS = ('firstSearchBudgetMsA', 'firstSearchBudgetMsB',
+                     'turnSearchBudgetMsA', 'turnSearchBudgetMsB')
+
+
+def _turn_budget(data, side):
+    """Resolve only the prospective timing option; other recipe checks remain unchanged."""
+    params, spec = data['params' + side], data[side.lower()]
+    require(isinstance(params, dict) and isinstance(spec, str), f'Missing arm {side} recipe')
+    value = params.get('TURN_BUDGET_MS', '36')
+    require(isinstance(value, str) and value in ('36', '38'),
+            f'Unsupported TURN_BUDGET_MS for arm {side}')
+    version, separator, query = spec.partition('?')
+    requested = None
+    if separator:
+        for item in re.split('[&,]', query):
+            key, equals, setting = item.partition('=')
+            if key.strip() == 'TURN_BUDGET_MS':
+                require(bool(equals) and setting.strip() in ('36', '38'),
+                        f'Invalid TURN_BUDGET_MS specification for arm {side}')
+                requested = setting.strip()
+    require((requested if requested is not None else '36') == value,
+            f'TURN_BUDGET_MS specification/parameters differ for arm {side}')
+    if value == '38':
+        require(version == 'current' and params.get('USE_ROLLOUT_POLICY') == 'true'
+                and params.get('USE_HEURISTIC_POLICY', 'false') == 'false'
+                and params.get('USE_NEURAL_TARGET_PROPOSAL', 'false') == 'false',
+                f'38 ms requires the current native rollout policy for arm {side}')
+    return int(value)
+
+
+def effective_budgets(report):
+    """Validate actual arm budgets without modifying the legacy report or its raw hash.
+
+    Shared 486/36 fields identify the CG baseline. New reports additionally state the
+    effective budgets by bot identity. Historical reports can infer the baseline only
+    when neither arm requests an override.
+    """
+    data = report['data']
+    require(data['timingProfile'] == 'CG' and data['firstSearchBudgetMs'] == 486
+            and data['turnSearchBudgetMs'] == 36, 'Expected CG baseline budgets 486/36')
+    expected = dict(zip(ARM_BUDGET_FIELDS, (486, 486, _turn_budget(data, 'A'), _turn_budget(data, 'B'))))
+    present = [field in data for field in ARM_BUDGET_FIELDS]
+    require(not any(present) or all(present), 'Partial per-arm search budget evidence')
+    if not any(present):
+        require(expected['turnSearchBudgetMsA'] == expected['turnSearchBudgetMsB'] == 36,
+                'Nondefault budget requires explicit per-arm search budget evidence')
+        return expected
+    for field, value in expected.items():
+        require(type(data[field]) is int and data[field] == value,
+                f'Effective search budget differs from recipe: {field}')
+    return expected
+
+
+def read_report(path, games):
+    report = _legacy_read_report(path, games)
+    effective_budgets(report)
+    return report
 
 # A frozen version id used as the local control is the same bot as the measured `current`
 # artifact whose 40 boss games are cached (docs/vNN-promotion.md pins both); the cached record
@@ -88,6 +146,8 @@ def _below(half, games, percent):
 def _link(previous, report, used):
     """A later block must share settings and both bot arms and use only fresh maps."""
     same_conditions(previous, report)
+    require(effective_budgets(previous) == effective_budgets(report),
+            'Effective per-arm search budgets changed between blocks')
     same_bot(previous, 'A', report, 'A')
     same_bot(previous, 'B', report, 'B')
     fresh(report, used)
@@ -95,6 +155,11 @@ def _link(previous, report, used):
 
 
 def assess(block1, block2=None, block3=None, boss=None):
+    # Some retained callers parse through the old reader before invoking assess directly.
+    # Validate here too so they cannot bypass prospective per-arm timing checks.
+    for report in (block1, block2, block3):
+        if report is not None:
+            effective_budgets(report)
     require(block1['data']['games'] == BLOCK_GAMES[0], 'Expected exactly 300 games in block 1')
     result = {
         'policy': POLICY,
@@ -105,6 +170,9 @@ def assess(block1, block2=None, block3=None, boss=None):
         'priorLocalExperimentFreshness': 'not assessed here; prospective exclusions remain required',
         'crossDomainFreshness': 'not assessed: local Protocol.initBlock and CG global.graphics use different hash schemes; the pinned boss pool is intentionally reused and external setup must exclude it from local blocks',
         'promotion': False,
+        'effectiveSearchBudgetsMs': effective_budgets(block1),
+        'searchBudgetEvidence': 'explicit per arm' if ARM_BUDGET_FIELDS[0] in block1['data']
+                               else 'legacy CG baseline inferred; no override',
     }
     inputs = [block1]
     used = set(block1['maps'])

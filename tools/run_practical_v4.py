@@ -21,11 +21,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import practical_gate_v4 as gate  # noqa: E402
-from practical_gate import read_report  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 BENCH = ROOT / 'build/bench'
-# name, games, pairs, seed offset, cumulative games after this block
+# name, games, pairs, seed offset (cumulative counts are defined by the gate)
 BLOCKS = [('block1', 300, 150, 0), ('block2', 200, 100, 100_000), ('block3', 500, 250, 200_000)]
 
 
@@ -103,7 +102,7 @@ def run_block(name, spec, control, block, games, pairs, seed_start):
         proc.wait()
     if proc.returncode != 0:
         raise SystemExit(f'bench failed with exit code {proc.returncode}; see {block}.log')
-    return read_report(out, games)
+    return gate.read_report(out, games)
 
 
 def main():

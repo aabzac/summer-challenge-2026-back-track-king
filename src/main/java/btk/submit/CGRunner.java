@@ -59,6 +59,9 @@ public class CGRunner {
         int turn = 0;
         while (reader.hasNext()) {
             long budget = (turn == 0 ? FIRST_TURN_MS : TURN_MS) - MARGIN_MS;
+            // TURN_BUDGET_BEGIN
+            if (turn > 0 && bot instanceof MainBot main) budget = main.turnBudgetMs();
+            // TURN_BUDGET_END
             long t0 = System.nanoTime();
             Protocol.TurnInfo ti = Protocol.readTurn(reader, s, myId);
             s.turn = turn;

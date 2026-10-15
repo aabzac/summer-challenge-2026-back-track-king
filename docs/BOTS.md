@@ -13,6 +13,20 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Budget experiment2026-10-16: **v09-budget38-v1**, **STOP_FUTILITY_300**.
+Same batched-refresh/NOISE0.1 native strategy in both arms; only later internal
+allowance38ms vs36ms. First/warmup/external1000/50 unchanged. Exact38 export
+90,607/100,000 characters;36 export byte-identical to prior batched candidate.
+Strict16-game panel PASS:1,505 later responses, p9940.7075/max44.3156ms,
+zero errors/timeouts/overruns/missing;16 first replies max634.2294ms.
+Conditional local block on150 fresh paired maps: **143W145L12D/300 =49.6667%**,
+zero errors, two workers, actual later budgets38/36. Stop below50% at300;
+no further blocks or boss games. Timing fits this local sample; strength gain
+not established. Keep36ms, batching OFF and selected v09; no promotion.
+Full-suite preflight retained25 unrelated failures after repairing three
+inventory assertions; relevant checks and292/292 engine replays pass.
+[Protocol and result](v09-budget38-v1.md), [evidence](evidence/v09-budget38-v1.json).
+
 Timing telemetry audit 2026-10-16: **v09-budget-telemetry-v1**, read-only;
 no new games, policy calls or budget changes. Current target36ms within50ms,
 margin14ms; WARN logs only integer totals>36 after stdout flush. Candidate68:

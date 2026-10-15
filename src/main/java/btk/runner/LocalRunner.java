@@ -24,9 +24,9 @@ public final class LocalRunner {
         Bot b1 = BotFactory.create(spec1);
         Referee ref = new Referee();
         TimingProfile timing = TimingProfile.parse(args.length > 4 ? args[4] : "cg");
-        timing.apply(ref);
-        System.out.printf("search timing: %s, first %d ms / later %d ms%n",
-                timing, timing.firstSearchMs, timing.turnSearchMs);
+        timing.apply(ref, spec0, spec1);
+        System.out.printf("search timing: %s, first %d ms / later P0/P1 %d/%d ms%n",
+                timing, timing.firstSearchMs, ref.playerTurnBudgetMs[0], ref.playerTurnBudgetMs[1]);
         Referee.Result r = ref.play(initial, b0, b1, seed, true);
         r.replay.describeLocalBots(spec0, spec1);
         System.out.printf("%s vs %s on %s (%dx%d, %d towns, %d pairs)%n", BotCatalog.displayName(spec0), BotCatalog.displayName(spec1),

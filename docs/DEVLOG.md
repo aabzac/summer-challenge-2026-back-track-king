@@ -7406,3 +7406,45 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   Keep36ms/margin14, selectedv09 and all historical verdicts. No test started.
   [Report](v09-budget-telemetry-v1.md),
   [evidence](evidence/v09-budget-telemetry-v1.json).
+
+## 2026-10-16 - v09-budget38-v1: timing PASS, strength STOP_FUTILITY_300
+
+- User requests38ms, full response/timeouts under50ms first, and strength against
+ 36ms only after readiness PASS. Predeclare fixed16 process games then conditional
+ v4 300/+200/+500, two workers; no live work, promotion, tuning or retries.
+ Both arms use current native rollout, batching ON and NOISE0.1; missed-deadline
+ correction OFF. This is a budget-effect study, not combined promotion vs v09.
+- Add opt-in Params.TURN_BUDGET_MS=38 with default36, later-only CGRunner budget,
+ preserved margin14 constant/first1000/warmup500 and preparation deduction.
+ Per-seat Referee/TimingProfile budgets follow bots across paired seat swaps;
+ actual firstA/B486 and laterA38/B36 are explicit in reports and v4 validation.
+ Frozen/default exports remain exact; old v2/v3 gate tools remain unchanged.
+- Preflight: new budget/process/submission37 checks and31 Python tests pass;
+ engine292/292 exact. Full suite766/28 failures preserved: three parameter counts
+ repaired (previous batching flag also omitted), then all13 V07/V08/V09 tests pass.
+ Remaining25:18 old catalog Pathing pins,1 old target-size Pathing baseline,
+ 6 unrelated untracked unregistered Pduhard tests. All13 core-class paths match
+ pre-edit bytes; no core/pin/unrelated-source change, no claim of full-suite PASS.
+ Initial launcher/cache-access issues and a freeze-helper baseline-inventory
+ correction occurred before any measurement; no timing/strength retry.
+- Candidate90,607 characters, source979cbac253699737deb01dc8ce44c99265d5362170db29f8b0e7e79edbfd1992;
+ control90,129/source2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a.
+ Freeze7,622 inputs+8 runtimes before measurements. All500 prospective maps
+ unique/disjoint from23,624 prior identities; fixed8 process maps/both seats.
+- Strict16 process games complete once:PASS, zero errors/timeouts/nominaloverruns/
+ missing replies. All1,505 later responses:median32.4234,p9539.9376,p9940.7075,
+ p99.9=44.0861,max44.3156ms; none>45ms. First16 median587.72005/max634.2294ms.
+ Independent124-check raw audit confirms coverage, hashes, commands and counters.
+ This is local observed readiness, not a universal timing guarantee.
+- Conditional strength block1, seeds261016000..261016149:143W145L12D/300,
+ 149points=49.6667%,two workers,zero errors,150 fresh paired maps,390.915seconds.
+ **STOP_FUTILITY_300** because pooled score<50%. No block2/3, extension, boss,
+ arena action or promotion. Native-call diagnostic maxA46/maxB98ms, slowA0/B2;
+ counters include first turns/no turnIDs, not full-response timeouts or evidence
+ of a safer38ms budget. Preserve outliers without outcome-guided reruns.
+- Decision:38ms fits the declared process sample but has no established strength
+ benefit. Keep36ms, batching OFF, selected v09 and historical verdicts. Retain
+ optional budget/harness for reproduction, exact artifacts/raw results and
+ independent audits, then commit the completed rejected experiment locally.
+ [Report](v09-budget38-v1.md), [evidence](evidence/v09-budget38-v1.json),
+ [archive index](evidence/v09-budget38-v1-artifacts.json).

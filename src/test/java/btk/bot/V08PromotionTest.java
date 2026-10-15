@@ -72,9 +72,10 @@ class V08PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size() + 20, fields,
-                "retained later fields plus the neural-target proposal and missed-deadline flags");
+        assertEquals(expected.size() + LiveTargetExperimentParams.DEFAULTS.size() + 22, fields,
+                "retained later fields plus proposal/deadline/batched flags and turn-budget override");
         FrozenParams.applyTo("v08", dirty);
+        assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_ROLLOUT_MISSED_DEADLINE);
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
