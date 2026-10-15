@@ -1,0 +1,84 @@
+package btk.submit;
+
+import btk.bot.BotFactory;
+import btk.bot.Params;
+import btk.bot.current.RolloutBot;
+import btk.referee.MapGenerator;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import javax.tools.ToolProvider;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Map;
+import java.util.TreeMap;
+import static org.junit.jupiter.api.Assertions.*;
+
+class BatchedRefreshSubmissionTest {
+    private static final String CANDIDATE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
+    @TempDir Path temp;
+
+    @Test void disabledFlagPreservesSelectedFrozenAndPreviousCandidateArtifacts() throws Exception {
+        assertFalse(new Params().USE_BATCHED_REFRESH);
+        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                FileMerger.sha256(FileMerger.merge("current")));
+        assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+                FileMerger.sha256(FileMerger.merge("v09")));
+        assertEquals("3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
+                FileMerger.sha256(FileMerger.merge("current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
+        for (String spec : new String[]{"current", "v09", "neural-v1", "spatial-ppo-v10"}) {
+            assertFalse(FileMerger.merge(spec).contains("batchedRefresh"));
+            assertFalse(BotFactory.configuration(spec).containsKey("USE_BATCHED_REFRESH"));
+        }
+        for (String spec : new String[]{"v09?USE_BATCHED_REFRESH=true",
+                "current?USE_BATCHED_REFRESH=true,USE_ROLLOUT_POLICY=false"})
+            assertThrows(IllegalArgumentException.class, () -> BotFactory.create(spec));
+        Map<String, String> expected = new TreeMap<>(BotFactory.configuration("current"));
+        expected.put("USE_BATCHED_REFRESH", "true");
+        assertEquals(expected, BotFactory.configuration(CANDIDATE));
+        assertFalse(BotFactory.parameters(CANDIDATE).USE_ROLLOUT_MISSED_DEADLINE);
+        assertEquals(BotFactory.parameters("v09").NOISE, BotFactory.parameters(CANDIDATE).NOISE);
+    }
+
+    @Test void candidateFitsAndCompactionPreservesTokensAndAllExecutableClasses() throws Exception {
+        String plain = FileMerger.mergeUncompressed(CANDIDATE), compact = FileMerger.merge(CANDIDATE);
+        FileMerger.checkSourceSize(compact);
+        assertTrue(compact.contains("USE_BATCHED_REFRESH=true"));
+        assertTrue(compact.contains("updateReusableConnections"));
+        assertFalse(compact.contains("deadlinePending"));
+        assertFalse(compact.contains("btk.tools"));
+        assertFalse(compact.contains("btk.referee"));
+        String a = FileMerger.normalizeMarker(plain), b = FileMerger.normalizeMarker(compact);
+        assertEquals(JavaSourceCompactor.tokens(a), JavaSourceCompactor.tokens(b));
+        assertEquals(compile(a, "plain"), compile(b, "compact"));
+    }
+
+    @Test void allFourRolloutBoardsOptInOnlyForCandidate() throws Exception {
+        for (boolean enabled : new boolean[]{false, true}) {
+            Params params = new Params(); params.USE_BATCHED_REFRESH = enabled;
+            RolloutBot bot = new RolloutBot(params);
+            bot.init(MapGenerator.generate(241015L), 0);
+            for (String name : new String[]{"work", "completion", "targetBoard", "inkBoard"}) {
+                var boardField = RolloutBot.class.getDeclaredField(name); boardField.setAccessible(true);
+                Object board = boardField.get(bot);
+                var flag = board.getClass().getDeclaredField("batchedRefresh"); flag.setAccessible(true);
+                assertEquals(enabled, flag.getBoolean(board), name);
+            }
+        }
+    }
+
+    private Map<String, String> compile(String source, String name) throws Exception {
+        Path directory = temp.resolve(name), classes = directory.resolve("classes");
+        Files.createDirectories(classes);
+        Path file = directory.resolve("Player.java"); Files.writeString(file, source);
+        assertEquals(0, ToolProvider.getSystemJavaCompiler().run(null, null, null,
+                "-encoding", "UTF-8", "--release", "17", "-g:none", "-d", classes.toString(), file.toString()));
+        Map<String, String> result = new TreeMap<>();
+        try (var files = Files.walk(classes)) {
+            for (Path generated : files.filter(Files::isRegularFile).toList())
+                result.put(classes.relativize(generated).toString(), java.util.HexFormat.of().formatHex(
+                        java.security.MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(generated))));
+        }
+        assertFalse(result.isEmpty());
+        return result;
+    }
+}

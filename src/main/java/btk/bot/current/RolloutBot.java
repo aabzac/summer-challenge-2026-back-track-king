@@ -173,8 +173,17 @@ public final class RolloutBot implements Bot {
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
         if (p.USE_ROLLOUT_ALL_CELL_RISK) tactical = new TacticalPathing(s.size);
+        // BATCHED_REFRESH_BEGIN
+        if (p.USE_BATCHED_REFRESH) {
+            work = new SearchState(s, true); completion = new SearchState(s, true);
+            targetBoard = new SearchState(s, true); inkBoard = new SearchState(s, true);
+        } else {
+        // BATCHED_REFRESH_END
         work = new SearchState(s); completion = new SearchState(s);
         targetBoard = new SearchState(s); inkBoard = new SearchState(s);
+        // BATCHED_REFRESH_BEGIN
+        }
+        // BATCHED_REFRESH_END
         routes = new int[2][p.ROLLOUT_WIDTH][s.size];
         lengths = new int[2][p.ROLLOUT_WIDTH]; values = new double[2][p.ROLLOUT_WIDTH];
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];

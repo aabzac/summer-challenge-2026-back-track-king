@@ -5,6 +5,9 @@ public final class SearchState {
     public final GameState state;
     private final Pathing pathing;
     private final int[][] paths;
+    // BATCHED_REFRESH_BEGIN
+    private boolean batchedRefresh;
+    // BATCHED_REFRESH_END
 
     public SearchState(GameState initial) {
         state = initial.copy();
@@ -13,6 +16,14 @@ public final class SearchState {
         set(initial);
         refresh();
     }
+    // BATCHED_REFRESH_BEGIN
+
+    /** Opt-in search optimization; the default constructor and initial setup stay unchanged. */
+    public SearchState(GameState initial, boolean batchedRefresh) {
+        this(initial);
+        this.batchedRefresh = batchedRefresh;
+    }
+    // BATCHED_REFRESH_END
 
     public void set(GameState source) {
         if (source == state) return;
@@ -22,6 +33,12 @@ public final class SearchState {
     }
 
     public void refresh() {
+        // BATCHED_REFRESH_BEGIN
+        if (batchedRefresh) {
+            pathing.updateReusableConnections(state, paths);
+            return;
+        }
+        // BATCHED_REFRESH_END
         // Existing Pathing supplies the canonical shortest path and directional tie-break.
         // Per-pair calls retain our buffers even when a connection disappears and reappears.
         for (int p = 0; p < state.pairCount; p++) {

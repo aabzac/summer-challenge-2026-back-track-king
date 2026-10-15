@@ -99,6 +99,25 @@ public final class Pathing {
     }
 
     private int[][] townDist;
+    // BATCHED_REFRESH_BEGIN
+
+    /** SearchState-owned output buffers; one BFS per destination, no per-refresh allocation. */
+    void updateReusableConnections(GameState s, int[][] paths) {
+        for (int to = 0; to < s.townCount; to++) {
+            boolean ready = false;
+            for (int p = 0; p < s.pairCount; p++) {
+                if (s.pairTo[p] != to) continue;
+                if (!ready) {
+                    bfsFrom(s, s.townCell[to]);
+                    ready = true;
+                }
+                int n = walk(s, s.townCell[s.pairFrom[p]], s.townCell[to], dist, paths[p]);
+                s.pairPath[p] = n < 0 ? null : paths[p];
+                s.pairPathLen[p] = Math.max(0, n);
+            }
+        }
+    }
+    // BATCHED_REFRESH_END
 
     /**
      * Recomputes every pair's active connection with one BFS per destination town instead of one

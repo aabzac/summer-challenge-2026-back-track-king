@@ -7171,3 +7171,49 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [summary](evidence/v09-deferred-strength-v1.json),
   [archive index](evidence/v09-deferred-strength-v1-artifacts.json),
   [archive](evidence/v09-deferred-strength-v1-artifacts.zip).
+
+## 2026-10-15 - v09-batched-refresh-v1: local strength pass on clean v09
+
+- User selected the first remaining-plan option: batch canonical path refresh
+  on ordinary v09, independently of the rejected missed-deadline candidate.
+  Hypothesis: less redundant path work lets the unchanged timed search complete
+  more useful comparisons. Candidate `current?NOISE=0.1,USE_BATCHED_REFRESH=true`
+  versus `v09?NOISE=0.1`; deadline OFF in both, no parameter/guard/timer changes.
+- Add opt-in SearchState constructor/refresh and a Pathing helper: one existing
+  BFS per used destination, then existing N/E/S/W walk into existing pair buffers.
+  All four rollout scratch states opt in together. No per-node allocation or
+  cross-state cache. Legacy constructor/frozen bot packages stay unchanged.
+  Marker stripping preserves prior exports; candidate-only lexical compaction
+  preserves tokens/executable bytes and fits90,129 characters, SHA256
+  2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a.
+- Preflight:159 focused tests+4 diagnostic tests pass;292 CG replays exact.
+  All524 fixed positions from four games/both seats have exact ample actions,
+  value bits and semantic diagnostics across frozen v09/current-OFF/candidate.
+  Equal work takes33,878→20,960ms (-38.13%); nominal complete searches234→298,
+  comparisons2143→3299. Timed action differences are expected from cutoff/RNG
+  history; frozen-v09/OFF also differ under timing, while ample decisions match.
+- Preparation-only metadata guard initially rejected two false current-only
+  fields omitted by frozen v09. Retain failure, narrow the omission allowance,
+  verify/reuse the original read-only captures. No strategy change or measured
+  retry. Register all three fresh seed pools251015000/251115000/251215000,
+  exclude23,044 prior map identities, freeze2,912 files and seven runtimes.
+- Exact-artifact process: fixed four maps/both seats,8/8 PASS,zero errors,
+  timeouts or nominal overruns.678 later responses,max46.7275ms; firstmax601.2576
+  against1000ms. No grace, JFR, filtering or retries. Selected export untouched.
+- Complete prospective v4 on two workers at486/36ms: block1 168W112L20D/300
+  (59.3333%); block2 99W84L17D/200 (pooled57.1%/500); block3 268W206L26D/500.
+  Final535W402L63D/1000 = **56.65% points, PASS_1000**,zero errors. All500 paired
+  maps fresh/disjoint;1575.537s total. No early pass, tuning or extensions.
+- Native call maxima75/48ms,slow1/0. The candidate outlier is seed251215005/P1
+  (candidate won); aggregate reports have no turn number. Referee counts above
+  50ms even on the first486ms turn, so no late-turn timeout or cause is established.
+  Preserve the observation and distinguish it from strict process8/8; no rerun.
+- Independent audits verify row semantics, full configuration, seeds/seats,
+  freshness, process identity and pooled gate. Frozen inputs/runtimes unchanged.
+  Decision: LOCAL_PASS_1000 / PROCESS_SAMPLE_PASS / BOSS_NOT_RUN. Keep batching
+  OFF and v09 selected pending separately authorized valid matched40-game boss
+  comparison and promotion. No arena upload, boss games or push. Retain evidence
+  and commit locally. [Protocol/result](v09-batched-refresh-v1.md),
+  [summary](evidence/v09-batched-refresh-v1.json),
+  [archive index](evidence/v09-batched-refresh-v1-artifacts.json),
+  [archive](evidence/v09-batched-refresh-v1-artifacts.zip).

@@ -212,11 +212,24 @@ public class FileMerger {
         Set<String> imports = new TreeSet<>();
         StringBuilder body = new StringBuilder();
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
+        boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             boolean deadlineBlock = false;
+            boolean batchBlock = false;
             for (String line : Files.readAllLines(file)) {
+                if (line.trim().equals("// BATCHED_REFRESH_BEGIN")) {
+                    if (batchBlock) throw new IllegalArgumentException("Nested batch block: " + file);
+                    batchBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BATCHED_REFRESH_END")) {
+                    if (!batchBlock) throw new IllegalArgumentException("Unbalanced batch block: " + file);
+                    batchBlock = false;
+                    continue;
+                }
+                if (batchBlock && !batchedRefresh) continue;
                 if (line.trim().equals("// MISSED_DEADLINE_BEGIN")) {
                     if (deadlineBlock) throw new IllegalArgumentException("Nested deadline block: " + file);
                     deadlineBlock = true;
@@ -369,6 +382,7 @@ public class FileMerger {
                         && (code.endsWith(";") || code.endsWith("{") || code.endsWith("}")))) body.append('\n');
             }
             if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
+            if (batchBlock) throw new IllegalArgumentException("Unclosed batch block: " + file);
         }
 
         StringBuilder sb = new StringBuilder();
@@ -382,7 +396,7 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
-        if (compactCandidate && version.equals("current") && missedDeadline) {
+        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh)) {
             normalized = JavaSourceCompactor.compact(normalized);
             String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
             if (normalized.indexOf(compactMarker) < 0

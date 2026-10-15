@@ -13,6 +13,23 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Completed optimization experiment 2026-10-15: **v09-batched-refresh-v1**,
+**LOCAL_PASS_1000 / PROCESS_SAMPLE_PASS / BOSS_NOT_RUN**. Candidate
+`current?NOISE=0.1,USE_BATCHED_REFRESH=true` versus `v09?NOISE=0.1`,
+missed-deadline OFF: **535W402L63D/1000,56.65% points**,500 fresh paired maps,
+zero errors. Interim pooled59.3333%/300 and57.1%/500; no early pass or tuning.
+One allocation-free BFS per destination within each SearchState refresh;
+strategy, canonical path ties and timers unchanged. All524 ample positions
+match frozen/current-OFF exactly; identical work takes38.13% less wall time.
+Nominal comparisons2143→3299; completed searches234→298.163 tests pass,
+292 CG replays exact,90,129-character export; prior exports remain exact.
+Strict process8/8 clean,678 later responses,max46.7275ms. Local strength has
+one75ms native-call outlier; its turn/cause are unknown and the counter also
+includes first turns. Preserve this limitation, no timing retry. All2,912
+frozen inputs+7 runtimes unchanged. Batch flag stays OFF, v09 stays selected;
+40 matched boss games remain required before promotion, with cache validity
+checked first. [Protocol and evidence](v09-batched-refresh-v1.md).
+
 Completed local strength experiment 2026-10-11: **v09-deferred-strength-v1**,
 **STOP_FUTILITY_300 / LOCAL_NOT_PASSED_AND_PROCESS_FAILED**. Exact tested
 `current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true` versus selected frozen v09:

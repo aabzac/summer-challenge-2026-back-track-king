@@ -3,6 +3,28 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 batched refresh (2026-10-15)
+
+- [x] On the user's selection, implement the destination-batched refresh as a
+      separate default-off optimization on clean v09, NOISE0.1 in both arms,
+      missed-deadline OFF. Preserve allocation-free buffers, canonical ties,
+      frozen/default exports and search/guard/timer behavior.
+- [x] Complete163 tests,292 exact CG replays and all524 captured positions:
+      ample actions/values/work exact across frozen v09, OFF and ON. Equal-work
+      wall time falls38.13%; nominal comparisons2143→3299, complete234→298.
+- [x] Export90,129/100,000 characters and complete strict8-game process sample:
+      no errors/timeouts/overruns, later response max46.7275ms. Preserve source,
+      classes and all raw evidence; do not replace the selected submission.
+- [x] Complete practical-v4 strength300/+200/+500 on500 new paired maps:
+      535W402L63D/1000,56.65%,zero errors,LOCAL_PASS_1000. One75ms native-call
+      outlier retained, turn/cause unknown (counter includes first turns).
+      Verify2,912 frozen files+7 runtimes; keep flag OFF and selected v09.
+      [Protocol, results and evidence](v09-batched-refresh-v1.md).
+- [ ] Before any separately authorized promotion, validate/refresh the matched
+      boss-control cache as required and play exactly40 new candidate boss games.
+      No boss upload, strategy promotion or push is part of the completed local
+      experiment; the native-call timing outlier remains a documented limitation.
+
 ## v09 continuation diagnosis (2026-10-11)
 
 - [x] Complete [v09-continuation-v1](v09-continuation-v1.md): all40 saved v09 games,
@@ -66,9 +88,11 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Select one follow-up: allocation-free canonical refresh with one BFS per
       destination town. Measured refresh samples40.26%; preserve paths/ties, full
       construction, all W/A/Wr0 guards and timers. No production implementation yet.
-- [ ] On a separate follow-up, implement the selected opt-in refresh optimization;
-      require core differential tests/cgValidate, ample parity, actual r33t40,
-      six WIN controls, source100k and zero-grace exact-artifact process check.
+- [x] On the later user selection, implement the refresh idea in
+      [v09-batched-refresh-v1](v09-batched-refresh-v1.md), as a separate clean-v09
+      experiment after the deadline candidate's rejection. Core/ample/size/process
+      checks pass. The earlier r33t40 acceptance proposal applied to the enabled
+      deadline candidate; that flag stays OFF in this new experiment.
 - [x] On the user's benchmark request, evaluate the existing exact enabled candidate
       versus selected v09 in [v09-deferred-strength-v1](v09-deferred-strength-v1.md).
       Whole-candidate recipes retain NOISE0 versus0.1; no new batching implementation.

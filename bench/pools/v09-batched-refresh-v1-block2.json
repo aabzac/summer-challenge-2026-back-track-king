@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "v09-batched-refresh-v1-block2",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 251115000,
+  "pairs": 100
+}
