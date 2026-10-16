@@ -13,6 +13,22 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Exploratory boss follow-up 2026-10-16: **v09-boss-budget40-followup-v1**,
+**COMPLETE_EXPLORATORY / HISTORICAL_NOT_PASSED_UNCHANGED**. Complete the old
+batched36 v2 panel with 12 new games: final **10W30L**, cached v09 **11W29L**.
+Then exactly 40 unchanged budget40 games on the same maps/seeds/seats/order:
+**13W27L**. Paired 40-vs-36: better7/worse4/equal29, net +3 wins; 40-vs-v09:
+better7/worse5/equal28, net +2. All 120 canonical replays exact; 52 new intents
+produce 52 known games, zero new technical failures/refusals/replacements.
+Preserve the original unknown 422/407 attempt29 and its one explicitly amended
+attempt2 separately. Actual boundary gaps 301.641607/300.015568 seconds.
+Independent audit PASS; all 325 baseline +39 frozen files unchanged; 24 focused
+Python tests passed before play. Positive descriptive boss result does not
+rescue the prior formal batching failure or budget40 local 51.0%/1,000 failure.
+Keep default36, batching OFF and selected v09. No arena submission or promotion.
+[Follow-up result](v09-boss-budget40-followup-v1-result.md),
+[evidence](evidence/v09-boss-budget40-followup-v1.json).
+
 Budget experiment 2026-10-16: **v09-budget40-v1**, **NOT_PASSED**.
 Same batched-refresh/NOISE0.1 native strategy, later allowance 40 vs 36 ms;
 first/warmup/external deadlines unchanged. Exact40 export 90,641 characters;

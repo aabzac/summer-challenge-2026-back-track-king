@@ -3,6 +3,21 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Matched boss follow-up (2026-10-16)
+
+- [x] On explicit continuation, preserve the original interrupted v2 evidence
+      and authorize one separately journaled attempt2 for refused slot29.
+      Complete only the 12 remaining slots: batched36 final 10W30L vs v09 11W29L.
+- [x] After completion and exact engine validation, play exactly 40 unchanged
+      budget40 games on the same seeds/maps/seats/order: 13W27L; paired vs36
+      better7/worse4/equal29, vs v09 better7/worse5/equal28. No replacements.
+- [x] Verify actual 301.641607/300.015568-second boundary gaps, all 120 exact
+      canonical replays, 52 new known games, zero new technical failures and
+      unchanged 325 baseline +39 frozen files. Independent audit PASS.
+- [x] Archive the completed exploratory result and record it locally; keep
+      prior NOT_PASSED verdicts, default36, batching OFF and selected v09.
+      [Result](v09-boss-budget40-followup-v1-result.md).
+
 ## v09 budget40 experiment (2026-10-16)
 
 - [x] Isolate 40 vs 36 ms on the same batched-refresh/NOISE0.1 base; preserve
@@ -60,12 +75,13 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
       exploratory schedule and exact unchanged builds; implement and verify
       >=300-second gaps before global requests21/41/61. All40 maps fresh against
       23,584 known identities. Original formal NOT_PASSED remains unchanged.
-- [ ] Finish the additional candidate40 stage: **blocked by service play limit**.
-      Control40 complete11W29L; candidate28 complete9W19L versus matched
-      control28=6W22L. Request29 receives HTTP422/API407, no gameID/Retry-After;
-      preserve uncertain intent, no automatic retry; slots30–40 unrequested.
-      Three actual gaps>=300s did not prevent the limit. Do not count the
-      unfinished series as a pass. [Interrupted result](v09-batched-refresh-boss-v2-result.md).
+- [x] Finish the additional candidate40 stage under the user's later explicit
+      continuation: final10W30L vs control11W29L. The original interruption at
+      candidate28=9W19L / request29 HTTP422/API407 remains preserved, including
+      its unknown-creation flag. One separate authorized attempt2 and slots30–40
+      complete in the follow-up; no automatic retry or historical verdict change.
+      [Interrupted snapshot](v09-batched-refresh-boss-v2-result.md),
+      [completed follow-up](v09-boss-budget40-followup-v1-result.md).
 - [x] Validate all68 retained replays, paired outcomes, cooldown timestamps and
       original/new input pins; archive the incomplete evidence and record it
       locally. Keep batching OFF and selected v09; no promotion or arena upload.

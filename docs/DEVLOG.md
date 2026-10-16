@@ -7488,3 +7488,44 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   or promotion. [Report](v09-budget40-v1.md),
   [evidence](evidence/v09-budget40-v1.json),
   [archive index](evidence/v09-budget40-v1-artifacts.json).
+
+## 2026-10-16 - v09-boss-budget40-followup-v1: complete matched boss comparison
+
+- User requests completion of the interrupted additional 36 ms boss series,
+  followed by exactly 40 games at 40 ms on the same maps. Hypothesis: the larger
+  budget may convert more boss games despite the prior local result. Freeze
+  exact artifacts, same 40 seeds/seats/order and the protocol before new outcomes;
+  retain both earlier NOT_PASSED verdicts. No strategy/core/default changes.
+- Read-only discovery verifies authenticated owner/puzzle, boss6767608/league6/3/0
+  and unchanged public updateTime1792077863355. Revalidate all40 cached v09
+  outcomes and28 candidate outcomes, exact sources and prior process panels.
+  New adapter preserves old tools and authorizes only original refused slot29
+  attempt2 under the user's explicit continuation. Original HTTP422/API407 and
+  unknown-creation evidence stay intact and unscored; no absent-game claim.
+- Preflight: 12 resume tests (10+2) and12 follow-up guard/cooldown tests pass;
+  shared-core helper compiles. Freeze39 files and325 existing-file hashes.
+  Resume12 games once:1W11L, final batched36 **10W30L**, v09 **11W29L**;
+  paired better6/worse7/equal27. All40 exact engine replays. Original v1 plus
+  completed v2 descriptively totals20/80 vs22/80; no new formal pass.
+- After completion, engine check and five-minute pause, run exactly40 unchanged
+  budget40 games: **13W27L**, versus10W30L at36 and11W29L atv09. Paired40-vs36
+  better7/worse4/equal29 (+3 wins/+7.5pp);40-vsv09 better7/worse5/equal28 (+2/+5pp).
+  Blocks20+20 score5+8 wins versus36's6+4 andv09's4+7. No tuning or replacements.
+  New36 requests start06:23:45 UTC and finish06:30:37;40 starts06:35:39 and
+  finishes07:02:59. Original control and first28 candidate were collected Oct15.
+- Actual completion-to-intent gaps before global81/101 are301.641607/300.015568s;
+  minimum ordinary new gap20.334483s. Exactly52 new intents yield52 known games;
+  zero new API refusals or technical game failures. All120 canonical games across
+  three arms reproduce exactly; maps/seats/seeds/order and build markers match.
+- Final independent audit PASS, issues=[]; all325 baseline +39 frozen files
+  unchanged. Old interrupted report/archive remain historical snapshots. Public
+  evidence includes exact artifacts, outcomes, commands/logs, original refusal
+  and separate amendment; excludes credentials/readbacks/raw transport bodies.
+- Decision: positive descriptive boss result for40, not fresh confirmation on
+  exposed maps and not a rescue of local51.0%/1,000 or original batching failure.
+  Keep default36, batching OFF and selectedv09. Previous strict16 process PASS
+  (later max47.8363ms) and separate local native59ms outlier remain; no new full
+  timing guarantee. IDE code saved by play, no arena submission/promotion/push.
+  Record and commit locally. [Result](v09-boss-budget40-followup-v1-result.md),
+  [evidence](evidence/v09-boss-budget40-followup-v1.json),
+  [archive index](evidence/v09-boss-budget40-followup-v1-artifacts.json).
