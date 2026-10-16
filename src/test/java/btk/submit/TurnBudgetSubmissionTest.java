@@ -3,6 +3,8 @@ package btk.submit;
 import btk.bot.BotFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import javax.tools.ToolProvider;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
@@ -11,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TurnBudgetSubmissionTest {
     private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
-    private static final String CANDIDATE = BASE + ",TURN_BUDGET_MS=38";
     @TempDir Path temp;
 
     @Test void defaultAndFrozenArtifactsRemainByteIdentical() throws Exception {
@@ -21,6 +22,8 @@ class TurnBudgetSubmissionTest {
                 FileMerger.sha256(FileMerger.merge("v09")));
         assertEquals("2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
                 FileMerger.sha256(FileMerger.merge(BASE)));
+        assertEquals("979cbac253699737deb01dc8ce44c99265d5362170db29f8b0e7e79edbfd1992",
+                FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=38")));
         for (String spec : new String[]{"current", "v09", BASE}) {
             String source = FileMerger.merge(spec);
             assertFalse(source.contains("TURN_BUDGET_MS"));
@@ -29,14 +32,20 @@ class TurnBudgetSubmissionTest {
         }
     }
 
-    @Test void enabledExportCompilesWithDifferentSourceAndConfigurationIdentities() throws Exception {
-        String source = FileMerger.merge(CANDIDATE), control = FileMerger.merge(BASE);
+    @ParameterizedTest
+    @ValueSource(ints = {38, 40})
+    void enabledExportCompilesWithDifferentSourceAndConfigurationIdentities(int budgetMs) throws Exception {
+        String candidate = BASE + ",TURN_BUDGET_MS=" + budgetMs;
+        String otherOverride = BASE + ",TURN_BUDGET_MS=" + (budgetMs == 38 ? 40 : 38);
+        String source = FileMerger.merge(candidate), control = FileMerger.merge(BASE);
         FileMerger.checkSourceSize(source);
-        var manifest = FileMerger.manifest(CANDIDATE, source);
-        assertEquals("38", BotFactory.configuration(CANDIDATE).get("TURN_BUDGET_MS"));
+        var manifest = FileMerger.manifest(candidate, source);
+        assertEquals(String.valueOf(budgetMs), BotFactory.configuration(candidate).get("TURN_BUDGET_MS"));
         assertNotEquals(FileMerger.configSha256(BASE), manifest.get("configSha256"));
+        assertNotEquals(FileMerger.configSha256(otherOverride), manifest.get("configSha256"));
         assertNotEquals(FileMerger.sha256(control), manifest.get("sha256"));
         assertThrows(IllegalArgumentException.class, () -> FileMerger.manifest(BASE, source));
+        assertThrows(IllegalArgumentException.class, () -> FileMerger.manifest(otherOverride, source));
         assertFalse(source.contains("btk.runner"));
         assertFalse(source.contains("btk.referee"));
         assertFalse(source.contains("btk.tools"));
@@ -48,7 +57,7 @@ class TurnBudgetSubmissionTest {
             Class<?> main = loader.loadClass("Player$MainBot");
             var constructor = main.getDeclaredConstructor(); constructor.setAccessible(true);
             var method = main.getDeclaredMethod("turnBudgetMs"); method.setAccessible(true);
-            assertEquals(38L, method.invoke(constructor.newInstance()));
+            assertEquals((long) budgetMs, method.invoke(constructor.newInstance()));
             Class<?> runner = loader.loadClass("Player$CGRunner");
             for (var entry : java.util.Map.of("TURN_MS", 50L, "MARGIN_MS", 14L,
                     "FIRST_TURN_MS", 1000L, "WARMUP_MS", 500L).entrySet()) {

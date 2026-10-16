@@ -31,7 +31,7 @@ public enum TimingProfile {
         referee.playerTurnBudgetMs[0] = referee.playerTurnBudgetMs[1] = -1;
     }
 
-    /** Resolve before creating workers; legacy timing must never silently ignore a 38-ms recipe. */
+    /** Resolve before creating workers; legacy timing must never silently ignore an override. */
     public long turnBudget(String spec) {
         int configured = BotFactory.parameters(spec).TURN_BUDGET_MS;
         if (this != CG && configured != 36)

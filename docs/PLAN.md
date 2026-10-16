@@ -3,6 +3,20 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 budget40 experiment (2026-10-16)
+
+- [x] Isolate 40 vs 36 ms on the same batched-refresh/NOISE0.1 base; preserve
+      first/warmup/external limits and prior default/frozen/36/38 exports.
+      45 Java + 46 Python checks pass, engine 292/292 exact; 90,641 characters.
+- [x] Complete fixed16 exact-artifact process games once: PASS, zero errors,
+      timeouts/overruns/missing, 1,479 later replies, p99 43.8367/max 47.8363 ms.
+- [x] After process PASS, complete all 1,000 games on 500 fresh paired maps,
+      two workers: 488W468L44D = 51.0%, zero errors, NOT_PASSED at 55%.
+      Retain the one 59 ms native-call outlier separately from process timings.
+- [x] Keep36, batching OFF and selected v09; retain exact artifacts, raw results
+      and independent audits, record and commit locally without promotion.
+      [Protocol and result](v09-budget40-v1.md).
+
 ## v09 budget38 experiment (2026-10-16)
 
 - [x] Isolate38ms against36ms on the same batched-refresh/NOISE0.1 base.

@@ -96,11 +96,11 @@ public final class BotFactory {
                 || version.equals("indrill-q-v1")
                 || version.equals("indrill-q-v2") || spatialVersion(version)) FrozenParams.applyTo(version, params);
         params.apply(query);
-        if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38)
-            throw new IllegalArgumentException("Turn budget must be 36 or 38 ms");
+        if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38 && params.TURN_BUDGET_MS != 40)
+            throw new IllegalArgumentException("Turn budget must be 36, 38 or 40 ms");
         if (params.TURN_BUDGET_MS != 36 && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
-            throw new IllegalArgumentException("38 ms requires the current native rollout policy");
+            throw new IllegalArgumentException("38/40 ms requires the current native rollout policy");
         if (params.USE_BATCHED_REFRESH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("Batched refresh requires the current rollout policy");

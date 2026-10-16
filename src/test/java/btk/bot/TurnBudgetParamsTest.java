@@ -1,36 +1,49 @@
 package btk.bot;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TurnBudgetParamsTest {
     private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
 
-    @Test void onlyTheCurrentNativePolicyMayRequestTheExplicit38MsExperiment() {
+    @ParameterizedTest
+    @ValueSource(ints = {38, 40})
+    void onlyTheCurrentNativePolicyMayRequestAnExplicitBudgetOverride(int budgetMs) {
         assertEquals(36, new Params().TURN_BUDGET_MS);
         assertEquals(36, new MainBot().turnBudgetMs());
-        Params p = BotFactory.parameters(BASE + ",TURN_BUDGET_MS=38");
+        String query = "TURN_BUDGET_MS=" + budgetMs;
+        Params p = BotFactory.parameters(BASE + "," + query);
         MainBot main = new MainBot(p); p.TURN_BUDGET_MS = 36;
-        assertEquals(38, main.turnBudgetMs(), "MainBot retains its own resolved configuration");
+        assertEquals(budgetMs, main.turnBudgetMs(), "MainBot retains its own resolved configuration");
         var expected = new TreeMap<>(BotFactory.configuration(BASE));
-        expected.put("TURN_BUDGET_MS", "38");
-        assertEquals(expected, BotFactory.configuration(BASE + ",TURN_BUDGET_MS=38"));
+        expected.put("TURN_BUDGET_MS", String.valueOf(budgetMs));
+        assertEquals(expected, BotFactory.configuration(BASE + "," + query));
         assertEquals(BotFactory.configuration(BASE), BotFactory.configuration(BASE + ",TURN_BUDGET_MS=36"));
-        for (String spec : new String[]{"v09?TURN_BUDGET_MS=38", "neural-v1?TURN_BUDGET_MS=38",
-                "current?TURN_BUDGET_MS=38,USE_ROLLOUT_POLICY=false",
-                "current?TURN_BUDGET_MS=38,USE_HEURISTIC_POLICY=true",
-                "current?TURN_BUDGET_MS=38,USE_NEURAL_TARGET_PROPOSAL=true",
-                "current?TURN_BUDGET_MS=37", "current?TURN_BUDGET_MS=50", "current?TURN_BUDGET_MS=0"})
+        for (String spec : new String[]{"v09?" + query, "neural-v1?" + query,
+                "current?" + query + ",USE_ROLLOUT_POLICY=false",
+                "current?" + query + ",USE_HEURISTIC_POLICY=true",
+                "current?" + query + ",USE_NEURAL_TARGET_PROPOSAL=true"})
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(spec), spec);
-        assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params("TURN_BUDGET_MS=50")));
-        assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params("TURN_BUDGET_MS=38,USE_ROLLOUT_POLICY=false")));
-        assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params("TURN_BUDGET_MS=38,USE_HEURISTIC_POLICY=true")));
-        assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params("TURN_BUDGET_MS=38,USE_NEURAL_TARGET_PROPOSAL=true")));
+        for (String flag : new String[]{"USE_ROLLOUT_POLICY=false", "USE_HEURISTIC_POLICY=true",
+                "USE_NEURAL_TARGET_PROPOSAL=true"})
+            assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params(query + "," + flag)), flag);
     }
 
-    @Test void frozenSnapshotsResetAnAbsentBudgetAndKeepTheirConfigurationsUnchanged() {
-        Params params = new Params("TURN_BUDGET_MS=38");
+    @Test void undeclaredBudgetValuesAreRejectedByBothEntryPoints() {
+        for (int budgetMs : new int[]{0, 37, 39, 41, 50}) {
+            String query = "TURN_BUDGET_MS=" + budgetMs;
+            assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?" + query), query);
+            assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params(query)), query);
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {38, 40})
+    void frozenSnapshotsResetAnAbsentBudgetAndKeepTheirConfigurationsUnchanged(int budgetMs) {
+        Params params = new Params("TURN_BUDGET_MS=" + budgetMs);
         FrozenParams.applyTo("v09", params);
         assertEquals(36, params.TURN_BUDGET_MS);
         assertFalse(BotFactory.configuration("v09").containsKey("TURN_BUDGET_MS"));

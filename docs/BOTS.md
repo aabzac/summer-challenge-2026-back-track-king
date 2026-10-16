@@ -13,6 +13,21 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Budget experiment 2026-10-16: **v09-budget40-v1**, **NOT_PASSED**.
+Same batched-refresh/NOISE0.1 native strategy, later allowance 40 vs 36 ms;
+first/warmup/external deadlines unchanged. Exact40 export 90,641 characters;
+default/frozen/batched36/budget38 source identities preserved. Strict16 PASS:
+1,479 later replies, p99 43.8367/max 47.8363 ms, nine >45 ms, none >48 ms;
+zero errors/timeouts/overruns/missing. First maximum 732.0729 ms.
+Fresh v4 blocks 300/+200/+500, two workers: 151W141L8D / 104W90L6D /
+233W237L30D; pooled **488W468L44D/1,000 = 51.0%**, zero errors, below 55%.
+Native-call diagnostic maximum 59 ms, one candidate call >50 ms; these counters
+include first turns and are distinct from the full-response process check.
+Keep36, batching OFF and selected v09; no boss, upload or promotion.
+45 focused Java tests, 46 Python tests and 292 exact engine replays passed;
+prior unrelated full-suite failures were not changed or claimed resolved.
+[Protocol and result](v09-budget40-v1.md), [evidence](evidence/v09-budget40-v1.json).
+
 Budget experiment2026-10-16: **v09-budget38-v1**, **STOP_FUTILITY_300**.
 Same batched-refresh/NOISE0.1 native strategy in both arms; only later internal
 allowance38ms vs36ms. First/warmup/external1000/50 unchanged. Exact38 export

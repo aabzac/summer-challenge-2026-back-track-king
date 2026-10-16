@@ -23,11 +23,11 @@ public final class MainBot implements Bot {
     public MainBot(Params params) {
         this.params = params.copy();
         // TURN_BUDGET_BEGIN
-        if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38)
-            throw new IllegalArgumentException("Turn budget must be 36 or 38 ms");
+        if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38 && params.TURN_BUDGET_MS != 40)
+            throw new IllegalArgumentException("Turn budget must be 36, 38 or 40 ms");
         if (params.TURN_BUDGET_MS != 36 && (!params.USE_ROLLOUT_POLICY || params.USE_HEURISTIC_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL))
-            throw new IllegalArgumentException("38 ms requires the current native rollout policy");
+            throw new IllegalArgumentException("38/40 ms requires the current native rollout policy");
         // TURN_BUDGET_END
         if (params.ISOLATED_ROUTE_WARMUP && (params.WARMUP_SLICE_MS <= 0
                 || params.USE_DISRUPT && params.WARMUP_SLICE_MS <= params.DISRUPT_RESERVE_MS)) {

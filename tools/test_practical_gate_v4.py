@@ -295,6 +295,31 @@ class PracticalGateV4Test(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Nondefault budget'):
             gate.assess(parsed)
 
+    def test_explicit_40ms_preserves_38ms_and_requires_unchanged_effective_arms(self):
+        for a, b in ((40, 36), (36, 40), (40, 38), (38, 40)):
+            first = self.report(budget_fixture(budget_a=a, budget_b=b))
+            second = self.report(budget_fixture(200, 200, S2, a, b))
+            result = gate.assess(first, second)
+            self.assertEqual('NEEDS_BLOCK3_1000', result['directStage'])
+            self.assertEqual(a, result['effectiveSearchBudgetsMs']['turnSearchBudgetMsA'])
+            self.assertEqual(b, result['effectiveSearchBudgetsMs']['turnSearchBudgetMsB'])
+        first = self.report(budget_fixture(budget_a=40))
+        with self.assertRaisesRegex(ValueError, 'budgets changed'):
+            gate.assess(first, self.report(budget_fixture(200, 200, S2, 38, 36)))
+
+    def test_40ms_cannot_be_inferred_or_enabled_for_an_unsupported_policy(self):
+        mutations = [lambda d: [d.pop(field) for field in gate.ARM_BUDGET_FIELDS],
+                     lambda d: d.update(a=d['a'].replace('current', 'v09')),
+                     lambda d: d['paramsA'].update(USE_ROLLOUT_POLICY='false'),
+                     lambda d: d['paramsA'].update(USE_HEURISTIC_POLICY='true'),
+                     lambda d: d['paramsA'].update(USE_NEURAL_TARGET_PROPOSAL='true'),
+                     lambda d: d.update(turnSearchBudgetMsA=38)]
+        for index, mutate in enumerate(mutations):
+            data = budget_fixture(budget_a=40)
+            mutate(data)
+            with self.subTest(mutation=index), self.assertRaises(ValueError):
+                self.report(data)
+
     def test_policy_labels_are_distinct_from_v2_and_v3(self):
         self.assertEqual('practical-1000-futility-boss-cache-v4', gate.POLICY)
         self.assertEqual('practical-300-1000-v2', v2_gate.POLICY)

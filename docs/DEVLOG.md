@@ -7448,3 +7448,43 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
  independent audits, then commit the completed rejected experiment locally.
  [Report](v09-budget38-v1.md), [evidence](evidence/v09-budget38-v1.json),
  [archive index](evidence/v09-budget38-v1-artifacts.json).
+
+## 2026-10-16 - v09-budget40-v1: timing PASS, full strength NOT_PASSED
+
+- User requests 40 ms by the same process-first scheme, strength vs36 only after
+  readiness PASS. Predeclare a separate fixed16 process panel and conditional
+  v4 300/+200/+500, two workers, no live work/promotion/retries. Same batched ON,
+  NOISE0.1 native rollout in both arms, missed-deadline OFF; only later budget
+  differs. This is a local budget-effect study, not promotion vs selected v09.
+- Permit opt-in40 alongside36/38 with unchanged native-only guards and default36.
+  Preserve preparation charging, first486/warmup500/external1000/50/grace0,
+  MARGIN_MS14. Export specialization retains the previous38 source byte-for-byte;
+  default/frozen/batched36 identities remain exact. No core/strategy changes.
+  Separate fixed driver preserves prior38 and v2/v3 tools.
+- Preflight: 45 focused Java tests, 46 Python tests and292/292 exact engine replays
+  pass. Do not rerun or claim resolution of the25 unrelated failures in the38
+  report. Exact40 source9510ff174e76297736144193a4c519f3728eac067d09614bb65e2f0ecd1b88d9,
+  90,641 characters. Control36 source remains2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a.
+  Freeze2,981 inputs+8 runtimes. All500 prospective maps unique/disjoint from
+  24,124 prior identities, including all500 reserved38 maps; no seed-range overlap
+  with128 prior registrations. Same eight process maps in both seats.
+- Strict16 games complete once: PASS, errors/timeouts/overruns/missing all0.
+  Later1,479 full responses: median33.4462,p95 41.918,p99 43.8367,p99.9 47.491,
+  max47.8363ms;9>45,0>48/50. First16 median584.3973/max732.0729ms.
+  Independent raw audit125 checks PASS. Local observed readiness only.
+- Complete all strength blocks:151W141L8D/300=51.6667%;104W90L6D/200=53.5%,
+  pooled52.4%/500;233W237L30D/500=49.6%. Final488W468L44D/1,000,510points=51.0%,
+  zero errors,500 fresh paired maps, actual486/486/40/36 budgets, two workers.
+  Durations395.646/251.725/665.914seconds. NOT_PASSED at55%; no extensions/boss.
+- Native-call diagnostics: maxA59/maxB42ms, slowA1/B0; the single candidate
+  outlier is in block3, pair1/seed261516001/candidateP0. Counters include first turns and no turn index; not full
+  response times or an external-timeout finding. Retain without a causal claim
+  or outcome-guided rerun. The process sample is not a universal timing promise.
+- Decision: keep36, batching OFF and selected v09. Timing panel passes, useful
+  strength gain not established. Final independent audit50 checks PASS verifies
+  all2,981 frozen inputs+8 runtimes,500 paired results and28 unchanged selected
+  submission files. Preserve optional budget/harness, exact
+  artifacts/raw evidence and independent audits; local commit, no upload/push
+  or promotion. [Report](v09-budget40-v1.md),
+  [evidence](evidence/v09-budget40-v1.json),
+  [archive index](evidence/v09-budget40-v1-artifacts.json).

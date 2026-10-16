@@ -213,7 +213,8 @@ public class FileMerger {
         StringBuilder body = new StringBuilder();
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
-        boolean turnBudgetOverride = BotFactory.parameters(spec).TURN_BUDGET_MS != 36;
+        int turnBudgetMs = BotFactory.parameters(spec).TURN_BUDGET_MS;
+        boolean turnBudgetOverride = turnBudgetMs != 36;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
@@ -234,8 +235,13 @@ public class FileMerger {
                 if (turnBudgetBlock && !turnBudgetOverride) continue;
                 // Export preflight rejects the local-only neural proposal flag; its Params field
                 // is omitted from submissions, so fold only this guarded constructor check.
-                if (turnBudgetBlock && file.endsWith("MainBot.java"))
+                if (turnBudgetBlock && file.endsWith("MainBot.java")) {
                     line = line.replace("params.USE_NEURAL_TARGET_PROPOSAL", "false");
+                    // Keep the already measured 38-ms source and build marker byte-identical.
+                    if (turnBudgetMs == 38) line = line.replace(" && params.TURN_BUDGET_MS != 40", "")
+                            .replace("36, 38 or 40 ms", "36 or 38 ms")
+                            .replace("38/40 ms requires", "38 ms requires");
+                }
                 if (line.trim().equals("// BATCHED_REFRESH_BEGIN")) {
                     if (batchBlock) throw new IllegalArgumentException("Nested batch block: " + file);
                     batchBlock = true;

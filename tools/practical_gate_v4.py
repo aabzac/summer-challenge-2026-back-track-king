@@ -42,7 +42,7 @@ def _turn_budget(data, side):
     params, spec = data['params' + side], data[side.lower()]
     require(isinstance(params, dict) and isinstance(spec, str), f'Missing arm {side} recipe')
     value = params.get('TURN_BUDGET_MS', '36')
-    require(isinstance(value, str) and value in ('36', '38'),
+    require(isinstance(value, str) and value in ('36', '38', '40'),
             f'Unsupported TURN_BUDGET_MS for arm {side}')
     version, separator, query = spec.partition('?')
     requested = None
@@ -50,16 +50,16 @@ def _turn_budget(data, side):
         for item in re.split('[&,]', query):
             key, equals, setting = item.partition('=')
             if key.strip() == 'TURN_BUDGET_MS':
-                require(bool(equals) and setting.strip() in ('36', '38'),
+                require(bool(equals) and setting.strip() in ('36', '38', '40'),
                         f'Invalid TURN_BUDGET_MS specification for arm {side}')
                 requested = setting.strip()
     require((requested if requested is not None else '36') == value,
             f'TURN_BUDGET_MS specification/parameters differ for arm {side}')
-    if value == '38':
+    if value != '36':
         require(version == 'current' and params.get('USE_ROLLOUT_POLICY') == 'true'
                 and params.get('USE_HEURISTIC_POLICY', 'false') == 'false'
                 and params.get('USE_NEURAL_TARGET_PROPOSAL', 'false') == 'false',
-                f'38 ms requires the current native rollout policy for arm {side}')
+                f'{value} ms requires the current native rollout policy for arm {side}')
     return int(value)
 
 
