@@ -1279,7 +1279,14 @@ public final class RolloutBot implements Bot {
         for (int i = 0; i < shortlist.length && !timer.up(); i++) {
             int r = shortlist[i]; if (r < 0) break;
             int needed = GameState.INK_THRESHOLD - s.regionInstability[r];
+            // INK_REFRESH_BEGIN
+            if (p.USE_INCREMENTAL_INK_REFRESH) { inkBoard.set(s); inkBoard.inkAndRefresh(r); }
+            else {
+            // INK_REFRESH_END
             inkBoard.set(s); Rules.ink(inkBoard.state, r); inkBoard.refresh();
+            // INK_REFRESH_BEGIN
+            }
+            // INK_REFRESH_END
             Rules.incomePerTurn(inkBoard.state, income);
             int after = income[me] - income[1 - me];
             if (needed == 1 && !Rules.anyPairPossible(inkBoard.state, pathing)) {

@@ -13,6 +13,23 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Forecast optimization 2026-10-18: **v09-ink-refresh-v1**, **COMPLETE_DIAGNOSTIC**.
+Default-off selective refresh after hypothetical ink; recompute only connections
+that lost a connector, preserving canonical ties, strategy, timers and safeguards.
+Main comparison on the existing batched36/NOISE0.1 base: all **524 ample inputs
+match exactly**, 5,850 comparisons and 87,630 simulated turns per arm; equal-work
+time **-15.64%**. At36 ms, comparisons **2,523 to 2,901 (+14.98%)**, completed
+searches254 to295. Native max43.9605 ms. Supplementary historical nonbatched
+deadline controls preserve turn40 attack and all six winning closures, zero
+lost wins. Main artifact91,202 characters; strict8 process games PASS, zero
+errors/timeouts/overruns/missing, later full-response max46.505 ms. Engine292/292
+exact; focused tests248/249 with one retained historical catalog-pin failure.
+The three-flag batching/deadline/incremental combination exceeds the source cap
+at100,447 and remains rejected; guard comparison uses the documented amended
+historical recipe. No strength or boss gate, upload or promotion. Keep default36,
+batching/incremental/deadline OFF and selectedv09; prior verdicts unchanged.
+[Result](v09-ink-refresh-v1-result.md), [evidence](evidence/v09-ink-refresh-v1.json).
+
 Local timing diagnostic measured2026-10-16, recorded2026-10-18:
 **v09-budget100-local-v1**, **COMPLETE_DIAGNOSTIC**, no promotion eligibility.
 Identical batched-refresh/NOISE0.1 policy, local later allowances100 vs36 ms,

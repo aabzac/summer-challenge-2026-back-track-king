@@ -118,6 +118,44 @@ public final class Pathing {
         }
     }
     // BATCHED_REFRESH_END
+    // INK_REFRESH_BEGIN
+
+    /**
+     * Incoming paths are canonical before an ink-only deletion. An unaffected canonical
+     * path stays shortest with the same directional tie-break; a missing path cannot appear.
+     * Reuse all output buffers and, when enabled, one BFS per affected destination.
+     */
+    void updateReusableConnectionsAfterInk(GameState s, int[][] paths, boolean batched) {
+        if (!batched) {
+            for (int p = 0; p < s.pairCount; p++) {
+                if (!pathLostConnector(s, p)) continue;
+                int n = shortestPath(s, s.pairFrom[p], s.pairTo[p], paths[p]);
+                s.pairPath[p] = n < 0 ? null : paths[p];
+                s.pairPathLen[p] = Math.max(0, n);
+            }
+            return;
+        }
+        for (int to = 0; to < s.townCount; to++) {
+            boolean ready = false;
+            for (int p = 0; p < s.pairCount; p++) {
+                if (s.pairTo[p] != to || !pathLostConnector(s, p)) continue;
+                if (!ready) {
+                    bfsFrom(s, s.townCell[to]);
+                    ready = true;
+                }
+                int n = walk(s, s.townCell[s.pairFrom[p]], s.townCell[to], dist, paths[p]);
+                s.pairPath[p] = n < 0 ? null : paths[p];
+                s.pairPathLen[p] = Math.max(0, n);
+            }
+        }
+    }
+
+    private static boolean pathLostConnector(GameState s, int pair) {
+        for (int i = 0; i < s.pairPathLen[pair]; i++)
+            if (!s.passable(s.pairPath[pair][i])) return true;
+        return false;
+    }
+    // INK_REFRESH_END
 
     /**
      * Recomputes every pair's active connection with one BFS per destination town instead of one

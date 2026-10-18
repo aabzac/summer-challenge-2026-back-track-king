@@ -7569,3 +7569,59 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [Result](v09-budget100-local-v1-result.md),
   [evidence](evidence/v09-budget100-local-v1.json),
   [archive index](evidence/v09-budget100-local-v1-artifacts.json).
+
+## 2026-10-18 - v09-ink-refresh-v1: cheaper hypothetical sabotage refresh
+
+- User requests more existing forecast comparisons within36 ms without strategy
+  or safeguard changes. Hypothesis: recalculating every connection after each
+  hypothetical ink repeats work when most canonical paths remain passable.
+  Prospective protocol profiles first, compares fixed saved states, checks guards,
+  then completes exactly eight strict process games; no strength/promotion gate.
+- Profile exact old batched36 artifact on524 nonterminal inputs/both seats from
+  four retained games. Of2,398 generated-play JFR samples, refresh48.71%, target
+  selection45.62%, cheapest-path26.15% inclusive; overlap is explicit. Select
+  only incremental ink refresh, leaving cheapest-path work for another experiment.
+- Default-off Params flag; core helper retains unaffected canonical paths and
+  absent paths, recomputes broken ones with the old canonical algorithm. Retain
+  destination batching, allocation-free buffers, target order, RNG, evaluation,
+  search caps and timer checks. Terminal checks still run even for free-cell ink.
+- Focused249 tests:248 pass, one retained historical exp-income-guard catalog-pin
+  failure before the expected unsupported-export rejection; size assertions pass.
+  All10 new tests pass; no historical pin
+  bypass and no full-suite-green claim. Initial Gradle cache-lock access failure
+  retained separately. Engine292/292 exact; old/default/frozen exports identical.
+- Main candidate91,202 characters on batched36/NOISE0.1/deadlineOFF. Full524 ample
+  ordered actions, accepted cells/targets, selected-value bits and diagnostics
+  match. Both arms60,118 route queries,5,850 comparisons,87,630 simulated turns.
+  Equal-work wall24,379.9402 to20,568.0980 ms, **-15.64%**. At486/36 ms,
+  comparisons2,523 to2,901 (**+14.98%**), simulated turns36,457 to41,578 (+14.05%),
+  complete searches254 to295; max native41.9276/43.9605 ms, none above50.
+- Guard combination batchingON/deadlineON/incrementalON exceeds source cap:
+  100,447 characters rejected before emission. Before any comparisons/games,
+  amend supplementary guards to historical batchingOFF/NOISE0/deadlineON in
+  both arms, only incremental flag differs. Reference matches historical SHA;
+  candidate99,636 characters. Main candidate unchanged. Preserve rejected export
+  and incomplete original freeze; verified1503-file/six-runtime freeze controls.
+- All14 guard conditions match at ample allowance; both arms retain six wins
+  at ample and36 ms, no lost baseline wins. Turn40 intervention still targets33,
+  unchanged construction, W/A/Wr0 complete and overdue guard satisfied. Candidate
+  nominal29.0653 ms native reply/29.6121 ms WAIT. Oversized three-flag recipe is
+  not certified by this supplementary nonbatched guard panel.
+- Strict exact-artifact process sample: two seats on four fixed maps, v09,
+  seeds7000/7001, first/later1000/50 ms, zero grace, diagnosticsOFF. All8 complete
+  once with zero errors/timeouts/overruns/missing replies; later full-response
+  max46.505 ms, first max681.298 ms. Native saved-state timing and process IO
+  timing remain distinct; no retries, substituted games or strength inference.
+- Independent audit initially retained FAIL because its offline jfr print command
+  truncated stacks to five frames. Decoding the same recording with depth128
+  reproduces all2,398 scoped samples and every leaf/inclusive/per-play count.
+  Preserve first audit and decoder outputs; corrected audit is a separate file.
+  Corrected v2 audit PASS,76,130 checks. No measurement or game reruns;
+  105 prior artifact files preserved. All792 later full responses have median
+  27.3429 ms,p95 38.3455 ms,p99 40.5695 ms,max46.5054 ms; two above45,none above48.
+- Decision: promising implementation-only speed/coverage result, COMPLETE_DIAGNOSTIC.
+  Keep default36, batching/incremental/deadline OFF, selectedv09 and all historical
+  verdicts. A separate fresh-map strength experiment is still needed. No boss/API
+  calls, upload, promotion or push; retain exact evidence and commit locally.
+  [Result](v09-ink-refresh-v1-result.md), [evidence](evidence/v09-ink-refresh-v1.json),
+  [archive index](evidence/v09-ink-refresh-v1-artifacts.json).

@@ -47,6 +47,18 @@ public final class SearchState {
             state.pairPathLen[p] = Math.max(0, n);
         }
     }
+    // INK_REFRESH_BEGIN
+
+    /**
+     * Ink one region and refresh only paths that lost a connector. The incoming paths must
+     * already be canonical for this state: call after set(canonicalSource) or a full refresh,
+     * with no intervening placement or other path-changing mutation.
+     */
+    public void inkAndRefresh(int region) {
+        Rules.ink(state, region);
+        pathing.updateReusableConnectionsAfterInk(state, paths, batchedRefresh);
+    }
+    // INK_REFRESH_END
 
     /** Exact signed income of one active connection, kept in the core with all scoring rules. */
     public static int connectionIncomeDifference(GameState s, int pair, int me) {

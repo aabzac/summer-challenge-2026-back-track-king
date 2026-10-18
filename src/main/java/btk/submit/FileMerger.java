@@ -213,6 +213,7 @@ public class FileMerger {
         StringBuilder body = new StringBuilder();
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
+        boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         int turnBudgetMs = BotFactory.parameters(spec).TURN_BUDGET_MS;
         boolean turnBudgetOverride = turnBudgetMs != 36;
         for (Path file : files) {
@@ -221,7 +222,21 @@ public class FileMerger {
             boolean deadlineBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
+            boolean inkBlock = false;
             for (String line : Files.readAllLines(file)) {
+                if (line.trim().equals("// INK_REFRESH_BEGIN")) {
+                    if (inkBlock) throw new IllegalArgumentException("Nested ink-refresh block: " + file);
+                    inkBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// INK_REFRESH_END")) {
+                    if (!inkBlock) throw new IllegalArgumentException("Unbalanced ink-refresh block: " + file);
+                    inkBlock = false;
+                    continue;
+                }
+                if (inkBlock && !incrementalInk) continue;
+                if (inkBlock && !batchedRefresh && file.endsWith("SearchState.java"))
+                    line = line.replace("batchedRefresh", "false");
                 if (line.trim().equals("// TURN_BUDGET_BEGIN")) {
                     if (turnBudgetBlock) throw new IllegalArgumentException("Nested turn-budget block: " + file);
                     turnBudgetBlock = true;
@@ -406,6 +421,7 @@ public class FileMerger {
             }
             if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
             if (batchBlock) throw new IllegalArgumentException("Unclosed batch block: " + file);
+            if (inkBlock) throw new IllegalArgumentException("Unclosed ink-refresh block: " + file);
             if (turnBudgetBlock) throw new IllegalArgumentException("Unclosed turn-budget block: " + file);
         }
 
@@ -420,7 +436,7 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
-        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh)) {
+        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk)) {
             normalized = JavaSourceCompactor.compact(normalized);
             String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
             if (normalized.indexOf(compactMarker) < 0

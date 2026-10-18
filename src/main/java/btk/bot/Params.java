@@ -61,6 +61,10 @@ public class Params {
     /** Current rollout only: share canonical connection BFS across pairs with one destination. */
     public boolean USE_BATCHED_REFRESH = false;
     // BATCHED_REFRESH_END
+    // INK_REFRESH_BEGIN
+    /** Current rollout only: preserve canonical paths unaffected by hypothetical ink. */
+    public boolean USE_INCREMENTAL_INK_REFRESH = false;
+    // INK_REFRESH_END
     /** Current-only route proposal: charge instability on existing tracks as well as free cells. */
     public boolean USE_ROLLOUT_ALL_CELL_RISK = false;
     /** Current-only experiment: score and emit the same filled first action. */

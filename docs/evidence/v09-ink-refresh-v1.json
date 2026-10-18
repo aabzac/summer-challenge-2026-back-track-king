@@ -1,0 +1,2451 @@
+{
+  "schema": "v09-ink-refresh-evidence-v1",
+  "experiment": "v09-ink-refresh-v1",
+  "recordedAt": "2026-10-18T08:37:43.906453+00:00",
+  "status": "COMPLETE_DIAGNOSTIC",
+  "complete": true,
+  "promotion": false,
+  "promotionEligible": false,
+  "newBossGames": 0,
+  "strengthGames": 0,
+  "newProcessGames": 8,
+  "selectedBot": "v09",
+  "productionDefaults": {
+    "turnBudgetMs": 36,
+    "batchedRefresh": false,
+    "incrementalInkRefresh": false,
+    "missedDeadline": false
+  },
+  "selection": {
+    "selected": "USE_INCREMENTAL_INK_REFRESH",
+    "reason": "Exact deletion-only reuse targets repeated hypothetical ink refresh; no search policy, guard or timer change",
+    "profileSha256": "ba6c39914df187da70ed9949bfcca99cf26adbdb7fc029d8e1e9cf8bd33c2401",
+    "samples": 2398,
+    "candidateSpec": "current?NOISE=0.1,USE_BATCHED_REFRESH=true,USE_INCREMENTAL_INK_REFRESH=true",
+    "controlSpec": "current?NOISE=0.1,USE_BATCHED_REFRESH=true",
+    "newGames": 0
+  },
+  "artifacts": {
+    "artifact": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\artifact",
+      "charactersUtf16": 91202,
+      "sourceSha256": "6217083e6319f69a29619f83c7de43d99876153b1dc9d043ca3376f5bccf8124",
+      "classesSha256": "80b29ec321ab4cd7c500047579b3ea8377f61ce8ce05132d7719fa09c61dd539",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_BATCHED_REFRESH": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_INCREMENTAL_INK_REFRESH": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_ALL_CELL_RISK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROOT_FILL": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true,USE_INCREMENTAL_INK_REFRESH=true"
+    },
+    "artifact-off": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\artifact-off",
+      "charactersUtf16": 90129,
+      "sourceSha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "classesSha256": "92618d9ec27ae8838e4d02fc35f7234c3f83f6480c98e097f67543d55bd3b4a0",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_BATCHED_REFRESH": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_ALL_CELL_RISK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROOT_FILL": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true"
+    },
+    "artifact-v09": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\artifact-v09",
+      "charactersUtf16": 95312,
+      "sourceSha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "classesSha256": "e1eaf5d0aad126d46bbdcf2649d7d103cf21345cd1422e2e23226aea2706940d",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "v09"
+    },
+    "default-artifact": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\default-artifact",
+      "charactersUtf16": 98709,
+      "sourceSha256": "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+      "classesSha256": "533c21c5040dd754237a1950f8e09721682c88858334b2651f814fd51c5d1c9f",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.1",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_ALL_CELL_RISK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROOT_FILL": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "current"
+    },
+    "guard-check-on": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\guard-check-on",
+      "charactersUtf16": 99636,
+      "sourceSha256": "c5083e18026ff996b754ab83973b1c4e9e28dbaa1e6a0d7ff75d22f14007cacb",
+      "classesSha256": "3ad5423ec8bc2d57d546f5152843149eb89eed364d40c7383fdebbe60356e0b2",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.0",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_INCREMENTAL_INK_REFRESH": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_ALL_CELL_RISK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_MISSED_DEADLINE": "true",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROOT_FILL": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true,USE_INCREMENTAL_INK_REFRESH=true"
+    },
+    "guard-check-off": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\guard-check-off",
+      "charactersUtf16": 98572,
+      "sourceSha256": "3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
+      "classesSha256": "9f331092f279670c9d1e1d3ee2a9311c2e52a4f455c3735a65afbbc2421fb478",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.0",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_ALL_CELL_RISK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_MISSED_DEADLINE": "true",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROOT_FILL": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true"
+    },
+    "guard-off": {
+      "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink-refresh-v1\\guard-off",
+      "charactersUtf16": 99374,
+      "sourceSha256": "32c5134fce22e923066b80a8945a2a0c0bbfe3c1df15885b5d632516bedef449",
+      "classesSha256": "d8f3d5a215307b0678349f8df253468af6b8657bece6fea0fd210e3337964b88",
+      "params": {
+        "ALWAYS_DISRUPT": "true",
+        "BUILD_BEAM_WIDTH": "4",
+        "CHOOSE_BUILD_DIRECTION": "false",
+        "COLLISION_COST": "2.0",
+        "DEBUG": "false",
+        "DEFENSE_MAX_PAINT": "6",
+        "DEFENSE_MAX_PAIRS": "4",
+        "DEFENSE_MAX_REGIONS": "3",
+        "DEFENSE_MIN_INSTABILITY": "1",
+        "DISRUPT_DELAY_FACTOR": "1.0",
+        "DISRUPT_MIN": "0.01",
+        "DISRUPT_RESERVE_MS": "6",
+        "EARLY_DISRUPT_FALLBACK": "false",
+        "FORECAST_DECAY": "0.95",
+        "FORECAST_FLOOR": "0.1",
+        "GUARD_BUILD_INCOME": "false",
+        "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+        "HEURISTIC_AVOID_INSTABILITY": "2",
+        "HEURISTIC_DETOUR_CAP": "12",
+        "HEURISTIC_DETOUR_PAIRS": "4",
+        "HEURISTIC_DETOUR_REGIONS": "4",
+        "HEURISTIC_DETOUR_WEIGHT": "1.0",
+        "HEURISTIC_EMERGENCY_STOP": "true",
+        "HEURISTIC_MAX_ROUTES": "64",
+        "HEURISTIC_OWN_PENALTY": "2.0",
+        "HEURISTIC_ROUTE_STICKINESS": "1.25",
+        "HEURISTIC_TARGET_STICKINESS": "1.3",
+        "HORIZON": "100",
+        "INDRILL_INK_PENALTY": "2",
+        "INTERRUPT_VULN_EVAL": "false",
+        "ISOLATED_ROUTE_WARMUP": "true",
+        "MESSAGE": "false",
+        "NOISE": "0.0",
+        "OPENING_CITY_QUOTA": "1",
+        "OPENING_COLLISION_FACTOR": "0.25",
+        "OPENING_TURNS": "3",
+        "OPP_REPLY_WIDTH": "2",
+        "OWN_BUILD_DEPTH": "3",
+        "OWN_BUILD_WIDTH": "3",
+        "PRESSURE_BUILD_RESERVE_MS": "12",
+        "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+        "PRESSURE_HORIZON": "8",
+        "PRESSURE_STICKINESS": "0.25",
+        "PRESSURE_TRACK_WEIGHT": "0.8",
+        "PROFILE_SEARCH": "false",
+        "ROLLOUT_ALWAYS_DISRUPT": "false",
+        "ROLLOUT_DEPTH": "8",
+        "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+        "ROLLOUT_LIVE_TURNS": "2",
+        "ROLLOUT_LIVE_WEIGHT": "12.0",
+        "ROLLOUT_MAX_ROUTES": "64",
+        "ROLLOUT_NETWORK_MAX_CELLS": "24",
+        "ROLLOUT_NETWORK_RESERVE_MS": "12",
+        "ROLLOUT_NETWORK_ROOTS": "2",
+        "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+        "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+        "ROLLOUT_QUICK_MAX_PAINT": "6",
+        "ROLLOUT_REPLAN_TURN": "4",
+        "ROLLOUT_REPLIES": "2",
+        "ROLLOUT_RESERVE_MS": "20",
+        "ROLLOUT_RHEA_ELITES": "2",
+        "ROLLOUT_RHEA_MUTATIONS": "12",
+        "ROLLOUT_ROBUSTNESS": "0.5",
+        "ROLLOUT_ROUTE_HORIZON": "16.0",
+        "ROLLOUT_SPREAD_ROOTS": "2",
+        "ROLLOUT_TAIL": "3.0",
+        "ROLLOUT_TARGETS": "4",
+        "ROLLOUT_TARGET_HORIZON": "8.0",
+        "ROLLOUT_THREAT_WEIGHT": "0.5",
+        "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+        "ROLLOUT_TRACK_WEIGHT": "0.4",
+        "ROLLOUT_WIDTH": "6",
+        "ROLLOUT_WIN_VALUE": "1000000.0",
+        "SEED": "1",
+        "SKIP_UNFINISHABLE": "true",
+        "UNSTABLE_COST": "1.0",
+        "USE_BACKUP": "true",
+        "USE_BATCHED_REFRESH": "true",
+        "USE_CLOSE": "true",
+        "USE_DEFENSE_PRIORITY": "false",
+        "USE_DISRUPT": "true",
+        "USE_HEURISTIC_DETOUR": "false",
+        "USE_HEURISTIC_POLICY": "false",
+        "USE_IDLE_EXTEND": "true",
+        "USE_JOINT_ACTION": "false",
+        "USE_OPP_MODEL": "false",
+        "USE_OWN_BUILD_PLAN": "false",
+        "USE_PROTECTED_OPENING": "true",
+        "USE_REPLY_RERANK": "false",
+        "USE_ROLLOUT_ALL_CELL_RISK": "false",
+        "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+        "USE_ROLLOUT_FILL": "true",
+        "USE_ROLLOUT_LIVE_TARGET": "false",
+        "USE_ROLLOUT_MISSED_DEADLINE": "true",
+        "USE_ROLLOUT_NETWORK": "false",
+        "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+        "USE_ROLLOUT_NETWORK_CHORDS": "false",
+        "USE_ROLLOUT_POLICY": "true",
+        "USE_ROLLOUT_QUICK_EARLY": "false",
+        "USE_ROLLOUT_QUICK_ROUTE": "true",
+        "USE_ROLLOUT_QUICK_SAFE": "false",
+        "USE_ROLLOUT_QUICK_VALUE": "false",
+        "USE_ROLLOUT_REPLAN": "false",
+        "USE_ROLLOUT_RHEA": "false",
+        "USE_ROLLOUT_ROOT_FILL": "false",
+        "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+        "USE_ROLLOUT_SECOND_TARGET": "false",
+        "USE_ROLLOUT_SPREAD": "false",
+        "USE_ROLLOUT_TRACK_VALUE": "false",
+        "USE_STEAL": "true",
+        "WARMUP_SLICE_MS": "36",
+        "W_COST": "0.0",
+        "W_FUTURE_OWN": "0.4",
+        "W_FUTURE_TRACK": "0.3",
+        "W_OPP": "1.0",
+        "W_OPP_INCOME": "1.0",
+        "W_OPP_ROUTE": "0.3",
+        "W_OWN": "1.0",
+        "W_RISK": "0.6",
+        "W_SELF_LOSS": "1.2",
+        "W_THEIR_LOSS": "1.0",
+        "W_VULN": "1.0"
+      },
+      "strategy": "current?NOISE=0,USE_BATCHED_REFRESH=true,USE_ROLLOUT_MISSED_DEADLINE=true"
+    }
+  },
+  "profile": {
+    "scopedSamples": 2398,
+    "leafTop": [
+      {
+        "fraction": 0.23978315262718933,
+        "samples": 575,
+        "method": "Player$Pathing.walk(LPlayer$GameState;II[I[I)I"
+      },
+      {
+        "fraction": 0.17347789824854046,
+        "samples": 416,
+        "method": "Player$Pathing.cheapestPath(LPlayer$GameState;II[I[Z[I)I"
+      },
+      {
+        "fraction": 0.1597164303586322,
+        "samples": 383,
+        "method": "Player$Pathing.bfsInto(LPlayer$GameState;I[I)I"
+      },
+      {
+        "fraction": 0.08006672226855713,
+        "samples": 192,
+        "method": "Player$EvalBot.chooseTarget(LPlayer$GameState;I)I"
+      },
+      {
+        "fraction": 0.060884070058381985,
+        "samples": 146,
+        "method": "Player$Pathing.reachableAvoidingInk(LPlayer$GameState;II)Z"
+      },
+      {
+        "fraction": 0.045454545454545456,
+        "samples": 109,
+        "method": "java.util.Arrays.fill([II)V"
+      },
+      {
+        "fraction": 0.041701417848206836,
+        "samples": 100,
+        "method": "Player$Pathing.updateReusableConnections(LPlayer$GameState;[[I)V"
+      },
+      {
+        "fraction": 0.03586321934945788,
+        "samples": 86,
+        "method": "Player$Pathing.heapFix(II)I"
+      },
+      {
+        "fraction": 0.02585487906588824,
+        "samples": 62,
+        "method": "Player$Pathing.siftDown(II)V"
+      },
+      {
+        "fraction": 0.021267723102585488,
+        "samples": 51,
+        "method": "Player$Pathing.siftUp(I)V"
+      },
+      {
+        "fraction": 0.019599666388657216,
+        "samples": 47,
+        "method": "Player$Rules.ink(LPlayer$GameState;I)V"
+      },
+      {
+        "fraction": 0.014178482068390326,
+        "samples": 34,
+        "method": "Player$EvalBot.propose(LPlayer$GameState;III)V"
+      }
+    ],
+    "inclusiveTop": [
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "Player$EvalBot.play(LPlayer$GameState;IJ)Ljava/util/List;"
+      },
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "Player$MainBot.play(LPlayer$GameState;IJ)Ljava/util/List;"
+      },
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "btk.tools.ProfileGeneratedPolicy.play(Lbtk/core/GameState;IJLjava/lang/String;)Lbtk/tools/ProfileGeneratedPolicy$Decision;"
+      },
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "btk.tools.V09ForecastCostStudy.main([Ljava/lang/String;)V"
+      },
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "btk.tools.V09ForecastCostStudy.profile(Ljava/util/List;Lbtk/tools/V09ForecastCostStudy$Artifact;Ljava/nio/file/Path;Ljava/util/Map;)V"
+      },
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"
+      },
+      {
+        "fraction": 1.0,
+        "samples": 2398,
+        "method": "jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"
+      },
+      {
+        "fraction": 0.6513761467889908,
+        "samples": 1562,
+        "method": "Player$EvalBot.searchRoots(LPlayer$GameState;IIII)Z"
+      },
+      {
+        "fraction": 0.6497080900750626,
+        "samples": 1558,
+        "method": "Player$EvalBot.rollout(LPlayer$GameState;IIII)D"
+      },
+      {
+        "fraction": 0.4870725604670559,
+        "samples": 1168,
+        "method": "Player$Pathing.updateReusableConnections(LPlayer$GameState;[[I)V"
+      },
+      {
+        "fraction": 0.4870725604670559,
+        "samples": 1168,
+        "method": "Player$SearchState.refresh()V"
+      },
+      {
+        "fraction": 0.4562135112593828,
+        "samples": 1094,
+        "method": "Player$EvalBot.chooseTarget(LPlayer$GameState;I)I"
+      }
+    ],
+    "offlineRawEvents": {
+      "sha256": "bbc24a65c5bddc3e8f3ca672e41deef9fce21808b5466413fa8dd5f41d379f0d",
+      "bytes": 59018671
+    },
+    "note": "Inclusive shares overlap; no duration inference or addition."
+  },
+  "savedStates": {
+    "profile": {
+      "totals": {
+        "calls": 524,
+        "completeSearch": 524,
+        "aboveBudget": 0,
+        "above50Ms": 268,
+        "routeQueries": 60118,
+        "completedComparisons": 5850,
+        "simulatedTurns": 87630,
+        "ordinarySearchComplete": 500,
+        "networkPhaseComplete": 500,
+        "totalWallMs": 25775.8904,
+        "maxWallMs": 167.9004
+      },
+      "wall": {
+        "count": 524,
+        "totalMs": 25775.8904,
+        "meanMs": 49.19063053435114,
+        "medianMs": 50.72955,
+        "p95Ms": 102.3678,
+        "p99Ms": 148.1773,
+        "p999Ms": 167.9004,
+        "maxMs": 167.9004,
+        "above36Ms": 328,
+        "above45Ms": 292,
+        "above48Ms": 275,
+        "above50Ms": 268,
+        "above100Ms": 30
+      }
+    },
+    "ample": {
+      "baseline": {
+        "totals": {
+          "calls": 524,
+          "completeSearch": 524,
+          "aboveBudget": 0,
+          "above50Ms": 242,
+          "routeQueries": 60118,
+          "completedComparisons": 5850,
+          "simulatedTurns": 87630,
+          "ordinarySearchComplete": 500,
+          "networkPhaseComplete": 500,
+          "totalWallMs": 24379.9402,
+          "maxWallMs": 173.4156
+        },
+        "all": {
+          "count": 524,
+          "totalMs": 24379.9402,
+          "meanMs": 46.5266034351145,
+          "medianMs": 44.71665,
+          "p95Ms": 97.7214,
+          "p99Ms": 118.3867,
+          "p999Ms": 173.4156,
+          "maxMs": 173.4156,
+          "above36Ms": 306,
+          "above45Ms": 261,
+          "above48Ms": 250,
+          "above50Ms": 242,
+          "above100Ms": 20
+        },
+        "later": {
+          "count": 516,
+          "totalMs": 24128.4554,
+          "meanMs": 46.760572480620155,
+          "medianMs": 45.92355,
+          "p95Ms": 97.7373,
+          "p99Ms": 118.3867,
+          "p999Ms": 173.4156,
+          "maxMs": 173.4156,
+          "above36Ms": 305,
+          "above45Ms": 260,
+          "above48Ms": 249,
+          "above50Ms": 241,
+          "above100Ms": 20
+        }
+      },
+      "candidate": {
+        "totals": {
+          "calls": 524,
+          "completeSearch": 524,
+          "aboveBudget": 0,
+          "above50Ms": 183,
+          "routeQueries": 60118,
+          "completedComparisons": 5850,
+          "simulatedTurns": 87630,
+          "ordinarySearchComplete": 500,
+          "networkPhaseComplete": 500,
+          "totalWallMs": 20568.097999999998,
+          "maxWallMs": 143.8502
+        },
+        "all": {
+          "count": 524,
+          "totalMs": 20568.097999999998,
+          "meanMs": 39.25209541984733,
+          "medianMs": 37.90615,
+          "p95Ms": 87.3158,
+          "p99Ms": 103.9638,
+          "p999Ms": 143.8502,
+          "maxMs": 143.8502,
+          "above36Ms": 275,
+          "above45Ms": 221,
+          "above48Ms": 205,
+          "above50Ms": 183,
+          "above100Ms": 8
+        },
+        "later": {
+          "count": 516,
+          "totalMs": 20310.9284,
+          "meanMs": 39.36226434108527,
+          "medianMs": 38.27055,
+          "p95Ms": 87.3386,
+          "p99Ms": 103.9638,
+          "p999Ms": 143.8502,
+          "maxMs": 143.8502,
+          "above36Ms": 272,
+          "above45Ms": 220,
+          "above48Ms": 204,
+          "above50Ms": 182,
+          "above100Ms": 8
+        }
+      },
+      "actionDifferences": 0,
+      "fasterCandidateCalls": 373,
+      "wallReductionFraction": 0.15635158120691384,
+      "comparisonIncreaseFraction": 0.0
+    },
+    "nominal": {
+      "baseline": {
+        "totals": {
+          "calls": 524,
+          "completeSearch": 254,
+          "aboveBudget": 275,
+          "above50Ms": 0,
+          "routeQueries": 49412,
+          "completedComparisons": 2523,
+          "simulatedTurns": 36457,
+          "ordinarySearchComplete": 234,
+          "networkPhaseComplete": 230,
+          "totalWallMs": 14049.6164,
+          "maxWallMs": 41.9276
+        },
+        "all": {
+          "count": 524,
+          "totalMs": 14049.6164,
+          "meanMs": 26.81224503816794,
+          "medianMs": 36.039699999999996,
+          "p95Ms": 36.2452,
+          "p99Ms": 38.5823,
+          "p999Ms": 41.9276,
+          "maxMs": 41.9276,
+          "above36Ms": 275,
+          "above45Ms": 0,
+          "above48Ms": 0,
+          "above50Ms": 0,
+          "above100Ms": 0
+        },
+        "later": {
+          "count": 516,
+          "totalMs": 13981.0258,
+          "meanMs": 27.09501124031008,
+          "medianMs": 36.04075,
+          "p95Ms": 36.2596,
+          "p99Ms": 38.5823,
+          "p999Ms": 41.9276,
+          "maxMs": 41.9276,
+          "above36Ms": 275,
+          "above45Ms": 0,
+          "above48Ms": 0,
+          "above50Ms": 0,
+          "above100Ms": 0
+        }
+      },
+      "candidate": {
+        "totals": {
+          "calls": 524,
+          "completeSearch": 295,
+          "aboveBudget": 231,
+          "above50Ms": 0,
+          "routeQueries": 47754,
+          "completedComparisons": 2901,
+          "simulatedTurns": 41578,
+          "ordinarySearchComplete": 271,
+          "networkPhaseComplete": 271,
+          "totalWallMs": 13483.5854,
+          "maxWallMs": 43.9605
+        },
+        "all": {
+          "count": 524,
+          "totalMs": 13483.5854,
+          "meanMs": 25.73203320610687,
+          "medianMs": 31.28145,
+          "p95Ms": 36.2975,
+          "p99Ms": 37.5167,
+          "p999Ms": 43.9605,
+          "maxMs": 43.9605,
+          "above36Ms": 231,
+          "above45Ms": 0,
+          "above48Ms": 0,
+          "above50Ms": 0,
+          "above100Ms": 0
+        },
+        "later": {
+          "count": 516,
+          "totalMs": 13397.3453,
+          "meanMs": 25.963847480620156,
+          "medianMs": 31.89535,
+          "p95Ms": 36.3088,
+          "p99Ms": 37.5167,
+          "p999Ms": 43.9605,
+          "maxMs": 43.9605,
+          "above36Ms": 231,
+          "above45Ms": 0,
+          "above48Ms": 0,
+          "above50Ms": 0,
+          "above100Ms": 0
+        }
+      },
+      "actionDifferences": 175,
+      "fasterCandidateCalls": 285,
+      "wallReductionFraction": 0.040288003877458234,
+      "comparisonIncreaseFraction": 0.1498216409036861
+    }
+  },
+  "guardControls": {
+    "ample": {
+      "pairs": 14,
+      "baselineWins": 6,
+      "candidateWins": 6,
+      "lostBaselineWins": 0,
+      "keyTurn40": [
+        {
+          "regime": "NATIVE_FIXED_PORTFOLIO",
+          "reply": 0,
+          "arm": "baseline",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 18.4438,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        },
+        {
+          "regime": "NATIVE_FIXED_PORTFOLIO",
+          "reply": 0,
+          "arm": "candidate",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 27.0781,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        },
+        {
+          "regime": "PURE_WAIT",
+          "reply": -1,
+          "arm": "baseline",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 32.0355,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        },
+        {
+          "regime": "PURE_WAIT",
+          "reply": -1,
+          "arm": "candidate",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 32.3888,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        }
+      ],
+      "nativeClosingControls": [
+        {
+          "start": 46,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 47,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 49,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 50,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 51,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 52,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        }
+      ]
+    },
+    "nominal": {
+      "pairs": 14,
+      "baselineWins": 6,
+      "candidateWins": 6,
+      "lostBaselineWins": 0,
+      "keyTurn40": [
+        {
+          "regime": "NATIVE_FIXED_PORTFOLIO",
+          "reply": 0,
+          "arm": "baseline",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 32.4754,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        },
+        {
+          "regime": "NATIVE_FIXED_PORTFOLIO",
+          "reply": 0,
+          "arm": "candidate",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 29.0653,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        },
+        {
+          "regime": "PURE_WAIT",
+          "reply": -1,
+          "arm": "baseline",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 33.6066,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        },
+        {
+          "regime": "PURE_WAIT",
+          "reply": -1,
+          "arm": "candidate",
+          "action": {
+            "cells": [
+              288
+            ],
+            "target": 33,
+            "action": "PLACE_TRACKS 0 12;DISRUPT 33"
+          },
+          "wallMs": 29.6121,
+          "status": "intervened",
+          "changed": true,
+          "target": 33,
+          "pendingDue": -1,
+          "committedDue": 39,
+          "nativeCells": [
+            288,
+            -1,
+            -1
+          ],
+          "nativeCount": 1,
+          "WCompleted": 1,
+          "ACompleted": 1,
+          "Wr0Completed": 1,
+          "replies": 1
+        }
+      ],
+      "nativeClosingControls": [
+        {
+          "start": 46,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 47,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 49,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 50,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 51,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        },
+        {
+          "start": 52,
+          "reply": 0,
+          "baseline": "WIN",
+          "candidate": "WIN"
+        }
+      ]
+    }
+  },
+  "processSample": {
+    "pass": true,
+    "problemGames": 0,
+    "games": [
+      {
+        "map": "903510176.json",
+        "seat": 0,
+        "seed": 7000,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "903510176.json",
+        "seat": 1,
+        "seed": 7001,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "904146009.json",
+        "seat": 0,
+        "seed": 7000,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "904146009.json",
+        "seat": 1,
+        "seed": 7001,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "904148181.json",
+        "seat": 0,
+        "seed": 7000,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "904148181.json",
+        "seat": 1,
+        "seed": 7001,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "904147739.json",
+        "seat": 0,
+        "seed": 7000,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      },
+      {
+        "map": "904147739.json",
+        "seat": 1,
+        "seed": 7001,
+        "turns": 100,
+        "responses": 100,
+        "timeouts": 0,
+        "overruns": 0,
+        "missingReplies": 0,
+        "errors": [
+          null,
+          null
+        ]
+      }
+    ],
+    "first": {
+      "count": 8,
+      "totalMs": 4924.0823,
+      "meanMs": 615.5102875,
+      "medianMs": 596.5708500000001,
+      "p95Ms": 681.2976,
+      "p99Ms": 681.2976,
+      "p999Ms": 681.2976,
+      "maxMs": 681.2976,
+      "above36Ms": 8,
+      "above45Ms": 8,
+      "above48Ms": 8,
+      "above50Ms": 8,
+      "above100Ms": 8
+    },
+    "later": {
+      "count": 792,
+      "totalMs": 19039.918,
+      "meanMs": 24.040300505050507,
+      "medianMs": 27.3429,
+      "p95Ms": 38.3455,
+      "p99Ms": 40.5695,
+      "p999Ms": 46.5054,
+      "maxMs": 46.5054,
+      "above36Ms": 296,
+      "above45Ms": 2,
+      "above48Ms": 0,
+      "above50Ms": 0,
+      "above100Ms": 0
+    }
+  },
+  "processSampleStatus": "PASS",
+  "packagingAmendment": {
+    "reason": "Combined batchingON/deadlineON/incremental export100447 exceeded100000 cap before compare/guard/process measurement.",
+    "mainCandidateUnchanged": true,
+    "guardComparison": "Historical NOISE0/deadlineON/batchingOFF, incrementalflag only difference",
+    "combinedGuardRecipeValidated": false,
+    "blockedExit": {
+      "exitCode": 1,
+      "seconds": 2.4699737999471836,
+      "logSha256": "bb793d18f2c917fc76f68deffab62f81accb31d78db2f063623e7900edd4709b"
+    },
+    "oldFreezeHistoricalOnly": true,
+    "amendment": {
+      "sha256": "67f2c610f6eac1595884f183862487208e5f6214ca35342b2d0a9b2b1b972457",
+      "bytes": 1862
+    }
+  },
+  "preflight": {
+    "tests": 249,
+    "passed": 248,
+    "errors": 0,
+    "failures": [
+      [
+        "btk.submit.FileMergerTest",
+        "characterLimitIsCheckedBeforePublishing()",
+        "org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>"
+      ]
+    ],
+    "newTests": {
+      "btk.core.InkRefreshTest": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0
+      },
+      "btk.submit.IncrementalInkRefreshSubmissionTest": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0
+      }
+    },
+    "engineReplaysExact": 292,
+    "fullSuitePass": false
+  },
+  "independentAudit": {
+    "path": "build/analysis/v09-ink-refresh-v1/independent-audit-v2.json",
+    "sha256": "22f7eb7bda9e6637100a47edada9171f300776774347ab0fdea39cefe427cdff",
+    "bytes": 492413
+  },
+  "auditStatus": "PASS",
+  "auditChecks": 76130,
+  "auditDecoderCorrection": {
+    "firstFailedAudit": {
+      "path": "build/analysis/v09-ink-refresh-v1/independent-audit.json",
+      "sha256": "1b3781162de758017937091f51b35950228e2eb358374fd637505c04292667cc",
+      "bytes": 471910
+    },
+    "correction": {
+      "path": "build/analysis/v09-ink-refresh-v1/jfr-decode-correction.json",
+      "sha256": "fe4db45216243fed29b13d4749deb1c933c45a0856a80f287a8bb90d57e79e68",
+      "bytes": 882
+    },
+    "sameRecording": {
+      "path": "build/analysis/v09-ink-refresh-v1/profile/profile.jfr",
+      "sha256": "6b78cef6bff57f4be91bb0e4f8d2c8fe9af0cc71fa18b0710cb8dfaaaf7f3a2b",
+      "bytes": 579387
+    },
+    "finalAudit": {
+      "path": "build/analysis/v09-ink-refresh-v1/independent-audit-v2.json",
+      "sha256": "22f7eb7bda9e6637100a47edada9171f300776774347ab0fdea39cefe427cdff",
+      "bytes": 492413
+    },
+    "measurementsRepeated": false,
+    "explanation": "The first offline audit decoded JFR with the command default of five stack frames, hiding generated-play ancestors and reporting FAIL. Explicit stack depth128 decoding of the same immutable recording reproduces all2398 scoped samples and the leaf/inclusive/per-play counts. Audit v2 corrects decoding only; the failed audit and both decodes are retained. No profile, policy call or game was rerun."
+  },
+  "verifiedMeasurementFreeze": {
+    "path": "build/analysis/v09-ink-refresh-v1/verified-measurement-freeze.json",
+    "sha256": "939ffa640a6ed610de31fca96481e3b8ee67a71e7d1d69148c3c010874c145a0",
+    "bytes": 241443
+  },
+  "historicalIncompleteFreeze": {
+    "path": "build/analysis/v09-ink-refresh-v1/measurement-freeze.json",
+    "sha256": "c78e8d8e57dacb756b359e8ab818056efddcb5d2def3125b7ad18129875d68b5",
+    "bytes": 230879
+  },
+  "frozenInputsVerified": 1503,
+  "externalRuntimeFilesVerified": 6,
+  "selectedAndPriorArtifactsPreserved": [
+    {
+      "path": "build/submit/manifest.json",
+      "sha256": "38d5e05227a7ffb621124641d0743dd861f96cec70193b8134aeb5ed1c2765c5",
+      "bytes": 4730
+    },
+    {
+      "path": "build/submit/Player.java",
+      "sha256": "1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19",
+      "bytes": 95278
+    },
+    {
+      "path": "build/submit/PlayerQuickIncome.java",
+      "sha256": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd",
+      "bytes": 57404
+    },
+    {
+      "path": "build/submit/PlayerQuickIncome.manifest.json",
+      "sha256": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3",
+      "bytes": 3221
+    },
+    {
+      "path": "build/submit/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/submit/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/submit/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/submit/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/submit/classes/Player$CGRunner.class",
+      "sha256": "a4f720466ca5a9f8863143f90089ee773dd7b72d390bfb56ff37f4b4844dddb6",
+      "bytes": 5995
+    },
+    {
+      "path": "build/submit/classes/Player$EvalBot.class",
+      "sha256": "aefce312c8d191326ceb714170374bebeb2900f80cfe5af35b95e0da9f383456",
+      "bytes": 32080
+    },
+    {
+      "path": "build/submit/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/submit/classes/Player$GreedyBot.class",
+      "sha256": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739",
+      "bytes": 3936
+    },
+    {
+      "path": "build/submit/classes/Player$MainBot.class",
+      "sha256": "32879603176d6c602999ea52b9b5d4be23ed78568f8dd1a83e105b7d7c9d58ee",
+      "bytes": 5556
+    },
+    {
+      "path": "build/submit/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/submit/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/submit/classes/Player$Params.class",
+      "sha256": "40654dfc37cde3ac7c0cc405e993930e8f2edbe521c11911bdf708b51cd4f2e4",
+      "bytes": 11004
+    },
+    {
+      "path": "build/submit/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/submit/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/submit/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/submit/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/submit/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/submit/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/submit/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/submit/classes/Player$Timer.class",
+      "sha256": "66743249743708aaa23b8a742d25c7a6620b5af592b5f91f183f32786b8eebbc",
+      "bytes": 809
+    },
+    {
+      "path": "build/submit/classes/Player.class",
+      "sha256": "ad594943bb12ee2c52e308cc07a94fdffbc223f07df77f8646d72875abeafd17",
+      "bytes": 1278
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/manifest.json",
+      "sha256": "fb468573b41610310c92f74c8f88aac1c7ee523b0a02b0c4851b5e2a14afe548",
+      "bytes": 4922
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/Player.java",
+      "sha256": "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+      "bytes": 90129
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$1.class",
+      "sha256": "1196939eb0be432abe1982a0a62577609a60a14be87d3fbea1b6e77ae602f7b4",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Action$Type.class",
+      "sha256": "7ba8b4522bc172b0358abb16095bca4481e8cbe9aef5daba837e35c9c62fd929",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Action.class",
+      "sha256": "7c1913be4bf21465ead5738b93a3c8d19b7a27217630acdaee087e3f3ae7afc0",
+      "bytes": 4604
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Bot.class",
+      "sha256": "5578fb39b76a2eaaa6b891254df962410365f628153aa7852001477cf685382e",
+      "bytes": 889
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$CGRunner.class",
+      "sha256": "1d27b649ce66c490704cd96e225e5505ccbddbf71a1457df2010715683f9da97",
+      "bytes": 5755
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$EvalBot.class",
+      "sha256": "e549d9d09ff523d1a8fc02f69656e405d74eb3addb30a220cf3fad28dbd20a51",
+      "bytes": 30743
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$GameState.class",
+      "sha256": "fd4ea570e2db114b016291959fa745cfd502f0dab0a8ebedad01806aaccb1549",
+      "bytes": 4686
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$MainBot.class",
+      "sha256": "38e45d27441df5e8ac51569e32a7f71203613957d41f6922f572d4aafbd340df",
+      "bytes": 5559
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$NetworkCells.class",
+      "sha256": "e95e05353f5d650e72867354fa8007ce87907dd2a69fe5bbc203c63d63a8ef35",
+      "bytes": 980
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$NetworkChords.class",
+      "sha256": "557857d7588010d90e47f4bc4d558f2a745427f5b50080695a78331269faad18",
+      "bytes": 1273
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Params.class",
+      "sha256": "abc62c4387d372fad64a73a2d44c1d81b74808f46bbb51037a477986019adf36",
+      "bytes": 10100
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Pathing.class",
+      "sha256": "a914e23b2bf4529d3972f376a51fa7bf8775d9eb43c5cbaed7bc03a5998d23c9",
+      "bytes": 6350
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$ProtectedOpening.class",
+      "sha256": "7fcbbd40fb7593858008abee3220af2350571f683f9fd4d3a5829ee220ac7f4c",
+      "bytes": 3359
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$Init.class",
+      "sha256": "243db886f46c306954eddb46c9f859a77f6a82f0bcb4b50039d764167900ad22",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$TokenReader.class",
+      "sha256": "677c386b10ae3094919e961045593fd37ae6165045f2b215ab25d949e0bc8a49",
+      "bytes": 1381
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "7611093e5731a4f210a83d17d3d9a06c2f61d1d34ee6c9dc4a6c0d1c17ff89c2",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Protocol.class",
+      "sha256": "880783612c5ef42811e85584455c059688a3b9524a27591a63909e8daac0b800",
+      "bytes": 4468
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "356d3795179bdf884f772dad1287cb3540f1c695441b6c984836c5627e4e4bf7",
+      "bytes": 1014
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules$TurnResult.class",
+      "sha256": "8a1f38e5819829b35cf028d806985784532332816480317e276d56c166043771",
+      "bytes": 879
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Rules.class",
+      "sha256": "2ba577e2ccf9bbc2407fb8b989088cbbb0c48f7a69309d607996db817f2c1bf7",
+      "bytes": 7291
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$SearchState.class",
+      "sha256": "29e1131e061c3ba639c6e8a10c01aa0eecc2d9dd253003b0a9b2f88a474eff79",
+      "bytes": 2081
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$TacticalPathing.class",
+      "sha256": "543f621041af253963078461ba9ae6a9e02ceaffeed8c3a2b86c069e718eccd2",
+      "bytes": 3089
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player$Timer.class",
+      "sha256": "df87377e4ce138d1d2878225f70737ec92d62884c85545f7bd16c76f6198e0b8",
+      "bytes": 801
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact/classes/Player.class",
+      "sha256": "c5391032441331e18c269942e685394d60f6ac083e13c688b24caaa157fa3b88",
+      "bytes": 1330
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/manifest.json",
+      "sha256": "912ab07a905d674fff3f1ed2986d93a2815dd3a30e8abe695067529a842a1081",
+      "bytes": 4857
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/Player.java",
+      "sha256": "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+      "bytes": 98709
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$1.class",
+      "sha256": "7415c81c52594d8ad64a39bb3379c9b5a489efb4adee9bb6e5af070dff1870be",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Action$Type.class",
+      "sha256": "3486727d17c33b92d854a864bd80f5230af92c7947d7fdb72f0cff393090ca0a",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Action.class",
+      "sha256": "be3c0f033d06811f7ed7bd1dc1fcba6a0ef09630fe783bf28a496499d5c398a7",
+      "bytes": 4636
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Bot.class",
+      "sha256": "aaed4eece10f9a05f72b6322602ceb4650ffafd73a8602b5d2742c19965d79f9",
+      "bytes": 889
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$CGRunner.class",
+      "sha256": "51b4d585f47d5981f7c0f9f0e8acdf9bd17c80d4c2efe1ae38924e16b21900d3",
+      "bytes": 5771
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$EvalBot.class",
+      "sha256": "4bcdfa3c9a53c9d773c56af45091abb626be513f27b5a54e7c5dcbae054c3133",
+      "bytes": 31131
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$GameState.class",
+      "sha256": "2f164a59d06b8b6140dd6241517f955b49ebb68a9482c69f5bc0a1b5edc8a810",
+      "bytes": 4702
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$MainBot.class",
+      "sha256": "bf7a2ede738d7016e7d7db7bcaa93a37975a87cbc033c3e95196f867b1aa44a7",
+      "bytes": 5546
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$NetworkCells.class",
+      "sha256": "052b8a0b326d324159bc21f9d08b61ab68dae7a5c6264909e9cbae1c09412606",
+      "bytes": 980
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$NetworkChords.class",
+      "sha256": "0cfe74f020d01e514210558363d5643b071ae1e98279b3e3d3d1d6acb888e323",
+      "bytes": 1285
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Params.class",
+      "sha256": "16951bac56242b2ca4c5c39eca4fd71137d9b5cc02cffe8205b8bef83461e130",
+      "bytes": 10050
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Pathing.class",
+      "sha256": "f6ef3c8bc246ea28ac5437c7b2d7c0107c51ceafeac923456c5010144c3704be",
+      "bytes": 6060
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$ProtectedOpening.class",
+      "sha256": "1874344eeb72647e2b33351b917a0cc06cd1d86ba25e952468e0a5720b1b6bf1",
+      "bytes": 3391
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol$Init.class",
+      "sha256": "a39c89a951f5c5ae2caf9100dc54089147caf2c3d4d0a91207e1cf503ac337d9",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3cdb2c2554faa17f16c2c1d41d41f95f649abbe82aed65e78cd28130bedae824",
+      "bytes": 1381
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "235c22b63eac40adf8b2875cd4c12828f9499494e90e707592372d752d3fde25",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Protocol.class",
+      "sha256": "661be085162111894e54cba54109ac946221495b7f5cafac9f5424bf19ee25a3",
+      "bytes": 4500
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "955fd0b92eabeec488955ee4c3c89d19d22cc70f5b1d8064276c9689421ba6b8",
+      "bytes": 1014
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Rules$TurnResult.class",
+      "sha256": "74c2f4da248baaf96437673dcfb84110903b2c663eae75b1be4167a411d45173",
+      "bytes": 879
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Rules.class",
+      "sha256": "775e4e15266ec1b9a9f37b23808494a45f8b2d1b3b54c6c6fe7721fa98903358",
+      "bytes": 7303
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$SearchState.class",
+      "sha256": "942acffa093759b02499d4f3bd04fccf5dbd652983bda48b4342038f11511c10",
+      "bytes": 1869
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$TacticalPathing.class",
+      "sha256": "951b201c8776d5fbea8bb78dc21b9c08a411bb6ebed471f06724acb5f242e507",
+      "bytes": 3109
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player$Timer.class",
+      "sha256": "3e21445a1ade5443167209a39021bea613a338b5bfe57668fc9aa8f2219fc072",
+      "bytes": 801
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-off/classes/Player.class",
+      "sha256": "93a0c9e0588f816d7b0e0633c9a59040fd0f37e867df9c671eb390ee0eb822df",
+      "bytes": 1334
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/manifest.json",
+      "sha256": "9789f55cabcc526075c3efd59eed68f2ab3bd219946d9be99422dab64ce66d95",
+      "bytes": 4765
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/Player.java",
+      "sha256": "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
+      "bytes": 95312
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$1.class",
+      "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56",
+      "bytes": 792
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Action$Type.class",
+      "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6",
+      "bytes": 1137
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Action.class",
+      "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c",
+      "bytes": 4768
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Bot.class",
+      "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849",
+      "bytes": 921
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$CGRunner.class",
+      "sha256": "cdbaf238e07f987ac8e0ba3dd4883ee4011ca160fb802e5c36dee99b5fc84aae",
+      "bytes": 5991
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$EvalBot.class",
+      "sha256": "2727ab8aa610f8c4f2546a7479b0cdcc9f47104d2f249d3839e730fa46998708",
+      "bytes": 31630
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$GameState.class",
+      "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0",
+      "bytes": 5094
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$MainBot.class",
+      "sha256": "8c2c925f8aa6f9110735a399d463e711a72487ef6b7fb6f5b9b959e3b1b6f315",
+      "bytes": 5578
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$NetworkCells.class",
+      "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921",
+      "bytes": 1048
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$NetworkChords.class",
+      "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b",
+      "bytes": 1393
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Params.class",
+      "sha256": "da0deb3ec092489de6198f2184b7f7e95fa9af346f997d7ad06fb6b5d59c976f",
+      "bytes": 11062
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Pathing.class",
+      "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee",
+      "bytes": 7012
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$ProtectedOpening.class",
+      "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a",
+      "bytes": 3679
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$Init.class",
+      "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1",
+      "bytes": 407
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$TokenReader.class",
+      "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56",
+      "bytes": 1525
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol$TurnInfo.class",
+      "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e",
+      "bytes": 400
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Protocol.class",
+      "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed",
+      "bytes": 4856
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules$PlayerMoves.class",
+      "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6",
+      "bytes": 1054
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules$TurnResult.class",
+      "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8",
+      "bytes": 895
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Rules.class",
+      "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6",
+      "bytes": 7907
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$SearchState.class",
+      "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95",
+      "bytes": 1977
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player$Timer.class",
+      "sha256": "654e8a8fc607e2116cf1c4e57b2c946c90d4e91ab8ab67c935e6609012ea485f",
+      "bytes": 809
+    },
+    {
+      "path": "build/analysis/v09-batched-refresh-v1/artifact-v09/classes/Player.class",
+      "sha256": "d23537f96e1340b83f0a2a77655250683a55b6d276159425f9e11b192b345cb7",
+      "bytes": 1278
+    }
+  ],
+  "resultReport": {
+    "path": "docs/v09-ink-refresh-v1-result.md",
+    "sha256": "8eb3a7698bd7767a46bec1824cbd17a66b8ca429dc59347a08e0080a9dec783d",
+    "bytes": 8672
+  },
+  "documentation": [
+    {
+      "path": "docs/v09-ink-refresh-v1.md",
+      "sha256": "97010ca41729f5247a52c706dfd118dbf81ee6f18cffb0e95d7806040b67cd8e",
+      "bytes": 3704
+    },
+    {
+      "path": "docs/v09-ink-refresh-v1-packaging-amendment.md",
+      "sha256": "67f2c610f6eac1595884f183862487208e5f6214ca35342b2d0a9b2b1b972457",
+      "bytes": 1862
+    },
+    {
+      "path": "docs/v09-ink-refresh-v1-result.md",
+      "sha256": "8eb3a7698bd7767a46bec1824cbd17a66b8ca429dc59347a08e0080a9dec783d",
+      "bytes": 8672
+    },
+    {
+      "path": "docs/BOTS.md",
+      "sha256": "4ce4e839fe53cce74ecde7d5bc97a1c8081a2661e3332825ba96339963f25efe",
+      "bytes": 169154
+    },
+    {
+      "path": "docs/PLAN.md",
+      "sha256": "96bc48a11de1eb2c1661a105ef4a5bc22be21c7c264c9d06016297b654461065",
+      "bytes": 108615
+    },
+    {
+      "path": "docs/DEVLOG.md",
+      "sha256": "584336d37987a8bbdab0ec6f716386a425a63715151a6777b4de69730dc9a9cb",
+      "bytes": 580236
+    }
+  ],
+  "priorContextHashReferences": [
+    {
+      "path": "docs/evidence/v09-budget100-local-v1.json",
+      "sha256": "2617851338c7e281db1217971cac790e3c664bddc1097e8ad2660eab443d7d6f",
+      "bytes": 152789
+    },
+    {
+      "path": "docs/evidence/v09-budget100-local-v1-artifacts.json",
+      "sha256": "9f4a473f0a44f55c56d4b360ecc244a045fdb7c449348ae08673dc01ef671772",
+      "bytes": 536568
+    },
+    {
+      "path": "docs/evidence/v09-budget100-local-v1-artifacts.zip",
+      "sha256": "7d1760a6ddd15d35047612211d72720d508e21909f79a3d86d03dc97ac1acd91",
+      "bytes": 66887841
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1.json",
+      "sha256": "a75ca8da5bfd0561e3aa24148fb5fff8e25fe0cce1d51f6988abdac78c39fc70",
+      "bytes": 1097791
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1-artifacts.json",
+      "sha256": "6eb28d7a194718dc27717bdaad38be5120837e915af3d46cb4bc98ed38e3d25b",
+      "bytes": 568338
+    },
+    {
+      "path": "docs/evidence/v09-batched-refresh-v1-artifacts.zip",
+      "sha256": "d9f4060cf888c12d5a33e0b670f28205ccca7548e1465bc5167c979e75707728",
+      "bytes": 28307701
+    }
+  ],
+  "limitations": [
+    "Audit PASS means evidence reconciliation, not arena promotion.",
+    "Profile and in-process native wall timings do not certify full external response times.",
+    "Timed action changes reflect search cutoffs and divergent RNG history on identical input chronology.",
+    "Guard panel uses historical NOISE0/deadlineON/batchingOFF after premeasurement combined-artifact size rejection; main saved-state panel uses NOISE0.1/deadlineOFF/batchingON. Oversized combined guard recipe remains unvalidated.",
+    "No games or policy calls occur in this audit; JFR JSON decoding is offline only."
+  ],
+  "interpretation": "Exact saved-state semantics and same-work timing assess an implementation optimization. Nominal36ms comparisons measure completed work under cooperative cutoffs, not whole-game strength. The strict eight-game process sample is finite readiness evidence. Supplementary guard controls use historical batchingOFF/deadlineON; the oversized three-flag configuration remains rejected and unvalidated. Defaults and selectedv09 are unchanged."
+}

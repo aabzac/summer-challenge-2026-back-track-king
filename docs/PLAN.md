@@ -3,6 +3,25 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 forecast cost reduction (2026-10-18)
+
+- [x] Profile the exact batched36 artifact on524 saved states; connection refresh
+      appears in48.71% of generated-play samples. Select one implementation change.
+- [x] Add default-off incremental refresh after hypothetical ink, preserving
+      canonical paths, allocation-free buffers, strategy and terminal guards.
+      Engine292/292 exact;248/249 focused tests, one retained historical pin failure.
+- [x] Match all524 ample decisions/diagnostics exactly; equal-work time-15.64%.
+      At36 ms comparisons2,523 to2,901 (+14.98%), complete searches254 to295.
+- [x] Preserve turn40 attack and six winning closures in14 continuation conditions;
+      record premeasurement guard packaging amendment and rejected100,447-char
+      combined recipe. Main artifact91,202 characters; fixed strict8 process PASS,
+      zero errors/timeouts/overruns, later full response max46.505 ms.
+- [x] Retain raw evidence and independent audit, including the corrected offline
+      JFR decoder's first failed audit; record locally without replaying games.
+      Keep default36 and all experimental flags OFF. [Result](v09-ink-refresh-v1-result.md).
+- [ ] If selected for further evaluation, predeclare a separate v4 strength gate
+      on fresh maps with valid boss evidence; this diagnostic is not promotion.
+
 ## v09 local100 ms sensitivity (measured2026-10-16, recorded2026-10-18)
 
 - [x] Predeclare local-only100 vs36 ms on identical batched-refresh policy;
