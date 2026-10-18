@@ -7897,3 +7897,37 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   commit this completed observation; no push or arena submission. Website IDE
   retains45 candidate after test play; previous source is privately backed up.
   [Result](v09-ink45-boss-v1-result.md), [evidence](evidence/v09-ink45-boss-v1.json).
+
+## 2026-10-18 — Ink45 versus ink40 local budget benchmark: 51.1%, NOT_PASSED
+
+- Hypothesis: the additional 5 ms may improve the same incremental-ink candidate.
+  User requested an ordinary local benchmark after the boss series; retain the
+  earlier timing-gate waiver. Predeclare exact 45/40 arms, NOISE=0.1, batching and
+  incremental ink ON, fast path/deadline correction OFF. No strategy changes.
+- Reuse the qualified native runtime. Reproduce baseline MainBot/BotFactory
+  bytes, then change only their three budget-validation expressions/messages to
+  accept 45. All core/current/Params/runner bytes remain unchanged. Zero-game
+  diagnostics verify exact artifact parameters and 486/45 versus 486/40 budgets
+  in both seats. Initial helper expected the wrong factory return type; preserve
+  failure and fix only the diagnostic. No policy calls or games in preparation.
+- Scoped local driver extends only its private v4 budget reader; shared gates
+  and historical evidence stay intact. Synthetic checks 29/29 pass after moving
+  fixtures from inaccessible Windows Temp into workspace folders; retain the
+  initial five fixture-access errors and original source pins.
+- Register 500 distinct paired maps, seeds 401018000/401118000/401218000,
+  excluding 40,174 prior played/reserved identities, including all 143 existing
+  pools. Freeze 3,368 workspace files and seven external runtime inputs. Two
+  workers, fixed 300/+200/+500 blocks; no retries, tuning or new boss/process games.
+- Block 1: 146W/144L/10D (50.3333%); block 2: 99W/95L/6D (51.0%, pooled
+  50.6%); both futility looks continue. Block 3: 245W/229L/26D (51.6%).
+  Pooled **490W/468L/42D, 51.1% <55%, NOT_PASSED**; seats 52.1%/50.1%,
+  zero game errors. All 500 maps played twice, once per side.
+- Independent audit PASS: 42,028 checks and 3,824 pins. Raw scores, budgets,
+  seat swaps, freshness, runtime and stopping rules reconcile. Native mean call
+  durations A/B 16.612/15.519 ms, slow counters 9/3, maxima 82/80 ms including
+  openings; diagnostic only. Prior strict timing failures remain failed.
+- Decision: a modest observed edge does not meet the practical criterion and
+  does not support switching the candidate to 45 ms for strength. Preserve
+  selected v09/default 36/flags OFF, prior local 54% and boss qualifications.
+  Archive and commit this completed negative experiment; no promotion or push.
+  [Result](v09-ink45-strength-v1-result.md), [evidence](evidence/v09-ink45-strength-v1.json).

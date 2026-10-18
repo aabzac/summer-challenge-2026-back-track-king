@@ -3,6 +3,18 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
+
+- [x] Predeclare the same incremental-ink candidate at 45/40 ms, timing gate
+      waived; retain prior failures. [Protocol](v09-ink45-strength-v1.md).
+- [x] Verify unchanged strategy/core/runner, minimal budget-validation overlay,
+      exact parameters and seat budgets; pass 29 synthetic driver checks.
+- [x] Register 500 fresh maps against 40,174 exclusions and run fixed
+      300/+200/+500 blocks with two workers: 490W/468L/42D, 51.1%, zero errors,
+      local NOT_PASSED. No additional boss or process games.
+- [x] Independently audit (42,028 checks), archive and commit the result; preserve default 36,
+      selected v09 and flags OFF. [Result](v09-ink45-strength-v1-result.md).
+
 ## v09 ink45 candidate-only boss observation (2026-10-18)
 
 - [x] Add only the45 ms experimental native-rollout budget option; preserve

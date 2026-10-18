@@ -13,6 +13,17 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Local budget experiment 2026-10-18: **v09-ink45-strength-v1, NOT_PASSED**.
+Same incremental-ink candidate at 45 versus 40 ms, with batching ON and
+NOISE=0.1; only budget differs. Fresh 500 paired maps, two workers, actual
+486/45 versus 486/40 ms. Blocks 146W/144L/10D, 99W/95L/6D, 245W/229L/26D;
+pooled **490W/468L/42D, 51.1% <55%**, zero game errors. Timing gate explicitly
+waived; no new process or boss games. All 29 synthetic checks pass; old
+strategy/core/runner bytes preserved through minimal budget-validation overlay.
+Independent audit PASS: 42,028 checks, 3,824 pins; seats 52.1%/50.1%.
+Keep 45 experimental, selected v09/default 36/flags OFF and prior timing failures.
+[Result](v09-ink45-strength-v1-result.md), [evidence](evidence/v09-ink45-strength-v1.json).
+
 Budget experiment 2026-10-18: **v09-ink45-boss-v1, 14W/26L in40 attempts (35.0%)**,
 including one retained startup failure at slot14. Same incremental-ink policy
 as cached ink40 (11W/29L); only budget45/40 differs. Matched outcomes8 better,
