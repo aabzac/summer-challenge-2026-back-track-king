@@ -3,6 +3,21 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 ink45 candidate-only boss observation (2026-10-18)
+
+- [x] Add only the45 ms experimental native-rollout budget option; preserve
+      existing exports, strategy/core classes and guards.26 focused checks pass;
+      source91,748 chars. [Protocol](v09-ink45-boss-v1.md).
+- [x] Retain the fixed2-game process diagnostic's two timeouts under the user's
+      timing waiver; verify ink40 cache11W/29L and changed live boss metadata.
+- [x] Complete40 first attempts:14W/26L, including startup failure14. Stop,
+      diagnose and continue only unattempted15–40 under a separate amendment;
+      no replacement/retry. Pause after20:300.027878 seconds.
+- [x] Verify40 maps/39 qualified exact replays and1,013 evidence pins; report
+      attempted and matched qualified results separately, archive and commit.
+      Technical NOT_PASSED, no confirmed strength/promotion pass; defaults stay.
+      [Result](v09-ink45-boss-v1-result.md).
+
 ## v09 ink40 candidate-only boss observation (2026-10-18)
 
 - [x] Record the requested 40 candidate games, exact ink40 artifact and explicit

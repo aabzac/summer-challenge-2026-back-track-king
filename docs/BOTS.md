@@ -13,6 +13,20 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Budget experiment 2026-10-18: **v09-ink45-boss-v1, 14W/26L in40 attempts (35.0%)**,
+including one retained startup failure at slot14. Same incremental-ink policy
+as cached ink40 (11W/29L); only budget45/40 differs. Matched outcomes8 better,
+5 worse,27 equal. Boss public update metadata changed, so +3 wins is historical
+descriptive evidence, not a confirmed budget gain. All40 maps verified;39
+qualified replays exact (14W/25L), slot14 actual execution UNKNOWN/map-only.
+Original launcher stopped; separately recorded continuation ran only untouched
+slots15–40, no replacements. New source91,748 chars;26 Java,27 helper and11
+continuation checks pass. Minimal strict2-game process diagnostic failed twice
+(51.6577/51.0781ms), timing gate explicitly waived. Retain technical NOT_PASSED,
+readinessfalse, old local54% and timing failures; keep default36/flagsOFF/v09.
+Public evidence audit PASS with1,013 pins, pause300.027878s; no arena upload/push.
+[Result](v09-ink45-boss-v1-result.md), [evidence](evidence/v09-ink45-boss-v1.json).
+
 Requested boss observation 2026-10-18: **v09-ink40-boss-v1, complete 11W/29L,
 27.5% in 40 games**. Exact ink40 candidate, no new control games or strategy
 edits. Same maps/seeds/seats/order as cached B40 13W/27L; 5 better, 7 worse,

@@ -7859,3 +7859,41 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   public evidence, update plan and commit locally excluding unrelated work.
   [Result](v09-ink40-boss-v1-result.md), [evidence](evidence/v09-ink40-boss-v1.json),
   [archive index](evidence/v09-ink40-boss-v1-artifacts.json).
+
+## 2026-10-18 — ink45 boss observation:14/40 with one startup failure
+
+- Hypothesis: the same batched/incremental-ink candidate may use45 ms to improve
+  on its40 ms result. User requested the preceding40-game candidate-only format
+  with timing prerequisite waived. Add45 only to native budget validation/export;
+  preserve all previous default/frozen/36/38/40 source identities and guards.
+  No core/strategy changes; default36 and experimental flags remain unchanged.
+- Export91,748 characters, source1118fc8ad63d8b58b7d1f2a5f0e50c4605314e63d370518a93d19ae1cb7953a4.
+  Only generated MainBot/CGRunner differ from ink40; strategy/core/Params classes
+  are byte-identical.26 Java tests pass. The one fixed2-game strict diagnostic
+  retains2 timeouts:51.6577/51.0781ms at50 ms, not rerun or relabelled PASS.
+- Preparation failures retained: initial Gradle startup stopped before execution;
+  one synthetic MagicMock fixture error corrected (final27/27); offline planning
+  initially rejected external JVM/JAR pins as public workspace files. Corrected
+  only pin handling, preserved prior attempts and passed final27/27 helper checks.
+  Live owner/boss/league match ink40, but public updateTime changed from
+  1792272795496 to1792330879349: comparison with11/40 is historical only.
+- Original run stopped after slot14/game909722283: no first output/build marker,
+  generic pre-main termination and `umount proc: Device or resource busy`.
+  Root cause and connection to45 ms unproven; actual execution UNKNOWN. Separate
+  reviewed continuation used only the already authorized untouched15–40 requests,
+  retained14L and both raw issues, no replacement.11 continuation checks pass.
+- Exactly40 first attempts completed:14W/26L/0D,35.0%, versus cached11W/29L,27.5%.
+  Matched8 better/5 worse/27 equal; each20-game half7W/13L. Qualified39 games
+  score14W/25L against11W/28L on the same39 slots; primary totals keep14L.
+  No new control/local games, API refusals, repeated or pending requests.
+- Shared core verifies all40 maps and39 attributable replays exactly; slot14 is
+  map-only, never engine-exact. Independent audit PASS_RETAINED_EVIDENCE checks
+  1,013 pins; ordinary gap>=22.826970s, after20 gap300.027878s. Actual full-series
+  technical status NOT_PASSED/readinessfalse; boss status
+  NOT_ASSESSED_CHANGED_BOSS_AND_TECHNICAL_FAILURE. Preserve prior ink40 local54%
+  NOT_PASSED/full16 timing NOT_READY. Evidence consistency is not candidate pass.
+- Decision: +3 historical wins is an exploratory signal, not confirmed benefit
+  or promotion. Keep45 experimental, selectedv09/default36/flagsOFF. Archive and
+  commit this completed observation; no push or arena submission. Website IDE
+  retains45 candidate after test play; previous source is privately backed up.
+  [Result](v09-ink45-boss-v1-result.md), [evidence](evidence/v09-ink45-boss-v1.json).

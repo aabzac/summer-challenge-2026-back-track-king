@@ -1,0 +1,1141 @@
+{
+  "actualCounts": {
+    "completed": 40,
+    "issued": 40,
+    "pending": 0,
+    "strategyQualified": 39,
+    "technicalCompleted": 1,
+    "unknownExecutionIdentity": 1,
+    "unstarted": 0
+  },
+  "bossMetadata": {
+    "newUpdateTime": 1792330879349,
+    "oldUpdateTime": 1792272795496,
+    "publicUpdateChanged": true,
+    "sameAgentAndLeague": true
+  },
+  "bossStage": "NOT_ASSESSED_CHANGED_BOSS_AND_TECHNICAL_FAILURE",
+  "candidate": {
+    "draws": 0,
+    "games": 40,
+    "losses": 26,
+    "points": 14.0,
+    "seats": {
+      "0": {
+        "L": 14,
+        "W": 6
+      },
+      "1": {
+        "L": 12,
+        "W": 8
+      }
+    },
+    "wins": 14
+  },
+  "candidateBuild": {
+    "buildId": "9424a240c57b0e3542e3c6543dd704eb60eee857011f1cd2a7c2bc3705883781",
+    "classesSha256": "aa760c6cd7d6ca7a6c70a58a5c5fc50109b5e0a205e9ffc42ee373320aa5d706",
+    "configSha256": "0c46a53807b6c9361a87096e6fb2fd134edaeff6b712ad92780ee81d5b79bb29",
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink45-boss-v1\\artifact",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink45-boss-v1\\process.json",
+    "processCheckSha256": "23edd4c554f10ebfdd8018eff5b01369f58cb332420f398eeac1377be458d69a",
+    "sourceSha256": "1118fc8ad63d8b58b7d1f2a5f0e50c4605314e63d370518a93d19ae1cb7953a4",
+    "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true,TURN_BUDGET_MS=45,USE_INCREMENTAL_INK_REFRESH=true"
+  },
+  "candidateDiagnostic": {
+    "counts": {
+      "errors": 2,
+      "games": 2,
+      "missing": 0,
+      "overruns": 2,
+      "timeouts": 2
+    },
+    "failures": [
+      {
+        "budgetMs": 50,
+        "consumerMs": 51.7918,
+        "graceMs": 0,
+        "io": null,
+        "responseMs": 51.6577,
+        "seat": 0,
+        "sendMs": 0.5718,
+        "status": "TIMEOUT",
+        "turn": 5
+      },
+      {
+        "budgetMs": 50,
+        "consumerMs": 51.2992,
+        "graceMs": 0,
+        "io": null,
+        "responseMs": 51.0781,
+        "seat": 1,
+        "sendMs": 0.6395,
+        "status": "TIMEOUT",
+        "turn": 6
+      }
+    ],
+    "games": 2,
+    "generatedClassesChanged": [
+      "Player$CGRunner.class",
+      "Player$MainBot.class"
+    ],
+    "interpretation": "Original diagnostic results retained, not promoted to full timing readiness.",
+    "report": {
+      "path": "build/analysis/v09-ink45-boss-v1/process.json",
+      "sha256": "23edd4c554f10ebfdd8018eff5b01369f58cb332420f398eeac1377be458d69a"
+    },
+    "status": "FAILED_DIAGNOSTIC",
+    "timingGateWaived": true,
+    "unchangedGeneratedClasses": 22
+  },
+  "candidateQualified": {
+    "draws": 0,
+    "games": 39,
+    "losses": 25,
+    "points": 14.0,
+    "seats": {
+      "0": {
+        "L": 14,
+        "W": 6
+      },
+      "1": {
+        "L": 11,
+        "W": 8
+      }
+    },
+    "wins": 14
+  },
+  "cleanStrengthSample": false,
+  "collectionDates": {
+    "candidate": {
+      "firstCompletedAt": "2026-10-18T14:02:57.754514+00:00",
+      "lastCompletedAt": "2026-10-18T14:38:49.316034+00:00",
+      "recordedDates": 40
+    },
+    "historicalInk40": {
+      "firstCompletedAt": "2026-10-18T11:19:46.164794+00:00",
+      "lastCompletedAt": "2026-10-18T11:47:57.691749+00:00",
+      "recordedDates": 40
+    }
+  },
+  "comparableBossConditionsEstablished": false,
+  "comparison": {
+    "better": 8,
+    "equal": 27,
+    "interpretation": "Historical matched-map budget45/40 differences only; boss public update changed.",
+    "matchedPairs": 40,
+    "rows": [
+      {
+        "candidateGameId": 909719767,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909687383,
+        "historicalControlResult": "L",
+        "mapHash": "3eb29305d68a23bccbf7386661d3a05d094bc8c75b62a55af59d15a783d78e8b",
+        "seat": 0,
+        "seed": "1807486512",
+        "slot": 1
+      },
+      {
+        "candidateGameId": 909719992,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909687489,
+        "historicalControlResult": "W",
+        "mapHash": "e668458ece2b99ba80e910412a611bf7c5725f797d07f5603ac51e0caa8063dd",
+        "seat": 1,
+        "seed": "1297382672",
+        "slot": 2
+      },
+      {
+        "candidateGameId": 909720216,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909687590,
+        "historicalControlResult": "L",
+        "mapHash": "ccad2c093ea599afd02716a98452fba352f54fd469febaaab2d0e02d665cf8ad",
+        "seat": 0,
+        "seed": "1192277489",
+        "slot": 3
+      },
+      {
+        "candidateGameId": 909720346,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909687697,
+        "historicalControlResult": "L",
+        "mapHash": "c5cbd9747ac8a57d230d76af9125439a6ee22759b26255b19948eb3831ff74e5",
+        "seat": 1,
+        "seed": "1031438492",
+        "slot": 4
+      },
+      {
+        "candidateGameId": 909720501,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909687758,
+        "historicalControlResult": "W",
+        "mapHash": "e936a8dca00e0d3d7c295953fd22e36e456c9a3e8ac56380533b3da7fcf9d839",
+        "seat": 0,
+        "seed": "389409389",
+        "slot": 5
+      },
+      {
+        "candidateGameId": 909720717,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909687857,
+        "historicalControlResult": "L",
+        "mapHash": "869524086941dcfa81a5e378fb59562eb0998dbc6cc2646a091459100bcd0b35",
+        "seat": 1,
+        "seed": "654947146",
+        "slot": 6
+      },
+      {
+        "candidateGameId": 909720945,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909687921,
+        "historicalControlResult": "W",
+        "mapHash": "310d23d8960f92f302a6bb3b0c5f250be9a048f4f220ee1092eb351e8edeb983",
+        "seat": 0,
+        "seed": "1364386181",
+        "slot": 7
+      },
+      {
+        "candidateGameId": 909721145,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909688017,
+        "historicalControlResult": "W",
+        "mapHash": "5e253eb744ed0a4744a71a8c320f666bd48ec72c14c76a20687549871323b353",
+        "seat": 0,
+        "seed": "1226602220",
+        "slot": 8
+      },
+      {
+        "candidateGameId": 909721379,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909688131,
+        "historicalControlResult": "L",
+        "mapHash": "ca97311a00fcc85b58ea54c210674d0725a197b44d1874b6724e7d6ca7f6ac30",
+        "seat": 1,
+        "seed": "583578548",
+        "slot": 9
+      },
+      {
+        "candidateGameId": 909721572,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909688230,
+        "historicalControlResult": "W",
+        "mapHash": "256c08cfc77fc907d51e22da4f1b5ddef032453f17657d60737808d52d759be0",
+        "seat": 0,
+        "seed": "1200332969",
+        "slot": 10
+      },
+      {
+        "candidateGameId": 909721744,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909688323,
+        "historicalControlResult": "W",
+        "mapHash": "4672361318e53e607b2479604ad13b20ba3b94c1bff59b0086a89cce6300fd4e",
+        "seat": 1,
+        "seed": "713730022",
+        "slot": 11
+      },
+      {
+        "candidateGameId": 909721931,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909688413,
+        "historicalControlResult": "L",
+        "mapHash": "15a4cf60c8ce714f12454445de2f29562aa2a11b7199aa16aa70e8791699e387",
+        "seat": 0,
+        "seed": "1015927095",
+        "slot": 12
+      },
+      {
+        "candidateGameId": 909722132,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909688520,
+        "historicalControlResult": "L",
+        "mapHash": "694210d3147ff895be91f6d713ba140506f040b3e48916cf468fc5deb3c36911",
+        "seat": 0,
+        "seed": "719431138",
+        "slot": 13
+      },
+      {
+        "candidateGameId": 909722283,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909688620,
+        "historicalControlResult": "L",
+        "mapHash": "e471239eb70c33b42e4370f40b3254169044559909ee4d72658e1ffa6c285c6b",
+        "seat": 1,
+        "seed": "2141398536",
+        "slot": 14
+      },
+      {
+        "candidateGameId": 909724080,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909688735,
+        "historicalControlResult": "L",
+        "mapHash": "21ec2bea8d6f22062d87020e0ebbe6ee0becb3cb7ef251aecf34c6908563987d",
+        "seat": 1,
+        "seed": "992276776",
+        "slot": 15
+      },
+      {
+        "candidateGameId": 909724254,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909688875,
+        "historicalControlResult": "L",
+        "mapHash": "526b6ad9e5b9e654c33aa2656c773a2d3cf64f2f36ca07b4ccdba1735f8ff1fa",
+        "seat": 1,
+        "seed": "1487513744",
+        "slot": 16
+      },
+      {
+        "candidateGameId": 909724430,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909688965,
+        "historicalControlResult": "W",
+        "mapHash": "f9cd718162a0b796df6a93f609bfb0deb49ff028cc7cece248ef4a1e4d298b67",
+        "seat": 1,
+        "seed": "1123603624",
+        "slot": 17
+      },
+      {
+        "candidateGameId": 909724665,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909689067,
+        "historicalControlResult": "L",
+        "mapHash": "021f350b6088887d7a4ec1f82a6946d933c266c25b3df0cb83b0912e88329c9f",
+        "seat": 0,
+        "seed": "1560558023",
+        "slot": 18
+      },
+      {
+        "candidateGameId": 909724875,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909689174,
+        "historicalControlResult": "W",
+        "mapHash": "143ce77c0b77cf1098c17017ab0abfc70247d3ba0c001a074feeec507317c445",
+        "seat": 1,
+        "seed": "1846105241",
+        "slot": 19
+      },
+      {
+        "candidateGameId": 909725087,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909689275,
+        "historicalControlResult": "L",
+        "mapHash": "5984af618c9b449c242004347b2c87bf86702e23ab649c691eb8016aae8a0eff",
+        "seat": 1,
+        "seed": "1747517070",
+        "slot": 20
+      },
+      {
+        "candidateGameId": 909726951,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909690223,
+        "historicalControlResult": "W",
+        "mapHash": "d164b685d4136de7631a6eac5607479db057cbc18316b550c0ea5c82de9344db",
+        "seat": 1,
+        "seed": "1683847327",
+        "slot": 21
+      },
+      {
+        "candidateGameId": 909727189,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909690375,
+        "historicalControlResult": "L",
+        "mapHash": "53ad64520d556e7479c02b5c02c1191858990d7aa57abc0170fdbacc21187456",
+        "seat": 0,
+        "seed": "526738229",
+        "slot": 22
+      },
+      {
+        "candidateGameId": 909727390,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909690435,
+        "historicalControlResult": "L",
+        "mapHash": "b3b34800d9c14cd4608932a34f46b8d253625dbae13efb1007ba37d3d1d6c354",
+        "seat": 0,
+        "seed": "2095622718",
+        "slot": 23
+      },
+      {
+        "candidateGameId": 909727636,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909690498,
+        "historicalControlResult": "W",
+        "mapHash": "72dc1a812901c87ff0013b895d6394f799d9068b29af44e798caa83aaac04ac8",
+        "seat": 1,
+        "seed": "40992827",
+        "slot": 24
+      },
+      {
+        "candidateGameId": 909727762,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909690572,
+        "historicalControlResult": "L",
+        "mapHash": "25d87c344df2a1ddb5e07d53b892f065782252562fbe2e989df9d56d9dee78be",
+        "seat": 0,
+        "seed": "1030268835",
+        "slot": 25
+      },
+      {
+        "candidateGameId": 909727992,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909690647,
+        "historicalControlResult": "L",
+        "mapHash": "2ca654407ebe51167f3586ec82ac48ce59463adfb99eae50de8e57f576ff1eff",
+        "seat": 0,
+        "seed": "1598144009",
+        "slot": 26
+      },
+      {
+        "candidateGameId": 909728202,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909690750,
+        "historicalControlResult": "L",
+        "mapHash": "8263d5029eae5db6f347073f6080496d6cb748a476c686258af3ab712a0634ef",
+        "seat": 0,
+        "seed": "1636952962",
+        "slot": 27
+      },
+      {
+        "candidateGameId": 909728341,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909690834,
+        "historicalControlResult": "L",
+        "mapHash": "9eb71ef772cd14d9ecaec329c1f21c5109d87816e80c35c26695579134be2ce1",
+        "seat": 1,
+        "seed": "1037563823",
+        "slot": 28
+      },
+      {
+        "candidateGameId": 909728557,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909690910,
+        "historicalControlResult": "L",
+        "mapHash": "64776c127a0144466772898ef208009c159958884bef17bd6f6905e47656dff8",
+        "seat": 1,
+        "seed": "4199147",
+        "slot": 29
+      },
+      {
+        "candidateGameId": 909728759,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909690982,
+        "historicalControlResult": "L",
+        "mapHash": "75369a392d9e935a95571629cd95255808954d1104169c8595b6346b0d8be893",
+        "seat": 1,
+        "seed": "1226337336",
+        "slot": 30
+      },
+      {
+        "candidateGameId": 909728973,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691080,
+        "historicalControlResult": "L",
+        "mapHash": "120438a6d5b043dcf40115f2ed4571d57494c7a3566583b72e880378fa8fc232",
+        "seat": 0,
+        "seed": "1660706735",
+        "slot": 31
+      },
+      {
+        "candidateGameId": 909729207,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691175,
+        "historicalControlResult": "L",
+        "mapHash": "ff2166ea7a80ea4d05bd58c3d62f461f121e5adb3a698f5564456dd14c0c79e7",
+        "seat": 0,
+        "seed": "411649520",
+        "slot": 32
+      },
+      {
+        "candidateGameId": 909729460,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691360,
+        "historicalControlResult": "L",
+        "mapHash": "0e92b67e68bc7cdc999fa2fa8a183efb11924f7e68784c8ce6d9bbfba2672b87",
+        "seat": 1,
+        "seed": "692557103",
+        "slot": 33
+      },
+      {
+        "candidateGameId": 909729631,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691391,
+        "historicalControlResult": "L",
+        "mapHash": "84e4169504a4ea49a8851447fb13d89e94e338c16ca25662a615b81e6959d38e",
+        "seat": 0,
+        "seed": "1875072073",
+        "slot": 34
+      },
+      {
+        "candidateGameId": 909729782,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691413,
+        "historicalControlResult": "L",
+        "mapHash": "db5f7a77aea33cd560a9993b95c57bb87600ae595d57c0bebb26bb35cba21154",
+        "seat": 1,
+        "seed": "1598373929",
+        "slot": 35
+      },
+      {
+        "candidateGameId": 909729879,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909691496,
+        "historicalControlResult": "L",
+        "mapHash": "902a2420d81794aff5fd76ecde33b219175b1fcdda17f3e588ca0de4a4b677dc",
+        "seat": 1,
+        "seed": "1124741568",
+        "slot": 36
+      },
+      {
+        "candidateGameId": 909730137,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691569,
+        "historicalControlResult": "W",
+        "mapHash": "220894da4d9cd4d189f3ca45aae7f9614d75dab36085d5636fb7ca973088deee",
+        "seat": 0,
+        "seed": "479973053",
+        "slot": 37
+      },
+      {
+        "candidateGameId": 909730323,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691656,
+        "historicalControlResult": "L",
+        "mapHash": "55e31abc93affa0b2431621c5c1cf7607072fd5c1903e94839bd079714d5259e",
+        "seat": 0,
+        "seed": "1660338636",
+        "slot": 38
+      },
+      {
+        "candidateGameId": 909730465,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909691751,
+        "historicalControlResult": "L",
+        "mapHash": "95007cf13056fc2cbf69e8619a3880a0fa8b48874983af9875335919651b77c9",
+        "seat": 0,
+        "seed": "288195347",
+        "slot": 39
+      },
+      {
+        "candidateGameId": 909730610,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909691821,
+        "historicalControlResult": "L",
+        "mapHash": "362c2ce9dbaf91ebd949fdbf494aebe3dc9737d9ef83089ffe83a609ebb4a6f7",
+        "seat": 1,
+        "seed": "1084670540",
+        "slot": 40
+      }
+    ],
+    "worse": 5
+  },
+  "complete": true,
+  "continuation": {
+    "amendment": {
+      "path": "docs/v09-ink45-boss-v1-continuation.md",
+      "sha256": "0166f40a225668363aeb51928121c397dbf58eef64059d1b7add4c9419b36e04"
+    },
+    "knownFailedGameId": 909722283,
+    "knownFailedSlot": 14,
+    "launch": {
+      "path": "build/analysis/v09-ink45-boss-v1/continuation-launch.json",
+      "sha256": "71fff9218aad0aca4678da776ec63dd68b12c5ec9083e1898265c23e17eb1d9c"
+    },
+    "originalExit": {
+      "path": "build/analysis/v09-ink45-boss-v1/run-exit.json",
+      "sha256": "6f5f04615fadabdb49c4c9e030fc5b86b7f885e30b413f9b271b1acfb0bb51af"
+    },
+    "originalProtocolStopAmended": true,
+    "originalStop": {
+      "path": "build/analysis/v09-ink45-boss-v1/run-failure.json",
+      "sha256": "78e8cd17604647fb6f007683ea9f46cca25deea6748860156ef357e8c4da07fe"
+    },
+    "plan": {
+      "path": "build/analysis/v09-ink45-boss-v1/continuation-plan.json",
+      "sha256": "34279c30d0f69ab6fa00236d9c8c877fd93f95bc876059021b294f45285032c8"
+    },
+    "replacementGames": 0,
+    "tests": {
+      "path": "build/analysis/v09-ink45-boss-v1/continuation-tests-summary.json",
+      "sha256": "44a2343f9907cbcfc7cd814533efef38b4675840060a9dbde975c920f71b91d3"
+    },
+    "underlyingStartupCause": "UNDETERMINED"
+  },
+  "historicalComparisonOnly": true,
+  "historicalInk40Build": {
+    "buildId": "24d23afd80815de8319b8d0b37ac44cc2ae255d3b297af8045176e497f406edd",
+    "classesSha256": "c0ae7fe8637b8b9d8db65ac8adfb4fef82c3b64371853e3032388e0b65a9c4e8",
+    "configSha256": "5026397df7503be850af0cee868447295762e8299441879efe94676512cfe3cb",
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink40-v1\\artifact",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink40-v1\\process-1.json",
+    "processCheckSha256": "5ded0ca7db1c95b5434efeffe85ccaba01103aa4f159c4689e9e9a0fc5abe0ba",
+    "sourceSha256": "aff2dc9bf48d2f9a141012c3d47fc079bb9af9354cdfa846ef40832804db75a5",
+    "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true,TURN_BUDGET_MS=40,USE_INCREMENTAL_INK_REFRESH=true"
+  },
+  "historicalInk40FullPanel": {
+    "draws": 0,
+    "games": 40,
+    "losses": 29,
+    "points": 11.0,
+    "seats": {
+      "0": {
+        "L": 15,
+        "W": 5
+      },
+      "1": {
+        "L": 14,
+        "W": 6
+      }
+    },
+    "wins": 11
+  },
+  "historicalReadiness": {
+    "localDecision": "NOT_PASSED",
+    "localDraws": 44,
+    "localGames": 1000,
+    "localLosses": 438,
+    "localScore": 0.54,
+    "localWins": 518,
+    "process": {
+      "errors": 2,
+      "games": 16,
+      "missing": 0,
+      "overruns": 2,
+      "timeouts": 2
+    },
+    "status": "NOT_READY",
+    "timeoutResponseMs": [
+      50.2949,
+      52.1667
+    ],
+    "timingPrerequisiteWaived": true
+  },
+  "independentAudit": {
+    "bytes": 240568,
+    "path": "build/analysis/v09-ink45-boss-v1/independent-continuation-audit.json",
+    "sha256": "f9b13c3caa47e37961bfdb2e13cc2a35049aa8a6582754fa78738672af7ceb6b"
+  },
+  "interpretation": "Primary attempted totals retain technical startup loss14. Qualified games exclude only14 and use identical control slots, descriptively. A separately declared continuation preserved the failed attempt; technical status remains NOT_PASSED, timing failed, boss conditions changed, no promotion.",
+  "matchedHistoricalSubset": {
+    "draws": 0,
+    "games": 40,
+    "losses": 29,
+    "points": 11.0,
+    "seats": {
+      "0": {
+        "L": 15,
+        "W": 5
+      },
+      "1": {
+        "L": 14,
+        "W": 6
+      }
+    },
+    "wins": 11
+  },
+  "pacing": {
+    "cooldown": {
+      "actualGapSeconds": 300.02787804603577,
+      "completed": {
+        "path": "build/analysis/v09-ink45-boss-v1/cooldowns/0021-completed.json",
+        "sha256": "48fcc6c27dd98bf8ad8e1da18e9e346ed6fd8251f09809ffb12ce88dc2394f70"
+      },
+      "previousResult": {
+        "path": "build/cg-boss/v09-ink45-boss-v1-candidate-40/0020/result.json",
+        "sha256": "6ff3bba420eabd21bb2c2e87c703cd4eb542dd2fa714a303c0f1a2280d215a63"
+      },
+      "started": {
+        "path": "build/analysis/v09-ink45-boss-v1/cooldowns/0021-started.json",
+        "sha256": "f726f3d5df329834b7e9154787b4dc3bd6a93c4b6530ec5641d9a4501254523c"
+      }
+    },
+    "gaps": [
+      {
+        "afterSlot": 1,
+        "beforeSlot": 2,
+        "minimumSeconds": 20,
+        "seconds": 23.649982929229736
+      },
+      {
+        "afterSlot": 2,
+        "beforeSlot": 3,
+        "minimumSeconds": 20,
+        "seconds": 23.064523935317993
+      },
+      {
+        "afterSlot": 3,
+        "beforeSlot": 4,
+        "minimumSeconds": 20,
+        "seconds": 22.826969861984253
+      },
+      {
+        "afterSlot": 4,
+        "beforeSlot": 5,
+        "minimumSeconds": 20,
+        "seconds": 22.877196073532104
+      },
+      {
+        "afterSlot": 5,
+        "beforeSlot": 6,
+        "minimumSeconds": 20,
+        "seconds": 22.96903896331787
+      },
+      {
+        "afterSlot": 6,
+        "beforeSlot": 7,
+        "minimumSeconds": 20,
+        "seconds": 23.090863943099976
+      },
+      {
+        "afterSlot": 7,
+        "beforeSlot": 8,
+        "minimumSeconds": 20,
+        "seconds": 22.88264012336731
+      },
+      {
+        "afterSlot": 8,
+        "beforeSlot": 9,
+        "minimumSeconds": 20,
+        "seconds": 22.85950493812561
+      },
+      {
+        "afterSlot": 9,
+        "beforeSlot": 10,
+        "minimumSeconds": 20,
+        "seconds": 23.253504991531372
+      },
+      {
+        "afterSlot": 10,
+        "beforeSlot": 11,
+        "minimumSeconds": 20,
+        "seconds": 23.182166814804077
+      },
+      {
+        "afterSlot": 11,
+        "beforeSlot": 12,
+        "minimumSeconds": 20,
+        "seconds": 23.01766586303711
+      },
+      {
+        "afterSlot": 12,
+        "beforeSlot": 13,
+        "minimumSeconds": 20,
+        "seconds": 22.937346935272217
+      },
+      {
+        "afterSlot": 13,
+        "beforeSlot": 14,
+        "minimumSeconds": 20,
+        "seconds": 23.063141107559204
+      },
+      {
+        "afterSlot": 14,
+        "beforeSlot": 15,
+        "minimumSeconds": 20,
+        "seconds": 366.1712188720703
+      },
+      {
+        "afterSlot": 15,
+        "beforeSlot": 16,
+        "minimumSeconds": 20,
+        "seconds": 23.230996131896973
+      },
+      {
+        "afterSlot": 16,
+        "beforeSlot": 17,
+        "minimumSeconds": 20,
+        "seconds": 23.428863048553467
+      },
+      {
+        "afterSlot": 17,
+        "beforeSlot": 18,
+        "minimumSeconds": 20,
+        "seconds": 23.380510091781616
+      },
+      {
+        "afterSlot": 18,
+        "beforeSlot": 19,
+        "minimumSeconds": 20,
+        "seconds": 23.85004997253418
+      },
+      {
+        "afterSlot": 19,
+        "beforeSlot": 20,
+        "minimumSeconds": 20,
+        "seconds": 23.38197898864746
+      },
+      {
+        "afterSlot": 20,
+        "beforeSlot": 21,
+        "minimumSeconds": 300,
+        "seconds": 300.02787804603577
+      },
+      {
+        "afterSlot": 21,
+        "beforeSlot": 22,
+        "minimumSeconds": 20,
+        "seconds": 25.335087060928345
+      },
+      {
+        "afterSlot": 22,
+        "beforeSlot": 23,
+        "minimumSeconds": 20,
+        "seconds": 25.437243938446045
+      },
+      {
+        "afterSlot": 23,
+        "beforeSlot": 24,
+        "minimumSeconds": 20,
+        "seconds": 25.47782588005066
+      },
+      {
+        "afterSlot": 24,
+        "beforeSlot": 25,
+        "minimumSeconds": 20,
+        "seconds": 25.56389284133911
+      },
+      {
+        "afterSlot": 25,
+        "beforeSlot": 26,
+        "minimumSeconds": 20,
+        "seconds": 25.571961164474487
+      },
+      {
+        "afterSlot": 26,
+        "beforeSlot": 27,
+        "minimumSeconds": 20,
+        "seconds": 25.453087091445923
+      },
+      {
+        "afterSlot": 27,
+        "beforeSlot": 28,
+        "minimumSeconds": 20,
+        "seconds": 25.523107051849365
+      },
+      {
+        "afterSlot": 28,
+        "beforeSlot": 29,
+        "minimumSeconds": 20,
+        "seconds": 25.358741998672485
+      },
+      {
+        "afterSlot": 29,
+        "beforeSlot": 30,
+        "minimumSeconds": 20,
+        "seconds": 25.65296697616577
+      },
+      {
+        "afterSlot": 30,
+        "beforeSlot": 31,
+        "minimumSeconds": 20,
+        "seconds": 25.517854928970337
+      },
+      {
+        "afterSlot": 31,
+        "beforeSlot": 32,
+        "minimumSeconds": 20,
+        "seconds": 25.418877840042114
+      },
+      {
+        "afterSlot": 32,
+        "beforeSlot": 33,
+        "minimumSeconds": 20,
+        "seconds": 25.4805850982666
+      },
+      {
+        "afterSlot": 33,
+        "beforeSlot": 34,
+        "minimumSeconds": 20,
+        "seconds": 25.505383014678955
+      },
+      {
+        "afterSlot": 34,
+        "beforeSlot": 35,
+        "minimumSeconds": 20,
+        "seconds": 25.679042100906372
+      },
+      {
+        "afterSlot": 35,
+        "beforeSlot": 36,
+        "minimumSeconds": 20,
+        "seconds": 25.66551899909973
+      },
+      {
+        "afterSlot": 36,
+        "beforeSlot": 37,
+        "minimumSeconds": 20,
+        "seconds": 25.088697910308838
+      },
+      {
+        "afterSlot": 37,
+        "beforeSlot": 38,
+        "minimumSeconds": 20,
+        "seconds": 25.45216393470764
+      },
+      {
+        "afterSlot": 38,
+        "beforeSlot": 39,
+        "minimumSeconds": 20,
+        "seconds": 25.366053819656372
+      },
+      {
+        "afterSlot": 39,
+        "beforeSlot": 40,
+        "minimumSeconds": 20,
+        "seconds": 25.613297939300537
+      }
+    ],
+    "minimumOrdinarySeconds": 22.826969861984253,
+    "priorControlBoundary": {
+      "actualGapSeconds": 8083.032133817673,
+      "completed": {
+        "path": "build/analysis/v09-ink45-boss-v1/cooldowns/0001-completed.json",
+        "sha256": "0571d84a59709f3716d22535491fd58ac94d03caea2bc7f870a652ceb9006916"
+      },
+      "previousResult": {
+        "path": "build/cg-boss/v09-ink40-boss-v1-candidate-40/0040/result.json",
+        "sha256": "68bd8b34dbb355075f5ce192b729adbedf04042bb757b632186755d2940a08b6"
+      },
+      "started": {
+        "path": "build/analysis/v09-ink45-boss-v1/cooldowns/0001-started.json",
+        "sha256": "a32422e2d38692a2c15ca4a0926773833f7017618355f3e3ede58916b07900f0"
+      }
+    }
+  },
+  "pending": [],
+  "plan": {
+    "bytes": 105041,
+    "path": "build/cg-boss/v09-ink45-boss-v1-candidate-40/plan.json",
+    "sha256": "ab55e45dcd332ae0b1588b84b440245a0c6cee238da075ace6631e172356269d"
+  },
+  "promotion": false,
+  "prospectiveFreeze": {
+    "bytes": 155245,
+    "path": "build/analysis/v09-ink45-boss-v1/freeze.json",
+    "sha256": "ebcf0c285dcbaa1a4c1b9f2f522592d72a3d6289a65396a45c018ac4823be247"
+  },
+  "qualifiedComparison": {
+    "better": 8,
+    "equal": 26,
+    "excludedTechnicalSlots": [
+      14
+    ],
+    "interpretation": "Secondary descriptive comparison on identical qualified slots; exclusion never removes14L from attempted primary totals.",
+    "matchedPairs": 39,
+    "slots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "worse": 5
+  },
+  "qualifiedHistoricalSubset": {
+    "draws": 0,
+    "games": 39,
+    "losses": 28,
+    "points": 11.0,
+    "seats": {
+      "0": {
+        "L": 15,
+        "W": 5
+      },
+      "1": {
+        "L": 13,
+        "W": 6
+      }
+    },
+    "wins": 11
+  },
+  "rawToolLimit": "Original legacy issues and readinessPassed=false are retained. Attempted totals include the startup loss; qualified subset is secondary. Changed boss conditions prevent a fresh strength claim.",
+  "rawUnmodifiedToolArithmetic": {
+    "bossStage": "NOT_PASSED",
+    "complete": true,
+    "issues": [
+      "Slot 14: candidate build attribution failed",
+      "Slot 14: recorded technical game failure"
+    ],
+    "readinessPassed": false
+  },
+  "readinessPassed": false,
+  "recordedAt": "2026-10-18T14:42:07.188396+00:00",
+  "schema": "v09-ink45-boss-v1",
+  "selectedBot": "v09",
+  "sharedCore": {
+    "complete": true,
+    "distinctMaps": 40,
+    "engineExact": 39,
+    "evidenceVerified": true,
+    "games": 40,
+    "mapVerified": 40,
+    "passed": false,
+    "qualifiedGames": 39,
+    "report": {
+      "path": "build/analysis/v09-ink45-boss-v1/continuation-map-audit.json",
+      "sha256": "8fb002df64235bb11f29cdabb7fb32640846094a9cb5c05109dfd5dc0288de9b"
+    },
+    "startupFailureEngineAssessed": false,
+    "technicalFailuresRetained": 1
+  },
+  "status": "COMPLETE_WITH_RETAINED_TECHNICAL_FAILURE",
+  "syntheticTests": {
+    "final": {
+      "errors": 0,
+      "failures": 0,
+      "passed": true,
+      "report": {
+        "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests-v3-summary.json",
+        "sha256": "ab4107afc4742babbc4b8e9bf07eec93dfeba9b534a487a0aa6286875e7322b4"
+      },
+      "tests": 27
+    },
+    "fixtureRepair": {
+      "noProcessOrGameRerun": true,
+      "reason": "MagicMock auto-created truthy adapter marker; explicitly set False in fixture only.",
+      "retainedInputs": [
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests-summary.json",
+          "sha256": "1f0049ffd0438f5413486501cbd2ff9b78bb9b04114e3695dd97c32c86d2f349"
+        },
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests.log",
+          "sha256": "2b9c08e2a7b45ab84d87d4586df30fbb57312468aefa83f7b1ff97ce7b4464ea"
+        },
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/test_driver-initial.py",
+          "sha256": "a295a68a031abccc67ddb4be432221689bbe03a895267b315eb6aa499f47c431"
+        }
+      ]
+    },
+    "initial": {
+      "errors": 1,
+      "failures": 0,
+      "passed": false,
+      "report": {
+        "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests-summary.json",
+        "sha256": "1f0049ffd0438f5413486501cbd2ff9b78bb9b04114e3695dd97c32c86d2f349"
+      },
+      "tests": 27
+    },
+    "initialToV2TestChange": "Test definitions add only explicit False marker on MagicMock fallback; evidence writer adds v2 output names and retained fixtureRepair provenance.",
+    "intermediate": {
+      "errors": 0,
+      "failures": 0,
+      "passed": true,
+      "report": {
+        "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests-v2-summary.json",
+        "sha256": "52eb332f540af275b0cf3dae04403eecca4f09530aae7ca7fdac58703dcbcdda"
+      },
+      "tests": 27
+    },
+    "noNetworkOrGames": true,
+    "offlinePlanRepair": {
+      "noProcessOrGameRerun": true,
+      "reason": "Verify external Java/JAR engine pins directly; only workspace files use workspace evidence pinning.",
+      "retainedInputs": [
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests-v2-summary.json",
+          "sha256": "52eb332f540af275b0cf3dae04403eecca4f09530aae7ca7fdac58703dcbcdda"
+        },
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/synthetic-tests-v2.log",
+          "sha256": "4672665e27ddb9ee1a3ae6a2e35fe714b89627c7da0dd650f2306960d83c5df1"
+        },
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/driver-v2.py",
+          "sha256": "96211cbc3be6faf3674c4abb20f6dc1ad4f08e3098541b72f063d51bed00ba60"
+        },
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/test_driver-v2.py",
+          "sha256": "6bc71879efc4a8a9d39d29229c7fae365d1900efc2aa8a82410fb573eadd8cf1"
+        },
+        {
+          "path": "build/analysis/v09-ink45-boss-v1/plan-failure.json",
+          "sha256": "c1402dbe11ae145a0281e10f88233aa0ea890c52b58c486d5fa105dbd8c6ebb2"
+        }
+      ]
+    }
+  },
+  "technicalFailures": [
+    {
+      "frame": 2,
+      "slot": 14,
+      "summarySha256": "4f7a925291412581ef57f09b11013854bed7f609561015533d69810da6f35ae5"
+    }
+  ],
+  "technicalStatus": "NOT_PASSED"
+}

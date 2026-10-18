@@ -24,6 +24,10 @@ class TurnBudgetSubmissionTest {
                 FileMerger.sha256(FileMerger.merge(BASE)));
         assertEquals("979cbac253699737deb01dc8ce44c99265d5362170db29f8b0e7e79edbfd1992",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=38")));
+        assertEquals("9510ff174e76297736144193a4c519f3728eac067d09614bb65e2f0ecd1b88d9",
+                FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=40")));
+        assertEquals("aff2dc9bf48d2f9a141012c3d47fc079bb9af9354cdfa846ef40832804db75a5",
+                FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=40,USE_INCREMENTAL_INK_REFRESH=true")));
         for (String spec : new String[]{"current", "v09", BASE}) {
             String source = FileMerger.merge(spec);
             assertFalse(source.contains("TURN_BUDGET_MS"));
@@ -33,11 +37,12 @@ class TurnBudgetSubmissionTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void enabledExportCompilesWithDifferentSourceAndConfigurationIdentities(int budgetMs) throws Exception {
-        String candidate = BASE + ",TURN_BUDGET_MS=" + budgetMs;
-        String otherOverride = BASE + ",TURN_BUDGET_MS=" + (budgetMs == 38 ? 40 : 38);
-        String source = FileMerger.merge(candidate), control = FileMerger.merge(BASE);
+        String extra = budgetMs == 45 ? ",USE_INCREMENTAL_INK_REFRESH=true" : "";
+        String candidate = BASE + ",TURN_BUDGET_MS=" + budgetMs + extra;
+        String otherOverride = BASE + ",TURN_BUDGET_MS=" + (budgetMs == 38 ? 40 : 38) + extra;
+        String source = FileMerger.merge(candidate), control = FileMerger.merge(BASE + extra);
         FileMerger.checkSourceSize(source);
         var manifest = FileMerger.manifest(candidate, source);
         assertEquals(String.valueOf(budgetMs), BotFactory.configuration(candidate).get("TURN_BUDGET_MS"));
@@ -57,7 +62,16 @@ class TurnBudgetSubmissionTest {
             Class<?> main = loader.loadClass("Player$MainBot");
             var constructor = main.getDeclaredConstructor(); constructor.setAccessible(true);
             var method = main.getDeclaredMethod("turnBudgetMs"); method.setAccessible(true);
-            assertEquals((long) budgetMs, method.invoke(constructor.newInstance()));
+            Object instance = constructor.newInstance();
+            assertEquals((long) budgetMs, method.invoke(instance));
+            if (budgetMs == 45) {
+                var field = main.getDeclaredField("params"); field.setAccessible(true);
+                Object params = field.get(instance);
+                var ink = params.getClass().getDeclaredField("USE_INCREMENTAL_INK_REFRESH"); ink.setAccessible(true);
+                assertTrue(ink.getBoolean(params), "the requested combined ink45 recipe is compiled");
+                assertFalse(source.contains("deadlinePending"));
+                assertFalse(source.contains("USE_FAST_CHEAPEST_PATH"));
+            }
             Class<?> runner = loader.loadClass("Player$CGRunner");
             for (var entry : java.util.Map.of("TURN_MS", 50L, "MARGIN_MS", 14L,
                     "FIRST_TURN_MS", 1000L, "WARMUP_MS", 500L).entrySet()) {

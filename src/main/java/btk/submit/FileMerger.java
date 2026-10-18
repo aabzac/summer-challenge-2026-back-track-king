@@ -281,7 +281,10 @@ public class FileMerger {
                 // is omitted from submissions, so fold only this guarded constructor check.
                 if (turnBudgetBlock && file.endsWith("MainBot.java")) {
                     line = line.replace("params.USE_NEURAL_TARGET_PROPOSAL", "false");
-                    // Keep the already measured 38-ms source and build marker byte-identical.
+                    // Keep the already measured 38/40-ms source and build marker byte-identical.
+                    if (turnBudgetMs != 45) line = line.replace(" && params.TURN_BUDGET_MS != 45", "")
+                            .replace("36, 38, 40 or 45 ms", "36, 38 or 40 ms")
+                            .replace("38/40/45 ms requires", "38/40 ms requires");
                     if (turnBudgetMs == 38) line = line.replace(" && params.TURN_BUDGET_MS != 40", "")
                             .replace("36, 38 or 40 ms", "36 or 38 ms")
                             .replace("38/40 ms requires", "38 ms requires");

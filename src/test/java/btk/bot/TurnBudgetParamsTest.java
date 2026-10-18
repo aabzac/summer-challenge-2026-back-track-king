@@ -10,7 +10,7 @@ class TurnBudgetParamsTest {
     private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
 
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void onlyTheCurrentNativePolicyMayRequestAnExplicitBudgetOverride(int budgetMs) {
         assertEquals(36, new Params().TURN_BUDGET_MS);
         assertEquals(36, new MainBot().turnBudgetMs());
@@ -33,7 +33,7 @@ class TurnBudgetParamsTest {
     }
 
     @Test void undeclaredBudgetValuesAreRejectedByBothEntryPoints() {
-        for (int budgetMs : new int[]{0, 37, 39, 41, 50}) {
+        for (int budgetMs : new int[]{0, 37, 39, 41, 44, 46, 50, 100}) {
             String query = "TURN_BUDGET_MS=" + budgetMs;
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?" + query), query);
             assertThrows(IllegalArgumentException.class, () -> new MainBot(new Params(query)), query);
@@ -41,7 +41,7 @@ class TurnBudgetParamsTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void frozenSnapshotsResetAnAbsentBudgetAndKeepTheirConfigurationsUnchanged(int budgetMs) {
         Params params = new Params("TURN_BUDGET_MS=" + budgetMs);
         FrozenParams.applyTo("v09", params);

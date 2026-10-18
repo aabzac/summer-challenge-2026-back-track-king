@@ -77,7 +77,7 @@ class TimingProfileTest {
     record BudgetSeen(String spec, int side, int turn, long ms) {}
 
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void perArmBudgetsFollowBothSeatAssignmentsAndAreReportedExplicitly(int budgetMs) throws Exception {
         String candidate = BASE + ",TURN_BUDGET_MS=" + budgetMs;
         var seen = new ConcurrentLinkedQueue<BudgetSeen>();
@@ -105,7 +105,7 @@ class TimingProfileTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void overrideIsRejectedUnderLegacyBeforeBotsOrGamesAndUnsetSeatsStayCompatible(int budgetMs) throws Exception {
         String candidate = BASE + ",TURN_BUDGET_MS=" + budgetMs;
         assertThrows(IllegalArgumentException.class, () -> BenchmarkRunner.run(candidate, BASE, 2,
@@ -122,7 +122,7 @@ class TimingProfileTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void processOpponentCapHonorsItsRecipeWithoutChangingTheExternal50MsLimit(int budgetMs) {
         long[] seen = {-1};
         Bot delegate = new Bot() {

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CGRunnerTurnBudgetTest {
     @ParameterizedTest
-    @ValueSource(ints = {38, 40})
+    @ValueSource(ints = {38, 40, 45})
     void laterAllowanceStillChargesPreparationAndFirstTurnWarmupIsUnchanged(int budgetMs) throws Exception {
         GameState s = new GameState(3, 1, new int[]{0, 1, 2}, new int[3],
                 new int[]{0, 2}, new int[]{0, 0}, new int[][]{{1}, {}});
