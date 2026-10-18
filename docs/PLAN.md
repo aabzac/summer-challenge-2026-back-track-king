@@ -3,6 +3,18 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 ink40 local strength with timeout waiver (2026-10-18)
+
+- [x] Record the user's explicit waiver of the timing prerequisite for local
+      strength; preserve the prior NOT_READY result and both timeout records.
+      [Protocol](v09-ink40-strength-v1.md).
+- [x] Verify inherited artifacts/runtime and 35 passing synthetic driver checks;
+      register 500 fresh paired maps and run 300/+200/+500 at 486/40 ms,
+      two workers: 518W/438L/44D, 54.0%, local NOT_PASSED.
+- [x] Independently audit (41,876 checks), archive and commit the result; keep
+      default 36, experimental flags OFF and timing readiness separate from
+      strength. [Result](v09-ink40-strength-v1-result.md).
+
 ## v09 incremental ink at 40 ms (2026-10-18)
 
 - [x] Predeclare ink ON/OFF on the same batched40 base, fast path/deadline OFF;

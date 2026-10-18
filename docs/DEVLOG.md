@@ -7776,3 +7776,43 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   independently reconcile it and commit the completed experiment locally.
   [Result](v09-ink40-v1-result.md), [evidence](evidence/v09-ink40-v1.json),
   [archive index](evidence/v09-ink40-v1-artifacts.json).
+
+## 2026-10-18 - v09-ink40-strength-v1: local bench after explicit timeout waiver
+
+- User explicitly requests removing the timeout prerequisite and running the
+  40 ms strength bench. Hypothesis: incremental refresh after hypothetical
+  ink improves strength on the same batched40/NOISE0.1 base. The new protocol
+  permits this local comparison despite the completed strict-response failure;
+  preserve the old NOT_READY publication and its two timeouts unchanged.
+- A/B both 486/40 ms; only incremental ink differs. Fast path and deadline
+  correction OFF. Reuse exact artifacts and the pre-fast-path native runtime,
+  inherited engine 292/292 and ample 524 parity. No production edits, rebuilds
+  or process retries. Keep the known focused-test catalog failure and the
+  limited historical guard scope disclosed; no new full-suite pass claimed.
+- A separate wrapper changes only the prerequisite and local-only metadata,
+  verifies the explicit waiver and complete audited timeout evidence, and
+  retains all other checks. Its 35 synthetic tests pass without bot calls;
+  historical drivers, tests and published evidence are unchanged.
+- Register all 500 maps before play, disjoint from 26,124 played/reserved maps,
+  including all 500 fast-path maps. Freeze 4,831 files and 7 runtimes from
+  preparation commit 8764233. Two workers, fixed 300/+200/+500, no retries,
+  extensions or tuning. Timing outliers are diagnostic and never gate this run.
+- Complete all blocks once: 154W/134L/12D, 53.3333% at 300; then
+  114W/78L/8D, 59.0%, pooled 55.6% at 500; then 250W/226L/24D, 52.4%.
+  **Pooled 518W/438L/44D, 54.0% in 1,000 games: NOT_PASSED (<55%).**
+  Candidate seats 261W/217L/22D (54.4%) and 257W/221L/22D (53.6%).
+  Zero game errors in either arm. Native slow counters A/B 8/6, integer-ms
+  maxima 65/67 include opening calls and are not full-response measurements.
+- Independent terminal audit PASS 41,876 checks, with no games rerun. Confirms
+  raw scores, seats, maps, per-arm budgets, fixed stopping and all frozen
+  inputs, runtime and 427 prior artifacts/publications. Old strict timing
+  stays NOT_READY; the audit pass certifies evidence integrity only.
+- Decision: do not enable incremental ink. The observed positive margin is
+  below the practical threshold; zero effect is not established. Earlier
+  36 ms 52.7% and new 40 ms 54.0% use separate fresh samples and do not prove a
+  causal budget benefit. Keep default36/all experimental flags OFF and selectedv09. Local
+  failure ends evaluation; no boss calls, upload, promotion or push. Archive
+  and commit the completed experiment locally, excluding unrelated work.
+  [Result](v09-ink40-strength-v1-result.md),
+  [evidence](evidence/v09-ink40-strength-v1.json),
+  [archive index](evidence/v09-ink40-strength-v1-artifacts.json).

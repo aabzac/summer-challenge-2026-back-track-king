@@ -13,6 +13,21 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Local strength experiment 2026-10-18: **v09-ink40-strength-v1, NOT_PASSED**.
+User explicitly waived the timeout prerequisite for this local comparison;
+the prior NOT_READY timing result below remains unchanged. Same batched40/
+NOISE0.1 base, ink ON/OFF, fast path/deadline OFF, preserved native runtime.
+Fresh 500 paired maps, two workers, actual 486/40 ms each arm. Blocks
+154W/134L/12D (53.3333%), 114W/78L/8D (59.0%; pooled 55.6%),
+250W/226L/24D (52.4%); all 1,000 games **518W/438L/44D, 54.0% <55%**.
+Seats 54.4%/53.6%, zero game errors. Native slow counters 8/6, reported
+maxima 65/67 ms include opening calls; diagnostic only, not full-response
+measurements. New driver 35 synthetic tests pass; independent reconciliation
+PASS 41,876 checks. No new process or boss games, production edits or promotion.
+Keep default36/all experimental flags OFF and selectedv09. Separate samples
+at36 (52.7%) and40 (54.0%) do not establish a causal budget improvement.
+[Result](v09-ink40-strength-v1-result.md), [evidence](evidence/v09-ink40-strength-v1.json).
+
 Budget condition 2026-10-18: **v09-ink40-v1, NOT_READY**;
 strength **NOT_RUN_READINESS_FAILED**. Previous incremental-ink optimization,
 same batched40/NOISE0.1 base, inkON/OFF, fast path/deadlineOFF, no production edits.
