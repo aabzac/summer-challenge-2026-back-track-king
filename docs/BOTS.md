@@ -13,6 +13,21 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Strength experiment 2026-10-18: **v09-ink-strength-v1**, **NOT_PASSED**.
+Same batched36/NOISE0.1 base in both arms; only incremental ink refresh differs.
+Two workers, 486/36 ms both, 500 fresh paired maps disjoint from 25,124 known
+identities. Fixed 300/+200/+500: 157W125L18D / 90W90L20D / 250W228L22D;
+pooled **497W443L60D / 1,000 = 52.7%**, below 55%, zero game errors.
+Native mean 16.13 vs 17.73 ms; candidate three calls >50 ms, max63, control
+one, max51. Counters include first turns and are not full-response deadlines.
+Reuse unchanged prior engine292/292, ample524 and strict8 process readiness;
+retain known historical catalog test failure and guard packaging limitation.
+21 new synthetic checks pass; independent audit PASS, 21,584 checks,
+3,819 files +7 runtimes and105 prior artifacts preserved. No new process/boss
+games, retries, upload or promotion. Keep default36, all experimental flags
+OFF and selectedv09; earlier verdicts unchanged.
+[Result](v09-ink-strength-v1-result.md), [evidence](evidence/v09-ink-strength-v1.json).
+
 Forecast optimization 2026-10-18: **v09-ink-refresh-v1**, **COMPLETE_DIAGNOSTIC**.
 Default-off selective refresh after hypothetical ink; recompute only connections
 that lost a connector, preserving canonical ties, strategy, timers and safeguards.

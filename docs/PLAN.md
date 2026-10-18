@@ -19,8 +19,15 @@ Update the checkboxes when a step is finished; add new steps at the bottom of th
 - [x] Retain raw evidence and independent audit, including the corrected offline
       JFR decoder's first failed audit; record locally without replaying games.
       Keep default36 and all experimental flags OFF. [Result](v09-ink-refresh-v1-result.md).
-- [ ] If selected for further evaluation, predeclare a separate v4 strength gate
-      on fresh maps with valid boss evidence; this diagnostic is not promotion.
+- [x] On the user's follow-up, predeclare the isolated incremental ON/OFF
+      strength comparison on the same batched36 base. Freeze500 fresh paired
+      maps against25,124 known identities,3,819 files and7 runtimes; two workers.
+- [x] Complete fixed300/+200/+500 once: **497W443L60D /1,000 =52.7%**,
+      zero game errors, **NOT_PASSED** at55%. Keep all flags OFF and selectedv09.
+      Audit PASS21,584 checks;21 synthetic driver tests pass, inherited exact
+      artifact readiness unchanged. Boss stage skipped after local failure;
+      retain native maxima63/51 ms separately from full-response timing.
+      Archive and record locally. [Strength result](v09-ink-strength-v1-result.md).
 
 ## v09 local100 ms sensitivity (measured2026-10-16, recorded2026-10-18)
 

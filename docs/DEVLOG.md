@@ -7625,3 +7625,46 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   calls, upload, promotion or push; retain exact evidence and commit locally.
   [Result](v09-ink-refresh-v1-result.md), [evidence](evidence/v09-ink-refresh-v1.json),
   [archive index](evidence/v09-ink-refresh-v1-artifacts.json).
+
+## 2026-10-18 - v09-ink-strength-v1: incremental refresh at 36 ms
+
+- User requests a strength comparison against the same version without the
+  optimization. Hypothesis: the preceding 15.64% equal-work speed improvement
+  and 14.98% extra comparisons at36 ms improve complete-game strength enough
+  to pass the local v4 threshold. Both arms use batched36/NOISE0.1; only
+  USE_INCREMENTAL_INK_REFRESH differs, with deadline correction OFF.
+- Predeclare fixed300/+200/+500, strict below50% futility at300/500, final55%
+  threshold at1,000, no early pass/retry/extension. Shared BenchmarkRunner,
+  two workers, actual first/later486/36 ms both. All500 paired maps fresh
+  against25,124 known/reserved identities and registered seed intervals.
+- Reuse the unchanged prior native runtime and exact artifacts, without
+  rebuilding or replaying readiness: engine292/292 exact, ample524 parity,
+  strict8 process games/792 later responses/max46.5054 ms, zero process errors.
+  Preserve focused248/249 historical catalog-pin failure and the nonbatched
+  guard recipe limitation; no full-suite-green or three-flag readiness claim.
+- New driver checks pass21 synthetic tests. First attempt retained17 passes
+  plus4 Windows TEMP permission errors; unchanged tests pass after redirecting
+  TEMP into the workspace. No game was involved in this infrastructure retry.
+- Results:157W125L18D/300=55.3333%;90W90L20D/200=50.0%, pooled53.2%/500;
+  250W228L22D/500=52.2%. Final **497W443L60D/1,000=52.7%, NOT_PASSED**,
+  zero game errors. Candidate seats52.8%/52.6%. All stages complete once.
+  Descriptive paired-map Hoeffding95 interval46.63..58.77%, not adjusted for
+  interim selection, not an overall guarantee and not part of the decision.
+- Native mean16.13 vs17.73 ms across90,370 calls per arm on diverging paths.
+  Preserve candidate53/52/63 ms and control51 ms outliers: the counters include
+  first turns and exclude IO, with no turn index. They do not establish later
+  full-response timeouts; no reruns or new process checks were made.
+- Independent audit PASS21,584 checks, including raw score/winner consistency,
+  map/seat counts, params, budgets and stopping. All3,819 frozen files,7 runtimes,
+  exact classpath inventory and105 selected/prior artifact files unchanged.
+- Read-only boss-cache assessment: correct control is batched36, not v09;
+  old pool exposed to outcome-guided development and its amended retry is
+  rejected by the standard cache reader. No reader relaxation or live calls.
+  Local failure ends evaluation, so no boss confirmation is started.
+- Decision: do not enable incremental refresh. Positive timing/coverage is
+  insufficient for the predeclared strength threshold; zero effect is not
+  established. Keep default36, batching/incremental/deadline OFF, selectedv09
+  and all earlier verdicts. Archive new evidence with prior hash references,
+  exclude unrelated experiments, commit locally without upload/push/promotion.
+  [Result](v09-ink-strength-v1-result.md), [evidence](evidence/v09-ink-strength-v1.json),
+  [archive index](evidence/v09-ink-strength-v1-artifacts.json).

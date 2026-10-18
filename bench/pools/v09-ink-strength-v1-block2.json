@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "v09-ink-strength-v1-block2",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 281118000,
+  "pairs": 100
+}
