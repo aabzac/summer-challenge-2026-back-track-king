@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "v09-fast-path-strength-v1-block3",
+  "purpose": "confirmation",
+  "generator": "cg-sha1prng",
+  "seedStart": 291218000,
+  "pairs": 250
+}

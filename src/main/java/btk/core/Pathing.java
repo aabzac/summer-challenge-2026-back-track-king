@@ -21,6 +21,28 @@ public final class Pathing {
     private final int[] floodSeen;
     private final int[] floodParent;
     private int floodEpoch;
+    // FAST_CHEAPEST_PATH_BEGIN
+    private int[] pathNeighbors;
+    private int cheapestWidth, cheapestHeight;
+
+    /** Opt-in geometry only; call during bot initialization, never allocate per search node. */
+    public void enableFastCheapestPath(GameState s) {
+        if (pathNeighbors == null) pathNeighbors = new int[size * 4];
+        prepareCheapestNeighbors(s);
+    }
+
+    private void prepareCheapestNeighbors(GameState s) {
+        if (cheapestWidth == s.width && cheapestHeight == s.height) return;
+        cheapestWidth = s.width; cheapestHeight = s.height;
+        for (int c = 0; c < s.size; c++) {
+            int x = c % s.width, y = c / s.width, at = c * 4;
+            pathNeighbors[at] = y > 0 ? c - s.width : -1;
+            pathNeighbors[at + 1] = x + 1 < s.width ? c + 1 : -1;
+            pathNeighbors[at + 2] = y + 1 < s.height ? c + s.width : -1;
+            pathNeighbors[at + 3] = x > 0 ? c - 1 : -1;
+        }
+    }
+    // FAST_CHEAPEST_PATH_END
 
     public Pathing(int size) {
         this.size = size;
@@ -264,6 +286,10 @@ public final class Pathing {
      * bots to route around unstable regions; the referee never passes it).
      */
     public int cheapestPath(GameState s, int from, int to, int[] out, boolean[] blocked, int[] extraCost) {
+        // FAST_CHEAPEST_PATH_BEGIN
+        if (pathNeighbors != null)
+            prepareCheapestNeighbors(s);
+        // FAST_CHEAPEST_PATH_END
         final int INF = Integer.MAX_VALUE / 4;
         Arrays.fill(costBuf, INF);
         Arrays.fill(dist, INF);
@@ -283,7 +309,7 @@ public final class Pathing {
                 goal = c;
                 break;
             }
-            int cx = c % s.width, cy = c / s.width;
+            int cx = pathNeighbors == null ? c % s.width : 0, cy = pathNeighbors == null ? c / s.width : 0;
 
             // Referee AutobuildAStar does not walk through a pre-existing rail block one cell at
             // a time. It flood-fills the whole block, then returns its non-rail boundary in BFS
@@ -303,11 +329,23 @@ public final class Pathing {
                     int q = queue[head++];
                     if (q == to) reachesGoal = true;
                     if (!s.passable(q) || (blocked != null && blocked[q])) continue;
-                    int qx = q % s.width, qy = q / s.width;
+                    int qx = pathNeighbors == null ? q % s.width : 0, qy = pathNeighbors == null ? q / s.width : 0;
                     for (int dir = 0; dir < 4; dir++) {
+                        // FAST_CHEAPEST_PATH_BEGIN
+                        int nc;
+                        if (pathNeighbors != null) {
+                            nc = pathNeighbors[q * 4 + dir];
+                            if (nc < 0) continue;
+                        } else {
+                        // FAST_CHEAPEST_PATH_END
+                        // FAST_CHEAPEST_PATH_OLD_BEGIN
                         int nx = qx + GameState.DX[dir], ny = qy + GameState.DY[dir];
                         if (nx < 0 || ny < 0 || nx >= s.width || ny >= s.height) continue;
-                        int nc = ny * s.width + nx;
+                        nc = ny * s.width + nx;
+                        // FAST_CHEAPEST_PATH_OLD_END
+                        // FAST_CHEAPEST_PATH_BEGIN
+                        }
+                        // FAST_CHEAPEST_PATH_END
                         if (floodSeen[nc] == floodEpoch) continue;
                         floodSeen[nc] = floodEpoch;
                         floodParent[nc] = q;
@@ -329,11 +367,25 @@ public final class Pathing {
                         costBuf[nc] = nCost;
                         dist[nc] = dist[c] + 1;
                         parent[nc] = c;
+                        // FAST_CHEAPEST_PATH_BEGIN
+                        if (pathNeighbors != null) {
+                            int at = c * 4;
+                            heapTie[nc] = pathNeighbors[at] == nc ? 0
+                                    : pathNeighbors[at + 1] == nc ? 1
+                                    : pathNeighbors[at + 2] == nc ? 2
+                                    : pathNeighbors[at + 3] == nc ? 3 : 4;
+                        } else {
+                        // FAST_CHEAPEST_PATH_END
+                        // FAST_CHEAPEST_PATH_OLD_BEGIN
                         int nx = nc % s.width, ny = nc / s.width;
                         heapTie[nc] = nx == cx && ny == cy - 1 ? 0
                                 : nx == cx + 1 && ny == cy ? 1
                                 : nx == cx && ny == cy + 1 ? 2
                                 : nx == cx - 1 && ny == cy ? 3 : 4;
+                        // FAST_CHEAPEST_PATH_OLD_END
+                        // FAST_CHEAPEST_PATH_BEGIN
+                        }
+                        // FAST_CHEAPEST_PATH_END
                         if (heapPos[nc] >= 0) heapSize = heapFix(heapSize, heapPos[nc]);
                         else heapSize = heapPush(heapSize, nc);
                     }
@@ -342,9 +394,21 @@ public final class Pathing {
             }
 
             for (int dir = 0; dir < 4; dir++) {
+                // FAST_CHEAPEST_PATH_BEGIN
+                int nc;
+                if (pathNeighbors != null) {
+                    nc = pathNeighbors[c * 4 + dir];
+                    if (nc < 0) continue;
+                } else {
+                // FAST_CHEAPEST_PATH_END
+                // FAST_CHEAPEST_PATH_OLD_BEGIN
                 int nx = cx + GameState.DX[dir], ny = cy + GameState.DY[dir];
                 if (nx < 0 || ny < 0 || nx >= s.width || ny >= s.height) continue;
-                int nc = ny * s.width + nx;
+                nc = ny * s.width + nx;
+                // FAST_CHEAPEST_PATH_OLD_END
+                // FAST_CHEAPEST_PATH_BEGIN
+                }
+                // FAST_CHEAPEST_PATH_END
                 int step;
                 if (s.passable(nc)) {
                     if (blocked != null && blocked[nc]) continue;

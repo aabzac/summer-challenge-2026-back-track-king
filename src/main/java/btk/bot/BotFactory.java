@@ -107,6 +107,9 @@ public final class BotFactory {
         if (params.USE_INCREMENTAL_INK_REFRESH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("Incremental ink refresh requires the current native rollout policy");
+        if (params.USE_FAST_CHEAPEST_PATH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
+                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
+            throw new IllegalArgumentException("Fast cheapest path requires the current native rollout policy");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
             throw new IllegalArgumentException("Missed-deadline correction is a current-only experiment");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && (!params.USE_ROLLOUT_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))
@@ -126,6 +129,7 @@ public final class BotFactory {
                 if (field.getName().equals("TURN_BUDGET_MS") && params.TURN_BUDGET_MS == 36) continue;
                 if (field.getName().equals("USE_BATCHED_REFRESH") && !params.USE_BATCHED_REFRESH) continue;
                 if (field.getName().equals("USE_INCREMENTAL_INK_REFRESH") && !params.USE_INCREMENTAL_INK_REFRESH) continue;
+                if (field.getName().equals("USE_FAST_CHEAPEST_PATH") && !params.USE_FAST_CHEAPEST_PATH) continue;
                 if (field.getName().equals("USE_ROLLOUT_MISSED_DEADLINE") && !params.USE_ROLLOUT_MISSED_DEADLINE) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;

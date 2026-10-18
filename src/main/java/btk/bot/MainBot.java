@@ -22,6 +22,11 @@ public final class MainBot implements Bot {
 
     public MainBot(Params params) {
         this.params = params.copy();
+        // FAST_CHEAPEST_PATH_BEGIN
+        if (params.USE_FAST_CHEAPEST_PATH && (!params.USE_ROLLOUT_POLICY
+                || params.USE_HEURISTIC_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))
+            throw new IllegalArgumentException("Fast cheapest path requires the current native rollout policy");
+        // FAST_CHEAPEST_PATH_END
         // TURN_BUDGET_BEGIN
         if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38 && params.TURN_BUDGET_MS != 40)
             throw new IllegalArgumentException("Turn budget must be 36, 38 or 40 ms");

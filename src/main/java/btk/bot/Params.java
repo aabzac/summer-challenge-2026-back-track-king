@@ -65,6 +65,10 @@ public class Params {
     /** Current rollout only: preserve canonical paths unaffected by hypothetical ink. */
     public boolean USE_INCREMENTAL_INK_REFRESH = false;
     // INK_REFRESH_END
+    // FAST_CHEAPEST_PATH_BEGIN
+    /** Current rollout only: reuse immutable grid geometry during canonical route construction. */
+    public boolean USE_FAST_CHEAPEST_PATH = false;
+    // FAST_CHEAPEST_PATH_END
     /** Current-only route proposal: charge instability on existing tracks as well as free cells. */
     public boolean USE_ROLLOUT_ALL_CELL_RISK = false;
     /** Current-only experiment: score and emit the same filled first action. */

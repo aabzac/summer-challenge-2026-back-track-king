@@ -13,6 +13,24 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Forecast experiment 2026-10-18: **v09-fast-path-v1**, with
+**v09-fast-path-strength-v1: STOP_FUTILITY_300**. Default-off geometry-only
+neighbor reuse in cheapestPath; strategy, path ties, safeguards and budgets
+unchanged. Same batched36/NOISE0.1 base, incremental ink/deadline correction OFF.
+All524 ample decisions/diagnostics exact; equal-work time-7.22%, completed
+comparisons at36 ms2,995 to3,127 (+4.41%), complete searches281 to276.
+Turn40 attack and six winning closures preserved. Engine292/292 exact;
+focused260/261 including12 new passes, one retained historical catalog-pin
+failure. Retain initial100,008-character guard failure and identifier-only
+premeasurement repair; final main91,481 and guard99,924 characters.
+Strict8 process games PASS,773 later responses, max46.708 ms, no errors,
+timeouts, overruns or missing replies. Fresh-map strength: two workers,
+486/36 ms, **134W146L20D /300 =48.0%**, zero errors. Stop at the first
+futility look; no block2/3 or boss games. Native maxima43/41 ms exclude IO.
+Keep fast path, batching, incremental ink and deadline flags OFF, default36
+and selectedv09; no upload, promotion or push. Preserve earlier verdicts.
+[Result](v09-fast-path-v1-result.md), [evidence](evidence/v09-fast-path-v1.json).
+
 Strength experiment 2026-10-18: **v09-ink-strength-v1**, **NOT_PASSED**.
 Same batched36/NOISE0.1 base in both arms; only incremental ink refresh differs.
 Two workers, 486/36 ms both, 500 fresh paired maps disjoint from 25,124 known

@@ -214,6 +214,7 @@ public class FileMerger {
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
+        boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
         int turnBudgetMs = BotFactory.parameters(spec).TURN_BUDGET_MS;
         boolean turnBudgetOverride = turnBudgetMs != 36;
         for (Path file : files) {
@@ -223,7 +224,35 @@ public class FileMerger {
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
+            boolean fastPathBlock = false, oldPathBlock = false;
             for (String line : Files.readAllLines(file)) {
+                if (line.trim().equals("// FAST_CHEAPEST_PATH_BEGIN")) {
+                    if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Nested fast-path block: " + file);
+                    fastPathBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// FAST_CHEAPEST_PATH_END")) {
+                    if (!fastPathBlock) throw new IllegalArgumentException("Unbalanced fast-path block: " + file);
+                    fastPathBlock = false;
+                    continue;
+                }
+                if (line.trim().equals("// FAST_CHEAPEST_PATH_OLD_BEGIN")) {
+                    if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Nested old-path block: " + file);
+                    oldPathBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// FAST_CHEAPEST_PATH_OLD_END")) {
+                    if (!oldPathBlock) throw new IllegalArgumentException("Unbalanced old-path block: " + file);
+                    oldPathBlock = false;
+                    continue;
+                }
+                if (fastPathBlock && !fastCheapestPath) continue;
+                if (oldPathBlock && !fastCheapestPath && line.trim().equals("nc = ny * s.width + nx;"))
+                    line = line.replace("nc =", "int nc =");
+                if (!fastCheapestPath && file.endsWith("Pathing.java") && line.contains("pathNeighbors == null ?"))
+                    line = line.replace("pathNeighbors == null ? ", "").replace(" : 0", "");
+                if (fastPathBlock && file.endsWith("MainBot.java"))
+                    line = line.replace("params.USE_NEURAL_TARGET_PROPOSAL", "false");
                 if (line.trim().equals("// INK_REFRESH_BEGIN")) {
                     if (inkBlock) throw new IllegalArgumentException("Nested ink-refresh block: " + file);
                     inkBlock = true;
@@ -422,6 +451,7 @@ public class FileMerger {
             if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
             if (batchBlock) throw new IllegalArgumentException("Unclosed batch block: " + file);
             if (inkBlock) throw new IllegalArgumentException("Unclosed ink-refresh block: " + file);
+            if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Unclosed fast-path block: " + file);
             if (turnBudgetBlock) throw new IllegalArgumentException("Unclosed turn-budget block: " + file);
         }
 
@@ -436,7 +466,7 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
-        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk)) {
+        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath)) {
             normalized = JavaSourceCompactor.compact(normalized);
             String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
             if (normalized.indexOf(compactMarker) < 0

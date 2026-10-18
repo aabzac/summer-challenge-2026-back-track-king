@@ -172,6 +172,9 @@ public final class RolloutBot implements Bot {
 
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
+        // FAST_CHEAPEST_PATH_BEGIN
+        if (p.USE_FAST_CHEAPEST_PATH) pathing.enableFastCheapestPath(s);
+        // FAST_CHEAPEST_PATH_END
         if (p.USE_ROLLOUT_ALL_CELL_RISK) tactical = new TacticalPathing(s.size);
         // BATCHED_REFRESH_BEGIN
         if (p.USE_BATCHED_REFRESH) {

@@ -7668,3 +7668,66 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   exclude unrelated experiments, commit locally without upload/push/promotion.
   [Result](v09-ink-strength-v1-result.md), [evidence](evidence/v09-ink-strength-v1.json),
   [archive index](evidence/v09-ink-strength-v1-artifacts.json).
+
+## 2026-10-18 - v09-fast-path-v1: geometry reuse at 36 ms
+
+- User requests the next expensive forecast component, path construction,
+  accelerated without strategy or guard changes. The retained profile shows
+  cheapestPath at627/2,398 inclusive samples (26.15%),416 leaf samples (17.35%).
+  Hypothesis: precompute immutable N/E/S/W neighbors to remove repeated grid
+  arithmetic, fit more complete comparisons into36 ms and improve strength.
+- Predeclare default-off USE_FAST_CHEAPEST_PATH on the identical batched36,
+  NOISE0.1 base, with incremental ink and deadline correction OFF. One primitive
+  table is allocated during init, refilled only when dimensions change; no
+  dynamic board/path cache or per-node allocation. Preserve direction/heap
+  order, strict relaxation, early exits, rail-fringe semantics and guards.
+  Exporter removes the experiment when OFF, keeping prior source bytes exact.
+- Initial focused preflight259/261: known historical exp-income-guard catalog
+  pin failure plus a new guard source cap failure at100,008 characters. Before
+  any measurement, declare an amendment and rename only the new private
+  identifier cheapestNeighbors to pathNeighbors in four files. Verify exact
+  replacement and all other pins; retain initial XML/log/source snapshots.
+  Repeat the unchanged focused suite once:260/261, all12 new tests PASS, only
+  the same historical pin failure. No relaxed assertions or full-suite claim.
+- Engine292/292 exact. Main artifact91,481 characters, historical guard99,924;
+  default98,709 and v09/old batched/guard OFF source bytes unchanged. Preserve
+  260 prior artifact files,578 raw pre-edit source snapshots, diagnostic freeze
+  of1,918 workspace files and7 runtimes. No frozen bot package is edited.
+- All524 saved-state ample actions, selected-value bits and semantic counters
+  match exactly:60,118 route queries,5,850 comparisons,87,630 simulated turns
+  each. Equal-work time25,634.9065 to23,784.0140 ms, **-7.22%**. At36 ms,
+  comparisons2,995 to3,127 (**+4.41%**), simulated turns43,876 to45,892;
+  complete searches281 to276, so coverage is mixed. Native max37.3012/40.3820
+  ms, no calls above50 in that panel. Timed choices may differ at cutoffs.
+- Historical NOISE0/batchingOFF/deadlineON supplementary guard panel matches
+  all14 ample conditions. At ample and36 ms, candidate attacks region33 on
+  turn40 with native and WAIT replies, and preserves all six winning native
+  closures; no lost baseline wins. This does not certify a combined-flags bot.
+- Eight fixed strict process games finish once, exact main artifact vs v09,
+  four maps both seats, first/later1000/50 ms with zero grace. All773 later
+  responses pass: median29.0046,p95 38.0225,p99 38.5638,max46.7077 ms; two above45,
+  none above48. First max579.6885 ms. Zero errors/timeouts/overruns/missing.
+  Independent diagnostic audit PASS73,368 checks; readiness permits strength.
+- Conditional v09-fast-path-strength-v1:30 synthetic driver tests PASS;
+  prospectively freeze500 unique maps disjoint from25,624 known/reserved maps,
+  4,244 files and7 runtimes. Two workers,486/36 ms both, fixed300/+200/+500,
+  strict below50% futility at300/500, final55% at1,000, no early pass or retry.
+  First block **134W146L20D /300 =48.0%, STOP_FUTILITY_300**, zero game errors.
+  Stop after150 paired maps; no block2/3 games, remaining350 maps reserved.
+  Native mean15.98/16.11 ms across27,626 calls each, max43/41 ms, zero calls
+  recorded above50. These counters include first turns and exclude IO.
+- First strength audit retained FAIL at check4,300: exact floating-point
+  comparison of0.07220203826372651 versus0.07220203826372462. Separate v2 allows
+  absolute1e-12 only for independently summed ratios, retaining positive-gain
+  conditions and exact integer counts/input hashes. Keep both scripts and
+  results; no game, measurement, build or policy call is repeated.
+  Corrected v2 audit PASS21,539 checks; all frozen inputs and260 prior artifacts
+  intact. Candidate seats74W66L10D /60W80L10D; no native timing outliers.
+- Decision: keep fast path OFF. The fixed workload became faster, but the
+  candidate did not demonstrate a strength gain under the predeclared rule;
+  zero true effect is not established. Default36, batching/incremental/deadline
+  OFF, selectedv09 and prior verdicts unchanged. Local futility ends evaluation,
+  so no live boss calls, upload, promotion or push. Archive the experiment,
+  exclude unrelated work and commit locally.
+  [Result](v09-fast-path-v1-result.md), [evidence](evidence/v09-fast-path-v1.json),
+  [archive index](evidence/v09-fast-path-v1-artifacts.json).

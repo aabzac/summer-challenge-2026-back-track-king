@@ -3,6 +3,23 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 cheapest-path geometry (2026-10-18)
+
+- [x] Select geometry-only N/E/S/W neighbor reuse from the retained path profile;
+      predeclare same batched36 base, incremental ink OFF, one default-off flag.
+      Preserve prior artifacts before implementation. [Protocol](v09-fast-path-v1.md).
+- [x] Implement and verify exact path/cost/scratch parity and unchanged disabled
+      exports; engine292/292 exact,260/261 focused tests including12 new passes.
+      Preserve known historical catalog-pin failure and identifier-only size repair.
+- [x] Match all524 ample states; equal-work time-7.22%,36 ms comparisons+4.41%,
+      complete searches281 to276. Retain turn40 attack and six winning closures.
+      Main91,481/guard99,924 characters; strict8 process PASS,773 later responses,
+      max46.708 ms and zero errors/timeouts/overruns/missing.
+- [x] Freeze500 fresh maps, two workers, same486/36 ms. First300 games complete
+      once:134W146L20D=48.0%, STOP_FUTILITY_300; no further blocks or boss games.
+      Retain raw evidence and independent audit, keep flag OFF and selectedv09.
+      [Result](v09-fast-path-v1-result.md).
+
 ## v09 forecast cost reduction (2026-10-18)
 
 - [x] Profile the exact batched36 artifact on524 saved states; connection refresh
