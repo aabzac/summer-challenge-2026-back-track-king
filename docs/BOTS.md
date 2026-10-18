@@ -13,6 +13,22 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Local timing diagnostic measured2026-10-16, recorded2026-10-18:
+**v09-budget100-local-v1**, **COMPLETE_DIAGNOSTIC**, no promotion eligibility.
+Identical batched-refresh/NOISE0.1 policy, local later allowances100 vs36 ms,
+first486 both, two workers, 500 fresh paired maps disjoint from24,624 known maps.
+Fixed300/+200/+500 completed once:157W126L17D /111W79L10D /280W202L18D;
+pooled **548W407L45D /1,000 =57.05%**, zero errors. Later native mean19.179 vs
+13.689 ms; completed comparisons+27.64%, simulated turns+29.09%, ordinary
+completion97.47% vs84.05%. At100,12.25% of later calls exceed50 ms; this is
+compute sensitivity, not an arena-ready budget. Engine292/292 exact, fake-only
+harness checks and14 Python tests PASS; preserve2,523 frozen files+8 runtimes
+and28 selected submission files. Production strategy/source unchanged;
+default36, batching OFF, selectedv09 and earlier verdicts stay unchanged.
+No reruns after chat interruption, boss/API work, upload or promotion.
+[Result](v09-budget100-local-v1-result.md),
+[evidence](evidence/v09-budget100-local-v1.json).
+
 Exploratory boss follow-up 2026-10-16: **v09-boss-budget40-followup-v1**,
 **COMPLETE_EXPLORATORY / HISTORICAL_NOT_PASSED_UNCHANGED**. Complete the old
 batched36 v2 panel with 12 new games: final **10W30L**, cached v09 **11W29L**.

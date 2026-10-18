@@ -7529,3 +7529,43 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   Record and commit locally. [Result](v09-boss-budget40-followup-v1-result.md),
   [evidence](evidence/v09-boss-budget40-followup-v1.json),
   [archive index](evidence/v09-boss-budget40-followup-v1-artifacts.json).
+
+## 2026-10-18 - v09-budget100-local-v1: extra local compute helps on the fixed sample
+
+- User requests a local100 ms run to measure budget sensitivity, then asks to
+  resume after interruption. Hypothesis:36 ms truncates useful existing search;
+  relaxing only the caller allowance can improve the same policy. Prospective
+  protocol frozen Oct16; measured run completed Oct16 before interruption.
+  Resume audits/finalization only, no repeated or replacement games.
+- Same native `current?NOISE=0.1,USE_BATCHED_REFRESH=true` both arms; first486/486,
+  later100/36 follows the arm across seats. Full strategy Params identical;
+  production budget remains36 and production100 remains rejected. Separate
+  local helper, no core/strategy/runner/CGRunner/submission source change.
+- Preflight PASS:292/292 exact replays, isolated compile, fake-only harness
+  checks (four WAIT games),14 synthetic Python driver tests. Freeze2,523 files
+  plus8 external runtimes;500 maps fresh against24,624 known/reserved identities,
+  no seed overlap with131 registrations. Two workers, fixed300/+200/+500.
+- Results:157W126L17D/300=55.1667%;111W79L10D/200=58.0%, pooled56.3%/500;
+  280W202L18D/500=57.8%. Final548W407L45D/1,000=57.05%, zero technical errors.
+  Complete once, no early pass; LOCAL_DIAGNOSTIC, no promotion eligibility.
+  Descriptive paired-map Hoeffding95 interval50.98..63.12%, not adjusted for
+  interim selection and not an overall guarantee. No boss/API or process stage.
+- Per90,906 later calls each:mean native19.179 vs13.689 ms (+40.1%);
+  comparisons727,520 vs569,995 (+27.64%), simulated turns10,251,974 vs7,942,022
+  (+29.09%), routequeries+0.30%; ordinary complete97.47% vs84.05%, network
+  complete96.77% vs83.73%. Aggregates are on different trajectories; fixed
+  depth/width/route caps and opening behavior unchanged, not exhaustive search.
+- At100,11,134 later calls (12.25%) exceed50 ms,1,144 exceed100, max114.646 ms;
+  at36,three exceed50, max55.823 ms. Native timings exclude protocol and are not
+  server timeout reports. No raw per-call samples for latency percentiles.
+- Independent audit checks raw pairs, budgets, stopping, maps, observations,
+  frozen inputs and28 selected artifacts. Audit-only tracked-inventory fix
+  excludes six pre-existing untracked pduhard/ppo files; no measurement change.
+- Decision:additional compute is useful on this sample. Future bounded work
+  can target cheaper completion of the same comparisons within36 ms. No new
+  optimization implemented; no direct100-vs40 or arena strength claim. Keep36,
+  batching OFF, selectedv09 and prior formal verdicts. Archive evidence and
+  commit locally without upload/push/promotion.
+  [Result](v09-budget100-local-v1-result.md),
+  [evidence](evidence/v09-budget100-local-v1.json),
+  [archive index](evidence/v09-budget100-local-v1-artifacts.json).

@@ -3,6 +3,21 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 local100 ms sensitivity (measured2026-10-16, recorded2026-10-18)
+
+- [x] Predeclare local-only100 vs36 ms on identical batched-refresh policy;
+      isolate caller allowances, preserve production guards/source/defaults.
+      Engine292/292 exact, fake harness checks and14 Python tests PASS.
+- [x] Freeze500 fresh maps against24,624 exclusions and2,523 files+8 runtimes;
+      complete fixed300/+200/+500 with two workers and no replacement games.
+      **548W407L45D /1,000 =57.05%**, zero errors, COMPLETE_DIAGNOSTIC.
+- [x] Audit time/work counters: later mean19.179 vs13.689 ms, comparisons+27.64%,
+      simulated turns+29.09%. Positive compute sensitivity;100 ms remains
+      ineligible for arena promotion. Preserve prior formal verdicts/default36.
+- [x] Resume finalization after chat interruption without replaying games;
+      retain raw evidence, independent audit and local experiment record.
+      [Result](v09-budget100-local-v1-result.md).
+
 ## Matched boss follow-up (2026-10-16)
 
 - [x] On explicit continuation, preserve the original interrupted v2 evidence

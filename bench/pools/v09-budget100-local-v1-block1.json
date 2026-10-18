@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "v09-budget100-local-v1-block1",
+  "purpose": "development",
+  "generator": "cg-sha1prng",
+  "seedStart": 261616000,
+  "pairs": 150
+}

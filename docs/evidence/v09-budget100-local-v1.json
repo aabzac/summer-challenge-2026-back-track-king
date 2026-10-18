@@ -1,0 +1,6073 @@
+{
+  "schema": "v09-budget100-local-evidence-v1",
+  "experiment": "v09-budget100-local-v1",
+  "recordedAt": "2026-10-18T08:07:49.816885+00:00",
+  "status": "COMPLETE_DIAGNOSTIC",
+  "complete": true,
+  "scope": "LOCAL_DIAGNOSTIC_SAME_BATCHED_POLICY_100_VERSUS_36",
+  "localOnly": true,
+  "promotion": false,
+  "promotionEligible": false,
+  "processReadinessAssessed": false,
+  "newBossGames": 0,
+  "selectedBot": "v09",
+  "productionDefaults": {
+    "turnBudgetMs": 36,
+    "batchedRefresh": false
+  },
+  "candidate": {
+    "spec": "current?NOISE=0.1,USE_BATCHED_REFRESH=true",
+    "params": {
+      "ALWAYS_DISRUPT": "true",
+      "BUILD_BEAM_WIDTH": "4",
+      "CHOOSE_BUILD_DIRECTION": "false",
+      "COLLISION_COST": "2.0",
+      "DEBUG": "false",
+      "DEFENSE_MAX_PAINT": "6",
+      "DEFENSE_MAX_PAIRS": "4",
+      "DEFENSE_MAX_REGIONS": "3",
+      "DEFENSE_MIN_INSTABILITY": "1",
+      "DISRUPT_DELAY_FACTOR": "1.0",
+      "DISRUPT_MIN": "0.01",
+      "DISRUPT_RESERVE_MS": "6",
+      "EARLY_DISRUPT_FALLBACK": "false",
+      "FORECAST_DECAY": "0.95",
+      "FORECAST_FLOOR": "0.1",
+      "GUARD_BUILD_INCOME": "false",
+      "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+      "HEURISTIC_AVOID_INSTABILITY": "2",
+      "HEURISTIC_DETOUR_CAP": "12",
+      "HEURISTIC_DETOUR_PAIRS": "4",
+      "HEURISTIC_DETOUR_REGIONS": "4",
+      "HEURISTIC_DETOUR_WEIGHT": "1.0",
+      "HEURISTIC_EMERGENCY_STOP": "true",
+      "HEURISTIC_MAX_ROUTES": "64",
+      "HEURISTIC_OWN_PENALTY": "2.0",
+      "HEURISTIC_ROUTE_STICKINESS": "1.25",
+      "HEURISTIC_TARGET_STICKINESS": "1.3",
+      "HORIZON": "100",
+      "INDRILL_INK_PENALTY": "2",
+      "INTERRUPT_VULN_EVAL": "false",
+      "ISOLATED_ROUTE_WARMUP": "true",
+      "MESSAGE": "false",
+      "NOISE": "0.1",
+      "OPENING_CITY_QUOTA": "1",
+      "OPENING_COLLISION_FACTOR": "0.25",
+      "OPENING_TURNS": "3",
+      "OPP_REPLY_WIDTH": "2",
+      "OWN_BUILD_DEPTH": "3",
+      "OWN_BUILD_WIDTH": "3",
+      "PRESSURE_BUILD_RESERVE_MS": "12",
+      "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+      "PRESSURE_HORIZON": "8",
+      "PRESSURE_STICKINESS": "0.25",
+      "PRESSURE_TRACK_WEIGHT": "0.8",
+      "PROFILE_SEARCH": "false",
+      "ROLLOUT_ALWAYS_DISRUPT": "false",
+      "ROLLOUT_DEPTH": "8",
+      "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+      "ROLLOUT_LIVE_TURNS": "2",
+      "ROLLOUT_LIVE_WEIGHT": "12.0",
+      "ROLLOUT_MAX_ROUTES": "64",
+      "ROLLOUT_NETWORK_MAX_CELLS": "24",
+      "ROLLOUT_NETWORK_RESERVE_MS": "12",
+      "ROLLOUT_NETWORK_ROOTS": "2",
+      "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+      "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+      "ROLLOUT_QUICK_MAX_PAINT": "6",
+      "ROLLOUT_REPLAN_TURN": "4",
+      "ROLLOUT_REPLIES": "2",
+      "ROLLOUT_RESERVE_MS": "20",
+      "ROLLOUT_RHEA_ELITES": "2",
+      "ROLLOUT_RHEA_MUTATIONS": "12",
+      "ROLLOUT_ROBUSTNESS": "0.5",
+      "ROLLOUT_ROUTE_HORIZON": "16.0",
+      "ROLLOUT_SPREAD_ROOTS": "2",
+      "ROLLOUT_TAIL": "3.0",
+      "ROLLOUT_TARGETS": "4",
+      "ROLLOUT_TARGET_HORIZON": "8.0",
+      "ROLLOUT_THREAT_WEIGHT": "0.5",
+      "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+      "ROLLOUT_TRACK_WEIGHT": "0.4",
+      "ROLLOUT_WIDTH": "6",
+      "ROLLOUT_WIN_VALUE": "1000000.0",
+      "SEED": "1",
+      "SKIP_UNFINISHABLE": "true",
+      "UNSTABLE_COST": "1.0",
+      "USE_BACKUP": "true",
+      "USE_BATCHED_REFRESH": "true",
+      "USE_CLOSE": "true",
+      "USE_DEFENSE_PRIORITY": "false",
+      "USE_DISRUPT": "true",
+      "USE_HEURISTIC_DETOUR": "false",
+      "USE_HEURISTIC_POLICY": "false",
+      "USE_IDLE_EXTEND": "true",
+      "USE_JOINT_ACTION": "false",
+      "USE_OPP_MODEL": "false",
+      "USE_OWN_BUILD_PLAN": "false",
+      "USE_PROTECTED_OPENING": "true",
+      "USE_REPLY_RERANK": "false",
+      "USE_ROLLOUT_ALL_CELL_RISK": "false",
+      "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+      "USE_ROLLOUT_FILL": "true",
+      "USE_ROLLOUT_LIVE_TARGET": "false",
+      "USE_ROLLOUT_NETWORK": "false",
+      "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+      "USE_ROLLOUT_NETWORK_CHORDS": "false",
+      "USE_ROLLOUT_POLICY": "true",
+      "USE_ROLLOUT_QUICK_EARLY": "false",
+      "USE_ROLLOUT_QUICK_ROUTE": "true",
+      "USE_ROLLOUT_QUICK_SAFE": "false",
+      "USE_ROLLOUT_QUICK_VALUE": "false",
+      "USE_ROLLOUT_REPLAN": "false",
+      "USE_ROLLOUT_RHEA": "false",
+      "USE_ROLLOUT_ROOT_FILL": "false",
+      "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+      "USE_ROLLOUT_SECOND_TARGET": "false",
+      "USE_ROLLOUT_SPREAD": "false",
+      "USE_ROLLOUT_TRACK_VALUE": "false",
+      "USE_STEAL": "true",
+      "WARMUP_SLICE_MS": "36",
+      "W_COST": "0.0",
+      "W_FUTURE_OWN": "0.4",
+      "W_FUTURE_TRACK": "0.3",
+      "W_OPP": "1.0",
+      "W_OPP_INCOME": "1.0",
+      "W_OPP_ROUTE": "0.3",
+      "W_OWN": "1.0",
+      "W_RISK": "0.6",
+      "W_SELF_LOSS": "1.2",
+      "W_THEIR_LOSS": "1.0",
+      "W_VULN": "1.0"
+    }
+  },
+  "control": {
+    "spec": "current?NOISE=0.1,USE_BATCHED_REFRESH=true",
+    "params": {
+      "ALWAYS_DISRUPT": "true",
+      "BUILD_BEAM_WIDTH": "4",
+      "CHOOSE_BUILD_DIRECTION": "false",
+      "COLLISION_COST": "2.0",
+      "DEBUG": "false",
+      "DEFENSE_MAX_PAINT": "6",
+      "DEFENSE_MAX_PAIRS": "4",
+      "DEFENSE_MAX_REGIONS": "3",
+      "DEFENSE_MIN_INSTABILITY": "1",
+      "DISRUPT_DELAY_FACTOR": "1.0",
+      "DISRUPT_MIN": "0.01",
+      "DISRUPT_RESERVE_MS": "6",
+      "EARLY_DISRUPT_FALLBACK": "false",
+      "FORECAST_DECAY": "0.95",
+      "FORECAST_FLOOR": "0.1",
+      "GUARD_BUILD_INCOME": "false",
+      "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+      "HEURISTIC_AVOID_INSTABILITY": "2",
+      "HEURISTIC_DETOUR_CAP": "12",
+      "HEURISTIC_DETOUR_PAIRS": "4",
+      "HEURISTIC_DETOUR_REGIONS": "4",
+      "HEURISTIC_DETOUR_WEIGHT": "1.0",
+      "HEURISTIC_EMERGENCY_STOP": "true",
+      "HEURISTIC_MAX_ROUTES": "64",
+      "HEURISTIC_OWN_PENALTY": "2.0",
+      "HEURISTIC_ROUTE_STICKINESS": "1.25",
+      "HEURISTIC_TARGET_STICKINESS": "1.3",
+      "HORIZON": "100",
+      "INDRILL_INK_PENALTY": "2",
+      "INTERRUPT_VULN_EVAL": "false",
+      "ISOLATED_ROUTE_WARMUP": "true",
+      "MESSAGE": "false",
+      "NOISE": "0.1",
+      "OPENING_CITY_QUOTA": "1",
+      "OPENING_COLLISION_FACTOR": "0.25",
+      "OPENING_TURNS": "3",
+      "OPP_REPLY_WIDTH": "2",
+      "OWN_BUILD_DEPTH": "3",
+      "OWN_BUILD_WIDTH": "3",
+      "PRESSURE_BUILD_RESERVE_MS": "12",
+      "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+      "PRESSURE_HORIZON": "8",
+      "PRESSURE_STICKINESS": "0.25",
+      "PRESSURE_TRACK_WEIGHT": "0.8",
+      "PROFILE_SEARCH": "false",
+      "ROLLOUT_ALWAYS_DISRUPT": "false",
+      "ROLLOUT_DEPTH": "8",
+      "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+      "ROLLOUT_LIVE_TURNS": "2",
+      "ROLLOUT_LIVE_WEIGHT": "12.0",
+      "ROLLOUT_MAX_ROUTES": "64",
+      "ROLLOUT_NETWORK_MAX_CELLS": "24",
+      "ROLLOUT_NETWORK_RESERVE_MS": "12",
+      "ROLLOUT_NETWORK_ROOTS": "2",
+      "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+      "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+      "ROLLOUT_QUICK_MAX_PAINT": "6",
+      "ROLLOUT_REPLAN_TURN": "4",
+      "ROLLOUT_REPLIES": "2",
+      "ROLLOUT_RESERVE_MS": "20",
+      "ROLLOUT_RHEA_ELITES": "2",
+      "ROLLOUT_RHEA_MUTATIONS": "12",
+      "ROLLOUT_ROBUSTNESS": "0.5",
+      "ROLLOUT_ROUTE_HORIZON": "16.0",
+      "ROLLOUT_SPREAD_ROOTS": "2",
+      "ROLLOUT_TAIL": "3.0",
+      "ROLLOUT_TARGETS": "4",
+      "ROLLOUT_TARGET_HORIZON": "8.0",
+      "ROLLOUT_THREAT_WEIGHT": "0.5",
+      "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+      "ROLLOUT_TRACK_WEIGHT": "0.4",
+      "ROLLOUT_WIDTH": "6",
+      "ROLLOUT_WIN_VALUE": "1000000.0",
+      "SEED": "1",
+      "SKIP_UNFINISHABLE": "true",
+      "UNSTABLE_COST": "1.0",
+      "USE_BACKUP": "true",
+      "USE_BATCHED_REFRESH": "true",
+      "USE_CLOSE": "true",
+      "USE_DEFENSE_PRIORITY": "false",
+      "USE_DISRUPT": "true",
+      "USE_HEURISTIC_DETOUR": "false",
+      "USE_HEURISTIC_POLICY": "false",
+      "USE_IDLE_EXTEND": "true",
+      "USE_JOINT_ACTION": "false",
+      "USE_OPP_MODEL": "false",
+      "USE_OWN_BUILD_PLAN": "false",
+      "USE_PROTECTED_OPENING": "true",
+      "USE_REPLY_RERANK": "false",
+      "USE_ROLLOUT_ALL_CELL_RISK": "false",
+      "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+      "USE_ROLLOUT_FILL": "true",
+      "USE_ROLLOUT_LIVE_TARGET": "false",
+      "USE_ROLLOUT_NETWORK": "false",
+      "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+      "USE_ROLLOUT_NETWORK_CHORDS": "false",
+      "USE_ROLLOUT_POLICY": "true",
+      "USE_ROLLOUT_QUICK_EARLY": "false",
+      "USE_ROLLOUT_QUICK_ROUTE": "true",
+      "USE_ROLLOUT_QUICK_SAFE": "false",
+      "USE_ROLLOUT_QUICK_VALUE": "false",
+      "USE_ROLLOUT_REPLAN": "false",
+      "USE_ROLLOUT_RHEA": "false",
+      "USE_ROLLOUT_ROOT_FILL": "false",
+      "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+      "USE_ROLLOUT_SECOND_TARGET": "false",
+      "USE_ROLLOUT_SPREAD": "false",
+      "USE_ROLLOUT_TRACK_VALUE": "false",
+      "USE_STEAL": "true",
+      "WARMUP_SLICE_MS": "36",
+      "W_COST": "0.0",
+      "W_FUTURE_OWN": "0.4",
+      "W_FUTURE_TRACK": "0.3",
+      "W_OPP": "1.0",
+      "W_OPP_INCOME": "1.0",
+      "W_OPP_ROUTE": "0.3",
+      "W_OWN": "1.0",
+      "W_RISK": "0.6",
+      "W_SELF_LOSS": "1.2",
+      "W_THEIR_LOSS": "1.0",
+      "W_VULN": "1.0"
+    }
+  },
+  "effectiveSearchBudgetsMs": {
+    "firstA": 486,
+    "firstB": 486,
+    "laterA": 100,
+    "laterB": 36
+  },
+  "threads": 2,
+  "prospectiveMaps": 500,
+  "excludedKnownMaps": 24624,
+  "diagnosticResult": {
+    "status": "COMPLETE_DIAGNOSTIC",
+    "games": 1000,
+    "maps": 500,
+    "wins": 548,
+    "losses": 407,
+    "draws": 45,
+    "halfWins": 1141,
+    "points": 570.5,
+    "score": 0.5705,
+    "mapGroupedHoeffding95": [
+      0.5097638538091694,
+      0.6312361461908306
+    ],
+    "confidenceRole": "Descriptive; independent representative map groups assumed; no promotion gate",
+    "localOnly": true,
+    "promotion": false,
+    "promotionEligible": false,
+    "processStage": "NOT_APPLICABLE_LOCAL_DIAGNOSTIC",
+    "bossStage": "NOT_REQUESTED",
+    "experiment": "v09-budget100-local-v1",
+    "complete": true,
+    "freeze": {
+      "path": "build/analysis/v09-budget100-local-v1/preflight-freeze.json",
+      "sha256": "a10e97f42fe12bd3fc339ee66c2edc2bf95223d140d518b7d66b75f0ecc6e72e"
+    },
+    "reports": [
+      {
+        "path": "build/bench/v09-budget100-local-v1/block1.json",
+        "sha256": "c952339c908fdcfab4c3c8dc61653ec29e96aadc4004ac1a1a0371f00ddd7933",
+        "games": 300,
+        "wins": 157,
+        "losses": 126,
+        "draws": 17,
+        "halfWins": 331
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block2.json",
+        "sha256": "b7578d52fb03fbafe4330c3720694fe993a48b931113b60b034aadb95200aab9",
+        "games": 200,
+        "wins": 111,
+        "losses": 79,
+        "draws": 10,
+        "halfWins": 232
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block3.json",
+        "sha256": "d2acb4ff3d0d970b4c8c191bf459b1777cf9925dfa4ccb7846352879c61ded8e",
+        "games": 500,
+        "wins": 280,
+        "losses": 202,
+        "draws": 18,
+        "halfWins": 578
+      }
+    ],
+    "scope": "Same native batched policy; later caller budget100 versus36. No external deadline or arena-readiness inference."
+  },
+  "independentAudit": {
+    "path": "build/analysis/v09-budget100-local-v1/independent-audit.json",
+    "sha256": "e7a7e4ed8dbd3c93dd5cec003bd790379c6bdb37f3aa86d15614e348ff565221",
+    "bytes": 127109
+  },
+  "auditEvidence": {
+    "schema": "budget100-local-independent-audit-v1",
+    "experiment": "v09-budget100-local-v1",
+    "createdAt": "2026-10-18T08:05:18.752016+00:00",
+    "auditStatus": "PASS",
+    "issues": [],
+    "complete": true,
+    "localOnly": true,
+    "promotionEligible": false,
+    "promotion": false,
+    "newGames": 0,
+    "botCalls": 0,
+    "auditHelper": {
+      "path": "build/analysis/v09-budget100-local-v1/audit_result.py",
+      "sha256": "8c61f72885498a803082dd75c256df8106e22aa627da26a531d3c9bf565c923d"
+    },
+    "preservation": {
+      "frozenFilesVerified": 2523,
+      "runtimeFilesVerified": 8,
+      "baselineFilesVerified": 2079,
+      "baselineRuntimeFilesVerified": 8,
+      "runtimeCopiesVerified": 427,
+      "sourceCopiesVerified": 567,
+      "untrackedSourceFilesOutsideBaseline": [
+        "src/main/java/btk/bot/pduhard/PduhardBeamBot.java",
+        "src/main/java/btk/tools/ppo/PpoGreedyBot.java",
+        "src/main/java/btk/tools/ppo/PpoModel.java",
+        "src/main/java/btk/tools/ppo/PpoProbe.java",
+        "src/main/java/btk/tools/ppo/PpoRollout.java",
+        "src/main/java/btk/tools/ppo/PpoVsV09.java"
+      ],
+      "sourcePreservationScope": "All tracked source files pinned by setup_runtime.py are unchanged. Untracked source experiments are outside that baseline; none belongs to the isolated, completely pinned runtime/classpath used for games.",
+      "productionSourceFilesVerified": 180,
+      "selectedArtifactsVerified": 80,
+      "priorPublishedEvidenceVerified": 6,
+      "selectedSubmissionFilesVerified": 28,
+      "selectedSubmissionPins": [
+        {
+          "path": "build/submit/classes/Player$1.class",
+          "sha256": "5395b91faa30455fbfa0b0f76acb7a9ddc861347b0d98c419a7f564b87d9db56"
+        },
+        {
+          "path": "build/submit/classes/Player$Action$Type.class",
+          "sha256": "ad5b848c6b69cb82ce308df2ceee53cc47f618bb3a5bdaa75259c5413a8db3e6"
+        },
+        {
+          "path": "build/submit/classes/Player$Action.class",
+          "sha256": "e215fc3b2b58604515fc314c1e1133d5e2dccccc2207e2defe0011aab24b603c"
+        },
+        {
+          "path": "build/submit/classes/Player$Bot.class",
+          "sha256": "b2af1e70cfa72c8df38e2490f7b3a35d7a7714f6d4af039d86768b9cbdd53849"
+        },
+        {
+          "path": "build/submit/classes/Player$CGRunner.class",
+          "sha256": "a4f720466ca5a9f8863143f90089ee773dd7b72d390bfb56ff37f4b4844dddb6"
+        },
+        {
+          "path": "build/submit/classes/Player$EvalBot.class",
+          "sha256": "aefce312c8d191326ceb714170374bebeb2900f80cfe5af35b95e0da9f383456"
+        },
+        {
+          "path": "build/submit/classes/Player$GameState.class",
+          "sha256": "33f7ea5cdce7abc23261ec0ebc28ab0a0cd147edecfd498a50329d651c487db0"
+        },
+        {
+          "path": "build/submit/classes/Player$GreedyBot.class",
+          "sha256": "69035cf778bef0c08e7a2fce31a9d74b386851a8fa5b6f7b60b7b074bc516739"
+        },
+        {
+          "path": "build/submit/classes/Player$MainBot.class",
+          "sha256": "32879603176d6c602999ea52b9b5d4be23ed78568f8dd1a83e105b7d7c9d58ee"
+        },
+        {
+          "path": "build/submit/classes/Player$NetworkCells.class",
+          "sha256": "e4996ecf5327881c66204eff3d86fef669a8115a8cd38c8268b221a3f73cc921"
+        },
+        {
+          "path": "build/submit/classes/Player$NetworkChords.class",
+          "sha256": "0b9a8dfa873e4417f60d333a8695e2edaf01296a696bd46f49b8bee53420881b"
+        },
+        {
+          "path": "build/submit/classes/Player$Params.class",
+          "sha256": "40654dfc37cde3ac7c0cc405e993930e8f2edbe521c11911bdf708b51cd4f2e4"
+        },
+        {
+          "path": "build/submit/classes/Player$Pathing.class",
+          "sha256": "fae66ff49ee5ec282c1a965f0a44fac81fb9372644724d60aa94cd6b3fabcfee"
+        },
+        {
+          "path": "build/submit/classes/Player$ProtectedOpening.class",
+          "sha256": "fcc791d95d55ee3d5772e3a85823a68b72372fb688536e3595acea845b060c1a"
+        },
+        {
+          "path": "build/submit/classes/Player$Protocol$Init.class",
+          "sha256": "93f504e7470accf84e9236d960d159d01011593136f664ec32af596625be18a1"
+        },
+        {
+          "path": "build/submit/classes/Player$Protocol$TokenReader.class",
+          "sha256": "3c1945f5b8d27b4a8b65e0b3ab4a53510059d8259a47718d76456d1338511f56"
+        },
+        {
+          "path": "build/submit/classes/Player$Protocol$TurnInfo.class",
+          "sha256": "d3721d9e648cc83b91e6dfc045274e874ac08e1798cdd37044e7621cb541816e"
+        },
+        {
+          "path": "build/submit/classes/Player$Protocol.class",
+          "sha256": "a444d5315f32a247da50566cd012c2e755a6000210a839d6be1882e7030881ed"
+        },
+        {
+          "path": "build/submit/classes/Player$Rules$PlayerMoves.class",
+          "sha256": "4d8be1426d6943e6075d6ed8c4fdbef51e1c9b0ced5083bc3b8830c245700fb6"
+        },
+        {
+          "path": "build/submit/classes/Player$Rules$TurnResult.class",
+          "sha256": "df82ee13d9b4a67e931762687cb3827e4957ec7839878abff660d15d2282bce8"
+        },
+        {
+          "path": "build/submit/classes/Player$Rules.class",
+          "sha256": "5a8fce7dd2075735b87ed54b5a37ec63cb0e43c348a3f3bc3ea02864cb33fcd6"
+        },
+        {
+          "path": "build/submit/classes/Player$SearchState.class",
+          "sha256": "96031356bb47c60c0ee479297ed73cf28d3cc10d9019216dff9e17cacd2eef95"
+        },
+        {
+          "path": "build/submit/classes/Player$Timer.class",
+          "sha256": "66743249743708aaa23b8a742d25c7a6620b5af592b5f91f183f32786b8eebbc"
+        },
+        {
+          "path": "build/submit/classes/Player.class",
+          "sha256": "ad594943bb12ee2c52e308cc07a94fdffbc223f07df77f8646d72875abeafd17"
+        },
+        {
+          "path": "build/submit/manifest.json",
+          "sha256": "38d5e05227a7ffb621124641d0743dd861f96cec70193b8134aeb5ed1c2765c5"
+        },
+        {
+          "path": "build/submit/Player.java",
+          "sha256": "1df7c131e6069f140b65d107491f5acbab855fb1fd88a6b1d567fc02e396be19"
+        },
+        {
+          "path": "build/submit/PlayerQuickIncome.java",
+          "sha256": "8fb0831f44a7f0ca98ada59371fc2dd7537d1743ac711f78c21a8d7e2023dbfd"
+        },
+        {
+          "path": "build/submit/PlayerQuickIncome.manifest.json",
+          "sha256": "7345f4e7d23d5025166d9d321b848280b6ad8469f507e111128e935f7ba35ee3"
+        }
+      ],
+      "compiledSourcesVerified": 3
+    },
+    "configuration": {
+      "spec": "current?NOISE=0.1,USE_BATCHED_REFRESH=true",
+      "identicalFullParams": true,
+      "effectiveBudgets": {
+        "firstA": 486,
+        "firstB": 486,
+        "laterA": 100,
+        "laterB": 36
+      },
+      "threads": 2,
+      "timingProfile": "LOCAL_DIAGNOSTIC",
+      "productionBudgetParam": "36",
+      "runtimeWarmup": false,
+      "externalDeadlineReadinessAssessed": false
+    },
+    "status": "COMPLETE_DIAGNOSTIC",
+    "stages": [
+      {
+        "name": "block1",
+        "games": 300,
+        "wins": 157,
+        "losses": 126,
+        "draws": 17,
+        "points": 165.5,
+        "score": 0.5516666666666666,
+        "maps": 150,
+        "turns": 27655,
+        "scoreMarginSum": 59548,
+        "seats": [
+          {
+            "games": 150,
+            "wins": 80,
+            "losses": 62,
+            "draws": 8,
+            "points": 84.0,
+            "score": 0.56
+          },
+          {
+            "games": 150,
+            "wins": 77,
+            "losses": 64,
+            "draws": 9,
+            "points": 81.5,
+            "score": 0.5433333333333333
+          }
+        ],
+        "refereeTiming": {
+          "a": {
+            "maxMs": 113,
+            "totalMs": 535188,
+            "slowMoves": 3474
+          },
+          "b": {
+            "maxMs": 55,
+            "totalMs": 373258,
+            "slowMoves": 1
+          }
+        },
+        "slowGameCount": 177,
+        "refereeSlowGames": [
+          {
+            "pair": 0,
+            "seed": 261616000,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 100
+          },
+          {
+            "pair": 1,
+            "seed": 261616001,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 100
+          },
+          {
+            "pair": 3,
+            "seed": 261616003,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 94
+          },
+          {
+            "pair": 3,
+            "seed": 261616003,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 5,
+            "seed": 261616005,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 5,
+            "seed": 261616005,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 13,
+            "maxMs": 93
+          },
+          {
+            "pair": 7,
+            "seed": 261616007,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 70
+          },
+          {
+            "pair": 8,
+            "seed": 261616008,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 70
+          },
+          {
+            "pair": 8,
+            "seed": 261616008,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 15,
+            "maxMs": 86
+          },
+          {
+            "pair": 9,
+            "seed": 261616009,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 77
+          },
+          {
+            "pair": 9,
+            "seed": 261616009,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 10,
+            "maxMs": 65
+          },
+          {
+            "pair": 10,
+            "seed": 261616010,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 65
+          },
+          {
+            "pair": 10,
+            "seed": 261616010,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 61
+          },
+          {
+            "pair": 13,
+            "seed": 261616013,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 13,
+            "seed": 261616013,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 43,
+            "maxMs": 100
+          },
+          {
+            "pair": 16,
+            "seed": 261616016,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 16,
+            "seed": 261616016,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 17,
+            "seed": 261616017,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 71
+          },
+          {
+            "pair": 17,
+            "seed": 261616017,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 86
+          },
+          {
+            "pair": 18,
+            "seed": 261616018,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 18,
+            "seed": 261616018,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 24,
+            "maxMs": 100
+          },
+          {
+            "pair": 19,
+            "seed": 261616019,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 63
+          },
+          {
+            "pair": 20,
+            "seed": 261616020,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 19,
+            "maxMs": 74
+          },
+          {
+            "pair": 20,
+            "seed": 261616020,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 16,
+            "maxMs": 86
+          },
+          {
+            "pair": 21,
+            "seed": 261616021,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 21,
+            "seed": 261616021,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 22,
+            "seed": 261616022,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 22,
+            "seed": 261616022,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 23,
+            "seed": 261616023,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 23,
+            "seed": 261616023,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 77
+          },
+          {
+            "pair": 24,
+            "seed": 261616024,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 87
+          },
+          {
+            "pair": 24,
+            "seed": 261616024,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 6,
+            "maxMs": 69
+          },
+          {
+            "pair": 25,
+            "seed": 261616025,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 59
+          },
+          {
+            "pair": 26,
+            "seed": 261616026,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 19,
+            "maxMs": 69
+          },
+          {
+            "pair": 26,
+            "seed": 261616026,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 12,
+            "maxMs": 64
+          },
+          {
+            "pair": 28,
+            "seed": 261616028,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 58
+          },
+          {
+            "pair": 29,
+            "seed": 261616029,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 14,
+            "maxMs": 71
+          },
+          {
+            "pair": 29,
+            "seed": 261616029,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 11,
+            "maxMs": 95
+          },
+          {
+            "pair": 30,
+            "seed": 261616030,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 16,
+            "maxMs": 84
+          },
+          {
+            "pair": 30,
+            "seed": 261616030,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 17,
+            "maxMs": 80
+          },
+          {
+            "pair": 31,
+            "seed": 261616031,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 70
+          },
+          {
+            "pair": 31,
+            "seed": 261616031,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 6,
+            "maxMs": 59
+          },
+          {
+            "pair": 35,
+            "seed": 261616035,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 100
+          },
+          {
+            "pair": 35,
+            "seed": 261616035,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 48,
+            "maxMs": 100
+          },
+          {
+            "pair": 40,
+            "seed": 261616040,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 40,
+            "seed": 261616040,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 98
+          },
+          {
+            "pair": 41,
+            "seed": 261616041,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 41,
+            "seed": 261616041,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 42,
+            "seed": 261616042,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 42,
+            "seed": 261616042,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 45,
+            "seed": 261616045,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 45,
+            "seed": 261616045,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 46,
+            "seed": 261616046,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 53
+          },
+          {
+            "pair": 48,
+            "seed": 261616048,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 55
+          },
+          {
+            "pair": 48,
+            "seed": 261616048,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 56
+          },
+          {
+            "pair": 49,
+            "seed": 261616049,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 94
+          },
+          {
+            "pair": 49,
+            "seed": 261616049,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 15,
+            "maxMs": 81
+          },
+          {
+            "pair": 50,
+            "seed": 261616050,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 44,
+            "maxMs": 100
+          },
+          {
+            "pair": 50,
+            "seed": 261616050,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 42,
+            "maxMs": 100
+          },
+          {
+            "pair": 51,
+            "seed": 261616051,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 65
+          },
+          {
+            "pair": 51,
+            "seed": 261616051,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 12,
+            "maxMs": 80
+          },
+          {
+            "pair": 52,
+            "seed": 261616052,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 16,
+            "maxMs": 100
+          },
+          {
+            "pair": 52,
+            "seed": 261616052,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 100
+          },
+          {
+            "pair": 53,
+            "seed": 261616053,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 83
+          },
+          {
+            "pair": 53,
+            "seed": 261616053,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 6,
+            "maxMs": 60
+          },
+          {
+            "pair": 54,
+            "seed": 261616054,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 54,
+            "seed": 261616054,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 43,
+            "maxMs": 100
+          },
+          {
+            "pair": 55,
+            "seed": 261616055,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 83
+          },
+          {
+            "pair": 55,
+            "seed": 261616055,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 58
+          },
+          {
+            "pair": 56,
+            "seed": 261616056,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 56,
+            "seed": 261616056,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 57,
+            "seed": 261616057,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 52
+          },
+          {
+            "pair": 57,
+            "seed": 261616057,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 55
+          },
+          {
+            "pair": 58,
+            "seed": 261616058,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 23,
+            "maxMs": 100
+          },
+          {
+            "pair": 58,
+            "seed": 261616058,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 59,
+            "seed": 261616059,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 9,
+            "maxMs": 67
+          },
+          {
+            "pair": 59,
+            "seed": 261616059,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 7,
+            "maxMs": 62
+          },
+          {
+            "pair": 60,
+            "seed": 261616060,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 52
+          },
+          {
+            "pair": 60,
+            "seed": 261616060,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 56
+          },
+          {
+            "pair": 61,
+            "seed": 261616061,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 61,
+            "seed": 261616061,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 62,
+            "seed": 261616062,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 66
+          },
+          {
+            "pair": 62,
+            "seed": 261616062,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 56
+          },
+          {
+            "pair": 63,
+            "seed": 261616063,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 63,
+            "seed": 261616063,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 64,
+            "seed": 261616064,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 64,
+            "seed": 261616064,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 67,
+            "seed": 261616067,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 68,
+            "seed": 261616068,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 62
+          },
+          {
+            "pair": 68,
+            "seed": 261616068,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 55
+          },
+          {
+            "pair": 69,
+            "seed": 261616069,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 65
+          },
+          {
+            "pair": 69,
+            "seed": 261616069,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 113
+          },
+          {
+            "pair": 70,
+            "seed": 261616070,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 12,
+            "maxMs": 109
+          },
+          {
+            "pair": 70,
+            "seed": 261616070,
+            "aSeat": 1,
+            "arm": "b",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 55
+          },
+          {
+            "pair": 71,
+            "seed": 261616071,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 71,
+            "seed": 261616071,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 62
+          },
+          {
+            "pair": 72,
+            "seed": 261616072,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 72,
+            "seed": 261616072,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 93
+          },
+          {
+            "pair": 75,
+            "seed": 261616075,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 75
+          },
+          {
+            "pair": 77,
+            "seed": 261616077,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 75
+          },
+          {
+            "pair": 77,
+            "seed": 261616077,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 19,
+            "maxMs": 89
+          },
+          {
+            "pair": 80,
+            "seed": 261616080,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 80,
+            "seed": 261616080,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 41,
+            "maxMs": 100
+          },
+          {
+            "pair": 83,
+            "seed": 261616083,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 69
+          },
+          {
+            "pair": 83,
+            "seed": 261616083,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 13,
+            "maxMs": 75
+          },
+          {
+            "pair": 85,
+            "seed": 261616085,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 85,
+            "seed": 261616085,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 86,
+            "seed": 261616086,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 94
+          },
+          {
+            "pair": 86,
+            "seed": 261616086,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 80
+          },
+          {
+            "pair": 87,
+            "seed": 261616087,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 71
+          },
+          {
+            "pair": 89,
+            "seed": 261616089,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 56
+          },
+          {
+            "pair": 90,
+            "seed": 261616090,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 65
+          },
+          {
+            "pair": 90,
+            "seed": 261616090,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 18,
+            "maxMs": 78
+          },
+          {
+            "pair": 91,
+            "seed": 261616091,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 69
+          },
+          {
+            "pair": 91,
+            "seed": 261616091,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 69
+          },
+          {
+            "pair": 93,
+            "seed": 261616093,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 69
+          },
+          {
+            "pair": 93,
+            "seed": 261616093,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 21,
+            "maxMs": 100
+          },
+          {
+            "pair": 94,
+            "seed": 261616094,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 59
+          },
+          {
+            "pair": 95,
+            "seed": 261616095,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 96,
+            "seed": 261616096,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 96,
+            "seed": 261616096,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 97,
+            "seed": 261616097,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 9,
+            "maxMs": 57
+          },
+          {
+            "pair": 97,
+            "seed": 261616097,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 63
+          },
+          {
+            "pair": 100,
+            "seed": 261616100,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 84
+          },
+          {
+            "pair": 100,
+            "seed": 261616100,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 85
+          },
+          {
+            "pair": 101,
+            "seed": 261616101,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 101,
+            "seed": 261616101,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 99
+          },
+          {
+            "pair": 103,
+            "seed": 261616103,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 63
+          },
+          {
+            "pair": 103,
+            "seed": 261616103,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 52
+          },
+          {
+            "pair": 107,
+            "seed": 261616107,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 81
+          },
+          {
+            "pair": 107,
+            "seed": 261616107,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 10,
+            "maxMs": 69
+          },
+          {
+            "pair": 109,
+            "seed": 261616109,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 100
+          },
+          {
+            "pair": 109,
+            "seed": 261616109,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 94
+          },
+          {
+            "pair": 110,
+            "seed": 261616110,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 111,
+            "seed": 261616111,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 112,
+            "seed": 261616112,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 14,
+            "maxMs": 99
+          },
+          {
+            "pair": 112,
+            "seed": 261616112,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 13,
+            "maxMs": 75
+          },
+          {
+            "pair": 113,
+            "seed": 261616113,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 113,
+            "seed": 261616113,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 83
+          },
+          {
+            "pair": 114,
+            "seed": 261616114,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 114,
+            "seed": 261616114,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 7,
+            "maxMs": 62
+          },
+          {
+            "pair": 117,
+            "seed": 261616117,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 117,
+            "seed": 261616117,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 85
+          },
+          {
+            "pair": 118,
+            "seed": 261616118,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 44,
+            "maxMs": 100
+          },
+          {
+            "pair": 118,
+            "seed": 261616118,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 41,
+            "maxMs": 100
+          },
+          {
+            "pair": 119,
+            "seed": 261616119,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 119,
+            "seed": 261616119,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 121,
+            "seed": 261616121,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 73
+          },
+          {
+            "pair": 121,
+            "seed": 261616121,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 54
+          },
+          {
+            "pair": 126,
+            "seed": 261616126,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 21,
+            "maxMs": 100
+          },
+          {
+            "pair": 126,
+            "seed": 261616126,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 14,
+            "maxMs": 73
+          },
+          {
+            "pair": 127,
+            "seed": 261616127,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 90
+          },
+          {
+            "pair": 127,
+            "seed": 261616127,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 20,
+            "maxMs": 77
+          },
+          {
+            "pair": 128,
+            "seed": 261616128,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 52
+          },
+          {
+            "pair": 129,
+            "seed": 261616129,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 129,
+            "seed": 261616129,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 131,
+            "seed": 261616131,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 131,
+            "seed": 261616131,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 132,
+            "seed": 261616132,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 64
+          },
+          {
+            "pair": 137,
+            "seed": 261616137,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 137,
+            "seed": 261616137,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 139,
+            "seed": 261616139,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 68
+          },
+          {
+            "pair": 139,
+            "seed": 261616139,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 57
+          },
+          {
+            "pair": 140,
+            "seed": 261616140,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 140,
+            "seed": 261616140,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 100
+          },
+          {
+            "pair": 141,
+            "seed": 261616141,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 76
+          },
+          {
+            "pair": 141,
+            "seed": 261616141,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 64
+          },
+          {
+            "pair": 143,
+            "seed": 261616143,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 97
+          },
+          {
+            "pair": 143,
+            "seed": 261616143,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 144,
+            "seed": 261616144,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 77
+          },
+          {
+            "pair": 144,
+            "seed": 261616144,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 6,
+            "maxMs": 61
+          },
+          {
+            "pair": 145,
+            "seed": 261616145,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 145,
+            "seed": 261616145,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 147,
+            "seed": 261616147,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 147,
+            "seed": 261616147,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 148,
+            "seed": 261616148,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 148,
+            "seed": 261616148,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 25,
+            "maxMs": 80
+          }
+        ],
+        "cumulativeDecision": "CONTINUE"
+      },
+      {
+        "name": "block2",
+        "games": 200,
+        "wins": 111,
+        "losses": 79,
+        "draws": 10,
+        "points": 116.0,
+        "score": 0.58,
+        "maps": 100,
+        "turns": 18103,
+        "scoreMarginSum": 53159,
+        "seats": [
+          {
+            "games": 100,
+            "wins": 53,
+            "losses": 42,
+            "draws": 5,
+            "points": 55.5,
+            "score": 0.555
+          },
+          {
+            "games": 100,
+            "wins": 58,
+            "losses": 37,
+            "draws": 5,
+            "points": 60.5,
+            "score": 0.605
+          }
+        ],
+        "refereeTiming": {
+          "a": {
+            "maxMs": 114,
+            "totalMs": 299108,
+            "slowMoves": 1704
+          },
+          "b": {
+            "maxMs": 47,
+            "totalMs": 222188,
+            "slowMoves": 0
+          }
+        },
+        "slowGameCount": 103,
+        "refereeSlowGames": [
+          {
+            "pair": 0,
+            "seed": 261716000,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 88
+          },
+          {
+            "pair": 1,
+            "seed": 261716001,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 114
+          },
+          {
+            "pair": 3,
+            "seed": 261716003,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 16,
+            "maxMs": 74
+          },
+          {
+            "pair": 3,
+            "seed": 261716003,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 68
+          },
+          {
+            "pair": 4,
+            "seed": 261716004,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 57
+          },
+          {
+            "pair": 4,
+            "seed": 261716004,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 58
+          },
+          {
+            "pair": 5,
+            "seed": 261716005,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 43,
+            "maxMs": 100
+          },
+          {
+            "pair": 5,
+            "seed": 261716005,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 6,
+            "seed": 261716006,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 58
+          },
+          {
+            "pair": 6,
+            "seed": 261716006,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 7,
+            "seed": 261716007,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 67
+          },
+          {
+            "pair": 7,
+            "seed": 261716007,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 55
+          },
+          {
+            "pair": 9,
+            "seed": 261716009,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 38,
+            "maxMs": 95
+          },
+          {
+            "pair": 9,
+            "seed": 261716009,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 100
+          },
+          {
+            "pair": 10,
+            "seed": 261716010,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 67
+          },
+          {
+            "pair": 10,
+            "seed": 261716010,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 62
+          },
+          {
+            "pair": 13,
+            "seed": 261716013,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 13,
+            "seed": 261716013,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 100
+          },
+          {
+            "pair": 14,
+            "seed": 261716014,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 14,
+            "seed": 261716014,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 100
+          },
+          {
+            "pair": 15,
+            "seed": 261716015,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 78
+          },
+          {
+            "pair": 15,
+            "seed": 261716015,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 53
+          },
+          {
+            "pair": 16,
+            "seed": 261716016,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 12,
+            "maxMs": 77
+          },
+          {
+            "pair": 16,
+            "seed": 261716016,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 11,
+            "maxMs": 83
+          },
+          {
+            "pair": 17,
+            "seed": 261716017,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 17,
+            "seed": 261716017,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 38,
+            "maxMs": 94
+          },
+          {
+            "pair": 19,
+            "seed": 261716019,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 100
+          },
+          {
+            "pair": 19,
+            "seed": 261716019,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 72
+          },
+          {
+            "pair": 20,
+            "seed": 261716020,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 64
+          },
+          {
+            "pair": 22,
+            "seed": 261716022,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 54
+          },
+          {
+            "pair": 23,
+            "seed": 261716023,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 100
+          },
+          {
+            "pair": 23,
+            "seed": 261716023,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 29,
+            "seed": 261716029,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 94
+          },
+          {
+            "pair": 29,
+            "seed": 261716029,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 96
+          },
+          {
+            "pair": 32,
+            "seed": 261716032,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 9,
+            "maxMs": 63
+          },
+          {
+            "pair": 32,
+            "seed": 261716032,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 63
+          },
+          {
+            "pair": 33,
+            "seed": 261716033,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 63
+          },
+          {
+            "pair": 38,
+            "seed": 261716038,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 98
+          },
+          {
+            "pair": 38,
+            "seed": 261716038,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 45,
+            "seed": 261716045,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 26,
+            "maxMs": 80
+          },
+          {
+            "pair": 45,
+            "seed": 261716045,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 48,
+            "seed": 261716048,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 48,
+            "seed": 261716048,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 51,
+            "seed": 261716051,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 56
+          },
+          {
+            "pair": 51,
+            "seed": 261716051,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 64
+          },
+          {
+            "pair": 53,
+            "seed": 261716053,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 53,
+            "seed": 261716053,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 21,
+            "maxMs": 80
+          },
+          {
+            "pair": 54,
+            "seed": 261716054,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 12,
+            "maxMs": 65
+          },
+          {
+            "pair": 54,
+            "seed": 261716054,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 51
+          },
+          {
+            "pair": 55,
+            "seed": 261716055,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 55,
+            "seed": 261716055,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 52
+          },
+          {
+            "pair": 56,
+            "seed": 261716056,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 87
+          },
+          {
+            "pair": 56,
+            "seed": 261716056,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 96
+          },
+          {
+            "pair": 57,
+            "seed": 261716057,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 42,
+            "maxMs": 100
+          },
+          {
+            "pair": 57,
+            "seed": 261716057,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 58,
+            "seed": 261716058,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 14,
+            "maxMs": 70
+          },
+          {
+            "pair": 58,
+            "seed": 261716058,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 25,
+            "maxMs": 97
+          },
+          {
+            "pair": 59,
+            "seed": 261716059,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 59,
+            "seed": 261716059,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 60,
+            "seed": 261716060,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 9,
+            "maxMs": 60
+          },
+          {
+            "pair": 60,
+            "seed": 261716060,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 59
+          },
+          {
+            "pair": 62,
+            "seed": 261716062,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 57
+          },
+          {
+            "pair": 62,
+            "seed": 261716062,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 55
+          },
+          {
+            "pair": 63,
+            "seed": 261716063,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 74
+          },
+          {
+            "pair": 63,
+            "seed": 261716063,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 12,
+            "maxMs": 76
+          },
+          {
+            "pair": 64,
+            "seed": 261716064,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 71
+          },
+          {
+            "pair": 64,
+            "seed": 261716064,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 12,
+            "maxMs": 99
+          },
+          {
+            "pair": 65,
+            "seed": 261716065,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 57
+          },
+          {
+            "pair": 67,
+            "seed": 261716067,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 67,
+            "seed": 261716067,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 68,
+            "seed": 261716068,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 52
+          },
+          {
+            "pair": 69,
+            "seed": 261716069,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 69,
+            "seed": 261716069,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 29,
+            "maxMs": 99
+          },
+          {
+            "pair": 70,
+            "seed": 261716070,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 77
+          },
+          {
+            "pair": 70,
+            "seed": 261716070,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 10,
+            "maxMs": 71
+          },
+          {
+            "pair": 75,
+            "seed": 261716075,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 53
+          },
+          {
+            "pair": 77,
+            "seed": 261716077,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 76
+          },
+          {
+            "pair": 77,
+            "seed": 261716077,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 79,
+            "seed": 261716079,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 60
+          },
+          {
+            "pair": 79,
+            "seed": 261716079,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 66
+          },
+          {
+            "pair": 81,
+            "seed": 261716081,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 56
+          },
+          {
+            "pair": 81,
+            "seed": 261716081,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 53
+          },
+          {
+            "pair": 82,
+            "seed": 261716082,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 55
+          },
+          {
+            "pair": 83,
+            "seed": 261716083,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 91
+          },
+          {
+            "pair": 83,
+            "seed": 261716083,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 24,
+            "maxMs": 100
+          },
+          {
+            "pair": 85,
+            "seed": 261716085,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 85,
+            "seed": 261716085,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 86,
+            "seed": 261716086,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 97
+          },
+          {
+            "pair": 86,
+            "seed": 261716086,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 66
+          },
+          {
+            "pair": 87,
+            "seed": 261716087,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 9,
+            "maxMs": 59
+          },
+          {
+            "pair": 87,
+            "seed": 261716087,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 17,
+            "maxMs": 71
+          },
+          {
+            "pair": 88,
+            "seed": 261716088,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 88,
+            "seed": 261716088,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 89,
+            "seed": 261716089,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 18,
+            "maxMs": 86
+          },
+          {
+            "pair": 89,
+            "seed": 261716089,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 65
+          },
+          {
+            "pair": 91,
+            "seed": 261716091,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 64
+          },
+          {
+            "pair": 94,
+            "seed": 261716094,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 18,
+            "maxMs": 90
+          },
+          {
+            "pair": 94,
+            "seed": 261716094,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 24,
+            "maxMs": 76
+          },
+          {
+            "pair": 95,
+            "seed": 261716095,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 9,
+            "maxMs": 89
+          },
+          {
+            "pair": 95,
+            "seed": 261716095,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 52
+          },
+          {
+            "pair": 98,
+            "seed": 261716098,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 57
+          },
+          {
+            "pair": 98,
+            "seed": 261716098,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 10,
+            "maxMs": 61
+          },
+          {
+            "pair": 99,
+            "seed": 261716099,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 76
+          }
+        ],
+        "cumulativeDecision": "CONTINUE"
+      },
+      {
+        "name": "block3",
+        "games": 500,
+        "wins": 280,
+        "losses": 202,
+        "draws": 18,
+        "points": 289.0,
+        "score": 0.578,
+        "maps": 250,
+        "turns": 46148,
+        "scoreMarginSum": 178382,
+        "seats": [
+          {
+            "games": 250,
+            "wins": 143,
+            "losses": 98,
+            "draws": 9,
+            "points": 147.5,
+            "score": 0.59
+          },
+          {
+            "games": 250,
+            "wins": 137,
+            "losses": 104,
+            "draws": 9,
+            "points": 141.5,
+            "score": 0.566
+          }
+        ],
+        "refereeTiming": {
+          "a": {
+            "maxMs": 100,
+            "totalMs": 866323,
+            "slowMoves": 5608
+          },
+          "b": {
+            "maxMs": 36,
+            "totalMs": 611461,
+            "slowMoves": 0
+          }
+        },
+        "slowGameCount": 275,
+        "refereeSlowGames": [
+          {
+            "pair": 0,
+            "seed": 261816000,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 66
+          },
+          {
+            "pair": 1,
+            "seed": 261816001,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 100
+          },
+          {
+            "pair": 2,
+            "seed": 261816002,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 100
+          },
+          {
+            "pair": 2,
+            "seed": 261816002,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 3,
+            "seed": 261816003,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 73
+          },
+          {
+            "pair": 3,
+            "seed": 261816003,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 10,
+            "seed": 261816010,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 10,
+            "seed": 261816010,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 91
+          },
+          {
+            "pair": 11,
+            "seed": 261816011,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 74
+          },
+          {
+            "pair": 11,
+            "seed": 261816011,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 58
+          },
+          {
+            "pair": 12,
+            "seed": 261816012,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 37,
+            "maxMs": 100
+          },
+          {
+            "pair": 12,
+            "seed": 261816012,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 13,
+            "seed": 261816013,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 66
+          },
+          {
+            "pair": 13,
+            "seed": 261816013,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 18,
+            "maxMs": 72
+          },
+          {
+            "pair": 14,
+            "seed": 261816014,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 61
+          },
+          {
+            "pair": 14,
+            "seed": 261816014,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 68
+          },
+          {
+            "pair": 15,
+            "seed": 261816015,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 15,
+            "seed": 261816015,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 16,
+            "seed": 261816016,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 56
+          },
+          {
+            "pair": 16,
+            "seed": 261816016,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 59
+          },
+          {
+            "pair": 17,
+            "seed": 261816017,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 54
+          },
+          {
+            "pair": 17,
+            "seed": 261816017,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 19,
+            "maxMs": 85
+          },
+          {
+            "pair": 19,
+            "seed": 261816019,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 68
+          },
+          {
+            "pair": 22,
+            "seed": 261816022,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 53
+          },
+          {
+            "pair": 25,
+            "seed": 261816025,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 65
+          },
+          {
+            "pair": 25,
+            "seed": 261816025,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 64
+          },
+          {
+            "pair": 27,
+            "seed": 261816027,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 76
+          },
+          {
+            "pair": 27,
+            "seed": 261816027,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 63
+          },
+          {
+            "pair": 29,
+            "seed": 261816029,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 57
+          },
+          {
+            "pair": 29,
+            "seed": 261816029,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 69
+          },
+          {
+            "pair": 30,
+            "seed": 261816030,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 30,
+            "seed": 261816030,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 31,
+            "seed": 261816031,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 63
+          },
+          {
+            "pair": 31,
+            "seed": 261816031,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 77
+          },
+          {
+            "pair": 34,
+            "seed": 261816034,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 34,
+            "seed": 261816034,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 36,
+            "seed": 261816036,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 60
+          },
+          {
+            "pair": 36,
+            "seed": 261816036,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 7,
+            "maxMs": 60
+          },
+          {
+            "pair": 37,
+            "seed": 261816037,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 86
+          },
+          {
+            "pair": 37,
+            "seed": 261816037,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 80
+          },
+          {
+            "pair": 39,
+            "seed": 261816039,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 41,
+            "maxMs": 100
+          },
+          {
+            "pair": 39,
+            "seed": 261816039,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 40,
+            "seed": 261816040,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 65
+          },
+          {
+            "pair": 40,
+            "seed": 261816040,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 10,
+            "maxMs": 65
+          },
+          {
+            "pair": 42,
+            "seed": 261816042,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 90
+          },
+          {
+            "pair": 42,
+            "seed": 261816042,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 45,
+            "seed": 261816045,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 45,
+            "seed": 261816045,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 46,
+            "maxMs": 100
+          },
+          {
+            "pair": 48,
+            "seed": 261816048,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 63
+          },
+          {
+            "pair": 48,
+            "seed": 261816048,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 11,
+            "maxMs": 68
+          },
+          {
+            "pair": 50,
+            "seed": 261816050,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 20,
+            "maxMs": 97
+          },
+          {
+            "pair": 50,
+            "seed": 261816050,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 20,
+            "maxMs": 100
+          },
+          {
+            "pair": 53,
+            "seed": 261816053,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 60
+          },
+          {
+            "pair": 53,
+            "seed": 261816053,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 59
+          },
+          {
+            "pair": 54,
+            "seed": 261816054,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 55,
+            "seed": 261816055,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 55,
+            "seed": 261816055,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 43,
+            "maxMs": 100
+          },
+          {
+            "pair": 57,
+            "seed": 261816057,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 57,
+            "seed": 261816057,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 58,
+            "seed": 261816058,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 17,
+            "maxMs": 72
+          },
+          {
+            "pair": 58,
+            "seed": 261816058,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 13,
+            "maxMs": 68
+          },
+          {
+            "pair": 59,
+            "seed": 261816059,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 87
+          },
+          {
+            "pair": 59,
+            "seed": 261816059,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 24,
+            "maxMs": 99
+          },
+          {
+            "pair": 60,
+            "seed": 261816060,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 60,
+            "seed": 261816060,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 17,
+            "maxMs": 82
+          },
+          {
+            "pair": 64,
+            "seed": 261816064,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 64,
+            "seed": 261816064,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 96
+          },
+          {
+            "pair": 65,
+            "seed": 261816065,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 98
+          },
+          {
+            "pair": 65,
+            "seed": 261816065,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 87
+          },
+          {
+            "pair": 66,
+            "seed": 261816066,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 69
+          },
+          {
+            "pair": 66,
+            "seed": 261816066,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 17,
+            "maxMs": 65
+          },
+          {
+            "pair": 68,
+            "seed": 261816068,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 63
+          },
+          {
+            "pair": 68,
+            "seed": 261816068,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 14,
+            "maxMs": 81
+          },
+          {
+            "pair": 71,
+            "seed": 261816071,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 71,
+            "seed": 261816071,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 73,
+            "seed": 261816073,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 70
+          },
+          {
+            "pair": 73,
+            "seed": 261816073,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 56
+          },
+          {
+            "pair": 76,
+            "seed": 261816076,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 14,
+            "maxMs": 75
+          },
+          {
+            "pair": 76,
+            "seed": 261816076,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 16,
+            "maxMs": 68
+          },
+          {
+            "pair": 79,
+            "seed": 261816079,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 79,
+            "seed": 261816079,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 100
+          },
+          {
+            "pair": 80,
+            "seed": 261816080,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 80,
+            "seed": 261816080,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 48,
+            "maxMs": 100
+          },
+          {
+            "pair": 81,
+            "seed": 261816081,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 81,
+            "seed": 261816081,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 82,
+            "seed": 261816082,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 82,
+            "seed": 261816082,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 85,
+            "seed": 261816085,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 85,
+            "seed": 261816085,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 42,
+            "maxMs": 100
+          },
+          {
+            "pair": 86,
+            "seed": 261816086,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 86,
+            "seed": 261816086,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 87,
+            "seed": 261816087,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 32,
+            "maxMs": 83
+          },
+          {
+            "pair": 87,
+            "seed": 261816087,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 88,
+            "seed": 261816088,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 88,
+            "seed": 261816088,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 86
+          },
+          {
+            "pair": 89,
+            "seed": 261816089,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 68
+          },
+          {
+            "pair": 89,
+            "seed": 261816089,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 54
+          },
+          {
+            "pair": 90,
+            "seed": 261816090,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 70
+          },
+          {
+            "pair": 90,
+            "seed": 261816090,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 10,
+            "maxMs": 65
+          },
+          {
+            "pair": 92,
+            "seed": 261816092,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 53
+          },
+          {
+            "pair": 92,
+            "seed": 261816092,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 62
+          },
+          {
+            "pair": 93,
+            "seed": 261816093,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 53
+          },
+          {
+            "pair": 94,
+            "seed": 261816094,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 57
+          },
+          {
+            "pair": 95,
+            "seed": 261816095,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 52
+          },
+          {
+            "pair": 98,
+            "seed": 261816098,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 98,
+            "seed": 261816098,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 45,
+            "maxMs": 100
+          },
+          {
+            "pair": 99,
+            "seed": 261816099,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 83
+          },
+          {
+            "pair": 99,
+            "seed": 261816099,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 72
+          },
+          {
+            "pair": 100,
+            "seed": 261816100,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 100,
+            "seed": 261816100,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 15,
+            "maxMs": 80
+          },
+          {
+            "pair": 101,
+            "seed": 261816101,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 55
+          },
+          {
+            "pair": 102,
+            "seed": 261816102,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 102,
+            "seed": 261816102,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 105,
+            "seed": 261816105,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 100
+          },
+          {
+            "pair": 105,
+            "seed": 261816105,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 106,
+            "seed": 261816106,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 95
+          },
+          {
+            "pair": 106,
+            "seed": 261816106,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 98
+          },
+          {
+            "pair": 107,
+            "seed": 261816107,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 19,
+            "maxMs": 76
+          },
+          {
+            "pair": 107,
+            "seed": 261816107,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 7,
+            "maxMs": 54
+          },
+          {
+            "pair": 108,
+            "seed": 261816108,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 53
+          },
+          {
+            "pair": 109,
+            "seed": 261816109,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 109,
+            "seed": 261816109,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 89
+          },
+          {
+            "pair": 110,
+            "seed": 261816110,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 41,
+            "maxMs": 100
+          },
+          {
+            "pair": 110,
+            "seed": 261816110,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 111,
+            "seed": 261816111,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 111,
+            "seed": 261816111,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 112,
+            "seed": 261816112,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 1,
+            "maxMs": 55
+          },
+          {
+            "pair": 116,
+            "seed": 261816116,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 5,
+            "maxMs": 56
+          },
+          {
+            "pair": 116,
+            "seed": 261816116,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 20,
+            "maxMs": 90
+          },
+          {
+            "pair": 117,
+            "seed": 261816117,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 117,
+            "seed": 261816117,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 21,
+            "maxMs": 95
+          },
+          {
+            "pair": 118,
+            "seed": 261816118,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 62
+          },
+          {
+            "pair": 119,
+            "seed": 261816119,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 20,
+            "maxMs": 73
+          },
+          {
+            "pair": 119,
+            "seed": 261816119,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 58
+          },
+          {
+            "pair": 120,
+            "seed": 261816120,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 23,
+            "maxMs": 100
+          },
+          {
+            "pair": 120,
+            "seed": 261816120,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 18,
+            "maxMs": 84
+          },
+          {
+            "pair": 121,
+            "seed": 261816121,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 121,
+            "seed": 261816121,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 122,
+            "seed": 261816122,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 122,
+            "seed": 261816122,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 123,
+            "seed": 261816123,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 20,
+            "maxMs": 100
+          },
+          {
+            "pair": 123,
+            "seed": 261816123,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 124,
+            "seed": 261816124,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 63
+          },
+          {
+            "pair": 127,
+            "seed": 261816127,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 31,
+            "maxMs": 99
+          },
+          {
+            "pair": 127,
+            "seed": 261816127,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 128,
+            "seed": 261816128,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 128,
+            "seed": 261816128,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 129,
+            "seed": 261816129,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 59
+          },
+          {
+            "pair": 129,
+            "seed": 261816129,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 58
+          },
+          {
+            "pair": 130,
+            "seed": 261816130,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 51
+          },
+          {
+            "pair": 132,
+            "seed": 261816132,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 11,
+            "maxMs": 61
+          },
+          {
+            "pair": 132,
+            "seed": 261816132,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 51
+          },
+          {
+            "pair": 133,
+            "seed": 261816133,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 10,
+            "maxMs": 61
+          },
+          {
+            "pair": 133,
+            "seed": 261816133,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 36,
+            "maxMs": 92
+          },
+          {
+            "pair": 135,
+            "seed": 261816135,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 45,
+            "maxMs": 100
+          },
+          {
+            "pair": 135,
+            "seed": 261816135,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 88
+          },
+          {
+            "pair": 136,
+            "seed": 261816136,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 98
+          },
+          {
+            "pair": 136,
+            "seed": 261816136,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 137,
+            "seed": 261816137,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 2,
+            "maxMs": 61
+          },
+          {
+            "pair": 140,
+            "seed": 261816140,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 22,
+            "maxMs": 89
+          },
+          {
+            "pair": 140,
+            "seed": 261816140,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 21,
+            "maxMs": 100
+          },
+          {
+            "pair": 141,
+            "seed": 261816141,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 18,
+            "maxMs": 83
+          },
+          {
+            "pair": 141,
+            "seed": 261816141,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 29,
+            "maxMs": 94
+          },
+          {
+            "pair": 142,
+            "seed": 261816142,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 69
+          },
+          {
+            "pair": 143,
+            "seed": 261816143,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 53
+          },
+          {
+            "pair": 143,
+            "seed": 261816143,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 60
+          },
+          {
+            "pair": 144,
+            "seed": 261816144,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 58
+          },
+          {
+            "pair": 146,
+            "seed": 261816146,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 46,
+            "maxMs": 100
+          },
+          {
+            "pair": 146,
+            "seed": 261816146,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 147,
+            "seed": 261816147,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 147,
+            "seed": 261816147,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 148,
+            "seed": 261816148,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 26,
+            "maxMs": 95
+          },
+          {
+            "pair": 148,
+            "seed": 261816148,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 100
+          },
+          {
+            "pair": 149,
+            "seed": 261816149,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 31,
+            "maxMs": 99
+          },
+          {
+            "pair": 149,
+            "seed": 261816149,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 93
+          },
+          {
+            "pair": 150,
+            "seed": 261816150,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 23,
+            "maxMs": 95
+          },
+          {
+            "pair": 150,
+            "seed": 261816150,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 100
+          },
+          {
+            "pair": 151,
+            "seed": 261816151,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 151,
+            "seed": 261816151,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 18,
+            "maxMs": 85
+          },
+          {
+            "pair": 152,
+            "seed": 261816152,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 33,
+            "maxMs": 100
+          },
+          {
+            "pair": 152,
+            "seed": 261816152,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 155,
+            "seed": 261816155,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 19,
+            "maxMs": 76
+          },
+          {
+            "pair": 155,
+            "seed": 261816155,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 98
+          },
+          {
+            "pair": 156,
+            "seed": 261816156,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 56
+          },
+          {
+            "pair": 156,
+            "seed": 261816156,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 51
+          },
+          {
+            "pair": 157,
+            "seed": 261816157,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 54
+          },
+          {
+            "pair": 160,
+            "seed": 261816160,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 160,
+            "seed": 261816160,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 19,
+            "maxMs": 84
+          },
+          {
+            "pair": 161,
+            "seed": 261816161,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 73
+          },
+          {
+            "pair": 161,
+            "seed": 261816161,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 9,
+            "maxMs": 62
+          },
+          {
+            "pair": 164,
+            "seed": 261816164,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 23,
+            "maxMs": 94
+          },
+          {
+            "pair": 164,
+            "seed": 261816164,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 23,
+            "maxMs": 75
+          },
+          {
+            "pair": 166,
+            "seed": 261816166,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 63
+          },
+          {
+            "pair": 166,
+            "seed": 261816166,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 54
+          },
+          {
+            "pair": 168,
+            "seed": 261816168,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 168,
+            "seed": 261816168,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 171,
+            "seed": 261816171,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 12,
+            "maxMs": 75
+          },
+          {
+            "pair": 171,
+            "seed": 261816171,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 12,
+            "maxMs": 71
+          },
+          {
+            "pair": 174,
+            "seed": 261816174,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 174,
+            "seed": 261816174,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 36,
+            "maxMs": 100
+          },
+          {
+            "pair": 176,
+            "seed": 261816176,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 23,
+            "maxMs": 99
+          },
+          {
+            "pair": 176,
+            "seed": 261816176,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 15,
+            "maxMs": 96
+          },
+          {
+            "pair": 178,
+            "seed": 261816178,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 26,
+            "maxMs": 98
+          },
+          {
+            "pair": 178,
+            "seed": 261816178,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 19,
+            "maxMs": 90
+          },
+          {
+            "pair": 179,
+            "seed": 261816179,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 8,
+            "maxMs": 64
+          },
+          {
+            "pair": 179,
+            "seed": 261816179,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 60
+          },
+          {
+            "pair": 180,
+            "seed": 261816180,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 180,
+            "seed": 261816180,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 181,
+            "seed": 261816181,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 94
+          },
+          {
+            "pair": 181,
+            "seed": 261816181,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 13,
+            "maxMs": 92
+          },
+          {
+            "pair": 183,
+            "seed": 261816183,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 3,
+            "maxMs": 58
+          },
+          {
+            "pair": 186,
+            "seed": 261816186,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 186,
+            "seed": 261816186,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 96
+          },
+          {
+            "pair": 189,
+            "seed": 261816189,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 21,
+            "maxMs": 100
+          },
+          {
+            "pair": 189,
+            "seed": 261816189,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 22,
+            "maxMs": 97
+          },
+          {
+            "pair": 190,
+            "seed": 261816190,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 190,
+            "seed": 261816190,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 39,
+            "maxMs": 100
+          },
+          {
+            "pair": 191,
+            "seed": 261816191,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 3,
+            "maxMs": 55
+          },
+          {
+            "pair": 191,
+            "seed": 261816191,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 7,
+            "maxMs": 85
+          },
+          {
+            "pair": 192,
+            "seed": 261816192,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 21,
+            "maxMs": 100
+          },
+          {
+            "pair": 192,
+            "seed": 261816192,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 57
+          },
+          {
+            "pair": 193,
+            "seed": 261816193,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 77
+          },
+          {
+            "pair": 193,
+            "seed": 261816193,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 18,
+            "maxMs": 76
+          },
+          {
+            "pair": 194,
+            "seed": 261816194,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 194,
+            "seed": 261816194,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 25,
+            "maxMs": 100
+          },
+          {
+            "pair": 196,
+            "seed": 261816196,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 196,
+            "seed": 261816196,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 11,
+            "maxMs": 100
+          },
+          {
+            "pair": 200,
+            "seed": 261816200,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 7,
+            "maxMs": 62
+          },
+          {
+            "pair": 200,
+            "seed": 261816200,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 5,
+            "maxMs": 62
+          },
+          {
+            "pair": 202,
+            "seed": 261816202,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 54
+          },
+          {
+            "pair": 204,
+            "seed": 261816204,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 58
+          },
+          {
+            "pair": 204,
+            "seed": 261816204,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 16,
+            "maxMs": 64
+          },
+          {
+            "pair": 207,
+            "seed": 261816207,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 30,
+            "maxMs": 95
+          },
+          {
+            "pair": 207,
+            "seed": 261816207,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 86
+          },
+          {
+            "pair": 210,
+            "seed": 261816210,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 38,
+            "maxMs": 100
+          },
+          {
+            "pair": 210,
+            "seed": 261816210,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 100
+          },
+          {
+            "pair": 211,
+            "seed": 261816211,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 22,
+            "maxMs": 100
+          },
+          {
+            "pair": 211,
+            "seed": 261816211,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 26,
+            "maxMs": 94
+          },
+          {
+            "pair": 218,
+            "seed": 261816218,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 27,
+            "maxMs": 98
+          },
+          {
+            "pair": 218,
+            "seed": 261816218,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 219,
+            "seed": 261816219,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 78
+          },
+          {
+            "pair": 219,
+            "seed": 261816219,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 17,
+            "maxMs": 87
+          },
+          {
+            "pair": 220,
+            "seed": 261816220,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 24,
+            "maxMs": 91
+          },
+          {
+            "pair": 220,
+            "seed": 261816220,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 19,
+            "maxMs": 93
+          },
+          {
+            "pair": 222,
+            "seed": 261816222,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 21,
+            "maxMs": 81
+          },
+          {
+            "pair": 222,
+            "seed": 261816222,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 223,
+            "seed": 261816223,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 86
+          },
+          {
+            "pair": 223,
+            "seed": 261816223,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 53
+          },
+          {
+            "pair": 224,
+            "seed": 261816224,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 58
+          },
+          {
+            "pair": 225,
+            "seed": 261816225,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 60
+          },
+          {
+            "pair": 226,
+            "seed": 261816226,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 29,
+            "maxMs": 100
+          },
+          {
+            "pair": 226,
+            "seed": 261816226,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 27,
+            "maxMs": 100
+          },
+          {
+            "pair": 228,
+            "seed": 261816228,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 18,
+            "maxMs": 77
+          },
+          {
+            "pair": 228,
+            "seed": 261816228,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 15,
+            "maxMs": 63
+          },
+          {
+            "pair": 230,
+            "seed": 261816230,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 15,
+            "maxMs": 73
+          },
+          {
+            "pair": 235,
+            "seed": 261816235,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 4,
+            "maxMs": 65
+          },
+          {
+            "pair": 235,
+            "seed": 261816235,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 4,
+            "maxMs": 63
+          },
+          {
+            "pair": 236,
+            "seed": 261816236,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 31,
+            "maxMs": 94
+          },
+          {
+            "pair": 236,
+            "seed": 261816236,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 237,
+            "seed": 261816237,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 6,
+            "maxMs": 62
+          },
+          {
+            "pair": 237,
+            "seed": 261816237,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 8,
+            "maxMs": 75
+          },
+          {
+            "pair": 238,
+            "seed": 261816238,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 238,
+            "seed": 261816238,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 28,
+            "maxMs": 100
+          },
+          {
+            "pair": 239,
+            "seed": 261816239,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 239,
+            "seed": 261816239,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 32,
+            "maxMs": 99
+          },
+          {
+            "pair": 240,
+            "seed": 261816240,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 35,
+            "maxMs": 100
+          },
+          {
+            "pair": 240,
+            "seed": 261816240,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 40,
+            "maxMs": 100
+          },
+          {
+            "pair": 243,
+            "seed": 261816243,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 2,
+            "maxMs": 53
+          },
+          {
+            "pair": 244,
+            "seed": 261816244,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 1,
+            "maxMs": 53
+          },
+          {
+            "pair": 245,
+            "seed": 261816245,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 34,
+            "maxMs": 100
+          },
+          {
+            "pair": 245,
+            "seed": 261816245,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 31,
+            "maxMs": 100
+          },
+          {
+            "pair": 247,
+            "seed": 261816247,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 13,
+            "maxMs": 75
+          },
+          {
+            "pair": 247,
+            "seed": 261816247,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 14,
+            "maxMs": 62
+          },
+          {
+            "pair": 249,
+            "seed": 261816249,
+            "aSeat": 0,
+            "arm": "a",
+            "player": 0,
+            "slowMoves": 26,
+            "maxMs": 100
+          },
+          {
+            "pair": 249,
+            "seed": 261816249,
+            "aSeat": 1,
+            "arm": "a",
+            "player": 1,
+            "slowMoves": 24,
+            "maxMs": 100
+          }
+        ],
+        "cumulativeDecision": "COMPLETE_DIAGNOSTIC"
+      }
+    ],
+    "outcome": {
+      "games": 1000,
+      "wins": 548,
+      "losses": 407,
+      "draws": 45,
+      "points": 570.5,
+      "score": 0.5705,
+      "maps": 500,
+      "turns": 91906,
+      "seats": [
+        {
+          "games": 500,
+          "wins": 276,
+          "losses": 202,
+          "draws": 22,
+          "points": 287.0,
+          "score": 0.574
+        },
+        {
+          "games": 500,
+          "wins": 272,
+          "losses": 205,
+          "draws": 23,
+          "points": 283.5,
+          "score": 0.567
+        }
+      ],
+      "mapClusterUncertainty": {
+        "halfPointCountHistogramPerTwoGameMap": {
+          "0": 36,
+          "2": 357,
+          "3": 1,
+          "4": 106
+        },
+        "mapGroupedHoeffding95": [
+          0.5097638538091694,
+          0.6312361461908306
+        ],
+        "role": "Descriptive only; not adjusted for futility selection; assumes independent representative map groups; no promotion inference"
+      }
+    },
+    "counts": {
+      "games": 1000,
+      "maps": 500,
+      "blocks": 3,
+      "wins": 548,
+      "losses": 407,
+      "draws": 45,
+      "errorsA": 0,
+      "errorsB": 0,
+      "newLiveGames": 0
+    },
+    "freshness": {
+      "prospectiveMaps": 500,
+      "playedDistinctMaps": 500,
+      "excludedKnownOrReservedMaps": 24624,
+      "newMapsPerRecordedPair": 1,
+      "observedGamesPerMap": 2,
+      "noReplacementOrRetryEvidence": true
+    },
+    "nativeObservations": {
+      "a": {
+        "first": {
+          "calls": 1000,
+          "totalNs": 2109883800,
+          "maxNs": 20410200,
+          "above36Ms": 0,
+          "above50Ms": 0,
+          "above100Ms": 0,
+          "aboveAllowance": 0,
+          "rolloutObservedCalls": 1000,
+          "routeQueries": 84304,
+          "completedComparisons": 0,
+          "simulatedTurns": 0,
+          "ordinarySearchComplete": 0,
+          "networkPhaseComplete": 0,
+          "selectedOpening": 1000,
+          "selectedNetwork": 0,
+          "networkSearchStarted": 0,
+          "networkEligible": 0,
+          "networkEvaluated": 0,
+          "networkRoots": 0,
+          "networkComparisons": 0,
+          "allowanceMs": 486,
+          "meanNativePlayMs": 2.1098838,
+          "maxNativePlayMs": 20.4102,
+          "meanAllowanceUse": 0.004341324691358024,
+          "atOrBelowAllowanceCalls": 1000,
+          "aboveAllowanceRate": 0.0,
+          "meanRouteQueries": 84.304,
+          "meanCompletedComparisons": 0.0,
+          "meanSimulatedTurns": 0.0,
+          "ordinarySearchCompleteRate": 0.0,
+          "networkPhaseCompleteRate": 0.0,
+          "selectedOpeningRate": 1.0
+        },
+        "later": {
+          "calls": 90906,
+          "totalNs": 1743515527300,
+          "maxNs": 114645800,
+          "above36Ms": 17583,
+          "above50Ms": 11134,
+          "above100Ms": 1144,
+          "aboveAllowance": 1144,
+          "rolloutObservedCalls": 90906,
+          "routeQueries": 9250987,
+          "completedComparisons": 727520,
+          "simulatedTurns": 10251974,
+          "ordinarySearchComplete": 88603,
+          "networkPhaseComplete": 87974,
+          "selectedOpening": 1791,
+          "selectedNetwork": 18384,
+          "networkSearchStarted": 88601,
+          "networkEligible": 1660560,
+          "networkEvaluated": 1357444,
+          "networkRoots": 85580,
+          "networkComparisons": 162840,
+          "allowanceMs": 100,
+          "meanNativePlayMs": 19.179322897278507,
+          "maxNativePlayMs": 114.6458,
+          "meanAllowanceUse": 0.19179322897278508,
+          "atOrBelowAllowanceCalls": 89762,
+          "aboveAllowanceRate": 0.012584427870547598,
+          "meanRouteQueries": 101.76431698677754,
+          "meanCompletedComparisons": 8.00299210173146,
+          "meanSimulatedTurns": 112.77554836864454,
+          "ordinarySearchCompleteRate": 0.9746661386487141,
+          "networkPhaseCompleteRate": 0.9677469033947155,
+          "selectedOpeningRate": 0.01970166985677513
+        }
+      },
+      "b": {
+        "first": {
+          "calls": 1000,
+          "totalNs": 2077492000,
+          "maxNs": 13231700,
+          "above36Ms": 0,
+          "above50Ms": 0,
+          "above100Ms": 0,
+          "aboveAllowance": 0,
+          "rolloutObservedCalls": 1000,
+          "routeQueries": 84304,
+          "completedComparisons": 0,
+          "simulatedTurns": 0,
+          "ordinarySearchComplete": 0,
+          "networkPhaseComplete": 0,
+          "selectedOpening": 1000,
+          "selectedNetwork": 0,
+          "networkSearchStarted": 0,
+          "networkEligible": 0,
+          "networkEvaluated": 0,
+          "networkRoots": 0,
+          "networkComparisons": 0,
+          "allowanceMs": 486,
+          "meanNativePlayMs": 2.0774920000000003,
+          "maxNativePlayMs": 13.2317,
+          "meanAllowanceUse": 0.0042746748971193415,
+          "atOrBelowAllowanceCalls": 1000,
+          "aboveAllowanceRate": 0.0,
+          "meanRouteQueries": 84.304,
+          "meanCompletedComparisons": 0.0,
+          "meanSimulatedTurns": 0.0,
+          "ordinarySearchCompleteRate": 0.0,
+          "networkPhaseCompleteRate": 0.0,
+          "selectedOpeningRate": 1.0
+        },
+        "later": {
+          "calls": 90906,
+          "totalNs": 1244399086000,
+          "maxNs": 55822800,
+          "above36Ms": 13009,
+          "above50Ms": 3,
+          "above100Ms": 0,
+          "aboveAllowance": 13009,
+          "rolloutObservedCalls": 90906,
+          "routeQueries": 9223457,
+          "completedComparisons": 569995,
+          "simulatedTurns": 7942022,
+          "ordinarySearchComplete": 76408,
+          "networkPhaseComplete": 76120,
+          "selectedOpening": 1791,
+          "selectedNetwork": 14760,
+          "networkSearchStarted": 76398,
+          "networkEligible": 1218560,
+          "networkEvaluated": 902376,
+          "networkRoots": 49040,
+          "networkComparisons": 90399,
+          "allowanceMs": 36,
+          "meanNativePlayMs": 13.68885536708248,
+          "maxNativePlayMs": 55.8228,
+          "meanAllowanceUse": 0.38024598241895785,
+          "atOrBelowAllowanceCalls": 77897,
+          "aboveAllowanceRate": 0.14310386553142806,
+          "meanRouteQueries": 101.46147669020746,
+          "meanCompletedComparisons": 6.270158185378303,
+          "meanSimulatedTurns": 87.36521241722218,
+          "ordinarySearchCompleteRate": 0.8405165775636372,
+          "networkPhaseCompleteRate": 0.8373484698479748,
+          "selectedOpeningRate": 0.01970166985677513
+        }
+      }
+    },
+    "laterComparison": {
+      "meanNativePlayMsRatioAoverB": 1.4010903310001306,
+      "meanRouteQueriesRatioAoverB": 1.002984781085877,
+      "meanCompletedComparisonsRatioAoverB": 1.2763620733515206,
+      "meanSimulatedTurnsRatioAoverB": 1.290851876260227
+    },
+    "interpretation": {
+      "observedScoreDirection": "above50",
+      "descriptive55ReferenceReached": true,
+      "limits": [
+        "Only later caller allowance changes; fixed policy/depth/width/reply limits and production defaults remain unchanged.",
+        "A positive result indicates sensitivity to extra local time on this sample, not a viable50ms submission or promotion.",
+        "A small or negative result does not prove extra compute can never help; candidate-set and opponent-model limits remain possible.",
+        "Means and complete flags compare the observed trajectories, not matched decision states; extra coverage can alter future RNG consumption.",
+        "Complete flags cover retained comparisons. They do not prove every possible route or game continuation was searched.",
+        "Native observer nanoseconds exclude copy/protocol; referee floor-ms totals include state copy/observer and first turns. Neither is a server timeout.",
+        "There are no per-call duration samples, so aggregate timing cannot establish latency percentiles or exact early-finish counts."
+      ]
+    },
+    "inputPins": [
+      {
+        "path": "build/analysis/v09-budget100-local-v1/baseline.json",
+        "sha256": "2ae147d78d174f55c0943d7d47966a6a2297851ac54cc318278b8920b907f5b8"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/compiled-helper-source-pins.json",
+        "sha256": "f86228c61e8eca15088eac565e7eb46841fbdbd995ee75067a3187ddfdf79bc9"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/diagnostic-compile-command.json",
+        "sha256": "ec5d6f8b07bf32ebb16c37e64d7fce1d2caa77933205985b72032b826b35b7a6"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/diagnostic-compile-exit.json",
+        "sha256": "2c3265f2c8bbea5b81766f695a9df10dc49ae21d5e4c841fcfafacea2bd7cf99"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/diagnostic-compile.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/diagnostic-selfcheck-exit.json",
+        "sha256": "2c3265f2c8bbea5b81766f695a9df10dc49ae21d5e4c841fcfafacea2bd7cf99"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/diagnostic-selfcheck.log",
+        "sha256": "2075612e2613508b8cf9febb3cc37cc8fbdc309d1bd64b20865bb7daa429b63b"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/driver-tests-exit.json",
+        "sha256": "2c3265f2c8bbea5b81766f695a9df10dc49ae21d5e4c841fcfafacea2bd7cf99"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/driver-tests.log",
+        "sha256": "690f9bc524efac8f9989488763c941ea6fccedf13f125ab58678f83066fd5926"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/engine-validation-exit.json",
+        "sha256": "c774b58ab82e6295c7e598a6ebc2116658b2ce3f2d5520d89d4d9f1e47e196df"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/engine-validation.log",
+        "sha256": "477ea86af794375f3d7dc33f20772e438d18d06f77717f7bb5f1add2670f1e38"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/excluded-maps.json",
+        "sha256": "8e1cb0def242bcfb0da7c941ea29ec0136ff54ac9bc05bd0fa553e1235a289d9"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/pool-preflight-exit.json",
+        "sha256": "2c3265f2c8bbea5b81766f695a9df10dc49ae21d5e4c841fcfafacea2bd7cf99"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/pool-preflight.json",
+        "sha256": "623cdaa6f4f09365d3b15e381e80f5e082b37f98d9b5d64f8aca5b6f336cb85b"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/pool-preflight.log",
+        "sha256": "8e100c38753d3de7b13bdcd68b1c2a7553a0b57cf21438b684cdaf79468ac2d8"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/preflight-freeze.json",
+        "sha256": "a10e97f42fe12bd3fc339ee66c2edc2bf95223d140d518b7d66b75f0ecc6e72e"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/strength-summary.json",
+        "sha256": "4f72cf6dae191a85160ba0b08f1d1b9ec7a0ab95d8f226b5744fd7d936fe2504"
+      },
+      {
+        "path": "build/analysis/v09-budget100-local-v1/synthetic-selfcheck/synthetic-report.json",
+        "sha256": "23bbcad97875d095818f7d9d6935530a4ac68cc88e349de708b00cd225767d97"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block1-command.json",
+        "sha256": "ae796afa885e6a377b33dd6aa25be3604a534f1a8f8a7634071c0714074cf789"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block1-decision.json",
+        "sha256": "61ae81efcc734cd351402257bc418d77563c04b34b9d6af529c9eebe783ad6f6"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block1-exit.json",
+        "sha256": "b2960b90399ba3356c378acc56418cff431752b23fd65234178a606f8aac50fa"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block1.json",
+        "sha256": "c952339c908fdcfab4c3c8dc61653ec29e96aadc4004ac1a1a0371f00ddd7933"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block1.log",
+        "sha256": "833b2079ed3014192165fa5a8bf1215eb782bccd66bc3720f119d6afa8dc63f0"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block2-command.json",
+        "sha256": "4e40973a47f61397c501dff2b8b2e05828a7614450d8e68bc553d5212663d33d"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block2-decision.json",
+        "sha256": "6b3a1dfeda5e998491b8fad5104bf853f1b610dee1b0f10af259f385f928b21d"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block2-exit.json",
+        "sha256": "b2960b90399ba3356c378acc56418cff431752b23fd65234178a606f8aac50fa"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block2.json",
+        "sha256": "b7578d52fb03fbafe4330c3720694fe993a48b931113b60b034aadb95200aab9"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block2.log",
+        "sha256": "c85a15e7b61874a4bd970b6b87f60205f44a625d1463b20fe0cc3d6c0c7f53ee"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block3-command.json",
+        "sha256": "84fd8a1e42bb0a2b7cc815f7d7287b6fd59488d06784bc5407243b85a1ce91f3"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block3-decision.json",
+        "sha256": "abf92e4c07129d0a315526ddbe6ac89044719bb157f7f1604db7663ea436c792"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block3-exit.json",
+        "sha256": "b2960b90399ba3356c378acc56418cff431752b23fd65234178a606f8aac50fa"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block3.json",
+        "sha256": "d2acb4ff3d0d970b4c8c191bf459b1777cf9925dfa4ccb7846352879c61ded8e"
+      },
+      {
+        "path": "build/bench/v09-budget100-local-v1/block3.log",
+        "sha256": "b163e646d9db3443189842607e55ec6e2e684e1691d98f024030732b0a10505b"
+      }
+    ]
+  },
+  "prospectiveFreeze": {
+    "path": "build/analysis/v09-budget100-local-v1/preflight-freeze.json",
+    "sha256": "a10e97f42fe12bd3fc339ee66c2edc2bf95223d140d518b7d66b75f0ecc6e72e",
+    "bytes": 442104
+  },
+  "preflight": {
+    "passed": true,
+    "localOnly": true,
+    "promotion": false,
+    "realStrategyGamesBeforeFreeze": 0,
+    "syntheticFakeGames": 4,
+    "pythonTestsPassed": 14,
+    "fakeBudgetWiringCheck": "PASS",
+    "engine": {
+      "replays": 292,
+      "exact": 292
+    },
+    "prospectiveMaps": 500,
+    "excludedKnownMapIdentities": 24624,
+    "priorSeedRegistrations": 131,
+    "baselineFilesVerified": 2079,
+    "compiledSourcePinsMatch": true,
+    "productionSourceChanges": false,
+    "priorVerdictsUnchanged": true,
+    "processStage": "NOT_APPLICABLE_LOCAL_DIAGNOSTIC"
+  },
+  "strengthSummary": {
+    "path": "build/analysis/v09-budget100-local-v1/strength-summary.json",
+    "sha256": "4f72cf6dae191a85160ba0b08f1d1b9ec7a0ab95d8f226b5744fd7d936fe2504",
+    "bytes": 1682
+  },
+  "resultReport": {
+    "path": "docs/v09-budget100-local-v1-result.md",
+    "sha256": "e1d70b369ab66e6c6809c7f3846c4832fb7152b8d3807d9b976822d5cde2c600",
+    "bytes": 6594
+  },
+  "frozenInputsVerified": 2523,
+  "externalRuntimeFilesVerified": 8,
+  "selectedSubmissionFilesUnchanged": 28,
+  "selectedAndPriorArtifactFilesUnchanged": 80,
+  "hashOnlyPriorEvidence": [
+    {
+      "path": "docs/evidence/v09-budget40-v1.json",
+      "sha256": "cf58cf6d22f09941492ced6490a6ebe1fde1a9703414ed57e2b5f9f31734d21d",
+      "bytes": 1202495
+    },
+    {
+      "path": "docs/evidence/v09-budget40-v1-artifacts.json",
+      "sha256": "f4573eec2859305e72c6e6c2d2303d1096984589e9e2c8b661996560f2e598ba",
+      "bytes": 259200
+    },
+    {
+      "path": "docs/evidence/v09-budget40-v1-artifacts.zip",
+      "sha256": "5236f85add2f03e5d1ae1e18896ea8b1c1a647e0848c34fc14497020d8fd7db1",
+      "bytes": 10325770
+    },
+    {
+      "path": "docs/evidence/v09-boss-budget40-followup-v1.json",
+      "sha256": "92dba18a5f1bb869c07e5d9d8f34ee1f0cf29f0f842d194a00dbd5ea5f5651bd",
+      "bytes": 441741
+    },
+    {
+      "path": "docs/evidence/v09-boss-budget40-followup-v1-artifacts.json",
+      "sha256": "fb6868b6f61a609de993d30c70cfe38da72a5b8c6ada37585fe7493a60669efe",
+      "bytes": 203339
+    },
+    {
+      "path": "docs/evidence/v09-boss-budget40-followup-v1-artifacts.zip",
+      "sha256": "ee67bba7513f72e54554cf9616c64c532254354ec835562919bdd4878d6fa489",
+      "bytes": 4382674
+    }
+  ],
+  "interpretation": "Caller-only local allowance diagnostic using identical native policy parameters and the same paired maps. More than50ms is expected here; native durations and work counters are not protocol response times, arena readiness or permission to submit100ms. Prior formal results, selected source and production defaults remain unchanged. Different budgets can cause different trajectories; work means describe each arm's own calls."
+}
