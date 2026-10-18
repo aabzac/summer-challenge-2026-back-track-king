@@ -1,0 +1,863 @@
+{
+  "actualCounts": {
+    "completed": 40,
+    "issued": 40,
+    "pending": 0,
+    "unstarted": 0
+  },
+  "bossMetadata": {
+    "newUpdateTime": 1792272795496,
+    "oldUpdateTime": 1792077863355,
+    "publicUpdateChanged": true,
+    "sameAgentAndLeague": true
+  },
+  "bossStage": "NOT_ASSESSED_CHANGED_BOSS",
+  "candidate": {
+    "draws": 0,
+    "games": 40,
+    "losses": 29,
+    "points": 11.0,
+    "seats": {
+      "0": {
+        "L": 15,
+        "W": 5
+      },
+      "1": {
+        "L": 14,
+        "W": 6
+      }
+    },
+    "wins": 11
+  },
+  "candidateBuild": {
+    "buildId": "24d23afd80815de8319b8d0b37ac44cc2ae255d3b297af8045176e497f406edd",
+    "classesSha256": "c0ae7fe8637b8b9d8db65ac8adfb4fef82c3b64371853e3032388e0b65a9c4e8",
+    "configSha256": "5026397df7503be850af0cee868447295762e8299441879efe94676512cfe3cb",
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink40-v1\\artifact",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-ink40-v1\\process-1.json",
+    "processCheckSha256": "5ded0ca7db1c95b5434efeffe85ccaba01103aa4f159c4689e9e9a0fc5abe0ba",
+    "sourceSha256": "aff2dc9bf48d2f9a141012c3d47fc079bb9af9354cdfa846ef40832804db75a5",
+    "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true,TURN_BUDGET_MS=40,USE_INCREMENTAL_INK_REFRESH=true"
+  },
+  "collectionDates": {
+    "candidate": {
+      "firstCompletedAt": "2026-10-18T11:19:46.164794+00:00",
+      "lastCompletedAt": "2026-10-18T11:47:57.691749+00:00",
+      "recordedDates": 40
+    },
+    "historicalB40": {
+      "firstCompletedAt": "2026-10-16T06:35:55.581014+00:00",
+      "lastCompletedAt": "2026-10-16T07:02:59.284567+00:00",
+      "recordedDates": 40
+    }
+  },
+  "comparableBossConditionsEstablished": false,
+  "comparison": {
+    "better": 5,
+    "equal": 28,
+    "interpretation": "Historical matched-map differences only; boss public update changed.",
+    "matchedPairs": 40,
+    "rows": [
+      {
+        "candidateGameId": 909687383,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909202737,
+        "historicalControlResult": "L",
+        "mapHash": "3eb29305d68a23bccbf7386661d3a05d094bc8c75b62a55af59d15a783d78e8b",
+        "seat": 0,
+        "seed": "1807486512",
+        "slot": 1
+      },
+      {
+        "candidateGameId": 909687489,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909202816,
+        "historicalControlResult": "L",
+        "mapHash": "e668458ece2b99ba80e910412a611bf7c5725f797d07f5603ac51e0caa8063dd",
+        "seat": 1,
+        "seed": "1297382672",
+        "slot": 2
+      },
+      {
+        "candidateGameId": 909687590,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909202871,
+        "historicalControlResult": "L",
+        "mapHash": "ccad2c093ea599afd02716a98452fba352f54fd469febaaab2d0e02d665cf8ad",
+        "seat": 0,
+        "seed": "1192277489",
+        "slot": 3
+      },
+      {
+        "candidateGameId": 909687697,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909202962,
+        "historicalControlResult": "L",
+        "mapHash": "c5cbd9747ac8a57d230d76af9125439a6ee22759b26255b19948eb3831ff74e5",
+        "seat": 1,
+        "seed": "1031438492",
+        "slot": 4
+      },
+      {
+        "candidateGameId": 909687758,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909203074,
+        "historicalControlResult": "L",
+        "mapHash": "e936a8dca00e0d3d7c295953fd22e36e456c9a3e8ac56380533b3da7fcf9d839",
+        "seat": 0,
+        "seed": "389409389",
+        "slot": 5
+      },
+      {
+        "candidateGameId": 909687857,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203156,
+        "historicalControlResult": "L",
+        "mapHash": "869524086941dcfa81a5e378fb59562eb0998dbc6cc2646a091459100bcd0b35",
+        "seat": 1,
+        "seed": "654947146",
+        "slot": 6
+      },
+      {
+        "candidateGameId": 909687921,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909203224,
+        "historicalControlResult": "L",
+        "mapHash": "310d23d8960f92f302a6bb3b0c5f250be9a048f4f220ee1092eb351e8edeb983",
+        "seat": 0,
+        "seed": "1364386181",
+        "slot": 7
+      },
+      {
+        "candidateGameId": 909688017,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909203298,
+        "historicalControlResult": "L",
+        "mapHash": "5e253eb744ed0a4744a71a8c320f666bd48ec72c14c76a20687549871323b353",
+        "seat": 0,
+        "seed": "1226602220",
+        "slot": 8
+      },
+      {
+        "candidateGameId": 909688131,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203370,
+        "historicalControlResult": "L",
+        "mapHash": "ca97311a00fcc85b58ea54c210674d0725a197b44d1874b6724e7d6ca7f6ac30",
+        "seat": 1,
+        "seed": "583578548",
+        "slot": 9
+      },
+      {
+        "candidateGameId": 909688230,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203422,
+        "historicalControlResult": "W",
+        "mapHash": "256c08cfc77fc907d51e22da4f1b5ddef032453f17657d60737808d52d759be0",
+        "seat": 0,
+        "seed": "1200332969",
+        "slot": 10
+      },
+      {
+        "candidateGameId": 909688323,
+        "candidateResult": "W",
+        "differenceHalfPoints": 2,
+        "historicalControlGameId": 909203481,
+        "historicalControlResult": "L",
+        "mapHash": "4672361318e53e607b2479604ad13b20ba3b94c1bff59b0086a89cce6300fd4e",
+        "seat": 1,
+        "seed": "713730022",
+        "slot": 11
+      },
+      {
+        "candidateGameId": 909688413,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203538,
+        "historicalControlResult": "L",
+        "mapHash": "15a4cf60c8ce714f12454445de2f29562aa2a11b7199aa16aa70e8791699e387",
+        "seat": 0,
+        "seed": "1015927095",
+        "slot": 12
+      },
+      {
+        "candidateGameId": 909688520,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203596,
+        "historicalControlResult": "L",
+        "mapHash": "694210d3147ff895be91f6d713ba140506f040b3e48916cf468fc5deb3c36911",
+        "seat": 0,
+        "seed": "719431138",
+        "slot": 13
+      },
+      {
+        "candidateGameId": 909688620,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203655,
+        "historicalControlResult": "L",
+        "mapHash": "e471239eb70c33b42e4370f40b3254169044559909ee4d72658e1ffa6c285c6b",
+        "seat": 1,
+        "seed": "2141398536",
+        "slot": 14
+      },
+      {
+        "candidateGameId": 909688735,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909203703,
+        "historicalControlResult": "W",
+        "mapHash": "21ec2bea8d6f22062d87020e0ebbe6ee0becb3cb7ef251aecf34c6908563987d",
+        "seat": 1,
+        "seed": "992276776",
+        "slot": 15
+      },
+      {
+        "candidateGameId": 909688875,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203745,
+        "historicalControlResult": "L",
+        "mapHash": "526b6ad9e5b9e654c33aa2656c773a2d3cf64f2f36ca07b4ccdba1735f8ff1fa",
+        "seat": 1,
+        "seed": "1487513744",
+        "slot": 16
+      },
+      {
+        "candidateGameId": 909688965,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203797,
+        "historicalControlResult": "W",
+        "mapHash": "f9cd718162a0b796df6a93f609bfb0deb49ff028cc7cece248ef4a1e4d298b67",
+        "seat": 1,
+        "seed": "1123603624",
+        "slot": 17
+      },
+      {
+        "candidateGameId": 909689067,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203859,
+        "historicalControlResult": "L",
+        "mapHash": "021f350b6088887d7a4ec1f82a6946d933c266c25b3df0cb83b0912e88329c9f",
+        "seat": 0,
+        "seed": "1560558023",
+        "slot": 18
+      },
+      {
+        "candidateGameId": 909689174,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909203929,
+        "historicalControlResult": "W",
+        "mapHash": "143ce77c0b77cf1098c17017ab0abfc70247d3ba0c001a074feeec507317c445",
+        "seat": 1,
+        "seed": "1846105241",
+        "slot": 19
+      },
+      {
+        "candidateGameId": 909689275,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909203980,
+        "historicalControlResult": "W",
+        "mapHash": "5984af618c9b449c242004347b2c87bf86702e23ab649c691eb8016aae8a0eff",
+        "seat": 1,
+        "seed": "1747517070",
+        "slot": 20
+      },
+      {
+        "candidateGameId": 909690223,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909204511,
+        "historicalControlResult": "W",
+        "mapHash": "d164b685d4136de7631a6eac5607479db057cbc18316b550c0ea5c82de9344db",
+        "seat": 1,
+        "seed": "1683847327",
+        "slot": 21
+      },
+      {
+        "candidateGameId": 909690375,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909204553,
+        "historicalControlResult": "L",
+        "mapHash": "53ad64520d556e7479c02b5c02c1191858990d7aa57abc0170fdbacc21187456",
+        "seat": 0,
+        "seed": "526738229",
+        "slot": 22
+      },
+      {
+        "candidateGameId": 909690435,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909204604,
+        "historicalControlResult": "L",
+        "mapHash": "b3b34800d9c14cd4608932a34f46b8d253625dbae13efb1007ba37d3d1d6c354",
+        "seat": 0,
+        "seed": "2095622718",
+        "slot": 23
+      },
+      {
+        "candidateGameId": 909690498,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909204703,
+        "historicalControlResult": "W",
+        "mapHash": "72dc1a812901c87ff0013b895d6394f799d9068b29af44e798caa83aaac04ac8",
+        "seat": 1,
+        "seed": "40992827",
+        "slot": 24
+      },
+      {
+        "candidateGameId": 909690572,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909204786,
+        "historicalControlResult": "W",
+        "mapHash": "25d87c344df2a1ddb5e07d53b892f065782252562fbe2e989df9d56d9dee78be",
+        "seat": 0,
+        "seed": "1030268835",
+        "slot": 25
+      },
+      {
+        "candidateGameId": 909690647,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909204869,
+        "historicalControlResult": "L",
+        "mapHash": "2ca654407ebe51167f3586ec82ac48ce59463adfb99eae50de8e57f576ff1eff",
+        "seat": 0,
+        "seed": "1598144009",
+        "slot": 26
+      },
+      {
+        "candidateGameId": 909690750,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909204953,
+        "historicalControlResult": "W",
+        "mapHash": "8263d5029eae5db6f347073f6080496d6cb748a476c686258af3ab712a0634ef",
+        "seat": 0,
+        "seed": "1636952962",
+        "slot": 27
+      },
+      {
+        "candidateGameId": 909690834,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205034,
+        "historicalControlResult": "L",
+        "mapHash": "9eb71ef772cd14d9ecaec329c1f21c5109d87816e80c35c26695579134be2ce1",
+        "seat": 1,
+        "seed": "1037563823",
+        "slot": 28
+      },
+      {
+        "candidateGameId": 909690910,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205131,
+        "historicalControlResult": "L",
+        "mapHash": "64776c127a0144466772898ef208009c159958884bef17bd6f6905e47656dff8",
+        "seat": 1,
+        "seed": "4199147",
+        "slot": 29
+      },
+      {
+        "candidateGameId": 909690982,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909205219,
+        "historicalControlResult": "W",
+        "mapHash": "75369a392d9e935a95571629cd95255808954d1104169c8595b6346b0d8be893",
+        "seat": 1,
+        "seed": "1226337336",
+        "slot": 30
+      },
+      {
+        "candidateGameId": 909691080,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909205301,
+        "historicalControlResult": "W",
+        "mapHash": "120438a6d5b043dcf40115f2ed4571d57494c7a3566583b72e880378fa8fc232",
+        "seat": 0,
+        "seed": "1660706735",
+        "slot": 31
+      },
+      {
+        "candidateGameId": 909691175,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205380,
+        "historicalControlResult": "L",
+        "mapHash": "ff2166ea7a80ea4d05bd58c3d62f461f121e5adb3a698f5564456dd14c0c79e7",
+        "seat": 0,
+        "seed": "411649520",
+        "slot": 32
+      },
+      {
+        "candidateGameId": 909691360,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205481,
+        "historicalControlResult": "L",
+        "mapHash": "0e92b67e68bc7cdc999fa2fa8a183efb11924f7e68784c8ce6d9bbfba2672b87",
+        "seat": 1,
+        "seed": "692557103",
+        "slot": 33
+      },
+      {
+        "candidateGameId": 909691391,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205581,
+        "historicalControlResult": "L",
+        "mapHash": "84e4169504a4ea49a8851447fb13d89e94e338c16ca25662a615b81e6959d38e",
+        "seat": 0,
+        "seed": "1875072073",
+        "slot": 34
+      },
+      {
+        "candidateGameId": 909691413,
+        "candidateResult": "L",
+        "differenceHalfPoints": -2,
+        "historicalControlGameId": 909205692,
+        "historicalControlResult": "W",
+        "mapHash": "db5f7a77aea33cd560a9993b95c57bb87600ae595d57c0bebb26bb35cba21154",
+        "seat": 1,
+        "seed": "1598373929",
+        "slot": 35
+      },
+      {
+        "candidateGameId": 909691496,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205786,
+        "historicalControlResult": "L",
+        "mapHash": "902a2420d81794aff5fd76ecde33b219175b1fcdda17f3e588ca0de4a4b677dc",
+        "seat": 1,
+        "seed": "1124741568",
+        "slot": 36
+      },
+      {
+        "candidateGameId": 909691569,
+        "candidateResult": "W",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205897,
+        "historicalControlResult": "W",
+        "mapHash": "220894da4d9cd4d189f3ca45aae7f9614d75dab36085d5636fb7ca973088deee",
+        "seat": 0,
+        "seed": "479973053",
+        "slot": 37
+      },
+      {
+        "candidateGameId": 909691656,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909205982,
+        "historicalControlResult": "L",
+        "mapHash": "55e31abc93affa0b2431621c5c1cf7607072fd5c1903e94839bd079714d5259e",
+        "seat": 0,
+        "seed": "1660338636",
+        "slot": 38
+      },
+      {
+        "candidateGameId": 909691751,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909206088,
+        "historicalControlResult": "L",
+        "mapHash": "95007cf13056fc2cbf69e8619a3880a0fa8b48874983af9875335919651b77c9",
+        "seat": 0,
+        "seed": "288195347",
+        "slot": 39
+      },
+      {
+        "candidateGameId": 909691821,
+        "candidateResult": "L",
+        "differenceHalfPoints": 0,
+        "historicalControlGameId": 909206192,
+        "historicalControlResult": "L",
+        "mapHash": "362c2ce9dbaf91ebd949fdbf494aebe3dc9737d9ef83089ffe83a609ebb4a6f7",
+        "seat": 1,
+        "seed": "1084670540",
+        "slot": 40
+      }
+    ],
+    "worse": 7
+  },
+  "complete": true,
+  "historicalB40Build": {
+    "buildId": "eb97929888b7a3e1be1876db4f5cd5044f27f65f9a0aea7019e7610a513d5a59",
+    "classesSha256": "6d82802f4c90aa25300ef397f8b1cf28b248ac00542e44e87307f723d4436a6c",
+    "configSha256": "659d9aa2d64cf5c70a019a048a05f51692b5dc8d3930304782814a2ef4dbe77c",
+    "directory": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-budget40-v1\\artifact40",
+    "processCheck": "C:\\Disk_D\\Programming\\cursor\\summer-challenge-2026-back-track-king\\build\\analysis\\v09-budget40-v1\\process-1.json",
+    "processCheckSha256": "cf9f977a9e3256b5d034f0404553e6dc697f183c76ded6f398af541957fe73ad",
+    "sourceSha256": "9510ff174e76297736144193a4c519f3728eac067d09614bb65e2f0ecd1b88d9",
+    "strategy": "current?NOISE=0.1,USE_BATCHED_REFRESH=true,TURN_BUDGET_MS=40"
+  },
+  "historicalB40FullPanel": {
+    "draws": 0,
+    "games": 40,
+    "losses": 27,
+    "points": 13.0,
+    "seats": {
+      "0": {
+        "L": 15,
+        "W": 5
+      },
+      "1": {
+        "L": 12,
+        "W": 8
+      }
+    },
+    "wins": 13
+  },
+  "historicalComparisonOnly": true,
+  "historicalReadiness": {
+    "localDecision": "NOT_PASSED",
+    "localDraws": 44,
+    "localGames": 1000,
+    "localLosses": 438,
+    "localScore": 0.54,
+    "localWins": 518,
+    "process": {
+      "errors": 2,
+      "games": 16,
+      "missing": 0,
+      "overruns": 2,
+      "timeouts": 2
+    },
+    "status": "NOT_READY",
+    "timeoutResponseMs": [
+      50.2949,
+      52.1667
+    ],
+    "timingPrerequisiteWaived": true
+  },
+  "independentAudit": {
+    "bytes": 221451,
+    "path": "build/analysis/v09-ink40-boss-v1/independent-audit.json",
+    "sha256": "52a0ee7506d597f4996cec4b6aea0006076b1098da269225e126c7b7816b4c93"
+  },
+  "interpretation": "Candidate result is primary. Old B40 outcome is historical context after a public boss update; no boss pass, fresh head-to-head claim or promotion.",
+  "matchedHistoricalSubset": {
+    "draws": 0,
+    "games": 40,
+    "losses": 27,
+    "points": 13.0,
+    "seats": {
+      "0": {
+        "L": 15,
+        "W": 5
+      },
+      "1": {
+        "L": 12,
+        "W": 8
+      }
+    },
+    "wins": 13
+  },
+  "pacing": {
+    "cooldown": {
+      "actualGapSeconds": 300.039822101593,
+      "completed": {
+        "path": "build/analysis/v09-ink40-boss-v1/cooldowns/0021-completed.json",
+        "sha256": "d695c5ad09ebfb7017b9ec0f3035b5f2245b9b43f6956b8da114ab6f16cbe4bf"
+      },
+      "started": {
+        "path": "build/analysis/v09-ink40-boss-v1/cooldowns/0021-started.json",
+        "sha256": "24b6ee200d1dffe5307bb4de3f59c265c3479e2d70e0a8c7260bb3fc97a07246"
+      }
+    },
+    "gaps": [
+      {
+        "afterSlot": 1,
+        "beforeSlot": 2,
+        "minimumSeconds": 20,
+        "seconds": 21.79454207420349
+      },
+      {
+        "afterSlot": 2,
+        "beforeSlot": 3,
+        "minimumSeconds": 20,
+        "seconds": 21.82098698616028
+      },
+      {
+        "afterSlot": 3,
+        "beforeSlot": 4,
+        "minimumSeconds": 20,
+        "seconds": 21.885460138320923
+      },
+      {
+        "afterSlot": 4,
+        "beforeSlot": 5,
+        "minimumSeconds": 20,
+        "seconds": 22.084721088409424
+      },
+      {
+        "afterSlot": 5,
+        "beforeSlot": 6,
+        "minimumSeconds": 20,
+        "seconds": 21.70226812362671
+      },
+      {
+        "afterSlot": 6,
+        "beforeSlot": 7,
+        "minimumSeconds": 20,
+        "seconds": 22.01082706451416
+      },
+      {
+        "afterSlot": 7,
+        "beforeSlot": 8,
+        "minimumSeconds": 20,
+        "seconds": 22.0412380695343
+      },
+      {
+        "afterSlot": 8,
+        "beforeSlot": 9,
+        "minimumSeconds": 20,
+        "seconds": 22.43845295906067
+      },
+      {
+        "afterSlot": 9,
+        "beforeSlot": 10,
+        "minimumSeconds": 20,
+        "seconds": 22.041547060012817
+      },
+      {
+        "afterSlot": 10,
+        "beforeSlot": 11,
+        "minimumSeconds": 20,
+        "seconds": 22.07391881942749
+      },
+      {
+        "afterSlot": 11,
+        "beforeSlot": 12,
+        "minimumSeconds": 20,
+        "seconds": 21.863873958587646
+      },
+      {
+        "afterSlot": 12,
+        "beforeSlot": 13,
+        "minimumSeconds": 20,
+        "seconds": 21.58109188079834
+      },
+      {
+        "afterSlot": 13,
+        "beforeSlot": 14,
+        "minimumSeconds": 20,
+        "seconds": 21.67877197265625
+      },
+      {
+        "afterSlot": 14,
+        "beforeSlot": 15,
+        "minimumSeconds": 20,
+        "seconds": 22.193156003952026
+      },
+      {
+        "afterSlot": 15,
+        "beforeSlot": 16,
+        "minimumSeconds": 20,
+        "seconds": 22.05659818649292
+      },
+      {
+        "afterSlot": 16,
+        "beforeSlot": 17,
+        "minimumSeconds": 20,
+        "seconds": 21.955600023269653
+      },
+      {
+        "afterSlot": 17,
+        "beforeSlot": 18,
+        "minimumSeconds": 20,
+        "seconds": 21.810253858566284
+      },
+      {
+        "afterSlot": 18,
+        "beforeSlot": 19,
+        "minimumSeconds": 20,
+        "seconds": 22.03938102722168
+      },
+      {
+        "afterSlot": 19,
+        "beforeSlot": 20,
+        "minimumSeconds": 20,
+        "seconds": 21.944369077682495
+      },
+      {
+        "afterSlot": 20,
+        "beforeSlot": 21,
+        "minimumSeconds": 300,
+        "seconds": 300.039822101593
+      },
+      {
+        "afterSlot": 21,
+        "beforeSlot": 22,
+        "minimumSeconds": 20,
+        "seconds": 22.214895009994507
+      },
+      {
+        "afterSlot": 22,
+        "beforeSlot": 23,
+        "minimumSeconds": 20,
+        "seconds": 22.260207891464233
+      },
+      {
+        "afterSlot": 23,
+        "beforeSlot": 24,
+        "minimumSeconds": 20,
+        "seconds": 22.47052502632141
+      },
+      {
+        "afterSlot": 24,
+        "beforeSlot": 25,
+        "minimumSeconds": 20,
+        "seconds": 22.23936700820923
+      },
+      {
+        "afterSlot": 25,
+        "beforeSlot": 26,
+        "minimumSeconds": 20,
+        "seconds": 21.801626920700073
+      },
+      {
+        "afterSlot": 26,
+        "beforeSlot": 27,
+        "minimumSeconds": 20,
+        "seconds": 21.91509485244751
+      },
+      {
+        "afterSlot": 27,
+        "beforeSlot": 28,
+        "minimumSeconds": 20,
+        "seconds": 22.087042093276978
+      },
+      {
+        "afterSlot": 28,
+        "beforeSlot": 29,
+        "minimumSeconds": 20,
+        "seconds": 22.181270837783813
+      },
+      {
+        "afterSlot": 29,
+        "beforeSlot": 30,
+        "minimumSeconds": 20,
+        "seconds": 22.079087018966675
+      },
+      {
+        "afterSlot": 30,
+        "beforeSlot": 31,
+        "minimumSeconds": 20,
+        "seconds": 21.784214973449707
+      },
+      {
+        "afterSlot": 31,
+        "beforeSlot": 32,
+        "minimumSeconds": 20,
+        "seconds": 21.715610027313232
+      },
+      {
+        "afterSlot": 32,
+        "beforeSlot": 33,
+        "minimumSeconds": 20,
+        "seconds": 21.22841191291809
+      },
+      {
+        "afterSlot": 33,
+        "beforeSlot": 34,
+        "minimumSeconds": 20,
+        "seconds": 21.828773975372314
+      },
+      {
+        "afterSlot": 34,
+        "beforeSlot": 35,
+        "minimumSeconds": 20,
+        "seconds": 21.424942016601562
+      },
+      {
+        "afterSlot": 35,
+        "beforeSlot": 36,
+        "minimumSeconds": 20,
+        "seconds": 22.65465497970581
+      },
+      {
+        "afterSlot": 36,
+        "beforeSlot": 37,
+        "minimumSeconds": 20,
+        "seconds": 22.333380937576294
+      },
+      {
+        "afterSlot": 37,
+        "beforeSlot": 38,
+        "minimumSeconds": 20,
+        "seconds": 21.343486070632935
+      },
+      {
+        "afterSlot": 38,
+        "beforeSlot": 39,
+        "minimumSeconds": 20,
+        "seconds": 21.265160083770752
+      },
+      {
+        "afterSlot": 39,
+        "beforeSlot": 40,
+        "minimumSeconds": 20,
+        "seconds": 21.27612805366516
+      }
+    ],
+    "minimumOrdinarySeconds": 21.22841191291809
+  },
+  "pending": [],
+  "plan": {
+    "bytes": 106779,
+    "path": "build/cg-boss/v09-ink40-boss-v1-candidate-40/plan.json",
+    "sha256": "0ebdcf6d302ef5809b85c4a17181893f7605202427d666d778e5f64e408eb7b4"
+  },
+  "promotion": false,
+  "prospectiveFreeze": {
+    "bytes": 66625,
+    "path": "build/analysis/v09-ink40-boss-v1/freeze.json",
+    "sha256": "5232b463bbfc0c4ae120981892f4eadc4b3b30ef87fea1651d34a0801cc0fbd0"
+  },
+  "rawToolLimit": "Legacy PASS/readiness fields describe arithmetic/technical sample checks only, never this experiment readiness or comparable boss conditions.",
+  "rawUnmodifiedToolArithmetic": {
+    "bossStage": "NOT_PASSED",
+    "complete": true,
+    "issues": [],
+    "readinessPassed": true
+  },
+  "recordedAt": "2026-10-18T11:50:42.377584+00:00",
+  "schema": "v09-ink40-boss-v1",
+  "selectedBot": "v09",
+  "sharedCore": {
+    "complete": true,
+    "distinctMaps": 40,
+    "engineExact": 40,
+    "games": 40,
+    "passed": true,
+    "report": {
+      "path": "build/analysis/v09-ink40-boss-v1/actual-map-audit.json",
+      "sha256": "6d5b9f1de4e3f6793020cf2b78f7db023b7c87cd85d54602229a8ddf06165660"
+    },
+    "technicalFailuresRetained": 0
+  },
+  "status": "COMPLETE_EXPLORATORY_HISTORICAL_COMPARISON",
+  "technicalFailures": []
+}

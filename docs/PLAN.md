@@ -3,6 +3,20 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 ink40 candidate-only boss observation (2026-10-18)
+
+- [x] Record the requested 40 candidate games, exact ink40 artifact and explicit
+      timing exception. Verify the cached B40 13W/27L schedule and current owner,
+      boss and league; changed boss update metadata makes the old score historical
+      context only. [Protocol](v09-ink40-boss-v1.md).
+- [x] Freeze the candidate-only schedule and helpers; 23 synthetic checks pass.
+      Complete exactly 40 first attempts: 11W/29L, 27.5%. Actual pause after
+      game 20 is 300.039822 seconds, minimum ordinary gap 21.228412 seconds.
+- [x] Reconcile all 40 canonical outcomes and exact shared-core replay results,
+      pacing and 942 pinned inputs; archive and commit. Old B40 13W/27L is
+      historical context only after changed boss metadata. Retain local 54%
+      NOT_PASSED, process NOT_READY and defaults. [Result](v09-ink40-boss-v1-result.md).
+
 ## v09 ink40 local strength with timeout waiver (2026-10-18)
 
 - [x] Record the user's explicit waiver of the timing prerequisite for local

@@ -7816,3 +7816,46 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   [Result](v09-ink40-strength-v1-result.md),
   [evidence](evidence/v09-ink40-strength-v1.json),
   [archive index](evidence/v09-ink40-strength-v1-artifacts.json).
+
+## 2026-10-18 - v09-ink40-boss-v1: requested candidate-only boss observation
+
+- User requests exactly 40 boss games for the candidate after its local 54.0%
+  result. Hypothesis: the incremental ink optimization may improve boss play
+  at 40 ms. Keep the exact same artifact and all strategy parameters; record
+  an exploratory exception to local/timing prerequisites, with no promotion.
+- Revalidate the exact B40 cached candidate arm from the October16 follow-up:
+  13W/27L, 40 unique maps/IDs, 20 seats each, source/build/classes/config equal
+  to the local control. Only incremental ink differs from the new candidate.
+  The existing v09 11W/29L is a different policy, not the primary control.
+- Initial read-only bootstrap with the obsolete default IDE session receives
+  HTTP422/API270, no game created. The last successful same-owner session
+  confirms current owner/puzzle/boss6767608/league6/3/0 and privately backs up
+  current IDE source. Boss public updateTime changed1792077863355 to1792272795496.
+  Before play, explicitly classify old13/40 as historical context; continue
+  the specifically requested candidate-only observation without new controls.
+- Freeze 40 seeds/maps/seats/order and exact artifacts, full failed16-game
+  timing panel (all8 reports), local1,000 result, dependencies and new helper.
+  The genuine passing process-1 subset identifies the package only; full-panel
+  NOT_READY is never hidden or relabelled.23 synthetic helper tests PASS;
+  inherited40 B40 replay/map preflight exact through the preserved shared core.
+- Complete40 first-attempt games: **11W/29L, no draws, 27.5%**. First20:
+  8W/12L; last20:3W/17L. Seats5W/15L and6W/14L. No technical game failures,
+  new play refusals, uncertain creations, replacements or new control games.
+  Same-map historical differences:5 better,7 worse,28 equal, net-2 wins versus
+  B40's13. Boss metadata changed, so do not attribute this difference to ink
+  optimization or issue a comparable-condition boss pass.
+- New games collected October18,14:19:29..14:47:57 Europe/Bucharest. Actual
+  completion20-to-intent21 gap300.039822s; minimum ordinary gap21.228412s.
+  The requested five-minute pause is respected; no quota-reset claim.
+- All40 new canonical games reproduce exactly through the shared core.
+  Independent audit PASS_RETAINED_EVIDENCE verifies942 input pins, raw scores,
+  builds, maps, seats, firstattempts, timings and unchanged historical evidence.
+  Experiment boss status NOT_ASSESSED_CHANGED_BOSS; old cached-tool arithmetic
+  remains separately recorded and cannot override this interpretation.
+- Decision: retain the completed observation, keep incremental ink OFF,
+  default36/all experimental flags OFF and selectedv09. Prior local54.0%
+  NOT_PASSED and strict timing NOT_READY remain unchanged. IDE play saved
+  the candidate source, with no arena submission, promotion or push. Archive
+  public evidence, update plan and commit locally excluding unrelated work.
+  [Result](v09-ink40-boss-v1-result.md), [evidence](evidence/v09-ink40-boss-v1.json),
+  [archive index](evidence/v09-ink40-boss-v1-artifacts.json).

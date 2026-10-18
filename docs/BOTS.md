@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Requested boss observation 2026-10-18: **v09-ink40-boss-v1, complete 11W/29L,
+27.5% in 40 games**. Exact ink40 candidate, no new control games or strategy
+edits. Same maps/seeds/seats/order as cached B40 13W/27L; 5 better, 7 worse,
+28 equal outcomes. Live boss6767608/league6/3/0 unchanged but public update
+timestamp changed, so old13/40 is historical context only: experiment boss
+status NOT_ASSESSED_CHANGED_BOSS. All40 first attempts and replay validations
+complete, zero technical failures; 23 synthetic helper tests pass. Ordinary
+minimum gap21.228412s, game20-to21 gap300.039822s. Independent evidence audit
+PASS with942 input pins. User explicitly authorized this candidate-only series
+despite retained timing NOT_READY and local54% NOT_PASSED; neither is revised.
+Keep incremental ink OFF, default36 and selectedv09; no arena submission/push.
+[Result](v09-ink40-boss-v1-result.md), [evidence](evidence/v09-ink40-boss-v1.json).
+
 Local strength experiment 2026-10-18: **v09-ink40-strength-v1, NOT_PASSED**.
 User explicitly waived the timeout prerequisite for this local comparison;
 the prior NOT_READY timing result below remains unchanged. Same batched40/
