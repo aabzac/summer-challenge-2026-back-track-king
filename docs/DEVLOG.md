@@ -7731,3 +7731,48 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   exclude unrelated work and commit locally.
   [Result](v09-fast-path-v1-result.md), [evidence](evidence/v09-fast-path-v1.json),
   [archive index](evidence/v09-fast-path-v1-artifacts.json).
+
+## 2026-10-18 - v09-ink40-v1: previous ink optimization at 40 ms
+
+- User asks to return to the preceding optimization with a40 ms limit.
+  Hypothesis: incremental connection refresh after hypothetical ink benefits
+  from40 ms on the same batched/NOISE0.1 base. A/B both486/40, only incremental
+  flag differs, fast path and deadline correction OFF. No production edits.
+  Earlier36 ms result52.7%/1,000 remains NOT_PASSED and is not pooled here.
+- Predeclare timing-first16 games on the previous8-map budget40 panel, both
+  seats, seeds7000/7001, candidate exact process vs native B40. Full deadlines
+  1000/50 ms, zero grace, diagnosticsOFF. Complete all16 once; any failure
+  skips conditional300/+200/+500 fresh-map strength. No retries or tuning.
+- Use preserved pre-fast-path ink native classes/resources and pinned JDK,
+  not newer disabled-fast-path native code. Preserve427 old artifacts and
+  publications. Freeze2,467 workspace files and7 runtimes before play. Keep
+  old mutable source hashes as archived provenance; verify immutable runtime,
+  artifacts and inherited292 engine/524 ample semantic evidence. Retain known
+  historical catalog-pin failure248/249; no new full-suite claim.
+- Three gradlewsubmit exports compile: A40=91,714chars, B40=90,641, A36=91,202.
+  A36 source matches earlier ink artifact, B40 matches historical budget40;
+  generated strategy/core bytes unchanged between A36/A40. Metadata check
+  verifies exact native/generated config, budgets and external constants with
+  zero bot calls. Candidate sourceaff2dc9bf48d2f9a141012c3d47fc079bb9af9354cdfa846ef40832804db75a5.
+  Conditional harness28 fake-only testsPASS; no strength preparation/run.
+- All16 process games complete once. All16 first and1,353 later responses
+  observed. **Two timeouts, two nominal overruns and two associated game
+  errors**, zero missing replies; these counters describe the same two events.
+  Map904146009/P1/turn36 full response50.2949 ms, send8.9199, consumer50.6143;
+  map903182662/P1/turn41 response52.1667 ms, send10.4478, consumer52.3276.
+  Timing diagnosticsOFF cannot resolve the causal split across preparation,
+  pipe delivery, scheduling and child search. Preserve all raw timestamps.
+- Later median33.8388,p95 42.5540,p99 43.0957,max52.1667 ms; exactly two above
+  each45/48/50 ms. First median617.41295,max681.5245 ms, all below1,000.
+  **NOT_READY; strength NOT_RUN_READINESS_FAILED.** No fresh-map generation,
+  registration or strength games; proposed seeds are unregistered/unplayed.
+- Independent readiness reconciliation PASS26,908 checks, run once. All2,467
+  frozen files,7 runtimes and427 prior artifacts preserved; auditor confirms
+  the failed readiness verdict rather than approving timing or strength.
+- Decision: keep default36 and batching/ink/deadline/fast-path flags OFF,
+  selectedv09 and previous verdicts unchanged. A failure of the strict local
+  sample does not establish strength at40 or prove every response will time
+  out. No live boss calls, upload, promotion or push. Retain raw failure evidence,
+  independently reconcile it and commit the completed experiment locally.
+  [Result](v09-ink40-v1-result.md), [evidence](evidence/v09-ink40-v1.json),
+  [archive index](evidence/v09-ink40-v1-artifacts.json).

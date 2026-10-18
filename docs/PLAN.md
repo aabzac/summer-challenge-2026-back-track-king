@@ -3,6 +3,18 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## v09 incremental ink at 40 ms (2026-10-18)
+
+- [x] Predeclare ink ON/OFF on the same batched40 base, fast path/deadline OFF;
+      reuse verified prior native implementation. [Protocol](v09-ink40-v1.md).
+- [x] Export exact40 artifacts (candidate91,714 chars), verify prior36/40 identities;
+      complete fixed16 process games at1000/50 ms, zero grace, no retries.
+      Two timeouts50.2949/52.1667 ms among1,353 later replies: NOT_READY.
+- [x] Apply the timing prerequisite: strength NOT_RUN_READINESS_FAILED,
+      no generated/played strength maps. Preserve28 passing synthetic checks.
+- [x] Record result and skipped stages, preserve default36/all flags OFF and
+      selectedv09; archive and commit locally. [Result](v09-ink40-v1-result.md).
+
 ## v09 cheapest-path geometry (2026-10-18)
 
 - [x] Select geometry-only N/E/S/W neighbor reuse from the retained path profile;

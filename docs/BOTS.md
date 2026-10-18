@@ -13,6 +13,19 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Budget condition 2026-10-18: **v09-ink40-v1, NOT_READY**;
+strength **NOT_RUN_READINESS_FAILED**. Previous incremental-ink optimization,
+same batched40/NOISE0.1 base, inkON/OFF, fast path/deadlineOFF, no production edits.
+Preserved old native runtime and inherited engine292/ample524 evidence; fresh
+exports reproduce A36/B40 identities, A40 main91,714 characters. All16 strict
+process games complete once, first/later1000/50 ms, zero grace, opponentB40.
+Of1,353 later responses, two time out at50.2949/52.1667 ms (maps904146009/P1/
+turn36 and903182662/P1/turn41); two associated game errors, zero missing replies.
+Median33.8388,p95 42.5540,p99 43.0957 ms; first max681.5245 ms. No timing retries,
+new strength maps/games or boss calls. Conditional harness28 synthetic tests pass.
+Keep default36/all experimental flags OFF, selectedv09 and all earlier verdicts.
+[Result](v09-ink40-v1-result.md), [evidence](evidence/v09-ink40-v1.json).
+
 Forecast experiment 2026-10-18: **v09-fast-path-v1**, with
 **v09-fast-path-strength-v1: STOP_FUTILITY_300**. Default-off geometry-only
 neighbor reuse in cheapestPath; strategy, path ties, safeguards and budgets
