@@ -1,0 +1,64 @@
+-- A-vs-lite: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true vs current?NOISE=0.1,USE_BOSS_LITE=true (300 games, seed 970000)
+  A win rate: 54.8%  W-L-D 164-135-1
+  avg score diff (A-B): +64.9   avg turns: 77.9
+  time/move ms  A avg 17.23 max 60 slow 2 | B avg 17.14 max 58 slow 2
+  accepted disrupt A/B: 93.6% / 93.6%; early closures 263/300
+-- A-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true vs neural-v6 (300 games, seed 970000)
+  A win rate: 48.7%  W-L-D 146-154-0
+  avg score diff (A-B): -15.6   avg turns: 62.7
+  time/move ms  A avg 18.83 max 89 slow 2 | B avg 2.04 max 37 slow 0
+  accepted disrupt A/B: 98.2% / 100.0%; early closures 300/300
+-- A-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true vs v09 (300 games, seed 970000)
+  A win rate: 56.7%  W-L-D 170-130-0
+  avg score diff (A-B): +338.9   avg turns: 84.4
+  time/move ms  A avg 17.06 max 64 slow 6 | B avg 16.75 max 53 slow 1
+  accepted disrupt A/B: 93.3% / 79.3%; early closures 181/300
+-- B-vs-lite: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true vs current?NOISE=0.1,USE_BOSS_LITE=true (300 games, seed 970000)
+  A win rate: 57.8%  W-L-D 173-126-1
+  avg score diff (A-B): +298.1   avg turns: 77.2
+  time/move ms  A avg 16.77 max 184 slow 6 | B avg 16.96 max 78 slow 3
+  accepted disrupt A/B: 93.7% / 93.7%; early closures 262/300
+-- B-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true vs neural-v6 (300 games, seed 970000)
+  A win rate: 45.3%  W-L-D 136-164-0
+  avg score diff (A-B): -63.1   avg turns: 62.9
+  time/move ms  A avg 18.77 max 60 slow 3 | B avg 2.10 max 48 slow 0
+  accepted disrupt A/B: 98.0% / 99.9%; early closures 298/300
+-- B-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true vs v09 (300 games, seed 970000)
+  A win rate: 63.0%  W-L-D 189-111-0
+  avg score diff (A-B): +484.5   avg turns: 83.8
+  time/move ms  A avg 16.63 max 66 slow 2 | B avg 16.77 max 81 slow 3
+  accepted disrupt A/B: 93.7% / 79.3%; early closures 179/300
+-- A-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 970000)
+  A win rate: 55.7%  W-L-D 167-133-0
+  avg score diff (A-B): +48.2   avg turns: 69.2
+  time/move ms  A avg 17.25 max 98 slow 5 | B avg 17.92 max 48 slow 0
+  accepted disrupt A/B: 97.1% / 99.9%; early closures 284/300
+MODEL SCREEN DONE
+-- ctrl-lite-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true vs neural-v6 (300 games, seed 970000)
+  A win rate: 40.0%  W-L-D 120-180-0
+  avg score diff (A-B): -115.6   avg turns: 63.4
+  time/move ms  A avg 18.27 max 65 slow 4 | B avg 1.89 max 44 slow 0
+  accepted disrupt A/B: 98.2% / 100.0%; early closures 297/300
+-- ctrl-lite-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true vs v09 (300 games, seed 970000)
+  A win rate: 62.7%  W-L-D 180-104-16
+  avg score diff (A-B): +623.8   avg turns: 83.1
+  time/move ms  A avg 17.08 max 72 slow 7 | B avg 16.84 max 64 slow 2
+  accepted disrupt A/B: 87.4% / 74.3%; early closures 176/300
+MODEL CONTROLS DONE
+-- ctrl-v09-vs-neural-v6: v09 vs neural-v6 (300 games, seed 970000)
+  A win rate: 30.7%  W-L-D 92-208-0
+  avg score diff (A-B): -563.3   avg turns: 70.3
+  time/move ms  A avg 18.77 max 64 slow 3 | B avg 2.06 max 49 slow 0
+  accepted disrupt A/B: 77.3% / 99.9%; early closures 230/300
+POOL CONTROL DONE
+-- B-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 970000)
+  A win rate: 62.3%  W-L-D 187-113-0
+  avg score diff (A-B): +139.4   avg turns: 69.0
+  time/move ms  A avg 17.01 max 48 slow 0 | B avg 17.78 max 50 slow 0
+  accepted disrupt A/B: 97.1% / 99.8%; early closures 289/300
+-- ctrl-lite-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 970000)
+  A win rate: 48.3%  W-L-D 145-155-0
+  avg score diff (A-B): -25.7   avg turns: 69.2
+  time/move ms  A avg 16.98 max 70 slow 5 | B avg 17.62 max 59 slow 1
+  accepted disrupt A/B: 97.0% / 99.9%; early closures 293/300
+BOSS2 ROWS DONE

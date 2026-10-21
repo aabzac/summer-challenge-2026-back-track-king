@@ -8178,3 +8178,38 @@ the same-map control (+8.7/+5.3 pp).
 Recommendation to the user: live-test B first (80 paired boss games with a same-session v09
 control), v2 as the fallback; no arena upload before the live result.
 
+## 2026-10-21 (evening) — route term, Stage 2 compute, arena facts
+
+**Route term (`USE_BOSS_LITE_ROUTES`, `docs/boss-lite-routes-v1.md`).** The fitted `oppRouteTraffic`
+term is back at zero path-search cost: at the end of each real turn the rollout's own route
+portfolios (`routes[player]`) are summed as 1/paint-cost per region crossed; the chooser of `me`
+reads the opponent's array, the simulated opponent reads ours (frozen per real turn). Candidate C =
+B + flag, same 150 maps (seed 970000): 50.0 % vs B, 60.3 % vs boss-v2 (B 62.3), **52.0 % vs
+neural-v6 (B 45.3)**, 62.8 % vs v09 (B 63.0); second pool (seed 960000) C 57.0 vs B 56.0 → the
+neural-v6 gain is +3.8 pp pooled. Kept. `BOSS_HOLD_MARGIN` 0.5 → 51.0 %, 2.0 → 50.0 % vs 1.0: flat.
+
+**Stage 2 (`docs/stage2-compute-v1.md`).** JFR profile of C on a 30×20 map: 44 % of the window in
+route enumeration (`propose` → `Pathing.cheapestPath`), 36 % in `chooseBossLite`, almost all of it
+`SearchState.refresh` after the hypothetical ink; the simulated turns themselves 5 %. The project's
+parity-validated runtime flags target exactly this; the incremental ink refresh was wired into the
+lite chooser as well (`// INK_REFRESH` block). D = C + incremental + fast path + batched: simulated
+turns per real turn 39–48 → 84–106, comparisons 2.9 → 5–7; **53.7 % vs C, 65.0 % vs boss-v2
+(+4.7), 67.0 % vs v09 (+4.2), 49.7 % vs neural-v6 (−2.3, inside the cell error)**; mean turn time
+11.8 ms vs 18.6 — the search now completes early, so the next lever is spending that slack
+(`ROLLOUT_REPLIES` 3, `ROLLOUT_DEPTH` 10, more routes), one same-map screen each. Artifact
+99,683 chars — 317 under the limit; the prune step is now a prerequisite for anything else.
+
+**Arena.** The user's fetch of 50 games (agent 6755892) turned out to be the previous entry: every
+game carries the turn-0 marker `build=4cda8b1b…`, the v09-era `current` build. Facts for the
+baseline: 23W/27L, zero failed turns, rank 316 overall ≈ #22 of 706 in Silver; by map 27×18 8/9,
+30×20 4/11, 21×14 1/7 (100-turn games with everything inked, 1.5 paint/turn); disrupt on 79–82 %
+of turns; 41–46 % of accepted cells never earned (`docs/evidence/arena-2026-10-21-v09-agent-6755892.json`,
+trace stripped). B is confirmed on the arena since the evening: its marker `build=4ac43802…
+config=dcb8f038…` is byte-identical to `FileMerger.merge` of the B spec. Its games are fetched
+tomorrow under the new agent id.
+
+**Chain so far, all on the same maps:** v2 → B (+7.8 h2h) → C (±0 h2h, +3.8 vs neural-v6) → D (+3.7
+h2h, +4.2 vs v09). Only v2 and B have been through the full local v5 stages; C and D are same-map
+screens against their predecessor and still need the 1000-game stage or an explicit decision to
+treat the chain as one candidate. Nothing promoted; v09 remains the selected version.
+

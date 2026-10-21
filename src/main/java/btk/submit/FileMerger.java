@@ -216,6 +216,7 @@ public class FileMerger {
         if (bossSabotage) files.add(SRC_ROOT.resolve("bot/current/BossSabotage.java"));
         boolean bossLite = BotFactory.parameters(spec).USE_BOSS_LITE;
         boolean bossModel = BotFactory.parameters(spec).USE_BOSS_OPPONENT_MODEL || BotFactory.parameters(spec).USE_BOSS_OWN_MODEL;
+        boolean bossRoutes = BotFactory.parameters(spec).USE_BOSS_LITE_ROUTES;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -229,6 +230,7 @@ public class FileMerger {
             boolean liteBlock = false;
             boolean holdBlock = false;
             boolean modelBlock = false;
+            boolean routesBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -363,6 +365,17 @@ public class FileMerger {
                     continue;
                 }
                 if (modelBlock && !bossModel) continue;
+                if (line.trim().equals("// BOSS_ROUTES_BEGIN")) {
+                    if (routesBlock) throw new IllegalArgumentException("Nested boss-routes block: " + file);
+                    routesBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BOSS_ROUTES_END")) {
+                    if (!routesBlock) throw new IllegalArgumentException("Unbalanced boss-routes block: " + file);
+                    routesBlock = false;
+                    continue;
+                }
+                if (routesBlock && !bossRoutes) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
@@ -508,6 +521,7 @@ public class FileMerger {
             if (liteBlock) throw new IllegalArgumentException("Unclosed boss-lite block: " + file);
             if (holdBlock) throw new IllegalArgumentException("Unclosed boss-hold block: " + file);
             if (modelBlock) throw new IllegalArgumentException("Unclosed boss-model block: " + file);
+            if (routesBlock) throw new IllegalArgumentException("Unclosed boss-routes block: " + file);
             if (batchBlock) throw new IllegalArgumentException("Unclosed batch block: " + file);
             if (inkBlock) throw new IllegalArgumentException("Unclosed ink-refresh block: " + file);
             if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Unclosed fast-path block: " + file);
@@ -525,7 +539,7 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
-        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath || bossSabotage || bossLite || bossModel)) {
+        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath || bossSabotage || bossLite || bossModel || bossRoutes)) {
             normalized = JavaSourceCompactor.compact(normalized);
             String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
             if (normalized.indexOf(compactMarker) < 0

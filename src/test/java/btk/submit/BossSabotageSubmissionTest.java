@@ -55,6 +55,10 @@ class BossSabotageSubmissionTest {
                 "the opponent model needs the lite chooser");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create(LITE + ",USE_BOSS_OPPONENT_MODEL=true,BOSS_OPPONENT_REPLIES=3"));
         assertTrue(BotFactory.parameters(LITE + ",USE_BOSS_OPPONENT_MODEL=true").USE_BOSS_OPPONENT_MODEL);
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_BOSS_LITE_ROUTES=true"),
+                "the route term needs the lite chooser");
+        assertFalse(BotFactory.configuration(LITE).containsKey("USE_BOSS_LITE_ROUTES"));
+        assertEquals("0.371747", BotFactory.configuration(LITE + ",USE_BOSS_LITE_ROUTES=true").get("BOSS_LITE_ROUTE_WEIGHT"));
     }
 
     @Test void liteCandidateShipsOnlyTheTwoStageChooser() throws Exception {
@@ -69,6 +73,10 @@ class BossSabotageSubmissionTest {
         FileMerger.checkSourceSize(model);
         assertTrue(model.contains("USE_BOSS_OPPONENT_MODEL=true"));
         assertTrue(model.contains("USE_BOSS_OWN_MODEL=true"));
+        assertFalse(model.contains("liteRecordRoutes"), "the route term stays out unless its flag is on");
+        String routes = FileMerger.merge(LITE + ",USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true");
+        FileMerger.checkSourceSize(routes);
+        assertTrue(routes.contains("liteRecordRoutes"));
         assertFalse(lite.contains("btk.tools"));
         Path source = temp.resolve("Player.java");
         Files.writeString(source, lite);

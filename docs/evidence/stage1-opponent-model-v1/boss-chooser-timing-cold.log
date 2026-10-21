@@ -1,0 +1,5 @@
+map 0 30x20 regions 60 pairs 45: first 20.8 ms, worst later 16.4 ms (turn 8), turns 100
+map 0 30x20 regions 60 pairs 47: first 25.4 ms, worst later 21.2 ms (turn 45), turns 76
+map 0 30x20 regions 60 pairs 43: first 25.2 ms, worst later 23.1 ms (turn 49), turns 81
+map 0 30x20 regions 60 pairs 44: first 37.7 ms, worst later 26.1 ms (turn 13), turns 80
+map 0 29x19 regions 61 pairs 42: first 18.9 ms, worst later 9.4 ms (turn 54), turns 100

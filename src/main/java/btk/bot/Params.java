@@ -97,6 +97,11 @@ public class Params {
     /** Our own simulated future disrupts inside the rollout also use the two-stage chooser (consistency with the real-turn choice). */
     public boolean USE_BOSS_OWN_MODEL = false;
     // BOSS_MODEL_END
+    // BOSS_ROUTES_BEGIN
+    /** Stage 3 (cheap): the two-stage chooser adds the fitted route-traffic term using the previous turn's route portfolio of the chooser's opponent (no path searches). Requires USE_BOSS_LITE. */
+    public boolean USE_BOSS_LITE_ROUTES = false;
+    public double BOSS_LITE_ROUTE_WEIGHT = 0.371747;
+    // BOSS_ROUTES_END
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;

@@ -73,7 +73,7 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 31, fields, "retained later fields plus proposal/deadline/batched/incremental-ink/fast-path/boss-sabotage/boss-lite flags and turn-budget override");
+        assertEquals(expected.size() + 33, fields, "retained later fields plus proposal/deadline/batched/incremental-ink/fast-path/boss-sabotage/boss-lite flags and turn-budget override");
         FrozenParams.applyTo("v09", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);
@@ -81,7 +81,7 @@ class V09PromotionTest {
         assertFalse(dirty.USE_ROLLOUT_MISSED_DEADLINE);
         assertFalse(dirty.USE_BOSS_SABOTAGE, "boss-sabotage experiment stays off for the frozen snapshot");
         assertFalse(dirty.USE_BOSS_LITE, "boss-lite experiment stays off for the frozen snapshot");
-        assertFalse(dirty.USE_BOSS_OPPONENT_MODEL); assertFalse(dirty.USE_BOSS_OWN_MODEL);
+        assertFalse(dirty.USE_BOSS_OPPONENT_MODEL); assertFalse(dirty.USE_BOSS_OWN_MODEL); assertFalse(dirty.USE_BOSS_LITE_ROUTES);
         assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());

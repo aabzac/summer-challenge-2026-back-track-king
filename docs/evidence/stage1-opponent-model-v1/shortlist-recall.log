@@ -1,0 +1,7 @@
+commit sets 20088, mean candidates 22.2
+K=1: shortlist recall 0.381, two-stage top-1 0.381
+K=2: shortlist recall 0.598, two-stage top-1 0.466
+K=3: shortlist recall 0.723, two-stage top-1 0.495
+K=4: shortlist recall 0.807, two-stage top-1 0.506
+K=6: shortlist recall 0.898, two-stage top-1 0.513
+K=8: shortlist recall 0.945, two-stage top-1 0.515

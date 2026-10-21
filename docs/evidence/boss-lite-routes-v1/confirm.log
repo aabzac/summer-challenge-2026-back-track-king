@@ -1,0 +1,21 @@
+-- pool2-C-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true vs neural-v6 (300 games, seed 960000)
+  A win rate: 57.0%  W-L-D 171-129-0
+  avg score diff (A-B): +118.1   avg turns: 62.3
+  time/move ms  A avg 18.73 max 54 slow 1 | B avg 2.08 max 31 slow 0
+  accepted disrupt A/B: 98.3% / 100.0%; early closures 300/300
+-- pool2-B-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true vs neural-v6 (300 games, seed 960000)
+  A win rate: 56.0%  W-L-D 168-132-0
+  avg score diff (A-B): +115.5   avg turns: 59.8
+  time/move ms  A avg 19.48 max 98 slow 2 | B avg 2.22 max 34 slow 0
+  accepted disrupt A/B: 98.0% / 100.0%; early closures 300/300
+-- hold05-vs-C: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,BOSS_HOLD_MARGIN=0.5 vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true (300 games, seed 970000)
+  A win rate: 51.0%  W-L-D 153-147-0
+  avg score diff (A-B): +0.9   avg turns: 71.2
+  time/move ms  A avg 17.30 max 77 slow 4 | B avg 17.28 max 48 slow 0
+  accepted disrupt A/B: 98.2% / 98.2%; early closures 296/300
+-- hold20-vs-C: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,BOSS_HOLD_MARGIN=2.0 vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true (300 games, seed 970000)
+  A win rate: 50.0%  W-L-D 150-150-0
+  avg score diff (A-B): +29.6   avg turns: 68.7
+  time/move ms  A avg 17.88 max 48 slow 0 | B avg 17.87 max 57 slow 2
+  accepted disrupt A/B: 98.3% / 98.3%; early closures 291/300
+ROUTES CONFIRM DONE

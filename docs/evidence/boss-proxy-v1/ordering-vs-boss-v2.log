@@ -1,0 +1,37 @@
+-- v09 vs boss2   (reconstructed from bench2-v09.json; the original console log was lost in a container restart)
+  A win rate: 38.0%  W-L-D 76-124-0
+  avg score diff (A-B): -351.3   avg turns: 75.7
+  accepted disrupt A/B: 79.2% / 99.4%; early closures 140/200
+-- v08 vs boss2
+  A win rate: 29.0%  W-L-D 58-142-0
+  avg score diff (A-B): -642.3   avg turns: 69.7
+  accepted disrupt A/B: 79.6% / 98.0%; early closures 166/200
+-- v07 vs boss2
+  A win rate: 23.5%  W-L-D 47-153-0
+  avg score diff (A-B): -725.7   avg turns: 66.6
+  accepted disrupt A/B: 81.8% / 98.8%; early closures 173/200
+-- neural-v6 vs boss2
+  A win rate: 58.0%  W-L-D 116-84-0
+  avg score diff (A-B): +158.9   avg turns: 58.6
+  accepted disrupt A/B: 100.0% / 99.9%; early closures 197/200
+-- neural-v1 vs boss2
+  A win rate: 53.5%  W-L-D 107-93-0
+  avg score diff (A-B): -15.2   avg turns: 60.0
+  accepted disrupt A/B: 100.0% / 100.0%; early closures 198/200
+-- current?USE_ROLLOUT_ALL_CELL_RISK=1 vs boss2
+  A win rate: 44.0%  W-L-D 88-112-0
+  avg score diff (A-B): +138.8   avg turns: 77.4
+  accepted disrupt A/B: 78.9% / 99.0%; early closures 133/200
+-- current?USE_ROLLOUT_ROOT_FILL=1 vs boss2
+  A win rate: 38.5%  W-L-D 77-123-0
+  avg score diff (A-B): -108.0   avg turns: 76.9
+  accepted disrupt A/B: 80.6% / 99.0%; early closures 140/200
+-- v09?USE_ROLLOUT_LIVE_TARGET=1 vs boss2
+  A win rate: 35.5%  W-L-D 71-129-0
+  avg score diff (A-B): -295.9   avg turns: 77.1
+  accepted disrupt A/B: 81.8% / 98.9%; early closures 148/200
+-- current?USE_BATCHED_REFRESH=1 vs boss2
+  A win rate: 36.5%  W-L-D 73-127-0
+  avg score diff (A-B): -223.4   avg turns: 78.6
+  accepted disrupt A/B: 78.4% / 99.2%; early closures 131/200
+VALIDATION2 DONE

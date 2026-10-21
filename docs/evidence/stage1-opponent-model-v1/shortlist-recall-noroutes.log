@@ -1,0 +1,5 @@
+dropped from both stages: oppRouteTraffic,routesAny
+commit sets 20088, mean candidates 22.2
+K=3: shortlist recall 0.722, two-stage top-1 0.500
+K=4: shortlist recall 0.806, two-stage top-1 0.511
+K=6: shortlist recall 0.893, two-stage top-1 0.517

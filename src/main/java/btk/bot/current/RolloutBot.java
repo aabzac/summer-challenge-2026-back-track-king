@@ -192,6 +192,10 @@ public final class RolloutBot implements Bot {
     private int[] liteLastInstability, liteSimPlaced;
     public int bossModelCalls;
     // BOSS_MODEL_END
+    // BOSS_ROUTES_BEGIN
+    /** Per player: sum over that player's previous-turn portfolio routes of 1/paint-cost, per region crossed. */
+    private double[][] liteRoutes;
+    // BOSS_ROUTES_END
 
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
@@ -262,6 +266,9 @@ public final class RolloutBot implements Bot {
             liteShort = new int[p.ROLLOUT_TARGETS]; liteCheap = new double[s.regionCount];
             liteAdjTown = new boolean[s.regionCount]; liteOnActive = new boolean[s.size];
             litePlaced = litePlacedTurn;
+            // BOSS_ROUTES_BEGIN
+            if (p.USE_BOSS_LITE_ROUTES) liteRoutes = new double[2][s.regionCount];
+            // BOSS_ROUTES_END
             // BOSS_MODEL_BEGIN
             liteOppHeld = -1; liteLastRealTarget = -1;
             if (p.USE_BOSS_OPPONENT_MODEL || p.USE_BOSS_OWN_MODEL) {
@@ -454,6 +461,9 @@ public final class RolloutBot implements Bot {
         // BOSS_LITE_BEGIN
         if (p.USE_BOSS_LITE) selectedTarget = liteHeld;
         // BOSS_LITE_END
+        // BOSS_ROUTES_BEGIN
+        if (p.USE_BOSS_LITE_ROUTES) liteRecordRoutes(s);
+        // BOSS_ROUTES_END
         // BOSS_MODEL_BEGIN
         if (p.USE_BOSS_LITE) liteLastRealTarget = selectedTarget;
         // BOSS_MODEL_END
@@ -1488,11 +1498,18 @@ public final class RolloutBot implements Bot {
         for (int r = 0; r < s.regionCount; r++) {
             if (s.regionInked[r] || s.regionHasTown(r)) continue;
             if (liteOppCells[r] == 0 && liteOwnCells[r] == 0 && liteNeutral[r] == 0 && s.regionInstability[r] == 0
-                    && r != held) continue;
+                    && r != held
+                    // BOSS_ROUTES_BEGIN
+                    && !(p.USE_BOSS_LITE_ROUTES && liteRoutes[opp][r] > 0)
+                    // BOSS_ROUTES_END
+                    ) continue;
             liteCheap[r] = LITE_OPP_CELLS * liteOppCells[r] + LITE_OPP_ACTIVE * liteOppActive[r]
                     + LITE_OWN_CELLS * liteOwnCells[r] + LITE_OPP_PREV2 * liteOppPrev2[r]
                     + LITE_INSTAB * s.regionInstability[r] + (liteAdjTown[r] ? LITE_ADJ_TOWN : 0)
                     + LITE_NEUTRAL * liteNeutral[r] + LITE_LOG_FREE * Math.log1p(liteFree[r]);
+            // BOSS_ROUTES_BEGIN
+            if (p.USE_BOSS_LITE_ROUTES) liteCheap[r] += p.BOSS_LITE_ROUTE_WEIGHT * liteRoutes[opp][r];
+            // BOSS_ROUTES_END
             for (int i = 0; i < liteShort.length; i++) {
                 if (liteShort[i] < 0 || liteCheap[r] > liteCheap[liteShort[i]]) {
                     if (liteShort[liteShort.length - 1] == held) heldListed = false;
@@ -1513,7 +1530,14 @@ public final class RolloutBot implements Bot {
             if (timer.up()) break;
             int needed = GameState.INK_THRESHOLD - s.regionInstability[r], dOpp = 0, dOwn = 0;
             if (liteOppCells[r] + liteOwnCells[r] + liteNeutral[r] > 0 || needed == 1) {
+                // INK_REFRESH_BEGIN
+                if (p.USE_INCREMENTAL_INK_REFRESH) { inkBoard.set(s); inkBoard.inkAndRefresh(r); }
+                else {
+                // INK_REFRESH_END
                 inkBoard.set(s); Rules.ink(inkBoard.state, r); inkBoard.refresh();
+                // INK_REFRESH_BEGIN
+                }
+                // INK_REFRESH_END
                 Rules.incomePerTurn(inkBoard.state, income);
                 dOpp = beforeOpp - income[opp]; dOwn = beforeMe - income[me];
                 if (needed == 1 && !Rules.anyPairPossible(inkBoard.state, pathing)) {
@@ -1527,9 +1551,34 @@ public final class RolloutBot implements Bot {
         }
         if (best < 0) return -1;
         if (held >= 0 && heldScore > -Double.MAX_VALUE && bestScore < heldScore + p.BOSS_HOLD_MARGIN) return held;
-        if (liteOppCells[best] == 0 && s.regionInstability[best] == 0) return -1;
+        if (liteOppCells[best] == 0 && s.regionInstability[best] == 0
+                // BOSS_ROUTES_BEGIN
+                && !(p.USE_BOSS_LITE_ROUTES && liteRoutes[opp][best] > 0)
+                // BOSS_ROUTES_END
+                ) return -1;
         return best;
     }
+
+    // BOSS_ROUTES_BEGIN
+    /** The real turn's route portfolios, as the next turn's route-traffic term (one region count per route). */
+    private void liteRecordRoutes(GameState s) {
+        for (int q = 0; q < 2; q++) {
+            Arrays.fill(liteRoutes[q], 0);
+            for (int k = 0; k < counts[q]; k++) {
+                int cost = 0;
+                for (int i = 0; i < lengths[q][k]; i++) if (s.canBuild(routes[q][k][i])) cost += s.placeCost(routes[q][k][i]);
+                if (cost <= 0) continue;
+                for (int i = 0; i < lengths[q][k]; i++) {
+                    int r = s.regionId[routes[q][k][i]];
+                    if (s.regionHasTown(r)) continue;
+                    boolean seen = false;
+                    for (int j = 0; j < i; j++) if (s.regionId[routes[q][k][j]] == r) { seen = true; break; }
+                    if (!seen) liteRoutes[q][r] += 1.0 / cost;
+                }
+            }
+        }
+    }
+    // BOSS_ROUTES_END
     // BOSS_LITE_END
 
     /**
