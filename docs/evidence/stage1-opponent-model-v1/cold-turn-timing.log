@@ -1,0 +1,8 @@
+seed 777000 30x20 pairs 45 turns 86 winner 0 | A current?NOISE=0.1,USE_BOSS_LITE=true: mean 22.0 max 39 slow 0 | B v09: mean 22.4 max 36 slow 0
+seed 777000 30x20 pairs 45 turns 65 winner 1 | A current?NOISE=0.1,USE_BOSS_SABOTAGE=true: mean 29.9 max 44 slow 0 | B v09: mean 29.2 max 43 slow 0
+seed 778009 30x20 pairs 47 turns 66 winner 0 | A current?NOISE=0.1,USE_BOSS_LITE=true: mean 29.6 max 38 slow 0 | B v09: mean 29.6 max 40 slow 0
+seed 778009 30x20 pairs 47 turns 67 winner 0 | A current?NOISE=0.1,USE_BOSS_SABOTAGE=true: mean 31.7 max 53 slow 1 | B v09: mean 30.4 max 38 slow 0
+seed 778013 30x20 pairs 43 turns 70 winner 1 | A current?NOISE=0.1,USE_BOSS_LITE=true: mean 31.8 max 38 slow 0 | B v09: mean 31.0 max 37 slow 0
+seed 778013 30x20 pairs 43 turns 67 winner 0 | A current?NOISE=0.1,USE_BOSS_SABOTAGE=true: mean 30.1 max 45 slow 0 | B v09: mean 29.2 max 36 slow 0
+seed 778022 30x20 pairs 44 turns 97 winner 0 | A current?NOISE=0.1,USE_BOSS_LITE=true: mean 22.0 max 40 slow 0 | B v09: mean 21.8 max 36 slow 0
+seed 778022 30x20 pairs 44 turns 99 winner 1 | A current?NOISE=0.1,USE_BOSS_SABOTAGE=true: mean 22.4 max 39 slow 0 | B v09: mean 21.7 max 38 slow 0

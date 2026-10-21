@@ -1,0 +1,8 @@
+C seed 777000 30x20: turns 91, simulated turns/turn 39, comparisons/turn 2.9, model calls total 203124, mean 23.1 ms max 37 ms
+C,USE_INCREMENTAL_INK_REFRESH=true seed 777000 30x20: turns 99, simulated turns/turn 58, comparisons/turn 4.3, model calls total 386671, mean 19.8 ms max 39 ms
+C,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true seed 777000 30x20: turns 99, simulated turns/turn 60, comparisons/turn 4.2, model calls total 397610, mean 18.5 ms max 40 ms
+C,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true seed 777000 30x20: turns 67, simulated turns/turn 84, comparisons/turn 5.2, model calls total 227073, mean 26.2 ms max 42 ms
+C seed 778013 30x20: turns 60, simulated turns/turn 48, comparisons/turn 2.9, model calls total 100622, mean 31.9 ms max 40 ms
+C,USE_INCREMENTAL_INK_REFRESH=true seed 778013 30x20: turns 99, simulated turns/turn 85, comparisons/turn 5.7, model calls total 567341, mean 19.5 ms max 39 ms
+C,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true seed 778013 30x20: turns 73, simulated turns/turn 124, comparisons/turn 8.1, model calls total 378128, mean 27.1 ms max 37 ms
+C,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true seed 778013 30x20: turns 85, simulated turns/turn 106, comparisons/turn 7.3, model calls total 511714, mean 20.4 ms max 36 ms

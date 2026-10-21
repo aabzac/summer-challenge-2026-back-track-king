@@ -1,0 +1,26 @@
+-- step1-cand-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true vs neural-v6 (300 games, seed 960000)
+  A win rate: 50.3%  W-L-D 151-149-0
+  avg score diff (A-B): +32.8   avg turns: 59.9
+  time/move ms  A avg 19.17 max 154 slow 40 | B avg 2.22 max 99 slow 7
+  accepted disrupt A/B: 98.0% / 100.0%; early closures 298/300
+-- step1-ctrl-v09-vs-neural-v6: v09 vs neural-v6 (300 games, seed 960000)
+  A win rate: 38.8%  W-L-D 116-183-1
+  avg score diff (A-B): -352.7   avg turns: 73.9
+  time/move ms  A avg 16.73 max 91 slow 16 | B avg 1.83 max 39 slow 0
+  accepted disrupt A/B: 74.0% / 99.8%; early closures 201/300
+-- step2-block1-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true vs v09 (300 games, seed 961000)
+  A win rate: 64.8%  W-L-D 188-99-13
+  avg score diff (A-B): +432.3   avg turns: 84.0
+  time/move ms  A avg 17.89 max 184 slow 79 | B avg 17.93 max 268 slow 88
+  accepted disrupt A/B: 88.4% / 75.4%; early closures 191/300
+-- step2-block2-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true vs v09 (200 games, seed 962000)
+  A win rate: 67.5%  W-L-D 130-60-10
+  avg score diff (A-B): +552.1   avg turns: 84.1
+  time/move ms  A avg 16.50 max 50 slow 0 | B avg 16.67 max 321 slow 5
+  accepted disrupt A/B: 86.4% / 72.6%; early closures 123/200
+-- step2-block3-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true vs v09 (500 games, seed 963000)
+  A win rate: 61.3%  W-L-D 304-191-5
+  avg score diff (A-B): +473.2   avg turns: 85.3
+  time/move ms  A avg 16.51 max 69 slow 8 | B avg 16.56 max 264 slow 5
+  accepted disrupt A/B: 91.6% / 77.0%; early closures 297/500
+LITE SCREEN DONE

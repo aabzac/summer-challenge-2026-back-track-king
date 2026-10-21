@@ -1,0 +1,21 @@
+-- C-vs-B: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true (300 games, seed 970000)
+  A win rate: 50.0%  W-L-D 150-150-0
+  avg score diff (A-B): +6.7   avg turns: 72.1
+  time/move ms  A avg 17.94 max 247 slow 13 | B avg 17.96 max 123 slow 6
+  accepted disrupt A/B: 98.3% / 96.4%; early closures 285/300
+-- C-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true vs neural-v6 (300 games, seed 970000)
+  A win rate: 52.0%  W-L-D 156-144-0
+  avg score diff (A-B): +92.1   avg turns: 62.5
+  time/move ms  A avg 19.72 max 58 slow 1 | B avg 2.37 max 39 slow 0
+  accepted disrupt A/B: 98.4% / 100.0%; early closures 299/300
+-- C-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true vs v09 (300 games, seed 970000)
+  A win rate: 62.8%  W-L-D 188-111-1
+  avg score diff (A-B): +602.4   avg turns: 80.6
+  time/move ms  A avg 17.61 max 61 slow 6 | B avg 17.63 max 57 slow 2
+  accepted disrupt A/B: 97.2% / 79.5%; early closures 186/300
+-- C-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 970000)
+  A win rate: 60.3%  W-L-D 181-119-0
+  avg score diff (A-B): +196.1   avg turns: 67.3
+  time/move ms  A avg 18.14 max 55 slow 1 | B avg 19.00 max 85 slow 2
+  accepted disrupt A/B: 98.3% / 99.7%; early closures 291/300
+ROUTES SCREEN DONE

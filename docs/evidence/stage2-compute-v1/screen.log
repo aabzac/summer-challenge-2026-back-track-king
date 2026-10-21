@@ -1,0 +1,21 @@
+-- D-vs-C: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true (300 games, seed 970000)
+  A win rate: 53.7%  W-L-D 161-139-0
+  avg score diff (A-B): +141.9   avg turns: 70.8
+  time/move ms  A avg 11.52 max 139 slow 4 | B avg 16.76 max 91 slow 5
+  accepted disrupt A/B: 98.2% / 98.0%; early closures 292/300
+-- D-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs neural-v6 (300 games, seed 970000)
+  A win rate: 49.7%  W-L-D 149-151-0
+  avg score diff (A-B): +56.6   avg turns: 63.2
+  time/move ms  A avg 13.29 max 54 slow 1 | B avg 2.50 max 39 slow 0
+  accepted disrupt A/B: 98.4% / 100.0%; early closures 298/300
+-- D-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs v09 (300 games, seed 970000)
+  A win rate: 67.0%  W-L-D 201-99-0
+  avg score diff (A-B): +598.5   avg turns: 78.4
+  time/move ms  A avg 13.10 max 216 slow 10 | B avg 18.34 max 211 slow 22
+  accepted disrupt A/B: 97.6% / 78.9%; early closures 208/300
+-- D-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 970000)
+  A win rate: 65.0%  W-L-D 195-105-0
+  avg score diff (A-B): +234.6   avg turns: 68.0
+  time/move ms  A avg 11.79 max 168 slow 5 | B avg 18.56 max 169 slow 7
+  accepted disrupt A/B: 98.2% / 99.9%; early closures 291/300
+RUNTIME SCREEN DONE

@@ -34,7 +34,13 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] `chooseBossLite` + `USE_BOSS_OPPONENT_MODEL` / `BOSS_OPPONENT_REPLIES` / `USE_BOSS_OWN_MODEL` (default off, `// BOSS_MODEL` block; artifact with all three on 95,421 chars, compiles) — 2026-10-21.
   - [x] Screen A/B vs lite, neural-v6, v09, boss-v2 with same-map v2 controls (seed 970000, 2026-10-21): **B ≥ v2 everywhere** (57.8 % h2h, 62.3 vs 48.3 on boss-v2, 45.3 vs 40.0 on neural-v6, 63.0 vs 62.7 on v09); A loses 6 pp vs v09. B = `opponent-model-v1`.
   - [x] Cold-JVM compute check: B max 36–38 ms on 30×20, simulated turns per real turn in v2's band.
-  - [ ] User: `submit "-PsubmitVersion=current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true" -PsubmitOut=build/submit-opp-model`, strict `procCheck`, 80 live boss games (v2 as fallback).
+  - [x] User: submit + strict procCheck of B (2026-10-21); **uploaded to the arena** (marker `4ac43802…`); live boss series still open (`boss_cached.py` needs `--candidate build/submit-opp-model --candidate-check build/submit-opp-model/process-check.json`, or the paired `boss_batch.py` with a fresh v09 control).
+  - [ ] Fetch B's arena games after 30–50 played (`cgFetch` prints the new agent id) → `cgAnalyze`.
+- [x] Stage 3 (cheap half): `USE_BOSS_LITE_ROUTES` route-traffic term from the rollout's portfolio — C ≥ B on every same-map row, +3.8 pp vs neural-v6 over two pools (`docs/boss-lite-routes-v1.md`). Hold margin 0.5/2.0 flat → 1.0 stays.
+- [x] Stage 2: profile (route enumeration 44 %, chooser refreshes 36 %) → incremental ink refresh wired into the lite chooser; D = C + the three runtime flags: ×2 simulated turns, 53.7 % vs C, 67.0 % vs v09, 65.0 % vs boss-v2 (`docs/stage2-compute-v1.md`).
+  - [ ] Spend the dividend: `ROLLOUT_REPLIES=3`, `ROLLOUT_DEPTH=10`, more routes — separate same-map screens vs D.
+  - [ ] Strict procCheck of D's exact artifact (99,683 chars) on the user's machine before any upload.
+- [ ] Prune (`prune-v1`): the ~23 rejected flags and their code out of `current` after the next promotion — now also a hard prerequisite, D is 317 chars under the 100,000 limit.
 - [ ] Stage 2: algorithmic compute cuts (skip zero-delta ink evaluations, targets once per
   simulated turn, region index, flood only after ink).
 

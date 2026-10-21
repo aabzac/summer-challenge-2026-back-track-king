@@ -1,0 +1,4 @@
+current?NOISE=0.1,USE_BOSS_LITE=true seed 777000 30x20: turns 99, simulated turns/turn 45, comparisons/turn 3.5, model calls total 0, mean 20.0 ms max 40 ms
+current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true seed 777000 30x20: turns 63, simulated turns/turn 56, comparisons/turn 3.8, model calls total 123041, mean 31.5 ms max 38 ms
+current?NOISE=0.1,USE_BOSS_LITE=true seed 778013 30x20: turns 66, simulated turns/turn 85, comparisons/turn 5.3, model calls total 0, mean 31.4 ms max 40 ms
+current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true seed 778013 30x20: turns 99, simulated turns/turn 45, comparisons/turn 3.3, model calls total 302694, mean 20.6 ms max 36 ms

@@ -17,6 +17,17 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Candidates 2026-10-21 (evening), each screened on the same 150 maps (seed 970000, 300 games/cell) against its predecessor:
+**boss-lite-routes-v1 (C)** = opponent-model-v1 + `USE_BOSS_LITE_ROUTES=true` — route-traffic term from the
+rollout's own previous-turn portfolio (no path searches): 50.0 % vs B, 52.0 % vs neural-v6 (B 45.3;
+second pool 57.0 vs 56.0 → +3.8 pooled), 62.8 % vs v09, 60.3 % vs boss-v2; artifact 96,373.
+[Details](boss-lite-routes-v1.md). **stage2-compute-v1 (D)** = C + `USE_INCREMENTAL_INK_REFRESH,
+USE_FAST_CHEAPEST_PATH,USE_BATCHED_REFRESH` (incremental refresh now also inside the lite chooser):
+×2 simulated turns, **53.7 % vs C, 67.0 % vs v09, 65.0 % vs boss-v2, 49.7 % vs neural-v6**, mean
+11.8 ms/turn; artifact 99,683. [Details](stage2-compute-v1.md). Neither live-tested; B is on the arena.
+**Arena baseline, v09-era build `4cda8b1b` (agent 6755892, 50 games fetched 2026-10-21):** 23W/27L, 0
+timeouts, ≈ #22 of 706 in Silver; 30×20 maps 4/11, 21×14 1/7; 41–46 % of accepted cells never earned.
+
 Candidate 2026-10-21 (latest): **opponent-model-v1 — v2 + `USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true`, v5 steps 1–2 PASS, live pending.**
 Stage 1 of the 2026-10-20 plan: the simulated opponent inside the rollout disrupts with the same
 two-stage boss chooser (held target observed from the board and carried through the simulated
