@@ -28,6 +28,9 @@ final class FrozenParams {
             if (!snapshot.containsKey("USE_ROLLOUT_ROOT_FILL")) params.USE_ROLLOUT_ROOT_FILL = false;
             if (!snapshot.containsKey("USE_ROLLOUT_MISSED_DEADLINE")) params.USE_ROLLOUT_MISSED_DEADLINE = false;
             if (!snapshot.containsKey("USE_BOSS_SABOTAGE")) params.USE_BOSS_SABOTAGE = false;
+            if (!snapshot.containsKey("USE_BOSS_LITE")) params.USE_BOSS_LITE = false;
+            if (!snapshot.containsKey("USE_BOSS_OPPONENT_MODEL")) params.USE_BOSS_OPPONENT_MODEL = false;
+            if (!snapshot.containsKey("USE_BOSS_OWN_MODEL")) params.USE_BOSS_OWN_MODEL = false;
             // Historical strategies never read this independent policy's routing feature weight.
             if (!snapshot.containsKey("INDRILL_INK_PENALTY")) params.INDRILL_INK_PENALTY = 2;
             // Town context is opt-in even when a legacy snapshot is applied to a reused Params object.

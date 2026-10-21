@@ -14,14 +14,27 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   strength proxy (30.5 % vs v09), retained as behavioural reference.
 - [x] `current?USE_BOSS_SABOTAGE=1` ("boss-v2"): 55.25 %/400 vs v09, boss-like fingerprint —
   accepted as screening opponent.
-- [ ] Ordering check vs boss-v2 (9 candidates × 200 games) — running; append to boss-proxy-v1.md.
+- [x] Ordering check vs boss-v2 (9 candidates × 200 games) — done 2026-10-21: 6/8 directions, neural-v6 reproduced, two caveats (boss-proxy-v1.md §6.2); boss-v2 accepted.
 - [x] **User decision:** adopt policy v5 (`docs/benchmarking-v5.md`) — adopted 2026-10-21, AGENTS.md rule 3 updated.
 - [ ] **User decision:** arena entry (v09 / neural-v6 / keep neural-v3).
 - [x] Packaging: merger block for the flag; artifact 94,845 chars, pinned hashes unchanged; `gradlew test` to be re-run by the user after the fix.
 - [x] `boss-sabotage-v1` as a candidate: fixed 1000-game run vs v09 — **674W/325L/1D = 67.45 %, PASS_1000** (2026-10-21).
-- [ ] `submit` + strict `procCheck` of the exact `current?USE_BOSS_SABOTAGE=1` artifact (user's machine), then upload to the IDE and run v5 step 3: 80 paired live boss games (40 cached-control maps + 40 fresh pool with same-session v09 control).
-- [ ] Stage 1: the fitted chooser as the rollout's second opponent scenario (asymmetric opponent
-  model); mechanism check on the six cut positions of v09-batched-loss-diagnosis-v1.
+- [x] ~~`submit` + strict `procCheck` … v5 step 3~~ — uploaded to the arena by the user 2026-10-21: **rank ~150–200/700, worse than neural-v3 and worse vs the boss (user report) → not promoted.** Diagnosis in DEVLOG 2026-10-21: v09-specific gain (neural-v6 58 % against it) + unguarded real-turn chooser 16–26 ms cold-JVM on 30×20 maps.
+- [ ] Fetch the agent's arena replays (`cgFetch`/`cgAnalyze`: failed turns, tall-map paint) and run the 40-game boss series for the number.
+- [ ] Arena: take boss-sabotage-v1 down; re-upload neural-v3 or neural-v6 (user decision).
+- [ ] `boss-sabotage-v2` (`docs/boss-sabotage-v2.md`): two-stage chooser at the real turn.
+  - [x] Implemented (`USE_BOSS_LITE`, `RolloutBot.chooseBossLite`, `// BOSS_LITE` + `// BOSS_HOLD` blocks); pinned artifacts unchanged; 93,544 chars; `BossLiteTest`.
+  - [x] Cold-JVM timing on 30×20 = v09's profile (v1: 44–53 ms).
+  - [x] Screen vs neural-v6 (+ v09 control): **50.3 % vs 38.8 % (+11.5 pp) PASS**; 1000 vs v09: **622W/350L/28D = 63.6 % PASS_1000**, 0 errors (2026-10-21).
+  - [ ] User: `gradlew test`, `submit "-PsubmitVersion=current?NOISE=0.1,USE_BOSS_LITE=true" -PsubmitOut=build/submit-boss-lite`, strict `procCheck`, 80 live boss games vs same-session v09 control.
+- [ ] Stage 1: boss-like opponent model inside the rollout — designed 2026-10-21
+  (`docs/stage1-opponent-model-v1.md`: two-stage chooser, K = 4, 50.6 % vs 51.5 % full);
+  shares the `BossLite` chooser with boss-sabotage-v2.
+  - [x] Cost study: cheap features 41.5 %, two-stage K = 4 50.6 % (`tools/boss_proxy/shortlist_recall.py`).
+  - [x] `chooseBossLite` + `USE_BOSS_OPPONENT_MODEL` / `BOSS_OPPONENT_REPLIES` / `USE_BOSS_OWN_MODEL` (default off, `// BOSS_MODEL` block; artifact with all three on 95,421 chars, compiles) — 2026-10-21.
+  - [x] Screen A/B vs lite, neural-v6, v09, boss-v2 with same-map v2 controls (seed 970000, 2026-10-21): **B ≥ v2 everywhere** (57.8 % h2h, 62.3 vs 48.3 on boss-v2, 45.3 vs 40.0 on neural-v6, 63.0 vs 62.7 on v09); A loses 6 pp vs v09. B = `opponent-model-v1`.
+  - [x] Cold-JVM compute check: B max 36–38 ms on 30×20, simulated turns per real turn in v2's band.
+  - [ ] User: `submit "-PsubmitVersion=current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true" -PsubmitOut=build/submit-opp-model`, strict `procCheck`, 80 live boss games (v2 as fallback).
 - [ ] Stage 2: algorithmic compute cuts (skip zero-delta ink evaluations, targets once per
   simulated turn, region index, flood only after ink).
 

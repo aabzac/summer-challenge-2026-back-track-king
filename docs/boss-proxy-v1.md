@@ -123,25 +123,44 @@ cells also chosen 14 %, immediate construction value equal). It fails the win-ra
 boss-v2 reproduces the sabotage meta and the game length/closure profile and is within 13 pp of
 the boss's win rate; its construction is v09's (never idles), not the boss's.
 
-### 6.2 Ordering (200 paired games each, seed 910000, same maps for every candidate)
+### 6.2 Ordering (200 paired games each, seed 910000, same maps for every candidate; boss-v2 column completed 2026-10-21)
 
-| candidate | live boss delta vs control (40 g.) | mirror vs v09 | vs boss-v1 | vs boss-v2 |
-|---|---|---|---|---|
-| v07 | −3 (10 vs 13 v08) | — | 53.0 % | _pending_ |
-| v08 | −4 (13 vs 17 v09) | 43 % | 62.0 % | _pending_ |
-| v09 (control) | 0 | 50 % | **74.0 %** | _pending_ |
-| neural-v6 | **+9** | 64 % | 78.5 % | _pending_ |
-| neural-v1 | −5 | 56 % | 76.0 % | _pending_ |
-| current?USE_ROLLOUT_ALL_CELL_RISK=1 | −5 | 54 % | 83.5 % | _pending_ |
-| current?USE_ROLLOUT_ROOT_FILL=1 | +1 | 54 % | 76.5 % | _pending_ |
-| v09?USE_ROLLOUT_LIVE_TARGET=1 | −5 (on v08) | 51 % | 72.0 % | _pending_ |
-| current?USE_BATCHED_REFRESH=1 | −1 | 57 % | 73.5 % | _pending_ |
+| candidate | live boss delta vs control (40 g.) | mirror vs v09 | vs boss-v1 | vs boss-v2 | Δ vs v09 on boss-v2 |
+|---|---|---|---|---|---|
+| v07 | −3 (10 vs 13 v08) | — | 53.0 % | 23.5 % | −14.5 ✓ |
+| v08 | −4 (13 vs 17 v09) | 43 % | 62.0 % | 29.0 % | −9.0 ✓ |
+| v09 (control) | 0 | 50 % | **74.0 %** | **38.0 %** | 0 |
+| neural-v6 | **+9** | 64 % | 78.5 % | **58.0 %** | **+20.0 ✓** |
+| neural-v1 | −5 | 56 % | 76.0 % | 53.5 % | +15.5 ✗ |
+| current?USE_ROLLOUT_ALL_CELL_RISK=1 | −5 | 54 % | 83.5 % | 44.0 % | +6.0 ✗ |
+| current?USE_ROLLOUT_ROOT_FILL=1 | +1 | 54 % | 76.5 % | 38.5 % | +0.5 ✓ |
+| v09?USE_ROLLOUT_LIVE_TARGET=1 | −5 (on v08) | 51 % | 72.0 % | 35.5 % | −2.5 ✓ |
+| current?USE_BATCHED_REFRESH=1 | −1 | 57 % | 73.5 % | 36.5 % | −1.5 ✓ |
 
-Against boss-v1 the sanity order holds with wide gaps (v07 < v08 < v09, neural-v6 > v09), but
-the all-cell-risk flag looks +9.5 pp better than v09 where the live boss showed −12.5 pp: a
-relentless but weak-building opponent rewards bypass construction that the real boss punishes.
-boss-v1 is therefore **not accepted as a strength proxy**; it stays a behavioural reference.
-The boss-v2 columns are filled in when the second ordering run completes.
+boss-v2 column: 200 paired games each (100 maps × both seats), seed 910000, CG 486/36 ms, two
+workers, zero errors; reports `docs/evidence/boss-proxy-v1/bench2-*.json`, log
+`ordering-vs-boss-v2.log` (2026-10-21). A ±3.5 pp standard error applies to each cell; the live
+40-game deltas carry ±10 pp each.
+
+Reading. Against boss-v1 the sanity order holds with wide gaps (v07 < v08 < v09, neural-v6 >
+v09), but the all-cell-risk flag looks +9.5 pp better than v09 where the live boss showed
+−12.5 pp: a relentless but weak-building opponent rewards bypass construction that the real
+boss punishes. boss-v1 is therefore **not accepted as a strength proxy**; it stays a behavioural
+reference.
+
+Against boss-v2 six of eight directions agree with the live boss, and the one large live signal
+(neural-v6, +22.5 pp) is reproduced (+20.0 pp) where boss-v1 showed only +4.5. Two cells
+disagree: neural-v1 (+15.5 on the proxy, −12.5 live) and all-cell-risk (+6.0, down from +9.5
+on boss-v1, still the wrong sign). Both live figures are single 40-game samples (±10 pp), so
+neither disagreement is established, but both have the same shape as boss-v1's error — the
+proxy under-punishes bypass-heavy construction — and the neural bots' 100 % disrupt rate
+shortens games to 58–60 turns, closer to the boss's 47–57 than v09's 77. Spearman rank
+correlation with the live deltas is 0.50 for boss-v2 and 0.48 for boss-v1: the gain of boss-v2
+is realism (62 % vs v09 against the boss's 67.5 %; the fingerprint of §6.1), not a cleaner
+ordering, and with live deltas this noisy no proxy could show one. **boss-v2 is accepted as
+the v5 screening opponent** with these two caveats recorded: a candidate whose gain comes
+mainly from new construction (bypasses, all-cell risk) must not be read from the screen alone,
+and step 3 (live) remains the decision in every case.
 
 ### 6.3 Strength of the flag itself (boss-sabotage-v1, candidate id)
 
@@ -170,8 +189,10 @@ fixed pool with a fresh same-session v09 control), pass at ≥ control + 5 pp.
 
 ## 7. Decision
 
-- Screening opponent for policy v5 = **boss-v2** (`current?USE_BOSS_SABOTAGE=1`), re-validated
-  whenever the live boss changes; boss-v1 stays in the panel as the behavioural reference.
+- Screening opponent for policy v5 = **boss-v2** (`current?USE_BOSS_SABOTAGE=1`), ordering
+  check completed 2026-10-21 (§6.2: 6/8 directions, neural-v6 reproduced, two caveats);
+  re-validated whenever the live boss changes; boss-v1 stays in the panel as the behavioural
+  reference.
 - `boss-sabotage-v1` passed the local 1000-game stage (67.45 %); live confirmation pending.
 - Selected v09 is unchanged; nothing uploaded.
 

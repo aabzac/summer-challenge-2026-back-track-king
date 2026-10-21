@@ -80,8 +80,23 @@ public class Params {
     // BOSS_SABOTAGE_BEGIN
     /** Current-only experiment: boss-fitted sabotage chooser replaces the real-turn target (docs/boss-proxy-v1.md). */
     public boolean USE_BOSS_SABOTAGE = false;
-    public double BOSS_HOLD_MARGIN = 1.0;
     // BOSS_SABOTAGE_END
+    // BOSS_HOLD_BEGIN
+    /** Hold margin shared by both boss choosers: the held region is kept unless another beats it by this much. */
+    public double BOSS_HOLD_MARGIN = 1.0;
+    // BOSS_HOLD_END
+    // BOSS_LITE_BEGIN
+    /** Current-only experiment: the two-stage boss chooser (cheap logit shortlist, top-ROLLOUT_TARGETS ink rescoring) replaces the real-turn target; docs/stage1-opponent-model-v1.md. */
+    public boolean USE_BOSS_LITE = false;
+    // BOSS_LITE_END
+    // BOSS_MODEL_BEGIN
+    /** Stage 1: the simulated opponent inside the rollout disrupts with the two-stage boss chooser (held target carried through the simulated turns) instead of chooseTarget. Requires USE_BOSS_LITE. */
+    public boolean USE_BOSS_OPPONENT_MODEL = false;
+    /** How many reply scenarios use the boss opponent model (the rest keep chooseTarget); 2 = both. */
+    public int BOSS_OPPONENT_REPLIES = 2;
+    /** Our own simulated future disrupts inside the rollout also use the two-stage chooser (consistency with the real-turn choice). */
+    public boolean USE_BOSS_OWN_MODEL = false;
+    // BOSS_MODEL_END
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;

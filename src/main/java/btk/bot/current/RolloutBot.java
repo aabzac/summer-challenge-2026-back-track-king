@@ -174,6 +174,24 @@ public final class RolloutBot implements Bot {
     private BossSabotage bossSabotage;
     private int bossTarget = -1;
     // BOSS_SABOTAGE_END
+    // BOSS_LITE_BEGIN
+    /** Two-stage boss chooser (docs/stage1-opponent-model-v1.md): fitted logit weights without the route terms. */
+    private static final double LITE_D_OPP = 0.137316, LITE_D_OWN = -0.111814, LITE_OPP_CELLS = 0.775046,
+            LITE_OPP_ACTIVE = -0.003927, LITE_OWN_CELLS = -0.282833, LITE_OPP_PREV2 = 0.291303, LITE_INSTAB = 0.884541,
+            LITE_ADJ_TOWN = 0.368378, LITE_NEUTRAL = 0.155573, LITE_LOG_FREE = 0.148325;
+    private int liteHeld = -1;
+    private int[] litePlacedTurn, litePrevOwner, liteOppCells, liteOwnCells, liteNeutral, liteOppActive, liteOppPrev2,
+            liteFree, liteShort;
+    private boolean[] liteAdjTown, liteOnActive;
+    private double[] liteCheap;
+    private int[] litePlaced;
+    // BOSS_LITE_END
+    // BOSS_MODEL_BEGIN
+    /** Stage 1 opponent model: the opponent's observed held target, last real instabilities, simulated placement turns. */
+    private int liteOppHeld = -1, liteLastRealTarget = -1;
+    private int[] liteLastInstability, liteSimPlaced;
+    public int bossModelCalls;
+    // BOSS_MODEL_END
 
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
@@ -234,6 +252,32 @@ public final class RolloutBot implements Bot {
         if (p.USE_BOSS_SABOTAGE) bossSabotage = new BossSabotage(s, p.BOSS_HOLD_MARGIN);
         bossTarget = -1;
         // BOSS_SABOTAGE_END
+        // BOSS_LITE_BEGIN
+        liteHeld = -1;
+        if (p.USE_BOSS_LITE) {
+            litePlacedTurn = new int[s.size]; litePrevOwner = new int[s.size];
+            Arrays.fill(litePlacedTurn, -99); Arrays.fill(litePrevOwner, GameState.NO_TRACK);
+            liteOppCells = new int[s.regionCount]; liteOwnCells = new int[s.regionCount]; liteNeutral = new int[s.regionCount];
+            liteOppActive = new int[s.regionCount]; liteOppPrev2 = new int[s.regionCount]; liteFree = new int[s.regionCount];
+            liteShort = new int[p.ROLLOUT_TARGETS]; liteCheap = new double[s.regionCount];
+            liteAdjTown = new boolean[s.regionCount]; liteOnActive = new boolean[s.size];
+            litePlaced = litePlacedTurn;
+            // BOSS_MODEL_BEGIN
+            liteOppHeld = -1; liteLastRealTarget = -1;
+            if (p.USE_BOSS_OPPONENT_MODEL || p.USE_BOSS_OWN_MODEL) {
+                liteLastInstability = s.regionInstability.clone(); liteSimPlaced = new int[s.size];
+            }
+            // BOSS_MODEL_END
+            for (int c = 0; c < s.size; c++) {
+                for (int d = 0; d < 4; d++) {
+                    int x = s.x(c) + GameState.DX[d], y = s.y(c) + GameState.DY[d];
+                    if (!s.inBounds(x, y)) continue;
+                    int nr = s.regionId[s.cell(x, y)];
+                    if (nr != s.regionId[c] && s.regionHasTown(nr)) liteAdjTown[s.regionId[c]] = true;
+                }
+            }
+        }
+        // BOSS_LITE_END
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
         if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
             routeDependencies = new int[2][p.ROLLOUT_WIDTH][s.regionCount];
@@ -304,6 +348,15 @@ public final class RolloutBot implements Bot {
             bossSabotage.observe(s); bossTarget = bossSabotage.choose(s, me); fallbackTarget = bossTarget;
         }
         // BOSS_SABOTAGE_END
+        // BOSS_LITE_BEGIN
+        if (p.USE_BOSS_LITE) {
+            liteObserve(s); litePlaced = litePlacedTurn;
+            // BOSS_MODEL_BEGIN
+            if (p.USE_BOSS_OPPONENT_MODEL || p.USE_BOSS_OWN_MODEL) liteObserveOpponent(s);
+            // BOSS_MODEL_END
+            liteHeld = chooseBossLite(s, me, liteHeld); fallbackTarget = liteHeld;
+        }
+        // BOSS_LITE_END
         threats[1 - me] = fallbackTarget;
         threats[me] = chooseTarget(s, 1 - me);
         Rules.incomePerTurn(s, income);
@@ -398,6 +451,12 @@ public final class RolloutBot implements Bot {
         // BOSS_SABOTAGE_BEGIN
         if (p.USE_BOSS_SABOTAGE) selectedTarget = bossTarget;
         // BOSS_SABOTAGE_END
+        // BOSS_LITE_BEGIN
+        if (p.USE_BOSS_LITE) selectedTarget = liteHeld;
+        // BOSS_LITE_END
+        // BOSS_MODEL_BEGIN
+        if (p.USE_BOSS_LITE) liteLastRealTarget = selectedTarget;
+        // BOSS_MODEL_END
         if (p.USE_ROLLOUT_FILL && !selectedRootFilled) fill(s, realPlayer);
         // MISSED_DEADLINE_BEGIN
         if (p.USE_ROLLOUT_MISSED_DEADLINE) correctMissedDeadline(s);
@@ -1168,6 +1227,11 @@ public final class RolloutBot implements Bot {
         work.set(original);
         int depth = Math.min(p.ROLLOUT_DEPTH, original.turnsLeft());
         int ownFirst = root < counts[me] ? root : 0;
+        // BOSS_MODEL_BEGIN
+        boolean bossOpp = p.USE_BOSS_OPPONENT_MODEL && replyIndex(reply) < p.BOSS_OPPONENT_REPLIES, bossOwn = p.USE_BOSS_OWN_MODEL;
+        int simOppHeld = liteOppHeld, simOwnHeld = ownTarget >= 0 ? ownTarget : liteHeld;
+        if (bossOpp || bossOwn) { System.arraycopy(litePlacedTurn, 0, liteSimPlaced, 0, liteSimPlaced.length); litePlaced = liteSimPlaced; }
+        // BOSS_MODEL_END
         for (int turn = 0; turn < depth; turn++) {
             if (timer.up()) return Double.NaN;
             GameState s = work.state;
@@ -1197,6 +1261,14 @@ public final class RolloutBot implements Bot {
                     // MISSED_DEADLINE_END
                     targetBoard.set(s);
                     placeOwn(targetBoard, player, moves[player], moveCounts[player]);
+                    // BOSS_MODEL_BEGIN
+                    if (player != me && bossOpp) {
+                        bossModelCalls++;
+                        targets[player] = simOppHeld = chooseBossLite(targetBoard.state, player, simOppHeld);
+                    } else if (player == me && bossOwn) {
+                        targets[player] = simOwnHeld = chooseBossLite(targetBoard.state, player, simOwnHeld);
+                    } else
+                    // BOSS_MODEL_END
                     targets[player] = chooseTarget(targetBoard.state, player);
                     // MISSED_DEADLINE_BEGIN
                     }
@@ -1213,6 +1285,12 @@ public final class RolloutBot implements Bot {
             // MISSED_DEADLINE_END
             boolean terminal = work.resolve(moves[0], moveCounts[0], targets[0], moves[1], moveCounts[1], targets[1]);
             simulatedTurns++;
+            // BOSS_MODEL_BEGIN
+            if (bossOpp || bossOwn) {
+                for (int player = 0; player < 2; player++)
+                    for (int i = 0; i < moveCounts[player]; i++) liteSimPlaced[moves[player][i]] = s.turn - 1;
+            }
+            // BOSS_MODEL_END
             if (terminal) {
                 int diff = s.score[me] - s.score[1 - me];
                 // MISSED_DEADLINE_BEGIN
@@ -1342,6 +1420,117 @@ public final class RolloutBot implements Bot {
                 ? oppTracks[region] * p.ROLLOUT_OPP_TRACK_VALUE - ownTracks[region] * p.ROLLOUT_OWN_TRACK_VALUE
                 : trackBalance[region] * p.ROLLOUT_TRACK_WEIGHT;
     }
+
+    // BOSS_LITE_BEGIN
+    /** Record when each track appeared (for the opponent-placed-recently term); once per real turn. */
+    private void liteObserve(GameState s) {
+        for (int c = 0; c < s.size; c++) {
+            if (s.owner[c] != litePrevOwner[c] && s.owner[c] != GameState.NO_TRACK) litePlacedTurn[c] = s.turn;
+            litePrevOwner[c] = s.owner[c];
+        }
+    }
+
+    // BOSS_LITE_END
+    // BOSS_MODEL_BEGIN
+    /** Reply scenario index of a rollout's {@code reply} argument (a route slot when diverse replies are on). */
+    private int replyIndex(int reply) {
+        if (!p.USE_ROLLOUT_DIVERSE_REPLIES) return reply;
+        for (int i = 0; i < replyRoutes.length; i++) if (replyRoutes[i] == reply) return i;
+        return reply;
+    }
+
+    /**
+     * The opponent's current held target, read from the public board: a region whose instability
+     * rose since our last real turn by more than our own hit on it was hit by the opponent.
+     */
+    private void liteObserveOpponent(GameState s) {
+        int hit = -1;
+        for (int r = 0; r < s.regionCount; r++) {
+            int rise = s.regionInstability[r] - liteLastInstability[r];
+            if (r == liteLastRealTarget) rise--;
+            if (rise > 0 && !s.regionInked[r]) hit = r;
+            liteLastInstability[r] = s.regionInstability[r];
+        }
+        if (hit >= 0) liteOppHeld = hit;
+        else if (liteOppHeld >= 0 && s.regionInked[liteOppHeld]) liteOppHeld = -1;
+    }
+    // BOSS_MODEL_END
+    // BOSS_LITE_BEGIN
+
+    /**
+     * Boss-style DISRUPT for {@code me}: the cheap part of the fitted logit ranks every region in
+     * O(cells); the top ROLLOUT_TARGETS regions get one ink simulation for the income terms and the
+     * full score. {@code held} is the region committed to so far (kept unless beaten by the margin);
+     * winning one-hit closures are taken, losing ones refused. Returns -1 for WAIT.
+     */
+    private int chooseBossLite(GameState s, int me, int held) {
+        int opp = 1 - me;
+        if (held >= 0 && s.regionInked[held]) held = -1;
+        Arrays.fill(liteOppCells, 0); Arrays.fill(liteOwnCells, 0); Arrays.fill(liteNeutral, 0);
+        Arrays.fill(liteOppActive, 0); Arrays.fill(liteOppPrev2, 0); Arrays.fill(liteFree, 0);
+        Arrays.fill(liteOnActive, false);
+        for (int pair = 0; pair < s.pairCount; pair++) {
+            if (!s.pairActive(pair)) continue;
+            for (int i = 0; i < s.pairPathLen[pair]; i++) liteOnActive[s.pairPath[pair][i]] = true;
+        }
+        for (int c = 0; c < s.size; c++) {
+            int r = s.regionId[c], o = s.owner[c];
+            if (s.canBuild(c)) liteFree[r]++;
+            if (o == opp) {
+                liteOppCells[r]++;
+                if (liteOnActive[c]) liteOppActive[r]++;
+                if (litePlaced[c] >= s.turn - 2) liteOppPrev2[r]++;
+            } else if (o == me) liteOwnCells[r]++;
+            else if (o == GameState.NEUTRAL) liteNeutral[r]++;
+        }
+        Arrays.fill(liteShort, -1);
+        boolean heldListed = false;
+        for (int r = 0; r < s.regionCount; r++) {
+            if (s.regionInked[r] || s.regionHasTown(r)) continue;
+            if (liteOppCells[r] == 0 && liteOwnCells[r] == 0 && liteNeutral[r] == 0 && s.regionInstability[r] == 0
+                    && r != held) continue;
+            liteCheap[r] = LITE_OPP_CELLS * liteOppCells[r] + LITE_OPP_ACTIVE * liteOppActive[r]
+                    + LITE_OWN_CELLS * liteOwnCells[r] + LITE_OPP_PREV2 * liteOppPrev2[r]
+                    + LITE_INSTAB * s.regionInstability[r] + (liteAdjTown[r] ? LITE_ADJ_TOWN : 0)
+                    + LITE_NEUTRAL * liteNeutral[r] + LITE_LOG_FREE * Math.log1p(liteFree[r]);
+            for (int i = 0; i < liteShort.length; i++) {
+                if (liteShort[i] < 0 || liteCheap[r] > liteCheap[liteShort[i]]) {
+                    if (liteShort[liteShort.length - 1] == held) heldListed = false;
+                    for (int j = liteShort.length - 1; j > i; j--) liteShort[j] = liteShort[j - 1];
+                    liteShort[i] = r;
+                    if (r == held) heldListed = true;
+                    break;
+                }
+            }
+        }
+        if (held >= 0 && !heldListed) liteShort[liteShort.length - 1] = held;
+        Rules.incomePerTurn(s, income);
+        int beforeMe = income[me], beforeOpp = income[opp], best = -1;
+        double bestScore = -Double.MAX_VALUE, heldScore = -Double.MAX_VALUE;
+        for (int i = 0; i < liteShort.length; i++) {
+            int r = liteShort[i];
+            if (r < 0) break;
+            if (timer.up()) break;
+            int needed = GameState.INK_THRESHOLD - s.regionInstability[r], dOpp = 0, dOwn = 0;
+            if (liteOppCells[r] + liteOwnCells[r] + liteNeutral[r] > 0 || needed == 1) {
+                inkBoard.set(s); Rules.ink(inkBoard.state, r); inkBoard.refresh();
+                Rules.incomePerTurn(inkBoard.state, income);
+                dOpp = beforeOpp - income[opp]; dOwn = beforeMe - income[me];
+                if (needed == 1 && !Rules.anyPairPossible(inkBoard.state, pathing)) {
+                    if (s.score[me] + income[me] > s.score[opp] + income[opp]) return r;
+                    continue;
+                }
+            }
+            double v = liteCheap[r] + LITE_D_OPP * dOpp + LITE_D_OWN * dOwn;
+            if (r == held) heldScore = v;
+            if (v > bestScore) { bestScore = v; best = r; }
+        }
+        if (best < 0) return -1;
+        if (held >= 0 && heldScore > -Double.MAX_VALUE && bestScore < heldScore + p.BOSS_HOLD_MARGIN) return held;
+        if (liteOppCells[best] == 0 && s.regionInstability[best] == 0) return -1;
+        return best;
+    }
+    // BOSS_LITE_END
 
     /**
      * Observed placements since the previous real turn reveal each player's live project. Only

@@ -8013,3 +8013,168 @@ on the user's machine (in-process maxima 127 ms on the shared 2-core host are no
 evidence; the chooser runs unguarded before the search), then v5 step 3 (80 paired live boss
 games), then stage 1.
 
+## 2026-10-21 — full test run: 28 failures triaged, 3 fixed, 25 pre-existing
+
+User ran the full suite after the packaging fix: 810 tests, 28 failed. Triage from the Gradle
+XML reports:
+
+- **3 — ours, fixed.** `V07/V08/V09PromotionTest` pin the number of public `Params` fields.
+  The constants were already two short before this work (`USE_INCREMENTAL_INK_REFRESH` and
+  `USE_FAST_CHEAPEST_PATH`, added 2026-10-18, were never counted: 117 + 23 = 140 vs 142 fields),
+  and our two boss-sabotage fields made it four. Now `+27` / `+26` / `+28` (144 fields).
+- **19 — pre-existing since 2026-10-18.** `BotCatalog.verifyImplementation` compares the live
+  compiled `btk/core/Pathing.class` with the SHA-256 recorded in `experiment-engine-v1.json`
+  (source revision `218457a`, 2026-09-14). The fast-path/incremental-ink blocks changed that
+  class, so every test that touches the catalog fails (`BotCatalogTest` ×3, `ReplayTest`,
+  `BenchmarkRunnerTest`, `JointActionTest` ×2, `JointReplyStudyTest` ×5, `ReplyStudyTest` ×5,
+  `FileMergerTest.characterLimitIsCheckedBeforePublishing` via `merge("exp-income-guard")`), plus
+  `NeuralTargetSizeProbeTest.genericTransformation…`, which expects the raw body of
+  `core/Pathing.java` inside the merged baseline (the merger now strips the flag blocks).
+  `btk/core` is byte-identical before and after the boss-sabotage commits. Per
+  `docs/bot_catalog.md` the remedy is a new engine snapshot with new experiment ids, not a
+  refreshed manifest under the old ids — a user decision; it needs the user's compiler.
+- **6 — pre-existing since 2026-10-06.** `PduhardBeamBotTest` requests `pduhard-beam-v1`, which
+  `BotFactory` never registered (DEVLOG 2026-10-08: "six pre-existing untracked beam tests
+  request an absent factory bot").
+
+Expected after this commit: 810 run, 25 failed, all in the two pre-existing groups. The
+submission tests (`BossSabotageSubmissionTest`, deferred-commit, batched-refresh) are green.
+
+## 2026-10-21 — boss-v2 ordering check complete (Stage 0 closed); Stage 1 designed
+
+**Ordering vs boss-v2** (`current?USE_BOSS_SABOTAGE=1`), 200 paired games per candidate, seed
+910000, CG 486/36 ms, zero errors: v07 23.5 %, v08 29.0 %, **v09 38.0 %**, neural-v6 **58.0 %**,
+neural-v1 53.5 %, all-cell-risk 44.0 %, root-fill 38.5 %, live-target 35.5 %, batched refresh
+36.5 %. Six of eight directions agree with the live boss; the one large live signal (neural-v6
++22.5 pp over v09) is reproduced (+20.0; boss-v1 showed +4.5). Two cells disagree — neural-v1
+(+15.5 vs −12.5 live) and all-cell-risk (+6.0 vs −12.5 live, down from +9.5 on boss-v1) — both
+single 40-game live samples (±10 pp), both the same shape as boss-v1's error (the proxy
+under-punishes bypass-heavy construction). Spearman with the live deltas 0.50 (boss-v1 0.48):
+boss-v2's gain is realism (62 % vs v09 against the boss's 67.5 %, boss-like fingerprint), not a
+cleaner ordering. **boss-v2 accepted as the v5 screening opponent** with those two caveats
+recorded in `docs/boss-proxy-v1.md` §6.2/§7; evidence `docs/evidence/boss-proxy-v1/bench2-*.json`,
+`ordering-vs-boss-v2.log`. `benchmarking-v5.md` step 1 now names "the current screening
+opponent" instead of boss-v1. Stage 0 is closed.
+
+**Stage 1 design** (`docs/stage1-opponent-model-v1.md`, not started): replace `chooseTarget` for
+the simulated opponent inside `rollout()` with a boss-like chooser carrying a held target across
+the simulated turns. Cost study on the 20,088 commitment sets: cheap features alone reach
+41.5 % held-out top-1 (full model 51.0 %); the missing 10 pp are the ink-simulation deltas
+(dOpp/dOwn/closes), not the route features (adding them: 41.4 %). A two-stage chooser — cheap
+logit ranks all regions, the top-K get one ink simulation and the full logit — reaches 50.6 % at
+K = 4 (shortlist recall 80.7 %) vs 51.5 % unlimited, i.e. the full chooser's accuracy at
+`chooseTarget`'s own cost (`ROLLOUT_TARGETS` = 4 ink simulations). A `hitPrevByMe` feature that
+raised a cheap fit to 46.7 % was discarded as a definition artifact. Flags predeclared:
+`USE_BOSS_OPPONENT_MODEL`, `BOSS_OPPONENT_REPLIES`, `USE_BOSS_OWN_MODEL`; comparison per v5
+against `boss-sabotage-v1` once it is live-confirmed, otherwise v09. Tools
+`tools/boss_proxy/fit_boss_target_lite.py`, `shortlist_recall.py`; evidence
+`docs/evidence/stage1-opponent-model-v1/`.
+
+## 2026-10-21 — boss-sabotage-v1 on the arena: worse than neural-v3 and worse vs the boss (user report); diagnosis
+
+The user uploaded `current?NOISE=0.1,USE_BOSS_SABOTAGE=true` to the arena: rank about 150–200 of
+700 against about 50–100 for the previous entry (neural-v3), and "seems worse" against the boss.
+No fetched replays or 40-game series yet; the numbers above are the user's reading of the
+leaderboard. Treated as a failed v5 step 3: **not promoted, take it down.**
+
+Why a 67.45 %/1000 local result did not transfer — two causes, both visible in evidence we
+already had:
+
+1. **The gain is v09-specific.** `boss-v2` in `boss-proxy-v1.md` §6.2 is this candidate. Against
+   it, neural-v6 scores 58.0 % and neural-v1 53.5 %, while the same bots score 64 % and 56 % in
+   the mirror against v09: the candidate is +17 pp over v09 head-to-head but only +2…+6 pp
+   against neural-class opponents, and the neural entries beat it outright. Silver is populated
+   by 99–100 %-disrupt bots of that class, not by v09s. The +17 pp came from exploiting v09's
+   known weaknesses (builds through unstable regions, never bypasses, re-targets every turn) with
+   a chooser that holds a region until it inks. The v5 degenerate-proxy clause let the candidate
+   skip every non-v09 opponent; clause 5 is amended (screen vs neural-v6 at control + 3 pp) and a
+   cold-JVM timing prerequisite is added (clause 6).
+2. **Unguarded real-turn cost in a cold JVM.** `BossSabotage.choose` runs after `timer.start`
+   inside the 36 ms window with no timer checks: two path searches per inactive pair plus one ink
+   simulation per candidate region. New tool `btk.tools.BossChooserTiming` (v09-vs-v09 positions,
+   `docs/evidence/stage1-opponent-model-v1/boss-chooser-timing*.log`): with a hot JIT (one JVM,
+   many games — the local bench) it costs 1.2–1.5 ms on average and 5–10 ms on 30×20 maps; in a
+   **fresh JVM per game, as CodinGame runs it, 16–26 ms per turn on 30×20 maps for the whole
+   game** (first turn 19–38 ms), i.e. half to two thirds of the search window on exactly the
+   maps where v09 is already weakest, with a timeout (= loss) possible on slower hardware. The
+   local Referee records slow moves but never penalises them; the 1000-game run showed the
+   candidate's maxima (127/63/65 ms) in line with v09's, which is why this was not caught.
+
+Next: `boss-sabotage-v2` — the two-stage chooser from the Stage 1 design (cheap logit over
+O(cells) counts → the top-4 regions get one ink simulation and the full logit; no path searches;
+50.6 % vs 51.5 % top-1 offline) used at the real turn under the timer, cold-JVM timing measured
+before any games, screen vs neural-v6 and v09, strict procCheck, then live. The same chooser is
+the Stage 1 opponent model, so the work is shared. Open user actions: fetch the agent's arena
+games (`cgFetch`/`cgAnalyze`) for failed-turn counts and tall-map paint; run the 40-game boss
+series for the live number; re-upload neural-v3 or neural-v6.
+
+## 2026-10-21 — boss-sabotage-v2 (two-stage chooser): v5 steps 1–2 PASS; Stage 1 model implemented
+
+**Mechanism.** `USE_BOSS_LITE` (`RolloutBot.chooseBossLite`, `// BOSS_LITE` block; `BOSS_HOLD_MARGIN`
+now in a shared `// BOSS_HOLD` block). The fitted boss logit without its two route terms: the
+cheap part (opponent cells, opponent cells on active paths, own cells, opponent cells placed in
+the last two turns, instability, town adjacency, neutral cells, log free cells) ranks every region
+in O(cells); the top `ROLLOUT_TARGETS` = 4 regions plus the held one get one `inkBoard` simulation
+each for dOpp/dOwn and the closure check, then the full score; hold rule, winning-closure rule and
+WAIT rule as in v1; the loop checks the timer. Offline on the 20,088 boss commitment sets: top-1
+51.1 % (full chooser 51.5 %; cheap-only 41.5 %; `shortlist_recall.py … oppRouteTraffic,routesAny`).
+
+**Packaging.** Artifact 93,695 chars, sha256 `a8c739fd…`, compiles; pinned `current`/`v09`/deadline
+artifacts byte-identical; v1 artifact unchanged. `Params` 148 public fields (three Stage 1 fields
+included); `V07/V08/V09PromotionTest` +32/+30/+31; new `BossLiteTest` (3), `BossSabotageSubmissionTest`
+extended. Tools `ColdTurnTiming`, `BossChooserTiming`.
+
+**Timing (cold JVM, one game per process, 30×20, CG 486/36 ms).** v2 max 38–40 ms = v09's 36–40;
+v1 on the same maps 44–53 (one turn over 50). `docs/evidence/stage1-opponent-model-v1/cold-turn-timing.log`.
+
+**Strength (policy v5 with clause 5 as amended today).** Step 1 vs neural-v6, 300 paired games,
+seed 960000: candidate **50.3 %** (151-149), control v09 on the same maps **38.8 %** (116-183-1) →
++11.5 pp, PASS (threshold +3). Step 2, 1000 vs v09 (seeds 961000/962000/963000): **188-99-13,
+130-60-10, 304-191-5 → 622W/350L/28D = 63.6 %, PASS_1000**, zero errors, 84–85-turn games,
+candidate disrupt 86–92 %. Against v09 this is 3.9 pp below v1 (67.45 %); against neural-v6 it is
+8.3 pp above v1 (v1 42.0 %): the corridor-blocking hits that cost v1 its time budget paid against
+v09 and not against an arena-class opponent. Evidence `docs/evidence/boss-sabotage-v2/`.
+
+**Step 3 (user).** `gradlew test`; `gradlew submit "-PsubmitVersion=current?NOISE=0.1,USE_BOSS_LITE=true"
+-PsubmitOut=build/submit-boss-lite`; strict `procCheck`; 80 paired boss games with a same-session
+v09 control; pass at ≥ control + 5 pp. No arena upload before that.
+
+**Stage 1 implemented on the same code** (`// BOSS_MODEL` block, needs `USE_BOSS_LITE`):
+`USE_BOSS_OPPONENT_MODEL` — the simulated opponent inside `rollout()` disrupts with
+`chooseBossLite`, its held target initialised from the observed opponent hit (instability rise
+since our last real turn minus our own hit) and carried through the simulated turns, simulated
+placements feeding the "placed in the last two turns" term; `BOSS_OPPONENT_REPLIES` (2) — how many
+reply scenarios use it; `USE_BOSS_OWN_MODEL` — our own simulated future disrupts too. Artifact with
+all three on: 95,421 chars, compiles. Strength screen A/B vs lite, neural-v6, v09, boss-v2 started
+(`tools/boss_proxy/run_model_screen.sh`, seed 970000).
+
+## 2026-10-21 — Stage 1 screen: opponent-model-v1 ≥ boss-sabotage-v2 on every same-map row
+
+Same 150 maps for every cell (seed 970000), 300 paired games per cell, CG 486/36 ms, two workers,
+zero errors (`docs/evidence/stage1-opponent-model-v1/screen/`):
+
+| opponent | v2 (lite) | A: opponent model | B: A + own model |
+|---|---|---|---|
+| v2 | — | 54.8 % | **57.8 %** |
+| boss-v2 | 48.3 % | 55.7 % | **62.3 %** |
+| neural-v6 | 40.0 % | **48.7 %** | 45.3 % |
+| v09 | 62.7 % | 56.7 % | **63.0 %** |
+
+A boss-like simulated opponent helps exactly where the real opponent is boss-like (+14 pp against
+boss-v2, +7.8 head-to-head) and hurts against v09 (−6 pp), whose every-turn re-targeting the model
+mis-predicts; making our own simulated disrupts consistent with the real-turn chooser (B) removes
+the loss and keeps the gains. **B = `opponent-model-v1`** is the Stage 1 candidate: v5 step 1 (vs
+the screening opponent boss-v2: 62.3 % against v2's 48.3 and the v09 control's 38.0) PASS, step 2
+(63.0 % vs v09 ≥ 48 %) PASS, step 3 live pending. Cold-JVM compute check on 30×20
+(`compute-check-cold.log`): B's turn maximum 36–38 ms vs v2's 40, simulated turns per real turn
+in the same band. Artifact with both flags 95,421 chars, compiles.
+
+Two lessons recorded on the way: (1) v2's score against neural-v6 moved from 50.3 % (pool 960000)
+to 40.0 % (pool 970000) while its delta over v09 stayed +11.5/+9.3 pp — a candidate is only ever
+compared with a control on the same maps, so the screen scripts now carry their controls; (2) the
+first reading of A/B against neural-v6 ("worse than v2") was that cross-pool mistake, reversed by
+the same-map control (+8.7/+5.3 pp).
+
+Recommendation to the user: live-test B first (80 paired boss games with a same-session v09
+control), v2 as the fallback; no arena upload before the live result.
+

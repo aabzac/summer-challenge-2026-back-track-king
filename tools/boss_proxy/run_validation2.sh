@@ -2,7 +2,7 @@
 set -e
 cd /home/claude/btk
 export JAVA_TOOL_OPTIONS=
-CP=out/classes2:lib/gson-2.13.1.jar
+CP=out/classes3:lib/gson-2.13.1.jar
 OUT=build/analysis/proxy-validation
 GAMES=${GAMES:-200}; SEED=${SEED:-910000}
 PROXY="current?USE_BOSS_SABOTAGE=1"

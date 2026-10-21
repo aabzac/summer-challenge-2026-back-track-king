@@ -114,6 +114,13 @@ public final class BotFactory {
         if (params.USE_BOSS_SABOTAGE && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("Boss sabotage requires the current native rollout policy");
+        if (params.USE_BOSS_LITE && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
+                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY || params.USE_BOSS_SABOTAGE))
+            throw new IllegalArgumentException("Boss lite chooser requires the current native rollout policy without USE_BOSS_SABOTAGE");
+        if ((params.USE_BOSS_OPPONENT_MODEL || params.USE_BOSS_OWN_MODEL) && !params.USE_BOSS_LITE)
+            throw new IllegalArgumentException("Boss opponent/own models require USE_BOSS_LITE");
+        if (params.BOSS_OPPONENT_REPLIES < 0 || params.BOSS_OPPONENT_REPLIES > params.ROLLOUT_REPLIES)
+            throw new IllegalArgumentException("BOSS_OPPONENT_REPLIES must be between 0 and ROLLOUT_REPLIES");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
             throw new IllegalArgumentException("Missed-deadline correction is a current-only experiment");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && (!params.USE_ROLLOUT_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))
@@ -135,7 +142,11 @@ public final class BotFactory {
                 if (field.getName().equals("USE_INCREMENTAL_INK_REFRESH") && !params.USE_INCREMENTAL_INK_REFRESH) continue;
                 if (field.getName().equals("USE_FAST_CHEAPEST_PATH") && !params.USE_FAST_CHEAPEST_PATH) continue;
                 if (field.getName().equals("USE_ROLLOUT_MISSED_DEADLINE") && !params.USE_ROLLOUT_MISSED_DEADLINE) continue;
-                if ((field.getName().equals("USE_BOSS_SABOTAGE") || field.getName().equals("BOSS_HOLD_MARGIN")) && !params.USE_BOSS_SABOTAGE) continue;
+                if (field.getName().equals("USE_BOSS_SABOTAGE") && !params.USE_BOSS_SABOTAGE) continue;
+                if (field.getName().equals("BOSS_HOLD_MARGIN") && !params.USE_BOSS_SABOTAGE && !params.USE_BOSS_LITE) continue;
+                if (field.getName().equals("USE_BOSS_LITE") && !params.USE_BOSS_LITE) continue;
+                if ((field.getName().equals("USE_BOSS_OPPONENT_MODEL") || field.getName().equals("BOSS_OPPONENT_REPLIES")
+                        || field.getName().equals("USE_BOSS_OWN_MODEL")) && !params.USE_BOSS_LITE) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")

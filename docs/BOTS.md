@@ -17,7 +17,24 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-Candidate 2026-10-21: **boss-sabotage-v1 — local 1000-game stage PASS, 67.45 %**.
+Candidate 2026-10-21 (latest): **opponent-model-v1 — v2 + `USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true`, v5 steps 1–2 PASS, live pending.**
+Stage 1 of the 2026-10-20 plan: the simulated opponent inside the rollout disrupts with the same
+two-stage boss chooser (held target observed from the board and carried through the simulated
+turns), and so do our own simulated future disrupts. Same-map screen (300 games/cell, seed 970000):
+**57.8 %** vs boss-sabotage-v2, **62.3 %** vs boss-v2 (v2: 48.3), **45.3 %** vs neural-v6 (v2: 40.0,
+v09: 30.7), **63.0 %** vs v09 (v2: 62.7); the opponent model alone (A) lost 6 pp vs v09, the own
+model removes that. Cold-JVM max 36–38 ms on 30×20; artifact 95,421 chars. Recommended live
+candidate, v2 the fallback. [Details](stage1-opponent-model-v1.md).
+
+Candidate 2026-10-21 (later): **boss-sabotage-v2 — `current?NOISE=0.1,USE_BOSS_LITE=true`, v5 steps 1–2 PASS, live pending.**
+Two-stage boss chooser at the real turn (cheap fitted logit ranks regions in O(cells), top-4 get one
+ink simulation and the full score; no path searches; held target; timer-guarded) — offline 51.1 %
+top-1 vs 51.5 % for the full chooser. Artifact 93,695 chars `a8c739fd…`; cold-JVM max 38–40 ms on
+30×20 (v09 36–40, v1 44–53). Step 1 vs neural-v6: **50.3 %** against the v09 control's 38.8 % on
+the same maps (+11.5 pp, threshold +3). Step 2 vs v09, 300/+200/+500: 64.8 / 67.5 / 61.3 %,
+pooled **622W/350L/28D = 63.6 %**, zero errors. [Details](boss-sabotage-v2.md).
+
+Candidate 2026-10-21: **boss-sabotage-v1 — local 1000-game stage PASS, 67.45 %; arena 2026-10-21 (user upload): rank ~150–200/700, worse than neural-v3 and worse vs the boss → NOT PROMOTED** (DEVLOG 2026-10-21: v09-specific gain, neural-v6 58 % against it; unguarded chooser 16–26 ms cold-JVM on 30×20 maps).
 `current?NOISE=0.1,USE_BOSS_SABOTAGE=true` vs frozen v09 on fresh paired maps (seeds
 940000/941000/942000), CG 486/36 ms, two workers: **205-95 / 140-60 / 329-170-1 = 674W/325L/1D**,
 zero errors, P0 67.0 % / P1 67.8 %, +454 mean score difference, 99 % accepted disruption vs 78 %.
@@ -37,8 +54,11 @@ fitted chooser replacing v09's real-turn DISRUPT). `current?USE_BOSS_SABOTAGE=1`
 screening opponent ("boss-v2"); as a candidate it has only this screen — no fixed 1000-game
 run, strict process check or live games yet. Ordering check vs boss-v1 (200 games each): v07 53.0,
 v08 62.0, v09 74.0, neural-v6 78.5, neural-v1 76.0, all-cell-risk 83.5, root-fill 76.5,
-live-target 72.0, batched 73.5 %. v09 stays selected; nothing uploaded.
-[Protocol and results](boss-proxy-v1.md), [policy proposal](benchmarking-v5.md), [STATUS](STATUS.md).
+live-target 72.0, batched 73.5 %. Ordering check vs boss-v2 (2026-10-21, 200 games each):
+v07 23.5, v08 29.0, v09 38.0, neural-v6 58.0, neural-v1 53.5, all-cell-risk 44.0, root-fill 38.5,
+live-target 35.5, batched 36.5 % — 6/8 live directions reproduced, caveats neural-v1 and
+all-cell-risk ([§6.2](boss-proxy-v1.md#62-ordering)). v09 stays selected; nothing uploaded.
+[Protocol and results](boss-proxy-v1.md), [policy v5](benchmarking-v5.md), [STATUS](STATUS.md).
 
 Local budget experiment 2026-10-18: **v09-ink45-strength-v1, NOT_PASSED**.
 Same incremental-ink candidate at 45 versus 40 ms, with batching ON and

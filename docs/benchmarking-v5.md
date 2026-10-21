@@ -23,8 +23,8 @@ tools and all historical verdicts stay as recorded. Nothing in this document cha
 Prerequisites, unchanged from v4: engine fidelity (`cgValidate`), zero bot errors, exact-artifact
 strict process check, source-size check.
 
-1. **Proxy screen** — 300 paired games / 150 fresh maps, candidate vs `boss-v1`
-   (`docs/boss-proxy-v1.md`), CG 486/36 ms, two workers. Continue only if the candidate's score
+1. **Proxy screen** — 300 paired games / 150 fresh maps, candidate vs the current screening
+   opponent (see "Proxy validity" below; `docs/boss-proxy-v1.md`), CG 486/36 ms, two workers. Continue only if the candidate's score
    is **at least the control's proxy score + 3 pp** (control = selected v09 on the same maps,
    seeds and seats, played in the same run). Draws = half.
 2. **Non-inferiority vs the selected version** — 300 paired games / 150 fresh maps, candidate
@@ -37,10 +37,18 @@ strict process check, source-size check.
    optional extension to 120 games is allowed once, predeclared, and the decision is made on the
    full 120. No other extensions, retries or pooling with historical games.
 4. Promotion = all three. A failure at any step stops the candidate; the evidence is retained.
-5. **Degenerate proxy.** When the candidate is itself the screening opponent (as `boss-sabotage-v1`
-   is in October 2026), or when no proxy is currently valid, steps 1–2 are replaced by the v4
-   pooled 1000-game run against the selected version (blocks 300/+200/+500, futility stop below
-   50 % at 300 or 500, pass at ≥ 55 % over all 1000); step 3 is unchanged.
+5. **Degenerate proxy** (amended 2026-10-21). When the candidate is itself the screening opponent
+   (as `boss-sabotage-v1` was), or when no proxy is currently valid, step 1 is played against
+   **`neural-v6`** (the version with the best live boss sample and the arena-like 100 % disrupt
+   profile) with the same rule — candidate ≥ control + 3 pp on the same maps — and step 2 is the
+   v4 pooled 1000-game run against the selected version (blocks 300/+200/+500, futility stop
+   below 50 % at 300 or 500, pass at ≥ 55 %); step 3 is unchanged. The original clause let
+   `boss-sabotage-v1` reach the arena on a 67 % mirror result that neural-v6 (58 % against it)
+   had already contradicted.
+6. **Cold-JVM timing.** Any new per-turn step that is not bounded by the turn timer is measured
+   in a fresh JVM per game (as CodinGame runs it) on 30×20 maps before step 1; the hot-JIT
+   local bench under-reports such costs by 2–3× (`BossChooserTiming`: 5–10 ms warm vs 16–26 ms
+   cold for the `BossSabotage` chooser). The strict exact-artifact `procCheck` remains the gate.
 
 New heuristic bots (not flags on `current`) get an explicit, predeclared **tuning budget** —
 e.g. up to five iterations of 100 games on development maps — before entering step 1; the
