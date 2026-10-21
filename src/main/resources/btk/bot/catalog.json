@@ -312,6 +312,13 @@
       "engineSnapshot": "experiment-engine-v1.json",
       "recipe": "DISRUPT_DELAY_FACTOR=0.65",
       "historicalEvidence": "49.3% vs v05, 300 games; not promoted. docs/DEVLOG.md, f665fb5."
+    },
+    {
+      "id": "boss-v1",
+      "title": "Boss Imitation",
+      "category": "reference",
+      "status": "local_only",
+      "description": "Imitation of the Silver arena boss fitted on its canonical replays: sticky four-hit sabotage chosen by a conditional logit, own-only construction avoiding regions at instability >= 2, single-cell steals, idle when nothing is profitable. Screening opponent for the boss meta (docs/boss-proxy-v1.md); frozen, never retuned."
     }
   ]
 }

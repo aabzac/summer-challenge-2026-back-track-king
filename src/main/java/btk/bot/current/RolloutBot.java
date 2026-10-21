@@ -170,6 +170,11 @@ public final class RolloutBot implements Bot {
     private static boolean unit(double v) { return Double.isFinite(v) && v >= 0 && v <= 1; }
     public String name() { return "current?" + p.diff(); }
 
+    // BOSS_SABOTAGE_BEGIN
+    private BossSabotage bossSabotage;
+    private int bossTarget = -1;
+    // BOSS_SABOTAGE_END
+
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
         // FAST_CHEAPEST_PATH_BEGIN
@@ -225,6 +230,10 @@ public final class RolloutBot implements Bot {
         }
         // MISSED_DEADLINE_END
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
+        // BOSS_SABOTAGE_BEGIN
+        if (p.USE_BOSS_SABOTAGE) bossSabotage = new BossSabotage(s, p.BOSS_HOLD_MARGIN);
+        bossTarget = -1;
+        // BOSS_SABOTAGE_END
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
         if (p.USE_ROLLOUT_ROUTE_DEPENDENCIES) {
             routeDependencies = new int[2][p.ROLLOUT_WIDTH][s.regionCount];
@@ -290,6 +299,11 @@ public final class RolloutBot implements Bot {
         Arrays.fill(counts, 0);
         // A usable sabotage answer exists before route enumeration and all speculative work.
         int fallbackTarget = chooseTarget(s, me);
+        // BOSS_SABOTAGE_BEGIN
+        if (p.USE_BOSS_SABOTAGE) {
+            bossSabotage.observe(s); bossTarget = bossSabotage.choose(s, me); fallbackTarget = bossTarget;
+        }
+        // BOSS_SABOTAGE_END
         threats[1 - me] = fallbackTarget;
         threats[me] = chooseTarget(s, 1 - me);
         Rules.incomePerTurn(s, income);
@@ -381,6 +395,9 @@ public final class RolloutBot implements Bot {
     }
 
     private List<Action> actions(GameState s) {
+        // BOSS_SABOTAGE_BEGIN
+        if (p.USE_BOSS_SABOTAGE) selectedTarget = bossTarget;
+        // BOSS_SABOTAGE_END
         if (p.USE_ROLLOUT_FILL && !selectedRootFilled) fill(s, realPlayer);
         // MISSED_DEADLINE_BEGIN
         if (p.USE_ROLLOUT_MISSED_DEADLINE) correctMissedDeadline(s);

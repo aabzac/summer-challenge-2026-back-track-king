@@ -1,0 +1,16 @@
+== block 1: 300 games seed 940000
+  A win rate: 68.3%  W-L-D 205-95-0
+  avg score diff (A-B): +458.4   avg turns: 75.3
+  time/move ms  A avg 17.60 max 127 slow 4 | B avg 17.04 max 68 slow 3
+  accepted disrupt A/B: 99.3% / 78.4%; early closures 217/300
+== block 2: 200 games seed 941000
+  A win rate: 70.0%  W-L-D 140-60-0
+  avg score diff (A-B): +571.2   avg turns: 77.6
+  time/move ms  A avg 18.10 max 63 slow 5 | B avg 17.51 max 77 slow 5
+  accepted disrupt A/B: 99.5% / 78.2%; early closures 143/200
+== block 3: 500 games seed 942000
+  A win rate: 65.9%  W-L-D 329-170-1
+  avg score diff (A-B): +405.2   avg turns: 77.0
+  time/move ms  A avg 16.38 max 65 slow 1 | B avg 15.82 max 57 slow 2
+  accepted disrupt A/B: 99.2% / 77.7%; early closures 359/500
+BLOCKS DONE

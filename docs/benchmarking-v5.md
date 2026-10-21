@@ -1,0 +1,64 @@
+# Selection policy v5 — proxy screen, non-inferiority, larger live sample (adopted 2026-10-21)
+
+Status: **adopted 2026-10-21** (user decision), rule 3 of `AGENTS.md` updated. The v4 policy, its
+tools and all historical verdicts stay as recorded. Nothing in this document changes a strategy.
+
+## Why v4 stopped working
+
+1. The v4 local gate is a self-play mirror (candidate vs v09). Mirror games last ~90 turns with an
+   accepted disruption on 64–67 % of turns; boss/arena games last 47–57 turns with 99 % disruption
+   and the boss inks a region in four consecutive hits. Every mechanism motivated by arena data
+   (live-target, track-value, always-disrupt, defense-priority, all-cell-risk) failed the mirror
+   for a structural reason — the mirror never produces the situation the mechanism targets — and
+   v4 forbids rescuing a local failure with boss results. Conversely, mirror PASS_1000 results
+   (neural-v2/v3/v5/v6/v7, batched refresh 56.65 %) did not transfer to the boss.
+2. The 40-game boss stage has a standard error of ±7.5 pp. The unchanged v09 control scored
+   17, 11, 15 and 11 of 40 over four weeks. Decisions were made inside the noise.
+3. "One run, no tuning" is correct for confirming a fixed candidate; applied to a new bot's zeroth
+   iteration (indrill-forum 4.7 %, pduhard-beam 0.7 %, both leaving paint unspent) it measures
+   nothing about the idea.
+
+## v5 rule
+
+Prerequisites, unchanged from v4: engine fidelity (`cgValidate`), zero bot errors, exact-artifact
+strict process check, source-size check.
+
+1. **Proxy screen** — 300 paired games / 150 fresh maps, candidate vs `boss-v1`
+   (`docs/boss-proxy-v1.md`), CG 486/36 ms, two workers. Continue only if the candidate's score
+   is **at least the control's proxy score + 3 pp** (control = selected v09 on the same maps,
+   seeds and seats, played in the same run). Draws = half.
+2. **Non-inferiority vs the selected version** — 300 paired games / 150 fresh maps, candidate
+   vs v09. Continue only if the score is **≥ 48 %**. (The mirror is a regression guard, not the
+   objective.)
+3. **Live confirmation** — **80 paired games** against the live boss: 40 new candidate games on
+   the cached control's 40 maps/seeds/seats **and** 40 more on a second fixed pool, with a fresh
+   40-game v09 control on that second pool played in the same session (boss metadata may change).
+   Pass when the candidate's pooled score over 80 games is **≥ control + 5 pp**; otherwise an
+   optional extension to 120 games is allowed once, predeclared, and the decision is made on the
+   full 120. No other extensions, retries or pooling with historical games.
+4. Promotion = all three. A failure at any step stops the candidate; the evidence is retained.
+5. **Degenerate proxy.** When the candidate is itself the screening opponent (as `boss-sabotage-v1`
+   is in October 2026), or when no proxy is currently valid, steps 1–2 are replaced by the v4
+   pooled 1000-game run against the selected version (blocks 300/+200/+500, futility stop below
+   50 % at 300 or 500, pass at ≥ 55 % over all 1000); step 3 is unchanged.
+
+New heuristic bots (not flags on `current`) get an explicit, predeclared **tuning budget** —
+e.g. up to five iterations of 100 games on development maps — before entering step 1; the
+tuning games and the final configuration are recorded, and step 1 then runs on fresh maps.
+
+## Proxy validity is a precondition
+
+The proxy screen is only meaningful while the screening opponent reproduces the boss meta
+against the selected version on fresh maps: game length, accepted-disruption rate, hit-class mix
+at commitment, closure share, and a win rate within 15 pp of the live boss's. The current
+screening opponent is `current?USE_BOSS_SABOTAGE=1` (`docs/boss-proxy-v1.md` §6: disrupt 99 %,
+hold 71 %, commits 50/43/7, 77-turn games, 69 % closures, 54–62 % vs v09 against the boss's
+67.5 %). `boss-v1` is a behavioural reference only. Re-run the fingerprint whenever the proxy
+or the live boss changes; if validation fails, step 1 is suspended and the degenerate-proxy
+clause applies.
+
+## Reporting
+
+Each candidate: one summary with the three stage results, the control's proxy score, map pools,
+seeds, artifact hashes, and the proxy validation id in force. BOTS.md gets one row; DEVLOG one
+entry; STATUS.md the current verdict.

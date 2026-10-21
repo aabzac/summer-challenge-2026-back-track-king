@@ -1,0 +1,5417 @@
+{
+  "a": "current?USE_BOSS_SABOTAGE\u003d1",
+  "b": "v09",
+  "botA": {
+    "spec": "current?USE_BOSS_SABOTAGE\u003d1",
+    "displayName": "current - Working Copy [USE_BOSS_SABOTAGE\u003d1]",
+    "category": "working",
+    "status": "mutable",
+    "explicitOverrides": true
+  },
+  "botB": {
+    "spec": "v09",
+    "displayName": "v09 - Never Idle",
+    "category": "version",
+    "status": "selected",
+    "explicitOverrides": false
+  },
+  "paramsA": {
+    "ALWAYS_DISRUPT": "true",
+    "BOSS_HOLD_MARGIN": "1.0",
+    "BUILD_BEAM_WIDTH": "4",
+    "CHOOSE_BUILD_DIRECTION": "false",
+    "COLLISION_COST": "2.0",
+    "DEBUG": "false",
+    "DEFENSE_MAX_PAINT": "6",
+    "DEFENSE_MAX_PAIRS": "4",
+    "DEFENSE_MAX_REGIONS": "3",
+    "DEFENSE_MIN_INSTABILITY": "1",
+    "DISRUPT_DELAY_FACTOR": "1.0",
+    "DISRUPT_MIN": "0.01",
+    "DISRUPT_RESERVE_MS": "6",
+    "EARLY_DISRUPT_FALLBACK": "false",
+    "FORECAST_DECAY": "0.95",
+    "FORECAST_FLOOR": "0.1",
+    "GUARD_BUILD_INCOME": "false",
+    "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+    "HEURISTIC_AVOID_INSTABILITY": "2",
+    "HEURISTIC_DETOUR_CAP": "12",
+    "HEURISTIC_DETOUR_PAIRS": "4",
+    "HEURISTIC_DETOUR_REGIONS": "4",
+    "HEURISTIC_DETOUR_WEIGHT": "1.0",
+    "HEURISTIC_EMERGENCY_STOP": "true",
+    "HEURISTIC_MAX_ROUTES": "64",
+    "HEURISTIC_OWN_PENALTY": "2.0",
+    "HEURISTIC_ROUTE_STICKINESS": "1.25",
+    "HEURISTIC_TARGET_STICKINESS": "1.3",
+    "HORIZON": "100",
+    "INDRILL_INK_PENALTY": "2",
+    "INTERRUPT_VULN_EVAL": "false",
+    "ISOLATED_ROUTE_WARMUP": "true",
+    "MESSAGE": "false",
+    "NOISE": "0.1",
+    "OPENING_CITY_QUOTA": "1",
+    "OPENING_COLLISION_FACTOR": "0.25",
+    "OPENING_TURNS": "3",
+    "OPP_REPLY_WIDTH": "2",
+    "OWN_BUILD_DEPTH": "3",
+    "OWN_BUILD_WIDTH": "3",
+    "PRESSURE_BUILD_RESERVE_MS": "12",
+    "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+    "PRESSURE_HORIZON": "8",
+    "PRESSURE_STICKINESS": "0.25",
+    "PRESSURE_TRACK_WEIGHT": "0.8",
+    "PROFILE_SEARCH": "false",
+    "ROLLOUT_ALWAYS_DISRUPT": "false",
+    "ROLLOUT_DEPTH": "8",
+    "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+    "ROLLOUT_LIVE_TURNS": "2",
+    "ROLLOUT_LIVE_WEIGHT": "12.0",
+    "ROLLOUT_MAX_ROUTES": "64",
+    "ROLLOUT_NETWORK_MAX_CELLS": "24",
+    "ROLLOUT_NETWORK_RESERVE_MS": "12",
+    "ROLLOUT_NETWORK_ROOTS": "2",
+    "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+    "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+    "ROLLOUT_QUICK_MAX_PAINT": "6",
+    "ROLLOUT_REPLAN_TURN": "4",
+    "ROLLOUT_REPLIES": "2",
+    "ROLLOUT_RESERVE_MS": "20",
+    "ROLLOUT_RHEA_ELITES": "2",
+    "ROLLOUT_RHEA_MUTATIONS": "12",
+    "ROLLOUT_ROBUSTNESS": "0.5",
+    "ROLLOUT_ROUTE_HORIZON": "16.0",
+    "ROLLOUT_SPREAD_ROOTS": "2",
+    "ROLLOUT_TAIL": "3.0",
+    "ROLLOUT_TARGETS": "4",
+    "ROLLOUT_TARGET_HORIZON": "8.0",
+    "ROLLOUT_THREAT_WEIGHT": "0.5",
+    "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+    "ROLLOUT_TRACK_WEIGHT": "0.4",
+    "ROLLOUT_WIDTH": "6",
+    "ROLLOUT_WIN_VALUE": "1000000.0",
+    "SEED": "1",
+    "SKIP_UNFINISHABLE": "true",
+    "UNSTABLE_COST": "1.0",
+    "USE_BACKUP": "true",
+    "USE_BOSS_SABOTAGE": "true",
+    "USE_CLOSE": "true",
+    "USE_DEFENSE_PRIORITY": "false",
+    "USE_DISRUPT": "true",
+    "USE_HEURISTIC_DETOUR": "false",
+    "USE_HEURISTIC_POLICY": "false",
+    "USE_IDLE_EXTEND": "true",
+    "USE_JOINT_ACTION": "false",
+    "USE_OPP_MODEL": "false",
+    "USE_OWN_BUILD_PLAN": "false",
+    "USE_PROTECTED_OPENING": "true",
+    "USE_REPLY_RERANK": "false",
+    "USE_ROLLOUT_ALL_CELL_RISK": "false",
+    "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+    "USE_ROLLOUT_FILL": "true",
+    "USE_ROLLOUT_LIVE_TARGET": "false",
+    "USE_ROLLOUT_NETWORK": "false",
+    "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+    "USE_ROLLOUT_NETWORK_CHORDS": "false",
+    "USE_ROLLOUT_POLICY": "true",
+    "USE_ROLLOUT_QUICK_EARLY": "false",
+    "USE_ROLLOUT_QUICK_ROUTE": "true",
+    "USE_ROLLOUT_QUICK_SAFE": "false",
+    "USE_ROLLOUT_QUICK_VALUE": "false",
+    "USE_ROLLOUT_REPLAN": "false",
+    "USE_ROLLOUT_RHEA": "false",
+    "USE_ROLLOUT_ROOT_FILL": "false",
+    "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+    "USE_ROLLOUT_SECOND_TARGET": "false",
+    "USE_ROLLOUT_SPREAD": "false",
+    "USE_ROLLOUT_TRACK_VALUE": "false",
+    "USE_STEAL": "true",
+    "WARMUP_SLICE_MS": "36",
+    "W_COST": "0.0",
+    "W_FUTURE_OWN": "0.4",
+    "W_FUTURE_TRACK": "0.3",
+    "W_OPP": "1.0",
+    "W_OPP_INCOME": "1.0",
+    "W_OPP_ROUTE": "0.3",
+    "W_OWN": "1.0",
+    "W_RISK": "0.6",
+    "W_SELF_LOSS": "1.2",
+    "W_THEIR_LOSS": "1.0",
+    "W_VULN": "1.0"
+  },
+  "paramsB": {
+    "ALWAYS_DISRUPT": "true",
+    "BUILD_BEAM_WIDTH": "4",
+    "CHOOSE_BUILD_DIRECTION": "false",
+    "COLLISION_COST": "2.0",
+    "DEBUG": "false",
+    "DEFENSE_MAX_PAINT": "6",
+    "DEFENSE_MAX_PAIRS": "4",
+    "DEFENSE_MAX_REGIONS": "3",
+    "DEFENSE_MIN_INSTABILITY": "1",
+    "DISRUPT_DELAY_FACTOR": "1.0",
+    "DISRUPT_MIN": "0.01",
+    "DISRUPT_RESERVE_MS": "6",
+    "EARLY_DISRUPT_FALLBACK": "false",
+    "FORECAST_DECAY": "0.95",
+    "FORECAST_FLOOR": "0.1",
+    "GUARD_BUILD_INCOME": "false",
+    "HEURISTIC_ACTIVE_WEIGHT": "2.0",
+    "HEURISTIC_AVOID_INSTABILITY": "2",
+    "HEURISTIC_DETOUR_CAP": "12",
+    "HEURISTIC_DETOUR_PAIRS": "4",
+    "HEURISTIC_DETOUR_REGIONS": "4",
+    "HEURISTIC_DETOUR_WEIGHT": "1.0",
+    "HEURISTIC_EMERGENCY_STOP": "true",
+    "HEURISTIC_MAX_ROUTES": "64",
+    "HEURISTIC_OWN_PENALTY": "2.0",
+    "HEURISTIC_ROUTE_STICKINESS": "1.25",
+    "HEURISTIC_TARGET_STICKINESS": "1.3",
+    "HORIZON": "100",
+    "INDRILL_INK_PENALTY": "2",
+    "INTERRUPT_VULN_EVAL": "false",
+    "ISOLATED_ROUTE_WARMUP": "true",
+    "MESSAGE": "false",
+    "NOISE": "0.1",
+    "OPENING_CITY_QUOTA": "1",
+    "OPENING_COLLISION_FACTOR": "0.25",
+    "OPENING_TURNS": "3",
+    "OPP_REPLY_WIDTH": "2",
+    "OWN_BUILD_DEPTH": "3",
+    "OWN_BUILD_WIDTH": "3",
+    "PRESSURE_BUILD_RESERVE_MS": "12",
+    "PRESSURE_CORRIDOR_WEIGHT": "2.0",
+    "PRESSURE_HORIZON": "8",
+    "PRESSURE_STICKINESS": "0.25",
+    "PRESSURE_TRACK_WEIGHT": "0.8",
+    "PROFILE_SEARCH": "false",
+    "ROLLOUT_ALWAYS_DISRUPT": "false",
+    "ROLLOUT_DEPTH": "8",
+    "ROLLOUT_FILL_MAX_INSTABILITY": "0",
+    "ROLLOUT_LIVE_TURNS": "2",
+    "ROLLOUT_LIVE_WEIGHT": "12.0",
+    "ROLLOUT_MAX_ROUTES": "64",
+    "ROLLOUT_NETWORK_MAX_CELLS": "24",
+    "ROLLOUT_NETWORK_RESERVE_MS": "12",
+    "ROLLOUT_NETWORK_ROOTS": "2",
+    "ROLLOUT_OPP_TRACK_VALUE": "5.0",
+    "ROLLOUT_OWN_TRACK_VALUE": "6.0",
+    "ROLLOUT_QUICK_MAX_PAINT": "6",
+    "ROLLOUT_REPLAN_TURN": "4",
+    "ROLLOUT_REPLIES": "2",
+    "ROLLOUT_RESERVE_MS": "20",
+    "ROLLOUT_RHEA_ELITES": "2",
+    "ROLLOUT_RHEA_MUTATIONS": "12",
+    "ROLLOUT_ROBUSTNESS": "0.5",
+    "ROLLOUT_ROUTE_HORIZON": "16.0",
+    "ROLLOUT_SPREAD_ROOTS": "2",
+    "ROLLOUT_TAIL": "3.0",
+    "ROLLOUT_TARGETS": "4",
+    "ROLLOUT_TARGET_HORIZON": "8.0",
+    "ROLLOUT_THREAT_WEIGHT": "0.5",
+    "ROLLOUT_TRACK_VALUE_SELF_ONLY": "false",
+    "ROLLOUT_TRACK_WEIGHT": "0.4",
+    "ROLLOUT_WIDTH": "6",
+    "ROLLOUT_WIN_VALUE": "1000000.0",
+    "SEED": "1",
+    "SKIP_UNFINISHABLE": "true",
+    "UNSTABLE_COST": "1.0",
+    "USE_BACKUP": "true",
+    "USE_CLOSE": "true",
+    "USE_DEFENSE_PRIORITY": "false",
+    "USE_DISRUPT": "true",
+    "USE_HEURISTIC_DETOUR": "false",
+    "USE_HEURISTIC_POLICY": "false",
+    "USE_IDLE_EXTEND": "true",
+    "USE_JOINT_ACTION": "false",
+    "USE_OPP_MODEL": "false",
+    "USE_OWN_BUILD_PLAN": "false",
+    "USE_PROTECTED_OPENING": "true",
+    "USE_REPLY_RERANK": "false",
+    "USE_ROLLOUT_DIVERSE_REPLIES": "false",
+    "USE_ROLLOUT_FILL": "true",
+    "USE_ROLLOUT_LIVE_TARGET": "false",
+    "USE_ROLLOUT_NETWORK": "false",
+    "USE_ROLLOUT_NETWORK_AFTER_BASE": "true",
+    "USE_ROLLOUT_NETWORK_CHORDS": "false",
+    "USE_ROLLOUT_POLICY": "true",
+    "USE_ROLLOUT_QUICK_EARLY": "false",
+    "USE_ROLLOUT_QUICK_ROUTE": "true",
+    "USE_ROLLOUT_QUICK_SAFE": "false",
+    "USE_ROLLOUT_QUICK_VALUE": "false",
+    "USE_ROLLOUT_REPLAN": "false",
+    "USE_ROLLOUT_RHEA": "false",
+    "USE_ROLLOUT_ROUTE_DEPENDENCIES": "false",
+    "USE_ROLLOUT_SECOND_TARGET": "false",
+    "USE_ROLLOUT_SPREAD": "false",
+    "USE_ROLLOUT_TRACK_VALUE": "false",
+    "USE_STEAL": "true",
+    "WARMUP_SLICE_MS": "36",
+    "W_COST": "0.0",
+    "W_FUTURE_OWN": "0.4",
+    "W_FUTURE_TRACK": "0.3",
+    "W_OPP": "1.0",
+    "W_OPP_INCOME": "1.0",
+    "W_OPP_ROUTE": "0.3",
+    "W_OWN": "1.0",
+    "W_RISK": "0.6",
+    "W_SELF_LOSS": "1.2",
+    "W_THEIR_LOSS": "1.0",
+    "W_VULN": "1.0"
+  },
+  "startedAt": "2026-10-20T20:16:22.365507004Z",
+  "javaVersion": "21.0.12.1",
+  "baseSeed": 920000,
+  "elapsedMs": 162623,
+  "threads": 2,
+  "mapsInput": "",
+  "poolId": "custom",
+  "poolPurpose": "development",
+  "poolSha256": "",
+  "excludedReports": {},
+  "behavior": {
+    "games": 100,
+    "winsA": 58,
+    "winsB": 42,
+    "draws": 0,
+    "errorsA": 0,
+    "errorsB": 0,
+    "turns": 7815,
+    "closedEarly": 70,
+    "sumDiff": 17058,
+    "placementTurns": [
+      6581,
+      6643
+    ],
+    "disruptTurns": [
+      7732,
+      6097
+    ],
+    "placedCells": [
+      15455,
+      15562
+    ],
+    "paintSpent": [
+      19441,
+      19583
+    ],
+    "gamesPerMap": {
+      "e22baa176c4c2bdf6a8225e66829e3b19cd37622745fa30d0fff37c303a96e6a": 2,
+      "5037e8db1f843d2a2ddb480b7660e67027cfbba48f129c69d4995422e61eb665": 2,
+      "d368eee2e886178c420eced80dbe8383ac8a867c6e6068f07d40ceb745e6605d": 2,
+      "c76b6fbb0f6bc62ec0e56d299de90d440971bc57eb67a600d96313bea2714e4c": 2,
+      "b4695f1922ae407ef3db0583524a291e3e6b87e41e437fe60edd029fba3bc4bf": 2,
+      "ee1d2f6f95b79411e24fd0884b5dada42ee3c85415af8e50082abcb6997d8157": 2,
+      "3cb113aff9e99650b82c3f34b643ddeedd7982c96e09dee78269c4d831a10b1b": 2,
+      "fcec338400fc6a3bb38dff16d435848589e670cfbc6dc81fd437259dd563812f": 2,
+      "72b647856c5ca2bfd639f92c795982fa98b144cf0d6caad8f4d2c133f92f6038": 2,
+      "cb143c36a4bae20a69182972844094e223e2756026edf5ed7fdefaad14a21ef3": 2,
+      "ed47b1f8f731ddd7f2c872db7b58411fc209535dc0a122ba896fb28dff3f655a": 2,
+      "3562fcdf120c1cb794a638be8e5a20ba31ee379bf5f52a52eee22606c1856719": 2,
+      "192613a299377e359b89a9a01ae4f432b5400ae61f844f1edddb8d08eaf4f9ba": 2,
+      "55fd24cbccf07bcc8c271c655f7b66aa779d889c40b6b36ee35720c010ec3a8f": 2,
+      "ea876d2a804475b2ac32cd9032bcbf106a79bbfbf173ac79b6f3b2b2a6742e2b": 2,
+      "f8f6987e352dc562ee35679eacfed6dd3bc67636710ebcc3b7c006dc350b0994": 2,
+      "dbd82bba67fbc8abe6860d5d8b23904475ccff6234f36f051b21d3e60e7a35e5": 2,
+      "e9075b04e7a01375351fec1d37bd54ff10d693aca31486e996a8cef2ac43006f": 2,
+      "a68591c46156bf9f29d9d5ea88bdc16e832024dc6faddbb2c40dbc6b8ca5ede7": 2,
+      "fa7bda6d2f482592e468326f869eaa9ab0cf291b99669f2f87ca96a3c45809e1": 2,
+      "fff2c7e8d5ff9121d98d4ac3007b535e0adb4563268a05187b5d4a5d040aeb83": 2,
+      "1b4d1f93b048813fb33a35a695bad9b71cbd5c00b1f7354d99f61e772c338d01": 2,
+      "881697643c3fe00b3db8a9b21e22301b51ffbce88aaf5fbdc4f05467d5b44327": 2,
+      "04e72f934abe8ce69310458198d7d45942a6cfefe061a6e9cda9be2428e7a26d": 2,
+      "9a854594da29e486ccd8259b8b5bf6d33222f1b9b04be91485fbda61bc94585a": 2,
+      "23f08a9e4406806ce10f1d46102cbedbf9f3acc9a19719d0a83b74a816932f98": 2,
+      "30751269c6b8aeda03aa05188a58a75de7e5cfd94afc41a4edb911a8029f54bf": 2,
+      "527d1daa1e9429afda75ac26104bc9f102b199886d92fef07e60523baa780f49": 2,
+      "53b801465ecafe728b52afc6b34b428918123376d35addb825ffcd6d2672d8b5": 2,
+      "3839c1f2b3208b1f438f57923f0ec1236d55d3cfaac62964fc47f2ef472a25d8": 2,
+      "dcc04d101fe0ca5bc61d78da124bcc3410e5b98200f1f67c5cf1abddf434c060": 2,
+      "f71b16e8ed3ee2d33eacda01cf5d1cf4205837c59a2fd7bacf28d6897eec0cd4": 2,
+      "1fda8175f21235799428436a00594093e0f9ee52b16c245506eb99ef898b924e": 2,
+      "550bc00c897568e91d15f36b6fb71bad7e7b8383cced8ee24b61cc69d6548e96": 2,
+      "50fa0e85d30daa503e20379dfa9cd0745cd1666c118b9dc34d300d0201b42762": 2,
+      "5d1af831ea7f22277cf612a5ec7c84f715d6b3968744c9750d0eb375e8823da8": 2,
+      "300a9af4bdf260afceb43c01f2110ad6d73795a90d2208727c8663d44fe2745c": 2,
+      "fb48f49591b2d7a7fc89c56dd823d7b4ba2c41770b6c087126e0d59c9cc0886c": 2,
+      "97941fc6a53d4534510e5479694f98af7ffd7ed91ca2cc9be05bdc0485b73f28": 2,
+      "e422d2073d39061b00790fdaf94f402ce16753c08d50816e6bb7d50ed9cfb16c": 2,
+      "18d3e0fece9f532c358d6e424dafd56d0e44adc94afbc9e774445706a7d9ee48": 2,
+      "0bf13040e7cf9f617cd4ac734ed698346cf8f471d0558f3b6bf1cca88afcbc52": 2,
+      "a43372042ba3cecf4cc0e4261a1f5a0cccc75dedc0d4148b840d9791b27177aa": 2,
+      "861d8e2b2f8b9aff28b937541e3d20a29fdc8b8793c44d9a36cc2a4e8269b0fa": 2,
+      "aa7a10556c8bb164e9f1f4d03a01085c88d8ce16067f577f94672af681efd5d4": 2,
+      "a8fd871f04dce7113069d6da40e6aad47ee511f4e342cf50d9ddcc62a907d12d": 2,
+      "e3d9249b5b348670e7f3a22a91b1c864ecc4a6699170ea82e633b5e947166479": 2,
+      "9311779dda624018111cf074f8e041c059bde34bad9323803b098d3311d8ba3d": 2,
+      "44b64381e768db57aec270374dcedd49a43bce8540a509ee84d63b6863ae1e25": 2,
+      "4962bf239b0694df4a1b1eaecb8ab14195fde24ecd1e791fc591125cd8753ea8": 2
+    },
+    "rateA": 0.58,
+    "avgTurns": 78.15,
+    "avgDiff": 170.58,
+    "confidence95": [
+      0.3879354417360158,
+      0.7720645582639841
+    ],
+    "placementRate": [
+      0.8420985284708893,
+      0.8500319897632758
+    ],
+    "disruptRate": [
+      0.9893793985924504,
+      0.780166346769034
+    ]
+  },
+  "byHeight": {
+    "14": {
+      "games": 12,
+      "winsA": 6,
+      "winsB": 6,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 910,
+      "closedEarly": 7,
+      "sumDiff": -1328,
+      "placementTurns": [
+        623,
+        626
+      ],
+      "disruptTurns": [
+        847,
+        598
+      ],
+      "placedCells": [
+        1411,
+        1385
+      ],
+      "paintSpent": [
+        1834,
+        1838
+      ],
+      "gamesPerMap": {
+        "d368eee2e886178c420eced80dbe8383ac8a867c6e6068f07d40ceb745e6605d": 2,
+        "b4695f1922ae407ef3db0583524a291e3e6b87e41e437fe60edd029fba3bc4bf": 2,
+        "fcec338400fc6a3bb38dff16d435848589e670cfbc6dc81fd437259dd563812f": 2,
+        "23f08a9e4406806ce10f1d46102cbedbf9f3acc9a19719d0a83b74a816932f98": 2,
+        "fb48f49591b2d7a7fc89c56dd823d7b4ba2c41770b6c087126e0d59c9cc0886c": 2,
+        "aa7a10556c8bb164e9f1f4d03a01085c88d8ce16067f577f94672af681efd5d4": 2
+      },
+      "rateA": 0.5,
+      "avgTurns": 75.83333333333333,
+      "avgDiff": -110.66666666666667,
+      "confidence95": [
+        0.0,
+        1.0
+      ],
+      "placementRate": [
+        0.6846153846153846,
+        0.6879120879120879
+      ],
+      "disruptRate": [
+        0.9307692307692308,
+        0.6571428571428571
+      ]
+    },
+    "15": {
+      "games": 12,
+      "winsA": 7,
+      "winsB": 5,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 908,
+      "closedEarly": 8,
+      "sumDiff": 1122,
+      "placementTurns": [
+        681,
+        708
+      ],
+      "disruptTurns": [
+        907,
+        669
+      ],
+      "placedCells": [
+        1615,
+        1697
+      ],
+      "paintSpent": [
+        1987,
+        2072
+      ],
+      "gamesPerMap": {
+        "cb143c36a4bae20a69182972844094e223e2756026edf5ed7fdefaad14a21ef3": 2,
+        "ed47b1f8f731ddd7f2c872db7b58411fc209535dc0a122ba896fb28dff3f655a": 2,
+        "192613a299377e359b89a9a01ae4f432b5400ae61f844f1edddb8d08eaf4f9ba": 2,
+        "50fa0e85d30daa503e20379dfa9cd0745cd1666c118b9dc34d300d0201b42762": 2,
+        "e422d2073d39061b00790fdaf94f402ce16753c08d50816e6bb7d50ed9cfb16c": 2,
+        "e3d9249b5b348670e7f3a22a91b1c864ecc4a6699170ea82e633b5e947166479": 2
+      },
+      "rateA": 0.5833333333333334,
+      "avgTurns": 75.66666666666667,
+      "avgDiff": 93.5,
+      "confidence95": [
+        0.028890711255844304,
+        1.0
+      ],
+      "placementRate": [
+        0.75,
+        0.7797356828193832
+      ],
+      "disruptRate": [
+        0.998898678414097,
+        0.736784140969163
+      ]
+    },
+    "16": {
+      "games": 22,
+      "winsA": 15,
+      "winsB": 7,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 1630,
+      "closedEarly": 20,
+      "sumDiff": 8536,
+      "placementTurns": [
+        1335,
+        1334
+      ],
+      "disruptTurns": [
+        1614,
+        1220
+      ],
+      "placedCells": [
+        3120,
+        3102
+      ],
+      "paintSpent": [
+        3933,
+        3935
+      ],
+      "gamesPerMap": {
+        "5037e8db1f843d2a2ddb480b7660e67027cfbba48f129c69d4995422e61eb665": 2,
+        "3cb113aff9e99650b82c3f34b643ddeedd7982c96e09dee78269c4d831a10b1b": 2,
+        "e9075b04e7a01375351fec1d37bd54ff10d693aca31486e996a8cef2ac43006f": 2,
+        "9a854594da29e486ccd8259b8b5bf6d33222f1b9b04be91485fbda61bc94585a": 2,
+        "30751269c6b8aeda03aa05188a58a75de7e5cfd94afc41a4edb911a8029f54bf": 2,
+        "dcc04d101fe0ca5bc61d78da124bcc3410e5b98200f1f67c5cf1abddf434c060": 2,
+        "550bc00c897568e91d15f36b6fb71bad7e7b8383cced8ee24b61cc69d6548e96": 2,
+        "97941fc6a53d4534510e5479694f98af7ffd7ed91ca2cc9be05bdc0485b73f28": 2,
+        "9311779dda624018111cf074f8e041c059bde34bad9323803b098d3311d8ba3d": 2,
+        "44b64381e768db57aec270374dcedd49a43bce8540a509ee84d63b6863ae1e25": 2,
+        "4962bf239b0694df4a1b1eaecb8ab14195fde24ecd1e791fc591125cd8753ea8": 2
+      },
+      "rateA": 0.6818181818181818,
+      "avgTurns": 74.0909090909091,
+      "avgDiff": 388.0,
+      "confidence95": [
+        0.27233516773412875,
+        1.0
+      ],
+      "placementRate": [
+        0.8190184049079755,
+        0.8184049079754602
+      ],
+      "disruptRate": [
+        0.9901840490797545,
+        0.7484662576687117
+      ]
+    },
+    "17": {
+      "games": 8,
+      "winsA": 7,
+      "winsB": 1,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 606,
+      "closedEarly": 6,
+      "sumDiff": 3617,
+      "placementTurns": [
+        518,
+        516
+      ],
+      "disruptTurns": [
+        606,
+        502
+      ],
+      "placedCells": [
+        1233,
+        1241
+      ],
+      "paintSpent": [
+        1524,
+        1518
+      ],
+      "gamesPerMap": {
+        "ee1d2f6f95b79411e24fd0884b5dada42ee3c85415af8e50082abcb6997d8157": 2,
+        "f8f6987e352dc562ee35679eacfed6dd3bc67636710ebcc3b7c006dc350b0994": 2,
+        "527d1daa1e9429afda75ac26104bc9f102b199886d92fef07e60523baa780f49": 2,
+        "53b801465ecafe728b52afc6b34b428918123376d35addb825ffcd6d2672d8b5": 2
+      },
+      "rateA": 0.875,
+      "avgTurns": 75.75,
+      "avgDiff": 452.125,
+      "confidence95": [
+        0.19594924212969023,
+        1.0
+      ],
+      "placementRate": [
+        0.8547854785478548,
+        0.8514851485148515
+      ],
+      "disruptRate": [
+        1.0,
+        0.8283828382838284
+      ]
+    },
+    "18": {
+      "games": 14,
+      "winsA": 8,
+      "winsB": 6,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 1076,
+      "closedEarly": 10,
+      "sumDiff": 5140,
+      "placementTurns": [
+        918,
+        942
+      ],
+      "disruptTurns": [
+        1073,
+        864
+      ],
+      "placedCells": [
+        2268,
+        2284
+      ],
+      "paintSpent": [
+        2727,
+        2788
+      ],
+      "gamesPerMap": {
+        "55fd24cbccf07bcc8c271c655f7b66aa779d889c40b6b36ee35720c010ec3a8f": 2,
+        "fa7bda6d2f482592e468326f869eaa9ab0cf291b99669f2f87ca96a3c45809e1": 2,
+        "1fda8175f21235799428436a00594093e0f9ee52b16c245506eb99ef898b924e": 2,
+        "5d1af831ea7f22277cf612a5ec7c84f715d6b3968744c9750d0eb375e8823da8": 2,
+        "300a9af4bdf260afceb43c01f2110ad6d73795a90d2208727c8663d44fe2745c": 2,
+        "861d8e2b2f8b9aff28b937541e3d20a29fdc8b8793c44d9a36cc2a4e8269b0fa": 2,
+        "a8fd871f04dce7113069d6da40e6aad47ee511f4e342cf50d9ddcc62a907d12d": 2
+      },
+      "rateA": 0.5714285714285714,
+      "avgTurns": 76.85714285714286,
+      "avgDiff": 367.14285714285717,
+      "confidence95": [
+        0.0581144477386355,
+        1.0
+      ],
+      "placementRate": [
+        0.8531598513011153,
+        0.8754646840148699
+      ],
+      "disruptRate": [
+        0.9972118959107806,
+        0.8029739776951673
+      ]
+    },
+    "19": {
+      "games": 16,
+      "winsA": 7,
+      "winsB": 9,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 1354,
+      "closedEarly": 10,
+      "sumDiff": -2830,
+      "placementTurns": [
+        1258,
+        1271
+      ],
+      "disruptTurns": [
+        1354,
+        1137
+      ],
+      "placedCells": [
+        2901,
+        2920
+      ],
+      "paintSpent": [
+        3727,
+        3742
+      ],
+      "gamesPerMap": {
+        "e22baa176c4c2bdf6a8225e66829e3b19cd37622745fa30d0fff37c303a96e6a": 2,
+        "c76b6fbb0f6bc62ec0e56d299de90d440971bc57eb67a600d96313bea2714e4c": 2,
+        "ea876d2a804475b2ac32cd9032bcbf106a79bbfbf173ac79b6f3b2b2a6742e2b": 2,
+        "dbd82bba67fbc8abe6860d5d8b23904475ccff6234f36f051b21d3e60e7a35e5": 2,
+        "fff2c7e8d5ff9121d98d4ac3007b535e0adb4563268a05187b5d4a5d040aeb83": 2,
+        "881697643c3fe00b3db8a9b21e22301b51ffbce88aaf5fbdc4f05467d5b44327": 2,
+        "3839c1f2b3208b1f438f57923f0ec1236d55d3cfaac62964fc47f2ef472a25d8": 2,
+        "0bf13040e7cf9f617cd4ac734ed698346cf8f471d0558f3b6bf1cca88afcbc52": 2
+      },
+      "rateA": 0.4375,
+      "avgTurns": 84.625,
+      "avgDiff": -176.875,
+      "confidence95": [
+        0.0,
+        0.9176613956599604
+      ],
+      "placementRate": [
+        0.9290989660265879,
+        0.9387001477104875
+      ],
+      "disruptRate": [
+        1.0,
+        0.8397341211225997
+      ]
+    },
+    "20": {
+      "games": 16,
+      "winsA": 8,
+      "winsB": 8,
+      "draws": 0,
+      "errorsA": 0,
+      "errorsB": 0,
+      "turns": 1331,
+      "closedEarly": 9,
+      "sumDiff": 2801,
+      "placementTurns": [
+        1248,
+        1246
+      ],
+      "disruptTurns": [
+        1331,
+        1107
+      ],
+      "placedCells": [
+        2907,
+        2933
+      ],
+      "paintSpent": [
+        3709,
+        3690
+      ],
+      "gamesPerMap": {
+        "72b647856c5ca2bfd639f92c795982fa98b144cf0d6caad8f4d2c133f92f6038": 2,
+        "3562fcdf120c1cb794a638be8e5a20ba31ee379bf5f52a52eee22606c1856719": 2,
+        "a68591c46156bf9f29d9d5ea88bdc16e832024dc6faddbb2c40dbc6b8ca5ede7": 2,
+        "1b4d1f93b048813fb33a35a695bad9b71cbd5c00b1f7354d99f61e772c338d01": 2,
+        "04e72f934abe8ce69310458198d7d45942a6cfefe061a6e9cda9be2428e7a26d": 2,
+        "f71b16e8ed3ee2d33eacda01cf5d1cf4205837c59a2fd7bacf28d6897eec0cd4": 2,
+        "18d3e0fece9f532c358d6e424dafd56d0e44adc94afbc9e774445706a7d9ee48": 2,
+        "a43372042ba3cecf4cc0e4261a1f5a0cccc75dedc0d4148b840d9791b27177aa": 2
+      },
+      "rateA": 0.5,
+      "avgTurns": 83.1875,
+      "avgDiff": 175.0625,
+      "confidence95": [
+        0.019838604340039645,
+        0.9801613956599604
+      ],
+      "placementRate": [
+        0.9376408715251691,
+        0.9361382419233659
+      ],
+      "disruptRate": [
+        1.0,
+        0.8317054845980466
+      ]
+    }
+  },
+  "timingProfile": "CG",
+  "firstSearchBudgetMs": 486,
+  "turnSearchBudgetMs": 36,
+  "firstSearchBudgetMsA": 486,
+  "firstSearchBudgetMsB": 486,
+  "turnSearchBudgetMsA": 36,
+  "turnSearchBudgetMsB": 36,
+  "games": 100,
+  "winsA": 58,
+  "winsB": 42,
+  "draws": 0,
+  "errorsA": 0,
+  "errorsB": 0,
+  "winsAasP0": 31,
+  "gamesAasP0": 50,
+  "winsAasP1": 27,
+  "gamesAasP1": 50,
+  "sumDiff": 17058,
+  "maxMsA": 92,
+  "maxMsB": 71,
+  "sumMsA": 158979,
+  "sumMsB": 154628,
+  "slowA": 2,
+  "slowB": 1,
+  "turns": 7815,
+  "notes": [],
+  "pairs": [
+    {
+      "index": 0,
+      "seed": 920000,
+      "map": "gen:920000",
+      "mapHash": "e22baa176c4c2bdf6a8225e66829e3b19cd37622745fa30d0fff37c303a96e6a",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 38,
+      "aAsP0": {
+        "score": [
+          1725,
+          3591
+        ],
+        "winner": 1,
+        "turns": 71,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2313,
+          2301
+        ],
+        "maxMs": [
+          92,
+          44
+        ],
+        "slowMoves": [
+          1,
+          0
+        ],
+        "placementTurns": [
+          59,
+          71
+        ],
+        "disruptTurns": [
+          71,
+          58
+        ],
+        "placedCells": [
+          118,
+          155
+        ],
+        "paintSpent": [
+          171,
+          213
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          4514,
+          2547
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2265,
+          2294
+        ],
+        "maxMs": [
+          40,
+          43
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          96,
+          92
+        ],
+        "disruptTurns": [
+          86,
+          100
+        ],
+        "placedCells": [
+          188,
+          194
+        ],
+        "paintSpent": [
+          271,
+          275
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 1,
+      "seed": 920001,
+      "map": "gen:920001",
+      "mapHash": "5037e8db1f843d2a2ddb480b7660e67027cfbba48f129c69d4995422e61eb665",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 16,
+      "aAsP0": {
+        "score": [
+          2138,
+          1409
+        ],
+        "winner": 0,
+        "turns": 43,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1425,
+          1372
+        ],
+        "maxMs": [
+          65,
+          40
+        ],
+        "slowMoves": [
+          1,
+          0
+        ],
+        "placementTurns": [
+          43,
+          43
+        ],
+        "disruptTurns": [
+          43,
+          33
+        ],
+        "placedCells": [
+          107,
+          114
+        ],
+        "paintSpent": [
+          128,
+          129
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1399,
+          1635
+        ],
+        "winner": 1,
+        "turns": 45,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1267,
+          1316
+        ],
+        "maxMs": [
+          44,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          43,
+          44
+        ],
+        "disruptTurns": [
+          32,
+          45
+        ],
+        "placedCells": [
+          106,
+          103
+        ],
+        "paintSpent": [
+          126,
+          131
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 2,
+      "seed": 920002,
+      "map": "gen:920002",
+      "mapHash": "d368eee2e886178c420eced80dbe8383ac8a867c6e6068f07d40ceb745e6605d",
+      "width": 21,
+      "height": 14,
+      "townCount": 5,
+      "pairCount": 9,
+      "aAsP0": {
+        "score": [
+          986,
+          955
+        ],
+        "winner": 0,
+        "turns": 72,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1103,
+          935
+        ],
+        "maxMs": [
+          40,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          57,
+          58
+        ],
+        "disruptTurns": [
+          72,
+          32
+        ],
+        "placedCells": [
+          130,
+          120
+        ],
+        "paintSpent": [
+          166,
+          170
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          994,
+          1213
+        ],
+        "winner": 1,
+        "turns": 43,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          815,
+          791
+        ],
+        "maxMs": [
+          39,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          43,
+          43
+        ],
+        "disruptTurns": [
+          38,
+          43
+        ],
+        "placedCells": [
+          102,
+          100
+        ],
+        "paintSpent": [
+          129,
+          129
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 3,
+      "seed": 920003,
+      "map": "gen:920003",
+      "mapHash": "c76b6fbb0f6bc62ec0e56d299de90d440971bc57eb67a600d96313bea2714e4c",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 40,
+      "aAsP0": {
+        "score": [
+          5802,
+          4144
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2187,
+          1985
+        ],
+        "maxMs": [
+          40,
+          43
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          92,
+          96
+        ],
+        "disruptTurns": [
+          100,
+          72
+        ],
+        "placedCells": [
+          181,
+          209
+        ],
+        "paintSpent": [
+          269,
+          284
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          4247,
+          3434
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2456,
+          2418
+        ],
+        "maxMs": [
+          39,
+          41
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          89,
+          90
+        ],
+        "disruptTurns": [
+          85,
+          100
+        ],
+        "placedCells": [
+          182,
+          198
+        ],
+        "paintSpent": [
+          261,
+          269
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 4,
+      "seed": 920004,
+      "map": "gen:920004",
+      "mapHash": "b4695f1922ae407ef3db0583524a291e3e6b87e41e437fe60edd029fba3bc4bf",
+      "width": 21,
+      "height": 14,
+      "townCount": 5,
+      "pairCount": 9,
+      "aAsP0": {
+        "score": [
+          1303,
+          1419
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1025,
+          1018
+        ],
+        "maxMs": [
+          39,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          51,
+          57
+        ],
+        "disruptTurns": [
+          99,
+          49
+        ],
+        "placedCells": [
+          107,
+          122
+        ],
+        "paintSpent": [
+          151,
+          168
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          1507,
+          1536
+        ],
+        "winner": 1,
+        "turns": 63,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1091,
+          1043
+        ],
+        "maxMs": [
+          71,
+          40
+        ],
+        "slowMoves": [
+          1,
+          0
+        ],
+        "placementTurns": [
+          55,
+          53
+        ],
+        "disruptTurns": [
+          57,
+          63
+        ],
+        "placedCells": [
+          115,
+          116
+        ],
+        "paintSpent": [
+          162,
+          159
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 5,
+      "seed": 920005,
+      "map": "gen:920005",
+      "mapHash": "ee1d2f6f95b79411e24fd0884b5dada42ee3c85415af8e50082abcb6997d8157",
+      "width": 26,
+      "height": 17,
+      "townCount": 8,
+      "pairCount": 18,
+      "aAsP0": {
+        "score": [
+          998,
+          856
+        ],
+        "winner": 0,
+        "turns": 48,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1456,
+          1316
+        ],
+        "maxMs": [
+          39,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          48,
+          47
+        ],
+        "disruptTurns": [
+          48,
+          39
+        ],
+        "placedCells": [
+          125,
+          123
+        ],
+        "paintSpent": [
+          143,
+          141
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1256,
+          1345
+        ],
+        "winner": 1,
+        "turns": 45,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1312,
+          1379
+        ],
+        "maxMs": [
+          39,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          45,
+          45
+        ],
+        "disruptTurns": [
+          37,
+          45
+        ],
+        "placedCells": [
+          110,
+          123
+        ],
+        "paintSpent": [
+          134,
+          135
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 6,
+      "seed": 920006,
+      "map": "gen:920006",
+      "mapHash": "3cb113aff9e99650b82c3f34b643ddeedd7982c96e09dee78269c4d831a10b1b",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 17,
+      "aAsP0": {
+        "score": [
+          5278,
+          3063
+        ],
+        "winner": 0,
+        "turns": 84,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1566,
+          1503
+        ],
+        "maxMs": [
+          39,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          68,
+          64
+        ],
+        "disruptTurns": [
+          84,
+          73
+        ],
+        "placedCells": [
+          156,
+          137
+        ],
+        "paintSpent": [
+          200,
+          191
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2233,
+          1434
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1395,
+          1407
+        ],
+        "maxMs": [
+          39,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          65,
+          70
+        ],
+        "disruptTurns": [
+          77,
+          88
+        ],
+        "placedCells": [
+          142,
+          159
+        ],
+        "paintSpent": [
+          190,
+          207
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 7,
+      "seed": 920007,
+      "map": "gen:920007",
+      "mapHash": "fcec338400fc6a3bb38dff16d435848589e670cfbc6dc81fd437259dd563812f",
+      "width": 21,
+      "height": 14,
+      "townCount": 5,
+      "pairCount": 10,
+      "aAsP0": {
+        "score": [
+          1991,
+          2422
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          958,
+          869
+        ],
+        "maxMs": [
+          36,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          56,
+          62
+        ],
+        "disruptTurns": [
+          85,
+          56
+        ],
+        "placedCells": [
+          113,
+          125
+        ],
+        "paintSpent": [
+          165,
+          182
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          702,
+          863
+        ],
+        "winner": 1,
+        "turns": 44,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          815,
+          885
+        ],
+        "maxMs": [
+          39,
+          42
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          44,
+          44
+        ],
+        "disruptTurns": [
+          35,
+          44
+        ],
+        "placedCells": [
+          107,
+          102
+        ],
+        "paintSpent": [
+          132,
+          132
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 8,
+      "seed": 920008,
+      "map": "gen:920008",
+      "mapHash": "72b647856c5ca2bfd639f92c795982fa98b144cf0d6caad8f4d2c133f92f6038",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 45,
+      "aAsP0": {
+        "score": [
+          5188,
+          4177
+        ],
+        "winner": 0,
+        "turns": 62,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2059,
+          2063
+        ],
+        "maxMs": [
+          45,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          62,
+          61
+        ],
+        "disruptTurns": [
+          62,
+          56
+        ],
+        "placedCells": [
+          153,
+          146
+        ],
+        "paintSpent": [
+          186,
+          181
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          5758,
+          4148
+        ],
+        "winner": 0,
+        "turns": 71,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2048,
+          2086
+        ],
+        "maxMs": [
+          39,
+          38
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          70,
+          70
+        ],
+        "disruptTurns": [
+          61,
+          71
+        ],
+        "placedCells": [
+          167,
+          163
+        ],
+        "paintSpent": [
+          210,
+          210
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 9,
+      "seed": 920009,
+      "map": "gen:920009",
+      "mapHash": "cb143c36a4bae20a69182972844094e223e2756026edf5ed7fdefaad14a21ef3",
+      "width": 23,
+      "height": 15,
+      "townCount": 6,
+      "pairCount": 13,
+      "aAsP0": {
+        "score": [
+          3001,
+          2695
+        ],
+        "winner": 0,
+        "turns": 71,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1507,
+          1489
+        ],
+        "maxMs": [
+          39,
+          44
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          61,
+          62
+        ],
+        "disruptTurns": [
+          71,
+          59
+        ],
+        "placedCells": [
+          146,
+          144
+        ],
+        "paintSpent": [
+          180,
+          182
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3089,
+          2747
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1369,
+          1388
+        ],
+        "maxMs": [
+          37,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          61,
+          61
+        ],
+        "disruptTurns": [
+          60,
+          100
+        ],
+        "placedCells": [
+          151,
+          143
+        ],
+        "paintSpent": [
+          180,
+          180
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 10,
+      "seed": 920010,
+      "map": "gen:920010",
+      "mapHash": "ed47b1f8f731ddd7f2c872db7b58411fc209535dc0a122ba896fb28dff3f655a",
+      "width": 23,
+      "height": 15,
+      "townCount": 6,
+      "pairCount": 14,
+      "aAsP0": {
+        "score": [
+          1540,
+          1211
+        ],
+        "winner": 0,
+        "turns": 48,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1074,
+          1013
+        ],
+        "maxMs": [
+          39,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          48,
+          48
+        ],
+        "disruptTurns": [
+          48,
+          38
+        ],
+        "placedCells": [
+          118,
+          113
+        ],
+        "paintSpent": [
+          144,
+          144
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1612,
+          2779
+        ],
+        "winner": 1,
+        "turns": 46,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1179,
+          1230
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          46,
+          46
+        ],
+        "disruptTurns": [
+          38,
+          46
+        ],
+        "placedCells": [
+          103,
+          121
+        ],
+        "paintSpent": [
+          137,
+          138
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 11,
+      "seed": 920011,
+      "map": "gen:920011",
+      "mapHash": "3562fcdf120c1cb794a638be8e5a20ba31ee379bf5f52a52eee22606c1856719",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 46,
+      "aAsP0": {
+        "score": [
+          5977,
+          7529
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2448,
+          2381
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          95,
+          91
+        ],
+        "disruptTurns": [
+          100,
+          79
+        ],
+        "placedCells": [
+          206,
+          193
+        ],
+        "paintSpent": [
+          284,
+          268
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          10571,
+          6563
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2279,
+          2312
+        ],
+        "maxMs": [
+          39,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          89,
+          88
+        ],
+        "disruptTurns": [
+          86,
+          100
+        ],
+        "placedCells": [
+          202,
+          186
+        ],
+        "paintSpent": [
+          265,
+          262
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 12,
+      "seed": 920012,
+      "map": "gen:920012",
+      "mapHash": "192613a299377e359b89a9a01ae4f432b5400ae61f844f1edddb8d08eaf4f9ba",
+      "width": 23,
+      "height": 15,
+      "townCount": 6,
+      "pairCount": 12,
+      "aAsP0": {
+        "score": [
+          1558,
+          1456
+        ],
+        "winner": 0,
+        "turns": 65,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          950,
+          911
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          65,
+          59
+        ],
+        "disruptTurns": [
+          65,
+          57
+        ],
+        "placedCells": [
+          142,
+          147
+        ],
+        "paintSpent": [
+          185,
+          171
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1571,
+          2217
+        ],
+        "winner": 1,
+        "turns": 50,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          972,
+          1109
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          50,
+          50
+        ],
+        "disruptTurns": [
+          40,
+          50
+        ],
+        "placedCells": [
+          126,
+          124
+        ],
+        "paintSpent": [
+          148,
+          150
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 13,
+      "seed": 920013,
+      "map": "gen:920013",
+      "mapHash": "55fd24cbccf07bcc8c271c655f7b66aa779d889c40b6b36ee35720c010ec3a8f",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 21,
+      "aAsP0": {
+        "score": [
+          3555,
+          2285
+        ],
+        "winner": 0,
+        "turns": 52,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1434,
+          1427
+        ],
+        "maxMs": [
+          36,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          52,
+          52
+        ],
+        "disruptTurns": [
+          52,
+          38
+        ],
+        "placedCells": [
+          133,
+          119
+        ],
+        "paintSpent": [
+          156,
+          156
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3014,
+          4129
+        ],
+        "winner": 1,
+        "turns": 60,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1692,
+          1787
+        ],
+        "maxMs": [
+          37,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          60,
+          59
+        ],
+        "disruptTurns": [
+          44,
+          60
+        ],
+        "placedCells": [
+          132,
+          144
+        ],
+        "paintSpent": [
+          180,
+          174
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 14,
+      "seed": 920014,
+      "map": "gen:920014",
+      "mapHash": "ea876d2a804475b2ac32cd9032bcbf106a79bbfbf173ac79b6f3b2b2a6742e2b",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 39,
+      "aAsP0": {
+        "score": [
+          5915,
+          9820
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1987,
+          1935
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          90,
+          89
+        ],
+        "disruptTurns": [
+          100,
+          88
+        ],
+        "placedCells": [
+          223,
+          207
+        ],
+        "paintSpent": [
+          261,
+          258
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          6687,
+          10846
+        ],
+        "winner": 1,
+        "turns": 71,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1941,
+          2009
+        ],
+        "maxMs": [
+          37,
+          38
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          71,
+          71
+        ],
+        "disruptTurns": [
+          60,
+          71
+        ],
+        "placedCells": [
+          178,
+          169
+        ],
+        "paintSpent": [
+          211,
+          208
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 15,
+      "seed": 920015,
+      "map": "gen:920015",
+      "mapHash": "f8f6987e352dc562ee35679eacfed6dd3bc67636710ebcc3b7c006dc350b0994",
+      "width": 26,
+      "height": 17,
+      "townCount": 8,
+      "pairCount": 21,
+      "aAsP0": {
+        "score": [
+          6131,
+          4681
+        ],
+        "winner": 0,
+        "turns": 70,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1742,
+          1700
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          69,
+          70
+        ],
+        "disruptTurns": [
+          70,
+          56
+        ],
+        "placedCells": [
+          166,
+          163
+        ],
+        "paintSpent": [
+          200,
+          210
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2831,
+          4277
+        ],
+        "winner": 1,
+        "turns": 93,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1566,
+          1590
+        ],
+        "maxMs": [
+          37,
+          41
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          75,
+          71
+        ],
+        "disruptTurns": [
+          80,
+          93
+        ],
+        "placedCells": [
+          178,
+          164
+        ],
+        "paintSpent": [
+          217,
+          208
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 16,
+      "seed": 920016,
+      "map": "gen:920016",
+      "mapHash": "dbd82bba67fbc8abe6860d5d8b23904475ccff6234f36f051b21d3e60e7a35e5",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 37,
+      "aAsP0": {
+        "score": [
+          8496,
+          8974
+        ],
+        "winner": 1,
+        "turns": 83,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2029,
+          1959
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          80,
+          83
+        ],
+        "disruptTurns": [
+          83,
+          72
+        ],
+        "placedCells": [
+          204,
+          219
+        ],
+        "paintSpent": [
+          238,
+          248
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3487,
+          8152
+        ],
+        "winner": 1,
+        "turns": 85,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1884,
+          1894
+        ],
+        "maxMs": [
+          38,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          79,
+          85
+        ],
+        "disruptTurns": [
+          56,
+          85
+        ],
+        "placedCells": [
+          197,
+          215
+        ],
+        "paintSpent": [
+          237,
+          253
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 17,
+      "seed": 920017,
+      "map": "gen:920017",
+      "mapHash": "e9075b04e7a01375351fec1d37bd54ff10d693aca31486e996a8cef2ac43006f",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 18,
+      "aAsP0": {
+        "score": [
+          2601,
+          2526
+        ],
+        "winner": 0,
+        "turns": 58,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1496,
+          1495
+        ],
+        "maxMs": [
+          36,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          58,
+          58
+        ],
+        "disruptTurns": [
+          58,
+          44
+        ],
+        "placedCells": [
+          135,
+          131
+        ],
+        "paintSpent": [
+          174,
+          174
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1338,
+          1678
+        ],
+        "winner": 1,
+        "turns": 91,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1441,
+          1471
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          71,
+          71
+        ],
+        "disruptTurns": [
+          66,
+          91
+        ],
+        "placedCells": [
+          152,
+          158
+        ],
+        "paintSpent": [
+          210,
+          210
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 18,
+      "seed": 920018,
+      "map": "gen:920018",
+      "mapHash": "a68591c46156bf9f29d9d5ea88bdc16e832024dc6faddbb2c40dbc6b8ca5ede7",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 42,
+      "aAsP0": {
+        "score": [
+          8656,
+          4439
+        ],
+        "winner": 0,
+        "turns": 78,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2192,
+          2134
+        ],
+        "maxMs": [
+          40,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          78,
+          73
+        ],
+        "disruptTurns": [
+          78,
+          66
+        ],
+        "placedCells": [
+          169,
+          159
+        ],
+        "paintSpent": [
+          234,
+          216
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          6040,
+          4799
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2366,
+          2438
+        ],
+        "maxMs": [
+          36,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          98,
+          100
+        ],
+        "disruptTurns": [
+          79,
+          100
+        ],
+        "placedCells": [
+          212,
+          188
+        ],
+        "paintSpent": [
+          285,
+          297
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 19,
+      "seed": 920019,
+      "map": "gen:920019",
+      "mapHash": "fa7bda6d2f482592e468326f869eaa9ab0cf291b99669f2f87ca96a3c45809e1",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 26,
+      "aAsP0": {
+        "score": [
+          2984,
+          3385
+        ],
+        "winner": 1,
+        "turns": 48,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1465,
+          1432
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          47,
+          48
+        ],
+        "disruptTurns": [
+          48,
+          40
+        ],
+        "placedCells": [
+          119,
+          118
+        ],
+        "paintSpent": [
+          141,
+          144
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3958,
+          3708
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1952,
+          1973
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          78,
+          74
+        ],
+        "disruptTurns": [
+          78,
+          97
+        ],
+        "placedCells": [
+          167,
+          160
+        ],
+        "paintSpent": [
+          231,
+          217
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 20,
+      "seed": 920020,
+      "map": "gen:920020",
+      "mapHash": "fff2c7e8d5ff9121d98d4ac3007b535e0adb4563268a05187b5d4a5d040aeb83",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 34,
+      "aAsP0": {
+        "score": [
+          4244,
+          4061
+        ],
+        "winner": 0,
+        "turns": 64,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2021,
+          1992
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          64,
+          64
+        ],
+        "disruptTurns": [
+          64,
+          55
+        ],
+        "placedCells": [
+          155,
+          148
+        ],
+        "paintSpent": [
+          190,
+          191
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          4093,
+          3352
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2194,
+          2273
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          83,
+          91
+        ],
+        "disruptTurns": [
+          89,
+          100
+        ],
+        "placedCells": [
+          191,
+          211
+        ],
+        "paintSpent": [
+          240,
+          270
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 21,
+      "seed": 920021,
+      "map": "gen:920021",
+      "mapHash": "1b4d1f93b048813fb33a35a695bad9b71cbd5c00b1f7354d99f61e772c338d01",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 47,
+      "aAsP0": {
+        "score": [
+          6387,
+          9110
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2374,
+          2254
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          81,
+          88
+        ],
+        "disruptTurns": [
+          100,
+          82
+        ],
+        "placedCells": [
+          196,
+          195
+        ],
+        "paintSpent": [
+          241,
+          256
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          3229,
+          4339
+        ],
+        "winner": 1,
+        "turns": 63,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1954,
+          1967
+        ],
+        "maxMs": [
+          36,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          63,
+          63
+        ],
+        "disruptTurns": [
+          57,
+          63
+        ],
+        "placedCells": [
+          158,
+          152
+        ],
+        "paintSpent": [
+          189,
+          189
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 22,
+      "seed": 920022,
+      "map": "gen:920022",
+      "mapHash": "881697643c3fe00b3db8a9b21e22301b51ffbce88aaf5fbdc4f05467d5b44327",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 37,
+      "aAsP0": {
+        "score": [
+          3744,
+          3159
+        ],
+        "winner": 0,
+        "turns": 71,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2073,
+          2026
+        ],
+        "maxMs": [
+          36,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          71,
+          71
+        ],
+        "disruptTurns": [
+          71,
+          58
+        ],
+        "placedCells": [
+          163,
+          162
+        ],
+        "paintSpent": [
+          213,
+          212
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          5155,
+          5402
+        ],
+        "winner": 1,
+        "turns": 87,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2103,
+          2192
+        ],
+        "maxMs": [
+          37,
+          38
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          87,
+          87
+        ],
+        "disruptTurns": [
+          76,
+          87
+        ],
+        "placedCells": [
+          186,
+          196
+        ],
+        "paintSpent": [
+          251,
+          261
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 23,
+      "seed": 920023,
+      "map": "gen:920023",
+      "mapHash": "04e72f934abe8ce69310458198d7d45942a6cfefe061a6e9cda9be2428e7a26d",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 50,
+      "aAsP0": {
+        "score": [
+          7889,
+          8187
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2196,
+          2199
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          80,
+          83
+        ],
+        "disruptTurns": [
+          100,
+          84
+        ],
+        "placedCells": [
+          199,
+          222
+        ],
+        "paintSpent": [
+          230,
+          245
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          8804,
+          11573
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2292,
+          2412
+        ],
+        "maxMs": [
+          36,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          79,
+          87
+        ],
+        "disruptTurns": [
+          82,
+          100
+        ],
+        "placedCells": [
+          206,
+          219
+        ],
+        "paintSpent": [
+          234,
+          254
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 24,
+      "seed": 920024,
+      "map": "gen:920024",
+      "mapHash": "9a854594da29e486ccd8259b8b5bf6d33222f1b9b04be91485fbda61bc94585a",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 17,
+      "aAsP0": {
+        "score": [
+          4873,
+          3382
+        ],
+        "winner": 0,
+        "turns": 92,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1441,
+          1540
+        ],
+        "maxMs": [
+          36,
+          38
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          60,
+          61
+        ],
+        "disruptTurns": [
+          92,
+          52
+        ],
+        "placedCells": [
+          164,
+          144
+        ],
+        "paintSpent": [
+          175,
+          161
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3843,
+          3450
+        ],
+        "winner": 0,
+        "turns": 73,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1379,
+          1442
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          59,
+          58
+        ],
+        "disruptTurns": [
+          62,
+          73
+        ],
+        "placedCells": [
+          162,
+          156
+        ],
+        "paintSpent": [
+          177,
+          174
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 25,
+      "seed": 920025,
+      "map": "gen:920025",
+      "mapHash": "23f08a9e4406806ce10f1d46102cbedbf9f3acc9a19719d0a83b74a816932f98",
+      "width": 21,
+      "height": 14,
+      "townCount": 5,
+      "pairCount": 9,
+      "aAsP0": {
+        "score": [
+          570,
+          1565
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          778,
+          727
+        ],
+        "maxMs": [
+          36,
+          31
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          54,
+          54
+        ],
+        "disruptTurns": [
+          83,
+          67
+        ],
+        "placedCells": [
+          136,
+          118
+        ],
+        "paintSpent": [
+          159,
+          157
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          1367,
+          1046
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          650,
+          574
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          44,
+          60
+        ],
+        "disruptTurns": [
+          61,
+          80
+        ],
+        "placedCells": [
+          102,
+          140
+        ],
+        "paintSpent": [
+          131,
+          173
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 26,
+      "seed": 920026,
+      "map": "gen:920026",
+      "mapHash": "30751269c6b8aeda03aa05188a58a75de7e5cfd94afc41a4edb911a8029f54bf",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 16,
+      "aAsP0": {
+        "score": [
+          1668,
+          1346
+        ],
+        "winner": 0,
+        "turns": 79,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1222,
+          1302
+        ],
+        "maxMs": [
+          37,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          64,
+          64
+        ],
+        "disruptTurns": [
+          79,
+          66
+        ],
+        "placedCells": [
+          164,
+          158
+        ],
+        "paintSpent": [
+          185,
+          190
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2326,
+          1692
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1038,
+          1109
+        ],
+        "maxMs": [
+          38,
+          41
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          69,
+          66
+        ],
+        "disruptTurns": [
+          68,
+          96
+        ],
+        "placedCells": [
+          168,
+          169
+        ],
+        "paintSpent": [
+          203,
+          192
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 27,
+      "seed": 920027,
+      "map": "gen:920027",
+      "mapHash": "527d1daa1e9429afda75ac26104bc9f102b199886d92fef07e60523baa780f49",
+      "width": 26,
+      "height": 17,
+      "townCount": 8,
+      "pairCount": 20,
+      "aAsP0": {
+        "score": [
+          3385,
+          2192
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1445,
+          1383
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          72,
+          72
+        ],
+        "disruptTurns": [
+          100,
+          81
+        ],
+        "placedCells": [
+          178,
+          183
+        ],
+        "paintSpent": [
+          206,
+          208
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          3458,
+          3881
+        ],
+        "winner": 1,
+        "turns": 91,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1452,
+          1582
+        ],
+        "maxMs": [
+          43,
+          40
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          66,
+          76
+        ],
+        "disruptTurns": [
+          77,
+          91
+        ],
+        "placedCells": [
+          178,
+          190
+        ],
+        "paintSpent": [
+          193,
+          222
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 28,
+      "seed": 920028,
+      "map": "gen:920028",
+      "mapHash": "53b801465ecafe728b52afc6b34b428918123376d35addb825ffcd6d2672d8b5",
+      "width": 26,
+      "height": 17,
+      "townCount": 8,
+      "pairCount": 17,
+      "aAsP0": {
+        "score": [
+          2301,
+          4011
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1508,
+          1483
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          78,
+          82
+        ],
+        "disruptTurns": [
+          100,
+          82
+        ],
+        "placedCells": [
+          162,
+          174
+        ],
+        "paintSpent": [
+          233,
+          238
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          1907,
+          2491
+        ],
+        "winner": 1,
+        "turns": 59,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1631,
+          1642
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          59,
+          59
+        ],
+        "disruptTurns": [
+          50,
+          59
+        ],
+        "placedCells": [
+          132,
+          125
+        ],
+        "paintSpent": [
+          177,
+          177
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 29,
+      "seed": 920029,
+      "map": "gen:920029",
+      "mapHash": "3839c1f2b3208b1f438f57923f0ec1236d55d3cfaac62964fc47f2ef472a25d8",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 43,
+      "aAsP0": {
+        "score": [
+          5344,
+          9268
+        ],
+        "winner": 1,
+        "turns": 60,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1689,
+          1641
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          58,
+          60
+        ],
+        "disruptTurns": [
+          60,
+          53
+        ],
+        "placedCells": [
+          145,
+          157
+        ],
+        "paintSpent": [
+          173,
+          180
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          5544,
+          5168
+        ],
+        "winner": 0,
+        "turns": 63,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1832,
+          1914
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          63,
+          62
+        ],
+        "disruptTurns": [
+          52,
+          63
+        ],
+        "placedCells": [
+          154,
+          154
+        ],
+        "paintSpent": [
+          187,
+          185
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 30,
+      "seed": 920030,
+      "map": "gen:920030",
+      "mapHash": "dcc04d101fe0ca5bc61d78da124bcc3410e5b98200f1f67c5cf1abddf434c060",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 14,
+      "aAsP0": {
+        "score": [
+          3125,
+          2618
+        ],
+        "winner": 0,
+        "turns": 89,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1344,
+          1318
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          64,
+          64
+        ],
+        "disruptTurns": [
+          89,
+          71
+        ],
+        "placedCells": [
+          146,
+          156
+        ],
+        "paintSpent": [
+          188,
+          190
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2336,
+          4026
+        ],
+        "winner": 1,
+        "turns": 80,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1437,
+          1508
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          66,
+          70
+        ],
+        "disruptTurns": [
+          55,
+          80
+        ],
+        "placedCells": [
+          151,
+          161
+        ],
+        "paintSpent": [
+          187,
+          204
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 31,
+      "seed": 920031,
+      "map": "gen:920031",
+      "mapHash": "f71b16e8ed3ee2d33eacda01cf5d1cf4205837c59a2fd7bacf28d6897eec0cd4",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 46,
+      "aAsP0": {
+        "score": [
+          6603,
+          5045
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2045,
+          2024
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          93,
+          94
+        ],
+        "disruptTurns": [
+          100,
+          81
+        ],
+        "placedCells": [
+          204,
+          206
+        ],
+        "paintSpent": [
+          274,
+          278
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          4992,
+          4798
+        ],
+        "winner": 0,
+        "turns": 65,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1992,
+          1979
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          65,
+          65
+        ],
+        "disruptTurns": [
+          56,
+          65
+        ],
+        "placedCells": [
+          149,
+          158
+        ],
+        "paintSpent": [
+          194,
+          194
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 32,
+      "seed": 920032,
+      "map": "gen:920032",
+      "mapHash": "1fda8175f21235799428436a00594093e0f9ee52b16c245506eb99ef898b924e",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 21,
+      "aAsP0": {
+        "score": [
+          3271,
+          4266
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1784,
+          1761
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          78,
+          90
+        ],
+        "disruptTurns": [
+          100,
+          75
+        ],
+        "placedCells": [
+          162,
+          201
+        ],
+        "paintSpent": [
+          234,
+          267
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          2495,
+          3627
+        ],
+        "winner": 1,
+        "turns": 67,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1902,
+          1951
+        ],
+        "maxMs": [
+          39,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          67,
+          65
+        ],
+        "disruptTurns": [
+          50,
+          67
+        ],
+        "placedCells": [
+          156,
+          150
+        ],
+        "paintSpent": [
+          198,
+          194
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 33,
+      "seed": 920033,
+      "map": "gen:920033",
+      "mapHash": "550bc00c897568e91d15f36b6fb71bad7e7b8383cced8ee24b61cc69d6548e96",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 16,
+      "aAsP0": {
+        "score": [
+          1429,
+          1681
+        ],
+        "winner": 1,
+        "turns": 61,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1487,
+          1411
+        ],
+        "maxMs": [
+          36,
+          38
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          61,
+          61
+        ],
+        "disruptTurns": [
+          61,
+          47
+        ],
+        "placedCells": [
+          130,
+          134
+        ],
+        "paintSpent": [
+          183,
+          183
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1849,
+          4364
+        ],
+        "winner": 1,
+        "turns": 98,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1387,
+          1410
+        ],
+        "maxMs": [
+          36,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          78,
+          75
+        ],
+        "disruptTurns": [
+          67,
+          98
+        ],
+        "placedCells": [
+          156,
+          151
+        ],
+        "paintSpent": [
+          231,
+          218
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 34,
+      "seed": 920034,
+      "map": "gen:920034",
+      "mapHash": "50fa0e85d30daa503e20379dfa9cd0745cd1666c118b9dc34d300d0201b42762",
+      "width": 23,
+      "height": 15,
+      "townCount": 6,
+      "pairCount": 13,
+      "aAsP0": {
+        "score": [
+          2006,
+          3003
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1346,
+          1245
+        ],
+        "maxMs": [
+          41,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          64,
+          61
+        ],
+        "disruptTurns": [
+          99,
+          73
+        ],
+        "placedCells": [
+          148,
+          152
+        ],
+        "paintSpent": [
+          181,
+          174
+        ],
+        "closedEarly": false
+      },
+      "aAsP1": {
+        "score": [
+          2610,
+          1673
+        ],
+        "winner": 0,
+        "turns": 80,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1167,
+          1192
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          62,
+          60
+        ],
+        "disruptTurns": [
+          44,
+          80
+        ],
+        "placedCells": [
+          155,
+          145
+        ],
+        "paintSpent": [
+          179,
+          176
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 35,
+      "seed": 920035,
+      "map": "gen:920035",
+      "mapHash": "5d1af831ea7f22277cf612a5ec7c84f715d6b3968744c9750d0eb375e8823da8",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 25,
+      "aAsP0": {
+        "score": [
+          3734,
+          6403
+        ],
+        "winner": 1,
+        "turns": 88,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1844,
+          1760
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          74,
+          70
+        ],
+        "disruptTurns": [
+          88,
+          81
+        ],
+        "placedCells": [
+          198,
+          167
+        ],
+        "paintSpent": [
+          216,
+          200
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          4411,
+          5099
+        ],
+        "winner": 1,
+        "turns": 87,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1810,
+          1865
+        ],
+        "maxMs": [
+          37,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          69,
+          71
+        ],
+        "disruptTurns": [
+          78,
+          87
+        ],
+        "placedCells": [
+          182,
+          189
+        ],
+        "paintSpent": [
+          202,
+          213
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 36,
+      "seed": 920036,
+      "map": "gen:920036",
+      "mapHash": "300a9af4bdf260afceb43c01f2110ad6d73795a90d2208727c8663d44fe2745c",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 26,
+      "aAsP0": {
+        "score": [
+          3170,
+          2808
+        ],
+        "winner": 0,
+        "turns": 54,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1605,
+          1575
+        ],
+        "maxMs": [
+          36,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          54,
+          54
+        ],
+        "disruptTurns": [
+          54,
+          44
+        ],
+        "placedCells": [
+          125,
+          131
+        ],
+        "paintSpent": [
+          161,
+          162
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          6176,
+          4891
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1723,
+          1775
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          76,
+          73
+        ],
+        "disruptTurns": [
+          80,
+          100
+        ],
+        "placedCells": [
+          185,
+          178
+        ],
+        "paintSpent": [
+          227,
+          213
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 37,
+      "seed": 920037,
+      "map": "gen:920037",
+      "mapHash": "fb48f49591b2d7a7fc89c56dd823d7b4ba2c41770b6c087126e0d59c9cc0886c",
+      "width": 21,
+      "height": 14,
+      "townCount": 5,
+      "pairCount": 9,
+      "aAsP0": {
+        "score": [
+          1507,
+          1303
+        ],
+        "winner": 0,
+        "turns": 67,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          655,
+          738
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          56,
+          52
+        ],
+        "disruptTurns": [
+          67,
+          58
+        ],
+        "placedCells": [
+          132,
+          128
+        ],
+        "paintSpent": [
+          164,
+          149
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1205,
+          1118
+        ],
+        "winner": 0,
+        "turns": 79,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          760,
+          749
+        ],
+        "maxMs": [
+          36,
+          35
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          59,
+          53
+        ],
+        "disruptTurns": [
+          57,
+          79
+        ],
+        "placedCells": [
+          128,
+          134
+        ],
+        "paintSpent": [
+          168,
+          156
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 38,
+      "seed": 920038,
+      "map": "gen:920038",
+      "mapHash": "97941fc6a53d4534510e5479694f98af7ffd7ed91ca2cc9be05bdc0485b73f28",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 14,
+      "aAsP0": {
+        "score": [
+          623,
+          470
+        ],
+        "winner": 0,
+        "turns": 37,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          759,
+          745
+        ],
+        "maxMs": [
+          37,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          37,
+          36
+        ],
+        "disruptTurns": [
+          37,
+          32
+        ],
+        "placedCells": [
+          98,
+          80
+        ],
+        "paintSpent": [
+          111,
+          108
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1494,
+          1727
+        ],
+        "winner": 1,
+        "turns": 56,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1271,
+          1308
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          55,
+          55
+        ],
+        "disruptTurns": [
+          47,
+          56
+        ],
+        "placedCells": [
+          139,
+          128
+        ],
+        "paintSpent": [
+          165,
+          164
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 39,
+      "seed": 920039,
+      "map": "gen:920039",
+      "mapHash": "e422d2073d39061b00790fdaf94f402ce16753c08d50816e6bb7d50ed9cfb16c",
+      "width": 23,
+      "height": 15,
+      "townCount": 6,
+      "pairCount": 13,
+      "aAsP0": {
+        "score": [
+          1563,
+          2212
+        ],
+        "winner": 1,
+        "turns": 62,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1101,
+          1053
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          57,
+          57
+        ],
+        "disruptTurns": [
+          62,
+          52
+        ],
+        "placedCells": [
+          145,
+          144
+        ],
+        "paintSpent": [
+          169,
+          169
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2232,
+          3283
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1336,
+          1363
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          60,
+          54
+        ],
+        "disruptTurns": [
+          71,
+          100
+        ],
+        "placedCells": [
+          147,
+          133
+        ],
+        "paintSpent": [
+          178,
+          160
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 40,
+      "seed": 920040,
+      "map": "gen:920040",
+      "mapHash": "18d3e0fece9f532c358d6e424dafd56d0e44adc94afbc9e774445706a7d9ee48",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 42,
+      "aAsP0": {
+        "score": [
+          7925,
+          8965
+        ],
+        "winner": 1,
+        "turns": 76,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2338,
+          2286
+        ],
+        "maxMs": [
+          37,
+          39
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          70,
+          76
+        ],
+        "disruptTurns": [
+          76,
+          57
+        ],
+        "placedCells": [
+          186,
+          181
+        ],
+        "paintSpent": [
+          208,
+          222
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          7684,
+          8816
+        ],
+        "winner": 1,
+        "turns": 79,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2124,
+          2215
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          79,
+          79
+        ],
+        "disruptTurns": [
+          65,
+          79
+        ],
+        "placedCells": [
+          206,
+          197
+        ],
+        "paintSpent": [
+          237,
+          236
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 41,
+      "seed": 920041,
+      "map": "gen:920041",
+      "mapHash": "0bf13040e7cf9f617cd4ac734ed698346cf8f471d0558f3b6bf1cca88afcbc52",
+      "width": 29,
+      "height": 19,
+      "townCount": 11,
+      "pairCount": 39,
+      "aAsP0": {
+        "score": [
+          4162,
+          5901
+        ],
+        "winner": 1,
+        "turns": 99,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1973,
+          1808
+        ],
+        "maxMs": [
+          38,
+          38
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          82,
+          84
+        ],
+        "disruptTurns": [
+          99,
+          84
+        ],
+        "placedCells": [
+          182,
+          183
+        ],
+        "paintSpent": [
+          242,
+          248
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3771,
+          5253
+        ],
+        "winner": 1,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1838,
+          1881
+        ],
+        "maxMs": [
+          37,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          85,
+          84
+        ],
+        "disruptTurns": [
+          93,
+          100
+        ],
+        "placedCells": [
+          204,
+          193
+        ],
+        "paintSpent": [
+          250,
+          249
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 42,
+      "seed": 920042,
+      "map": "gen:920042",
+      "mapHash": "a43372042ba3cecf4cc0e4261a1f5a0cccc75dedc0d4148b840d9791b27177aa",
+      "width": 30,
+      "height": 20,
+      "townCount": 12,
+      "pairCount": 46,
+      "aAsP0": {
+        "score": [
+          4489,
+          3797
+        ],
+        "winner": 0,
+        "turns": 70,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2107,
+          2080
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          70,
+          70
+        ],
+        "disruptTurns": [
+          70,
+          61
+        ],
+        "placedCells": [
+          170,
+          165
+        ],
+        "paintSpent": [
+          210,
+          210
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2342,
+          5320
+        ],
+        "winner": 1,
+        "turns": 67,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          2070,
+          2123
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          67,
+          67
+        ],
+        "disruptTurns": [
+          55,
+          67
+        ],
+        "placedCells": [
+          166,
+          161
+        ],
+        "paintSpent": [
+          200,
+          200
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 43,
+      "seed": 920043,
+      "map": "gen:920043",
+      "mapHash": "861d8e2b2f8b9aff28b937541e3d20a29fdc8b8793c44d9a36cc2a4e8269b0fa",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 26,
+      "aAsP0": {
+        "score": [
+          5525,
+          3095
+        ],
+        "winner": 0,
+        "turns": 67,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1615,
+          1560
+        ],
+        "maxMs": [
+          37,
+          37
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          66,
+          66
+        ],
+        "disruptTurns": [
+          67,
+          55
+        ],
+        "placedCells": [
+          178,
+          172
+        ],
+        "paintSpent": [
+          197,
+          197
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3218,
+          5384
+        ],
+        "winner": 1,
+        "turns": 93,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1780,
+          1858
+        ],
+        "maxMs": [
+          36,
+          43
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          69,
+          76
+        ],
+        "disruptTurns": [
+          74,
+          93
+        ],
+        "placedCells": [
+          182,
+          203
+        ],
+        "paintSpent": [
+          202,
+          227
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 44,
+      "seed": 920044,
+      "map": "gen:920044",
+      "mapHash": "aa7a10556c8bb164e9f1f4d03a01085c88d8ce16067f577f94672af681efd5d4",
+      "width": 21,
+      "height": 14,
+      "townCount": 5,
+      "pairCount": 9,
+      "aAsP0": {
+        "score": [
+          741,
+          434
+        ],
+        "winner": 0,
+        "turns": 42,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          703,
+          693
+        ],
+        "maxMs": [
+          34,
+          32
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          42,
+          42
+        ],
+        "disruptTurns": [
+          42,
+          35
+        ],
+        "placedCells": [
+          95,
+          98
+        ],
+        "paintSpent": [
+          124,
+          126
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1177,
+          848
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          680,
+          680
+        ],
+        "maxMs": [
+          32,
+          31
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          56,
+          54
+        ],
+        "disruptTurns": [
+          53,
+          90
+        ],
+        "placedCells": [
+          120,
+          106
+        ],
+        "paintSpent": [
+          164,
+          156
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 45,
+      "seed": 920045,
+      "map": "gen:920045",
+      "mapHash": "a8fd871f04dce7113069d6da40e6aad47ee511f4e342cf50d9ddcc62a907d12d",
+      "width": 27,
+      "height": 18,
+      "townCount": 9,
+      "pairCount": 26,
+      "aAsP0": {
+        "score": [
+          3736,
+          1859
+        ],
+        "winner": 0,
+        "turns": 60,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1613,
+          1558
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          60,
+          60
+        ],
+        "disruptTurns": [
+          60,
+          50
+        ],
+        "placedCells": [
+          152,
+          165
+        ],
+        "paintSpent": [
+          179,
+          177
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          2334,
+          2034
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1709,
+          1773
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          83,
+          69
+        ],
+        "disruptTurns": [
+          77,
+          100
+        ],
+        "placedCells": [
+          207,
+          177
+        ],
+        "paintSpent": [
+          245,
+          205
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 46,
+      "seed": 920046,
+      "map": "gen:920046",
+      "mapHash": "e3d9249b5b348670e7f3a22a91b1c864ecc4a6699170ea82e633b5e947166479",
+      "width": 23,
+      "height": 15,
+      "townCount": 6,
+      "pairCount": 13,
+      "aAsP0": {
+        "score": [
+          2590,
+          1669
+        ],
+        "winner": 0,
+        "turns": 86,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1311,
+          1263
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          63,
+          65
+        ],
+        "disruptTurns": [
+          86,
+          78
+        ],
+        "placedCells": [
+          130,
+          151
+        ],
+        "paintSpent": [
+          176,
+          189
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1226,
+          751
+        ],
+        "winner": 0,
+        "turns": 100,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1110,
+          1147
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          77,
+          52
+        ],
+        "disruptTurns": [
+          59,
+          100
+        ],
+        "placedCells": [
+          164,
+          120
+        ],
+        "paintSpent": [
+          221,
+          148
+        ],
+        "closedEarly": false
+      }
+    },
+    {
+      "index": 47,
+      "seed": 920047,
+      "map": "gen:920047",
+      "mapHash": "9311779dda624018111cf074f8e041c059bde34bad9323803b098d3311d8ba3d",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 15,
+      "aAsP0": {
+        "score": [
+          770,
+          761
+        ],
+        "winner": 0,
+        "turns": 80,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1017,
+          973
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          69,
+          64
+        ],
+        "disruptTurns": [
+          80,
+          72
+        ],
+        "placedCells": [
+          153,
+          147
+        ],
+        "paintSpent": [
+          206,
+          190
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          1525,
+          1245
+        ],
+        "winner": 0,
+        "turns": 79,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          928,
+          914
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          58,
+          74
+        ],
+        "disruptTurns": [
+          73,
+          79
+        ],
+        "placedCells": [
+          122,
+          159
+        ],
+        "paintSpent": [
+          171,
+          217
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 48,
+      "seed": 920048,
+      "map": "gen:920048",
+      "mapHash": "44b64381e768db57aec270374dcedd49a43bce8540a509ee84d63b6863ae1e25",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 16,
+      "aAsP0": {
+        "score": [
+          2593,
+          1785
+        ],
+        "winner": 0,
+        "turns": 86,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1310,
+          1293
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          64,
+          76
+        ],
+        "disruptTurns": [
+          86,
+          44
+        ],
+        "placedCells": [
+          140,
+          173
+        ],
+        "paintSpent": [
+          190,
+          226
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3752,
+          2458
+        ],
+        "winner": 0,
+        "turns": 53,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1252,
+          1345
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          53,
+          52
+        ],
+        "disruptTurns": [
+          38,
+          53
+        ],
+        "placedCells": [
+          117,
+          120
+        ],
+        "paintSpent": [
+          157,
+          148
+        ],
+        "closedEarly": true
+      }
+    },
+    {
+      "index": 49,
+      "seed": 920049,
+      "map": "gen:920049",
+      "mapHash": "4962bf239b0694df4a1b1eaecb8ab14195fde24ecd1e791fc591125cd8753ea8",
+      "width": 24,
+      "height": 16,
+      "townCount": 7,
+      "pairCount": 18,
+      "aAsP0": {
+        "score": [
+          3097,
+          2171
+        ],
+        "winner": 0,
+        "turns": 94,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1532,
+          1492
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          61,
+          74
+        ],
+        "disruptTurns": [
+          94,
+          58
+        ],
+        "placedCells": [
+          140,
+          188
+        ],
+        "paintSpent": [
+          176,
+          220
+        ],
+        "closedEarly": true
+      },
+      "aAsP1": {
+        "score": [
+          3690,
+          3629
+        ],
+        "winner": 0,
+        "turns": 52,
+        "error": [
+          null,
+          null
+        ],
+        "totalMs": [
+          1301,
+          1364
+        ],
+        "maxMs": [
+          36,
+          36
+        ],
+        "slowMoves": [
+          0,
+          0
+        ],
+        "placementTurns": [
+          52,
+          51
+        ],
+        "disruptTurns": [
+          43,
+          52
+        ],
+        "placedCells": [
+          125,
+          123
+        ],
+        "paintSpent": [
+          156,
+          152
+        ],
+        "closedEarly": true
+      }
+    }
+  ],
+  "gamesPerMap": {
+    "e22baa176c4c2bdf6a8225e66829e3b19cd37622745fa30d0fff37c303a96e6a": 2,
+    "5037e8db1f843d2a2ddb480b7660e67027cfbba48f129c69d4995422e61eb665": 2,
+    "d368eee2e886178c420eced80dbe8383ac8a867c6e6068f07d40ceb745e6605d": 2,
+    "c76b6fbb0f6bc62ec0e56d299de90d440971bc57eb67a600d96313bea2714e4c": 2,
+    "b4695f1922ae407ef3db0583524a291e3e6b87e41e437fe60edd029fba3bc4bf": 2,
+    "ee1d2f6f95b79411e24fd0884b5dada42ee3c85415af8e50082abcb6997d8157": 2,
+    "3cb113aff9e99650b82c3f34b643ddeedd7982c96e09dee78269c4d831a10b1b": 2,
+    "fcec338400fc6a3bb38dff16d435848589e670cfbc6dc81fd437259dd563812f": 2,
+    "72b647856c5ca2bfd639f92c795982fa98b144cf0d6caad8f4d2c133f92f6038": 2,
+    "cb143c36a4bae20a69182972844094e223e2756026edf5ed7fdefaad14a21ef3": 2,
+    "ed47b1f8f731ddd7f2c872db7b58411fc209535dc0a122ba896fb28dff3f655a": 2,
+    "3562fcdf120c1cb794a638be8e5a20ba31ee379bf5f52a52eee22606c1856719": 2,
+    "192613a299377e359b89a9a01ae4f432b5400ae61f844f1edddb8d08eaf4f9ba": 2,
+    "55fd24cbccf07bcc8c271c655f7b66aa779d889c40b6b36ee35720c010ec3a8f": 2,
+    "ea876d2a804475b2ac32cd9032bcbf106a79bbfbf173ac79b6f3b2b2a6742e2b": 2,
+    "f8f6987e352dc562ee35679eacfed6dd3bc67636710ebcc3b7c006dc350b0994": 2,
+    "dbd82bba67fbc8abe6860d5d8b23904475ccff6234f36f051b21d3e60e7a35e5": 2,
+    "e9075b04e7a01375351fec1d37bd54ff10d693aca31486e996a8cef2ac43006f": 2,
+    "a68591c46156bf9f29d9d5ea88bdc16e832024dc6faddbb2c40dbc6b8ca5ede7": 2,
+    "fa7bda6d2f482592e468326f869eaa9ab0cf291b99669f2f87ca96a3c45809e1": 2,
+    "fff2c7e8d5ff9121d98d4ac3007b535e0adb4563268a05187b5d4a5d040aeb83": 2,
+    "1b4d1f93b048813fb33a35a695bad9b71cbd5c00b1f7354d99f61e772c338d01": 2,
+    "881697643c3fe00b3db8a9b21e22301b51ffbce88aaf5fbdc4f05467d5b44327": 2,
+    "04e72f934abe8ce69310458198d7d45942a6cfefe061a6e9cda9be2428e7a26d": 2,
+    "9a854594da29e486ccd8259b8b5bf6d33222f1b9b04be91485fbda61bc94585a": 2,
+    "23f08a9e4406806ce10f1d46102cbedbf9f3acc9a19719d0a83b74a816932f98": 2,
+    "30751269c6b8aeda03aa05188a58a75de7e5cfd94afc41a4edb911a8029f54bf": 2,
+    "527d1daa1e9429afda75ac26104bc9f102b199886d92fef07e60523baa780f49": 2,
+    "53b801465ecafe728b52afc6b34b428918123376d35addb825ffcd6d2672d8b5": 2,
+    "3839c1f2b3208b1f438f57923f0ec1236d55d3cfaac62964fc47f2ef472a25d8": 2,
+    "dcc04d101fe0ca5bc61d78da124bcc3410e5b98200f1f67c5cf1abddf434c060": 2,
+    "f71b16e8ed3ee2d33eacda01cf5d1cf4205837c59a2fd7bacf28d6897eec0cd4": 2,
+    "1fda8175f21235799428436a00594093e0f9ee52b16c245506eb99ef898b924e": 2,
+    "550bc00c897568e91d15f36b6fb71bad7e7b8383cced8ee24b61cc69d6548e96": 2,
+    "50fa0e85d30daa503e20379dfa9cd0745cd1666c118b9dc34d300d0201b42762": 2,
+    "5d1af831ea7f22277cf612a5ec7c84f715d6b3968744c9750d0eb375e8823da8": 2,
+    "300a9af4bdf260afceb43c01f2110ad6d73795a90d2208727c8663d44fe2745c": 2,
+    "fb48f49591b2d7a7fc89c56dd823d7b4ba2c41770b6c087126e0d59c9cc0886c": 2,
+    "97941fc6a53d4534510e5479694f98af7ffd7ed91ca2cc9be05bdc0485b73f28": 2,
+    "e422d2073d39061b00790fdaf94f402ce16753c08d50816e6bb7d50ed9cfb16c": 2,
+    "18d3e0fece9f532c358d6e424dafd56d0e44adc94afbc9e774445706a7d9ee48": 2,
+    "0bf13040e7cf9f617cd4ac734ed698346cf8f471d0558f3b6bf1cca88afcbc52": 2,
+    "a43372042ba3cecf4cc0e4261a1f5a0cccc75dedc0d4148b840d9791b27177aa": 2,
+    "861d8e2b2f8b9aff28b937541e3d20a29fdc8b8793c44d9a36cc2a4e8269b0fa": 2,
+    "aa7a10556c8bb164e9f1f4d03a01085c88d8ce16067f577f94672af681efd5d4": 2,
+    "a8fd871f04dce7113069d6da40e6aad47ee511f4e342cf50d9ddcc62a907d12d": 2,
+    "e3d9249b5b348670e7f3a22a91b1c864ecc4a6699170ea82e633b5e947166479": 2,
+    "9311779dda624018111cf074f8e041c059bde34bad9323803b098d3311d8ba3d": 2,
+    "44b64381e768db57aec270374dcedd49a43bce8540a509ee84d63b6863ae1e25": 2,
+    "4962bf239b0694df4a1b1eaecb8ab14195fde24ecd1e791fc591125cd8753ea8": 2
+  },
+  "schemaVersion": 3,
+  "searchBudgetSemantics": "firstSearchBudgetMs/turnSearchBudgetMs are profile baselines; A/B-suffixed fields are effective per-bot nominal budgets, preserved when seats swap",
+  "confidenceMethod": "map-grouped Hoeffding 95%; assumes independent representative maps",
+  "confidence95": [
+    0.3879354417360158,
+    0.7720645582639841
+  ],
+  "promotionGatePassed": false,
+  "promotionGateRole": "historical strict CI diagnostic only; not the active policy",
+  "promotionPolicy": "practical-300-1000-boss-cache-v3",
+  "practicalDirectStage": "NOT_APPLICABLE"
+}

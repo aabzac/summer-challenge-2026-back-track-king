@@ -1,0 +1,44 @@
+{
+ "proxy_vs_v09": {
+  "games": 200,
+  "boss_win_rate(last pre-turn score)": 0.305,
+  "game_length_mean": 85.2,
+  "game_length_median": 100.0,
+  "closed_before_100": 0.405,
+  "disrupt_rate": 0.988,
+  "disrupt_rate_turns<45": 0.999,
+  "same_target_rate": 0.71,
+  "switch_after_ink_share": 0.828,
+  "commit_classes": {
+   "empty/own": 0.048,
+   "opp-construction": 0.484,
+   "opp-active": 0.468
+  },
+  "commit_instab": {
+   "0": 0.851,
+   "1": 0.045,
+   "2": 0.048,
+   "3": 0.056
+  },
+  "commit_live2_share": 0.469,
+  "placement_rate": 0.526,
+  "paint_per_turn": 1.53,
+  "paint_turns_0-2": 3,
+  "paint_turns_3-10": 2.98,
+  "paint_turns_11-20": 2.93,
+  "paint_turns_21-30": 2.71,
+  "paint_turns_31-45": 1.99,
+  "paint_turns_46-100": 0.31,
+  "cells_instab": {
+   "0": 0.982,
+   "1": 0.018
+  },
+  "cells_town_region": 0.166,
+  "cells_shared_region": 0.362,
+  "cells_adj_own": 0.442,
+  "income_boss_t20": 76.6,
+  "income_opp_t20": 97.2,
+  "income_boss_t30": 92.3,
+  "income_opp_t30": 109.8
+ }
+}

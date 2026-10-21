@@ -7931,3 +7931,85 @@ is now explicit in PLAN. Full protocol/results and retained artifacts:
   selected v09/default 36/flags OFF, prior local 54% and boss qualifications.
   Archive and commit this completed negative experiment; no promotion or push.
   [Result](v09-ink45-strength-v1-result.md), [evidence](evidence/v09-ink45-strength-v1.json).
+
+## 2026-10-20 — Stage 0: measurement reset — boss proxy, policy v5 proposal, STATUS page
+
+**Hypothesis.** The month-long stall after v09 is a measurement problem before it is a strategy
+problem: the v4 local gate (v09 mirror, ~90-turn games, 64–67 % disruption) cannot see mechanisms
+that matter against the boss (65–72-turn games, 88–92 % disruption, targets held until ink,
+construction inked before it earns), and the 40-game live stage (±7.5 pp; an unchanged v09 scored
+17/11/15/11 of 40 over four weeks) cannot confirm them. Fix the bench first.
+
+**Work.**
+1. `docs/STATUS.md`: one page with the current arena/league/boss/selected state and open decisions.
+2. `docs/benchmarking-v5.md`: proposed selection rule (proxy screen + non-inferiority vs v09 +
+   80–120 paired live games + tuning budget for new heuristic bots). Not adopted; AGENTS.md unchanged.
+3. Boss replay study on all 855 canonical boss games (`BossIntentStudy`, `CgLeaderStudy` on
+   "Boss 4", 2.5 M candidate rows). Findings in `docs/boss-proxy-v1.md` §3: the boss announces its
+   intent in `MESSAGE` (build/steal/block/fortify); disrupts on 88 % of turns and holds a target
+   until ink 83 % of the time; commits to regions holding opponent tracks 95 % of the time
+   (construction 43 %, active 51 %); never places a cell in a region at instability ≥ 2; builds on
+   own-only unstable-avoiding routes (61 % of cells on such an optimal route, 39 % on the shared
+   cheapest route); finishes the pair it started (52 %); idles only after turn 20 and almost only
+   when ahead.
+4. Fits: conditional logit for the commitment target, held-out top-1 **51.0 %** (uniform 4.5 %);
+   hold margin 1.0 (hold rate 84.5 % vs 83.5 % observed); project stickiness 3.0 (pair agreement
+   24 % → 50 %).
+5. `boss-v1` (`btk.bot.reference.BossBot`, local-only reference): fitted sabotage + fitted
+   construction model. Fingerprint vs v09 (200 games): sabotage statistics within a few points of
+   the real boss, but **30.5 % wins vs the boss's 67.5 %**; its construction earns half the boss's
+   income by turn 10 with identical paint. Ordering check (200 games each vs boss-v1): v07 53.0,
+   v08 62.0, v09 74.0, neural-v6 78.5, neural-v1 76.0, all-cell-risk 83.5, root-fill 76.5,
+   live-target 72.0, batched 73.5 %. Sanity order holds, but all-cell-risk (+9.5 pp here, −12.5 pp
+   live) shows a weak-building relentless opponent rewards bypasses the real boss punishes.
+   **boss-v1 rejected as strength proxy, retained as behavioural reference.**
+6. `current?USE_BOSS_SABOTAGE=1` (`btk.bot.current.BossSabotage`, default-off flag, experiment
+   `boss-sabotage-v1`): v09's search/construction with the real-turn DISRUPT replaced by the fitted
+   chooser. Fingerprint vs v09 (300 games): disrupt 99 %, hold 71 %, commit classes 50/43/7,
+   game length 77, closures 69 %, **54.3 % wins**; with a separate 100-game bench 58.0 %:
+   **221-179 = 55.25 % over 400 games**, zero errors, avg 20.3 ms/move (max 92 in-process).
+   Accepted as the policy-v5 screening opponent ("boss-v2") and registered as a candidate.
+   The ordering run vs boss-v2 is in progress (appended below when complete).
+
+**Result.** The bench can now exercise the boss meta locally, and the first pure sabotage change
+in a month shows a lead over v09 in a 400-game sample — consistent with the stage-1 hypothesis
+that v09's income-only target valuation (0.05 income points per unfinished opponent track vs the
+boss's 5.6) is the largest remaining gap.
+
+**Decision.** v09 stays selected; nothing uploaded. Next: (a) user decision on policy v5 and the
+arena entry; (b) `boss-sabotage-v1` through the fixed 1000-game run and the strict process
+check; (c) stage 1 — the same chooser as the rollout's second opponent scenario.
+
+**Limits.** boss-v2's construction is v09's, not the boss's (never idles, 2.5 paint/turn vs 1.9);
+its strength vs v09 (55 %) is below the boss's (67 %). The fit explains 51 % of target choices;
+the remaining 49 % are not random but unmodelled. All local games ran in a 2-core cloud container
+at nominal CG budgets; in-process timing maxima there are not deadline evidence.
+
+## 2026-10-21 — boss-sabotage-v1: fixed 1000-game run PASS (67.45 %); policy v5 adopted; packaging fix
+
+**Packaging.** The first commit put the two new `Params` fields inside the `MISSED_DEADLINE`
+merger block, so `FileMerger.merge("current")` dropped them while `RolloutBot` still referenced
+them (7 compile errors, every submission test red). Fixed: all boss-sabotage code lives in its
+own `// BOSS_SABOTAGE_BEGIN/END` block that the merger strips unless the flag is on, and
+`BossSabotage.java` is added to the artifact only then (compacted). Verified: `current`
+`ab0954a4…`, `v09` `aca0be45…`, deadline candidate `3bd070b3…` — byte-identical to the pinned
+hashes; `current?USE_BOSS_SABOTAGE=1` → 94,845 characters, compiles. `V07/V08/V09PromotionTest`
+field counts +2; new `BossSabotageSubmissionTest`. `BossBotTest` passes alone (user).
+
+**Policy.** v5 adopted by the user (AGENTS.md rule 3, `benchmarking-v5.md`), with the
+degenerate-proxy clause: a candidate that is itself the screening opponent runs the v4 pooled
+1000-game stage instead of the proxy screen.
+
+**Strength.** `current?NOISE=0.1,USE_BOSS_SABOTAGE=true` vs `v09`, fresh paired maps, CG 486/36 ms,
+two workers: blocks **205-95 (68.33 %)**, **140-60 (70.00 %)**, **329-170-1 (65.90 %)**; pooled
+**674W/325L/1D = 67.45 % / 1000, PASS_1000**. Zero errors; P0 67.0 %, P1 67.8 %; +454 mean score
+difference; 72 % early closures; candidate disrupts on 99 % of turns (v09 78 %). Seeds
+940000/941000/942000 (150/100/250 pairs); reports in `docs/evidence/boss-proxy-v1/`. This is
+the largest local margin over the selected version in the project's history (v09 over v08 was
+56.9 %), obtained by replacing only the real-turn DISRUPT choice.
+
+**Decision.** v09 stays selected until live confirmation. Next: `submit` + strict `procCheck`
+on the user's machine (in-process maxima 127 ms on the shared 2-core host are not deadline
+evidence; the chooser runs unguarded before the search), then v5 step 3 (80 paired live boss
+games), then stage 1.
+

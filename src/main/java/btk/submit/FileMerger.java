@@ -212,6 +212,8 @@ public class FileMerger {
         Set<String> imports = new TreeSet<>();
         StringBuilder body = new StringBuilder();
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
+        boolean bossSabotage = BotFactory.parameters(spec).USE_BOSS_SABOTAGE;
+        if (bossSabotage) files.add(SRC_ROOT.resolve("bot/current/BossSabotage.java"));
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -221,6 +223,7 @@ public class FileMerger {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
             boolean deadlineBlock = false;
+            boolean bossBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -311,6 +314,17 @@ public class FileMerger {
                     continue;
                 }
                 if (deadlineBlock && !missedDeadline) continue;
+                if (line.trim().equals("// BOSS_SABOTAGE_BEGIN")) {
+                    if (bossBlock) throw new IllegalArgumentException("Nested boss-sabotage block: " + file);
+                    bossBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BOSS_SABOTAGE_END")) {
+                    if (!bossBlock) throw new IllegalArgumentException("Unbalanced boss-sabotage block: " + file);
+                    bossBlock = false;
+                    continue;
+                }
+                if (bossBlock && !bossSabotage) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
@@ -452,6 +466,7 @@ public class FileMerger {
                         && (code.endsWith(";") || code.endsWith("{") || code.endsWith("}")))) body.append('\n');
             }
             if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
+            if (bossBlock) throw new IllegalArgumentException("Unclosed boss-sabotage block: " + file);
             if (batchBlock) throw new IllegalArgumentException("Unclosed batch block: " + file);
             if (inkBlock) throw new IllegalArgumentException("Unclosed ink-refresh block: " + file);
             if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Unclosed fast-path block: " + file);
@@ -469,7 +484,7 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
-        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath)) {
+        if (compactCandidate && version.equals("current") && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath || bossSabotage)) {
             normalized = JavaSourceCompactor.compact(normalized);
             String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
             if (normalized.indexOf(compactMarker) < 0

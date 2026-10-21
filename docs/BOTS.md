@@ -1,6 +1,10 @@
 # Bot versions
 
-Active strength policy (2026-09-20): **practical-1000-futility-boss-cache-v4**. One pooled
+Active strength policy (2026-10-21): **practical-v5** (`benchmarking-v5.md`): proxy screen vs the
+validated boss-like opponent (+3 pp over the control on the same maps), non-inferiority vs the
+selected version (≥ 48 %), 80 paired live boss games (≥ control + 5 pp; one extension to 120).
+For a candidate that is itself the proxy, the v4 pooled 1000-game run replaces the first two steps.
+Previous policy (2026-09-20 to 2026-10-20): **practical-1000-futility-boss-cache-v4**. One pooled
 1000-game comparison in blocks 300/+200/+500; stop below 50% at 300/500, final pass >=55%
 over all 1000, no early pass. Also require exactly 40 NEW
 candidate games against the live boss on the saved control's maps/seeds/seats, scoring
@@ -12,6 +16,29 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 [benchmarking.md](benchmarking.md). The former v3 local thresholds remain in historical entries.
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+
+Candidate 2026-10-21: **boss-sabotage-v1 — local 1000-game stage PASS, 67.45 %**.
+`current?NOISE=0.1,USE_BOSS_SABOTAGE=true` vs frozen v09 on fresh paired maps (seeds
+940000/941000/942000), CG 486/36 ms, two workers: **205-95 / 140-60 / 329-170-1 = 674W/325L/1D**,
+zero errors, P0 67.0 % / P1 67.8 %, +454 mean score difference, 99 % accepted disruption vs 78 %.
+Artifact 94,845 characters (compacted), compiles; default-off flag leaves `current`/`v09`
+artifacts byte-identical. Pending under policy v5: strict `procCheck` and 80 paired live boss
+games. v09 stays selected. [Details](boss-proxy-v1.md#63-strength-of-the-flag-itself-boss-sabotage-v1-candidate-id).
+
+Measurement reset 2026-10-20: **boss-proxy-v1 / boss-sabotage-v1 (screen)**. All 855 canonical
+boss replays studied (`BossIntentStudy`, `CgLeaderStudy` on "Boss 4"); conditional-logit target
+model, held-out top-1 51.0 %. New local-only reference `boss-v1` (`btk.bot.reference.BossBot`):
+boss-like sabotage, fitted construction; fingerprint matches the boss's sabotage but wins only
+30.5 % vs v09 (boss: 67.5 %) — **rejected as strength proxy, kept as behavioural reference**.
+New default-off flag on `current`: `USE_BOSS_SABOTAGE` (`btk.bot.current.BossSabotage`, the same
+fitted chooser replacing v09's real-turn DISRUPT). `current?USE_BOSS_SABOTAGE=1` vs v09:
+**221W/179L/0D = 55.25 % over 400 games** (100 + 300, seeds 920000/930000, fresh maps, CG
+486/36 ms, zero errors); disrupt 99 %, games 77 turns, 69 % closures. Accepted as the policy-v5
+screening opponent ("boss-v2"); as a candidate it has only this screen — no fixed 1000-game
+run, strict process check or live games yet. Ordering check vs boss-v1 (200 games each): v07 53.0,
+v08 62.0, v09 74.0, neural-v6 78.5, neural-v1 76.0, all-cell-risk 83.5, root-fill 76.5,
+live-target 72.0, batched 73.5 %. v09 stays selected; nothing uploaded.
+[Protocol and results](boss-proxy-v1.md), [policy proposal](benchmarking-v5.md), [STATUS](STATUS.md).
 
 Local budget experiment 2026-10-18: **v09-ink45-strength-v1, NOT_PASSED**.
 Same incremental-ink candidate at 45 versus 40 ms, with batching ON and

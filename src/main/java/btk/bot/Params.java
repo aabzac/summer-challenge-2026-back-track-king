@@ -77,6 +77,11 @@ public class Params {
     /** Current-only experiment: honor a missed, repeatedly forecast sabotage deadline. */
     public boolean USE_ROLLOUT_MISSED_DEADLINE = false;
     // MISSED_DEADLINE_END
+    // BOSS_SABOTAGE_BEGIN
+    /** Current-only experiment: boss-fitted sabotage chooser replaces the real-turn target (docs/boss-proxy-v1.md). */
+    public boolean USE_BOSS_SABOTAGE = false;
+    public double BOSS_HOLD_MARGIN = 1.0;
+    // BOSS_SABOTAGE_END
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;

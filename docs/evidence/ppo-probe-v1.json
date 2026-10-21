@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "experiment": "ppo-probe-v1",
+  "date": "2026-10-06",
+  "verdict": "PASS_LEARNING",
+  "iterations": 24,
+  "gamesPerIteration": 16,
+  "evalMaps": 30,
+  "wins": 60,
+  "losses": 0,
+  "draws": 0,
+  "score": 1.0,
+  "mirrorWinsLossesDraws": [0, 0, 60],
+  "routeWeightBefore": 0.007507327878994412,
+  "routeWeightAfter": 0.6273507797545567,
+  "disruptSwingWeightBefore": 0.008312142728483992,
+  "disruptSwingWeightAfter": 0.6713664977501276,
+  "elapsedSec": 256.3486243,
+  "valueMseLast": 190138.699164064,
+  "report": "build/analysis/ppo-probe-v1/result.json",
+  "note": "Linear PPO versus its initial weights. Not a v09 match."
+}

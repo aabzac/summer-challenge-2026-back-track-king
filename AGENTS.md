@@ -1,7 +1,7 @@
 # Back Track King bot — working agreement
 
 CodinGame Summer Challenge 2026 bot in Java 17. Goal: climb the arena as high as possible.
-Read `README.md` for commands, `docs/PLAN.md` for the roadmap and open steps, `docs/BOTS.md` for
+Read `docs/STATUS.md` first (one page of current state), `README.md` for commands, `docs/PLAN.md` for the roadmap and open steps, `docs/BOTS.md` for
 the version history, `docs/DEVLOG.md` for what has been tried. Tick `docs/PLAN.md` when a step is
 finished.
 
@@ -13,22 +13,25 @@ finished.
    benches are only trusted while the engine reproduces downloaded CG games. When the local bench
    and the CG arena disagree, run `cgValidate` first, then form hypotheses.
 3. **One change, one version, one bench.** Record every experiment in `docs/BOTS.md`.
-   Practical strength gate (v4): candidate vs selected control, one pooled **1000 paired games**
-   on fresh disjoint maps, played in three blocks (300 / +200 / +500) with two **futility-only**
-   interim looks — stop when the pooled score is strictly below 50% at cumulative 300 or 500
-   games. Survivors play the full 1000; promotion is decided once, at >=55% over all 1000. No
-   early pass. Also play exactly 40 NEW candidate games against the live boss on the saved
-   control's 40 seeds/maps/seats; reuse its individually verified replay outcomes, not a
-   historical rate. Candidate score >= cached control score passes (ties pass); wins=1,
-   draws=0.5, losses=0. The boss batch may run alongside block 3 once the 500-game look clears;
-   a local failure can never be rescued by boss results. Fixed complete stages, no
-   tuning/retries; a futility stop ends evaluation. Confidence intervals are diagnostics, not a
-   gate or an overall 95% guarantee. Keep the timed strength bench at two workers. Follow
-   `docs/benchmarking.md`; the cached-boss mechanism and pool are unchanged from
-   `docs/boss-cache-policy-v3.md`. Engine, errors and exact-artifact process checks remain
-   mandatory. Reused boss maps are a practical regression pool, not fresh confirmation; check
-   cache validity and refresh after outcome-guided development cycles. Apply v4 prospectively;
-   preserve historical policies/verdicts and the frozen v2/v3 tools.
+   Practical strength gate **v5 (adopted 2026-10-21, `docs/benchmarking-v5.md`)**, three required
+   steps, a failure at any step stops the candidate and keeps its evidence:
+   (a) **proxy screen** — 300 paired games on fresh maps, candidate vs the validated boss-like
+   screening opponent (`current?USE_BOSS_SABOTAGE=1` while `docs/boss-proxy-v1.md` records it as
+   valid), with the selected control on the same maps/seeds/seats in the same run; continue only
+   at candidate ≥ control + 3 pp. For a candidate that is itself the screening opponent, or when
+   no proxy is valid, replace (a)+(b) by the v4 pooled 1000-game run vs the selected version
+   (300/+200/+500, futility below 50 % at 300/500, pass ≥ 55 %).
+   (b) **non-inferiority** — 300 paired games vs the selected version; continue only at ≥ 48 %.
+   (c) **live confirmation** — 80 paired games against the live boss: 40 on the cached control's
+   maps/seeds/seats plus 40 on a second fixed pool with a fresh same-session control; pass at
+   candidate ≥ control + 5 pp over the 80; one predeclared extension to 120 games, decided on
+   all 120. No other extensions, retries or pooling with historical games.
+   New heuristic bots (not flags on `current`) get a predeclared tuning budget on development
+   maps before step (a). Draws = half. Confidence intervals are diagnostics, not a gate. Engine,
+   errors and exact-artifact process checks remain mandatory. Keep the timed strength bench at
+   two workers. The v4 policy, its tools (`run_practical_v4.py`, `practical_gate_v4.py`), the
+   cached-boss mechanism of `docs/boss-cache-policy-v3.md` and all historical verdicts are
+   preserved as recorded. Re-validate the proxy whenever it or the live boss changes.
 4. **Parameters, not file copies.** All weights/flags are fields of `btk.bot.Params`; ablations are
    run as `current?KEY=value` bot specs. Never edit `btk.bot.vNN` packages — they are frozen
    reference opponents. New version = copy `bot/current` to `bot/vNN`, rename classes, register in

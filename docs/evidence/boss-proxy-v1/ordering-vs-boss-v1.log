@@ -1,0 +1,50 @@
+== fingerprint: boss-v1 vs v09, 200 games, seed 910000
+Picked up JAVA_TOOL_OPTIONS: 
+boss-v1 in boss seat vs v09: 200 games, boss W-L-D 61-139-0 -> build/analysis/proxy-validation/fingerprint
+== ordering benches (A vs boss-v1), 200 games each, seed 910000
+-- v09
+  A win rate: 74.0%  W-L-D 148-52-0
+  avg score diff (A-B): +688.7   avg turns: 83.3
+  time/move ms  A avg 19.01 max 219 slow 28 | B avg 3.62 max 69 slow 8
+  accepted disrupt A/B: 69.6% / 99.2%; early closures 87/200
+-- v08
+  A win rate: 62.0%  W-L-D 124-76-0
+  avg score diff (A-B): +438.6   avg turns: 78.4
+  time/move ms  A avg 18.88 max 91 slow 5 | B avg 3.05 max 80 slow 2
+  accepted disrupt A/B: 74.7% / 93.0%; early closures 118/200
+-- v07
+  A win rate: 53.0%  W-L-D 106-94-0
+  avg score diff (A-B): +163.0   avg turns: 77.1
+  time/move ms  A avg 20.62 max 161 slow 20 | B avg 3.44 max 86 slow 4
+  accepted disrupt A/B: 74.4% / 95.1%; early closures 127/200
+-- neural-v6
+  A win rate: 78.5%  W-L-D 157-43-0
+  avg score diff (A-B): +675.2   avg turns: 58.3
+  time/move ms  A avg 3.50 max 59 slow 1 | B avg 3.59 max 60 slow 1
+  accepted disrupt A/B: 100.0% / 100.0%; early closures 196/200
+-- neural-v1
+  A win rate: 76.0%  W-L-D 152-48-0
+  avg score diff (A-B): +441.5   avg turns: 59.1
+  time/move ms  A avg 4.00 max 50 slow 0 | B avg 3.20 max 42 slow 0
+  accepted disrupt A/B: 100.0% / 99.9%; early closures 196/200
+-- current?USE_ROLLOUT_ALL_CELL_RISK=1
+  A win rate: 83.5%  W-L-D 167-33-0
+  avg score diff (A-B): +967.8   avg turns: 89.4
+  time/move ms  A avg 16.59 max 63 slow 1 | B avg 2.42 max 42 slow 0
+  accepted disrupt A/B: 65.6% / 98.7%; early closures 55/200
+-- current?USE_ROLLOUT_ROOT_FILL=1
+  A win rate: 76.5%  W-L-D 153-47-0
+  avg score diff (A-B): +853.6   avg turns: 86.9
+  time/move ms  A avg 17.54 max 52 slow 1 | B avg 2.71 max 41 slow 0
+  accepted disrupt A/B: 67.1% / 98.7%; early closures 68/200
+-- v09?USE_ROLLOUT_LIVE_TARGET=1
+  A win rate: 72.0%  W-L-D 144-56-0
+  avg score diff (A-B): +601.8   avg turns: 86.2
+  time/move ms  A avg 17.52 max 71 slow 5 | B avg 2.76 max 96 slow 2
+  accepted disrupt A/B: 69.3% / 98.5%; early closures 74/200
+-- current?USE_BATCHED_REFRESH=1
+  A win rate: 73.5%  W-L-D 147-53-0
+  avg score diff (A-B): +818.4   avg turns: 84.5
+  time/move ms  A avg 15.56 max 45 slow 0 | B avg 2.69 max 37 slow 0
+  accepted disrupt A/B: 67.1% / 99.1%; early closures 81/200
+VALIDATION DONE

@@ -25,6 +25,7 @@ import btk.bot.neural.SpatialV10Bot;
 import btk.bot.neural.SpatialVariantBot;
 import btk.bot.reference.LeaderBot;
 import btk.bot.reference.LeaderBot2;
+import btk.bot.reference.BossBot;
 import btk.bot.reference.PressureBot;
 import btk.bot.v00.AutoplaceBot;
 import btk.bot.v01.GreedyBotV01;
@@ -90,7 +91,7 @@ public final class BotFactory {
         }
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
-        if (version.equals("pressure-v1") || version.equals("leader-v1") || version.equals("leader-v2")
+        if (version.equals("pressure-v1") || version.equals("leader-v1") || version.equals("leader-v2") || version.equals("boss-v1")
                 || version.equals("neural-v1") || version.equals("neural-v2") || version.equals("neural-v3")
                 || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("neural-v6") || version.equals("neural-v7")
                 || version.equals("indrill-q-v1")
@@ -110,6 +111,9 @@ public final class BotFactory {
         if (params.USE_FAST_CHEAPEST_PATH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("Fast cheapest path requires the current native rollout policy");
+        if (params.USE_BOSS_SABOTAGE && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
+                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
+            throw new IllegalArgumentException("Boss sabotage requires the current native rollout policy");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
             throw new IllegalArgumentException("Missed-deadline correction is a current-only experiment");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && (!params.USE_ROLLOUT_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))
@@ -131,6 +135,7 @@ public final class BotFactory {
                 if (field.getName().equals("USE_INCREMENTAL_INK_REFRESH") && !params.USE_INCREMENTAL_INK_REFRESH) continue;
                 if (field.getName().equals("USE_FAST_CHEAPEST_PATH") && !params.USE_FAST_CHEAPEST_PATH) continue;
                 if (field.getName().equals("USE_ROLLOUT_MISSED_DEADLINE") && !params.USE_ROLLOUT_MISSED_DEADLINE) continue;
+                if ((field.getName().equals("USE_BOSS_SABOTAGE") || field.getName().equals("BOSS_HOLD_MARGIN")) && !params.USE_BOSS_SABOTAGE) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")
@@ -195,6 +200,7 @@ public final class BotFactory {
             case "pressure-v1": return PressureBot::new;
             case "leader-v1": return LeaderBot::new;
             case "leader-v2": return LeaderBot2::new;
+            case "boss-v1": return BossBot::new;
             case "neural-v1": return NeuralBot::new;
             case "neural-v2": return NeuralV2Bot::new;
             case "neural-v3": return NeuralV3Bot::new;

@@ -3,6 +3,28 @@
 Roadmap with status. History and reasoning live in `DEVLOG.md`, per-version numbers in `BOTS.md`.
 Update the checkboxes when a step is finished; add new steps at the bottom of the open phase.
 
+## Stage 0 — measurement reset (2026-10-20)
+
+Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 → 2; 3–4 after.
+
+- [x] `docs/STATUS.md` one-page state; keep it current from now on.
+- [x] Boss replay study on all 855 canonical boss games; fits for target, hold and project choice
+  (`docs/boss-proxy-v1.md`).
+- [x] `boss-v1` reference (fitted sabotage + construction): fingerprint + ordering — rejected as
+  strength proxy (30.5 % vs v09), retained as behavioural reference.
+- [x] `current?USE_BOSS_SABOTAGE=1` ("boss-v2"): 55.25 %/400 vs v09, boss-like fingerprint —
+  accepted as screening opponent.
+- [ ] Ordering check vs boss-v2 (9 candidates × 200 games) — running; append to boss-proxy-v1.md.
+- [x] **User decision:** adopt policy v5 (`docs/benchmarking-v5.md`) — adopted 2026-10-21, AGENTS.md rule 3 updated.
+- [ ] **User decision:** arena entry (v09 / neural-v6 / keep neural-v3).
+- [x] Packaging: merger block for the flag; artifact 94,845 chars, pinned hashes unchanged; `gradlew test` to be re-run by the user after the fix.
+- [x] `boss-sabotage-v1` as a candidate: fixed 1000-game run vs v09 — **674W/325L/1D = 67.45 %, PASS_1000** (2026-10-21).
+- [ ] `submit` + strict `procCheck` of the exact `current?USE_BOSS_SABOTAGE=1` artifact (user's machine), then upload to the IDE and run v5 step 3: 80 paired live boss games (40 cached-control maps + 40 fresh pool with same-session v09 control).
+- [ ] Stage 1: the fitted chooser as the rollout's second opponent scenario (asymmetric opponent
+  model); mechanism check on the six cut positions of v09-batched-loss-diagnosis-v1.
+- [ ] Stage 2: algorithmic compute cuts (skip zero-delta ink evaluations, targets once per
+  simulated turn, region index, flood only after ink).
+
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 
 - [x] Predeclare the same incremental-ink candidate at 45/40 ms, timing gate

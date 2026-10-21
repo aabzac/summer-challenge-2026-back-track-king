@@ -470,6 +470,31 @@ tasks.register<JavaExec>("quickRouteStudy") {
         prop("bot", "current?USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_PROTECTED_OPENING=0"), prop("out", "build/analysis/quick-route-study.json"))
 }
 
+tasks.register<JavaExec>("bossIntentStudy") {
+    group = "cg"
+    description = "Boss replay study: announced intents, target holding, pair ranks, route-model membership (docs/boss-proxy-v1.md)"
+    mainClass.set("btk.tools.BossIntentStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg/boss"), prop("player", "Boss 4"), prop("out", "build/analysis/boss-intent"))
+}
+
+tasks.register<JavaExec>("bossAgreementStudy") {
+    group = "cg"
+    description = "Replay a bot in the boss seat over the boss corpus and measure decision agreement"
+    mainClass.set("btk.tools.BossAgreementStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg/boss"), prop("player", "Boss 4"), prop("bot", "boss-v1?NOISE=0"), prop("maxGames", ""))
+}
+
+tasks.register<JavaExec>("proxyBehaviorStudy") {
+    group = "game"
+    description = "Local paired games with a boss-like spec in the boss seat; writes BossIntentStudy tables for fingerprint comparison"
+    mainClass.set("btk.tools.ProxyBehaviorStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("boss", "boss-v1"), prop("opp", "v09"), prop("games", "200"), prop("seed", "910000"),
+        prop("out", "build/analysis/proxy-behavior"), prop("threads", "2"))
+}
+
 /** Run the merged Player.java as an external process against an in-process bot (protocol + timing check). */
 tasks.register<JavaExec>("procCheck") {
     group = "game"
