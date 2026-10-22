@@ -103,3 +103,43 @@ Same 43 maps × 2 seats cold vs boss-v2, interleaved with a fresh cold D arm (sa
 replaces the earlier cold D row for the paired reading); then hot rows D6 / W4 vs boss-v2 on pool
 980000 (300 games, D control 68.7 % there). Reading: a probe is worth a proper cold screen only if
 cold probe − cold D > 0 beyond the paired error **and** its hot row is within the cell error of D's.
+
+### Round 2 results (`docs/evidence/cold-timing-30x20-v1/round2/`, 258 cold games, 0 errors)
+
+| vs boss-v2 | cold, 43 maps × 2 seats (one JVM per game) | hot, pool 980000 (300 games; D 68.7 %) | hot on the pool's 23 30×20 maps (D 76.1 %) |
+|---|---|---|---|
+| **D (fresh cold control)** | 65-21 = **75.6 %** | — | — |
+| D6 = D + `ROLLOUT_DEPTH=6` | 70-16 = 81.4 %, paired +5.8 ± 11.8 | 64.3 % (−4.4) | 67.4 % |
+| W4 = D + `ROLLOUT_WIDTH=4` | 70-16 = 81.4 %, paired +5.8 ± 12.7 | 63.7 % (−5.0) | 82.6 % |
+
+Cold mean time per move: D 25.4 ms, D6 24.1, W4 24.1 (the per-comparison saving is simply spent
+on more comparisons inside the same budget-bound turn). Isolated 50–131 ms turns on both sides
+during this late-evening run (hot rows: 98–125 ms maxima for both arms and for boss-v2) — the
+machine, not the candidates.
+
+**The control moved more than the probes.** The fresh cold D is 75.6 % where round 1's cold D was
+66.3 % on the same maps and seats: +9.3 ± 12.0 pp between two runs of the *same* configuration.
+Pooled over both rounds (172 cold games) cold D is 70.9 % against hot D's 77.9 %: **paired
+−7.0 ± 12.5 pp**. So:
+
+- The timing fact stands (A: 34 % of later turns at the ceiling in a fresh process, up to 31 of the
+  first 40). Its *strength* effect against the proxy on 30×20 is **not measurable at this sample
+  size** — somewhere between nothing and about −15 pp; the round-1 reading of −11.6 was within
+  that band, not a number.
+- **D6 and W4 are parked.** Their cold gains (+5.8) are half the paired error and their hot rows
+  sit 4–5 pp under D's control (inside the ±5.7 cell error, but on the wrong side); neither meets
+  the predeclared bar for a full cold screen.
+- The cold instrument at 86 games (±12 pp) resolves only large effects. A decisive cold series
+  needs ≥ 300 paired games per arm (≈ 25 min per arm at the measured 15 cold games per minute),
+  on 30×20 and 29×19 maps from a fresh pool, with the control in the same session.
+
+### Where this leaves the 30×20 question
+
+The arena's 3-8 on 30×20 (11 games) is consistent with any of: the small sample, a different
+opponent mix on big maps, or a cold-JVM strength loss of a few pp that the proxy series cannot
+resolve yet. Nothing in this file justifies a change to D. The two measurements that would settle
+it are (1) the 80-game live boss series for D (v5 step c, which is also the promotion gate), and
+(2) a ≥ 300-game cold paired series D vs boss-v2 on tall maps with a same-session hot control on
+the same maps. Pools 980000/990000 (tall subsets) are consumed for cold work too; next free range
+≥ 1000000.
+

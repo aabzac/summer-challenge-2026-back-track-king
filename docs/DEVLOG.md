@@ -8299,3 +8299,40 @@ maps (72–76 % vs boss-v2), which points at cold-JVM timing on 30×20 rather th
 `btk.tools.ColdTurnTiming` on D's exact artifact is the cheap check before anything else. Pools
 980000 and 990000 consumed; next free range ≥ 1000000. Evidence
 `docs/evidence/stage2-dividend-v1/part2/` (11 reports + `screen.log`); doc `docs/stage2-dividend-v1.md`.
+
+## 2026-10-22 (late) — `cold-timing-30x20-v1`: D is budget-bound on 30×20 in a fresh JVM; the strength effect is not measurable at 172 games; M32 rejected, D6 / W4 parked
+
+On the user's "давай тайминг". Question: is the arena's 3-8 on 30×20 (D's first 50 games) a
+cold-JVM timing effect that the hot bench (12 ms/move, "search completes early") cannot see?
+Protocol predeclared and committed before the first game (`docs/cold-timing-30x20-v1.md`,
+`tools/boss_proxy/run_cold_tall.sh`, `run_cold_tall2.sh`).
+
+**Timing fact (confirmed).** The user's strict `procCheck` of D's exact artifact already showed it:
+in a fresh process on 30×20 and 29×19 every turn from ~10 to ~45 is at the 36–38 ms ceiling. New
+strict run on 12 CG 30×20 maps (`replays/cg-30x20/`): 1,068 later turns, mean 22.7 ms, **34 % at
+≥ 36 ms**, 14–31 of the first 40 turns per game, p99 38.3, max 45.5 ms, **0 timeouts, 0 overruns**.
+The share rises from turn 10 with the map, so it is compute pressure, not JIT settling (CGRunner's
+500 ms warm-up is in that run). The arena turn on big maps is decided with a fraction of the
+comparisons the hot bench shows; D does not fail turns there (matches the arena's 0 failed turns).
+
+**Strength effect (not established).** Cold paired games, one JVM per game, D vs boss-v2 on the 43
+generated 30×20 maps of pools 980000/990000, both seats, read against the hot bench on the same
+maps and seats (hot D 67-19 = 77.9 %): round 1 cold D 57-29 = 66.3 % (paired −11.6 ± 14.3);
+round 2's fresh cold control 65-21 = **75.6 %** — the same configuration moved +9.3 ± 12.0 between
+runs. Pooled 172 cold games: 70.9 %, **paired −7.0 ± 12.5 pp vs hot**. Direction consistent, size
+anywhere between nothing and −15 pp; 86-game cold cells (±12 pp) resolve only large effects.
+
+**Probes (Params-only, cold on the same maps + hot rows).** M32 = D + `ROLLOUT_MAX_ROUTES=32`:
+cold +1.2 ± 14.7 vs cold D, hot 57.3 % (980000) / 66.7 % (990000) vs D's 68.7 / 67.0 → **rejected**
+(the route enumeration is not what crowds out the search). D6 = D + `ROLLOUT_DEPTH=6` and W4 =
+D + `ROLLOUT_WIDTH=4`: cold 81.4 % each vs the same-session cold D 75.6 % (+5.8 ± 11.8 / ± 12.7),
+hot 64.3 / 63.7 % vs 68.7 → **parked** (cold gain half the paired error, hot rows 4–5 pp under the
+control). Cold mean time per move 24–25 ms for all arms: the per-comparison saving is spent on
+more comparisons inside the same budget-bound turn, as intended, without a measurable result.
+
+**Decisions.** D unchanged. Method: anything aimed at big maps is screened *cold* (paired one-JVM
+series on the same maps/seats, `run_cold_tall*.sh` pattern, ~15 games/min here) with the hot bench
+as the non-inferiority guard; a decisive cold series is ≥ 300 paired games per arm with the
+control in the same session. The two measurements that settle the 30×20 question are the 80-game
+live boss series for D (v5 step c) and such a cold series on tall maps of a fresh pool (≥ 1000000).
+Evidence `docs/evidence/cold-timing-30x20-v1/` (+ `round2/`): procCheck JSON, cold logs, hot rows.

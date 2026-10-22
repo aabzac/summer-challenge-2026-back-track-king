@@ -1,0 +1,10 @@
+== cold round 2 on 43 30x20 seeds 2026-10-22T21:12:01Z
+== hot rows vs boss-v2, pool 980000 2026-10-22T21:30:56Z
+-- D6-vs-boss2 seed 980000
+  A win rate: 64,3%  W-L-D 193-107-0
+  time/move ms  A avg 13,84 max 98 slow 1 | B avg 20,57 max 100 slow 2
+-- W4-vs-boss2 seed 980000
+  A win rate: 63,7%  W-L-D 191-109-0
+  time/move ms  A avg 14,02 max 109 slow 1 | B avg 20,71 max 125 slow 1
+COLD ROUND 2 DONE 2026-10-22T21:42:59Z
+SCRIPT EXIT=0
