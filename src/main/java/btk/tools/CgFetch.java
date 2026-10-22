@@ -121,8 +121,20 @@ public final class CgFetch {
         System.out.printf("done: %d saved, %d already present%n", saved, skipped);
     }
 
+    /**
+     * The live arena is the multiplayer puzzle that replaced the contest; the challenge leaderboard
+     * is frozen at the contest's end (it kept reporting agent 6755892 for aabzac while the puzzle
+     * entry was already agent 6807052 on 2026-10-22). Fall back to the challenge leaderboard only
+     * if the puzzle one is unavailable.
+     */
     JsonObject leaderboard() throws IOException, InterruptedException {
         String body = "[\"" + CHALLENGE + "\", null, \"global\", {\"active\":false,\"column\":\"\",\"filter\":\"\"}]";
+        try {
+            JsonElement puzzle = post("Leaderboards/getFilteredPuzzleLeaderboard", body);
+            if (puzzle.isJsonObject() && puzzle.getAsJsonObject().has("users")) return puzzle.getAsJsonObject();
+        } catch (IOException | RuntimeException e) {
+            System.out.println("puzzle leaderboard unavailable (" + e.getMessage() + "); using the frozen challenge leaderboard");
+        }
         return post("Leaderboards/getFilteredChallengeLeaderboard", body).getAsJsonObject();
     }
 

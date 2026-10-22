@@ -17,6 +17,22 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+Candidates 2026-10-22 (`stage2-dividend-v1`, two separate same-map screens against D, fresh pool
+seed 980000, 300 games/cell, 2 workers, CG timing, D's own rows on the same maps as controls):
+**R3** = D + `ROLLOUT_REPLIES=3` — 51.7 % vs D, 64.7 % vs boss-v2 (D 68.7; paired −4.0 ± 7.6 pp),
+53.7 % vs neural-v6 (D 51.7), 67.0 % vs v09 (D 63.3). **D10** = D + `ROLLOUT_DEPTH=10` — 53.3 % vs D,
+65.8 % vs boss-v2 (paired −2.8 ± 6.7), 54.0 % vs neural-v6, 63.0 % vs v09. Zero errors, no new
+source. Both pass the formal "≥ 50 % h2h, no row below D by more than the cell error" reading and
+**both fail the v5 step (a) gate (≥ D + 3 pp vs boss-v2) → parked, D unchanged.** Mean move time
+rises only 12–16 → 14–18 ms: the slack is not spent by more replies/depth; on tall maps vs boss-v2
+both lose coverage (D 76.3 % → 68.4 %). [Details](stage2-dividend-v1.md),
+[evidence](evidence/stage2-dividend-v1/).
+**Arena, D (puzzle agent 6807052, first 50 games fetched 2026-10-22):** **30W/20L, 0 failed turns**,
+rank 317 overall = **#7 of 712 in Silver**, score 28.06; 30×20 maps 3/11, h ≥ 19 10-12, low maps 20-8;
+35 placement games 24-11, then 15 games vs --CC-- (Gold) 6-9; disrupt 97.7 % of turns, 40.7 % of
+accepted cells never earned ([evidence](evidence/arena-2026-10-22-D-agent-6807052.json)). The
+challenge leaderboard is frozen; `cgFetch` reads the puzzle leaderboard since 2026-10-22.
+
 Candidates 2026-10-21 (evening), each screened on the same 150 maps (seed 970000, 300 games/cell) against its predecessor:
 **boss-lite-routes-v1 (C)** = opponent-model-v1 + `USE_BOSS_LITE_ROUTES=true` — route-traffic term from the
 rollout's own previous-turn portfolio (no path searches): 50.0 % vs B, 52.0 % vs neural-v6 (B 45.3;
@@ -24,7 +40,7 @@ second pool 57.0 vs 56.0 → +3.8 pooled), 62.8 % vs v09, 60.3 % vs boss-v2; art
 [Details](boss-lite-routes-v1.md). **stage2-compute-v1 (D)** = C + `USE_INCREMENTAL_INK_REFRESH,
 USE_FAST_CHEAPEST_PATH,USE_BATCHED_REFRESH` (incremental refresh now also inside the lite chooser):
 ×2 simulated turns, **53.7 % vs C, 67.0 % vs v09, 65.0 % vs boss-v2, 49.7 % vs neural-v6**, mean
-11.8 ms/turn; artifact 99,683. [Details](stage2-compute-v1.md). Neither live-tested; B is on the arena.
+11.8 ms/turn; artifact 99,683. [Details](stage2-compute-v1.md). Neither live-tested; D is on the arena since 2026-10-21 evening (agent 6807052, see above).
 **Arena baseline, v09-era build `4cda8b1b` (agent 6755892, 50 games fetched 2026-10-21):** 23W/27L, 0
 timeouts, ≈ #22 of 706 in Silver; 30×20 maps 4/11, 21×14 1/7; 41–46 % of accepted cells never earned.
 

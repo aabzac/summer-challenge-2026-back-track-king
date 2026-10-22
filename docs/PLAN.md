@@ -20,7 +20,7 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
 - [x] Packaging: merger block for the flag; artifact 94,845 chars, pinned hashes unchanged; `gradlew test` to be re-run by the user after the fix.
 - [x] `boss-sabotage-v1` as a candidate: fixed 1000-game run vs v09 — **674W/325L/1D = 67.45 %, PASS_1000** (2026-10-21).
 - [x] ~~`submit` + strict `procCheck` … v5 step 3~~ — uploaded to the arena by the user 2026-10-21: **rank ~150–200/700, worse than neural-v3 and worse vs the boss (user report) → not promoted.** Diagnosis in DEVLOG 2026-10-21: v09-specific gain (neural-v6 58 % against it) + unguarded real-turn chooser 16–26 ms cold-JVM on 30×20 maps.
-- [ ] Fetch the agent's arena replays (`cgFetch`/`cgAnalyze`: failed turns, tall-map paint) and run the 40-game boss series for the number.
+- [x] Fetch the agent's arena replays (`cgFetch`/`cgAnalyze`: failed turns, tall-map paint) — done for the contest-era entry (2026-10-21, 23W/27L) and for D (2026-10-22, 30W/20L, 0 failed turns); the 40-game boss series is still open.
 - [ ] Arena: take boss-sabotage-v1 down; re-upload neural-v3 or neural-v6 (user decision).
 - [ ] `boss-sabotage-v2` (`docs/boss-sabotage-v2.md`): two-stage chooser at the real turn.
   - [x] Implemented (`USE_BOSS_LITE`, `RolloutBot.chooseBossLite`, `// BOSS_LITE` + `// BOSS_HOLD` blocks); pinned artifacts unchanged; 93,544 chars; `BossLiteTest`.
@@ -35,11 +35,12 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] Screen A/B vs lite, neural-v6, v09, boss-v2 with same-map v2 controls (seed 970000, 2026-10-21): **B ≥ v2 everywhere** (57.8 % h2h, 62.3 vs 48.3 on boss-v2, 45.3 vs 40.0 on neural-v6, 63.0 vs 62.7 on v09); A loses 6 pp vs v09. B = `opponent-model-v1`.
   - [x] Cold-JVM compute check: B max 36–38 ms on 30×20, simulated turns per real turn in v2's band.
   - [x] User: submit + strict procCheck of B (2026-10-21); **uploaded to the arena** (marker `4ac43802…`); live boss series still open (`boss_cached.py` needs `--candidate build/submit-opp-model --candidate-check build/submit-opp-model/process-check.json`, or the paired `boss_batch.py` with a fresh v09 control).
-  - [ ] Fetch B's arena games after 30–50 played (`cgFetch` prints the new agent id) → `cgAnalyze`.
+  - [x] ~~Fetch B's arena games~~ — B was replaced by D on the arena the same evening; D's first 50 games analysed 2026-10-22 (agent 6807052, 30W/20L, Silver #7/712; `docs/evidence/arena-2026-10-22-D-agent-6807052.json`). `cgFetch` now reads the live *puzzle* leaderboard (the challenge one is frozen).
 - [x] Stage 3 (cheap half): `USE_BOSS_LITE_ROUTES` route-traffic term from the rollout's portfolio — C ≥ B on every same-map row, +3.8 pp vs neural-v6 over two pools (`docs/boss-lite-routes-v1.md`). Hold margin 0.5/2.0 flat → 1.0 stays.
 - [x] Stage 2: profile (route enumeration 44 %, chooser refreshes 36 %) → incremental ink refresh wired into the lite chooser; D = C + the three runtime flags: ×2 simulated turns, 53.7 % vs C, 67.0 % vs v09, 65.0 % vs boss-v2 (`docs/stage2-compute-v1.md`).
-  - [ ] Spend the dividend: `ROLLOUT_REPLIES=3`, `ROLLOUT_DEPTH=10`, more routes — separate same-map screens vs D.
-  - [ ] Strict procCheck of D's exact artifact (99,683 chars) on the user's machine before any upload.
+  - [x] Spend the dividend, part 1 — `ROLLOUT_REPLIES=3` and `ROLLOUT_DEPTH=10` as separate same-map screens vs D (`docs/stage2-dividend-v1.md`, 2026-10-22, pool 980000): h2h 51.7 / 53.3 %, vs boss-v2 64.7 / 65.8 against D's 68.7 → **both fail the +3 pp gate, parked**; the slack is not spent (+2 ms/move) and tall maps get worse.
+  - [ ] Spend the dividend, part 2: more routes (`ROLLOUT_MAX_ROUTES`) or a second root pass while time remains — same-map screen vs D on a fresh pool (≥ 990000).
+  - [x] Strict procCheck of D's exact artifact (99,683 chars) on the user's machine — done 2026-10-21 (`build/submit-stage2-d/process-check.json`, strict, 0 timeouts); D uploaded the same evening (puzzle agent 6807052), first 50 games 30W/20L, 0 failed turns.
 - [ ] Prune (`prune-v1`): the ~23 rejected flags and their code out of `current` after the next promotion — now also a hard prerequisite, D is 317 chars under the 100,000 limit.
 - [ ] Stage 2: algorithmic compute cuts (skip zero-delta ink evaluations, targets once per
   simulated turn, region index, flood only after ink).

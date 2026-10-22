@@ -1,0 +1,57 @@
+-- R3-vs-D: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_REPLIES=3 vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true (300 games, seed 980000) 2026-10-22T18:11:27Z
+  A win rate: 51,7%  W-L-D 155-145-0
+  avg score diff (A-B): -23,6   avg turns: 70,1
+  time/move ms  A avg 14,21 max 40 slow 0 | B avg 12,31 max 43 slow 0
+  accepted disrupt A/B: 98,2% / 98,2%; early closures 293/300
+-- D10-vs-D: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_DEPTH=10 vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true (300 games, seed 980000) 2026-10-22T18:16:18Z
+  A win rate: 53,3%  W-L-D 160-140-0
+  avg score diff (A-B): +63,1   avg turns: 70,0
+  time/move ms  A avg 12,84 max 49 slow 0 | B avg 11,80 max 39 slow 0
+  accepted disrupt A/B: 98,4% / 98,5%; early closures 294/300
+-- R3-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_REPLIES=3 vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 980000) 2026-10-22T18:20:49Z
+  A win rate: 64,7%  W-L-D 194-106-0
+  avg score diff (A-B): +342,7   avg turns: 67,9
+  time/move ms  A avg 17,51 max 47 slow 0 | B avg 20,79 max 62 slow 2
+  accepted disrupt A/B: 98,3% / 99,6%; early closures 295/300
+-- D10-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_DEPTH=10 vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 980000) 2026-10-22T18:27:32Z
+  A win rate: 65,8%  W-L-D 197-102-1
+  avg score diff (A-B): +440,4   avg turns: 67,8
+  time/move ms  A avg 16,02 max 49 slow 0 | B avg 20,30 max 44 slow 0
+  accepted disrupt A/B: 98,4% / 99,7%; early closures 295/300
+-- D-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 980000) 2026-10-22T18:33:53Z
+  A win rate: 68,7%  W-L-D 206-94-0
+  avg score diff (A-B): +457,3   avg turns: 68,6
+  time/move ms  A avg 14,14 max 47 slow 0 | B avg 19,43 max 87 slow 4
+  accepted disrupt A/B: 98,5% / 99,9%; early closures 299/300
+-- R3-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_REPLIES=3 vs neural-v6 (300 games, seed 980000) 2026-10-22T18:39:50Z
+  A win rate: 53,7%  W-L-D 161-139-0
+  avg score diff (A-B): +61,9   avg turns: 61,1
+  time/move ms  A avg 17,77 max 40 slow 0 | B avg 3,24 max 36 slow 0
+  accepted disrupt A/B: 98,4% / 100,0%; early closures 300/300
+-- D10-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_DEPTH=10 vs neural-v6 (300 games, seed 980000) 2026-10-22T18:43:13Z
+  A win rate: 54,0%  W-L-D 162-138-0
+  avg score diff (A-B): -49,3   avg turns: 61,1
+  time/move ms  A avg 18,12 max 38 slow 0 | B avg 3,61 max 33 slow 0
+  accepted disrupt A/B: 98,4% / 100,0%; early closures 300/300
+-- D-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs neural-v6 (300 games, seed 980000) 2026-10-22T18:46:43Z
+  A win rate: 51,7%  W-L-D 155-145-0
+  avg score diff (A-B): +39,2   avg turns: 60,8
+  time/move ms  A avg 16,15 max 40 slow 0 | B avg 3,41 max 35 slow 0
+  accepted disrupt A/B: 98,3% / 100,0%; early closures 299/300
+-- R3-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_REPLIES=3 vs v09 (300 games, seed 980000) 2026-10-22T18:49:53Z
+  A win rate: 67,0%  W-L-D 201-99-0
+  avg score diff (A-B): +538,8   avg turns: 79,4
+  time/move ms  A avg 16,32 max 147 slow 1 | B avg 19,08 max 134 slow 1
+  accepted disrupt A/B: 98,0% / 78,5%; early closures 208/300
+-- D10-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_DEPTH=10 vs v09 (300 games, seed 980000) 2026-10-22T18:57:08Z
+  A win rate: 63,0%  W-L-D 189-111-0
+  avg score diff (A-B): +362,7   avg turns: 79,3
+  time/move ms  A avg 16,30 max 40 slow 0 | B avg 19,53 max 93 slow 2
+  accepted disrupt A/B: 97,6% / 78,7%; early closures 199/300
+-- D-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs v09 (300 games, seed 980000) 2026-10-22T19:04:27Z
+  A win rate: 63,3%  W-L-D 190-110-0
+  avg score diff (A-B): +493,8   avg turns: 80,7
+  time/move ms  A avg 15,18 max 46 slow 0 | B avg 19,09 max 37 slow 0
+  accepted disrupt A/B: 97,3% / 79,1%; early closures 195/300
+DIVIDEND SCREEN DONE 2026-10-22T19:11:35Z
+SCRIPT EXIT=0
