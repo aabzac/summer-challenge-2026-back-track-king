@@ -8264,3 +8264,38 @@ Pool status: seed 980000 consumed by this screen; next free range ≥ 990000. Ev
 `docs/evidence/stage2-dividend-v1/` (11 reports with per-map pairs + `screen.log`); summarizer
 `tools/boss_proxy/summarize_screen.py` (per-cell rates, tall/low split, paired per-map deltas vs the
 control). Nothing promoted; v09 remains the selected local version, D the arena entry.
+
+## 2026-10-22 (later) — `stage2-dividend-v1` part 2: routes 128 / width 8 — the dividend line closes negative
+
+On the user's go-ahead ("следующий шаг"), the second pair of same-map screens against D, predeclared
+and committed before the first game (`tools/boss_proxy/run_dividend2_screen.sh`, fresh pool seed
+990000, 300 paired games per cell, 2 workers, CG timing, D controls in the same session). Coverage
+instead of depth: **M128** = D + `ROLLOUT_MAX_ROUTES=128` (the 2×64 route-query cap truncates the
+pairs × variants × players enumeration on 30×20 maps — ~40 % of pairs unexamined per turn — and
+2×128 removes the truncation) and **W8** = D + `ROLLOUT_WIDTH=8` (route portfolio 6 → 8: more roots
+and more candidate replies).
+
+| opponent | D (control) | M128 | W8 |
+|---|---|---|---|
+| D head-to-head | — | **47.3 %** (142-158) | 52.0 % (156-144) |
+| boss-v2 | 67.0 % | 65.7 % (paired −1.3 ± 6.8 pp) | 65.8 % (−1.2 ± 7.1) |
+| neural-v6 | 49.7 % | 48.3 % (−1.3 ± 5.9) | 53.7 % (+4.0 ± 7.9) |
+| v09 | 67.0 % | 63.0 % (−4.0 ± 6.6) | 68.7 % (+1.7 ± 7.3) |
+
+Zero errors in 3,300 games; isolated 100–260 ms turns on both sides in three cells, clustered in
+time (machine hiccups; all other maxima 38–79 ms); mean move time +1–2 ms as in part 1. **M128
+rejected** (rule 1 fails: 47.3 % h2h; tall maps 41.2 % vs D — the extra path queries are paid inside
+the window and crowd out the root×reply search). **W8 parked**: formal reading passes, step (a) gate
+fails (65.8 vs 67.0 % against boss-v2, needed ≥ 70.0); its gains are vs neural-v6 and v09, not vs the
+target. D unchanged, no live step.
+
+**Line closed.** Four search-size parameters in four predeclared screens (replies 3, depth 10,
+routes 128, width 8; pools 980000/990000): none beats D against the boss-like proxy (64.7 / 65.8 /
+65.7 / 65.8 % vs D's 68.7 / 67.0), and each loses on tall maps against it (D 72–76 % → 67–68 %). The
+dividend does not convert through more of the same search. Remaining uses of the slack: the Stage
+3–4 valuation changes (source → `prune-v1` first; artifact 99,683 / 100,000), or timing margin on CG
+hardware — note that the arena's 30×20 weakness (3-8) coexists with D's best *local* rows on tall
+maps (72–76 % vs boss-v2), which points at cold-JVM timing on 30×20 rather than at search size;
+`btk.tools.ColdTurnTiming` on D's exact artifact is the cheap check before anything else. Pools
+980000 and 990000 consumed; next free range ≥ 1000000. Evidence
+`docs/evidence/stage2-dividend-v1/part2/` (11 reports + `screen.log`); doc `docs/stage2-dividend-v1.md`.

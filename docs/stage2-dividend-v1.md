@@ -97,6 +97,44 @@ a candidate that passes (1) but not (2) is parked; timing read from the same gam
 queries land in the `propose` phase that the fast cheapest path made cheap — the `max` turn time on
 tall maps is the number to watch). Evidence `docs/evidence/stage2-dividend-v1/part2/`.
 
-### Part 2 results
+### Part 2 results (2026-10-22, `docs/evidence/stage2-dividend-v1/part2/`, 3,300 games, zero errors)
 
-_(filled when the screen finishes)_
+| opponent | D (control) | M128 = D + `ROLLOUT_MAX_ROUTES=128` | W8 = D + `ROLLOUT_WIDTH=8` |
+|---|---|---|---|
+| D head-to-head | — | **47.3 %** (142-158) | 52.0 % (156-144) |
+| boss-v2 | **67.0 %** (201-99) | 65.7 % (197-103), paired −1.3 ± 6.8 pp | 65.8 % (197-102-1), paired −1.2 ± 7.1 |
+| neural-v6 | 49.7 % (149-151) | 48.3 % (145-155), −1.3 ± 5.9 | 53.7 % (161-139), +4.0 ± 7.9 |
+| v09 | 67.0 % (201-99) | 63.0 % (189-111), −4.0 ± 6.6 | 68.7 % (206-94), +1.7 ± 7.3 |
+
+Tall-map split (h ≥ 19) head-to-head against D: M128 **41.2 %**, W8 56.2 %; against boss-v2: D 72.5 %,
+M128 67.5 %, W8 67.5 %. Mean time per move: D 12.4–17.1 ms, M128 12.8–17.2, W8 13.6–18.1 — again
+only 1–2 ms more. Several cells show isolated 100–260 ms turns on *both* sides (D-vs-boss2: D 173,
+boss-v2 260; M128-vs-D: 201 / 89), clustered in time (19:31–19:52 UTC) — machine hiccups, not a
+candidate property; in the cells without them all maxima are 38–79 ms.
+
+### Reading against the predeclared rules
+
+- **M128 is rejected**: 47.3 % head-to-head (rule 1 fails), below D's control on every opponent row
+  and worst where it was meant to help — tall maps, 41.2 % vs D. Lifting the route-query cap makes
+  `propose` examine every pair on big maps, but the extra queries are paid inside the same window
+  and crowd out the root×reply search that actually decides the move.
+- **W8 passes the formal reading** (52.0 % h2h, boss-v2 deficit inside the error) and **fails the
+  step (a) gate**: 65.8 % against D's 67.0 % vs boss-v2 (needed ≥ 70.0 %). Its gains are against
+  neural-v6 (+4.0) and v09 (+1.7), the two opponents the proxy study marked as *not* the target.
+  Neither cheaper nor simpler → **parked.** D unchanged. No live step.
+
+### Conclusion of the "spend the dividend" line
+
+Four search-size parameters, each in its own predeclared same-map screen against D with fresh pools
+(980000, 990000): replies 2→3, depth 8→10, route queries 128→256, portfolio 6→8. None beats D
+against the boss-like proxy (64.7 / 65.8 / 65.7 / 65.8 % against D's 68.7 / 67.0 %); every one of
+them loses on tall maps against it (D 72–76 % → 67–68 %). The compute dividend D earned with the
+runtime flags does not convert through *more of the same search*: the search already completes,
+and any extra per-turn work costs coverage exactly on the large maps where the window is tight. What
+is left for the slack is (a) the Stage 3–4 valuation changes (never waste the disrupt point,
+exposure-discounted own valuation, bypass), which need source and therefore the `prune-v1` step
+first (artifact 99,683 / 100,000), or (b) keeping it as timing margin on CG hardware — the arena's
+30×20 weakness (3-8) coexists with D's *best* local rows on tall maps (72–76 % vs boss-v2), which
+points at cold-JVM timing on 30×20 (the known chooser cost in a fresh JVM) rather than at search
+size; `btk.tools.ColdTurnTiming` on D's exact artifact is the cheap check before anything else.
+Pools 980000 and 990000 are consumed; the next screen starts at ≥ 1000000.

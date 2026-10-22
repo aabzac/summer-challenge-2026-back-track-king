@@ -1,0 +1,57 @@
+-- M128-vs-D: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_MAX_ROUTES=128 vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true (300 games, seed 990000) 2026-10-22T19:31:09Z
+  A win rate: 47,3%  W-L-D 142-158-0
+  avg score diff (A-B): -76,5   avg turns: 68,2
+  time/move ms  A avg 12,83 max 201 slow 5 | B avg 11,81 max 89 slow 2
+  accepted disrupt A/B: 97,8% / 97,9%; early closures 293/300
+-- W8-vs-D: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_WIDTH=8 vs current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true (300 games, seed 990000) 2026-10-22T19:35:33Z
+  A win rate: 52,0%  W-L-D 156-144-0
+  avg score diff (A-B): -5,8   avg turns: 69,3
+  time/move ms  A avg 13,65 max 95 slow 4 | B avg 12,69 max 159 slow 4
+  accepted disrupt A/B: 98,4% / 98,4%; early closures 295/300
+-- M128-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_MAX_ROUTES=128 vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 990000) 2026-10-22T19:40:20Z
+  A win rate: 65,7%  W-L-D 197-103-0
+  avg score diff (A-B): +227,7   avg turns: 67,4
+  time/move ms  A avg 15,38 max 49 slow 0 | B avg 20,16 max 98 slow 2
+  accepted disrupt A/B: 98,4% / 100,0%; early closures 295/300
+-- W8-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_WIDTH=8 vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 990000) 2026-10-22T19:46:32Z
+  A win rate: 65,8%  W-L-D 197-102-1
+  avg score diff (A-B): +364,8   avg turns: 67,3
+  time/move ms  A avg 14,70 max 79 slow 2 | B avg 19,61 max 63 slow 3
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 296/300
+-- D-vs-boss2: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs current?USE_BOSS_SABOTAGE=1 (300 games, seed 990000) 2026-10-22T19:52:30Z
+  A win rate: 67,0%  W-L-D 201-99-0
+  avg score diff (A-B): +358,3   avg turns: 67,1
+  time/move ms  A avg 14,33 max 173 slow 7 | B avg 20,08 max 260 slow 10
+  accepted disrupt A/B: 98,5% / 99,9%; early closures 298/300
+-- M128-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_MAX_ROUTES=128 vs neural-v6 (300 games, seed 990000) 2026-10-22T19:58:28Z
+  A win rate: 48,3%  W-L-D 145-155-0
+  avg score diff (A-B): -10,4   avg turns: 61,5
+  time/move ms  A avg 17,17 max 70 slow 6 | B avg 3,31 max 68 slow 3
+  accepted disrupt A/B: 98,4% / 99,8%; early closures 299/300
+-- W8-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_WIDTH=8 vs neural-v6 (300 games, seed 990000) 2026-10-22T20:01:48Z
+  A win rate: 53,7%  W-L-D 161-139-0
+  avg score diff (A-B): +37,5   avg turns: 60,1
+  time/move ms  A avg 18,12 max 47 slow 0 | B avg 3,68 max 32 slow 0
+  accepted disrupt A/B: 98,3% / 100,0%; early closures 300/300
+-- D-vs-neural-v6: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs neural-v6 (300 games, seed 990000) 2026-10-22T20:05:16Z
+  A win rate: 49,7%  W-L-D 149-151-0
+  avg score diff (A-B): -35,2   avg turns: 60,2
+  time/move ms  A avg 17,13 max 47 slow 0 | B avg 3,66 max 34 slow 0
+  accepted disrupt A/B: 98,3% / 100,0%; early closures 298/300
+-- M128-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_MAX_ROUTES=128 vs v09 (300 games, seed 990000) 2026-10-22T20:08:36Z
+  A win rate: 63,0%  W-L-D 189-111-0
+  avg score diff (A-B): +456,8   avg turns: 78,4
+  time/move ms  A avg 16,24 max 130 slow 2 | B avg 19,58 max 56 slow 1
+  accepted disrupt A/B: 97,2% / 78,2%; early closures 204/300
+-- W8-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true,ROLLOUT_WIDTH=8 vs v09 (300 games, seed 990000) 2026-10-22T20:15:51Z
+  A win rate: 68,7%  W-L-D 206-94-0
+  avg score diff (A-B): +461,4   avg turns: 79,1
+  time/move ms  A avg 15,42 max 58 slow 2 | B avg 18,89 max 49 slow 0
+  accepted disrupt A/B: 97,2% / 78,5%; early closures 209/300
+-- D-vs-v09: current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true vs v09 (300 games, seed 990000) 2026-10-22T20:22:51Z
+  A win rate: 67,0%  W-L-D 201-99-0
+  avg score diff (A-B): +387,3   avg turns: 79,4
+  time/move ms  A avg 12,42 max 38 slow 0 | B avg 17,10 max 47 slow 0
+  accepted disrupt A/B: 97,0% / 77,1%; early closures 203/300
+DIVIDEND-2 SCREEN DONE 2026-10-22T20:28:56Z
+SCRIPT EXIT=0
