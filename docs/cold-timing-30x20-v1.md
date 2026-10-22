@@ -143,3 +143,33 @@ it are (1) the 80-game live boss series for D (v5 step c, which is also the prom
 the same maps. Pools 980000/990000 (tall subsets) are consumed for cold work too; next free range
 ≥ 1000000.
 
+## Round 3 — the decisive cold series ("холод-300", predeclared 2026-10-22 late, before the first game)
+
+On the user's choice. Fresh range **1000000..1000599** (600 generated maps, first use of the
+1000000 range); its tall subset is **159 maps: 86 of 30×20 and 73 of 29×19** → 318 games per arm
+with both seats (`tools/boss_proxy/run_cold_tall3.sh`, user's machine, CG 486/36 ms).
+
+1. **Hot reference**: D vs boss-v2 on all 600 maps × 2 seats in one JVM with 2 workers (1,200
+   games; the tall games are read per map and seat, the full row doubles as D's all-map control
+   for this range).
+2. **Cold arms**, one JVM per game, both seats, on the 159 tall maps, interleaved per seed so all
+   arms share machine conditions: **D** (control), **D6** = D + `ROLLOUT_DEPTH=6`, **W4** = D +
+   `ROLLOUT_WIDTH=4`.
+
+Reading, fixed now:
+- **Primary**: paired cold D − hot D over the 318 tall games (95 % interval ≈ ±7 pp at this size).
+  The cold-JVM strength effect is *established* if the interval excludes zero; it is *material*
+  if the point estimate is at or beyond −5 pp. Reported for 30×20 and 29×19 separately as well.
+- **Secondary**: paired cold D6 − cold D and cold W4 − cold D, same session, same maps and seats.
+  A probe advances to the ordinary v5 route (hot non-inferiority vs D on a fresh pool, then live)
+  only if its paired cold gain's interval excludes zero; its earlier hot rows (64.3 / 63.7 % vs
+  D's 68.7 on pool 980000) are inside the cell error and stay the hot reference.
+- Time per move and maxima of all arms are reported; isolated machine spikes (seen at 100–260 ms
+  on both sides in earlier late-evening runs) are listed, not attributed.
+- No extension, no re-run, no pooling with rounds 1–2 (different maps). Evidence
+  `docs/evidence/cold-timing-30x20-v1/round3/`.
+
+### Round 3 results
+
+_(filled when the run finishes)_
+
