@@ -8213,3 +8213,54 @@ h2h, +4.2 vs v09). Only v2 and B have been through the full local v5 stages; C a
 screens against their predecessor and still need the 1000-game stage or an explicit decision to
 treat the chain as one candidate. Nothing promoted; v09 remains the selected version.
 
+
+## 2026-10-22 — D on the arena: 30W/20L, Silver #7; `stage2-dividend-v1`: replies 3 / depth 10 do not turn the slack into strength
+
+**Arena (Stage 1).** `cgFetch -Pplayer=aabzac -Plimit=50` kept returning agent 6755892 (rank 316,
+contest-era build `4cda8b1b`, "50 already present"). Cause: the tool read
+`Leaderboards/getFilteredChallengeLeaderboard`, which is frozen since the contest ended; the live
+arena is the multiplayer *puzzle* with the same pretty id, and its leaderboard names agent
+**6807052** for aabzac (rank 317 overall, **#7 of 712 in Silver**, score 28.06). `CgFetch.leaderboard()`
+now queries `getFilteredPuzzleLeaderboard` first and falls back to the challenge board. All 50
+fetched games of 6807052 carry D's turn-0 marker (`build=2f896714… config=f0e507ac…`, 100/100
+marker lines = the `build/submit-stage2-d` artifact). `cgAnalyze -Pagent=6807052`: **30W/20L,
+0 failed turns** (two opponent timeouts), 0 skipped actions; by map 21×14 2-0, 23×15 7-1, 24×16
+3-2, 26×17 1-2, 27×18 7-3, 29×19 7-4, **30×20 3-8**; tall maps (h ≥ 19) 10-12, low maps 20-8; as
+P0 12-8, as P1 18-12; the 35 placement games 24-11, then 15 consecutive games against --CC-- (Gold,
+rank 197) 6-9; against opponents still on the live board (32 of 50) 20-10 vs rank > 317 and 1-1 vs
+rank ≤ 317. Disrupt on 97.7 % of turns (contest-era entry 80 %), placement on 91.6 % (87 %), 40.7 %
+of accepted cells never earned (43.6 %), games reaching turn 100: 6 (14), mean 68 turns (72).
+Baseline, same script on the contest-era entry 6755892: 23W/27L, 30×20 4-7, 21×14 1-6, tall 6-9,
+low 17-18. Reading: the entry is clearly stronger on low maps (20-8 vs 17-18) and no better on 30×20
+(3-8 vs 4-7); 50 games carry ±14 pp and the opponents differ, so this is direction, not a
+measurement — the 80-game live boss series (v5 step c) remains the number for promotion. Evidence
+`docs/evidence/arena-2026-10-22-D-agent-6807052.json` (trace stripped).
+
+**`stage2-dividend-v1` (Stage 2 "spend the dividend", `docs/stage2-dividend-v1.md`).** Predeclared
+before the first game (`tools/boss_proxy/run_dividend_screen.sh`): fresh pool seed 980000, 300 paired
+games per cell, 2 workers, CG timing (486/36 ms), user's Windows machine; R3 = D + `ROLLOUT_REPLIES=3`,
+D10 = D + `ROLLOUT_DEPTH=10`; D's own rows on the same maps, seeds and seats as controls, run in the
+same session. Reading fixed in advance: keep only at ≥ 50 % h2h vs D and no opponent row below D's
+by more than the cell error; v5 step (a) continuation at candidate ≥ D + 3 pp vs boss-v2.
+
+| opponent | D (control) | R3 | D10 |
+|---|---|---|---|
+| D head-to-head | — | 51.7 % (155-145) | 53.3 % (160-140) |
+| boss-v2 | 68.7 % | 64.7 % (paired −4.0 ± 7.6 pp) | 65.8 % (−2.8 ± 6.7) |
+| neural-v6 | 51.7 % | 53.7 % (+2.0 ± 7.2) | 54.0 % (+2.3 ± 7.1) |
+| v09 | 63.3 % | 67.0 % (+3.7 ± 7.5) | 63.0 % (−0.3 ± 6.9) |
+
+Zero errors in 3,300 games; no slow moves except one 147 ms outlier in R3-vs-v09 (v09 134 ms in the
+same cell — environment, not the candidate; all other maxima 38–49 ms). Verdict: both candidates pass
+the formal reading (h2h above 50 %, boss-v2 deficit inside the cell error) and **both fail the step (a)
+gate: R3 64.7 and D10 65.8 against D's 68.7 vs boss-v2**; neither is cheaper or simpler → **both
+parked, D unchanged**. Why the slack does not convert: mean time per move rises only from 12–16 ms (D)
+to 14–18 ms — the search still completes on most turns, so the extra replies/depth are evaluated almost
+for free and rarely change the choice (h2h inside ±5.7 pp); where they do cost, tall maps against the
+boss-like opponent, both lose coverage (D 76.3 % → R3 68.4 / D10 68.4 % on h ≥ 19) — the opposite of
+what the 30×20 arena weakness needs. Next lever is therefore not more of the same search:
+`ROLLOUT_MAX_ROUTES` (64) / a second root pass while time remains, or the Stage 3–4 valuation changes.
+Pool status: seed 980000 consumed by this screen; next free range ≥ 990000. Evidence
+`docs/evidence/stage2-dividend-v1/` (11 reports with per-map pairs + `screen.log`); summarizer
+`tools/boss_proxy/summarize_screen.py` (per-cell rates, tall/low split, paired per-map deltas vs the
+control). Nothing promoted; v09 remains the selected local version, D the arena entry.
