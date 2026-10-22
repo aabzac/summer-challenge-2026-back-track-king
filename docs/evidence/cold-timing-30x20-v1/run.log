@@ -1,0 +1,16 @@
+== A: strict procCheck of the exact D artifact on replays/cg-30x20 2026-10-22T20:44:17Z
+[Player.java stderr] WARN turn 45 took 37ms
+[Player.java stderr] WARN turn 46 took 37ms
+game 11 as P1: score 8238-7191 winner=P0 turns=100 maxMs=[36,562] | first response 562.156 ms, first send 68.193 ms, first consumer 562.220 ms, max later response 38.184 ms, timeouts 0, nominal overruns 0
+Per-turn timing report: build\analysis\cold-30x20\procheck-D-30x20.json
+Player.java: 6/12 wins vs v09, 0 problem games
+== B/C: cold paired games on 43 30x20 seeds, both seats, one JVM per game 2026-10-22T20:45:16Z
+== hot M32 rows vs boss-v2 on both pools 2026-10-22T20:57:41Z
+-- M32-vs-boss2 seed 980000
+  A win rate: 57,3%  W-L-D 172-128-0
+  time/move ms  A avg 11,89 max 87 slow 1 | B avg 19,38 max 65 slow 3
+-- M32-vs-boss2 seed 990000
+  A win rate: 66,7%  W-L-D 200-100-0
+  time/move ms  A avg 12,65 max 38 slow 0 | B avg 20,00 max 46 slow 0
+COLD TALL DONE 2026-10-22T21:08:54Z
+SCRIPT EXIT=0
