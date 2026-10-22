@@ -28,3 +28,11 @@
   `fill-v1-block3.json` (760000..760249): consumed on 2026-09-20 by the practical-v4 run of
   `current?USE_ROLLOUT_FILL=1` vs v08 (58.67 / 54.50 / 56.80%, pooled 56.90%, PASS_1000). Not
   fresh confirmation. See docs/indrill-construction-v1.md.
+
+- Unregistered ("custom") development ranges used by the boss_proxy screens of 2026-10-21/22
+  (300 paired games per cell unless noted, reports under `docs/evidence/`): 970000..970149 and
+  960000..960149 (v2 → B → C → D chain), 980000..980149 (`stage2-dividend-v1` part 1),
+  990000..990149 (part 2), the 30×20 subsets of the last two for the cold-timing rounds 1–2, and
+  **1000000..1000599** (`cold-timing-30x20-v1` round 3: 1,200 hot games, tall subset cold). None of
+  these is fresh confirmation; the next free range is ≥ 1001000.
+
