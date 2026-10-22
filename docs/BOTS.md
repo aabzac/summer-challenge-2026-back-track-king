@@ -25,7 +25,12 @@ seed 980000, 300 games/cell, 2 workers, CG timing, D's own rows on the same maps
 source. Both pass the formal "≥ 50 % h2h, no row below D by more than the cell error" reading and
 **both fail the v5 step (a) gate (≥ D + 3 pp vs boss-v2) → parked, D unchanged.** Mean move time
 rises only 12–16 → 14–18 ms: the slack is not spent by more replies/depth; on tall maps vs boss-v2
-both lose coverage (D 76.3 % → 68.4 %). [Details](stage2-dividend-v1.md),
+both lose coverage (D 76.3 % → 68.4 %). **Part 2 (pool 990000, same design): M128** = D +
+`ROLLOUT_MAX_ROUTES=128` — **47.3 % vs D** (tall maps 41.2 %), 65.7 % vs boss-v2 (D 67.0; paired −1.3),
+48.3 % vs neural-v6 (D 49.7), 63.0 % vs v09 (D 67.0) → **rejected**; **W8** = D + `ROLLOUT_WIDTH=8` —
+52.0 % vs D, 65.8 % vs boss-v2 (paired −1.2), 53.7 % vs neural-v6 (+4.0), 68.7 % vs v09 (+1.7) → fails
+the +3 pp gate, **parked**. Four search-size parameters, none beats D against the proxy and all lose
+on tall maps against it: the dividend line is closed. [Details](stage2-dividend-v1.md),
 [evidence](evidence/stage2-dividend-v1/).
 **Arena, D (puzzle agent 6807052, first 50 games fetched 2026-10-22):** **30W/20L, 0 failed turns**,
 rank 317 overall = **#7 of 712 in Silver**, score 28.06; 30×20 maps 3/11, h ≥ 19 10-12, low maps 20-8;
