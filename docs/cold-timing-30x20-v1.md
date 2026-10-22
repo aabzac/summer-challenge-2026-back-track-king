@@ -51,6 +51,55 @@ C. **M32 = D + `ROLLOUT_MAX_ROUTES=32`**, the cheapest Params-only probe of the 
 
 No promotion decision follows from this file; it is a diagnosis plus one probe.
 
-## Results
+## Results (2026-10-22 evening, `docs/evidence/cold-timing-30x20-v1/`)
 
-_(filled when the run finishes)_
+**A. Exact artifact, 12 CG 30×20 maps, fresh process per game, strict (0 grace):** 0 timeouts,
+0 overruns, 0 problems; 1,068 later turns, mean 22.7 ms, **34 % of all later turns at ≥ 36 ms**,
+p99 38.3, max 45.5 ms (one turn); of the first 40 turns of each game 14–31 are at the ceiling
+(median 24/40). The share rises from turn ~10 as the map develops, so it is compute pressure,
+not JIT settling (CGRunner's 500 ms first-turn warm-up is included in this run).
+
+**B/C. Cold paired games vs boss-v2, one JVM per game, the same 43 generated 30×20 maps and seats as
+the hot bench** (172 cold games, 0 errors, 0 slow moves; cold D 24.9 ms/turn mean, boss-v2 29.5):
+
+| vs boss-v2, 43 maps × 2 seats | hot bench (JIT warm) | cold (one JVM per game) | cold − hot, paired |
+|---|---|---|---|
+| **D** | 67-19 = **77.9 %** | 57-29 = **66.3 %** | **−11.6 ± 14.3 pp** (better/worse/equal 15/25/46) |
+| M32 = D + `ROLLOUT_MAX_ROUTES=32` | 51-35 = 59.3 % | 58-28 = 67.4 % | +8.1 ± 14.9 |
+| M32 − D | **−18.6 ± 13.2** | +1.2 ± 14.7 | |
+
+M32's full hot rows vs boss-v2: 57.3 % on pool 980000 (D 68.7), 66.7 % on 990000 (D 67.0).
+Per seat, cold D: 76.7 % as P0, 55.8 % as P1 (hot 74.4 / 81.4) — 43 games per cell, not read.
+
+### Reading
+
+1. **Diagnosis confirmed.** On 30×20 the arena turn is budget-bound through the construction
+   phase; the hot bench's "12 ms mean, search completes early" is a JIT artefact. The window is
+   never overrun (max 45.5 < 50 ms, 0 timeouts in 20 strict process games), which matches the
+   arena's 0 failed turns: D does not fail turns on big maps, it decides them with a fraction of
+   the comparisons the hot bench gives it.
+2. **Strength effect: supported, not yet a number.** Cold D loses 11.6 pp against the proxy on the
+   same maps and seats, at the edge of the 86-game error. The direction is the hypothesis; the size
+   needs a larger same-session cold series (the tool runs ~15 cold games per minute here).
+3. **M32 rejected.** Capping the route enumeration does not buy anything cold (+1.2 ± 14.7) and
+   costs 11–19 pp hot: the enumeration is not what crowds out the search, or what it saves is not
+   spent usefully. The "enumeration budget" mechanism is not confirmed.
+4. **Consequence for method.** Any work aimed at 30×20 must be screened cold: the paired one-JVM
+   series on the same maps and seats is the instrument (`run_cold_tall.sh` pattern), the hot bench
+   only as the non-inferiority guard. The lever is cheaper work per comparison (the Stage 2
+   algorithmic cuts of the plan) or fewer, better-chosen comparisons — not search size.
+
+## Round 2 probes (predeclared before the first game, 2026-10-22 late)
+
+Params-only candidates that trade rollout cost for root×reply coverage inside a budget-bound turn —
+useless hot (the search already completes), possibly useful cold:
+
+| candidate | spec | rationale |
+|---|---|---|
+| **D6** | D + `ROLLOUT_DEPTH=6` | each comparison simulates 6 turns instead of 8 (≈ −25 % per comparison) → more roots × replies evaluated before the window closes |
+| **W4** | D + `ROLLOUT_WIDTH=4` | 4 roots instead of 6 → a complete pass over roots × replies fits more often; each root is judged on both replies rather than the first roots on one |
+
+Same 43 maps × 2 seats cold vs boss-v2, interleaved with a fresh cold D arm (same-session control,
+replaces the earlier cold D row for the paired reading); then hot rows D6 / W4 vs boss-v2 on pool
+980000 (300 games, D control 68.7 % there). Reading: a probe is worth a proper cold screen only if
+cold probe − cold D > 0 beyond the paired error **and** its hot row is within the cell error of D's.
