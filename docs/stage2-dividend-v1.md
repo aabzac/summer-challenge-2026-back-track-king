@@ -76,3 +76,27 @@ slack must be spent on *different* work, not more of the same: more routes per r
 (`ROLLOUT_MAX_ROUTES`, 64), a second root pass while time remains, or the Stage 3–4 valuation
 changes (exposure-discounted own valuation, bypass). The 980000 pool is consumed; the next screen
 starts at ≥ 990000.
+
+## Part 2 (2026-10-22, predeclared before the first game) — coverage instead of depth
+
+Part 1 showed that D's search finishes early and that more replies or depth neither spend the
+slack nor help. Part 2 spends it on *coverage* of the route enumeration and of the portfolio, both
+again plain `Params` values (no source, same artifact size):
+
+| candidate | spec | what changes |
+|---|---|---|
+| **M128** | D + `ROLLOUT_MAX_ROUTES=128` | the cap on route queries per real turn rises from 2×64 to 2×128. `propose` runs pairs × up to 3 variants × 2 players from a rotating start; on a 30×20 map (~38 pairs ≈ 228 queries) the 128-query cap leaves ~40 % of the pairs unexamined each turn — the enumeration is no longer truncated. |
+| **W8** | D + `ROLLOUT_WIDTH=8` | the per-player route portfolio grows from 6 to 8 slots: two more roots to search and two more candidate opponent replies to choose from (replies evaluated stay 2, depth 8). |
+
+Design identical to part 1 (`tools/boss_proxy/run_dividend2_screen.sh`): fresh pool **seed 990000**
+(first use of that range), 150 maps, 300 paired games per cell, 2 workers, CG timing; M128 / W8 vs D
+head-to-head, then each and **D** vs boss-v2, neural-v6, v09 on the same maps, seeds and seats in the
+same session. Reading rules 1–4 above apply unchanged: keep only at ≥ 50 % vs D with no opponent row
+below D's control by more than the cell error; v5 step (a) continuation at ≥ D + 3 pp vs boss-v2;
+a candidate that passes (1) but not (2) is parked; timing read from the same games (M128's extra
+queries land in the `propose` phase that the fast cheapest path made cheap — the `max` turn time on
+tall maps is the number to watch). Evidence `docs/evidence/stage2-dividend-v1/part2/`.
+
+### Part 2 results
+
+_(filled when the screen finishes)_
