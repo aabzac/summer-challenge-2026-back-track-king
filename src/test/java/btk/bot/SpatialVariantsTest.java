@@ -31,7 +31,7 @@ class SpatialVariantsTest {
             assertEquals(version, bot.name());
             assertEquals(BotFactory.configuration("spatial-ppo-v1"), BotFactory.configuration(version));
             assertEquals(2, BotFactory.parameters(version).SPATIAL_RESERVE_MS);
-            Params dirty = new Params("SPATIAL_RESERVE_MS=999,NOISE=0.8");
+            Params dirty = new Params(LiveTargetExperimentParams.V10_OFF + ",SPATIAL_RESERVE_MS=999,NOISE=0.8");
             FrozenParams.applyTo(version, dirty);
             assertEquals(2, dirty.SPATIAL_RESERVE_MS);
             assertEquals(.1, dirty.NOISE);
@@ -48,7 +48,7 @@ class SpatialVariantsTest {
         }
         assertEquals("a60252899a6ebed8e599fc7ba9a22a53798bc38c1375329c4ecda81f25d96708",
                 hash(Base64.getDecoder().decode(SpatialInitialWeights.DATA)), "initializer is the original pre-gradient model");
-        assertFalse(BotFactory.configuration("current").containsKey("SPATIAL_RESERVE_MS"));
+        assertFalse(BotFactory.configuration(LiveTargetExperimentParams.V09_ON_CURRENT).containsKey("SPATIAL_RESERVE_MS"));
         assertFalse(BotFactory.configuration("v09").containsKey("SPATIAL_RESERVE_MS"));
     }
 

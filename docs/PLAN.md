@@ -44,9 +44,10 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] Decisive cold series (2026-10-23, range 1000000, 159 tall maps × 2 seats): D cold 76.4 % vs D hot 73.9 % on the same maps/seats, paired +2.5 ± 6.6 pp → **cold-JVM hypothesis rejected**; D6 / W4 closed (−1.9 / −1.3 vs cold D). The 30×20 arena weakness is not timing.
   - [ ] Qualitative follow-up on the arena's 30×20 losses: `cgAnalyze` counterfactual diagnostics of D's 8 lost 30×20 games (agent 6807052) — who beats D there and how (opponent rank, first income, disrupt timing).
   - [x] Live step for D (v5 step c), **session 1 of 2** (2026-10-23, `docs/stage2-d-live-boss-v1.md`): matched 40 maps, D 18/40 vs v09 9/40 in the same session, paired +22.5 pp → **PASS**; 80/80 replays exact. Launch command must be run by the user (private session files).
-  - [ ] Live step for D, session 2: a fresh matched 40-map plan (new schedule seed, same session/adapter/pacing) on a later day; decide step (c) on the pooled 80 at ≥ control + 5 pp. If PASS → promotion of D as the new frozen version (user decision), then `prune-v1`.
+  - [x] **D promoted to v10 "Boss Model" on 2026-10-23 (user decision, without the second live session)** — `docs/v10-promotion.md`: defaults, frozen `btk.bot.v10`, catalog, tests, artifact 99,676 chars with the arena configuration, strict 4-game check 0 problems.
+  - [ ] Optional later check: live session 2 (fresh matched 40-map plan) to complete the 80 candidate games of v5 step (c) for the record.
   - [x] Strict procCheck of D's exact artifact (99,683 chars) on the user's machine — done 2026-10-21 (`build/submit-stage2-d/process-check.json`, strict, 0 timeouts); D uploaded the same evening (puzzle agent 6807052), first 50 games 30W/20L, 0 failed turns.
-- [ ] Prune (`prune-v1`): the ~23 rejected flags and their code out of `current` after the next promotion — now also a hard prerequisite, D is 317 chars under the 100,000 limit.
+- [ ] **Prune (`prune-v1`) — now the first task:** the ~23 rejected flags and their code out of `current` (v10 artifact 99,676 / 100,000 chars); keep `btk.bot.v10` as the frozen reference while pruning.
 - [ ] Stage 2: algorithmic compute cuts (skip zero-delta ink evaluations, targets once per
   simulated turn, region index, flood only after ink).
 

@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DeferredCommitCompactionTest {
-    private static final String CANDIDATE = "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true";
+    private static final String CANDIDATE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true";
     @TempDir Path temp;
 
     @Test void compactionIsCandidateOnlyAndHistoricalReferenceRemainsExact() throws Exception {
@@ -25,7 +25,7 @@ class DeferredCommitCompactionTest {
             assertEquals(108524, reference.length());
             assertEquals("da4487e574fee5bc691724d81157183f7319bc74a39a2a699d5cea5a2b9e0c56", FileMerger.sha256(reference));
         }
-        for (String spec : new String[]{"current", "current?NOISE=0", "current?USE_ROLLOUT_MISSED_DEADLINE=false",
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_MISSED_DEADLINE=false",
                 "v05", "v06", "v07", "v08", "v09", "neural-v1", "neural-v7", "spatial-ppo-v1", "spatial-ppo-v10"})
             assertEquals(FileMerger.mergeUncompressed(spec), FileMerger.merge(spec), spec);
     }

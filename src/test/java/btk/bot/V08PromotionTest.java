@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class V08PromotionTest {
     private static final Gson JSON = new Gson();
     /** Historical v08 as reproduced by current: only the later selected fill default is disabled. */
-    private static final String CURRENT_V08 = "current?USE_ROLLOUT_FILL=0";
+    private static final String CURRENT_V08 = "current?" + LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_FILL=0,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
 
     private static TreeMap<String, String> record(String resource) throws Exception {
         Properties properties = new Properties();
@@ -42,7 +42,7 @@ class V08PromotionTest {
     }
 
     private static Params measuredParameters() throws Exception {
-        Params params = new Params();
+        Params params = LiveTargetExperimentParams.v09Params(); // the record predates the seven v10 flags
         for (var entry : record("/v08-confirmed.properties").entrySet())
             params.apply(entry.getKey() + "=" + entry.getValue());
         params.USE_ROLLOUT_FILL = false; // later selected default, absent from the v08 record
@@ -52,7 +52,7 @@ class V08PromotionTest {
     @Test void historicalCurrentAndFrozenMatchEveryMeasuredParameterWithoutRetuning() throws Exception {
         var expected = record("/v08-confirmed.properties");
         assertEquals(107, expected.size());
-        for (String spec : new String[]{CURRENT_V08, "v08", "current?USE_PROTECTED_OPENING=1,USE_ROLLOUT_FILL=0"}) {
+        for (String spec : new String[]{CURRENT_V08, "v08", "current?" + LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=1,USE_ROLLOUT_FILL=0"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             LiveTargetExperimentParams.removeAndCheck(actual);
             assertEquals(expected, actual, spec);

@@ -20,7 +20,7 @@ class HeuristicBaselineTest {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         for (int seed = 24020; seed <= 24022; seed++) {
             GameState s = MapGenerator.generate(seed);
-            Params p = new Params("USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0");
+            Params p = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0");
             HeuristicBot a = new HeuristicBot(p), b = new HeuristicBot(p);
             a.init(s, 0); b.init(s, 1);
             Pathing paths = new Pathing(s.size);

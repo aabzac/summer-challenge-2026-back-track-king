@@ -19,7 +19,7 @@ class SpatialV10BotTest {
         assertEquals(BotFactory.configuration("spatial-ppo-v4"), BotFactory.configuration("spatial-ppo-v10"));
         assertEquals("candidate", BotCatalog.describe("spatial-ppo-v10").category());
         assertEquals("local_only", BotCatalog.describe("spatial-ppo-v10").status());
-        Params dirty = new Params("SPATIAL_RESERVE_MS=99,NOISE=0.8,USE_SPATIAL_V9_TOWN_CONTEXT=1");
+        Params dirty = new Params(LiveTargetExperimentParams.V10_OFF + ",SPATIAL_RESERVE_MS=99,NOISE=0.8,USE_SPATIAL_V9_TOWN_CONTEXT=1");
         FrozenParams.applyTo("spatial-ppo-v10", dirty);
         assertEquals(2, dirty.SPATIAL_RESERVE_MS); assertEquals(.1, dirty.NOISE); assertFalse(dirty.USE_SPATIAL_V9_TOWN_CONTEXT);
         assertEquals(5, BotFactory.parameters("spatial-ppo-v10?SPATIAL_RESERVE_MS=5").SPATIAL_RESERVE_MS);

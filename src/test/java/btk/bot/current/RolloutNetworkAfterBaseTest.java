@@ -147,7 +147,7 @@ class RolloutNetworkAfterBaseTest {
     }
 
     @Test void promotedFlagCanBeDisabledAndRejectsMixedNetworkPolicies() throws Exception {
-        assertTrue(new Params().USE_ROLLOUT_NETWORK_AFTER_BASE);
+        assertTrue(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_NETWORK_AFTER_BASE);
         RolloutBot off = bot(chord(1), 0, false);
         assertNull(field(off, "networkCells"));
         for (String incompatible : new String[]{"USE_ROLLOUT_NETWORK=1", "USE_ROLLOUT_SPREAD=1",

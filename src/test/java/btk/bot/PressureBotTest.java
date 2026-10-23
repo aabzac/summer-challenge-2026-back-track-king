@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PressureBotTest {
     @Test
     void consumedReferenceParametersAreFixedAndOverridesAreIndependent() {
-        Params params = new Params("PRESSURE_HORIZON=999,PRESSURE_STICKINESS=99,NOISE=0.9");
+        Params params = new Params(LiveTargetExperimentParams.V10_OFF + ",PRESSURE_HORIZON=999,PRESSURE_STICKINESS=99,NOISE=0.9");
         FrozenParams.applyTo("pressure-v1", params);
         assertEquals(8, params.PRESSURE_HORIZON); assertEquals(0.25, params.PRESSURE_STICKINESS);
         assertEquals(0.1, params.NOISE);

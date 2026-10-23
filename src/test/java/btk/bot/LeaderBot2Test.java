@@ -22,7 +22,7 @@ class LeaderBot2Test {
     }
 
     @Test void frozenReferenceLoadsWithFixedParameters() {
-        Params params = new Params("NOISE=0.9,UNSTABLE_COST=9");
+        Params params = new Params(LiveTargetExperimentParams.V10_OFF + ",NOISE=0.9,UNSTABLE_COST=9");
         FrozenParams.applyTo("leader-v2", params);
         assertEquals(0.1, params.NOISE);
         assertEquals(1.0, params.UNSTABLE_COST);

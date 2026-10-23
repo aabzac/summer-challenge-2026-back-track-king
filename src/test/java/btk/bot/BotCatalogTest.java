@@ -33,12 +33,14 @@ class BotCatalogTest {
         assertEquals("v07 - Network After Base", BotCatalog.displayName("v07"));
         assertEquals("v08 - Protected Opening", BotCatalog.displayName("v08"));
         assertEquals("v09 - Never Idle", BotCatalog.displayName("v09"));
-        assertEquals("selected", BotCatalog.describe("v09").status());
+        assertEquals("v10 - Boss Model", BotCatalog.displayName("v10"));
+        assertEquals("selected", BotCatalog.describe("v10").status());
+        assertEquals("historical", BotCatalog.describe("v09").status(), "v09 became historical at the v10 promotion (2026-10-23)");
         assertEquals("historical", BotCatalog.describe("v08").status());
         assertEquals("historical", BotCatalog.describe("v07").status());
         assertEquals("historical", BotCatalog.describe("v06").status());
         assertEquals("historical", BotCatalog.describe("v05").status());
-        assertEquals(java.util.List.of("v09"), BotCatalog.entries().stream()
+        assertEquals(java.util.List.of("v10"), BotCatalog.entries().stream()
                 .filter(entry -> entry.status().equals("selected")).map(BotCatalog.Entry::id).toList());
         assertEquals("v04 - Network Extension [NOISE=0.2]", BotCatalog.displayName("v04?NOISE=0.2"));
         assertEquals("external player", BotCatalog.displayName("external player"));
@@ -134,7 +136,7 @@ class BotCatalogTest {
             var json = JsonParser.parseString(new String(in.readAllBytes(), StandardCharsets.UTF_8)).getAsJsonObject();
             json.getAsJsonObject("parameters").entrySet().forEach(e -> snapshot.put(e.getKey(), e.getValue().getAsString()));
         }
-        Params dirtyDefaults = new Params("HORIZON=2,GUARD_BUILD_INCOME=true,USE_REPLY_RERANK=true,NOISE=0.8");
+        Params dirtyDefaults = new Params(LiveTargetExperimentParams.V10_OFF + ",HORIZON=2,GUARD_BUILD_INCOME=true,USE_REPLY_RERANK=true,NOISE=0.8");
         BotCatalog.applySnapshot(snapshot, dirtyDefaults);
         assertEquals(100, dirtyDefaults.HORIZON); assertFalse(dirtyDefaults.GUARD_BUILD_INCOME);
         assertFalse(dirtyDefaults.USE_REPLY_RERANK); assertEquals(0.1, dirtyDefaults.NOISE);

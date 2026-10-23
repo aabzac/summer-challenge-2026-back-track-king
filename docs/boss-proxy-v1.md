@@ -209,3 +209,11 @@ python tools/boss_proxy/fit_boss_build.py  build/analysis/boss-intent/pairs.csv
 python tools/boss_proxy/fingerprint.py boss2 build/analysis/proxy-behavior/turns.csv build/analysis/proxy-behavior/cells.csv
 .\gradlew.bat bench "-Pbot1=current?USE_BOSS_SABOTAGE=1" -Pbot2=v09 -Pgames=300 -Pseed=930000
 ```
+
+## Spec of the proxy since the v10 promotion (2026-10-23)
+
+With D's seven flags as `current` defaults, `current?USE_BOSS_SABOTAGE=1` is refused (the sabotage chooser
+and the boss-lite chooser exclude each other, and the runtime flags would change the proxy's compute
+profile). The validated boss-v2 opponent is, byte for byte, `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0`.
+The historical `tools/boss_proxy/run_*.sh` keep the short spec they were run with.
+

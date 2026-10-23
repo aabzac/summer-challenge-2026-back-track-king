@@ -8,8 +8,10 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 ## Rules that bite most often
 
 - Selection policy is **v5** (`docs/benchmarking-v5.md`, AGENTS.md rule 3): proxy screen vs the
-  boss-like screening opponent `current?USE_BOSS_SABOTAGE=1` (or `neural-v6` for a candidate that
-  is itself the proxy), non-inferiority vs the selected version, then 80 paired live boss games.
+  boss-like screening opponent — since the v10 promotion its spec is
+  `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0`
+  (`current?USE_BOSS_SABOTAGE=1` alone is refused; or `neural-v6` for a candidate that is itself the
+  proxy) — non-inferiority vs the selected version (`current` = v10), then 80 paired live boss games.
   The local mirror vs v09 is a regression guard, never the objective.
 - **Compare a candidate only with a control measured on the same maps, seeds and seats, in the
   same run.** Absolute scores move 10 pp between map pools; deltas do not. The screen scripts in
@@ -25,7 +27,12 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 - No arena upload, no promotion, no "selected version" change without the live step and a
   DEVLOG entry. Verdicts: one BOTS.md row, one DEVLOG entry, STATUS.md updated.
 
-## Current line of work (2026-10-22)
+## Current line of work (2026-10-23)
+
+**v10 "Boss Model" is the selected version since 2026-10-23** (`docs/v10-promotion.md`): D's seven flags
+are `Params` defaults, `btk.bot.v10` is the frozen copy, the arena runs the same configuration (agent
+6807052, Silver #2). Pre-promotion tests express v09 as `LiveTargetExperimentParams.V09_ON_CURRENT`
+(`current?` + `V10_OFF`). Next: `prune-v1` (artifact 99,676 / 100,000), then Stage 3–4. History of the chain:
 
 Chain on the same maps, each ≥ its predecessor: v09 → `boss-sabotage-v2` (`USE_BOSS_LITE`,
 two-stage boss chooser) → B `opponent-model-v1` (+`USE_BOSS_OPPONENT_MODEL,USE_BOSS_OWN_MODEL`)
@@ -37,7 +44,7 @@ USE_BATCHED_REFRESH`). D is the arena entry; its artifact and strict procCheck a
 
 ## Known test state
 
-`gradlew test`: 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
+`gradlew test` (818 tests on 2026-10-23): 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
 on `btk/core/Pathing.class` (`experiment-engine-v1.json`, see `docs/bot_catalog.md`; remedy is a
 new snapshot with new experiment ids, a user decision) and 6 `PduhardBeamBotTest` (bot never
 registered). Anything else red is new.

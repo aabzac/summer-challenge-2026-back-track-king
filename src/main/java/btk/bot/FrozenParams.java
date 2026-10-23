@@ -27,6 +27,10 @@ final class FrozenParams {
             if (!snapshot.containsKey("USE_ROLLOUT_ALL_CELL_RISK")) params.USE_ROLLOUT_ALL_CELL_RISK = false;
             if (!snapshot.containsKey("USE_ROLLOUT_ROOT_FILL")) params.USE_ROLLOUT_ROOT_FILL = false;
             if (!snapshot.containsKey("USE_ROLLOUT_MISSED_DEADLINE")) params.USE_ROLLOUT_MISSED_DEADLINE = false;
+            // Pre-v10 snapshots predate the selected runtime flags and the boss-lite chooser; they stay off.
+            if (!snapshot.containsKey("USE_BATCHED_REFRESH")) params.USE_BATCHED_REFRESH = false;
+            if (!snapshot.containsKey("USE_INCREMENTAL_INK_REFRESH")) params.USE_INCREMENTAL_INK_REFRESH = false;
+            if (!snapshot.containsKey("USE_FAST_CHEAPEST_PATH")) params.USE_FAST_CHEAPEST_PATH = false;
             if (!snapshot.containsKey("USE_BOSS_SABOTAGE")) params.USE_BOSS_SABOTAGE = false;
             if (!snapshot.containsKey("USE_BOSS_LITE")) params.USE_BOSS_LITE = false;
             if (!snapshot.containsKey("USE_BOSS_OPPONENT_MODEL")) params.USE_BOSS_OPPONENT_MODEL = false;

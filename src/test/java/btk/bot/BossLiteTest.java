@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /** boss-sabotage-v2: the two-stage chooser plays legal, boss-like, deterministic games at CG budgets. */
 class BossLiteTest {
-    private static final String LITE = "current?NOISE=0,USE_BOSS_LITE=true";
+    private static final String LITE = "current?" + LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_BOSS_LITE=true";
 
     private static Referee.Result play(String a, String b, long seed) {
         GameState initial = MapGenerator.generate(seed);
@@ -33,9 +33,9 @@ class BossLiteTest {
     }
 
     @Test void flagIsRejectedOutsideTheCurrentRolloutAndTogetherWithV1() {
-        assertFalse(new Params().USE_BOSS_LITE);
+        assertTrue(new Params().USE_BOSS_LITE, "selected default since the v10 promotion");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v09?USE_BOSS_LITE=true"));
-        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_BOSS_LITE=true,USE_BOSS_SABOTAGE=true"));
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?" + LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_LITE=true,USE_BOSS_SABOTAGE=true"));
         Params frozen = BotFactory.parameters("v09");
         assertFalse(frozen.USE_BOSS_LITE);
         assertTrue(BotFactory.parameters(LITE).USE_BOSS_LITE);

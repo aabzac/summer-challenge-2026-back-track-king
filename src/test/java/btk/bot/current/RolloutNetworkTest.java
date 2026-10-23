@@ -84,7 +84,7 @@ class RolloutNetworkTest {
         for(int i=1;i<capped.networkEligible;i++)assertEquals(Integer.MIN_VALUE,gains[cells[i]]);
     }
     @Test void flagOffRetainsPriorDecisionsAndRejectsMixedExperiments() throws Exception {
-        assertFalse(new Params().USE_ROLLOUT_NETWORK);
+        assertFalse(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_NETWORK);
         var s=chord(1);var b=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0"));b.init(s,0);
         assertEquals("WAIT",Action.format(b.play(s,0,60_000)));assertNull(field(b,"networkCells"));
         for(String variant:new String[]{"USE_ROLLOUT_SPREAD=1","USE_ROLLOUT_REPLAN=1","USE_ROLLOUT_SECOND_TARGET=1",

@@ -22,7 +22,7 @@ class BossBotTest {
     }
 
     @Test void frozenReferenceLoadsWithFixedParameters() {
-        Params params = new Params("NOISE=0.9");
+        Params params = new Params(LiveTargetExperimentParams.V10_OFF + ",NOISE=0.9");
         FrozenParams.applyTo("boss-v1", params);
         assertEquals(0.1, params.NOISE);
         assertEquals("boss-v1", BotFactory.create("boss-v1").name());

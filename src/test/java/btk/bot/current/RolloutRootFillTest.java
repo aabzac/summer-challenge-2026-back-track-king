@@ -167,10 +167,10 @@ class RolloutRootFillTest {
     @Test void independentFlagStartsOffAndCannotSilentlyCombineWithRiskOrDisableTheFiller() {
         assertFalse(new Params().USE_ROLLOUT_ROOT_FILL);
         assertFalse(BotFactory.parameters("v09").USE_ROLLOUT_ROOT_FILL);
-        assertDoesNotThrow(() -> BotFactory.create("current?USE_ROLLOUT_ROOT_FILL=1"));
+        assertDoesNotThrow(() -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1"));
         assertThrows(IllegalArgumentException.class,
-                () -> BotFactory.create("current?USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_ALL_CELL_RISK=1"));
+                () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_ALL_CELL_RISK=1"));
         assertThrows(IllegalArgumentException.class,
-                () -> BotFactory.create("current?USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_FILL=0"));
+                () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_FILL=0"));
     }
 }

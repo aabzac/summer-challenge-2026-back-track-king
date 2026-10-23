@@ -30,7 +30,7 @@ class NeuralProposalStudyTest {
         Rules.updateConnections(s, new Pathing(s.size)); return s;
     }
     private static Params params(int depth) {
-        return new Params("USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK=0,"
+        return new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK=0,"
                 + "USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_ROLLOUT_FILL=1,USE_DISRUPT=0,NOISE=0,ROLLOUT_DEPTH=" + depth);
     }
     private static void set(RolloutBot b, String name, Object value) throws Exception {

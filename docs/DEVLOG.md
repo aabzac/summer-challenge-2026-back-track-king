@@ -8401,3 +8401,44 @@ engine-validation note); replays under `replays/cg/boss/{current/2f896714…,v09
 a later day because of the service limit) decides on the pooled 80. Nothing promoted yet: arena
 entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 `tools/boss_proxy/live_pairs.py` (paired per-map/seat/size summary of a matched plan).
+
+## 2026-10-23 — v10 Boss Model: D promoted to the selected version on the user's decision
+
+- **User decision:** "Давай продвинем D без 2 сессии" after live session 1 (18/40 vs v09 9/40 in the
+  same session, paired +22.5 pp). Protocol and the recorded deviation from v5 (40 of the 80 live
+  candidate games; steps a–b met along the same-map chain v2 → B → C → D) in
+  [v10-promotion.md](v10-promotion.md).
+- **Freeze:** `bot/v10/RolloutBotV10` + `BossSabotageV10` + `ProtectedOpeningV10` are byte copies of
+  `current` with only package, class names and label changed (hash-verified with the identity
+  changes undone); `v10.properties` = the 130 effective values = the arena artifact's manifest
+  params. The seven flags (`USE_BOSS_LITE`, `USE_BOSS_OPPONENT_MODEL`, `USE_BOSS_OWN_MODEL`,
+  `USE_BOSS_LITE_ROUTES`, `USE_INCREMENTAL_INK_REFRESH`, `USE_FAST_CHEAPEST_PATH`,
+  `USE_BATCHED_REFRESH`) default to true; `FrozenParams` pins them false for every snapshot that
+  predates them, so v01–v09 and the neural/spatial snapshots behave exactly as recorded (asserted:
+  `v09` still resolves to its 117 values). BotFactory / FileMerger / catalog know v10; v09 is
+  `historical`.
+- **Spec rules:** rollout-only defaults are dropped silently for policies that never read them
+  (EvalBot, heuristic, neural proposal) and for frozen versions, while an explicit `=true` on such a
+  policy is still refused (last mention wins, like `Params.apply`). **The boss-v2 proxy spec is now
+  `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0`**
+  (`current?USE_BOSS_SABOTAGE=1` alone is refused: the two choosers exclude each other). The
+  historical `tools/boss_proxy/run_*.sh` keep their recorded specs; new screens use the long one.
+- **Tests:** the pre-promotion tests keep their measured configurations through
+  `LiveTargetExperimentParams.V10_OFF` / `V09_ON_CURRENT` / `v09Params()` (about 40 files rewritten
+  mechanically: `"current?…"` → `"current?" + V10_OFF + ",…"`, `new Params("…")` likewise, plain
+  `"current"` pins → `V09_ON_CURRENT`); the v09-era default artifact still hashes to `ab0954a4…`
+  and `v09` to `aca0be45…`. Pins of flag-on artifacts moved (BASE `2cb3a6a2` → `5e58f6d3`, +38
+  `979cbac2` → `4472cbbc`, +40 `9510ff17` → `972cd133`, +40+ink `aff2dc9b` → `fa3ae4cc`, BASE+ink
+  `6217083e` → `26712505`) because the shipped `Params` initializers now read `true`; resolved
+  configurations are unchanged. New `V10PromotionTest` (2) and `V10SubmissionTest` (2);
+  `V09DeferredCommitStudy` pins its specs to the v09 configuration. **818 tests, 25 failures, all
+  pre-existing** (19 retained-engine pin, 6 `PduhardBeamBotTest`).
+- **Artifacts:** default `gradlew submit` → `build/submit-v10`: 99,676 chars, sha `1c891234…`, build
+  `8c7ef3d9…`, **config `f0e507ac…` identical to the arena artifact D** (`build=2f896714…`; text
+  differs only in the seven initializer literals); `verifySubmission` exact; strict 4-game process
+  check vs v09: 0 problem games, later ≤ 37.8 ms. Frozen `-PsubmitVersion=v10`: 99,598 chars,
+  `9c3b4008…`. Evidence `docs/evidence/v10-promotion/`.
+- **State:** `current` = **v10 Boss Model**, selected. The arena keeps the D artifact (same
+  configuration, no re-upload needed). Next: `prune-v1` (99,676 / 100,000), then Stage 3–4
+  valuation; the optional second live session stays available as a later check. Nothing uploaded
+  or pushed to the arena by the agent.

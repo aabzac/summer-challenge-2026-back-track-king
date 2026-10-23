@@ -15,7 +15,17 @@ not fresh confirmation. Engine, errors and exact-artifact process checks still a
 The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local selection follows
 [benchmarking.md](benchmarking.md). The former v3 local thresholds remain in historical entries.
 Historical entries retain the policy and verdict in force when those experiments ran.
-`current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+`current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+
+**v10 Boss Model — promoted 2026-10-23 on the user's decision** ("без 2 сессии"): the exact stage2-compute-v1
+candidate D (`NOISE=0.1` + `USE_BOSS_LITE`, `USE_BOSS_OPPONENT_MODEL`, `USE_BOSS_OWN_MODEL`, `USE_BOSS_LITE_ROUTES`,
+`USE_INCREMENTAL_INK_REFRESH`, `USE_FAST_CHEAPEST_PATH`, `USE_BATCHED_REFRESH`) became the defaults of `current`;
+frozen copy `btk.bot.v10`; `v10.properties` = the 130 effective values = the arena artifact's manifest. v5 record:
+chain v2 → B → C → D each ≥ its predecessor on the same maps (D 67.0 % vs v09, 65.0 % vs boss-v2), live session 1
+18/40 vs v09 9/40 (+22.5 pp paired); the second live session was skipped by the user. Default artifact 99,676 chars,
+config sha `f0e507ac…` = the arena entry (build `2f896714…`, agent 6807052), strict 4-game check 0 problems; 818 tests,
+25 pre-existing failures. The boss-v2 proxy spec is now `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0`.
+[Protocol](v10-promotion.md), [evidence](evidence/v10-promotion/). v09 is historical.
 
 **Live boss, 2026-10-23 (`stage2-d-live-boss-v1`, v5 step c session 1):** D's exact arena artifact vs v09
 in the same IDE session, matched 40 maps × 2 builds = 80 API games vs boss 6767608 — **D 18/40 = 45.0 %,

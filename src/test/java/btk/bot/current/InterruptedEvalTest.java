@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class InterruptedEvalTest {
     @Test void expiredEvalNeverReturnsAnOptimisticPartialScore() throws Exception {
         GameState s = connectedState();
-        Params p = new Params("INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=1,DISRUPT_RESERVE_MS=120000");
+        Params p = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=1,DISRUPT_RESERVE_MS=120000");
         EvalBot bot = new EvalBot(p); bot.init(s, 0);
         var timerField = EvalBot.class.getDeclaredField("timer"); timerField.setAccessible(true);
         ((Timer) timerField.get(bot)).start(60_000); // phase already expired, no racing real time
@@ -31,7 +31,7 @@ class InterruptedEvalTest {
         for (int seed : new int[]{1000, 7000}) for (int me = 0; me < 2; me++) {
             GameState s = MapGenerator.generate(seed);
             var frozen = BotFactory.create("v05"); frozen.init(s.copy(), me);
-            var current = new EvalBot(new Params("INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=1"));
+            var current = new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=1"));
             current.init(s.copy(), me);
             assertEquals(Action.format(frozen.play(s.copy(), me, 60_000)),
                     Action.format(current.play(s.copy(), me, 60_000)));
@@ -42,14 +42,14 @@ class InterruptedEvalTest {
 
     @Test void expiredBuildStillPermitsSabotageAndRejectsUnsupportedCombination() {
         GameState s = connectedState();
-        EvalBot bot = new EvalBot(new Params("INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=1,DISRUPT_RESERVE_MS=120000"));
+        EvalBot bot = new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",INTERRUPT_VULN_EVAL=1,PROFILE_SEARCH=1,DISRUPT_RESERVE_MS=120000"));
         bot.init(s.copy(), 1);
         var actions = bot.play(s.copy(), 1, 60_000);
         assertTrue(actions.stream().noneMatch(a -> a.type == Action.Type.PLACE));
         assertTrue(actions.stream().anyMatch(a -> a.type == Action.Type.DISRUPT));
         assertEquals(0, bot.profileLifetimeBuildCalls);
         assertThrows(IllegalArgumentException.class,
-                () -> new EvalBot(new Params("INTERRUPT_VULN_EVAL=1,USE_REPLY_RERANK=1")));
+                () -> new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",INTERRUPT_VULN_EVAL=1,USE_REPLY_RERANK=1")));
     }
 
     private static GameState connectedState() {

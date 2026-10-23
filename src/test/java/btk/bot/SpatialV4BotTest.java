@@ -25,7 +25,7 @@ class SpatialV4BotTest {
         assertInstanceOf(SpatialV4Bot.class, bot);
         assertEquals("spatial-ppo-v4", bot.name());
         assertEquals(BotFactory.configuration("spatial-ppo-v2"), BotFactory.configuration("spatial-ppo-v4"));
-        Params dirty = new Params("SPATIAL_RESERVE_MS=999,NOISE=0.8");
+        Params dirty = new Params(LiveTargetExperimentParams.V10_OFF + ",SPATIAL_RESERVE_MS=999,NOISE=0.8");
         FrozenParams.applyTo("spatial-ppo-v4", dirty);
         assertEquals(2, dirty.SPATIAL_RESERVE_MS);
         assertEquals(.1, dirty.NOISE);

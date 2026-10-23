@@ -20,6 +20,17 @@ public final class LiveTargetExperimentParams {
     }
 
     /** v09 already contains the earlier fields, so remove only the independent later policy field. */
+    /** v09 expressed on current after the v10 promotion (2026-10-23): the seven selected v10 flags switched off. */
+    public static final String V10_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
+    public static final String V09_ON_CURRENT = "current?" + V10_OFF;
+    /** The spec that was screened, process-checked and uploaded as D (= v10 since the 2026-10-23 promotion). */
+    public static final String D_SPEC = "current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true";
+
+    /** Fresh parameters of the v09 configuration (the seven v10 flags off) for mechanism tests written before the promotion. */
+    public static Params v09Params() {
+        return BotFactory.parameters(V09_ON_CURRENT);
+    }
+
     public static void removeIndrillAndCheck(Map<String, String> values) {
         removeCurrentOnlyAndCheck(values);
         assertEquals("2", values.remove("INDRILL_INK_PENALTY"), "INDRILL_INK_PENALTY");

@@ -37,6 +37,7 @@ import btk.bot.v06.RolloutBotV06;
 import btk.bot.v07.RolloutBotV07;
 import btk.bot.v08.RolloutBotV08;
 import btk.bot.v09.RolloutBotV09;
+import btk.bot.v10.RolloutBotV10;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -99,24 +100,40 @@ public final class BotFactory {
         params.apply(query);
         if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38 && params.TURN_BUDGET_MS != 40 && params.TURN_BUDGET_MS != 45)
             throw new IllegalArgumentException("Turn budget must be 36, 38, 40 or 45 ms");
-        if (params.TURN_BUDGET_MS != 36 && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
+        if (params.TURN_BUDGET_MS != 36 && (!nativeRollout(version) || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("38/40/45 ms requires the current native rollout policy");
-        if (params.USE_BATCHED_REFRESH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
-                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
-            throw new IllegalArgumentException("Batched refresh requires the current rollout policy");
-        if (params.USE_INCREMENTAL_INK_REFRESH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
-                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
-            throw new IllegalArgumentException("Incremental ink refresh requires the current native rollout policy");
-        if (params.USE_FAST_CHEAPEST_PATH && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
-                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
-            throw new IllegalArgumentException("Fast cheapest path requires the current native rollout policy");
-        if (params.USE_BOSS_SABOTAGE && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
+        // The seven selected v10 flags are rollout-only. A policy that never reads them (EvalBot, heuristic,
+        // neural proposal) or a frozen package without them drops the *default* values silently, but an
+        // explicit request to ship them with such a policy is still an error, as before the promotion.
+        boolean rolloutPolicy = params.USE_ROLLOUT_POLICY && !params.USE_NEURAL_TARGET_PROPOSAL && !params.USE_HEURISTIC_POLICY;
+        if (!rolloutPolicy || !nativeRollout(version)) {
+            if (params.USE_BATCHED_REFRESH) {
+                if (explicit(query, "USE_BATCHED_REFRESH")) throw new IllegalArgumentException("Batched refresh requires the current rollout policy");
+                params.USE_BATCHED_REFRESH = false;
+            }
+            if (params.USE_INCREMENTAL_INK_REFRESH) {
+                if (explicit(query, "USE_INCREMENTAL_INK_REFRESH")) throw new IllegalArgumentException("Incremental ink refresh requires the current native rollout policy");
+                params.USE_INCREMENTAL_INK_REFRESH = false;
+            }
+            if (params.USE_FAST_CHEAPEST_PATH) {
+                if (explicit(query, "USE_FAST_CHEAPEST_PATH")) throw new IllegalArgumentException("Fast cheapest path requires the current native rollout policy");
+                params.USE_FAST_CHEAPEST_PATH = false;
+            }
+            if (params.USE_BOSS_LITE || params.USE_BOSS_OPPONENT_MODEL || params.USE_BOSS_OWN_MODEL || params.USE_BOSS_LITE_ROUTES) {
+                if (explicit(query, "USE_BOSS_LITE") || explicit(query, "USE_BOSS_OPPONENT_MODEL")
+                        || explicit(query, "USE_BOSS_OWN_MODEL") || explicit(query, "USE_BOSS_LITE_ROUTES"))
+                    throw new IllegalArgumentException("Boss lite chooser requires the current native rollout policy without USE_BOSS_SABOTAGE");
+                params.USE_BOSS_LITE = params.USE_BOSS_OPPONENT_MODEL = params.USE_BOSS_OWN_MODEL = params.USE_BOSS_LITE_ROUTES = false;
+            }
+        }
+        if (params.USE_BOSS_SABOTAGE && (!nativeRollout(version) || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("Boss sabotage requires the current native rollout policy");
-        if (params.USE_BOSS_LITE && (!version.equals("current") || !params.USE_ROLLOUT_POLICY
-                || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY || params.USE_BOSS_SABOTAGE))
-            throw new IllegalArgumentException("Boss lite chooser requires the current native rollout policy without USE_BOSS_SABOTAGE");
+        if (params.USE_BOSS_LITE && params.USE_BOSS_SABOTAGE)
+            throw new IllegalArgumentException("Boss lite chooser requires the current native rollout policy without USE_BOSS_SABOTAGE"
+                    + " (since the v10 promotion the lite chooser is on by default: a sabotage proxy spec must add "
+                    + "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0 explicitly)");
         if ((params.USE_BOSS_OPPONENT_MODEL || params.USE_BOSS_OWN_MODEL) && !params.USE_BOSS_LITE)
             throw new IllegalArgumentException("Boss opponent/own models require USE_BOSS_LITE");
         if (params.USE_BOSS_LITE_ROUTES && !params.USE_BOSS_LITE)
@@ -184,6 +201,23 @@ public final class BotFactory {
         return values;
     }
 
+    /** True when the query names the key with a true value (explicit request, not an inherited default). */
+    private static boolean explicit(String query, String key) {
+        boolean result = false; // the last mention wins, exactly as Params.apply resolves repeated keys
+        for (String item : query.split("[&,]")) {
+            int eq = item.indexOf('=');
+            if (eq < 0 || !item.substring(0, eq).trim().equals(key)) continue;
+            String value = item.substring(eq + 1).trim();
+            result = value.equals("true") || value.equals("1");
+        }
+        return result;
+    }
+
+    /** Versions whose shipped policy is the native rollout with the selected v10 runtime/boss-lite blocks. */
+    private static boolean nativeRollout(String version) {
+        return version.equals("current") || version.equals("main") || version.equals("v10");
+    }
+
     private static String version(String spec) {
         if (spec == null || spec.isBlank()) throw new IllegalArgumentException("empty bot spec");
         int q = spec.indexOf('?');
@@ -212,6 +246,7 @@ public final class BotFactory {
             case "v07": return RolloutBotV07::new;
             case "v08": return RolloutBotV08::new;
             case "v09": return RolloutBotV09::new;
+            case "v10": return RolloutBotV10::new;
             case "pressure-v1": return PressureBot::new;
             case "leader-v1": return LeaderBot::new;
             case "leader-v2": return LeaderBot2::new;

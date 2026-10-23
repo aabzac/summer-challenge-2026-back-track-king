@@ -39,7 +39,7 @@ class RouteWarmupTest {
 
     @Test void routeSearchIsActuallyReached() {
         GameState state = MapGenerator.generate(7000);
-        EvalBot disposable = new EvalBot(new Params("PROFILE_SEARCH=1"));
+        EvalBot disposable = new EvalBot(new Params(LiveTargetExperimentParams.V10_OFF + ",PROFILE_SEARCH=1"));
         assertTrue(MainBot.warmIsolated(disposable, state, 0, 500, 36, System::nanoTime) > 0);
         assertTrue(disposable.profileLifetimeBuildCalls > 0);
     }
@@ -47,8 +47,8 @@ class RouteWarmupTest {
     @Test void isolatedWarmupPreservesLiveRandomSequenceAndActions() {
         for (int me = 0; me < 2; me++) {
             GameState initial = MapGenerator.generate(1000);
-            MainBot warm = new MainBot(new Params("ISOLATED_ROUTE_WARMUP=1"));
-            MainBot cold = new MainBot(new Params("ISOLATED_ROUTE_WARMUP=1"));
+            MainBot warm = new MainBot(new Params(LiveTargetExperimentParams.V10_OFF + ",ISOLATED_ROUTE_WARMUP=1"));
+            MainBot cold = new MainBot(new Params(LiveTargetExperimentParams.V10_OFF + ",ISOLATED_ROUTE_WARMUP=1"));
             warm.init(initial.copy(), me); cold.init(initial.copy(), me);
             warm.warmup(initial, me, 150);
             assertTrue(warm.warmupCalls > 0);
@@ -64,12 +64,12 @@ class RouteWarmupTest {
     }
 
     @Test void noAllowanceDoesNoWorkAndInvalidSliceIsRejected() {
-        MainBot bot = new MainBot(new Params("ISOLATED_ROUTE_WARMUP=1"));
+        MainBot bot = new MainBot(new Params(LiveTargetExperimentParams.V10_OFF + ",ISOLATED_ROUTE_WARMUP=1"));
         GameState state = MapGenerator.generate(1000); bot.init(state, 0);
         bot.warmup(state, 0, 0);
         assertEquals(0, bot.warmupCalls);
         assertThrows(IllegalArgumentException.class,
-                () -> new MainBot(new Params("ISOLATED_ROUTE_WARMUP=1,WARMUP_SLICE_MS=5")));
+                () -> new MainBot(new Params(LiveTargetExperimentParams.V10_OFF + ",ISOLATED_ROUTE_WARMUP=1,WARMUP_SLICE_MS=5")));
     }
 
     @Test void fractionalRemainderCannotRoundUpToAnotherSlice() {

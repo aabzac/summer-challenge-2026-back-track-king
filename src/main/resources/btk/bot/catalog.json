@@ -131,8 +131,15 @@
       "id": "v09",
       "title": "Never Idle",
       "category": "version",
-      "status": "selected",
+      "status": "historical",
       "description": "Protected Opening plus leftover paint spent on stable or protected cells next to own rails after the rollout search; RHEA code removed."
+    },
+    {
+      "id": "v10",
+      "title": "Boss Model",
+      "category": "version",
+      "status": "selected",
+      "description": "Never Idle plus the two-stage boss-like chooser at the real turn, the same chooser as the simulated opponent and for own future disrupts inside the rollout, the route-traffic term, and the three validated runtime flags (incremental ink refresh, fast cheapest path, batched refresh); the exact stage2-compute-v1 candidate D, promoted 2026-10-23."
     },
     {
       "id": "pressure-v1",

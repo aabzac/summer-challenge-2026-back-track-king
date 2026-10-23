@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FastCheapestPathSubmissionTest {
     private static final String FLAG = "USE_FAST_CHEAPEST_PATH";
-    private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
-    private static final String GUARD = "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true";
+    private static final String BASE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true";
+    private static final String GUARD = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true";
     @TempDir Path temp;
 
     @Test void optInChangesOnlyItsFlagAndRejectsNonNativeOrFrozenPolicies() {
-        assertFalse(new Params().USE_FAST_CHEAPEST_PATH);
-        for (String base : new String[]{"current", BASE, GUARD}) {
+        assertTrue(new Params().USE_FAST_CHEAPEST_PATH, "selected default since the v10 promotion");
+        for (String base : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, GUARD}) {
             assertFalse(BotFactory.configuration(base).containsKey(FLAG));
             String spec = base + (base.contains("?") ? "," : "?") + FLAG + "=true";
             assertInstanceOf(RolloutBot.class, BotFactory.create(spec));
@@ -37,8 +37,8 @@ class FastCheapestPathSubmissionTest {
             assertEquals(36, BotFactory.parameters(spec).TURN_BUDGET_MS);
         }
         for (String spec : new String[]{"v09?", "v08?", "main?", "neural-v1?", "spatial-ppo-v10?",
-                "indrill-q-v2?", "current?USE_ROLLOUT_POLICY=false,",
-                "current?USE_HEURISTIC_POLICY=true,", "current?USE_NEURAL_TARGET_PROPOSAL=true,"}) {
+                "indrill-q-v2?", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=false,",
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_HEURISTIC_POLICY=true,", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_NEURAL_TARGET_PROPOSAL=true,"}) {
             String enabled = spec + FLAG + "=true";
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(enabled), enabled);
             assertThrows(IllegalArgumentException.class, () -> FileMerger.merge(enabled), enabled);
@@ -52,12 +52,12 @@ class FastCheapestPathSubmissionTest {
 
     @Test void disabledArtifactsRetainExactHistoricalBytes() throws Exception {
         Map<String, String> historical = Map.of(
-                "current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
-                BASE, "2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+                BASE, "5e58f6d3c32f15b9ebbcfe9db46e28f820b7cde72ad3a9194a0852d2190bb232",
                 GUARD, "3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
                 BASE + ",USE_INCREMENTAL_INK_REFRESH=true",
-                "6217083e6319f69a29619f83c7de43d99876153b1dc9d043ca3376f5bccf8124");
+                "26712505bbc4aded1ca96e67ff59367fa62741fdc4df8e2b1803c4d6a1d1c34c");
         for (var entry : historical.entrySet()) {
             String spec = entry.getKey(), source = FileMerger.merge(spec);
             assertEquals(entry.getValue(), FileMerger.sha256(source), spec);

@@ -14,25 +14,25 @@ import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BatchedRefreshSubmissionTest {
-    private static final String CANDIDATE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
+    private static final String CANDIDATE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true";
     @TempDir Path temp;
 
     @Test void disabledFlagPreservesSelectedFrozenAndPreviousCandidateArtifacts() throws Exception {
-        assertFalse(new Params().USE_BATCHED_REFRESH);
+        assertTrue(new Params().USE_BATCHED_REFRESH, "selected default since the v10 promotion");
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
         assertEquals("3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
-                FileMerger.sha256(FileMerger.merge("current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
-        for (String spec : new String[]{"current", "v09", "neural-v1", "spatial-ppo-v10"}) {
+                FileMerger.sha256(FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "spatial-ppo-v10"}) {
             assertFalse(FileMerger.merge(spec).contains("batchedRefresh"));
             assertFalse(BotFactory.configuration(spec).containsKey("USE_BATCHED_REFRESH"));
         }
         for (String spec : new String[]{"v09?USE_BATCHED_REFRESH=true",
-                "current?USE_BATCHED_REFRESH=true,USE_ROLLOUT_POLICY=false"})
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BATCHED_REFRESH=true,USE_ROLLOUT_POLICY=false"})
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(spec));
-        Map<String, String> expected = new TreeMap<>(BotFactory.configuration("current"));
+        Map<String, String> expected = new TreeMap<>(BotFactory.configuration(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT));
         expected.put("USE_BATCHED_REFRESH", "true");
         assertEquals(expected, BotFactory.configuration(CANDIDATE));
         assertFalse(BotFactory.parameters(CANDIDATE).USE_ROLLOUT_MISSED_DEADLINE);

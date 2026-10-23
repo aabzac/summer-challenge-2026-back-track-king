@@ -68,7 +68,7 @@ class SabotageForecastTest {
             for (int i = 0; i < distribution.length; i++) if (i != 3) assertTrue(distribution[i] > 0);
         }
         assertEquals(1, Arrays.stream(model.adaptive).sum(), 1e-12);
-        assertThrows(IllegalArgumentException.class, () -> new SabotageForecast(state, new Params("FORECAST_FLOOR=0")));
+        assertThrows(IllegalArgumentException.class, () -> new SabotageForecast(state, new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",FORECAST_FLOOR=0")));
     }
 
     @Test void splitIsStableForTheSameOpponent() throws Exception {

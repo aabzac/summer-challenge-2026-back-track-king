@@ -44,7 +44,7 @@ class CGRunnerTurnBudgetTest {
             public List<Action> play(GameState state, int me, long ms) { budgets.add(ms); return List.of(Action.waitAction()); }
             public void warmup(GameState state, int me, long ms) { warmups.add(ms); }
         };
-        MainBot main = new MainBot(new Params("TURN_BUDGET_MS=" + budgetMs + ",ISOLATED_ROUTE_WARMUP=false"));
+        MainBot main = new MainBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",TURN_BUDGET_MS=" + budgetMs + ",ISOLATED_ROUTE_WARMUP=false"));
         // Observe the actual runner/delegate boundary without any strategic search or JIT warmup.
         var delegate = MainBot.class.getDeclaredField("delegate"); delegate.setAccessible(true); delegate.set(main, spy);
         var output = new ByteArrayOutputStream();

@@ -40,7 +40,7 @@ class FileMergerTest {
         assertFalse(source.contains("SpatialBridge"));
         assertFalse(source.contains("com.google.gson"));
         checkFrozenDecisions("spatial-ppo-v1", true);
-        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v6", "indrill-q-v2"}) {
+        for (String prior : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "neural-v6", "indrill-q-v2"}) {
             assertFalse(FileMerger.merge(prior).contains("SPATIAL_RESERVE_MS"), prior);
             assertFalse(FileMerger.merge(prior).contains("class SpatialNet"), prior);
             assertFalse(BotFactory.configuration(prior).containsKey("SPATIAL_RESERVE_MS"), prior);
@@ -75,7 +75,7 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
         // Measured from the pre-v2 HEAD merger; the saved default Player.java is an older export.
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
         assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9",
@@ -106,7 +106,7 @@ class FileMergerTest {
         assertEquals("a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v2")));
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
     }
@@ -137,7 +137,7 @@ class FileMergerTest {
         assertEquals("2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v3")));
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
     }
@@ -190,7 +190,7 @@ class FileMergerTest {
                 "spatial-ppo-v2", "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
                 "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
-                "current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -282,7 +282,7 @@ class FileMergerTest {
                 "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
-                "current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -380,7 +380,7 @@ class FileMergerTest {
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
                 "spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
-                "current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -491,7 +491,7 @@ class FileMergerTest {
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
                 "spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
                 "spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74",
-                "current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -577,7 +577,7 @@ class FileMergerTest {
                 Map.entry("spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6"),
                 Map.entry("spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74"),
                 Map.entry("spatial-ppo-v8", "3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff"),
-                Map.entry("current", "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5"),
+                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5"),
                 Map.entry("v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac"),
                 Map.entry("neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9"));
         for (var prior : hashes.entrySet()) {
@@ -591,7 +591,7 @@ class FileMergerTest {
     }
 
     @Test void explicitCandidateParametersAreEmbeddedWithoutChangingDefaults() throws Exception {
-        String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
+        String source = FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,INTERRUPT_VULN_EVAL=1");
         FileMerger.checkSourceSize(source);
         assertTrue(source.contains("INTERRUPT_VULN_EVAL=true"));
         assertTrue(source.contains("PROFILE_SEARCH=false"));
@@ -599,7 +599,7 @@ class FileMergerTest {
     }
 
     @Test void jointCandidateFitsAndShipsNoArchive() throws Exception {
-        String source = FileMerger.merge("current?USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1");
+        String source = FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1");
         FileMerger.checkSourceSize(source);
         assertTrue(source.contains("USE_JOINT_ACTION=true"));
         assertTrue(source.contains("chooseJointAction"));
@@ -613,18 +613,18 @@ class FileMergerTest {
     }
 
     @Test void rolloutSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {
-        String spec = "current?USE_ROLLOUT_POLICY=1";
+        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=1";
         String source = FileMerger.merge(spec);
         assertTrue(source.contains("private double rollout("));
         assertFalse(source.contains("chooseCandidateWithReplies"));
         assertFalse(source.contains("class HeuristicBot"));
-        assertTrue(FileMerger.merge("current").contains("private double rollout("));
+        assertTrue(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("private double rollout("));
         assertFalse(FileMerger.merge("v05").contains("private double rollout("));
         checkFrozenDecisions(spec, true);
     }
 
     @Test void quickRouteSubmissionPreservesCandidateParametersAndWarmupDecisions() throws Exception {
-        String spec = "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
+        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0,USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0";
         assertTrue(FileMerger.merge(spec).contains("USE_ROLLOUT_QUICK_ROUTE=true"));
         assertTrue(new btk.bot.Params().USE_ROLLOUT_QUICK_ROUTE);
         checkFrozenDecisions(spec, true);
@@ -650,7 +650,7 @@ class FileMergerTest {
         Map<String, String> measured = new TreeMap<>();
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject(launch.get("candidate").getAsString())
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
-        for (String spec : new String[]{"v07", "current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_FILL=0"}) {
+        for (String spec : new String[]{"v07", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0,USE_ROLLOUT_FILL=0"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             assertEquals("false", actual.remove("USE_ROLLOUT_ROUTE_DEPENDENCIES"));
             assertEquals("false", actual.remove("USE_ROLLOUT_NETWORK_CHORDS"));
@@ -658,7 +658,7 @@ class FileMergerTest {
             btk.bot.LiveTargetExperimentParams.removeAndCheck(actual);
             assertEquals(measured, actual);
         }
-        String current = FileMerger.merge("current?USE_PROTECTED_OPENING=0"), frozen = FileMerger.merge("v07");
+        String current = FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0"), frozen = FileMerger.merge("v07");
         assertTrue(current.contains("USE_ROLLOUT_QUICK_ROUTE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK_AFTER_BASE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK=false"));
@@ -673,7 +673,7 @@ class FileMergerTest {
                 FileMerger.sha256(frozen.substring(policyStart, policyEnd)));
         assertTrue(current.contains("USE_ROLLOUT_ROUTE_DEPENDENCIES=false"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK_CHORDS=false"));
-        checkFrozenDecisions("current?USE_PROTECTED_OPENING=0", true);
+        checkFrozenDecisions("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0", true);
         checkFrozenDecisions("v07", true);
     }
 
@@ -683,14 +683,14 @@ class FileMergerTest {
         Map<String, String> measured = new TreeMap<>();
         launch.getAsJsonObject("resolvedParameters").getAsJsonObject("current?USE_PROTECTED_OPENING=1")
                 .entrySet().forEach(entry -> measured.put(entry.getKey(), entry.getValue().getAsString()));
-        for (String spec : new String[]{"current?USE_ROLLOUT_FILL=0", "v08"}) {
+        for (String spec : new String[]{"current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_FILL=0", "v08"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             btk.bot.LiveTargetExperimentParams.removeAndCheck(actual);
             assertEquals(measured, actual, "historical v08 measured configuration");
         }
-        String current = FileMerger.merge("current");
-        assertEquals(current, FileMerger.merge("current?USE_PROTECTED_OPENING=1"));
-        assertEquals(current, FileMerger.merge("current?USE_ROLLOUT_FILL=1"));
+        String current = FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT);
+        assertEquals(current, FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=1"));
+        assertEquals(current, FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_FILL=1"));
         assertTrue(current.contains("USE_PROTECTED_OPENING=true"));
         assertTrue(current.contains("USE_ROLLOUT_RHEA=false"));
         assertTrue(current.contains("USE_ROLLOUT_LIVE_TARGET=false"));
@@ -729,7 +729,7 @@ class FileMergerTest {
         String previousDefault = "public boolean USE_PROTECTED_OPENING = false;\n";
         assertEquals(approved.indexOf(previousDefault), approved.lastIndexOf(previousDefault));
         assertTrue(approved.contains(previousDefault));
-        assertTrue(FileMerger.merge("current").contains("public boolean USE_PROTECTED_OPENING = true;"));
+        assertTrue(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("public boolean USE_PROTECTED_OPENING = true;"));
         // Later default-off Params fields changed the shipped source outside the policy classes;
         // the frozen v08 policy itself must still be the approved bytes apart from its label.
         String frozen = FileMerger.normalizeMarker(FileMerger.merge("v08"))
@@ -740,7 +740,7 @@ class FileMergerTest {
     }
 
     @Test void frozenV09KeepsMeasuredPolicyAndCurrentKeepsItsDisabledRiskBaseline() throws Exception {
-        String current = FileMerger.merge("current"), frozen = FileMerger.merge("v09");
+        String current = FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT), frozen = FileMerger.merge("v09");
         FileMerger.checkSourceSize(current);
         FileMerger.checkSourceSize(frozen);
         assertTrue(current.contains("USE_ROLLOUT_FILL=true"));
@@ -754,7 +754,7 @@ class FileMergerTest {
                         "public String name() { return \"current?\" + p.diff(); }");
         assertEquals("2a9c84029cde47c9e2378a28a6dd0eb7c0d882ec85d85af0138b4160a9d74fe3",
                 FileMerger.sha256(policySection(normalized)), "measured frozen v09 policy bytes");
-        var currentParams = new TreeMap<>(BotFactory.configuration("current"));
+        var currentParams = new TreeMap<>(BotFactory.configuration(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT));
         assertEquals("false", currentParams.remove("USE_ROLLOUT_ALL_CELL_RISK"));
         assertEquals("false", currentParams.remove("USE_ROLLOUT_ROOT_FILL"));
         assertEquals(currentParams, BotFactory.configuration("v09"));
@@ -767,7 +767,7 @@ class FileMergerTest {
     }
 
     @Test void independentSearchCandidatesCompileAndKeepTheirExactConfiguration() throws Exception {
-        for (String spec : new String[]{"current?USE_PROTECTED_OPENING=0", "current?USE_PROTECTED_OPENING=1"}) {
+        for (String spec : new String[]{"current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=1"}) {
             String source = FileMerger.merge(spec);
             assertTrue(source.contains("static final class ProtectedOpening"));
             checkFrozenDecisions(spec, true);
@@ -776,7 +776,7 @@ class FileMergerTest {
     }
 
     @Test void artifactAuditRejectsSameConfigurationWithDifferentSource() throws Exception {
-        String spec = "current?USE_PROTECTED_OPENING=0", source = FileMerger.merge(spec);
+        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0", source = FileMerger.merge(spec);
         Files.writeString(temp.resolve("Player.java"), source);
         Files.writeString(temp.resolve("manifest.json"),
                 new com.google.gson.Gson().toJson(FileMerger.manifest(spec, source)));
@@ -786,7 +786,7 @@ class FileMergerTest {
     }
 
     @Test void heuristicSubmissionCompilesMatchesAndWarmsOnlySelectedPolicy() throws Exception {
-        String spec = "current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0";
+        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0";
         String source = FileMerger.merge(spec);
         assertTrue(source.contains("chooseTarget"));
         assertFalse(source.contains("chooseJointAction"));
@@ -945,7 +945,7 @@ class FileMergerTest {
         assertFalse(source.contains("class ProtectedOpening"));
         assertTrue(source.contains("NOISE=0.1"));
         checkFrozenDecisions("neural-v1", true);
-        assertFalse(FileMerger.merge("current").contains("NeuralFeatures"));
+        assertFalse(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("NeuralFeatures"));
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("neural-v99"));
     }
 
@@ -964,7 +964,7 @@ class FileMergerTest {
         FileMerger.checkSourceSize(source);
         checkFrozenDecisions("neural-v2", true);
         assertFalse(FileMerger.merge("neural-v1").contains("NeuralV2"));
-        assertFalse(FileMerger.merge("current").contains("NeuralV2"));
+        assertFalse(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("NeuralV2"));
     }
 
     @Test void neuralV3DeadlineShipsOneFeatureCopyAndPreservesExistingArtifactIdentities() throws Exception {
@@ -981,7 +981,7 @@ class FileMergerTest {
         checkFrozenDecisions("neural-v3", true);
         // The V3-only Param must not drift the completed V2 or the current merge at 1796158.
         assertFalse(FileMerger.merge("neural-v2").contains("NEURAL_DEADLINE_RESERVE_MS"));
-        assertFalse(FileMerger.merge("current").contains("NEURAL_DEADLINE_RESERVE_MS"));
+        assertFalse(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("NEURAL_DEADLINE_RESERVE_MS"));
         assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9", FileMerger.sha256(FileMerger.merge("neural-v2")));
         // Current can gain default-off experiments; its immutable v09 reference stays exact.
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac", FileMerger.sha256(FileMerger.merge("v09")));
@@ -1020,7 +1020,7 @@ class FileMergerTest {
         assertFalse(source.contains("NeuralV4Collect"));
         FileMerger.checkSourceSize(source);
         checkFrozenDecisions("neural-v5", true);
-        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "indrill-q-v1", "indrill-q-v2"})
+        for (String prior : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "indrill-q-v1", "indrill-q-v2"})
             assertFalse(FileMerger.merge(prior).contains("HypotheticalIncome"), prior);
         assertEquals("16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9",
                 FileMerger.sha256(FileMerger.merge("neural-v2")));
@@ -1047,7 +1047,7 @@ class FileMergerTest {
         assertFalse(source.contains("DecisionChooser"));
         FileMerger.checkSourceSize(source);
         checkFrozenDecisions("neural-v6", true);
-        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "neural-v5", "indrill-q-v1", "indrill-q-v2"})
+        for (String prior : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "neural-v5", "indrill-q-v1", "indrill-q-v2"})
             assertFalse(FileMerger.merge(prior).contains("FeaturePaths"), prior);
         assertEquals("3425928153d5d1c07ec32f711cf3aa04a25c9c5ae3d248176f3ef5d226d34730",
                 FileMerger.sha256(FileMerger.merge("neural-v5")));
@@ -1063,7 +1063,7 @@ class FileMergerTest {
         checkFrozenDecisions("neural-v7", true);
         assertEquals("0597d5b7fba6fed69313c313f422616784d18acc7219c6d4b7835a7abd90b155",
                 FileMerger.sha256(FileMerger.merge("neural-v6")));
-        for (String prior : new String[]{"current", "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "neural-v5", "neural-v6", "indrill-q-v1", "indrill-q-v2"}) {
+        for (String prior : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "neural-v2", "neural-v3", "neural-v4", "neural-v5", "neural-v6", "indrill-q-v1", "indrill-q-v2"}) {
             assertFalse(FileMerger.merge(prior).contains("USE_NEURAL_FALLBACK"), prior);
             assertFalse(FileMerger.merge(prior).contains("NEURAL_FALLBACK_MAX_INSTABILITY"), prior);
         }
@@ -1084,36 +1084,36 @@ class FileMergerTest {
         assertFalse(source.contains("class InkProjection"));
         assertTrue(source.contains("INDRILL_INK_PENALTY=2"));
         checkFrozenDecisions("indrill-q-v1", true);
-        assertFalse(FileMerger.merge("current").contains("IndrillFeatures"));
-        assertTrue(FileMerger.merge("current").contains("class TacticalPathing"));
+        assertFalse(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("IndrillFeatures"));
+        assertTrue(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("class TacticalPathing"));
         assertFalse(FileMerger.merge("v09").contains("class InkProjection"));
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("indrill-q-v3"));
     }
 
     @Test void detourSubmissionMatchesOnActiveRoutesIncludingItsWarmup() throws Exception {
-        checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
+        checkFrozenDecisions("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
     }
 
     @Test void allCellRiskShipsOnlyForCurrentRolloutAndMatchesCompiledDecisions() throws Exception {
-        String spec = "current?USE_ROLLOUT_ALL_CELL_RISK=1";
+        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ALL_CELL_RISK=1";
         String source = FileMerger.merge(spec);
         assertTrue(source.contains("USE_ROLLOUT_ALL_CELL_RISK=true"));
         assertTrue(source.contains("class TacticalPathing"));
         FileMerger.checkSourceSize(source);
         checkFrozenDecisions(spec, true, false, true);
         for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
-                "current?USE_ROLLOUT_POLICY=0"})
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"})
             assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ALL_CELL_RISK"), old);
     }
     @Test void rootFillShipsOnlyForCurrentRolloutAndMatchesCompiledDecisions() throws Exception {
-        String spec = "current?USE_ROLLOUT_ROOT_FILL=1";
+        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1";
         String source = FileMerger.merge(spec);
         assertTrue(source.contains("USE_ROLLOUT_ROOT_FILL=true"));
         assertTrue(source.contains("USE_ROLLOUT_ALL_CELL_RISK=false"));
         FileMerger.checkSourceSize(source);
         checkFrozenDecisions(spec, true);
         for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
-                "current?USE_ROLLOUT_POLICY=0"})
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"})
             assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ROOT_FILL"), old);
     }
     @Test void v2SubmissionKeepsItsBaselineAndPreservesFrozenV1Artifact() throws Exception {
@@ -1131,9 +1131,9 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("indrill-q-v1")));
     }
     @Test void defenseSubmissionMatchesOnDamagedActiveRouteIncludingWarmup() throws Exception {
-        checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1",true);
+        checkFrozenDecisions("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=1",true);
     }
     @Test void ownPlanSubmissionMatchesIncludingWarmup() throws Exception {
-        checkFrozenDecisions("current?USE_ROLLOUT_POLICY=0,USE_OWN_BUILD_PLAN=1", true);
+        checkFrozenDecisions("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_OWN_BUILD_PLAN=1", true);
     }
 }

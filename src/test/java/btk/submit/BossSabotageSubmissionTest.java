@@ -14,20 +14,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /** boss-sabotage-v1/v2 packaging: the default-off flags leave every existing artifact byte-identical. */
 class BossSabotageSubmissionTest {
-    private static final String CANDIDATE = "current?NOISE=0.1,USE_BOSS_SABOTAGE=true";
-    private static final String LITE = "current?NOISE=0.1,USE_BOSS_LITE=true";
+    private static final String CANDIDATE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BOSS_SABOTAGE=true";
+    private static final String LITE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BOSS_LITE=true";
     @TempDir Path temp;
 
     @Test void disabledFlagPreservesSelectedFrozenAndPreviousCandidateArtifacts() throws Exception {
         assertFalse(new Params().USE_BOSS_SABOTAGE);
-        assertFalse(new Params().USE_BOSS_LITE);
+        assertTrue(new Params().USE_BOSS_LITE, "selected default since the v10 promotion");
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
         assertEquals("3bd070b3802744778473e93cebed8148ba07a7b243bd744c8ac486076d304a2c",
-                FileMerger.sha256(FileMerger.merge("current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
-        for (String spec : new String[]{"current", "v09", "neural-v1", "current?NOISE=0.1,USE_BATCHED_REFRESH=true"}) {
+                FileMerger.sha256(FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true"}) {
             assertFalse(FileMerger.merge(spec).contains("BossSabotage"), spec);
             assertFalse(FileMerger.merge(spec).contains("USE_BOSS_SABOTAGE"), spec);
             assertFalse(FileMerger.merge(spec).contains("BOSS_HOLD_MARGIN"), spec);
@@ -36,26 +36,26 @@ class BossSabotageSubmissionTest {
             assertFalse(BotFactory.configuration(spec).containsKey("USE_BOSS_LITE"), spec);
             assertFalse(BotFactory.configuration(spec).containsKey("BOSS_HOLD_MARGIN"), spec);
         }
-        for (String spec : new String[]{"v09?USE_BOSS_SABOTAGE=true", "current?USE_BOSS_SABOTAGE=true,USE_ROLLOUT_POLICY=false",
-                "current?USE_BOSS_SABOTAGE=true,USE_HEURISTIC_POLICY=true", "v09?USE_BOSS_LITE=true",
-                "current?USE_BOSS_LITE=true,USE_BOSS_SABOTAGE=true", "current?USE_BOSS_LITE=true,USE_HEURISTIC_POLICY=true"})
+        for (String spec : new String[]{"v09?USE_BOSS_SABOTAGE=true", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_SABOTAGE=true,USE_ROLLOUT_POLICY=false",
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_SABOTAGE=true,USE_HEURISTIC_POLICY=true", "v09?USE_BOSS_LITE=true",
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_LITE=true,USE_BOSS_SABOTAGE=true", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_LITE=true,USE_HEURISTIC_POLICY=true"})
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(spec), spec);
-        Map<String, String> expected = new TreeMap<>(BotFactory.configuration("current"));
+        Map<String, String> expected = new TreeMap<>(BotFactory.configuration(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT));
         expected.put("USE_BOSS_SABOTAGE", "true");
         expected.put("BOSS_HOLD_MARGIN", "1.0");
         assertEquals(expected, BotFactory.configuration(CANDIDATE));
-        Map<String, String> lite = new TreeMap<>(BotFactory.configuration("current"));
+        Map<String, String> lite = new TreeMap<>(BotFactory.configuration(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT));
         lite.put("USE_BOSS_LITE", "true");
         lite.put("BOSS_HOLD_MARGIN", "1.0");
         lite.put("USE_BOSS_OPPONENT_MODEL", "false");
         lite.put("BOSS_OPPONENT_REPLIES", "2");
         lite.put("USE_BOSS_OWN_MODEL", "false");
         assertEquals(lite, BotFactory.configuration(LITE));
-        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_BOSS_OPPONENT_MODEL=true"),
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_OPPONENT_MODEL=true"),
                 "the opponent model needs the lite chooser");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create(LITE + ",USE_BOSS_OPPONENT_MODEL=true,BOSS_OPPONENT_REPLIES=3"));
         assertTrue(BotFactory.parameters(LITE + ",USE_BOSS_OPPONENT_MODEL=true").USE_BOSS_OPPONENT_MODEL);
-        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_BOSS_LITE_ROUTES=true"),
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_BOSS_LITE_ROUTES=true"),
                 "the route term needs the lite chooser");
         assertFalse(BotFactory.configuration(LITE).containsKey("USE_BOSS_LITE_ROUTES"));
         assertEquals("0.371747", BotFactory.configuration(LITE + ",USE_BOSS_LITE_ROUTES=true").get("BOSS_LITE_ROUTE_WEIGHT"));

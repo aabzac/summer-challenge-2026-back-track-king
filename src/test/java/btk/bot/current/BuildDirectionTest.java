@@ -37,7 +37,7 @@ class BuildDirectionTest {
                 }
                 int[] before = new int[2], after = new int[2];
                 Rules.incomePerTurn(state, before);
-                var bot = new EvalBot(new Params("NOISE=0,CHOOSE_BUILD_DIRECTION=1,USE_DISRUPT=0"));
+                var bot = new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,CHOOSE_BUILD_DIRECTION=1,USE_DISRUPT=0"));
                 bot.init(state, me);
                 var actions = bot.play(state.copy(), me, 60_000);
                 String expected = id.equals("903583608") ? "PLACE_TRACKS 10 11"
@@ -58,7 +58,7 @@ class BuildDirectionTest {
     void playEmitsTheBetterPrefixOfTheSameSelectedRoute() {
         for (int me = 0; me < 2; me++) {
             GameState state = line();
-            Params params = new Params("NOISE=0,W_VULN=0,USE_DISRUPT=0,USE_IDLE_EXTEND=0");
+            Params params = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,W_VULN=0,USE_DISRUPT=0,USE_IDLE_EXTEND=0");
             EvalBot forward = new EvalBot(params.copy());
             forward.init(state, me);
             assertEquals("PLACE_TRACKS 1 0;PLACE_TRACKS 2 0;PLACE_TRACKS 3 0",

@@ -20,7 +20,7 @@ class PduhardBeamBotTest {
         assertEquals("candidate", BotCatalog.describe("pduhard-beam-v1").category());
         assertEquals("local_only", BotCatalog.describe("pduhard-beam-v1").status());
         assertEquals("v09", BotFactory.create("v09").name());
-        assertInstanceOf(btk.bot.current.RolloutBot.class, BotFactory.create("current"));
+        assertInstanceOf(btk.bot.current.RolloutBot.class, BotFactory.create(LiveTargetExperimentParams.V09_ON_CURRENT));
         assertEquals("WAIT", Action.format(BotFactory.create("pduhard-beam-v1").play(MapGenerator.generate(11), 0, 0)));
     }
 
