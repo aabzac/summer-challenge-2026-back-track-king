@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HeuristicDetourTest {
     private static Params params(boolean enabled) {
-        return new Params("USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0,USE_HEURISTIC_DETOUR=" + enabled);
+        return new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0,USE_HEURISTIC_DETOUR=" + enabled);
     }
 
     @Test void chargesRecoveryPaintOnlyOncePerUndirectedConnection() {

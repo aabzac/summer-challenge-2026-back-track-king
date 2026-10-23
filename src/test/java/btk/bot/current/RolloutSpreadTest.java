@@ -96,7 +96,7 @@ class RolloutSpreadTest {
             assertEquals(0,order[0]); Arrays.sort(order);
             for(int i=0;i<size;i++)assertEquals(i,order[i]);
         }
-        assertFalse(new Params().USE_ROLLOUT_SPREAD);
+        assertFalse(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_SPREAD);
         assertThrows(IllegalArgumentException.class,()->new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_SPREAD=1,USE_ROLLOUT_REPLAN=1")));
     }
 }

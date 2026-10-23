@@ -110,6 +110,6 @@ class NeuralV3BotTest {
         assertEquals(0, bot.lastPlacements);
         assertEquals(0, bot.lastBuildCandidates);
         assertTrue(actions.stream().anyMatch(a -> a.type == Action.Type.DISRUPT));
-        assertThrows(IllegalArgumentException.class, () -> new NeuralV3Bot(new Params("NEURAL_DEADLINE_RESERVE_MS=-1")));
+        assertThrows(IllegalArgumentException.class, () -> new NeuralV3Bot(new Params(LiveTargetExperimentParams.V10_OFF + ",NEURAL_DEADLINE_RESERVE_MS=-1")));
     }
 }

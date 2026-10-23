@@ -26,7 +26,7 @@ class RolloutNetworkChordsTest {
     }
 
     private static RolloutBot bot(GameState s, int me, boolean on) {
-        var p = new Params("USE_PROTECTED_OPENING=0,NOISE=0,USE_DISRUPT=0");
+        var p = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0,NOISE=0,USE_DISRUPT=0");
         p.USE_ROLLOUT_NETWORK_CHORDS = on;
         var b = new RolloutBot(p); b.init(s, me); return b;
     }
@@ -69,7 +69,7 @@ class RolloutNetworkChordsTest {
     }
 
     @Test void disabledModeHasNoBuffersAndChordsRequireAfterBase() throws Exception {
-        assertFalse(new Params().USE_ROLLOUT_NETWORK_CHORDS);
+        assertFalse(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_NETWORK_CHORDS);
         var off = bot(tripleGap(1), 0, false);
         for (String name : new String[]{"chordA", "chordB", "chordC", "chordOrder", "chordPriority", "chordGains", "chordBest"})
             assertNull(field(off, name));

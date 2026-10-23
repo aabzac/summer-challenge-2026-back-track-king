@@ -18,16 +18,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IncrementalInkRefreshSubmissionTest {
     private static final String FLAG = "USE_INCREMENTAL_INK_REFRESH";
-    private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
+    private static final String BASE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true";
     @TempDir Path temp;
 
     @Test void optInChangesOnlyTheExplicitFlagAndRejectsOtherPolicies() {
-        assertFalse(new Params().USE_INCREMENTAL_INK_REFRESH);
-        for (String spec : new String[]{"current", BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
+        assertTrue(new Params().USE_INCREMENTAL_INK_REFRESH, "selected default since the v10 promotion");
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
             assertFalse(BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH);
             assertFalse(BotFactory.configuration(spec).containsKey(FLAG));
         }
-        for (String base : new String[]{"current?NOISE=0.1", BASE}) {
+        for (String base : new String[]{"current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1", BASE}) {
             String spec = base + "," + FLAG + "=true";
             assertInstanceOf(RolloutBot.class, BotFactory.create(spec));
             var expected = new TreeMap<>(BotFactory.configuration(base));
@@ -40,9 +40,9 @@ class IncrementalInkRefreshSubmissionTest {
                 "v09?" + FLAG + "=true", "v08?" + FLAG + "=true",
                 "main?" + FLAG + "=true", "neural-v1?" + FLAG + "=true",
                 "spatial-ppo-v10?" + FLAG + "=true", "indrill-q-v2?" + FLAG + "=true",
-                "current?" + FLAG + "=true,USE_ROLLOUT_POLICY=false",
-                "current?" + FLAG + "=true,USE_HEURISTIC_POLICY=true",
-                "current?" + FLAG + "=true,USE_NEURAL_TARGET_PROPOSAL=true"}) {
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + FLAG + "=true,USE_ROLLOUT_POLICY=false",
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + FLAG + "=true,USE_HEURISTIC_POLICY=true",
+                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + FLAG + "=true,USE_NEURAL_TARGET_PROPOSAL=true"}) {
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(spec), spec);
             assertThrows(IllegalArgumentException.class, () -> FileMerger.merge(spec), spec);
         }
@@ -50,12 +50,12 @@ class IncrementalInkRefreshSubmissionTest {
 
     @Test void disabledFlagPreservesPriorSourceBytesAndOmitsItsHelpers() throws Exception {
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+        assertEquals("5e58f6d3c32f15b9ebbcfe9db46e28f820b7cde72ad3a9194a0852d2190bb232",
                 FileMerger.sha256(FileMerger.merge(BASE)));
-        for (String spec : new String[]{"current", BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
             String source = FileMerger.merge(spec);
             assertEquals(source, FileMerger.merge(spec + (spec.contains("?") ? "," : "?") + FLAG + "=false"));
             for (String absent : new String[]{FLAG, "INK_REFRESH_BEGIN", "INK_REFRESH_END",
@@ -66,7 +66,7 @@ class IncrementalInkRefreshSubmissionTest {
 
     @Test void bothBatchModesCompileWithinLimitWithIdenticalCompactedExecutableBytes() throws Exception {
         for (boolean batched : new boolean[]{false, true}) {
-            String spec = "current?NOISE=0.1," + FLAG + "=true,USE_BATCHED_REFRESH=" + batched;
+            String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1," + FLAG + "=true,USE_BATCHED_REFRESH=" + batched;
             String plain = FileMerger.mergeUncompressed(spec), compact = FileMerger.merge(spec);
             FileMerger.checkSourceSize(compact);
             assertTrue(compact.contains(FLAG + "=true"));

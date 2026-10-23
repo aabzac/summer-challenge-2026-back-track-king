@@ -206,7 +206,7 @@ class ProtectedOpeningTest {
         assertEquals(0, opening.eligibleCells);
         assertEquals(0, opening.selectedPaint);
         s.turn = 0;
-        opening = new ProtectedOpening(s, new Params("USE_PROTECTED_OPENING=0"));
+        opening = new ProtectedOpening(s, new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0"));
         opening.reset(s, 0);
         observeAll(opening, s);
         assertEquals(0, opening.build(s, cells));

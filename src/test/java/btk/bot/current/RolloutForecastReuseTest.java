@@ -94,7 +94,7 @@ class RolloutForecastReuseTest {
     }
 
     private static RolloutBot initialized(GameState state, int me) {
-        RolloutBot bot = new RolloutBot(new Params("NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true"));
+        RolloutBot bot = new RolloutBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true"));
         bot.init(state, me); return bot;
     }
 

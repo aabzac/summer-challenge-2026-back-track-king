@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TimingProfileTest {
-    private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
+    private static final String BASE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true";
     @Test
     void cgBudgetsFollowSubmissionConstantsAndLegacyRemainsExplicit() {
         assertEquals(CGRunner.FIRST_TURN_MS - CGRunner.MARGIN_MS - CGRunner.WARMUP_MS,

@@ -19,7 +19,7 @@ class RolloutMissedDeadlineTest {
     private static final Gson JSON = new Gson();
 
     private static Params parameters(boolean enabled) {
-        return new Params("NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=" + enabled);
+        return new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=" + enabled);
     }
     private static GameState filler(int me) {
         int[] regions = {0,1,2,3,4,5,6,7,7,7,7,7,7,7,8,9,9,9,9,9,10};
@@ -231,6 +231,6 @@ class RolloutMissedDeadlineTest {
     @Test void featureDefaultsOffAndFrozenV09ParametersDoNotOptIn() {
         assertFalse(new Params().USE_ROLLOUT_MISSED_DEADLINE);
         assertFalse(BotFactory.parameters("v09").USE_ROLLOUT_MISSED_DEADLINE);
-        assertDoesNotThrow(() -> BotFactory.create("current?USE_ROLLOUT_MISSED_DEADLINE=1"));
+        assertDoesNotThrow(() -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_MISSED_DEADLINE=1"));
     }
 }

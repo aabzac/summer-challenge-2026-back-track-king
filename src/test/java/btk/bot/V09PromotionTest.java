@@ -41,7 +41,7 @@ class V09PromotionTest {
     }
 
     private static Params measuredParameters() throws Exception {
-        Params params = new Params();
+        Params params = LiveTargetExperimentParams.v09Params(); // the record predates the seven v10 flags
         for (var entry : record("/v09-confirmed.properties").entrySet())
             params.apply(entry.getKey() + "=" + entry.getValue());
         return params;
@@ -53,13 +53,14 @@ class V09PromotionTest {
         assertEquals("true", expected.get("USE_ROLLOUT_FILL"));
         assertEquals("0", expected.get("ROLLOUT_FILL_MAX_INSTABILITY"));
         assertEquals("false", expected.get("USE_ROLLOUT_RHEA"));
-        for (String spec : new String[]{"current", "main", "v09", "current?USE_ROLLOUT_FILL=1"}) {
+        // Since the v10 promotion (2026-10-23) current carries the seven selected flags; v09 is current with them off.
+        for (String spec : new String[]{LiveTargetExperimentParams.V09_ON_CURRENT, "v09", LiveTargetExperimentParams.V09_ON_CURRENT + ",USE_ROLLOUT_FILL=1"}) {
             var actual = new TreeMap<>(BotFactory.configuration(spec));
             LiveTargetExperimentParams.removeIndrillAndCheck(actual);
             assertEquals(expected, actual, spec);
         }
         assertTrue(new Params().USE_ROLLOUT_FILL);
-        assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
+        assertInstanceOf(RolloutBot.class, BotFactory.create(LiveTargetExperimentParams.V09_ON_CURRENT));
         assertInstanceOf(MainBot.class, BotFactory.create("main"));
         assertInstanceOf(RolloutBotV09.class, BotFactory.create("v09"));
         assertEquals("v09", BotFactory.create("v09").name());
@@ -82,6 +83,7 @@ class V09PromotionTest {
         assertFalse(dirty.USE_BOSS_SABOTAGE, "boss-sabotage experiment stays off for the frozen snapshot");
         assertFalse(dirty.USE_BOSS_LITE, "boss-lite experiment stays off for the frozen snapshot");
         assertFalse(dirty.USE_BOSS_OPPONENT_MODEL); assertFalse(dirty.USE_BOSS_OWN_MODEL); assertFalse(dirty.USE_BOSS_LITE_ROUTES);
+        assertFalse(dirty.USE_BATCHED_REFRESH); assertFalse(dirty.USE_INCREMENTAL_INK_REFRESH); assertFalse(dirty.USE_FAST_CHEAPEST_PATH);
         assertEquals(2, dirty.INDRILL_INK_PENALTY, "unused later field resets to its explicit historical default");
         for (var entry : expected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
@@ -132,8 +134,8 @@ class V09PromotionTest {
     }
 
     private static Bot[] candidates(GameState state, int me) throws Exception {
-        Bot[] bots = {new RolloutBot(measuredParameters()), BotFactory.create("current"),
-                BotFactory.create("main"), BotFactory.create("v09")};
+        Bot[] bots = {new RolloutBot(measuredParameters()), BotFactory.create(LiveTargetExperimentParams.V09_ON_CURRENT),
+                new MainBot(BotFactory.parameters(LiveTargetExperimentParams.V09_ON_CURRENT)), BotFactory.create("v09")};
         for (Bot bot : bots) bot.init(state.copy(), me);
         return bots;
     }

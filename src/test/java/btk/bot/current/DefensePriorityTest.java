@@ -21,7 +21,7 @@ class DefensePriorityTest {
         return s;
     }
     private static EvalBot bot(GameState s, int me, String extra) {
-        var b = new EvalBot(new Params("USE_DEFENSE_PRIORITY=1,NOISE=0,USE_IDLE_EXTEND=0" + extra));
+        var b = new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_DEFENSE_PRIORITY=1,NOISE=0,USE_IDLE_EXTEND=0" + extra));
         b.init(s.copy(),me); return b;
     }
     private static GameState built(GameState s, int me, List<Action> actions) {
@@ -100,7 +100,7 @@ class DefensePriorityTest {
             GameState out=built(s,me,a); assertTrue(diff(out,me)>=before);
             GameState noBuild=s.copy(); Rules.ink(noBuild,22); Rules.ink(out,22);
             assertTrue(diff(out,me)>diff(noBuild,me)); assertArrayEquals(owners,s.owner);
-            var c=BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=0"); var v=BotFactory.create("v05");
+            var c=BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_DEFENSE_PRIORITY=0"); var v=BotFactory.create("v05");
             c.init(s.copy(),me); v.init(s.copy(),me);
             for(int n=0;n<3;n++) assertEquals(Action.format(v.play(s.copy(),me,60_000)),Action.format(c.play(s.copy(),me,60_000)));
             var again=bot(s,me,""); assertEquals(Action.format(a),Action.format(again.play(s.copy(),me,60_000)));
@@ -108,7 +108,7 @@ class DefensePriorityTest {
     }
     @Test void featureIsOffAndLimitsAreBounded() {
         assertFalse(new Params().USE_DEFENSE_PRIORITY);
-        assertThrows(IllegalArgumentException.class,()->new EvalBot(new Params("USE_DEFENSE_PRIORITY=1,DEFENSE_MAX_REGIONS=4")));
-        assertThrows(IllegalArgumentException.class,()->new EvalBot(new Params("USE_DEFENSE_PRIORITY=1,USE_REPLY_RERANK=1")));
+        assertThrows(IllegalArgumentException.class,()->new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_DEFENSE_PRIORITY=1,DEFENSE_MAX_REGIONS=4")));
+        assertThrows(IllegalArgumentException.class,()->new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_DEFENSE_PRIORITY=1,USE_REPLY_RERANK=1")));
     }
 }

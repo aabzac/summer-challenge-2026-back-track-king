@@ -102,12 +102,12 @@ class RolloutBotTest {
         for(int c=1;c<5;c++)assertEquals(GameState.NEUTRAL,end.owner[c]);
     }
     @Test void promotedSelectorRejectsMixedExperimentsAndOffIsStillV05() {
-        assertTrue(new Params().USE_ROLLOUT_POLICY);
-        assertInstanceOf(RolloutBot.class,BotFactory.create("current"));
-        assertInstanceOf(EvalBot.class,BotFactory.create("current?USE_ROLLOUT_POLICY=0"));
-        assertInstanceOf(RolloutBot.class,BotFactory.create("current?USE_ROLLOUT_POLICY=1"));
+        assertTrue(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_POLICY);
+        assertInstanceOf(RolloutBot.class,BotFactory.create(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT));
+        assertInstanceOf(EvalBot.class,BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"));
+        assertInstanceOf(RolloutBot.class,BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=1"));
         for(String extra:new String[]{"USE_OWN_BUILD_PLAN=1","USE_HEURISTIC_POLICY=1","ROLLOUT_DEPTH=0","ROLLOUT_WIDTH=20","ROLLOUT_TAIL=NaN"})
-            assertThrows(IllegalArgumentException.class,()->BotFactory.create("current?USE_ROLLOUT_POLICY=1,"+extra));
+            assertThrows(IllegalArgumentException.class,()->BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=1,"+extra));
     }
     @Test void generatedStateDecisionsAreLegalReproducibleAndDoNotMutateInput() {
         for(int me=0;me<2;me++) {

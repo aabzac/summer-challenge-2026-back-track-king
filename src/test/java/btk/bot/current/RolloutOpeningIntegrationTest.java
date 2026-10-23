@@ -15,7 +15,7 @@ class RolloutOpeningIntegrationTest {
     }
 
     private static RolloutBot bot(GameState s,int me,boolean opening) {
-        var b=new RolloutBot(new Params("NOISE=0,USE_PROTECTED_OPENING="+opening));
+        var b=new RolloutBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_PROTECTED_OPENING="+opening));
         b.init(s,me); return b;
     }
 

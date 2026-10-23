@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JointActionTest {
-    static final String SPEC = "current?USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1,NOISE=0";
+    static final String SPEC = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_REPLY_RERANK=1,BUILD_BEAM_WIDTH=2,OPP_REPLY_WIDTH=1,USE_JOINT_ACTION=1,NOISE=0";
 
     @Test void capturedCrossProductSelectsAndEmitsTheActualBestPair() throws Exception {
         try (var reader = new InputStreamReader(getClass().getResourceAsStream("/btk/bot/joint-reply-study.json"), StandardCharsets.UTF_8)) {
@@ -86,7 +86,7 @@ class JointActionTest {
         assertFalse(new Params().USE_JOINT_ACTION);
         for (int me = 0; me < 2; me++) {
             GameState state = MapGenerator.generate(20000); Rules.updateConnections(state, new Pathing(state.size));
-            var current = (EvalBot) BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0"); current.init(state.copy(), me);
+            var current = (EvalBot) BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,NOISE=0"); current.init(state.copy(), me);
             var old = BotCatalog.createExperiment("exp-income-guard?GUARD_BUILD_INCOME=0,NOISE=0"); old.init(state.copy(), me);
             assertNull(CgDisruptStudy.field(current, "jointState"));
             assertNull(CgDisruptStudy.field(current, "jointTargets"));
@@ -100,7 +100,7 @@ class JointActionTest {
     }
 
     @Test void invalidCombinationsAreRejectedAndNewSimulationMatchesCore() throws Exception {
-        assertThrows(IllegalArgumentException.class, () -> new EvalBot(new Params("USE_JOINT_ACTION=1")));
+        assertThrows(IllegalArgumentException.class, () -> new EvalBot(new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_JOINT_ACTION=1")));
         GameState state = new GameState(5, 1, new int[]{0,1,2,3,4}, new int[5],
                 new int[]{0,4}, new int[]{0,0}, new int[][]{{1},{}});
         state.instability[2] = 2; state.syncRegionsFromCells(); Rules.updateConnections(state, new Pathing(state.size));

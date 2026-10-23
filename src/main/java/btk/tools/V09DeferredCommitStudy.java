@@ -28,8 +28,10 @@ import static btk.tools.V09DeferredCommitOracle.require;
 /** Prospectively fixed local mechanism screen; empty per-branch memory, real repeated decisions. */
 public final class V09DeferredCommitStudy {
     private V09DeferredCommitStudy() {}
-    static final String OFF="current?NOISE=0";
-    static final String ON="current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true";
+    /** v09 configuration expressed on current: since the v10 promotion (2026-10-23) the seven selected flags must be switched off explicitly. */
+    static final String V09_FLAGS="USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
+    static final String OFF="current?"+V09_FLAGS+",NOISE=0";
+    static final String ON=OFF+",USE_ROLLOUT_MISSED_DEADLINE=true";
     private static final String SELECTION_HASH="a04858f4023c1363f3170250d0c39f4e0044323c1d697c08c73c463a004a2c38";
     public record Step(int offset,int turn,Plan nativeAction,Plan ownAction,Plan opponentAction,
                        V09FullActionProbe.Metadata nativeMetadata,

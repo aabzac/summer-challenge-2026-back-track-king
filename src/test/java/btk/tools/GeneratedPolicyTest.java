@@ -23,7 +23,7 @@ class GeneratedPolicyTest {
     @Test void generatedStateCopiesEveryDynamicFieldAndDiagnosticsAreDetached() throws Exception {
         var merge = FileMerger.class.getDeclaredMethod("merge", String.class);
         merge.setAccessible(true);
-        String source = (String) merge.invoke(null, "current?NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true");
+        String source = (String) merge.invoke(null, "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true");
         Path file = temp.resolve("Player.java"), classes = temp.resolve("classes");
         Files.writeString(file, source);
         Files.createDirectory(classes);

@@ -58,16 +58,16 @@ public class Params {
     // Selected v09 policy; disable explicitly to use the retained EvalBot experiments.
     public boolean USE_ROLLOUT_POLICY = true;
     // BATCHED_REFRESH_BEGIN
-    /** Current rollout only: share canonical connection BFS across pairs with one destination. */
-    public boolean USE_BATCHED_REFRESH = false;
+    /** Selected v10 (stage2-compute-v1): share canonical connection BFS across pairs with one destination. Frozen pre-v10 snapshots keep it off. */
+    public boolean USE_BATCHED_REFRESH = true;
     // BATCHED_REFRESH_END
     // INK_REFRESH_BEGIN
-    /** Current rollout only: preserve canonical paths unaffected by hypothetical ink. */
-    public boolean USE_INCREMENTAL_INK_REFRESH = false;
+    /** Selected v10: preserve canonical paths unaffected by hypothetical ink (also inside the lite chooser). */
+    public boolean USE_INCREMENTAL_INK_REFRESH = true;
     // INK_REFRESH_END
     // FAST_CHEAPEST_PATH_BEGIN
-    /** Current rollout only: reuse immutable grid geometry during canonical route construction. */
-    public boolean USE_FAST_CHEAPEST_PATH = false;
+    /** Selected v10: reuse immutable grid geometry during canonical route construction. */
+    public boolean USE_FAST_CHEAPEST_PATH = true;
     // FAST_CHEAPEST_PATH_END
     /** Current-only route proposal: charge instability on existing tracks as well as free cells. */
     public boolean USE_ROLLOUT_ALL_CELL_RISK = false;
@@ -86,20 +86,20 @@ public class Params {
     public double BOSS_HOLD_MARGIN = 1.0;
     // BOSS_HOLD_END
     // BOSS_LITE_BEGIN
-    /** Current-only experiment: the two-stage boss chooser (cheap logit shortlist, top-ROLLOUT_TARGETS ink rescoring) replaces the real-turn target; docs/stage1-opponent-model-v1.md. */
-    public boolean USE_BOSS_LITE = false;
+    /** Selected v10 (boss-sabotage-v2): the two-stage boss chooser (cheap logit shortlist, top-ROLLOUT_TARGETS ink rescoring) replaces the real-turn target; docs/stage1-opponent-model-v1.md. */
+    public boolean USE_BOSS_LITE = true;
     // BOSS_LITE_END
     // BOSS_MODEL_BEGIN
-    /** Stage 1: the simulated opponent inside the rollout disrupts with the two-stage boss chooser (held target carried through the simulated turns) instead of chooseTarget. Requires USE_BOSS_LITE. */
-    public boolean USE_BOSS_OPPONENT_MODEL = false;
+    /** Selected v10 (opponent-model-v1): the simulated opponent inside the rollout disrupts with the two-stage boss chooser (held target carried through the simulated turns) instead of chooseTarget. Requires USE_BOSS_LITE. */
+    public boolean USE_BOSS_OPPONENT_MODEL = true;
     /** How many reply scenarios use the boss opponent model (the rest keep chooseTarget); 2 = both. */
     public int BOSS_OPPONENT_REPLIES = 2;
     /** Our own simulated future disrupts inside the rollout also use the two-stage chooser (consistency with the real-turn choice). */
-    public boolean USE_BOSS_OWN_MODEL = false;
+    public boolean USE_BOSS_OWN_MODEL = true;
     // BOSS_MODEL_END
     // BOSS_ROUTES_BEGIN
-    /** Stage 3 (cheap): the two-stage chooser adds the fitted route-traffic term using the previous turn's route portfolio of the chooser's opponent (no path searches). Requires USE_BOSS_LITE. */
-    public boolean USE_BOSS_LITE_ROUTES = false;
+    /** Selected v10 (boss-lite-routes-v1): the two-stage chooser adds the fitted route-traffic term using the previous turn's route portfolio of the chooser's opponent (no path searches). Requires USE_BOSS_LITE. */
+    public boolean USE_BOSS_LITE_ROUTES = true;
     public double BOSS_LITE_ROUTE_WEIGHT = 0.371747;
     // BOSS_ROUTES_END
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.

@@ -66,8 +66,8 @@ class FrozenParamsTest {
 
     @Test
     void currentUsesLiveDefaultsAndUnsupportedSpecsDoNotSilentlyIgnoreOverrides() {
-        assertEquals(new Params().NOISE, BotFactory.parameters("current").NOISE);
-        assertEquals(0.7, BotFactory.parameters("current?NOISE=0.7").NOISE);
+        assertEquals(new Params().NOISE, BotFactory.parameters(LiveTargetExperimentParams.V09_ON_CURRENT).NOISE);
+        assertEquals(0.7, BotFactory.parameters("current?" + LiveTargetExperimentParams.V10_OFF + ",NOISE=0.7").NOISE);
         assertTrue(BotFactory.configuration("v00").isEmpty());
         for (String spec : new String[]{"v99", "v03?TYPO=1", "main?NOISE=0.7", "v00?NOISE=0.7", ""}) {
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(spec), spec);
@@ -78,7 +78,7 @@ class FrozenParamsTest {
     @ParameterizedTest
     @ValueSource(strings = {"v01", "v02", "v03", "v04", "v05", "v06", "pressure-v1"})
     void olderSnapshotsDoNotInheritV07ConstructionDefaults(String version) {
-        Params changedDefaults = new Params("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=1");
+        Params changedDefaults = new Params(LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK_AFTER_BASE=1");
         FrozenParams.applyTo(version, changedDefaults);
         assertFalse(changedDefaults.USE_ROLLOUT_QUICK_ROUTE);
         assertFalse(changedDefaults.USE_ROLLOUT_NETWORK_AFTER_BASE);
@@ -180,8 +180,8 @@ class FrozenParamsTest {
         expected.put("PRESSURE_STICKINESS", "0.25");
         expected.put("FORECAST_FLOOR", "0.1");
         assertEquals(expected, BotFactory.configuration("v05"));
-        assertEquals(expected, BotFactory.configuration("current?USE_PROTECTED_OPENING=0,USE_ROLLOUT_POLICY=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_ROLLOUT_FILL=0"));
-        Params changed = new Params("DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
+        assertEquals(expected, BotFactory.configuration("current?" + LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0,USE_ROLLOUT_POLICY=0,USE_ROLLOUT_QUICK_ROUTE=0,USE_ROLLOUT_NETWORK_AFTER_BASE=0,USE_ROLLOUT_FILL=0"));
+        Params changed = new Params(LiveTargetExperimentParams.V10_OFF + ",DISRUPT_RESERVE_MS=999,NOISE=0.8,USE_IDLE_EXTEND=0");
         FrozenParams.applyTo("v05", changed);
         for (var entry : expected.entrySet()) {
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(changed)));

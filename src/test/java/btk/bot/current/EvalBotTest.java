@@ -19,7 +19,7 @@ class EvalBotTest {
     @Test
     void currentMatchesPromotedV05OnFullySearchedState() {
         GameState state = activeStraightConnection();
-        var current = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0");
+        var current = BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,NOISE=0");
         var frozen = BotFactory.create("v05?NOISE=0");
         current.init(state.copy(), 0);
         frozen.init(state.copy(), 0);
@@ -30,7 +30,7 @@ class EvalBotTest {
     @Test
     void zeroReservePreservesV04ActionsWhenSearchFinishes() {
         GameState state = activeStraightConnection();
-        var current = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0,DISRUPT_RESERVE_MS=0");
+        var current = BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,NOISE=0,DISRUPT_RESERVE_MS=0");
         var frozen = BotFactory.create("v04?NOISE=0");
         current.init(state.copy(), 0);
         frozen.init(state.copy(), 0);
@@ -68,7 +68,7 @@ class EvalBotTest {
         state.syncRegionsFromCells();
         Rules.updateConnections(state, new Pathing(state.size));
         state.score[1] = 100;
-        Params params = new Params("NOISE=0,EARLY_DISRUPT_FALLBACK=1");
+        Params params = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,EARLY_DISRUPT_FALLBACK=1");
         EvalBot bot = new EvalBot(params);
         bot.init(state.copy(), 0);
         assertFalse(bot.play(state.copy(), 0, 0).stream()

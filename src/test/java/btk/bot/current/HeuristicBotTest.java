@@ -17,19 +17,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class HeuristicBotTest {
     private static final List<Action> WAIT = List.of(Action.waitAction());
     private static Params fixed() {
-        return new Params("USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0");
+        return new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,HEURISTIC_EMERGENCY_STOP=0");
     }
 
     @Test void explicitIndependentPolicyLeavesDefaultAndFrozenBotsAlone() {
-        assertInstanceOf(EvalBot.class, BotFactory.create("current?USE_ROLLOUT_POLICY=0"));
-        assertInstanceOf(HeuristicBot.class, BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1"));
+        assertInstanceOf(EvalBot.class, BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"));
+        assertInstanceOf(HeuristicBot.class, BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1"));
         assertInstanceOf(HeuristicBot.class, MainBot.newStrategy(fixed()));
         assertEquals("v05", BotFactory.create("v05").name().split("\\?", 2)[0]);
         assertFalse(new Params().USE_HEURISTIC_POLICY);
         for (String query : new String[]{"HEURISTIC_MAX_ROUTES=0", "HEURISTIC_TARGET_STICKINESS=NaN",
                 "HEURISTIC_AVOID_INSTABILITY=5", "USE_REPLY_RERANK=1", "USE_JOINT_ACTION=1"}) {
             assertThrows(IllegalArgumentException.class,
-                    () -> BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1," + query));
+                    () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1," + query));
         }
     }
 

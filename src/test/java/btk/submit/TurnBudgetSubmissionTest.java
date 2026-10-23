@@ -12,23 +12,23 @@ import java.nio.file.Path;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TurnBudgetSubmissionTest {
-    private static final String BASE = "current?NOISE=0.1,USE_BATCHED_REFRESH=true";
+    private static final String BASE = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true";
     @TempDir Path temp;
 
     @Test void defaultAndFrozenArtifactsRemainByteIdentical() throws Exception {
         assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
-                FileMerger.sha256(FileMerger.merge("current")));
+                FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("2cb3a6a254fd8f37e0c9f07e2aa36565f4d61027ee44f508a5f64a93d547d61a",
+        assertEquals("5e58f6d3c32f15b9ebbcfe9db46e28f820b7cde72ad3a9194a0852d2190bb232",
                 FileMerger.sha256(FileMerger.merge(BASE)));
-        assertEquals("979cbac253699737deb01dc8ce44c99265d5362170db29f8b0e7e79edbfd1992",
+        assertEquals("4472cbbc5014b4b2fe41ba66002f8235472e4c67cc2aa0d3dd50f547f65a56a2",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=38")));
-        assertEquals("9510ff174e76297736144193a4c519f3728eac067d09614bb65e2f0ecd1b88d9",
+        assertEquals("972cd133eee208e632c9c441145cd92c35908f6b75754d715c0f5d4fe6b1f54e",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=40")));
-        assertEquals("aff2dc9bf48d2f9a141012c3d47fc079bb9af9354cdfa846ef40832804db75a5",
+        assertEquals("fa3ae4cceef1f29778730cb28bc68418ef3f38643518251b993fa95f66ba441f",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=40,USE_INCREMENTAL_INK_REFRESH=true")));
-        for (String spec : new String[]{"current", "v09", BASE}) {
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", BASE}) {
             String source = FileMerger.merge(spec);
             assertFalse(source.contains("TURN_BUDGET_MS"));
             assertFalse(source.contains("turnBudgetMs()"));

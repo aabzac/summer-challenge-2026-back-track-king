@@ -40,13 +40,13 @@ class EarlyDisruptFallbackTest {
                 if (state.regionInstability[region] != 3) continue;
                 checked++;
 
-                Params baselineParams = new Params("NOISE=0");
+                Params baselineParams = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0");
                 var baseline = new EvalBot(baselineParams);
                 baseline.init(state.copy(), me);
                 assertFalse(baseline.play(state.copy(), me, 0).stream()
                         .anyMatch(a -> a.type == Action.Type.DISRUPT));
 
-                Params candidateParams = new Params("NOISE=0,EARLY_DISRUPT_FALLBACK=1");
+                Params candidateParams = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,EARLY_DISRUPT_FALLBACK=1");
                 var candidate = new EvalBot(candidateParams);
                 candidate.init(state.copy(), me);
                 var actions = candidate.play(state.copy(), me, 0);

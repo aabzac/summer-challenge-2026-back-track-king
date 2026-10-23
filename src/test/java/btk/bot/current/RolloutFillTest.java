@@ -40,8 +40,8 @@ class RolloutFillTest {
     }
 
     @Test void selectedDefaultIsOnAndFlagOffLeavesPaintUnusedWhenNothingCompletes() {
-        assertTrue(new Params().USE_ROLLOUT_FILL, "selected v09 default");
-        assertEquals(0, new Params().ROLLOUT_FILL_MAX_INSTABILITY);
+        assertTrue(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_FILL, "selected v09 default");
+        assertEquals(0, btk.bot.LiveTargetExperimentParams.v09Params().ROLLOUT_FILL_MAX_INSTABILITY);
         assertFalse(RolloutTestParams.base().USE_ROLLOUT_FILL, "historical fixtures opt out");
         for (int me = 0; me < 2; me++) {
             var s = board();

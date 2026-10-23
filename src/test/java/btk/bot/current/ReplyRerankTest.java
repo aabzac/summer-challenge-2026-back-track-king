@@ -19,8 +19,8 @@ class ReplyRerankTest {
     void reranksDistinctPrefixesAgainstLikelySimultaneousReplies() {
         for (int me = 0; me < 2; me++) {
             var state = MapGenerator.generate(1000);
-            var baseline = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0,USE_REPLY_RERANK=0,USE_DISRUPT=0");
-            var candidate = BotFactory.create("current?USE_ROLLOUT_POLICY=0,NOISE=0,USE_REPLY_RERANK=1,USE_DISRUPT=0");
+            var baseline = BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,NOISE=0,USE_REPLY_RERANK=0,USE_DISRUPT=0");
+            var candidate = BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,NOISE=0,USE_REPLY_RERANK=1,USE_DISRUPT=0");
             baseline.init(state.copy(), me);
             candidate.init(state.copy(), me);
             assertEquals("PLACE_TRACKS 1 2;PLACE_TRACKS 1 3;PLACE_TRACKS 2 3",
