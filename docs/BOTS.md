@@ -17,6 +17,12 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v09**, `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**Live boss, 2026-10-23 (`stage2-d-live-boss-v1`, v5 step c session 1):** D's exact arena artifact vs v09
+in the same IDE session, matched 40 maps × 2 builds = 80 API games vs boss 6767608 — **D 18/40 = 45.0 %,
+v09 9/40 = 22.5 %**, discordant pairs 13 : 4, one-sided p = 0.0245, **paired +22.5 pp → PASS** (threshold
++5); 30×20 6/10 vs 1/10; 0 technical failures, 80/80 replays exact. Session 2 (40 more maps) decides
+step (c) on the pooled 80. [Details](stage2-d-live-boss-v1.md), [evidence](evidence/stage2-d-live-boss-v1/).
+
 Candidates 2026-10-22 (`stage2-dividend-v1`, two separate same-map screens against D, fresh pool
 seed 980000, 300 games/cell, 2 workers, CG timing, D's own rows on the same maps as controls):
 **R3** = D + `ROLLOUT_REPLIES=3` — 51.7 % vs D, 64.7 % vs boss-v2 (D 68.7; paired −4.0 ± 7.6 pp),

@@ -8368,3 +8368,36 @@ losses is the cheap qualitative follow-up. The only unmeasured factor is CG's CP
 the user's machine. D unchanged; nothing promoted. Range 1000000..1000599 consumed, next free
 ≥ 1001000. Evidence `docs/evidence/cold-timing-30x20-v1/round3/` (hot report with per-map pairs,
 three cold logs, run log, seed list); doc `docs/cold-timing-30x20-v1.md`.
+
+## 2026-10-23 — D against the live boss, v5 step (c) session 1: 18/40 vs v09's 9/40 in the same session — PASS (+22.5 pp paired)
+
+On the user's "босс". Plan frozen without network calls (`tools/boss_batch.py plan`, matched design,
+40 maps × 2 builds = 80 API games, candidate = D's exact arena artifact `build/submit-stage2-d`
+(sha `0e4050c4…`), control = v09 `build/cg-boss/artifacts/v09`, boss 6767608, schedule seed
+2026102301; protocol and pass rule in `docs/stage2-d-live-boss-v1.md`). The first plan on the default
+`private/session.json` was refused at its first request with HTTP 422 / API 270 "It's too late to
+connect to the challenge" — that file is the September *contest* IDE session, closed since the
+contest ended (the same refusal as 2026-10-03); no game was created, intent and error retained
+(`docs/evidence/stage2-d-live-boss-v1/first-attempt-refused/`). The plan was recreated (id
+`7102e896…`) on the puzzle-IDE session of 2026-10-18 that every live series since 2026-10-03 used,
+run through the authenticated-owner lookup adapter as before. The runner and the adapter gained
+`--max-games`, and `tools/run_boss_paced.sh` plays chunks of 20 with the standing ≥ 300 s gaps
+before games 21/41/61 and 20 s between games; the launch command names the private session files,
+which the auto-mode permission classifier refused to execute from this session, so **the user ran
+the series himself** (05:50–06:54 UTC).
+
+**Result.** 80/80 games, 0 technical failures, 0 retries, all build markers matched, **80/80 replays
+reproduced exactly** by the engine. **D 18/40 = 45.0 %** (exact 95 % 29.3–61.5) against **v09 9/40 =
+22.5 %** (10.8–38.5) on the same 40 maps and seats; discordant pairs **13 : 4**, one-sided exact
+p = 0.0245; **paired +22.5 pp** against the predeclared +5 → **session 1 PASS**. Seats: P0 11/20 vs
+5/20, P1 7/20 vs 4/20. By map: 30×20 **6/10 vs 1/10**, 29×19 2/5 vs 0/5, 27×18 3/6 vs 4/6, 24×16 3/8
+vs 2/8, 23×15 2/4 vs 1/4, 21×14 1/4 vs 0/4, 26×17 1/3 vs 1/3. The same-session v09 control is at the
+bottom of v09's historical range (17 · 11 · 15 · 11 of 40), so the boss is not easier than before.
+D's arena weakness on 30×20 does not show against the boss. Evidence
+`docs/evidence/stage2-d-live-boss-v1/` (plan, 80 result records, runner report, paired summary,
+engine-validation note); replays under `replays/cg/boss/{current/2f896714…,v09/b755f9b4…}/`.
+
+**Decisions.** Step (c) needs 80 candidate games: **session 2** (another 40 matched maps, fresh plan,
+a later day because of the service limit) decides on the pooled 80. Nothing promoted yet: arena
+entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
+`tools/boss_proxy/live_pairs.py` (paired per-map/seat/size summary of a matched plan).

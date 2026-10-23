@@ -51,6 +51,35 @@ it ("босс").
   checks, zero technical failures, and the exact schedule are preconditions, as in every live series.
 - No arena upload, no promotion, no "selected version" change follows from this file alone.
 
-## Results
+## Results (run by the user 2026-10-23 05:50–06:54 UTC; `docs/evidence/stage2-d-live-boss-v1/`)
 
-_(filled when the session finishes)_
+80 API games, 0 technical failures, 0 authorized retries, every replay carries the planned build
+marker, **80/80 replays reproduced exactly by the local engine** (`cgValidate` on both capture
+directories). Runner report: `complete: true`, `issues: []`, `protocolStatus: original fixed`.
+
+| vs live boss 6767608, 40 matched maps, same session | wins | score | exact 95 % |
+|---|---|---|---|
+| **D** (`stage2-compute-v1`, arena artifact) | **18/40** | **45.0 %** | 29.3–61.5 |
+| v09 (selected version, control) | 9/40 | 22.5 % | 10.8–38.5 |
+
+Paired: candidate-only wins **13**, control-only wins **4**, equal 23 → **+22.5 pp**; one-sided
+exact paired p = 0.0245 (runner: "evidence of improvement"). By seat: as P0 D 11/20 vs v09 5/20,
+as P1 7/20 vs 4/20. By map (D / v09 wins of n): 21×14 1/0 of 4 · 23×15 2/1 of 4 · 24×16 3/2 of 8 ·
+26×17 1/1 of 3 · 27×18 3/4 of 6 · 29×19 2/0 of 5 · **30×20 6/1 of 10**. Draws none.
+
+### Reading
+
+- **Session 1 of step (c): PASS** — D ≥ v09 + 5 pp over the 40 paired maps, by 17.5 pp of margin;
+  the first live series in the project where the paired margin is beyond noise (chords 9 vs 10,
+  fill-v1 17 vs 13, batched refresh 10 vs 11, ink40/45 11–14 vs cached 13).
+- The same-session v09 control (22.5 %) sits at the bottom of v09's historical 40-map range
+  (17 · 11 · 15 · 11 of 40): the boss has not become easier since the 2026-10-18 metadata change,
+  which is exactly why the paired same-session design was used.
+- D's live weakness on 30×20 is **not** reproduced against the boss (6/10 vs 1/10): the arena's
+  3-8 there remains an arena-opponent or sample effect, consistent with the cold-timing verdict.
+- Policy: v5 asks for 80 candidate games; **session 2** (another 40 matched maps, a fresh plan on
+  a later day because of the service limit) completes the step; the decision is taken on the
+  pooled 80 (pass at ≥ control + 5 pp). If it holds, D is the first candidate since v09 to clear
+  all three v5 steps — the chain v2 → B → C → D has screened each link on the same maps, so the
+  promotion would be of D as a whole (new frozen version), with `prune-v1` as the first task after.
+- Nothing is promoted by this file; the arena entry stays D, the selected local version v09.
