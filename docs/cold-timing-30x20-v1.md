@@ -169,7 +169,41 @@ Reading, fixed now:
 - No extension, no re-run, no pooling with rounds 1–2 (different maps). Evidence
   `docs/evidence/cold-timing-30x20-v1/round3/`.
 
-### Round 3 results
+### Round 3 results (run 2026-10-22 21:54–23:22 UTC, `docs/evidence/cold-timing-30x20-v1/round3/`, 2,154 games, 0 errors)
 
-_(filled when the run finishes)_
+Hot reference D vs boss-v2 on all 600 maps: **803-397 = 66.9 %** (mean 14.8 ms/move; by height
+14: 63 %, 15: 61, 16: 62, 17: 64, 18: 73, 19: 69, **20: 78 %**). On the 159 tall maps, both seats:
+
+| vs boss-v2 | hot bench (one JVM, 2 workers) | cold (one JVM per game) | paired cold − hot |
+|---|---|---|---|
+| **D, h ≥ 19 (318 games)** | 235-83 = 73.9 % | 243-75 = **76.4 %** | **+2.5 ± 6.6 pp** (better/worse/equal 61/53/204) |
+| D, 30×20 only (172) | 134-38 = 77.9 % | 133-39 = 77.3 % | −0.6 ± 8.8 |
+| D, 29×19 only (146) | 101-45 = 69.2 % | 110-36 = 75.3 % | +6.2 ± 9.9 |
+| cold D6 = D + `ROLLOUT_DEPTH=6` | — | 237-81 = 74.5 % | vs cold D **−1.9 ± 6.6** |
+| cold W4 = D + `ROLLOUT_WIDTH=4` | — | 239-79 = 75.2 % | vs cold D **−1.3 ± 6.6** |
+
+Seats: hot D 75.5 / 72.3 % (P0 / P1), cold D 74.8 / 78.0 — no seat effect. Timing on tall maps:
+cold D mean 21.8 ms per move (boss-v2 25.9), per-game maxima median 36, p90 37, max 61, 2 slow
+moves in 318 games; hot D on the same maps **20.4 ms** mean, max 101. D6 / W4 cold: 20.8 / 20.9 ms.
+
+### Verdict
+
+- **The cold-JVM hypothesis is rejected at this resolution.** On the same tall maps and seats, D in
+  a fresh JVM per game is not weaker against the boss-like proxy than D in the hot bench
+  (+2.5 ± 6.6 pp overall, −0.6 ± 8.8 on 30×20). Rounds 1–2 (−11.6, then +9.3 between two cold runs)
+  were 86-game noise, as suspected.
+- The timing fact from the process checks stands (turns at the 36 ms ceiling through the
+  construction phase), but it does not translate into decisions that lose against the proxy — and
+  the hot bench on *tall* maps is itself near the ceiling (20.4 ms mean; the "12 ms" figure was an
+  all-map average dominated by small maps). The one factor this machine cannot measure is CG's
+  CPU speed relative to it.
+- **D6 and W4 closed**: no cold gain against the same-session control and 4–5 pp under D hot.
+- **The arena's 3-8 on 30×20 is not a timing effect.** Locally D is *strongest* on 30×20 against
+  the proxy (78 % hot, 77 % cold). What remains: the 11-game sample, the opponent mix on big maps
+  in the arena, or a weakness against real opponents that the proxy does not model. The live boss
+  series (v5 step c) is the measurement that addresses the arena directly; `cgAnalyze` of D's
+  30×20 losses against the counterfactual diagnostics is the cheap qualitative follow-up.
+- Method note kept: big-map candidates can be screened cold at ~14 games per minute here; given
+  this result the cold series is a *check*, not a replacement for the hot screen. Range
+  1000000..1000599 consumed; next free ≥ 1001000.
 

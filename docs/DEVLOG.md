@@ -8336,3 +8336,35 @@ as the non-inferiority guard; a decisive cold series is ≥ 300 paired games per
 control in the same session. The two measurements that settle the 30×20 question are the 80-game
 live boss series for D (v5 step c) and such a cold series on tall maps of a fresh pool (≥ 1000000).
 Evidence `docs/evidence/cold-timing-30x20-v1/` (+ `round2/`): procCheck JSON, cold logs, hot rows.
+
+## 2026-10-23 — `cold-timing-30x20-v1` round 3 ("холод-300"): the cold JVM does not weaken D on tall maps; hypothesis rejected, D6 / W4 closed
+
+On the user's choice. Fresh range 1000000..1000599 (600 maps; tall subset 159 = 86 × 30×20 +
+73 × 29×19). Hot reference D vs boss-v2 on all 600 maps × 2 seats (1,200 games, 2 workers):
+**803-397 = 66.9 %**, by height 61–64 % on small maps, 73 % at 18, 69 % at 19, **78 % at 20**.
+Cold arms, one JVM per game, both seats, on the 159 tall maps, interleaved per seed: D (control),
+D6 = D + `ROLLOUT_DEPTH=6`, W4 = D + `ROLLOUT_WIDTH=4` — 318 games each, 0 errors, run 21:54–23:22
+UTC (the background task's completion notice was lost with the session; the logs are complete).
+
+| vs boss-v2, same maps and seats | hot | cold | paired cold − hot |
+|---|---|---|---|
+| D, h ≥ 19 (318) | 73.9 % | **76.4 %** | **+2.5 ± 6.6 pp** |
+| D, 30×20 (172) | 77.9 % | 77.3 % | −0.6 ± 8.8 |
+| D, 29×19 (146) | 69.2 % | 75.3 % | +6.2 ± 9.9 |
+| D6 cold vs D cold | | 74.5 % | −1.9 ± 6.6 |
+| W4 cold vs D cold | | 75.2 % | −1.3 ± 6.6 |
+
+Timing on tall maps: cold D 21.8 ms per move (boss-v2 25.9), per-game maxima median 36 / p90 37 /
+max 61, 2 slow moves; hot D on the same maps 20.4 ms. **Verdict: the cold-JVM hypothesis is rejected
+at ±7 pp** — D in a fresh JVM is not weaker against the proxy on tall maps; rounds 1–2 (−11.6, then
++9.3 between two cold runs of the same configuration) were 86-game noise. The ceiling-bound turns
+seen in the strict process checks are real but do not cost decisions against the proxy, and the hot
+bench on tall maps is itself near the ceiling (20 ms mean; "12 ms" was the all-map average). D6 and
+W4 are **closed** (no cold gain, 4–5 pp under D hot). The arena's 3-8 on 30×20 is therefore not a
+timing effect — locally D is strongest on 30×20 (78 % hot, 77 % cold) — and is left to the 11-game
+sample, the opponent mix on big maps, or a weakness against real opponents the proxy does not model;
+the live boss series (v5 step c) addresses the arena directly, and a `cgAnalyze` pass over D's 30×20
+losses is the cheap qualitative follow-up. The only unmeasured factor is CG's CPU speed relative to
+the user's machine. D unchanged; nothing promoted. Range 1000000..1000599 consumed, next free
+≥ 1001000. Evidence `docs/evidence/cold-timing-30x20-v1/round3/` (hot report with per-map pairs,
+three cold logs, run log, seed list); doc `docs/cold-timing-30x20-v1.md`.
