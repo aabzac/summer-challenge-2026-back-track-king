@@ -605,10 +605,16 @@ def run(args):
         check_sample(plan, records)
         if any(not value['capture']['expectedBuildMatches'] for value in records):
             raise ValueError('Recorded build mismatch interrupts this batch; it cannot be bypassed by resuming')
+        max_games = getattr(args, 'max_games', None)
+        played_now = 0
         for slot in plan['slots']:
             folder = directory / f"{slot['slot']:04d}"
             if (folder / 'result.json').exists():
                 continue
+            if max_games is not None and played_now >= max_games:
+                print(f"Stopping after {played_now} games this run (--max-games); resume with the same command", flush=True)
+                break
+            played_now += 1
             folder.mkdir(exist_ok=True)
             build = plan['builds'][slot['arm']]
             request_attempt = 2 if (folder / 'retry-authorization.json').exists() else 1
@@ -807,6 +813,8 @@ def main():
     execute.add_argument('--session', type=Path, default=DEFAULT_SESSION_PATH)
     execute.add_argument('--timeout', type=float, default=120)
     execute.add_argument('--delay', type=float, default=20, help='Pause between games in seconds (default: 20)')
+    execute.add_argument('--max-games', type=int, default=None,
+                         help='Play at most this many new games in this invocation, then stop (resume later); used for paced chunks')
     execute.set_defaults(function=run)
     resume = sub.add_parser('recover', help='Attach a known created game ID to an uncertain attempt; no play')
     resume.add_argument('--plan', type=Path, required=True)

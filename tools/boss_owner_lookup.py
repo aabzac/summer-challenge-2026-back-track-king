@@ -95,6 +95,7 @@ def main(argv=None):
     parser.add_argument('--user-id', type=int, required=True)
     parser.add_argument('--timeout', type=float, default=120)
     parser.add_argument('--delay', type=float, default=20)
+    parser.add_argument('--max-games', type=int, default=None, help='Passed through to the fixed runner: at most this many new games per invocation')
     args = parser.parse_args(argv)
     if (not math.isfinite(args.timeout) or not 1 <= args.timeout <= 600
             or not math.isfinite(args.delay) or not 0 <= args.delay <= 60):
