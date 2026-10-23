@@ -1,0 +1,1 @@
+40/40 + 40/40 replays reproduced exactly (gradlew cgValidate on replays/cg/boss/current/2f896714.../ and replays/cg/boss/v09/b755f9b4.../, 2026-10-23 06:58 UTC)

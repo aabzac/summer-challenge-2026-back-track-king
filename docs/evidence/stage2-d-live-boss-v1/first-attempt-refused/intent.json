@@ -1,0 +1,13 @@
+{
+  "planId": "fe73e8cc2094992a2089a17e7a4e557309ec1fd6787ac62d1bf06c179c827128",
+  "requestAttempt": 1,
+  "slot": {
+    "arm": "candidate",
+    "pair": 1,
+    "seat": 0,
+    "seed": "334151166",
+    "slot": 1
+  },
+  "sourceSha256": "0e4050c4f29cea28c36a4fa6c2abc1f535efe33330efac50ed3d0a166da733a5",
+  "startedAt": "2026-10-23T05:45:04.759172+00:00"
+}

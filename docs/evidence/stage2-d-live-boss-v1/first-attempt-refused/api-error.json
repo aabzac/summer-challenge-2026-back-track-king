@@ -1,0 +1,9 @@
+{
+  "apiCode": 270,
+  "at": "2026-10-23T05:45:05.164007+00:00",
+  "message": "HTTP 422; response details redacted; request not repeated",
+  "requestAttempt": 1,
+  "retryAfterSeconds": null,
+  "status": 422,
+  "uncertain": true
+}
