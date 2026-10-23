@@ -1,0 +1,14 @@
+== 1. hot D vs boss-v2, 600 maps (seed 1000000), 1200 games 2026-10-22T21:53:58Z
+  A win rate: 66,9%  W-L-D 803-397-0
+  avg score diff (A-B): +354,4   avg turns: 67,2
+  time/move ms  A avg 14,82 max 114 slow 2 | B avg 20,07 max 40 slow 0
+== 2. cold arms on 159 tall seeds, both seats, one JVM per game 2026-10-22T22:18:02Z
+  20 seeds done 2026-10-22T22:26:58Z
+  40 seeds done 2026-10-22T22:35:44Z
+  60 seeds done 2026-10-22T22:44:12Z
+  80 seeds done 2026-10-22T22:51:51Z
+  100 seeds done 2026-10-22T22:59:38Z
+  120 seeds done 2026-10-22T23:07:11Z
+  140 seeds done 2026-10-22T23:15:03Z
+COLD TALL V1 DONE 2026-10-22T23:22:36Z
+SCRIPT EXIT=0
