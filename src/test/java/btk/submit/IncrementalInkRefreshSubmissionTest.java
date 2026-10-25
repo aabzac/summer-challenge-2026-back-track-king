@@ -49,11 +49,11 @@ class IncrementalInkRefreshSubmissionTest {
     }
 
     @Test void disabledFlagPreservesPriorSourceBytesAndOmitsItsHelpers() throws Exception {
-        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
+        assertEquals("82f166f30abba1fee25f5706559946064ddff9599fb8c75fe89bc56b34bfb18a",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("719b536606924ad210f087372c57bdad26856475e22b82f0a0cebbb97e4202a3",
+        assertEquals("fa52a7d76df3775892aecebf25c5cb1f926906730c80e2707113ecda217002a4",
                 FileMerger.sha256(FileMerger.merge(BASE)));
         for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
             String source = FileMerger.merge(spec);
@@ -73,7 +73,7 @@ class IncrementalInkRefreshSubmissionTest {
             assertTrue(compact.contains("inkAndRefresh"));
             assertTrue(compact.contains("updateReusableConnectionsAfterInk"));
             assertEquals(batched, compact.contains("batchedRefresh"));
-            if (!batched) assertTrue(compact.contains("updateReusableConnectionsAfterInk(state,paths,false)"));
+            if (!batched) assertTrue(compact.contains("updateReusableConnectionsAfterInk(state, paths, false)"));
             for (String absent : new String[]{"INK_REFRESH_BEGIN", "INK_REFRESH_END", "BATCHED_REFRESH_BEGIN",
                     "BATCHED_REFRESH_END", "btk.tools", "btk.referee", "btk.runner", "deadlinePending"})
                 assertFalse(compact.contains(absent), absent);

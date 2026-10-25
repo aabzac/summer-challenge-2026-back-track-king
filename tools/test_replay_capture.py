@@ -64,6 +64,16 @@ class CaptureTest(unittest.TestCase):
         self.assertTrue(saved['expectedBuildMatches'])
         self.assertEqual('replays/cg/boss/_metadata/1234.json', saved['metadataPath'])
 
+    def test_display_name_before_the_marker_keeps_the_attribution(self):
+        marker, manifest, _ = self.build(strategy='current')
+        content = self.replay('v10 Boss Model | ' + marker + ' note=timing 12ms')
+        saved = self.capture(content, expectedBuildId=manifest['buildId'])
+        self.assertEqual('marker-matches-local-artifact', saved['attribution']['status'])
+        self.assertEqual(marker, saved['attribution']['marker'])
+        self.assertTrue(saved['attribution']['retainedArtifactVerified'])
+        self.assertTrue(saved['expectedBuildMatches'])
+        self.assertEqual(f"replays/cg/boss/current/{manifest['buildId']}/1234.json", saved['path'])
+
     def test_retries_preserve_both_raw_and_metadata_bytes(self):
         marker, _, _ = self.build()
         content = self.replay(marker)

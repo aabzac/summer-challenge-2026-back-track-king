@@ -72,15 +72,36 @@ public final class BotFactory {
         };
     }
 
+    /** The selected local version: {@code current} is its copy plus any later, not yet promoted work. */
+    public static final String SELECTED_VERSION = "v10";
+
+    /** BOTS.md titles of the frozen versions, shown in the viewer on the first turn (readable-export-v1). */
+    private static final Map<String, String> VERSION_NAMES = Map.of(
+            "v05", "Disrupt Reserve", "v06", "Simultaneous Rollout", "v07", "Network After Base",
+            "v08", "Protected Opening", "v09", "Never Idle", "v10", "Boss Model");
+
+    /**
+     * Short human-readable strategy name for the first-turn MESSAGE: the version's BOTS.md title
+     * ({@code "v10 Boss Model"}; {@code current}/{@code main} carry the selected version's), followed by
+     * {@code " (modified)"} when the spec's resolved configuration differs from the version's defaults.
+     */
+    public static String displayName(String spec) {
+        String version = version(spec);
+        String base = version.equals("current") || version.equals("main") ? SELECTED_VERSION : version;
+        String name = VERSION_NAMES.containsKey(base) ? base + " " + VERSION_NAMES.get(base) : base;
+        boolean modified = spec.indexOf('?') >= 0 && !configuration(spec).equals(configuration(version));
+        return modified ? name + " (modified)" : name;
+    }
+
+    /** The seven selected v10 flags switched off: the v09 configuration expressed on current or v10. */
+    public static final String V10_FLAGS_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,"
+            + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
+
     /**
      * Rollout experiments removed from {@code current} by prune-v1 (2026-10-25) together with their code and their
      * Params fields in the artifact. The frozen {@code v10} package still implements every one of them
      * ({@code "v10?FLAG=1"}); on {@code current}/{@code main} a true value is refused instead of silently ignored.
      */
-    /** The seven selected v10 flags switched off: the v09 configuration expressed on current or v10. */
-    public static final String V10_FLAGS_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,"
-            + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
-
     public static final List<String> PRUNED_ROLLOUT_FLAGS = List.of(
             "USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL", "USE_ROLLOUT_QUICK_EARLY", "USE_ROLLOUT_QUICK_VALUE",
             "USE_ROLLOUT_QUICK_SAFE", "USE_ROLLOUT_DIVERSE_REPLIES", "USE_ROLLOUT_REPLAN", "USE_ROLLOUT_SECOND_TARGET",

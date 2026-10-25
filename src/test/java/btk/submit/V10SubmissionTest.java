@@ -18,9 +18,10 @@ class V10SubmissionTest {
         String current = FileMerger.merge("current"), frozen = FileMerger.merge("v10");
         FileMerger.checkSourceSize(current);
         FileMerger.checkSourceSize(frozen);
-        // prune-v1 (2026-10-25): the same configuration and decisions in 70,397 characters (was 99,676 at the promotion).
-        assertEquals(70397, current.length());
-        assertEquals("5047c83adfcbf363412fe969b8ae1dd0c27ca50b0a4e3dc3277dc549d049503b", FileMerger.sha256(current));
+        // prune-v1 (2026-10-25): the same configuration and decisions in 70,397 characters (was 99,676 at the promotion);
+        // readable-export-v1 (2026-10-25): the same tokens laid out readably (tabs, one statement per line) in 88,671.
+        assertEquals(88671, current.length());
+        assertEquals("e5da0dcb648c00808cd35bd8fdab05f6a6bf8b794282df27fcd0c227ae27b68d", FileMerger.sha256(current));
         assertEquals(99598, frozen.length());
         assertEquals("9c3b40085db2d818b3a46212f4f5659f7ca6d6d2514eae026dd98daed21e4699", FileMerger.sha256(frozen));
         // Same resolved configuration as the uploaded D artifact: only the Params initializer literals differ in the text.
@@ -37,8 +38,23 @@ class V10SubmissionTest {
         }
         assertTrue(current.contains("strategy=current build="));
         assertTrue(frozen.contains("strategy=v10 build="));
-        // The v09-era baseline and v09 itself are untouched.
-        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
+        // readable-export-v1: the viewer shows the strategy name first; the machine marker and the frozen bytes are unchanged.
+        assertTrue(current.contains("\n\t\tpublic static final String BUILD_MARKER = \"v10 Boss Model | BTK_BUILD_V1 strategy=current build="));
+        assertTrue(frozen.contains("public static final String BUILD_MARKER = \"BTK_BUILD_V1 strategy=v10 build="));
+        assertTrue(current.contains("\n\tstatic final class Action {\n"), "one statement per line, tab-indented inside Player");
+        assertTrue(current.lines().count() > 2000 && frozen.lines().count() < 100, "current readable, frozen v10 compact");
+        assertEquals("v10 Boss Model", FileMerger.manifest("current", current).get("label"));
+        assertNull(FileMerger.manifest("v10", frozen).get("label"));
+        assertEquals("v10 Boss Model", BotFactory.displayName("current"));
+        assertEquals("v10 Boss Model", BotFactory.displayName("current?NOISE=0.1"), "an equivalent spelling is not a modification");
+        assertEquals("v10 Boss Model", BotFactory.displayName(LiveTargetExperimentParams.D_SPEC));
+        assertEquals("v10 Boss Model (modified)", BotFactory.displayName(LiveTargetExperimentParams.V09_ON_CURRENT));
+        assertEquals("v10 Boss Model", BotFactory.displayName("v10"));
+        assertEquals("v10 Boss Model (modified)", BotFactory.displayName("v10?ROLLOUT_DEPTH=6"));
+        assertEquals("v09 Never Idle", BotFactory.displayName("v09"));
+        assertEquals("neural-v6", BotFactory.displayName("neural-v6"));
+        // The v09-era baseline on current is laid out readably like every current export; frozen v09 itself is untouched.
+        assertEquals("82f166f30abba1fee25f5706559946064ddff9599fb8c75fe89bc56b34bfb18a",
                 FileMerger.sha256(FileMerger.merge(LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac", FileMerger.sha256(FileMerger.merge("v09")));
         var currentParams = new TreeMap<>(BotFactory.configuration("current"));

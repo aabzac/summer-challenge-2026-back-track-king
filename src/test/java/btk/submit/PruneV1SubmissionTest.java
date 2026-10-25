@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /** prune-v1 (2026-10-25): what the current rollout artifact no longer carries, and that it stays self-consistent. */
 class PruneV1SubmissionTest {
-    private static final Pattern DECLARED = Pattern.compile("public (?:boolean|int|double|String) ([A-Z_0-9]+)=");
+    private static final Pattern DECLARED = Pattern.compile("public (?:boolean|int|double|String) ([A-Z_0-9]+) ?=");
     private static final Pattern EMBEDDED = Pattern.compile("new Params\\(\"([^\"]*)\"\\)");
 
     @Test void currentArtifactShipsNeitherTheLocalOnlyFieldsNorTheUnusedClassesAndStaysSelfConsistent() throws Exception {

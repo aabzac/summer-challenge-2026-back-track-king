@@ -12,6 +12,10 @@ EMPTY_DECLARATION = 'public static final String BUILD_MARKER = "";'
 DECLARATION = re.compile(r'public static final String BUILD_MARKER = "([^"\r\n]*)";')
 MARKER = re.compile(r'BTK_BUILD_V1 strategy=([a-z][a-z0-9_-]{0,39}) '
                     r'build=([0-9a-f]{64}) config=([0-9a-f]{64})(?: note=.*)?\Z')
+# Since readable-export-v1 (2026-10-25) a current export's first-turn MESSAGE leads with a display
+# name ("v10 Boss Model | BTK_BUILD_V1 strategy=current build=... config=..."); the marker grammar
+# above is unchanged and attribution reads the text from BTK_BUILD_V1 on.
+MARKER_START = 'BTK_BUILD_V1 '
 KINDS = {'bot': 'boss', 'bot_raw': 'boss_raw', 'boss': 'boss', 'boss_raw': 'boss_raw', 'stderr': 'stderr'}
 _LOCK = threading.Lock()
 
@@ -92,8 +96,8 @@ def identify_build(raw, player, project_dir):
     for turn, line in enumerate(own_lines):
         for command in line.strip().split(';'):
             command = command.strip()
-            if command.startswith('MESSAGE BTK_BUILD_V1'):
-                observed.append((turn, command[len('MESSAGE '):]))
+            if command.startswith('MESSAGE ') and MARKER_START in command:
+                observed.append((turn, command[command.index(MARKER_START):]))
     if not observed:
         return identity
     if len(observed) != 1 or observed[0][0] != 0:
