@@ -17,6 +17,12 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`unstable-cost-v1` — 2026-10-25 night, parameter screen on `current` = v12, parked:** `UNSTABLE_COST` 2 and 3 (the
+cheapest-path penalty per cell per instability level, default 1) vs boss-v2 on fresh pool 1004000 with `current` as the
+same-map control: U2 79.0 % vs 78.7 % (+0.3 ± 6.6 pp), U3 80.7 % (+2.0 ± 6.8) — both below the +3 pp gate; head-to-head
+52.7 % / 48.7 % with tall maps 42 % / 44 %. Default stays. [Protocol and results](unstable-cost-v1.md),
+[evidence](evidence/unstable-cost-v1/).
+
 **v12 Exposure Income — promoted 2026-10-25 night on the user's decision** ("Промоушн 12"): the exact stage4-exposure-income-v1
 candidate E1 (`current?USE_EXPOSURE_INCOME=true`) became the default of `current`; frozen copy `btk.bot.v12`; `v12.properties`
 = the 133 effective values = E1's artifact manifest. v5 record: proxy screen on pool 1003000 75.3 % vs boss-v2 against v11's
