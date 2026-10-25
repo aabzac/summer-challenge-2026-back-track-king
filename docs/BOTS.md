@@ -47,7 +47,10 @@ maps)**, **57.0 % head-to-head vs `current`** (171-129), zero errors, mean move 
 The sibling flag `USE_BOSS_THREAT_MODEL` (A: the route proposals' predicted opponent target from the lite chooser)
 is **parked**: +1.5 ± 7.1 pp vs the proxy (fails the +3 pp gate), 51.0 % h2h; A+B 70.7 % vs the proxy (+6.0) is below
 B alone. Default artifact unchanged (both flags off, own merger blocks `// BOSS_ROOT` / `// BOSS_THREAT`). Strict
-process check of B's exact artifact and the live step (80 paired boss games, user launch) in the DEVLOG entry.
+process check of B's exact artifact: 0 problem games. **Live boss, v5 step (c) session 1 (2026-10-25, user launch):
+B 21/40 = 52.5 % vs `current` 20/40 = 50.0 % in the same session, discordant 10 : 9, paired +2.5 pp (p = 0.50), 80/80
+replays exact → below the +5 pp session threshold, inconclusive; session 2 (40 more maps) would decide step (c) on the
+pooled 80 — the user's call. No promotion, no upload.**
 [Protocol and results](stage4-threat-model-v1.md), [evidence](evidence/stage4-threat-model-v1/).
 
 **Live boss, 2026-10-23 (`stage2-d-live-boss-v1`, v5 step c session 1):** D's exact arena artifact vs v09

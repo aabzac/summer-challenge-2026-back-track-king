@@ -8603,7 +8603,16 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Tests.** `gradlew test`: 826 tests (+4), **25 failures, all pre-existing** (19 retained-engine incl.
   `FileMergerTest.characterLimitIsCheckedBeforePublishing` and `NeuralTargetSizeProbeTest`, 6 `PduhardBeamBotTest`).
   The three Params field-count pins (`V07/V08/V09PromotionTest`) and `V10PromotionTest`'s moved by +2.
+- **Live boss, v5 step (c) session 1 (run by the user 15:05–16:06 UTC after my launch was refused by the
+  auto-mode permission classifier as an external-system write):** 80 API games, 0 failures, 0 retries, **80/80 replays
+  exact** (`cgValidate`, both capture directories). **B 21/40 = 52.5 %, `current` 20/40 = 50.0 %** against boss 6767608
+  on 40 matched maps in the same session; discordant pairs **10 : 9**, paired **+2.5 pp**, one-sided p = 0.50; 30×20 5/8
+  vs 5/8, 29×19 3/5 vs 1/5, 21×14 3/7 vs 5/7 (`evidence/stage4-threat-model-v1/live-session-1/`: plan, 80 result
+  records, runner report, paired summary, validation note). **Below the predeclared +5 pp session threshold →
+  inconclusive**: not the proxy's +8.8, not a loss. Step (c) is decided on 80 candidate games — a second 40-map session
+  on another day completes it (one predeclared extension to 120); the user decides whether to spend it. Note that the
+  control `current` itself made 50 % against the live boss (D: 45 % on 2026-10-23, v09 22.5 %).
 - **State:** `current` unchanged (= v10, both flags off by default); candidate **B = `current?USE_BOSS_ROOT_TARGET=true`**
-  awaits the live step; A parked. Pool 1002000..1002149 consumed; next free range ≥ 1003000. Next after the live
+  passed steps (a)+(b), live session 1 inconclusive (+2.5 pp), **no promotion, no upload**; A parked. Pool 1002000..1002149 consumed; next free range ≥ 1003000. Next after the live
   result: if PASS, promotion to v11 with the flag as a default (v10 mechanics); the remaining Stage 4 half
   (exposure-discounted own valuation) is screened on top of B with B as the same-map control.
