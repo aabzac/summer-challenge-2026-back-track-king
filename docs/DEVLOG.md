@@ -8810,3 +8810,24 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   levers after v12.
 - **State:** `current` = v12 unchanged (arena agent 6813957); pool 1005000..1005149 consumed, next free range
   ≥ 1006000. Three screens and one diagnostic since the v12 promotion tonight; next step on the user's word.
+
+## 2026-10-25 (night) — `collision-avoidance-v1`: an explicit aversion to the opponent's predicted cells loses — rejected; the idle-cell line is closed
+
+- **Why.** The user's pick ("давай уклонение") from the idle-cell diagnostic: 6.9 % of our arena paint is neutralised
+  by same-cell placements. Flag `USE_COLLISION_AVOIDANCE` + `COLLISION_PENALTY` (`// COLLISION` block, current-only,
+  default off): before `searchRoots` the opponent's predicted first-turn cells (its reply routes packed into one
+  turn, `fillBuild`) are collected once; every root's rollout value loses the penalty per shared cell. Caveat
+  stated up front: the rollout already neutralises such cells in its reply scenarios, so the flag tests whether the
+  search under-weights a symmetric loss ([collision-avoidance-v1.md](collision-avoidance-v1.md)).
+- **Screen** (`tools/boss_proxy/run_collision_screen.sh`, fresh pool **1006000**, 300 paired games per cell, CG
+  486/36 ms, 2 workers, proxy spec with `USE_EXPOSURE_INCOME=0`; `evidence/collision-avoidance-v1/`): vs boss-v2 on
+  the same maps — `current` **77.0 %**, C5 73.0 % (**−4.0 ± 7.0 pp**, 37/44/69), C15 71.7 % (**−5.3 ± 6.5 pp**,
+  33/43/74); head-to-head vs `current` — C5 48.0 %, C15 42.0 %. Zero errors.
+- **Reading.** **Rejected**, the stronger penalty the worse: the search prices collisions correctly already and the
+  aversion only yields contested cells. With `unstable-cost-v1` (parked) and `fill-off-v1` (rejected) the idle-cell
+  line of the diagnostic is closed: placement-time instability rules, the fill and collisions are not levers on
+  top of v12. What remains from the diagnostic is the last-third waste (76 % idle for both sides), which needs a
+  game-end forecast — a larger piece of work for another day. The flag stays in the code, default off.
+- **Tests.** Full suite with the flag: 840 tests, **25 failures, all pre-existing**. **State:** `current` = v12 unchanged (arena agent
+  6813957); pool 1006000..1006149 consumed, next free range ≥ 1007000. Tonight since the v12 promotion: three
+  parameter/flag screens (unstable cost, fill off, collision aversion) all negative, one diagnostic.

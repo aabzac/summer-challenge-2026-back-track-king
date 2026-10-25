@@ -1,0 +1,40 @@
+collision-avoidance-v1 screen (2026-10-25 night): tools/boss_proxy/run_collision_screen.sh, fresh pool seed 1006000 (150 maps x 2 seats = 300 paired games per cell), 2 workers, CG timing 486/36 ms, user's machine.
+C5 = current?USE_COLLISION_AVOIDANCE=true (5 points per shared cell), C15 = ...,COLLISION_PENALTY=15, cur = current (v12), boss2 = the boss-like screening proxy (current?USE_BOSS_SABOTAGE=1 + the seven v10 flags off + USE_EXPOSURE_INCOME=0).
+
+-- C5-vs-boss2: current?USE_COLLISION_AVOIDANCE=true vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1006000) 2026-10-25T21:38:55Z
+  A win rate: 73,0%  W-L-D 219-81-0
+  avg score diff (A-B): +398,6   avg turns: 65,0
+  time/move ms  A avg 11,24 max 58 slow 1 | B avg 20,20 max 99 slow 2
+  accepted disrupt A/B: 98,4% / 100,0%; early closures 295/300
+-- C15-vs-boss2: current?USE_COLLISION_AVOIDANCE=true,COLLISION_PENALTY=15 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1006000) 2026-10-25T21:44:13Z
+  A win rate: 71,7%  W-L-D 215-85-0
+  avg score diff (A-B): +519,8   avg turns: 66,7
+  time/move ms  A avg 11,19 max 69 slow 1 | B avg 20,06 max 70 slow 2
+  accepted disrupt A/B: 98,5% / 99,9%; early closures 294/300
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1006000) 2026-10-25T21:49:37Z
+  A win rate: 77,0%  W-L-D 231-69-0
+  avg score diff (A-B): +549,3   avg turns: 65,3
+  time/move ms  A avg 11,84 max 57 slow 1 | B avg 20,54 max 53 slow 2
+  accepted disrupt A/B: 98,4% / 100,0%; early closures 296/300
+-- C5-vs-cur: current?USE_COLLISION_AVOIDANCE=true vs current (300 games, seed 1006000) 2026-10-25T21:55:04Z
+  A win rate: 48,0%  W-L-D 144-156-0
+  avg score diff (A-B): -38,6   avg turns: 66,5
+  time/move ms  A avg 11,11 max 52 slow 1 | B avg 11,13 max 48 slow 0
+  accepted disrupt A/B: 98,0% / 98,2%; early closures 297/300
+-- C15-vs-cur: current?USE_COLLISION_AVOIDANCE=true,COLLISION_PENALTY=15 vs current (300 games, seed 1006000) 2026-10-25T21:59:00Z
+  A win rate: 42,0%  W-L-D 126-174-0
+  avg score diff (A-B): -153,0   avg turns: 66,4
+  time/move ms  A avg 11,28 max 40 slow 0 | B avg 11,29 max 43 slow 0
+  accepted disrupt A/B: 98,3% / 98,3%; early closures 295/300
+COLLISION SCREEN DONE 2026-10-25T22:02:58Z
+
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+C15-vs-boss2            71.7%  215-85  0   60.6-82.8      0  11.2  20.1    69     1  69.0%  79.7%
+C15-vs-cur              42.0%  126-174 0   30.9-53.1      0  11.3  11.3    40     0  42.5%  40.5%
+C5-vs-boss2             73.0%  219-81  0   61.9-84.1      0  11.2  20.2    58     1  70.4%  81.1%
+C5-vs-cur               48.0%  144-156 0   36.9-59.1      0  11.1  11.1    52     1  47.8%  48.6%
+cur-vs-boss2            77.0%  231-69  0   65.9-88.1      0  11.8  20.5    57     1  73.9%  86.5%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  C15-vs-boss2           vs cur-vs-boss2       maps 150  delta  -5.3 pp  +- 6.5 (95%)  maps better/worse/equal 33/43/74
+  C5-vs-boss2            vs cur-vs-boss2       maps 150  delta  -4.0 pp  +- 7.0 (95%)  maps better/worse/equal 37/44/69
