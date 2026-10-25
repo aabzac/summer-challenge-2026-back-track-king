@@ -8647,7 +8647,7 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Tests.** `gradlew test`: 830 tests, **25 failures, all pre-existing** (19 retained-engine incl.
   `FileMergerTest.characterLimitIsCheckedBeforePublishing` and `NeuralTargetSizeProbeTest`, 6 `PduhardBeamBotTest`).
   `BossThreatRootTest`'s paint assertion relaxed to 1.5 paint/turn (time-bounded search under suite load).
-- **State:** `current` = **v11 Root Target**; **the arena still runs v10 (agent 6811139) until the user uploads
-  `build/submit-v11/Player.java`**; then `cgFetch`/`cgAnalyze` of its first 50 games. Next strength step: the
+- **v11 on the arena (2026-10-25, ~17:15 UTC): puzzle agent 6813813** (marker `build=002ca691… config=179dcc66…`), first 50 games **34W/16L**, 0 failed turns, 0 skipped actions, tall maps (h ≥ 19) 7-5, 30×20 3-4, 29×19 4-1, 27×18 3-2, 26×17 4-3, 24×16 5-3, 23×15 6-2, 21×14 9-1; seats P0 18-8, P1 16-8; accepted cells never earning 46.6 % (v10's first 50: 46.3 %); rank 375 / score 25.36 while placement was still running (`docs/evidence/arena-2026-10-25-v11-agent-6813813.json`). The best first-50 record so far (v10 29W/21L, D 30W/20L) on a map mix with more small maps; placement opponents vary, so this is a sanity check, not a measurement.
+- **State:** `current` = **v11 Root Target** = the arena entry (agent 6813813). Next strength step: the
   exposure-discounted own valuation (Stage 4, second half) screened on fresh maps ≥ 1003000 with `current` (= v11) as
   the same-map control; `USE_BOSS_THREAT_MODEL` stays parked.
