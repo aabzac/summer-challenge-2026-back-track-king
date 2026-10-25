@@ -16,17 +16,17 @@ class TurnBudgetSubmissionTest {
     @TempDir Path temp;
 
     @Test void defaultAndFrozenArtifactsRemainByteIdentical() throws Exception {
-        assertEquals("82f166f30abba1fee25f5706559946064ddff9599fb8c75fe89bc56b34bfb18a",
+        assertEquals("3fe0370e56a6e8471f97a9d2f8c9f248c95c68fbd0e9963dd97222365ef0f641",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("fa52a7d76df3775892aecebf25c5cb1f926906730c80e2707113ecda217002a4",
+        assertEquals("7fa98f9a04fd620ea8dc669b36aad464235e78020b2c903064c644127d4bdd22",
                 FileMerger.sha256(FileMerger.merge(BASE)));
-        assertEquals("7f7d7fd2cf5097906cc4a36fbc300762094c7b8a568750ea1aacd3372f40add8",
+        assertEquals("82741e35c3c23b7ef0de02f9f6d27ae785ce2a1e590f3f15140492f7ed95a23f",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=38")));
-        assertEquals("ea0eae2e0d81ca8b0eae2562f2aecd917a90790cbcb1fc7c2ef0b123180f9fc2",
+        assertEquals("29c83f91da52414fed09d139b977af9bab7e1a553a844a76c39cb4d63352d432",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=40")));
-        assertEquals("17350f22f58185cdce51a9cf6680e6410c56958dc5b8ed08166ab900a96ffc74",
+        assertEquals("1e69495a45aef198188a0d3b321c9c7d8de69855cad4fb5723f15d677f96b876",
                 FileMerger.sha256(FileMerger.merge(BASE + ",TURN_BUDGET_MS=40,USE_INCREMENTAL_INK_REFRESH=true")));
         for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", BASE}) {
             String source = FileMerger.merge(spec);

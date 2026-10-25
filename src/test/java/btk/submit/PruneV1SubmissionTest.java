@@ -45,11 +45,12 @@ class PruneV1SubmissionTest {
                 || current.contains("observeLive") || current.contains("quickBuildTurns") || current.contains("captureDependencies"));
         assertTrue(current.contains("class NetworkCells") && current.contains("searchNetworkAfterBase") && current.contains("chooseBossLite"));
         // The resolved configuration (and therefore the arena identity's config hash) is unchanged by the prune.
-        var configuration = new TreeMap<>(BotFactory.configuration("current"));
+        // Since the v11 promotion (2026-10-25) the v10 configuration on current has the root-target flag off.
+        var configuration = new TreeMap<>(BotFactory.configuration(btk.bot.LiveTargetExperimentParams.V10_ON_CURRENT));
         assertEquals(130, configuration.size(), "the full configuration still carries every field");
         for (String flag : BotFactory.PRUNED_ROLLOUT_FLAGS) assertEquals("false", configuration.get(flag), flag);
-        assertEquals("f0e507ac336a12610c7f14c3b20c3fa57527ced3a34bceb88826a4bf01d127fb", FileMerger.configSha256("current"),
-                "the arena artifact's config hash (D = v10)");
+        assertEquals("f0e507ac336a12610c7f14c3b20c3fa57527ced3a34bceb88826a4bf01d127fb",
+                FileMerger.configSha256(btk.bot.LiveTargetExperimentParams.V10_ON_CURRENT), "the D arena artifact's config hash (= v10)");
         // The frozen export keeps everything.
         String frozen = FileMerger.merge("v10");
         assertTrue(frozen.contains("class NetworkChords") && frozen.contains("class TacticalPathing") && frozen.contains("addSpreadRoots"));

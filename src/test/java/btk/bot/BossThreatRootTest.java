@@ -28,8 +28,10 @@ class BossThreatRootTest {
 
     @Test void defaultsOffAndGuards() {
         Params defaults = new Params();
-        assertFalse(defaults.USE_BOSS_THREAT_MODEL);
-        assertFalse(defaults.USE_BOSS_ROOT_TARGET);
+        assertFalse(defaults.USE_BOSS_THREAT_MODEL, "parked after the screen");
+        assertTrue(defaults.USE_BOSS_ROOT_TARGET, "selected default since the v11 promotion (2026-10-25)");
+        assertFalse(BotFactory.parameters(LiveTargetExperimentParams.V10_ON_CURRENT).USE_BOSS_ROOT_TARGET);
+        assertFalse(BotFactory.parameters(LiveTargetExperimentParams.V09_ON_CURRENT).USE_BOSS_ROOT_TARGET, "the lite chooser off drops the inherited default");
         assertTrue(BotFactory.parameters(A).USE_BOSS_THREAT_MODEL);
         assertTrue(BotFactory.parameters(B).USE_BOSS_ROOT_TARGET);
         assertTrue(BotFactory.parameters(AB).USE_BOSS_THREAT_MODEL && BotFactory.parameters(AB).USE_BOSS_ROOT_TARGET);
@@ -66,7 +68,8 @@ class BossThreatRootTest {
             assertNull(r.error[1], "v09 seat 1 error on seed " + seed);
             assertTrue(r.turns > 20, "game length on seed " + seed);
             assertTrue(r.disruptTurns[0] >= 0.8 * r.turns, "boss-like disrupt rate on seed " + seed);
-            assertTrue(r.placedCells[0] > 0 && r.paintSpent[0] >= 2.0 * r.turns, "still builds on seed " + seed);
+            // 1.5 paint/turn: the time-bounded search builds less under the full suite's parallel load (seed 779004 dipped below 2.0 once).
+            assertTrue(r.placedCells[0] > 0 && r.paintSpent[0] >= 1.5 * r.turns, "still builds on seed " + seed + ": " + r.paintSpent[0] + " paint over " + r.turns + " turns");
             assertTrue(bot.completedComparisons > 0, "the last turn still completed comparisons");
         }
     }

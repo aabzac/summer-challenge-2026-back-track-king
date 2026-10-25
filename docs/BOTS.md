@@ -17,6 +17,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**v11 Root Target — promoted 2026-10-25 on the user's decision** ("давай продвинем версию на арену"): the exact
+stage4-threat-model-v1 candidate B (`current?USE_BOSS_ROOT_TARGET=true`) became the default of `current`; frozen copy
+`btk.bot.v11`; `v11.properties` = the 131 effective values = B's artifact manifest. v5 record: proxy screen on pool 1002000
+73.5 % vs boss-v2 against v10's 64.7 % on the same maps (+8.8 ± 7.1 pp), 57.0 % head-to-head vs v10; live boss session 1
+21/40 vs v10 20/40 (+2.5 pp, inconclusive) — the second session was skipped by the user, so the live evidence is neutral.
+Default artifact 88,997 chars (sha `ff111d54…`, build `002ca691…`, config `179dcc66…` = B's), strict 4-game check 0 problems;
+830 tests, 25 pre-existing failures. The boss-v2 proxy spec is unchanged (the lite chooser off drops the v11 flag); the v10
+configuration on current is `current?USE_BOSS_ROOT_TARGET=0`. Arena upload pending (user). [Protocol](v11-promotion.md),
+[evidence](evidence/v11-promotion/). v10 is historical.
+
 **v10 Boss Model — promoted 2026-10-23 on the user's decision** ("без 2 сессии"): the exact stage2-compute-v1
 candidate D (`NOISE=0.1` + `USE_BOSS_LITE`, `USE_BOSS_OPPONENT_MODEL`, `USE_BOSS_OWN_MODEL`, `USE_BOSS_LITE_ROUTES`,
 `USE_INCREMENTAL_INK_REFRESH`, `USE_FAST_CHEAPEST_PATH`, `USE_BATCHED_REFRESH`) became the defaults of `current`;

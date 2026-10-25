@@ -61,7 +61,9 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] Screen read (2026-10-25, pool 1002000): control 64.7 % vs boss-v2; **B +8.8 ± 7.1 pp, 57.0 % h2h → v5 (a)+(b) PASS**; A +1.5 pp → **parked**; AB +6.0 < B → B alone goes forward. Verdict in BOTS/DEVLOG/STATUS.
   - [x] B: strict `procCheck` of `current?USE_BOSS_ROOT_TARGET=true` (`build/submit-stage4-b`, 89,008 chars, config `179dcc66…`): 0 problem games, 0 timeouts, later ≤ 37.4 ms; live plan `build/cg-boss/stage4-b-current-boss-40` (id `53e2fee9…`, 80 API games) frozen.
   - [x] **User:** v5 step (c) for B, session 1 (2026-10-25, 40 matched maps × 2 builds): **B 21/40 vs `current` 20/40, paired +2.5 pp (10 : 9 discordant), 80/80 replays exact → inconclusive** (threshold +5 pp on the session). No upload.
-  - [ ] **User decision:** session 2 for B (fresh 40-map plan on another day, same-session `current` control) to decide step (c) on the pooled 80 (one predeclared extension to 120), or stop B here as "screened, live-neutral".
+  - [x] ~~User decision: session 2 for B~~ — **B promoted to v11 "Root Target" on 2026-10-25 evening (user decision, second live session skipped)** — `docs/v11-promotion.md`: default flag, frozen `btk.bot.v11`, catalog, tests, artifact 88,997 chars / config `179dcc66…`, strict 4-game check 0 problems.
+  - [ ] **User:** upload `build/submit-v11/Player.java` to the arena; then `cgFetch`/`cgAnalyze` of the first 50 games (v10's record: 29W/21L).
+- [ ] Stage 4, second half — exposure-discounted own valuation (+ bypass injection when ≥ X % of income sits in a region at instability ≥ 2 under fire), own merger block, screened on fresh maps ≥ 1003000 vs boss-v2 with `current` (= v11) as the same-map control, then h2h vs `current`.
 
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 

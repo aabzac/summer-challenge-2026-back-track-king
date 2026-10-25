@@ -159,16 +159,17 @@ public class FileMerger {
         String spatialWeights = spatialV10 ? "SpatialV10Weights" : spatialV9 ? "SpatialV9Weights" : spatialV6 || spatialV7 || spatialV8 ? "SpatialV4Weights" : spatialV5 ? "SpatialV5Weights" : spatialV4 ? "SpatialV4Weights" : spatialV3 ? "SpatialV3Weights" : spatialV2 ? "SpatialV2Weights"
                 : spatialInitial ? "SpatialInitialWeights" : "SpatialWeights";
         if (!version.equals("current") && !version.equals("v05") && !version.equals("v06")
-                && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !version.equals("v10") && !neural && !indrill && !spatial) {
-            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, v10, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2, spatial-ppo-v1, spatial-ppo-v2, spatial-ppo-v2-init, spatial-ppo-v3, spatial-ppo-v4, spatial-ppo-v5, spatial-ppo-v6, spatial-ppo-v7, spatial-ppo-v8, spatial-ppo-v9 or spatial-ppo-v10");
+                && !version.equals("v07") && !version.equals("v08") && !version.equals("v09") && !version.equals("v10") && !version.equals("v11") && !neural && !indrill && !spatial) {
+            throw new IllegalArgumentException("submitVersion must be current, v05, v06, v07, v08, v09, v10, v11, neural-v1, neural-v2, neural-v3, neural-v4, neural-v5, neural-v6, neural-v7, indrill-q-v1, indrill-q-v2, spatial-ppo-v1, spatial-ppo-v2, spatial-ppo-v2-init, spatial-ppo-v3, spatial-ppo-v4, spatial-ppo-v5, spatial-ppo-v6, spatial-ppo-v7, spatial-ppo-v8, spatial-ppo-v9 or spatial-ppo-v10");
         }
         List<Path> files = new ArrayList<>();
         boolean heuristic = version.equals("current") && BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
         boolean rollout = version.equals("v06") || version.equals("v07") || version.equals("v08") || version.equals("v09")
-                || version.equals("v10") || version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY;
+                || version.equals("v10") || version.equals("v11") || version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY;
         if (rollout && heuristic) throw new IllegalArgumentException("Select only one independent policy");
-        // prune-v1: only the selected current rollout drops the local-only blocks and the classes it no longer uses.
-        boolean pruneLocalOnly = version.equals("current") && rollout;
+        // prune-v1: only the selected current rollout drops the local-only blocks and the classes it no longer uses;
+        // the frozen v11 copy is that pruned algorithm, so its export is pruned the same way.
+        boolean pruneLocalOnly = (version.equals("current") || version.equals("v11")) && rollout;
         Set<String> prunedParams = pruneLocalOnly ? localOnlyParams() : Set.of();
         String policy = version.equals("v05") ? "bot/v05/EvalBotV05.java"
                 : version.equals("v06") ? "bot/v06/RolloutBotV06.java"
@@ -176,6 +177,7 @@ public class FileMerger {
                 : version.equals("v08") ? "bot/v08/RolloutBotV08.java"
                 : version.equals("v09") ? "bot/v09/RolloutBotV09.java"
                 : version.equals("v10") ? "bot/v10/RolloutBotV10.java"
+                : version.equals("v11") ? "bot/v11/RolloutBotV11.java"
                 : spatialV9 ? "bot/neural/SpatialV9Bot.java"
                 : spatialV8 ? "bot/neural/SpatialV8Bot.java"
                 : spatialV7 ? "bot/neural/SpatialV7Bot.java"
@@ -203,7 +205,7 @@ public class FileMerger {
             }
         }
         // prune-v1: current's RolloutBot no longer uses TacticalPathing; the boss-sabotage proxy chooser still does.
-        if (indrill || version.equals("v10") || version.equals("current") && rollout && BotFactory.parameters(spec).USE_BOSS_SABOTAGE)
+        if (indrill || version.equals("v10") || (version.equals("current") || version.equals("v11")) && rollout && BotFactory.parameters(spec).USE_BOSS_SABOTAGE)
             files.add(SRC_ROOT.resolve("core/TacticalPathing.java"));
         if (neuralV5 || neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/HypotheticalIncome.java"));
         if (neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
@@ -235,13 +237,16 @@ public class FileMerger {
             files.add(SRC_ROOT.resolve("bot/v09/ProtectedOpeningV09.java"));
         if (version.equals("v10"))
             files.add(SRC_ROOT.resolve("bot/v10/ProtectedOpeningV10.java"));
+        if (version.equals("v11"))
+            files.add(SRC_ROOT.resolve("bot/v11/ProtectedOpeningV11.java"));
         for (String f : SUBMIT_FILES) files.add(SRC_ROOT.resolve(f));
 
         Set<String> imports = new TreeSet<>();
         StringBuilder body = new StringBuilder();
         boolean missedDeadline = BotFactory.parameters(spec).USE_ROLLOUT_MISSED_DEADLINE;
         boolean bossSabotage = BotFactory.parameters(spec).USE_BOSS_SABOTAGE;
-        if (bossSabotage) files.add(SRC_ROOT.resolve(version.equals("v10") ? "bot/v10/BossSabotageV10.java" : "bot/current/BossSabotage.java"));
+        if (bossSabotage) files.add(SRC_ROOT.resolve(version.equals("v10") ? "bot/v10/BossSabotageV10.java"
+                : version.equals("v11") ? "bot/v11/BossSabotageV11.java" : "bot/current/BossSabotage.java"));
         boolean bossLite = BotFactory.parameters(spec).USE_BOSS_LITE;
         boolean bossModel = BotFactory.parameters(spec).USE_BOSS_OPPONENT_MODEL || BotFactory.parameters(spec).USE_BOSS_OWN_MODEL;
         boolean bossRoutes = BotFactory.parameters(spec).USE_BOSS_LITE_ROUTES;
@@ -252,8 +257,9 @@ public class FileMerger {
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
         int turnBudgetMs = BotFactory.parameters(spec).TURN_BUDGET_MS;
         boolean turnBudgetOverride = turnBudgetMs != 36;
-        // readable-export-v1: current exports keep line structure and indentation; frozen exports keep their bytes.
-        boolean readable = version.equals("current");
+        // readable-export-v1: current exports keep line structure and indentation; frozen exports keep their bytes
+        // (v11, frozen after readable-export-v1, is exported readably like current).
+        boolean readable = version.equals("current") || version.equals("v11");
         boolean pendingBlank = false;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
@@ -487,7 +493,7 @@ public class FileMerger {
                     line = line.replace("\"spatial-ppo-v1\"", "\"" + version + "\"");
                 if ((spatialV2 || spatialV3 || spatialV4 || spatialV5 || spatialV6 || spatialV7 || spatialV8 || spatialV9 || spatialV10 || spatialInitial) && file.endsWith(spatialWeights + ".java"))
                     line = line.replaceAll("\\b" + spatialWeights + "\\b", "SpatialWeights");
-                if (!((version.equals("current") || version.equals("v10")) && rollout) && file.endsWith("Params.java")
+                if (!((version.equals("current") || version.equals("v10") || version.equals("v11")) && rollout) && file.endsWith("Params.java")
                         && (line.contains("public boolean USE_ROLLOUT_ALL_CELL_RISK =")
                         || line.contains("public boolean USE_ROLLOUT_ROOT_FILL ="))) continue;
                 // Do not alter existing submissions that do not consume the neural deadline.
@@ -536,6 +542,12 @@ public class FileMerger {
                     line = line.replaceAll("\\bRolloutBotV10\\b", "EvalBot")
                             .replaceAll("\\bProtectedOpeningV10\\b", "ProtectedOpening")
                             .replaceAll("\\bBossSabotageV10\\b", "BossSabotage");
+                }
+                if (version.equals("v11") && (file.endsWith("RolloutBotV11.java")
+                        || file.endsWith("ProtectedOpeningV11.java") || file.endsWith("BossSabotageV11.java"))) {
+                    line = line.replaceAll("\\bRolloutBotV11\\b", "EvalBot")
+                            .replaceAll("\\bProtectedOpeningV11\\b", "ProtectedOpening")
+                            .replaceAll("\\bBossSabotageV11\\b", "BossSabotage");
                 }
                 if (neural && file.endsWith("NeuralBot.java")) {
                     line = line.replaceAll("\\bNeuralBot\\b", "EvalBot");

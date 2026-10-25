@@ -45,7 +45,8 @@ class V10PromotionTest {
         assertEquals("1.0", expected.get("BOSS_HOLD_MARGIN"));
         var frozenExpected = new TreeMap<>(expected);
         LiveTargetExperimentParams.removeCurrentOnlyAndCheck(frozenExpected); // the frozen package omits the two current-only fields
-        for (String spec : new String[]{"current", "main", D_SPEC}) {
+        // Since the v11 promotion (2026-10-25) the v10 configuration is current with the root-target flag off.
+        for (String spec : new String[]{LiveTargetExperimentParams.V10_ON_CURRENT, D_SPEC}) {
             assertEquals(expected, new TreeMap<>(BotFactory.configuration(spec)), spec);
         }
         assertEquals(frozenExpected, new TreeMap<>(BotFactory.configuration("v10")), "v10");
@@ -53,6 +54,7 @@ class V10PromotionTest {
         assertTrue(defaults.USE_BOSS_LITE && defaults.USE_BOSS_OPPONENT_MODEL && defaults.USE_BOSS_OWN_MODEL && defaults.USE_BOSS_LITE_ROUTES);
         assertTrue(defaults.USE_INCREMENTAL_INK_REFRESH && defaults.USE_FAST_CHEAPEST_PATH && defaults.USE_BATCHED_REFRESH);
         assertFalse(defaults.USE_BOSS_SABOTAGE, "the screening proxy's chooser is never a default");
+        assertFalse(BotFactory.parameters("v10").USE_BOSS_ROOT_TARGET, "frozen v10 predates the v11 flag");
         assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
         assertInstanceOf(MainBot.class, BotFactory.create("main"));
         assertInstanceOf(RolloutBotV10.class, BotFactory.create("v10"));
