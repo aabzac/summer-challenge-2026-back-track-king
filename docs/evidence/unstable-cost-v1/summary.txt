@@ -1,0 +1,40 @@
+unstable-cost-v1 screen (2026-10-25 night): tools/boss_proxy/run_unstable_screen.sh, fresh pool seed 1004000 (150 maps x 2 seats = 300 paired games per cell), 2 workers, CG timing 486/36 ms, user's machine (Java 17, 14 cores).
+U2 = current?UNSTABLE_COST=2, U3 = current?UNSTABLE_COST=3, cur = current (v12 Exposure Income), boss2 = the boss-like screening proxy (current?USE_BOSS_SABOTAGE=1 + the seven v10 flags off + USE_EXPOSURE_INCOME=0).
+
+-- U2-vs-boss2: current?UNSTABLE_COST=2 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1004000) 2026-10-25T20:29:29Z
+  A win rate: 79,0%  W-L-D 237-63-0
+  avg score diff (A-B): +566,4   avg turns: 67,7
+  time/move ms  A avg 8,31 max 36 slow 0 | B avg 17,75 max 36 slow 0
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 293/300
+-- U3-vs-boss2: current?UNSTABLE_COST=3 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1004000) 2026-10-25T20:34:05Z
+  A win rate: 80,7%  W-L-D 242-58-0
+  avg score diff (A-B): +601,4   avg turns: 67,7
+  time/move ms  A avg 8,37 max 41 slow 0 | B avg 17,87 max 48 slow 0
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 298/300
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1004000) 2026-10-25T20:38:42Z
+  A win rate: 78,7%  W-L-D 236-64-0
+  avg score diff (A-B): +469,2   avg turns: 66,4
+  time/move ms  A avg 9,40 max 36 slow 0 | B avg 18,49 max 50 slow 0
+  accepted disrupt A/B: 98,3% / 99,8%; early closures 296/300
+-- U2-vs-cur: current?UNSTABLE_COST=2 vs current (300 games, seed 1004000) 2026-10-25T20:43:30Z
+  A win rate: 52,7%  W-L-D 158-142-0
+  avg score diff (A-B): -46,5   avg turns: 69,6
+  time/move ms  A avg 9,16 max 39 slow 0 | B avg 9,16 max 37 slow 0
+  accepted disrupt A/B: 98,3% / 98,4%; early closures 297/300
+-- U3-vs-cur: current?UNSTABLE_COST=3 vs current (300 games, seed 1004000) 2026-10-25T20:46:55Z
+  A win rate: 48,7%  W-L-D 146-154-0
+  avg score diff (A-B): -9,3   avg turns: 69,7
+  time/move ms  A avg 10,42 max 80 slow 3 | B avg 10,36 max 41 slow 0
+  accepted disrupt A/B: 98,1% / 98,0%; early closures 294/300
+UNSTABLE SCREEN DONE 2026-10-25T20:50:44Z
+
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+U2-vs-boss2             79.0%  237-63  0   67.9-90.1      0   8.3  17.8    36     0  77.4%  83.0%
+U2-vs-cur               52.7%  158-142 0   41.6-63.8      0   9.2   9.2    39     0  57.1%  42.0%
+U3-vs-boss2             80.7%  242-58  0   69.6-91.8      0   8.4  17.9    41     0  81.6%  78.4%
+U3-vs-cur               48.7%  146-154 0   37.6-59.8      0  10.4  10.4    80     3  50.5%  44.3%
+cur-vs-boss2            78.7%  236-64  0   67.6-89.8      0   9.4  18.5    36     0  79.2%  77.3%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  U2-vs-boss2            vs cur-vs-boss2       maps 150  delta  +0.3 pp  +- 6.6 (95%)  maps better/worse/equal 39/38/73
+  U3-vs-boss2            vs cur-vs-boss2       maps 150  delta  +2.0 pp  +- 6.8 (95%)  maps better/worse/equal 43/35/72
