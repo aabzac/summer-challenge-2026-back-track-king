@@ -25,9 +25,10 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
   (`BossSabotageSubmissionTest`, `V07/V08/V09PromotionTest` pin the `Params` field count — bump it
   when you add fields). Source limit 100,000 chars; since `readable-export-v1` (2026-10-25) a `current`
   export is **readable** (one statement per line, tab indentation, comments dropped) and the default
-  artifact is **88,997** chars since the v11 promotion (v10's readable default was 88,671, `prune-v1`'s compact form 70,397; a `current` export is compacted only
+  artifact is **88,990** chars since the v11 promotion and the 2026-10-25 marker change (v10's readable default was 88,671, `prune-v1`'s compact form 70,397; a `current` export is compacted only
   when its readable form would exceed the limit, frozen exports keep their historical bytes). The
-  first-turn `MESSAGE` reads `v11 Root Target | BTK_BUILD_V1 strategy=current build=… config=…`
+  first-turn `MESSAGE` reads `v11 | BTK_BUILD_V1 strategy=current build=… config=…` (the version id only, `(modified)` for
+  experiments; the header comment of a current export reads `// BTK strategy: current, v11`)
   (`BotFactory.displayName`; bump `BotFactory.SELECTED_VERSION` / `VERSION_NAMES` at a promotion). `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
   blocks (stripped from current rollout artifacts only); a new field the bot reads goes outside them.
   The 17 pruned rollout flags (`BotFactory.PRUNED_ROLLOUT_FLAGS`) are refused on `current`; run their

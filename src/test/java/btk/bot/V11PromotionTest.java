@@ -57,10 +57,10 @@ class V11PromotionTest {
         assertInstanceOf(RolloutBotV11.class, BotFactory.create("v11"));
         assertInstanceOf(RolloutBotV10.class, BotFactory.create("v10"));
         assertEquals("v11", BotFactory.create("v11").name());
-        assertEquals("v11 Root Target", BotFactory.displayName("current"));
-        assertEquals("v11 Root Target", BotFactory.displayName("v11"));
-        assertEquals("v11 Root Target (modified)", BotFactory.displayName(LiveTargetExperimentParams.V10_ON_CURRENT));
-        assertEquals("v10 Boss Model", BotFactory.displayName("v10"));
+        assertEquals("v11", BotFactory.displayName("current"));
+        assertEquals("v11", BotFactory.displayName("v11"));
+        assertEquals("v11 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V10_ON_CURRENT));
+        assertEquals("v10", BotFactory.displayName("v10"));
 
         Params dirty = new Params();
         int fields = 0;

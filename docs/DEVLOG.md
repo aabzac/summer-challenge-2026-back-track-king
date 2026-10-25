@@ -8684,3 +8684,27 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **State:** `current` = v11 (arena agent 6813813); candidate E1 = `current?USE_EXPOSURE_INCOME=true` awaits
   the live step; E05 and `USE_BOSS_THREAT_MODEL` parked. Pool 1003000..1003149 consumed; next free range
   ≥ 1004000.
+
+## 2026-10-25 (night) — first-turn MESSAGE shows the version id only; the artifact header names the selected version
+
+- **User request** (while E1's live series ran): the viewer line should read `v11 | BTK_BUILD_V1 …`, not
+  `v11 Root Target | …`, and the artifact header should say `// BTK strategy: current, v11`. What the tooling
+  actually parses (`tools/replay_capture.py`, used by `boss_batch.py`; the Java `cgFetch`/`cgAnalyze` do not read
+  the marker): the text from `BTK_BUILD_V1` on — `strategy=` (checked against the manifest's `strategyId`),
+  `build=` (the registry lookup and byte check), `config=` (the configuration hash); exactly one such MESSAGE on
+  the first output. Everything before `BTK_BUILD_V1` is display only.
+- **Change.** `BotFactory.displayName` = the version id (`v11`, `current`/`main` carry the selected one) plus
+  ` (modified)` when the configuration differs from the version's defaults; the BOTS.md titles left it. A
+  `current` export's header reads `// BTK strategy: current, v11` (or `current, v11 (modified)`); frozen exports
+  keep their bytes (`v11` 88,955 / `b12a1943…`, `v10` `9c3b4008…`, `v09` `aca0be45…` unchanged).
+- **Pins moved again, tokens unchanged** (the header comment is inside the hashed source, so the *build id*
+  moves too this time): default `current` 88,997 / `ff111d54…` / build `002ca691…` → **88,990 / `cf1972a1…` /
+  build `35176f24…`** (config `179dcc66…` unchanged — the arena entry agent 6813813 keeps build `002ca691…`, a
+  re-export of the same configuration now carries the new build id); v10-on-current `3ec21a76` → `f8754bca`
+  (88,683 → 88,687); v09-on-current `3fe0370e` → `a1043347` (75,921 → 75,925); GUARD `d4b8b59e` → `a7001517`;
+  BASE `7fa98f9a` → `f8595a4a`; BASE+ink `2554be21` → `50bd16a0`; +38 `82741e35` → `77fb8cb9`; +40 `29c83f91` →
+  `bb40cea3`; +40+ink `1e69495a` → `572aa79b`. Display-name assertions updated (`V10/V11SubmissionTest`,
+  `V11PromotionTest`, `BossThreatRootSubmissionTest`, `ExposureIncome*Test`); `tools/test_replay_capture.py`
+  unchanged (a label prefix stays `<name> | `). Candidate artifacts built before this change (`build/submit-v11`
+  on the arena, `build/submit-stage4-e1` in the live series) keep their old label and build id; the attribution
+  reads the marker from `BTK_BUILD_V1` on, so nothing changes for them.

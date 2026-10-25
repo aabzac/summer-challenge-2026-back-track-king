@@ -20,9 +20,9 @@ class V11SubmissionTest {
         String current = FileMerger.merge("current"), frozen = FileMerger.merge("v11");
         FileMerger.checkSourceSize(current);
         FileMerger.checkSourceSize(frozen);
-        assertEquals(88997, current.length());
-        assertEquals("ff111d5484ed8698c9dfdf27806f1613145d05ccd043911a53e08ea91c76dfd1", FileMerger.sha256(current));
-        assertEquals("002ca691e67b3e9792fdd4e613749065657cf741f67679011be0da8696dd4f43", FileMerger.manifest("current", current).get("buildId"));
+        assertEquals(88990, current.length());
+        assertEquals("cf1972a17d7b67541cbcca68f0b12f1384bc050e2bbb42494288f0fcdd3db090", FileMerger.sha256(current));
+        assertEquals("35176f244f6700bc3d71fccf625ca0d25ddb0e5eefe044d405ba510b7f375e03", FileMerger.manifest("current", current).get("buildId"));
         // Same resolved configuration as candidate B's screened and live-tested artifact: only the one initializer literal differs.
         assertEquals(B_CONFIG_SHA, FileMerger.configSha256("current"));
         assertEquals(B_CONFIG_SHA, FileMerger.configSha256(LiveTargetExperimentParams.B_SPEC));
@@ -37,15 +37,18 @@ class V11SubmissionTest {
             assertFalse(source.contains("btk.bot.v11") || source.contains("RolloutBotV11"));
             assertTrue(source.lines().count() > 2000, "readable export");
         }
-        assertTrue(current.contains("\n\t\tpublic static final String BUILD_MARKER = \"v11 Root Target | BTK_BUILD_V1 strategy=current build="));
+        assertTrue(current.contains("\n\t\tpublic static final String BUILD_MARKER = \"v11 | BTK_BUILD_V1 strategy=current build="));
         assertTrue(frozen.contains("BUILD_MARKER = \"BTK_BUILD_V1 strategy=v11 build="), "frozen exports keep the bare marker");
-        assertEquals("v11 Root Target", FileMerger.manifest("current", current).get("label"));
+        assertTrue(current.contains("\n// BTK strategy: current, v11\n"), "the header names the selected version");
+        assertTrue(frozen.contains("\n// BTK strategy: v11\n"));
+        assertTrue(FileMerger.merge(LiveTargetExperimentParams.V10_ON_CURRENT).contains("\n// BTK strategy: current, v11 (modified)\n"));
+        assertEquals("v11", FileMerger.manifest("current", current).get("label"));
         assertNull(FileMerger.manifest("v11", frozen).get("label"));
         // The v10 configuration is still expressible on current (the root-target flag off) and resolves to D's config hash.
         String v10OnCurrent = FileMerger.merge(LiveTargetExperimentParams.V10_ON_CURRENT);
         assertEquals(D_CONFIG_SHA, FileMerger.configSha256(LiveTargetExperimentParams.V10_ON_CURRENT));
         assertFalse(v10OnCurrent.contains("USE_BOSS_ROOT_TARGET"), "the flag's block is dropped while it is off");
-        assertEquals("v11 Root Target (modified)", FileMerger.manifest(LiveTargetExperimentParams.V10_ON_CURRENT, v10OnCurrent).get("label"));
+        assertEquals("v11 (modified)", FileMerger.manifest(LiveTargetExperimentParams.V10_ON_CURRENT, v10OnCurrent).get("label"));
         var currentParams = new TreeMap<>(BotFactory.configuration("current"));
         assertEquals("false", currentParams.remove("USE_ROLLOUT_ALL_CELL_RISK"));
         assertEquals("false", currentParams.remove("USE_ROLLOUT_ROOT_FILL"));

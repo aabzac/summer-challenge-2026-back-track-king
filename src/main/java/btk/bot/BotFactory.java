@@ -76,20 +76,15 @@ public final class BotFactory {
     /** The selected local version: {@code current} is its copy plus any later, not yet promoted work. */
     public static final String SELECTED_VERSION = "v11";
 
-    /** BOTS.md titles of the frozen versions, shown in the viewer on the first turn (readable-export-v1). */
-    private static final Map<String, String> VERSION_NAMES = Map.of(
-            "v05", "Disrupt Reserve", "v06", "Simultaneous Rollout", "v07", "Network After Base",
-            "v08", "Protected Opening", "v09", "Never Idle", "v10", "Boss Model", "v11", "Root Target");
-
     /**
-     * Short human-readable strategy name for the first-turn MESSAGE: the version's BOTS.md title
-     * ({@code "v10 Boss Model"}; {@code current}/{@code main} carry the selected version's), followed by
-     * {@code " (modified)"} when the spec's resolved configuration differs from the version's defaults.
+     * Short human-readable strategy name for the first-turn MESSAGE and the artifact header: the version id
+     * ({@code "v11"}; {@code current}/{@code main} carry the selected version's), followed by {@code " (modified)"}
+     * when the spec's resolved configuration differs from the version's defaults. The BOTS.md titles are not part
+     * of it since 2026-10-25 (user request: the viewer line shows the version only).
      */
     public static String displayName(String spec) {
         String version = version(spec);
-        String base = version.equals("current") || version.equals("main") ? SELECTED_VERSION : version;
-        String name = VERSION_NAMES.containsKey(base) ? base + " " + VERSION_NAMES.get(base) : base;
+        String name = version.equals("current") || version.equals("main") ? SELECTED_VERSION : version;
         boolean modified = spec.indexOf('?') >= 0 && !configuration(spec).equals(configuration(version));
         return modified ? name + " (modified)" : name;
     }

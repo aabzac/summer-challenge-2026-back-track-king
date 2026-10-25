@@ -49,8 +49,8 @@ class BossThreatRootSubmissionTest {
         Files.writeString(source, on);
         assertEquals(0, javax.tools.ToolProvider.getSystemJavaCompiler().run(null, null, null,
                 "-encoding", "UTF-8", "--release", "17", "-d", dir.toString(), source.toString()));
-        assertEquals("v11 Root Target (modified)", BotFactory.displayName(AB));
-        assertEquals("v11 Root Target", BotFactory.displayName(B));
-        assertEquals("v11 Root Target (modified)", BotFactory.displayName(OFF));
+        assertEquals("v11 (modified)", BotFactory.displayName(AB));
+        assertEquals("v11", BotFactory.displayName(B));
+        assertEquals("v11 (modified)", BotFactory.displayName(OFF));
     }
 }

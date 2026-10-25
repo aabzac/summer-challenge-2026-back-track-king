@@ -644,7 +644,10 @@ public class FileMerger {
         for (String imp : imports) sb.append("import ").append(imp).append(";\n");
         // Keep the strategy label in the normalized source identity too: identical
         // policy copies with different names must not collide in the registry.
-        sb.append("\n// BTK strategy: ").append(version).append("\nclass Player {\n\n");
+        // A current export names the selected version it carries ("// BTK strategy: current, v11"); frozen exports keep their bytes.
+        sb.append("\n// BTK strategy: ").append(version);
+        if (version.equals("current")) sb.append(", ").append(BotFactory.displayName(spec));
+        sb.append("\nclass Player {\n\n");
         sb.append(body);
         sb.append("    public static void main(String[] args) {\n");
         sb.append("        CGRunner.main(args);\n");
@@ -701,7 +704,7 @@ public class FileMerger {
 
     /**
      * The first-turn MESSAGE text. A current export leads with the strategy's display name
-     * ({@code "v10 Boss Model | BTK_BUILD_V1 strategy=current build=... config=..."}); frozen
+     * ({@code "v11 | BTK_BUILD_V1 strategy=current build=... config=..."}); frozen
      * exports keep the bare marker so their historical bytes do not change.
      */
     static String message(String spec, String buildId) {

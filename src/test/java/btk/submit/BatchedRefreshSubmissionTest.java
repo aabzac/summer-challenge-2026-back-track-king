@@ -19,11 +19,11 @@ class BatchedRefreshSubmissionTest {
 
     @Test void disabledFlagPreservesSelectedFrozenAndPreviousCandidateArtifacts() throws Exception {
         assertTrue(new Params().USE_BATCHED_REFRESH, "selected default since the v10 promotion");
-        assertEquals("3fe0370e56a6e8471f97a9d2f8c9f248c95c68fbd0e9963dd97222365ef0f641",
+        assertEquals("a10433473e010e47ed909492a09939f45700d6e74407340123071e2baf8544e0",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("d4b8b59ef44bb1ed0da455230f658d7a1a65aea729170292b4062b9fb11420fa",
+        assertEquals("a7001517fabee6370a5af24d2ff49bc022ad16d24116cbf41c53be18218790de",
                 FileMerger.sha256(FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
         for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "spatial-ppo-v10"}) {
             assertFalse(FileMerger.merge(spec).contains("batchedRefresh"));
