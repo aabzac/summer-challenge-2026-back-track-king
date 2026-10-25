@@ -1,0 +1,53 @@
+stage4-threat-model-v1 screen (2026-10-25): tools/boss_proxy/run_stage4_screen.sh, fresh pool seed 1002000 (150 maps x 2 seats = 300 paired games per cell), 2 workers, CG timing 486/36 ms, user's machine (Java 17, 14 cores).
+A = current?USE_BOSS_THREAT_MODEL=true, B = current?USE_BOSS_ROOT_TARGET=true, AB = both, cur = current (v10), boss2 = the boss-like screening proxy (current?USE_BOSS_SABOTAGE=1 + the seven v10 flags off).
+
+-- A-vs-boss2: current?USE_BOSS_THREAT_MODEL=true vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0 (300 games, seed 1002000) 2026-10-25T13:53:04Z
+  A win rate: 66,2%  W-L-D 198-101-1
+  avg score diff (A-B): +376,9   avg turns: 67,6
+  time/move ms  A avg 11,48 max 36 slow 0 | B avg 17,49 max 36 slow 0
+  accepted disrupt A/B: 98,3% / 99,8%; early closures 294/300
+-- B-vs-boss2: current?USE_BOSS_ROOT_TARGET=true vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0 (300 games, seed 1002000) 2026-10-25T13:58:10Z
+  A win rate: 73,5%  W-L-D 220-79-1
+  avg score diff (A-B): +423,9   avg turns: 68,7
+  time/move ms  A avg 7,93 max 39 slow 0 | B avg 17,43 max 44 slow 0
+  accepted disrupt A/B: 98,5% / 99,9%; early closures 295/300
+-- AB-vs-boss2: current?USE_BOSS_THREAT_MODEL=true,USE_BOSS_ROOT_TARGET=true vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0 (300 games, seed 1002000) 2026-10-25T14:02:44Z
+  A win rate: 70,7%  W-L-D 212-88-0
+  avg score diff (A-B): +437,4   avg turns: 65,9
+  time/move ms  A avg 8,66 max 36 slow 0 | B avg 18,21 max 36 slow 0
+  accepted disrupt A/B: 98,4% / 99,9%; early closures 295/300
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0 (300 games, seed 1002000) 2026-10-25T14:07:22Z
+  A win rate: 64,7%  W-L-D 194-106-0
+  avg score diff (A-B): +335,3   avg turns: 67,9
+  time/move ms  A avg 11,67 max 36 slow 0 | B avg 17,57 max 36 slow 0
+  accepted disrupt A/B: 98,5% / 99,9%; early closures 291/300
+-- A-vs-cur: current?USE_BOSS_THREAT_MODEL=true vs current (300 games, seed 1002000) 2026-10-25T14:12:33Z
+  A win rate: 51,0%  W-L-D 153-147-0
+  avg score diff (A-B): +56,8   avg turns: 68,7
+  time/move ms  A avg 11,31 max 36 slow 0 | B avg 11,24 max 38 slow 0
+  accepted disrupt A/B: 98,4% / 98,4%; early closures 298/300
+-- B-vs-cur: current?USE_BOSS_ROOT_TARGET=true vs current (300 games, seed 1002000) 2026-10-25T14:16:38Z
+  A win rate: 57,0%  W-L-D 171-129-0
+  avg score diff (A-B): +146,6   avg turns: 70,4
+  time/move ms  A avg 7,57 max 37 slow 0 | B avg 10,75 max 36 slow 0
+  accepted disrupt A/B: 98,5% / 98,5%; early closures 293/300
+-- AB-vs-cur: current?USE_BOSS_THREAT_MODEL=true,USE_BOSS_ROOT_TARGET=true vs current (300 games, seed 1002000) 2026-10-25T14:20:05Z
+  A win rate: 57,0%  W-L-D 171-129-0
+  avg score diff (A-B): +45,3   avg turns: 69,8
+  time/move ms  A avg 7,90 max 36 slow 0 | B avg 11,08 max 36 slow 0
+  accepted disrupt A/B: 98,5% / 98,4%; early closures 298/300
+STAGE4 SCREEN DONE 2026-10-25T14:23:37Z
+
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+A-vs-boss2              66.2%  198-101 1   55.1-77.3      0  11.5  17.5    36     0  64.2%  69.8%
+A-vs-cur                51.0%  153-147 0   39.9-62.1      0  11.3  11.2    36     0  48.5%  55.7%
+AB-vs-boss2             70.7%  212-88  0   59.6-81.8      0   8.7  18.2    36     0  72.7%  67.0%
+AB-vs-cur               57.0%  171-129 0   45.9-68.1      0   7.9  11.1    36     0  62.4%  47.2%
+B-vs-boss2              73.5%  220-79  1   62.4-84.6      0   7.9  17.4    39     0  76.5%  67.9%
+B-vs-cur                57.0%  171-129 0   45.9-68.1      0   7.6  10.8    37     0  57.7%  55.7%
+cur-vs-boss2            64.7%  194-106 0   53.6-75.8      0  11.7  17.6    36     0  66.0%  62.3%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  A-vs-boss2             vs cur-vs-boss2       maps 150  delta  +1.5 pp  +- 7.1 (95%)  maps better/worse/equal 43/45/62
+  AB-vs-boss2            vs cur-vs-boss2       maps 150  delta  +6.0 pp  +- 7.2 (95%)  maps better/worse/equal 47/35/68
+  B-vs-boss2             vs cur-vs-boss2       maps 150  delta  +8.8 pp  +- 7.1 (95%)  maps better/worse/equal 54/32/64

@@ -74,7 +74,7 @@ class V09PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 33, fields, "retained later fields plus proposal/deadline/batched/incremental-ink/fast-path/boss-sabotage/boss-lite flags and turn-budget override");
+        assertEquals(expected.size() + 35, fields, "retained later fields plus proposal/deadline/batched/incremental-ink/fast-path/boss-sabotage/boss-lite/stage4 flags and turn-budget override");
         FrozenParams.applyTo("v09", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK);

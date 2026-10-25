@@ -51,6 +51,16 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
 - [x] **Prune (`prune-v1`), 2026-10-25** (`docs/prune-v1.md`): 17 rejected rollout experiments and their helpers out of `current` (`RolloutBot` 1,601 → 1,076 lines), 86 never-read `Params` fields in `// LOCAL_ONLY` blocks stripped from current rollout artifacts, `NetworkChords`/`TacticalPathing` dropped — default artifact **99,676 → 70,397 chars**, config `f0e507ac…` unchanged, frozen `v10` export byte-identical; `PruneV1Test` lockstep equivalence vs `v10` PASS; historical mechanism tests live in `btk.bot.v10`. Timed guard and strict process check recorded in the DEVLOG entry.
 - [ ] Stage 2: algorithmic compute cuts (skip zero-delta ink evaluations, targets once per
   simulated turn, region index, flood only after ink).
+- [ ] **Stage 3–4, step 1 — `stage4-threat-model-v1` (2026-10-25, `docs/stage4-threat-model-v1.md`):** the
+  construction search made consistent with the boss chooser v10 already plays — A `USE_BOSS_THREAT_MODEL`
+  (the threat our bypass routes and protected gain are planned around = the lite chooser's prediction with the
+  opponent's observed held target) and B `USE_BOSS_ROOT_TARGET` (our first simulated turn disrupts the real
+  `liteHeld`, no no-disrupt scenario). Screen `tools/boss_proxy/run_stage4_screen.sh`, pool 1002000, A / B / AB
+  vs boss-v2 with `current` as the same-map control (+3 pp) and head-to-head vs `current` (≥ 48 %).
+  - [x] Implemented, default off, own merger blocks; default artifact and config hash unchanged (`BossThreatRootTest`, `BossThreatRootSubmissionTest`).
+  - [x] Screen read (2026-10-25, pool 1002000): control 64.7 % vs boss-v2; **B +8.8 ± 7.1 pp, 57.0 % h2h → v5 (a)+(b) PASS**; A +1.5 pp → **parked**; AB +6.0 < B → B alone goes forward. Verdict in BOTS/DEVLOG/STATUS.
+  - [x] B: strict `procCheck` of `current?USE_BOSS_ROOT_TARGET=true` (`build/submit-stage4-b`, 89,008 chars, config `179dcc66…`): 0 problem games, 0 timeouts, later ≤ 37.4 ms; live plan `build/cg-boss/stage4-b-current-boss-40` (id `53e2fee9…`, 80 API games) frozen.
+  - [ ] **User:** v5 step (c) for B — 80 paired live boss games (`tools/run_boss_paced.sh`, `current` = v10 as the same-session control); upload only after the live result.
 
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 
