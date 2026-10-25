@@ -252,6 +252,7 @@ public class FileMerger {
         boolean bossRoutes = BotFactory.parameters(spec).USE_BOSS_LITE_ROUTES;
         boolean bossThreat = BotFactory.parameters(spec).USE_BOSS_THREAT_MODEL;
         boolean bossRoot = BotFactory.parameters(spec).USE_BOSS_ROOT_TARGET;
+        boolean exposureIncome = BotFactory.parameters(spec).USE_EXPOSURE_INCOME;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -272,6 +273,7 @@ public class FileMerger {
             boolean routesBlock = false;
             boolean threatBlock = false;
             boolean rootBlock = false;
+            boolean exposureBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -451,6 +453,17 @@ public class FileMerger {
                     continue;
                 }
                 if (rootBlock && !bossRoot) continue;
+                if (line.trim().equals("// EXPOSURE_INCOME_BEGIN")) {
+                    if (exposureBlock) throw new IllegalArgumentException("Nested exposure-income block: " + file);
+                    exposureBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// EXPOSURE_INCOME_END")) {
+                    if (!exposureBlock) throw new IllegalArgumentException("Unbalanced exposure-income block: " + file);
+                    exposureBlock = false;
+                    continue;
+                }
+                if (exposureBlock && !exposureIncome) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;

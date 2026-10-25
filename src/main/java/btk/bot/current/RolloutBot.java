@@ -144,6 +144,14 @@ public final class RolloutBot implements Bot {
     // BOSS_THREAT_BEGIN
     public int threatModelCalls;
     // BOSS_THREAT_END
+    // EXPOSURE_INCOME_BEGIN
+    /** Stage 4 (exposure-income-v1): income weighted by the survivability of the regions each connection crosses. */
+    private final double[] exposureOut = new double[2], exposureBase = new double[2];
+    private final double[] exposureBaseDiff = new double[2], exposureThreatDiff = new double[2];
+    private int[] exposureStamp;
+    private int exposureStampValue;
+    public int exposureIncomeCalls;
+    // EXPOSURE_INCOME_END
 
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
@@ -224,6 +232,9 @@ public final class RolloutBot implements Bot {
         }
         // BOSS_LITE_END
         if (p.USE_ROLLOUT_QUICK_ROUTE) quickPath = new int[s.size];
+        // EXPOSURE_INCOME_BEGIN
+        if (p.USE_EXPOSURE_INCOME) { exposureStamp = new int[s.regionCount]; exposureStampValue = 0; }
+        // EXPOSURE_INCOME_END
         if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) {
             networkCells = new int[s.size]; networkWeights = new int[s.size];
             networkPriority = new int[s.size]; networkGains = new int[s.size];
@@ -277,14 +288,29 @@ public final class RolloutBot implements Bot {
         // BOSS_THREAT_END
         threats[me] = chooseTarget(s, 1 - me);
         Rules.incomePerTurn(s, income);
+        // EXPOSURE_INCOME_BEGIN
+        if (p.USE_EXPOSURE_INCOME) exposureIncome(s, exposureBase);
+        // EXPOSURE_INCOME_END
         if (p.USE_ROLLOUT_QUICK_ROUTE && income[me] == 0) quickPlayer = me;
         for (int player = 0; player < 2; player++) {
             baseDiff[player] = income[player] - income[1 - player];
             threatDiff[player] = baseDiff[player];
+            // EXPOSURE_INCOME_BEGIN
+            if (p.USE_EXPOSURE_INCOME) {
+                exposureBaseDiff[player] = exposureBase[player] - exposureBase[1 - player];
+                exposureThreatDiff[player] = exposureBaseDiff[player];
+            }
+            // EXPOSURE_INCOME_END
             if (threats[player] >= 0) {
                 completion.set(s); Rules.ink(completion.state, threats[player]); completion.refresh();
                 Rules.incomePerTurn(completion.state, income);
                 threatDiff[player] = income[player] - income[1 - player];
+                // EXPOSURE_INCOME_BEGIN
+                if (p.USE_EXPOSURE_INCOME) {
+                    exposureIncome(completion.state, exposureOut);
+                    exposureThreatDiff[player] = exposureOut[player] - exposureOut[1 - player];
+                }
+                // EXPOSURE_INCOME_END
                 Rules.incomePerTurn(s, income);
             }
         }
@@ -647,6 +673,12 @@ public final class RolloutBot implements Bot {
         if (earning <= 0) return;
         completion.refresh(); Rules.incomePerTurn(completion.state, income);
         double gain = income[me] - income[1 - me] - baseDiff[me];
+        // EXPOSURE_INCOME_BEGIN
+        if (p.USE_EXPOSURE_INCOME) {
+            exposureIncome(completion.state, exposureOut);
+            gain = exposureOut[me] - exposureOut[1 - me] - exposureBaseDiff[me];
+        }
+        // EXPOSURE_INCOME_END
         // Reuse the bounded proposal pool: no extra path query or random draw.
         // Current own income is zero, so a positive completed own income is also a gain.
         if (me == quickPlayer && cost <= p.ROLLOUT_QUICK_MAX_PAINT && income[me] > 0 && gain > 0)
@@ -655,6 +687,12 @@ public final class RolloutBot implements Bot {
             Rules.ink(completion.state, threats[me]); completion.refresh();
             Rules.incomePerTurn(completion.state, income);
             double protectedGain = income[me] - income[1 - me] - threatDiff[me];
+            // EXPOSURE_INCOME_BEGIN
+            if (p.USE_EXPOSURE_INCOME) {
+                exposureIncome(completion.state, exposureOut);
+                protectedGain = exposureOut[me] - exposureOut[1 - me] - exposureThreatDiff[me];
+            }
+            // EXPOSURE_INCOME_END
             gain = (1 - p.ROLLOUT_THREAT_WEIGHT) * gain + p.ROLLOUT_THREAT_WEIGHT * protectedGain;
         }
         if (gain <= 0) return;
@@ -887,9 +925,48 @@ public final class RolloutBot implements Bot {
             }
         }
         Rules.incomePerTurn(work.state, income);
+        // EXPOSURE_INCOME_BEGIN
+        if (p.USE_EXPOSURE_INCOME) {
+            exposureIncome(work.state, exposureOut);
+            return work.state.score[me] - work.state.score[1 - me]
+                    + Math.min(p.ROLLOUT_TAIL, work.state.turnsLeft()) * (exposureOut[me] - exposureOut[1 - me]);
+        }
+        // EXPOSURE_INCOME_END
         return work.state.score[me] - work.state.score[1 - me]
                 + Math.min(p.ROLLOUT_TAIL, work.state.turnsLeft()) * (income[me] - income[1 - me]);
     }
+
+    // EXPOSURE_INCOME_BEGIN
+    /**
+     * Per player: the sum over active connections of (that player's cells on the path) times the product, over the
+     * distinct unstable non-town regions the path crosses, of (1 - EXPOSURE_INCOME_WEIGHT * instability / INK_THRESHOLD).
+     * A connection through a region that is about to ink is worth little to either side; town regions never ink.
+     */
+    private void exposureIncome(GameState s, double[] out) {
+        exposureIncomeCalls++;
+        double g0 = 0, g1 = 0;
+        for (int pair = 0; pair < s.pairCount; pair++) {
+            int[] path = s.pairPath[pair];
+            if (path == null) continue;
+            int n = s.pairPathLen[pair], c0 = 0, c1 = 0;
+            double survive = 1;
+            exposureStampValue++;
+            for (int i = 0; i < n; i++) {
+                int cell = path[i], o = s.owner[cell], r = s.regionId[cell];
+                if (o == 0) c0++;
+                else if (o == 1) c1++;
+                if (s.regionInstability[r] > 0 && exposureStamp[r] != exposureStampValue && !s.regionHasTown(r)) {
+                    exposureStamp[r] = exposureStampValue;
+                    survive *= Math.max(0, 1 - p.EXPOSURE_INCOME_WEIGHT * s.regionInstability[r] / GameState.INK_THRESHOLD);
+                }
+            }
+            g0 += c0 * survive;
+            g1 += c1 * survive;
+        }
+        out[0] = g0;
+        out[1] = g1;
+    }
+    // EXPOSURE_INCOME_END
 
     /** Cheap exposure shortlist, then exact core ink evaluation. No actual future enemy action is read. */
     private int chooseTarget(GameState s, int me) {

@@ -196,6 +196,10 @@ public final class BotFactory {
         if ((params.USE_BOSS_THREAT_MODEL || params.USE_BOSS_ROOT_TARGET)
                 && !version.equals("current") && !version.equals("main") && !version.equals("v11"))
             throw new IllegalArgumentException("Boss threat model / root target exist on current and v11 only (stage4-threat-model-v1); frozen v10 has neither");
+        if (params.USE_EXPOSURE_INCOME && (!version.equals("current") || !rolloutPolicy))
+            throw new IllegalArgumentException("Exposure income is a current-only rollout experiment (exposure-income-v1)");
+        if (!Double.isFinite(params.EXPOSURE_INCOME_WEIGHT) || params.EXPOSURE_INCOME_WEIGHT < 0 || params.EXPOSURE_INCOME_WEIGHT > 1)
+            throw new IllegalArgumentException("EXPOSURE_INCOME_WEIGHT must be within [0, 1]");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
@@ -234,6 +238,8 @@ public final class BotFactory {
                 if ((field.getName().equals("USE_BOSS_LITE_ROUTES") || field.getName().equals("BOSS_LITE_ROUTE_WEIGHT"))
                         && !params.USE_BOSS_LITE_ROUTES) continue;
                 if (field.getName().equals("USE_BOSS_THREAT_MODEL") && !params.USE_BOSS_THREAT_MODEL) continue;
+                if ((field.getName().equals("USE_EXPOSURE_INCOME") || field.getName().equals("EXPOSURE_INCOME_WEIGHT"))
+                        && !params.USE_EXPOSURE_INCOME) continue;
                 if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;

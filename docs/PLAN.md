@@ -63,7 +63,11 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] **User:** v5 step (c) for B, session 1 (2026-10-25, 40 matched maps × 2 builds): **B 21/40 vs `current` 20/40, paired +2.5 pp (10 : 9 discordant), 80/80 replays exact → inconclusive** (threshold +5 pp on the session). No upload.
   - [x] ~~User decision: session 2 for B~~ — **B promoted to v11 "Root Target" on 2026-10-25 evening (user decision, second live session skipped)** — `docs/v11-promotion.md`: default flag, frozen `btk.bot.v11`, catalog, tests, artifact 88,997 chars / config `179dcc66…`, strict 4-game check 0 problems.
   - [x] **User:** uploaded `build/submit-v11/Player.java` (2026-10-25 evening) = puzzle agent 6813813; first 50 games fetched and analysed: **34W/16L**, 0 failed turns, tall 7-5, 30×20 3-4, never-earned 46.6 % (`docs/evidence/arena-2026-10-25-v11-agent-6813813.json`).
-- [ ] Stage 4, second half — exposure-discounted own valuation (+ bypass injection when ≥ X % of income sits in a region at instability ≥ 2 under fire), own merger block, screened on fresh maps ≥ 1003000 vs boss-v2 with `current` (= v11) as the same-map control, then h2h vs `current`.
+- [ ] **Stage 4, second half — `exposure-income-v1` (2026-10-25 evening, `docs/stage4-exposure-income-v1.md`):** income weighted by the survivability of the regions each connection crosses (1 − w · instability / 4 per unstable non-town region) in the rollout's tail and in the route proposals' gains; flag `USE_EXPOSURE_INCOME` + `EXPOSURE_INCOME_WEIGHT`, own merger block, current-only.
+  - [x] Implemented, default off, artifact and configuration unchanged while off (`ExposureIncomeTest`, `ExposureIncomeSubmissionTest`); field-count pins +2.
+  - [x] Screen `tools/boss_proxy/run_stage4b_screen.sh`, pool 1003000 (2026-10-25): control 71.7 % vs boss-v2; **E1 +3.7 ± 6.7 pp (41/31/78), 60.3 % h2h → v5 (a)+(b) PASS**; E05 +1.0 pp → parked.
+  - [x] E1: strict `procCheck` of `current?USE_EXPOSURE_INCOME=true` (`build/submit-stage4-e1`, 91,368 chars, config `d7803b42…`): 0 problem games, later ≤ 38.5 ms; live plan `build/cg-boss/stage4-e1-v11-boss-40` (id `db85a30d…`, 80 API games vs the v11 artifact) frozen.
+  - [ ] **User:** v5 step (c) for E1 — 80 paired live boss games vs v11 in one session (`tools/run_boss_paced.sh`, line in the protocol doc), preferably on another day; upload only after the live result.
 
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 

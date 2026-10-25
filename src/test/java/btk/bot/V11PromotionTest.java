@@ -71,7 +71,7 @@ class V11PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 21, fields, "fields outside the v11 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 23, fields, "fields outside the v11 record: current-only experiments, neural/spatial/turn-budget overrides");
         FrozenParams.applyTo("v11", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_BOSS_THREAT_MODEL); assertFalse(dirty.USE_BOSS_SABOTAGE);
@@ -121,8 +121,10 @@ class V11PromotionTest {
                     .replace("ProtectedOpeningV11", "ProtectedOpening")
                     .replace("return \"v11\";", "return \"current?\" + p.diff();");
             assertEquals(item[1], sha(measured), "measured source " + item[0]);
-            assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
-                    "current source " + item[0] + " at the freeze");
+            // current's RolloutBot keeps evolving after the freeze (exposure-income-v1 was the first change); the helpers are untouched.
+            if (!item[0].equals("RolloutBot"))
+                assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
+                        "current source " + item[0] + " at the freeze");
         }
     }
 }
