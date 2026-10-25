@@ -17,6 +17,16 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`exposure-income-v1` = `current?USE_EXPOSURE_INCOME=true` — 2026-10-25 late evening, Stage 4 second half, v5 steps (a)+(b)
+PASS, live pending:** every connection's income is weighted by the survivability of the unstable non-town regions its path
+crosses, (1 − instability / 4) each, in the rollout's tail and in the route proposals' gains. Same-map screen on fresh pool
+1003000 (300 paired games/cell, CG timing, `docs/stage4-exposure-income-v1.md`): **75.3 % vs boss-v2 against v11's 71.7 %
+(paired +3.7 ± 6.7 pp, 41/31/78 maps — at the +3 pp gate)**, **60.3 % head-to-head vs v11** (181-119, the chain's largest),
+zero errors, move time unchanged. Half weight (E05): +1.0 pp vs the proxy, 54.0 % h2h → **parked**. Artifact
+`build/submit-stage4-e1` 91,368 chars, config `d7803b42…`, strict 4-game check 0 problems; live plan
+`build/cg-boss/stage4-e1-v11-boss-40` (80 API games vs the v11 artifact) frozen for the user's launch on another day.
+[Protocol and results](stage4-exposure-income-v1.md), [evidence](evidence/stage4-exposure-income-v1/).
+
 **v11 Root Target — promoted 2026-10-25 on the user's decision** ("давай продвинем версию на арену"): the exact
 stage4-threat-model-v1 candidate B (`current?USE_BOSS_ROOT_TARGET=true`) became the default of `current`; frozen copy
 `btk.bot.v11`; `v11.properties` = the 131 effective values = B's artifact manifest. v5 record: proxy screen on pool 1002000

@@ -8651,3 +8651,36 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **State:** `current` = **v11 Root Target** = the arena entry (agent 6813813). Next strength step: the
   exposure-discounted own valuation (Stage 4, second half) screened on fresh maps ≥ 1003000 with `current` (= v11) as
   the same-map control; `USE_BOSS_THREAT_MODEL` stays parked.
+
+## 2026-10-25 (late evening) — `stage4-exposure-income-v1`: income weighted by region survivability passes v5 steps a+b over v11 (+3.7 pp vs the proxy, 60.3 % head-to-head); live pending
+
+- **Why.** Stage 4's second half (own exposure, H2) on top of v11. The rollout's tail and the route proposals
+  value income with `Rules.incomePerTurn` — a full point per own cell on an active connection whatever the
+  state of the regions it crosses — while the boss inks the region with most of our tracks in four hits and
+  46 % of our accepted arena cells never earn (v11's first 50 games 46.6 %). Protocol, mechanism and the
+  predeclared reading: [stage4-exposure-income-v1.md](stage4-exposure-income-v1.md).
+- **Flag** (default off, `// EXPOSURE_INCOME` block, current-only rollout experiment; `BotFactory` refuses it on
+  `v11`/`v10`/EvalBot and weights outside [0, 1]): `USE_EXPOSURE_INCOME` + `EXPOSURE_INCOME_WEIGHT` (1.0).
+  `RolloutBot.exposureIncome` = per player Σ over active connections of (own cells on the path) × Π over the
+  distinct unstable non-town regions on the path of (1 − w · instability / 4); used for the rollout's
+  `ROLLOUT_TAIL` term and for the proposals' completion gain and `protectedGain` (base and threat diffs
+  computed the same way at the turn start). Stamp-marked regions, allocation-free, one O(path) pass per
+  income reading. Configuration and artifact unchanged while off (`ExposureIncomeSubmissionTest`,
+  `ExposureIncomeTest`; field-count pins +2; `FrozenParams` resets the two fields for records without them).
+- **Screen** (`tools/boss_proxy/run_stage4b_screen.sh`, fresh pool **1003000**, 300 paired games per cell, CG
+  486/36 ms, 2 workers, `evidence/stage4-exposure-income-v1/`): vs boss-v2 on the same maps — `current` (v11)
+  **71.7 %**, **E1 (w 1.0) 75.3 % (+3.7 ± 6.7 pp, 41/31/78 maps)**, E05 (w 0.5) 72.7 % (+1.0 ± 7.4);
+  head-to-head vs `current` — **E1 60.3 %** (181-119), E05 54.0 %. Zero errors, disrupt 98.3 % everywhere,
+  mean move time unchanged (9.7 vs 9.6 ms); tall maps E1 84.7 % vs 83.3 % against the proxy, 63.9 % h2h.
+- **Reading.** **E1 passes steps (a) and (b)** — the proxy gain sits at the +3 pp gate, the head-to-head gain
+  (60.3 %) is the chain's largest (B over v10 57.0 %); the half weight loses the proxy gain → **E05 parked**.
+  Artifact `build/submit-stage4-e1`: 91,368 chars, build `582ad892…`, config `d7803b42…`; strict `procCheck`
+  **0 problem games**, later ≤ 38.5 ms. **Live plan frozen** `build/cg-boss/stage4-e1-v11-boss-40` (id
+  `db85a30d…`, 80 API games, control = the v11 artifact `build/submit-v11`); launch line in the protocol doc,
+  recommended for another day (80 API games already played today; the 2026-10-16 run hit the service limit
+  near request 70 of a 160-game day). **No promotion, no upload before the live result.**
+- **Tests.** `gradlew test`: 833 tests, **25 failures, all pre-existing**. `V11PromotionTest` now checks the
+  frozen copy's hash only for `RolloutBot` (current's copy keeps evolving; the two helpers stay pinned to current).
+- **State:** `current` = v11 (arena agent 6813813); candidate E1 = `current?USE_EXPOSURE_INCOME=true` awaits
+  the live step; E05 and `USE_BOSS_THREAT_MODEL` parked. Pool 1003000..1003149 consumed; next free range
+  ≥ 1004000.

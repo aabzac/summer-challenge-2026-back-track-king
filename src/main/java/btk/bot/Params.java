@@ -113,6 +113,11 @@ public class Params {
     /** Stage 4 (threat-model-v1): the opponent target that the route proposals bypass and protect against (variant 2, protectedGain) comes from the two-stage boss chooser with the observed held target, i.e. what the rollout's opponent plays, instead of chooseTarget. Requires USE_BOSS_OPPONENT_MODEL. */
     public boolean USE_BOSS_THREAT_MODEL = false;
     // BOSS_THREAT_END
+    // EXPOSURE_INCOME_BEGIN
+    /** Stage 4 (exposure-income-v1): every connection's income is weighted by the survivability of the non-town regions its path crosses, (1 - EXPOSURE_INCOME_WEIGHT * instability / INK_THRESHOLD) each, in the rollout's tail and in the route proposals' completion gain; docs/stage4-exposure-income-v1.md. */
+    public boolean USE_EXPOSURE_INCOME = false;
+    public double EXPOSURE_INCOME_WEIGHT = 1.0;
+    // EXPOSURE_INCOME_END
     // BOSS_ROOT_BEGIN
     /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
     public boolean USE_BOSS_ROOT_TARGET = true;
