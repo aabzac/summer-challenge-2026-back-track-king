@@ -11,8 +11,8 @@ class DeferredCommitSubmissionTest {
     @TempDir Path temp;
     @Test void disabledExperimentPreservesExactSelectedAndFrozenArtifacts()throws Exception {
         String current=FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT),v09=FileMerger.merge("v09");
-        assertEquals(98709,current.length());
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",FileMerger.sha256(current));
+        assertEquals(66737,current.length()); // prune-v1 (was 98,709)
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",FileMerger.sha256(current));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",FileMerger.sha256(v09));
         assertFalse(current.contains("deadlinePending"));assertFalse(v09.contains("USE_ROLLOUT_MISSED_DEADLINE"));
         assertFalse(BotFactory.configuration(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).containsKey("USE_ROLLOUT_MISSED_DEADLINE"));

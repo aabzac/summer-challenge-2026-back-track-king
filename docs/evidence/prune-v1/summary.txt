@@ -1,0 +1,28 @@
+prune-v1 timed regression guard (2026-10-25): tools/boss_proxy/run_prune_screen.sh, fresh pool seed 1001000 (150 maps x 2 seats = 300 paired games per cell), 2 workers, CG timing 486/36 ms, user's machine (Java 17, 14 cores).
+P = current (pruned v10 behaviour), F = v10 (frozen copy), boss2 = the boss-like screening proxy (current?USE_BOSS_SABOTAGE=1 + the seven v10 flags off).
+
+-- P-vs-F: current vs v10 (300 games, seed 1001000) 2026-10-25T12:07:53Z
+  A win rate: 50,7%  W-L-D 151-147-2
+  avg score diff (A-B): +20,7   avg turns: 67,1
+  time/move ms  A avg 13,93 max 37 slow 0 | B avg 14,09 max 45 slow 0
+  accepted disrupt A/B: 98,1% / 98,1%; early closures 294/300
+-- P-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0 (300 games, seed 1001000) 2026-10-25T12:12:47Z
+  A win rate: 68,3%  W-L-D 205-95-0
+  avg score diff (A-B): +429,8   avg turns: 65,9
+  time/move ms  A avg 14,38 max 37 slow 0 | B avg 19,79 max 41 slow 0
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 297/300
+-- F-vs-boss2: v10 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0 (300 games, seed 1001000) 2026-10-25T12:18:35Z
+  A win rate: 70,3%  W-L-D 211-89-0
+  avg score diff (A-B): +513,7   avg turns: 65,6
+  time/move ms  A avg 15,84 max 155 slow 6 | B avg 20,83 max 342 slow 93
+  accepted disrupt A/B: 98,3% / 100,0%; early closures 295/300
+PRUNE SCREEN DONE 2026-10-25T12:24:47Z
+EXIT=0
+
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+F-vs-boss2              70.3%  211-89  0   59.2-81.4      0  15.8  20.8   155     6  65.1%  84.1%
+P-vs-F                  50.7%  151-147 2   39.6-61.8      0  13.9  14.1    37     0  51.8%  47.6%
+P-vs-boss2              68.3%  205-95  0   57.2-79.4      0  14.4  19.8    37     0  66.1%  74.4%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  P-vs-boss2             vs F-vs-boss2         maps 150  delta  -2.0 pp  +- 6.5 (95%)  maps better/worse/equal 32/35/83

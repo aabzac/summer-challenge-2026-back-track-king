@@ -1,7 +1,7 @@
 package btk.tools;
 
 import btk.bot.BotFactory;
-import btk.bot.current.RolloutBot;
+import btk.bot.v10.RolloutBotV10;
 import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
@@ -20,8 +20,9 @@ import java.util.Map;
 
 /** Production-policy parity against the immutable saved-state mechanism report. No games. */
 public final class RolloutFillPolicyCheck {
-    private static final String OFF = "current?USE_ROLLOUT_ROOT_FILL=0,NOISE=0";
-    private static final String ON = "current?USE_ROLLOUT_ROOT_FILL=1,NOISE=0";
+    // prune-v1 (2026-10-25): the root-fill mechanism lives in frozen v10 only; both arms use the v09 configuration on it.
+    private static final String OFF = "v10?" + BotFactory.V10_FLAGS_OFF + ",USE_ROLLOUT_ROOT_FILL=0,NOISE=0";
+    private static final String ON = "v10?" + BotFactory.V10_FLAGS_OFF + ",USE_ROLLOUT_ROOT_FILL=1,NOISE=0";
     record Play(String spec, long budgetMs, double wallMs, String actions, String unorderedAction, Double selectedValue,
                 int selectedRoute, int selectedTarget, int queries, int comparisons,
                 boolean ordinarySearchComplete, boolean networkPhaseComplete) {}
@@ -32,7 +33,7 @@ public final class RolloutFillPolicyCheck {
     private static String actionKey(String action) { String[] parts = action.split(";"); Arrays.sort(parts); return String.join(";", parts); }
     private static Play play(ReplyStudy.Position position, String spec, long budget) {
         GameState input = position.state().copy(), saved = input.copy(); int me = position.me();
-        RolloutBot bot = (RolloutBot) BotFactory.create(spec); bot.init(input.copy(), me);
+        RolloutBotV10 bot = (RolloutBotV10) BotFactory.create(spec); bot.init(input.copy(), me);
         long start = System.nanoTime(); List<Action> actions = bot.play(input, me, budget);
         double wall = (System.nanoTime() - start) / 1e6;
         ReplyProbe.sameState(saved, input); ReplyProbe.sameState(saved, position.state());
@@ -49,7 +50,7 @@ public final class RolloutFillPolicyCheck {
             for (Path file : files.filter(Files::isRegularFile).sorted().toList()) result.put(file.toString(), ReplyStudy.hash(Files.readAllBytes(file)));
         }
         for (String name : List.of("tools/RolloutFillPolicyCheck.java", "tools/RolloutFillStudy.java", "tools/ReplyStudy.java", "tools/ReplyProbe.java",
-                "bot/current/RolloutBot.java", "bot/current/ProtectedOpening.java", "bot/v09/RolloutBotV09.java", "bot/v09/ProtectedOpeningV09.java",
+                "bot/v10/RolloutBotV10.java", "bot/v10/ProtectedOpeningV10.java", "bot/v09/RolloutBotV09.java", "bot/v09/ProtectedOpeningV09.java",
                 "bot/Params.java", "bot/BotFactory.java", "bot/FrozenParams.java", "bot/Timer.java")) {
             Path file = Path.of("src/main/java/btk").resolve(name); result.put(file.toString(), ReplyStudy.hash(Files.readAllBytes(file)));
         }

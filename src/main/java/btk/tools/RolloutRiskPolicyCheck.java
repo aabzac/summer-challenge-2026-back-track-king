@@ -2,7 +2,7 @@ package btk.tools;
 
 import btk.bot.Bot;
 import btk.bot.BotFactory;
-import btk.bot.current.RolloutBot;
+import btk.bot.v10.RolloutBotV10;
 import btk.bot.v09.RolloutBotV09;
 import btk.core.Action;
 import btk.core.GameState;
@@ -20,7 +20,7 @@ import java.util.Map;
 
 /** Actual policy coverage on the existing development states, without strength/timing claims. */
 public final class RolloutRiskPolicyCheck {
-    private static final String CONTROL = "v09?NOISE=0", CANDIDATE = "current?USE_ROLLOUT_ALL_CELL_RISK=1,NOISE=0";
+    private static final String CONTROL = "v09?NOISE=0", CANDIDATE = "v10?" + BotFactory.V10_FLAGS_OFF + ",USE_ROLLOUT_ALL_CELL_RISK=1,NOISE=0"; // prune-v1: the risk variant lives in frozen v10 (v09 configuration)
     record Play(String spec, long budgetMs, double wallMs, String actions, String unorderedAction, int queries, int comparisons,
                 boolean ordinarySearchComplete) {}
 
@@ -34,7 +34,7 @@ public final class RolloutRiskPolicyCheck {
         if (check.moves[me].error != null || !check.moves[me].skipped.isEmpty()) throw new IllegalStateException("Illegal " + spec + " output");
         String[] commands = Action.format(actions).split(";"); Arrays.sort(commands);
         String unordered = String.join(";", commands);
-        if (bot instanceof RolloutBot b) return new Play(spec, budget, elapsed, Action.format(actions), unordered, b.routeQueries,
+        if (bot instanceof RolloutBotV10 b) return new Play(spec, budget, elapsed, Action.format(actions), unordered, b.routeQueries,
                 b.completedComparisons, b.ordinarySearchComplete);
         if (bot instanceof RolloutBotV09 b) return new Play(spec, budget, elapsed, Action.format(actions), unordered, b.routeQueries,
                 b.completedComparisons, b.ordinarySearchComplete);
@@ -71,7 +71,7 @@ public final class RolloutRiskPolicyCheck {
         }
         for (String relative : List.of("tools/RolloutRiskPolicyCheck.java", "tools/RolloutRiskStudy.java", "tools/ReplyStudy.java", "tools/ReplyProbe.java",
                 "bot/BotFactory.java", "bot/MainBot.java", "bot/Params.java", "bot/FrozenParams.java", "bot/Timer.java",
-                "bot/current/RolloutBot.java", "bot/current/ProtectedOpening.java", "bot/v09/RolloutBotV09.java", "bot/v09/ProtectedOpeningV09.java")) {
+                "bot/v10/RolloutBotV10.java", "bot/v10/ProtectedOpeningV10.java", "bot/v09/RolloutBotV09.java", "bot/v09/ProtectedOpeningV09.java")) {
             Path file = Path.of("src/main/java/btk").resolve(relative); hashes.put(file.toString(), ReplyStudy.hash(Files.readAllBytes(file)));
         }
         for (String name : List.of("src/main/resources/btk/bot/versions/v09.properties", "docs/rollout-risk-v1.md"))

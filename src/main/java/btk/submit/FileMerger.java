@@ -32,6 +32,11 @@ import java.util.stream.Stream;
  * Frozen v05/v06/v07/v08/v09 builds import their source as the generated
  * EvalBot and embed resolved parameters; current builds also embed their full configuration;
  * no frozen-package runtime dependency, referee, runner or tool ships.
+ *
+ * <p>Since prune-v1 (2026-10-25) a current rollout artifact drops the {@code // LOCAL_ONLY_BEGIN/END}
+ * blocks (Params fields the shipped policy never reads, local-only constructor guards), their values in
+ * the embedded configuration, and the {@code NetworkChords}/{@code TacticalPathing} classes the pruned
+ * policy no longer references. Frozen exports ({@code v10} included) keep every field and class.
  */
 public class FileMerger {
 
@@ -53,6 +58,8 @@ public class FileMerger {
     private static final Pattern IMPORT = Pattern.compile("^\\s*import\\s+(.*);\\s*$");
     private static final Pattern PUBLIC_TYPE = Pattern.compile(
             "^(\\s*)public\\s+((?:(?:final|abstract|sealed|strictfp)\\s+)*)(class|interface|enum|record)\\s+");
+
+    private static final Pattern PARAM_FIELD = Pattern.compile("^public (?:boolean|int|double|String) ([A-Z_0-9]+) =");
 
     public static void main(String[] args) throws IOException {
         String version = args.length == 0 ? "current" : args[0];
@@ -148,6 +155,9 @@ public class FileMerger {
         boolean rollout = version.equals("v06") || version.equals("v07") || version.equals("v08") || version.equals("v09")
                 || version.equals("v10") || version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY;
         if (rollout && heuristic) throw new IllegalArgumentException("Select only one independent policy");
+        // prune-v1: only the selected current rollout drops the local-only blocks and the classes it no longer uses.
+        boolean pruneLocalOnly = version.equals("current") && rollout;
+        Set<String> prunedParams = pruneLocalOnly ? localOnlyParams() : Set.of();
         String policy = version.equals("v05") ? "bot/v05/EvalBotV05.java"
                 : version.equals("v06") ? "bot/v06/RolloutBotV06.java"
                 : version.equals("v07") ? "bot/v07/RolloutBotV07.java"
@@ -175,11 +185,14 @@ public class FileMerger {
             try (Stream<Path> st = Files.list(SRC_ROOT.resolve(dir))) {
                 st.filter(p -> p.toString().endsWith(".java")
                         && !p.endsWith("TacticalPathing.java") && !p.endsWith("InkProjection.java")
-                        && !p.endsWith("HypotheticalIncome.java") && !p.endsWith("FeaturePaths.java"))
+                        && !p.endsWith("HypotheticalIncome.java") && !p.endsWith("FeaturePaths.java")
+                        && !(pruneLocalOnly && p.endsWith("NetworkChords.java")))
                         .sorted().forEach(files::add);
             }
         }
-        if (indrill || version.equals("current") && rollout || version.equals("v10")) files.add(SRC_ROOT.resolve("core/TacticalPathing.java"));
+        // prune-v1: current's RolloutBot no longer uses TacticalPathing; the boss-sabotage proxy chooser still does.
+        if (indrill || version.equals("v10") || version.equals("current") && rollout && BotFactory.parameters(spec).USE_BOSS_SABOTAGE)
+            files.add(SRC_ROOT.resolve("core/TacticalPathing.java"));
         if (neuralV5 || neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/HypotheticalIncome.java"));
         if (neuralV6 || neuralV7) files.add(SRC_ROOT.resolve("core/FeaturePaths.java"));
         files.add(SRC_ROOT.resolve(policy));
@@ -238,7 +251,19 @@ public class FileMerger {
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
             boolean fastPathBlock = false, oldPathBlock = false;
+            boolean localOnlyBlock = false;
             for (String line : Files.readAllLines(file)) {
+                if (line.trim().equals("// LOCAL_ONLY_BEGIN")) {
+                    if (localOnlyBlock) throw new IllegalArgumentException("Nested local-only block: " + file);
+                    localOnlyBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// LOCAL_ONLY_END")) {
+                    if (!localOnlyBlock) throw new IllegalArgumentException("Unbalanced local-only block: " + file);
+                    localOnlyBlock = false;
+                    continue;
+                }
+                if (localOnlyBlock && pruneLocalOnly) continue;
                 if (line.trim().equals("// FAST_CHEAPEST_PATH_BEGIN")) {
                     if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Nested fast-path block: " + file);
                     fastPathBlock = true;
@@ -484,7 +509,7 @@ public class FileMerger {
                     line = line.replaceAll("\\bIndrillV2Bot\\b", "EvalBot");
                 }
                 if (file.endsWith("MainBot.java")) {
-                    line = line.replace("new Params()", paramsExpression(spec));
+                    line = line.replace("new Params()", paramsExpression(spec, prunedParams));
                 }
                 if (heuristic && file.endsWith("HeuristicBot.java")) {
                     line = line.replaceAll("\\bHeuristicBot\\b", "EvalBot");
@@ -535,6 +560,7 @@ public class FileMerger {
             if (inkBlock) throw new IllegalArgumentException("Unclosed ink-refresh block: " + file);
             if (fastPathBlock || oldPathBlock) throw new IllegalArgumentException("Unclosed fast-path block: " + file);
             if (turnBudgetBlock) throw new IllegalArgumentException("Unclosed turn-budget block: " + file);
+            if (localOnlyBlock) throw new IllegalArgumentException("Unclosed local-only block: " + file);
         }
 
         StringBuilder sb = new StringBuilder();
@@ -600,13 +626,45 @@ public class FileMerger {
         } else Files.writeString(path, contents, StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW);
     }
 
-    private static String paramsExpression(String spec) {
+    /** The embedded configuration omits fields the artifact's Params no longer declares (prune-v1). */
+    private static String paramsExpression(String spec, Set<String> excluded) {
         StringBuilder query = new StringBuilder();
         for (var entry : BotFactory.configuration(spec).entrySet()) {
+            if (excluded.contains(entry.getKey())) continue;
             if (query.length() > 0) query.append(',');
             query.append(entry.getKey()).append('=').append(entry.getValue());
         }
         return "new Params(\"" + query + "\")";
+    }
+
+    /** True for the artifacts that drop the local-only blocks: the selected current rollout policy (prune-v1). */
+    static boolean prunesLocalOnly(String spec) {
+        String version = spec.split("\\?", 2)[0];
+        return version.equals("current") && BotFactory.parameters(spec).USE_ROLLOUT_POLICY
+                && !BotFactory.parameters(spec).USE_HEURISTIC_POLICY;
+    }
+
+    /** Params fields declared inside {@code // LOCAL_ONLY_BEGIN/END} blocks: never read by the shipped current rollout. */
+    public static Set<String> localOnlyParams() throws IOException {
+        Set<String> names = new TreeSet<>();
+        boolean inside = false;
+        for (String line : Files.readAllLines(SRC_ROOT.resolve("bot/Params.java"))) {
+            String trimmed = line.trim();
+            if (trimmed.equals("// LOCAL_ONLY_BEGIN")) {
+                if (inside) throw new IllegalArgumentException("Nested local-only block in Params.java");
+                inside = true;
+                continue;
+            }
+            if (trimmed.equals("// LOCAL_ONLY_END")) {
+                if (!inside) throw new IllegalArgumentException("Unbalanced local-only block in Params.java");
+                inside = false;
+                continue;
+            }
+            Matcher m = PARAM_FIELD.matcher(trimmed);
+            if (inside && m.find()) names.add(m.group(1));
+        }
+        if (inside) throw new IllegalArgumentException("Unclosed local-only block in Params.java");
+        return names;
     }
 
     static void checkSourceSize(String source) {

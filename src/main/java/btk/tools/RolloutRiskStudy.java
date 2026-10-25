@@ -3,7 +3,7 @@ package btk.tools;
 import btk.bot.BotFactory;
 import btk.bot.Params;
 import btk.bot.Timer;
-import btk.bot.current.RolloutBot;
+import btk.bot.v10.RolloutBotV10;
 import btk.core.Action;
 import btk.core.GameState;
 import btk.core.Pathing;
@@ -47,7 +47,7 @@ public final class RolloutRiskStudy {
         final int[] lengths;
         final double[] values;
         final int count;
-        Portfolio(RolloutBot bot, int me) throws Exception {
+        Portfolio(RolloutBotV10 bot, int me) throws Exception {
             routes = ((int[][][]) field(bot, "routes"))[me];
             int[][] copied = new int[routes.length][];
             for (int i = 0; i < routes.length; i++) copied[i] = routes[i].clone();
@@ -58,7 +58,7 @@ public final class RolloutRiskStudy {
             count = ((int[]) field(bot, "counts"))[me];
         }
         final int[][] saved;
-        void restore(RolloutBot bot, int me) throws Exception {
+        void restore(RolloutBotV10 bot, int me) throws Exception {
             for (int i = 0; i < routes.length; i++) System.arraycopy(saved[i], 0, routes[i], 0, saved[i].length);
             System.arraycopy(lengths, 0, ((int[][]) field(bot, "lengths"))[me], 0, lengths.length);
             System.arraycopy(values, 0, ((double[][]) field(bot, "values"))[me], 0, values.length);
@@ -66,12 +66,12 @@ public final class RolloutRiskStudy {
         }
     }
 
-    private static Object field(RolloutBot bot, String name) throws Exception { return CgDisruptStudy.field(bot, name); }
-    private static Object call(RolloutBot bot, String name, Class<?>[] types, Object... args) throws Exception {
+    private static Object field(RolloutBotV10 bot, String name) throws Exception { return CgDisruptStudy.field(bot, name); }
+    private static Object call(RolloutBotV10 bot, String name, Class<?>[] types, Object... args) throws Exception {
         return CgDisruptStudy.call(bot, name, types, args);
     }
-    private static void set(RolloutBot bot, String name, Object value) throws Exception {
-        var f = RolloutBot.class.getDeclaredField(name); f.setAccessible(true); f.set(bot, value);
+    private static void set(RolloutBotV10 bot, String name, Object value) throws Exception {
+        var f = RolloutBotV10.class.getDeclaredField(name); f.setAccessible(true); f.set(bot, value);
     }
     private static void require(boolean value, String message) {
         if (!value) throw new IllegalStateException(message);
@@ -99,7 +99,7 @@ public final class RolloutRiskStudy {
                 + (allCells || !state.passable(c) ? (int) Math.round(params.UNSTABLE_COST * state.instability[c]) : 0);
         return costs;
     }
-    private static int[] prefix(RolloutBot bot, GameState state, int[] route) throws Exception {
+    private static int[] prefix(RolloutBotV10 bot, GameState state, int[] route) throws Exception {
         int[] result = new int[GameState.PAINT_PER_TURN];
         int n = (int) call(bot, "pack", PACK, state, route, route.length, result, 0, GameState.PAINT_PER_TURN);
         return Arrays.copyOf(result, n);
@@ -120,7 +120,7 @@ public final class RolloutRiskStudy {
                 me == 1 ? cells : EMPTY, me == 1 ? cells.length : 0);
         board.refresh();
     }
-    private static int insertRank(RolloutBot bot, GameState state, int me, Portfolio baseline, Candidate row) throws Exception {
+    private static int insertRank(RolloutBotV10 bot, GameState state, int me, Portfolio baseline, Candidate row) throws Exception {
         baseline.restore(bot, me);
         try {
             System.arraycopy(row.route, 0, (int[]) field(bot, "path"), 0, row.route.length);
@@ -138,7 +138,7 @@ public final class RolloutRiskStudy {
             return -1;
         } finally { baseline.restore(bot, me); }
     }
-    private static Candidate candidate(RolloutBot bot, GameState state, int me, Params params, Portfolio baseline,
+    private static Candidate candidate(RolloutBotV10 bot, GameState state, int me, Params params, Portfolio baseline,
                                        int pair, int[] route, String kind, String direction, Set<String> roots,
                                        Set<String> routePrefixes, Set<String> controls, int[] before, int[] destroyed, int threat) throws Exception {
         Candidate row = new Candidate(); row.kind = kind; row.direction = direction; row.pair = pair; row.route = route;
@@ -172,7 +172,7 @@ public final class RolloutRiskStudy {
     }
 
     /** Only an actually retained route is evaluated; no expanded arrays or WAIT/root aliases. */
-    private static Map<String, Object> rolloutProbe(RolloutBot bot, GameState state, int me, Portfolio baseline,
+    private static Map<String, Object> rolloutProbe(RolloutBotV10 bot, GameState state, int me, Portfolio baseline,
                                                    Candidate chosen, double baselineValue) throws Exception {
         Map<String, Object> report = new LinkedHashMap<>();
         if (chosen == null) { report.put("status", "NO_RETAINED_NOVEL_RISK_SPECIFIC_ROOT"); return report; }
@@ -219,7 +219,7 @@ public final class RolloutRiskStudy {
 
     private static Map<String, Object> inspect(ReplyStudy.Position position, Params params) throws Exception {
         GameState state = position.state(), unchanged = state.copy(); int me = position.me();
-        RolloutBot bot = new RolloutBot(params); bot.init(state.copy(), me);
+        RolloutBotV10 bot = new RolloutBotV10(params); bot.init(state.copy(), me);
         long started = System.nanoTime(); List<Action> action = bot.play(state, me, AMPLE_MS);
         double elapsed = (System.nanoTime() - started) / 1e6; legal(state, me, action); ReplyProbe.sameState(unchanged, state);
         require(bot.ordinarySearchComplete && Double.isFinite(bot.selectedValue), "Ample baseline did not finish");
@@ -306,7 +306,7 @@ public final class RolloutRiskStudy {
             for (Path p : files.filter(Files::isRegularFile).sorted().toList()) hashes.put(p.toString(), ReplyStudy.hash(Files.readAllBytes(p)));
         }
         for (String name : List.of("tools/RolloutRiskStudy.java", "tools/ReplyStudy.java", "tools/ReplyProbe.java", "tools/CgDisruptStudy.java",
-                "bot/current/RolloutBot.java", "bot/current/ProtectedOpening.java", "bot/Params.java", "bot/Timer.java", "bot/BotFactory.java", "bot/FrozenParams.java",
+                "bot/current/RolloutBotV10.java", "bot/current/ProtectedOpening.java", "bot/Params.java", "bot/Timer.java", "bot/BotFactory.java", "bot/FrozenParams.java",
                 "core/Rules.java", "core/GameState.java", "core/Pathing.java", "core/TacticalPathing.java", "core/SearchState.java")) {
             Path p = Path.of("src/main/java/btk").resolve(name); hashes.put(p.toString(), ReplyStudy.hash(Files.readAllBytes(p)));
         }
@@ -317,7 +317,7 @@ public final class RolloutRiskStudy {
         report.put("createdAt", Instant.now().toString()); report.put("javaVersion", System.getProperty("java.version")); report.put("hashes", hashes);
         report.put("params", params); report.put("availablePositions", all.size()); report.put("eligiblePositions", eligible.size());
         report.put("selectedPositions", samples.size()); report.put("maxPairsPerPosition", MAX_PAIRS); report.put("summary", summary); report.put("samples", samples);
-        report.put("scope", "Past-state-only development probe; current RolloutBot with v09 parameters and NOISE=0. Matched tactical empty-only control separates routing geometry from risk on existing rails. Hypothetical complete-route placement/ink uses core, not an actual predicted reply. No games, outcome selection, strength or process timing claims.");
+        report.put("scope", "Past-state-only development probe; current RolloutBotV10 with v09 parameters and NOISE=0. Matched tactical empty-only control separates routing geometry from risk on existing rails. Hypothetical complete-route placement/ink uses core, not an actual predicted reply. No games, outcome selection, strength or process timing claims.");
         Files.createDirectories(out.toAbsolutePath().getParent()); Files.writeString(out, ReplyStudy.JSON.toJson(report), StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW);
         System.out.println(ReplyStudy.JSON.toJson(summary));
     }

@@ -33,6 +33,8 @@
   (300 paired games per cell unless noted, reports under `docs/evidence/`): 970000..970149 and
   960000..960149 (v2 → B → C → D chain), 980000..980149 (`stage2-dividend-v1` part 1),
   990000..990149 (part 2), the 30×20 subsets of the last two for the cold-timing rounds 1–2, and
-  **1000000..1000599** (`cold-timing-30x20-v1` round 3: 1,200 hot games, tall subset cold). None of
-  these is fresh confirmation; the next free range is ≥ 1001000.
+  **1000000..1000599** (`cold-timing-30x20-v1` round 3: 1,200 hot games, tall subset cold), and
+  **1001000..1001149** (`prune-v1` timed regression guard, 2026-10-25: pruned `current` vs frozen `v10`
+  and both vs boss-v2, 300 paired games per cell). None of these is fresh confirmation; the next free
+  range is ≥ 1002000.
 

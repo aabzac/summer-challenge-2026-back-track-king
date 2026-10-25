@@ -1,5 +1,6 @@
-package btk.bot.current;
+package btk.bot.v10;
 
+import btk.bot.current.RolloutTestParams;
 import btk.bot.BotFactory;
 import btk.bot.Params;
 import btk.bot.Timer;
@@ -13,10 +14,11 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /** Evaluate the emitted first-turn fill without changing the later rollout policy. */
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutRootFillTest {
     private static final Gson JSON = new Gson();
 
@@ -34,13 +36,13 @@ class RolloutRootFillTest {
         return s;
     }
 
-    private static void set(RolloutBot b, String name, Object value) throws Exception {
-        var field = RolloutBot.class.getDeclaredField(name); field.setAccessible(true); field.set(b, value);
+    private static void set(RolloutBotV10 b, String name, Object value) throws Exception {
+        var field = RolloutBotV10.class.getDeclaredField(name); field.setAccessible(true); field.set(b, value);
     }
 
     /** One known affordable connection prefix, with no enemy construction or later-turn ambiguity. */
-    private static RolloutBot prepared(GameState s, int me, int target) throws Exception {
-        var b = new RolloutBot(parameters(true)); b.init(s, me);
+    private static RolloutBotV10 prepared(GameState s, int me, int target) throws Exception {
+        var b = new RolloutBotV10(parameters(true)); b.init(s, me);
         pool(b, me, new int[]{0, 1, 2, 3, 4});
         ((int[][]) field(b, "roots"))[0][0] = 3;
         ((int[]) field(b, "rootCounts"))[0] = 1;
@@ -52,13 +54,13 @@ class RolloutRootFillTest {
         return b;
     }
 
-    private static boolean search(RolloutBot b, GameState s, int me) throws Exception {
+    private static boolean search(RolloutBotV10 b, GameState s, int me) throws Exception {
         return (boolean) call(b, "searchRoots",
                 new Class<?>[]{GameState.class, int.class, int.class, int.class, int.class}, s, me, 0, 1, 1);
     }
 
     @SuppressWarnings("unchecked")
-    private static List<Action> actions(RolloutBot b, GameState s) throws Exception {
+    private static List<Action> actions(RolloutBotV10 b, GameState s) throws Exception {
         return (List<Action>) call(b, "actions", new Class<?>[]{GameState.class}, s);
     }
 
@@ -87,7 +89,7 @@ class RolloutRootFillTest {
     @Test void completeFirstTurnContainsTheSameFilledCellsInEvaluationAndEmissionOnBothSeats() throws Exception {
         for (int me = 0; me < 2; me++) {
             GameState s = board(me); String before = JSON.toJson(s);
-            RolloutBot b = prepared(s, me, -1);
+            RolloutBotV10 b = prepared(s, me, -1);
             assertTrue(search(b, s, me)); assertEquals(1, b.completedComparisons);
             GameState simulated = ((SearchState) field(b, "work")).state;
             List<Action> emitted = actions(b, s);
@@ -104,7 +106,7 @@ class RolloutRootFillTest {
     @Test void attackAndWaitGetTheirOwnFillAndEarlierWinningCellsSurviveLaterScratchReuse() throws Exception {
         for (int me = 0; me < 2; me++) {
             GameState s = board(me); String before = JSON.toJson(s);
-            RolloutBot b = prepared(s, me, 6);
+            RolloutBotV10 b = prepared(s, me, 6);
             assertTrue(search(b, s, me)); assertEquals(2, b.completedComparisons);
             // Both branches have the same connection income. The first (attack) wins the tie,
             // while the last simulated waiting branch may safely fill the target region.
@@ -121,7 +123,7 @@ class RolloutRootFillTest {
 
     @Test void expiredComparisonPreservesCompletedWinnerAndAnUnscoredFallbackStillUsesTheUsualFill() throws Exception {
         for (int me = 0; me < 2; me++) {
-            GameState s = board(me); RolloutBot b = prepared(s, me, -1);
+            GameState s = board(me); RolloutBotV10 b = prepared(s, me, -1);
             assertTrue(search(b, s, me));
             String winner = Action.format(actions(b, s)); double value = b.selectedValue;
             ((Timer) field(b, "timer")).start(-1);
@@ -129,7 +131,7 @@ class RolloutRootFillTest {
             assertEquals(1, b.completedComparisons); assertEquals(value, b.selectedValue);
             assertEquals(winner, Action.format(actions(b, s))); assertEquals(2, b.fillCells);
 
-            RolloutBot fallback = prepared(s, me, -1);
+            RolloutBotV10 fallback = prepared(s, me, -1);
             ((Timer) field(fallback, "timer")).start(-1);
             assertFalse(search(fallback, s, me)); assertEquals(0, fallback.completedComparisons);
             assertFalse((boolean) field(fallback, "selectedRootFilled"));
@@ -151,7 +153,7 @@ class RolloutRootFillTest {
                 s.instability[c] = 1; s.regionInstability[c] = 1;
             }
             Rules.updateConnections(s, new Pathing(s.size)); String before = JSON.toJson(s);
-            var off = new RolloutBot(parameters(false)); var on = new RolloutBot(parameters(true));
+            var off = new RolloutBotV10(parameters(false)); var on = new RolloutBotV10(parameters(true));
             off.init(s, me); on.init(s, me);
             Object marks = field(on, "fillMarks"), root = field(on, "filledRoot");
             for (int repeat = 0; repeat < 2; repeat++) {
@@ -167,10 +169,10 @@ class RolloutRootFillTest {
     @Test void independentFlagStartsOffAndCannotSilentlyCombineWithRiskOrDisableTheFiller() {
         assertFalse(new Params().USE_ROLLOUT_ROOT_FILL);
         assertFalse(BotFactory.parameters("v09").USE_ROLLOUT_ROOT_FILL);
-        assertDoesNotThrow(() -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1"));
+        assertDoesNotThrow(() -> BotFactory.create("v10?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1"));
         assertThrows(IllegalArgumentException.class,
-                () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_ALL_CELL_RISK=1"));
+                () -> BotFactory.create("v10?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_ALL_CELL_RISK=1"));
         assertThrows(IllegalArgumentException.class,
-                () -> BotFactory.create("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_FILL=0"));
+                () -> BotFactory.create("v10?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1,USE_ROLLOUT_FILL=0"));
     }
 }

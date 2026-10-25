@@ -1,5 +1,6 @@
-package btk.bot.current;
+package btk.bot.v10;
 
+import btk.bot.current.RolloutTestParams;
 import btk.bot.Timer;
 import btk.core.Action;
 import btk.core.GameState;
@@ -8,9 +9,10 @@ import btk.core.Rules;
 import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutLiveTargetTest {
     /** 7x3 board, one region per cell; pairs 0->1 along the top row and 2->3 along the bottom row. */
     private static GameState board() {
@@ -22,7 +24,7 @@ class RolloutLiveTargetTest {
         return s;
     }
 
-    private static int target(RolloutBot bot, GameState s, int me) throws Exception {
+    private static int target(RolloutBotV10 bot, GameState s, int me) throws Exception {
         ((Timer) field(bot, "timer")).start(60_000);
         return (int) call(bot, "chooseTarget", new Class<?>[]{GameState.class, int.class}, s, me);
     }
@@ -31,8 +33,8 @@ class RolloutLiveTargetTest {
         for (int me = 0; me < 2; me++) {
             var s = board();
             for (int c = 7; c <= 11; c++) s.owner[c] = 1 - me; // stale middle-row segment, present at init
-            var off = new RolloutBot(RolloutTestParams.base("NOISE=0"));
-            var on = new RolloutBot(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_LIVE_TARGET=1"));
+            var off = new RolloutBotV10(RolloutTestParams.base("NOISE=0"));
+            var on = new RolloutBotV10(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_LIVE_TARGET=1"));
             off.init(s, me); on.init(s, me);
             off.play(s, me, 60_000); on.play(s, me, 60_000);
             assertEquals(target(off, s, me), target(on, s, me), "no observed placement: identical choice");
@@ -56,8 +58,8 @@ class RolloutLiveTargetTest {
     @Test void alwaysDisruptSpendsThePointOnlyWhenNothingElseQualifiesAndStaysLegal() throws Exception {
         for (int me = 0; me < 2; me++) {
             var s = board();
-            var off = new RolloutBot(RolloutTestParams.base("NOISE=0"));
-            var on = new RolloutBot(RolloutTestParams.base("NOISE=0,ROLLOUT_ALWAYS_DISRUPT=1"));
+            var off = new RolloutBotV10(RolloutTestParams.base("NOISE=0"));
+            var on = new RolloutBotV10(RolloutTestParams.base("NOISE=0,ROLLOUT_ALWAYS_DISRUPT=1"));
             off.init(s, me); on.init(s, me);
             assertEquals(-1, target(off, s, me), "empty board: default waits");
             int forced = target(on, s, me);

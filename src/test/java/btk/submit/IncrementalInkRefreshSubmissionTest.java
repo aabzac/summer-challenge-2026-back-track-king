@@ -49,11 +49,11 @@ class IncrementalInkRefreshSubmissionTest {
     }
 
     @Test void disabledFlagPreservesPriorSourceBytesAndOmitsItsHelpers() throws Exception {
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("5e58f6d3c32f15b9ebbcfe9db46e28f820b7cde72ad3a9194a0852d2190bb232",
+        assertEquals("719b536606924ad210f087372c57bdad26856475e22b82f0a0cebbb97e4202a3",
                 FileMerger.sha256(FileMerger.merge(BASE)));
         for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
             String source = FileMerger.merge(spec);

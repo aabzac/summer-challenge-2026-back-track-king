@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.current.RolloutTestSupport.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RolloutNetworkAfterBaseTest {
@@ -134,22 +134,11 @@ class RolloutNetworkAfterBaseTest {
         }
     }
 
-    @Test void rootOrderKeepsEveryOrdinaryRootAheadOfBothNetworkRoots() throws Exception {
-        RolloutBot b = bot(chord(1), 0, true);
-        var size = RolloutBot.class.getDeclaredField("ordinaryRootSize");
-        size.setAccessible(true);
-        size.setInt(b, 4);
-        b.networkRoots = 2;
-        int[] order = new int[6];
-        for (int i = 0; i < order.length; i++)
-            order[i] = (int) call(b, "searchRoot", new Class<?>[]{int.class}, i);
-        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5}, order);
-    }
-
     @Test void promotedFlagCanBeDisabledAndRejectsMixedNetworkPolicies() throws Exception {
         assertTrue(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_NETWORK_AFTER_BASE);
         RolloutBot off = bot(chord(1), 0, false);
         assertNull(field(off, "networkCells"));
+        // Since prune-v1 these experiments are refused outright on current (they still run on v10).
         for (String incompatible : new String[]{"USE_ROLLOUT_NETWORK=1", "USE_ROLLOUT_SPREAD=1",
                 "USE_ROLLOUT_REPLAN=1", "USE_ROLLOUT_SECOND_TARGET=1", "USE_ROLLOUT_DIVERSE_REPLIES=1",
                 "USE_ROLLOUT_QUICK_EARLY=1", "USE_ROLLOUT_QUICK_VALUE=1", "USE_ROLLOUT_QUICK_SAFE=1"}) {

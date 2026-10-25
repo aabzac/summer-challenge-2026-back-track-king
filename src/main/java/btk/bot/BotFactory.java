@@ -72,6 +72,30 @@ public final class BotFactory {
         };
     }
 
+    /**
+     * Rollout experiments removed from {@code current} by prune-v1 (2026-10-25) together with their code and their
+     * Params fields in the artifact. The frozen {@code v10} package still implements every one of them
+     * ({@code "v10?FLAG=1"}); on {@code current}/{@code main} a true value is refused instead of silently ignored.
+     */
+    /** The seven selected v10 flags switched off: the v09 configuration expressed on current or v10. */
+    public static final String V10_FLAGS_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,"
+            + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
+
+    public static final List<String> PRUNED_ROLLOUT_FLAGS = List.of(
+            "USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL", "USE_ROLLOUT_QUICK_EARLY", "USE_ROLLOUT_QUICK_VALUE",
+            "USE_ROLLOUT_QUICK_SAFE", "USE_ROLLOUT_DIVERSE_REPLIES", "USE_ROLLOUT_REPLAN", "USE_ROLLOUT_SECOND_TARGET",
+            "USE_ROLLOUT_SPREAD", "USE_ROLLOUT_NETWORK", "USE_ROLLOUT_ROUTE_DEPENDENCIES", "USE_ROLLOUT_NETWORK_CHORDS",
+            "USE_ROLLOUT_RHEA", "USE_ROLLOUT_LIVE_TARGET", "ROLLOUT_ALWAYS_DISRUPT", "USE_ROLLOUT_TRACK_VALUE",
+            "ROLLOUT_TRACK_VALUE_SELF_ONLY");
+
+    private static boolean flagValue(Params params, String flag) {
+        try {
+            return Params.class.getField(flag).getBoolean(params);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
     /** Resolve historical defaults first, then explicit ablation overrides. Always a fresh object. */
     public static Params parameters(String spec) {
         String version = version(spec);
@@ -140,6 +164,9 @@ public final class BotFactory {
             throw new IllegalArgumentException("Boss lite route term requires USE_BOSS_LITE");
         if (params.BOSS_OPPONENT_REPLIES < 0 || params.BOSS_OPPONENT_REPLIES > params.ROLLOUT_REPLIES)
             throw new IllegalArgumentException("BOSS_OPPONENT_REPLIES must be between 0 and ROLLOUT_REPLIES");
+        if ((version.equals("current") || version.equals("main")) && rolloutPolicy)
+            for (String flag : PRUNED_ROLLOUT_FLAGS) if (flagValue(params, flag))
+                throw new IllegalArgumentException(flag + " was pruned from current (prune-v1, 2026-10-25); run it on v10");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
             throw new IllegalArgumentException("Missed-deadline correction is a current-only experiment");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && (!params.USE_ROLLOUT_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))

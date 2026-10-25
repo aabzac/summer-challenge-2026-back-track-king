@@ -186,7 +186,9 @@ public final class NeuralProposalStudy {
         List<Tuple> tuples = new ArrayList<>(); List<Suppressed> skipped = new ArrayList<>();
         Map<String, Score> cache = new LinkedHashMap<>();
         for (int order = 0; order < size; order++) {
-            int root = (int) call(bot, "searchRoot", new Class<?>[]{int.class}, order);
+            // prune-v1: searchRoot left current with the quick-early/spread/network experiments; the v09
+            // baseline reproduced here never reordered roots, so the search order is the root index.
+            int root = order;
             int[] cells = Arrays.copyOf(roots[root], counts[root]);
             boolean duplicate = suppressed(root, ordinary, roots, counts);
             for (int attack = 0; attack < 2; attack++) {

@@ -33,13 +33,13 @@ class DeferredCommitCompactionTest {
     @Test void compactCandidateFitsAndHasIdenticalTokensAndExecutableClassBytes() throws Exception {
         String reference = FileMerger.mergeUncompressed(CANDIDATE), compact = FileMerger.merge(CANDIDATE);
         assertTrue(compact.length() < FileMerger.MAX_SOURCE_CHARS);
-        assertTrue(reference.length() - compact.length() >= 8525);
+        assertTrue(reference.length() - compact.length() >= 7200, "compaction saving: 8,525 before prune-v1, 7,233 after it");
         assertDoesNotThrow(() -> FileMerger.checkSourceSize(compact));
         assertDoesNotThrow(() -> FileMerger.manifest(CANDIDATE, compact));
         String normalizedReference = FileMerger.normalizeMarker(reference), normalizedCompact = FileMerger.normalizeMarker(compact);
         assertEquals(JavaSourceCompactor.tokens(normalizedReference), JavaSourceCompactor.tokens(normalizedCompact));
         Map<String, String> before = compile(normalizedReference, "reference"), after = compile(normalizedCompact, "compact");
-        assertEquals(24, before.size());
+        assertEquals(22, before.size(), "classes in the artifact; NetworkChords and TacticalPathing left with prune-v1");
         assertEquals(before, after, "Every class must be byte-identical with marker and debug positions normalized");
     }
 
