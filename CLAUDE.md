@@ -23,28 +23,35 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 - Every experimental flag ships inside its own `// NAME_BEGIN/END` merger block (see
   `FileMerger`), so artifacts with the flag off stay byte-identical to the pinned hashes
   (`BossSabotageSubmissionTest`, `V07/V08/V09PromotionTest` pin the `Params` field count — bump it
-  when you add fields). Source limit 100,000 chars; candidate D is at 99,683.
+  when you add fields). Source limit 100,000 chars; since `prune-v1` (2026-10-25) the default artifact
+  is **70,397** chars. `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
+  blocks (stripped from current rollout artifacts only); a new field the bot reads goes outside them.
+  The 17 pruned rollout flags (`BotFactory.PRUNED_ROLLOUT_FLAGS`) are refused on `current`; run their
+  mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`).
 - No arena upload, no promotion, no "selected version" change without the live step and a
   DEVLOG entry. Verdicts: one BOTS.md row, one DEVLOG entry, STATUS.md updated.
 
-## Current line of work (2026-10-23)
+## Current line of work (2026-10-25)
 
 **v10 "Boss Model" is the selected version since 2026-10-23** (`docs/v10-promotion.md`): D's seven flags
 are `Params` defaults, `btk.bot.v10` is the frozen copy, the arena runs the same configuration (agent
-6807052, Silver #2). Pre-promotion tests express v09 as `LiveTargetExperimentParams.V09_ON_CURRENT`
-(`current?` + `V10_OFF`). Next: `prune-v1` (artifact 99,676 / 100,000), then Stage 3–4. History of the chain:
+6811139 since 2026-10-24/25 = the fresh default artifact; D was 6807052). Pre-promotion tests express v09
+as `LiveTargetExperimentParams.V09_ON_CURRENT` (`current?` + `V10_OFF`). **`prune-v1` done 2026-10-25**
+(`docs/prune-v1.md`): `current` = v10 behaviour without the rejected experiments, artifact 70,397 chars.
+Next: Stage 3–4 valuation (never waste the disrupt point; exposure-discounted own valuation + bypass),
+screened vs the proxy with `current` as the same-map control. History of the chain:
 
 Chain on the same maps, each ≥ its predecessor: v09 → `boss-sabotage-v2` (`USE_BOSS_LITE`,
 two-stage boss chooser) → B `opponent-model-v1` (+`USE_BOSS_OPPONENT_MODEL,USE_BOSS_OWN_MODEL`)
 → C (+`USE_BOSS_LITE_ROUTES`) → **D** (+`USE_INCREMENTAL_INK_REFRESH,USE_FAST_CHEAPEST_PATH,
 USE_BATCHED_REFRESH`). D is the arena entry; its artifact and strict procCheck are in
-`build/submit-stage2-d`. Open items are in `docs/PLAN.md` ("Stage 2 … spend the dividend",
-"prune-v1", live series, arena fetch/analyse). Details per step: `docs/boss-sabotage-v2.md`,
+`build/submit-stage2-d`. Open items are in `docs/PLAN.md` (Stage 3–4, the optional live session 2,
+arena fetch/analyse). Details per step: `docs/boss-sabotage-v2.md`,
 `docs/stage1-opponent-model-v1.md`, `docs/boss-lite-routes-v1.md`, `docs/stage2-compute-v1.md`.
 
 ## Known test state
 
-`gradlew test` (818 tests on 2026-10-23): 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
+`gradlew test` (822 tests on 2026-10-25): 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
 on `btk/core/Pathing.class` (`experiment-engine-v1.json`, see `docs/bot_catalog.md`; remedy is a
 new snapshot with new experiment ids, a user decision) and 6 `PduhardBeamBotTest` (bot never
 registered). Anything else red is new.

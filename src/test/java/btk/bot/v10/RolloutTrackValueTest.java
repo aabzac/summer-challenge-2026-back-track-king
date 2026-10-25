@@ -1,5 +1,6 @@
-package btk.bot.current;
+package btk.bot.v10;
 
+import btk.bot.current.RolloutTestParams;
 import btk.bot.Params;
 import btk.bot.Timer;
 import btk.core.Action;
@@ -8,10 +9,11 @@ import btk.core.Pathing;
 import btk.core.Rules;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /** Leader-calibrated track valuation and corridor fallback (Indrill study, 2026-09-20). */
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutTrackValueTest {
     /**
      * 7x3 board. Top row: towns 0 (0,0) and 1 (6,0), cells 1..5 in separate regions 1..5.
@@ -28,7 +30,7 @@ class RolloutTrackValueTest {
         return s;
     }
 
-    private static int target(RolloutBot bot, GameState s, int me) throws Exception {
+    private static int target(RolloutBotV10 bot, GameState s, int me) throws Exception {
         ((Timer) field(bot, "timer")).start(60_000);
         return (int) call(bot, "chooseTarget", new Class<?>[]{GameState.class, int.class}, s, me);
     }
@@ -46,14 +48,14 @@ class RolloutTrackValueTest {
             assertEquals(1, income[1 - me]);
             assertEquals(0, income[me]);
 
-            var off = new RolloutBot(RolloutTestParams.base("NOISE=0"));
-            var on = new RolloutBot(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_TRACK_VALUE=1"));
+            var off = new RolloutBotV10(RolloutTestParams.base("NOISE=0"));
+            var on = new RolloutBotV10(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_TRACK_VALUE=1"));
             off.init(s, me); on.init(s, me);
             assertEquals(3, target(off, s, me), "v08 valuation: the earning region is worth 1 income x 5 turns + 0.4");
             assertEquals(9, target(on, s, me), "three unfinished tracks x 5 outrank 5 + 5 for the earning region");
 
             // SELF_ONLY: our chooser uses the new term, the simulated opponent keeps the v08 term.
-            var self = new RolloutBot(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_TRACK_VALUE=1,ROLLOUT_TRACK_VALUE_SELF_ONLY=1"));
+            var self = new RolloutBotV10(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_TRACK_VALUE=1,ROLLOUT_TRACK_VALUE_SELF_ONLY=1"));
             self.init(s, me);
             assertEquals(9, target(self, s, me));
             var mirror = s.copy();
@@ -77,9 +79,9 @@ class RolloutTrackValueTest {
         assertEquals(5.0, p.ROLLOUT_OPP_TRACK_VALUE);
         assertEquals(6.0, p.ROLLOUT_OWN_TRACK_VALUE);
         assertThrows(IllegalArgumentException.class,
-                () -> new RolloutBot(RolloutTestParams.base("ROLLOUT_OPP_TRACK_VALUE=-1")));
+                () -> new RolloutBotV10(RolloutTestParams.base("ROLLOUT_OPP_TRACK_VALUE=-1")));
         assertThrows(IllegalArgumentException.class,
-                () -> new RolloutBot(RolloutTestParams.base("ROLLOUT_OWN_TRACK_VALUE=NaN")));
+                () -> new RolloutBotV10(RolloutTestParams.base("ROLLOUT_OWN_TRACK_VALUE=NaN")));
     }
 
     @Test void flagOnStillEmitsLegalActionsAndHitsEveryTurnWhileOpponentTracksExist() {
@@ -87,7 +89,7 @@ class RolloutTrackValueTest {
             var s = board();
             for (int c = 15; c <= 17; c++) s.owner[c] = 1 - me;
             Rules.updateConnections(s, new Pathing(s.size));
-            var on = new RolloutBot(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_TRACK_VALUE=1"));
+            var on = new RolloutBotV10(RolloutTestParams.base("NOISE=0,USE_ROLLOUT_TRACK_VALUE=1"));
             on.init(s, me);
             List<Action> actions = on.play(s, me, 60_000);
             assertTrue(actions.stream().anyMatch(a -> a.type == Action.Type.DISRUPT && a.disruptRegion(s) == 9),

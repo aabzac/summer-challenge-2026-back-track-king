@@ -5,7 +5,7 @@ import btk.bot.Timer;
 import btk.core.*;
 import org.junit.jupiter.api.Test;
 
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.current.RolloutTestSupport.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RolloutOpeningIntegrationTest {

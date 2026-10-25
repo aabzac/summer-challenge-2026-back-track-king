@@ -1,4 +1,4 @@
-package btk.bot.current;
+package btk.bot.v10;
 
 import btk.bot.Params;
 import btk.bot.Timer;
@@ -10,9 +10,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutNetworkChordsTest {
     private static GameState tripleGap(int enemy) {
         int[] regions = new int[14];
@@ -25,10 +26,10 @@ class RolloutNetworkChordsTest {
         return s;
     }
 
-    private static RolloutBot bot(GameState s, int me, boolean on) {
+    private static RolloutBotV10 bot(GameState s, int me, boolean on) {
         var p = new Params(btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0,NOISE=0,USE_DISRUPT=0");
         p.USE_ROLLOUT_NETWORK_CHORDS = on;
-        var b = new RolloutBot(p); b.init(s, me); return b;
+        var b = new RolloutBotV10(p); b.init(s, me); return b;
     }
 
     @Test void wholeTripleWinsAfterUnchangedOrdinaryAndSingletonSearchOnBothSides() throws Exception {
@@ -73,7 +74,7 @@ class RolloutNetworkChordsTest {
         var off = bot(tripleGap(1), 0, false);
         for (String name : new String[]{"chordA", "chordB", "chordC", "chordOrder", "chordPriority", "chordGains", "chordBest"})
             assertNull(field(off, name));
-        assertThrows(IllegalArgumentException.class, () -> new RolloutBot(new Params(
+        assertThrows(IllegalArgumentException.class, () -> new RolloutBotV10(new Params(
                 "USE_PROTECTED_OPENING=0,USE_ROLLOUT_NETWORK_CHORDS=1,USE_ROLLOUT_NETWORK_AFTER_BASE=0")));
     }
 

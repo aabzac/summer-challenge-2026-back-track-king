@@ -74,7 +74,7 @@ class FileMergerTest {
         assertEquals("d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
         // Measured from the pre-v2 HEAD merger; the saved default Player.java is an older export.
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
@@ -105,7 +105,7 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
         assertEquals("a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v2")));
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
@@ -136,7 +136,7 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v2")));
         assertEquals("2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v3")));
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
@@ -190,7 +190,7 @@ class FileMergerTest {
                 "spatial-ppo-v2", "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
                 "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -282,7 +282,7 @@ class FileMergerTest {
                 "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -380,7 +380,7 @@ class FileMergerTest {
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
                 "spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -491,7 +491,7 @@ class FileMergerTest {
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
                 "spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
                 "spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -577,7 +577,7 @@ class FileMergerTest {
                 Map.entry("spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6"),
                 Map.entry("spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74"),
                 Map.entry("spatial-ppo-v8", "3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff"),
-                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5"),
+                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78"),
                 Map.entry("v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac"),
                 Map.entry("neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9"));
         for (var prior : hashes.entrySet()) {
@@ -661,7 +661,7 @@ class FileMergerTest {
         String current = FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0"), frozen = FileMerger.merge("v07");
         assertTrue(current.contains("USE_ROLLOUT_QUICK_ROUTE=true"));
         assertTrue(current.contains("USE_ROLLOUT_NETWORK_AFTER_BASE=true"));
-        assertTrue(current.contains("USE_ROLLOUT_NETWORK=false"));
+        assertFalse(current.contains("USE_ROLLOUT_NETWORK="), "pruned from current artifacts by prune-v1");
         assertTrue(frozen.contains("private void searchNetworkAfterBase("));
         assertFalse(frozen.contains("RolloutBotV07"));
         // Current deliberately contains later experiments; preserve the historical
@@ -671,8 +671,8 @@ class FileMergerTest {
         assertTrue(policyStart >= 0 && policyEnd > policyStart);
         assertEquals("b3765f55b30aa34f2aafdc5444c6fbb273f3f43415c45cf93b88c3ae6558759a",
                 FileMerger.sha256(frozen.substring(policyStart, policyEnd)));
-        assertTrue(current.contains("USE_ROLLOUT_ROUTE_DEPENDENCIES=false"));
-        assertTrue(current.contains("USE_ROLLOUT_NETWORK_CHORDS=false"));
+        assertFalse(current.contains("USE_ROLLOUT_ROUTE_DEPENDENCIES="));
+        assertFalse(current.contains("USE_ROLLOUT_NETWORK_CHORDS="));
         checkFrozenDecisions("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=0", true);
         checkFrozenDecisions("v07", true);
     }
@@ -692,9 +692,9 @@ class FileMergerTest {
         assertEquals(current, FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_PROTECTED_OPENING=1"));
         assertEquals(current, FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_FILL=1"));
         assertTrue(current.contains("USE_PROTECTED_OPENING=true"));
-        assertTrue(current.contains("USE_ROLLOUT_RHEA=false"));
-        assertTrue(current.contains("USE_ROLLOUT_LIVE_TARGET=false"));
-        assertTrue(current.contains("ROLLOUT_ALWAYS_DISRUPT=false"));
+        assertFalse(current.contains("USE_ROLLOUT_RHEA="));
+        assertFalse(current.contains("USE_ROLLOUT_LIVE_TARGET="));
+        assertFalse(current.contains("ROLLOUT_ALWAYS_DISRUPT="));
         FileMerger.checkSourceSize(current);
         String frozen = FileMerger.merge("v08");
         FileMerger.checkSourceSize(frozen);
@@ -905,7 +905,10 @@ class FileMergerTest {
                     if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) continue;
                     field.setAccessible(true); embedded.put(field.getName(), String.valueOf(field.get(generatedParams)));
                 }
-                assertEquals(BotFactory.configuration(spec), embedded, "merged full effective parameters");
+                Map<String, String> expectedEmbedded = new TreeMap<>(BotFactory.configuration(spec));
+                // prune-v1: a current rollout artifact declares and embeds only the fields its policy reads.
+                if (FileMerger.prunesLocalOnly(spec)) expectedEmbedded.keySet().removeAll(FileMerger.localOnlyParams());
+                assertEquals(expectedEmbedded, embedded, "merged full effective parameters");
                 init.invoke(generatedBot, generatedState, me);
                 if (warmup) {
                     var warm = mainClass.getMethod("warmup", stateClass, int.class, long.class);
@@ -1085,7 +1088,8 @@ class FileMergerTest {
         assertTrue(source.contains("INDRILL_INK_PENALTY=2"));
         checkFrozenDecisions("indrill-q-v1", true);
         assertFalse(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("IndrillFeatures"));
-        assertTrue(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("class TacticalPathing"));
+        assertFalse(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT).contains("class TacticalPathing"),
+                "prune-v1: the all-cell-risk routes left current, so its artifact no longer carries TacticalPathing");
         assertFalse(FileMerger.merge("v09").contains("class InkProjection"));
         assertThrows(IllegalArgumentException.class, () -> FileMerger.merge("indrill-q-v3"));
     }
@@ -1094,27 +1098,21 @@ class FileMergerTest {
         checkFrozenDecisions("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0,USE_HEURISTIC_POLICY=1,USE_HEURISTIC_DETOUR=1,HEURISTIC_EMERGENCY_STOP=0", true);
     }
 
-    @Test void allCellRiskShipsOnlyForCurrentRolloutAndMatchesCompiledDecisions() throws Exception {
-        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ALL_CELL_RISK=1";
-        String source = FileMerger.merge(spec);
-        assertTrue(source.contains("USE_ROLLOUT_ALL_CELL_RISK=true"));
-        assertTrue(source.contains("class TacticalPathing"));
-        FileMerger.checkSourceSize(source);
-        checkFrozenDecisions(spec, true, false, true);
-        for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
-                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"})
-            assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ALL_CELL_RISK"), old);
-    }
-    @Test void rootFillShipsOnlyForCurrentRolloutAndMatchesCompiledDecisions() throws Exception {
-        String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_ROOT_FILL=1";
-        String source = FileMerger.merge(spec);
-        assertTrue(source.contains("USE_ROLLOUT_ROOT_FILL=true"));
-        assertTrue(source.contains("USE_ROLLOUT_ALL_CELL_RISK=false"));
-        FileMerger.checkSourceSize(source);
-        checkFrozenDecisions(spec, true);
-        for (String old : new String[]{"v09", "neural-v3", "neural-v6", "indrill-q-v2",
-                "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"})
-            assertFalse(FileMerger.merge(old).contains("USE_ROLLOUT_ROOT_FILL"), old);
+    /**
+     * prune-v1 (2026-10-25): the all-cell-risk and root-fill experiments left current. Their artifacts can no
+     * longer be built (the request is refused, never silently ignored); the default artifact ships neither the
+     * flags nor TacticalPathing; the mechanisms themselves are covered on the frozen copy by btk.bot.v10.
+     */
+    @Test void prunedRiskAndRootFillExperimentsCannotBePackagedFromCurrentAndLeftTheDefaultArtifact() throws Exception {
+        for (String flag : new String[]{"USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL"}) {
+            String spec = "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + flag + "=1";
+            assertThrows(IllegalArgumentException.class, () -> FileMerger.merge(spec), spec);
+            for (String old : new String[]{"current", btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v3",
+                    "neural-v6", "indrill-q-v2", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=0"})
+                assertFalse(FileMerger.merge(old).contains(flag), old + " / " + flag);
+        }
+        assertFalse(FileMerger.merge("current").contains("class TacticalPathing"));
+        assertTrue(FileMerger.merge("v10").contains("class TacticalPathing"), "the frozen export keeps every class");
     }
     @Test void v2SubmissionKeepsItsBaselineAndPreservesFrozenV1Artifact() throws Exception {
         String source = FileMerger.merge("indrill-q-v2");

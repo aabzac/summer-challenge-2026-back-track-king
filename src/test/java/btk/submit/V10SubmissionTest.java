@@ -18,8 +18,9 @@ class V10SubmissionTest {
         String current = FileMerger.merge("current"), frozen = FileMerger.merge("v10");
         FileMerger.checkSourceSize(current);
         FileMerger.checkSourceSize(frozen);
-        assertEquals(99676, current.length());
-        assertEquals("1c8912347fefc39f8b16e3d37d0087ba4f749f433c219424eaaf2adb4c0804fc", FileMerger.sha256(current));
+        // prune-v1 (2026-10-25): the same configuration and decisions in 70,397 characters (was 99,676 at the promotion).
+        assertEquals(70397, current.length());
+        assertEquals("5047c83adfcbf363412fe969b8ae1dd0c27ca50b0a4e3dc3277dc549d049503b", FileMerger.sha256(current));
         assertEquals(99598, frozen.length());
         assertEquals("9c3b40085db2d818b3a46212f4f5659f7ca6d6d2514eae026dd98daed21e4699", FileMerger.sha256(frozen));
         // Same resolved configuration as the uploaded D artifact: only the Params initializer literals differ in the text.
@@ -37,7 +38,7 @@ class V10SubmissionTest {
         assertTrue(current.contains("strategy=current build="));
         assertTrue(frozen.contains("strategy=v10 build="));
         // The v09-era baseline and v09 itself are untouched.
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5",
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
                 FileMerger.sha256(FileMerger.merge(LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac", FileMerger.sha256(FileMerger.merge("v09")));
         var currentParams = new TreeMap<>(BotFactory.configuration("current"));

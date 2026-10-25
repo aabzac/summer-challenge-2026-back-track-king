@@ -112,8 +112,10 @@ class V10PromotionTest {
                     .replace("ProtectedOpeningV10", "ProtectedOpening")
                     .replace("return \"v10\";", "return \"current?\" + p.diff();");
             assertEquals(item[1], sha(measured), "measured source " + item[0]);
-            assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
-                    "current source " + item[0] + " at the freeze");
+            // prune-v1 (2026-10-25) removed the rejected experiments from current's RolloutBot; the two helpers are untouched.
+            if (!item[0].equals("RolloutBot"))
+                assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
+                        "current source " + item[0] + " at the freeze");
         }
     }
 }

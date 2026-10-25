@@ -1,13 +1,15 @@
-package btk.bot.current;
+package btk.bot.v10;
 
+import btk.bot.current.RolloutTestParams;
 import btk.bot.Params;
 import btk.bot.Timer;
 import btk.core.*;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutSpreadTest {
     private static GameState board() {
         int[] regions = new int[30];
@@ -15,14 +17,14 @@ class RolloutSpreadTest {
         return new GameState(10,3,regions,new int[30],new int[]{0,9,0,9},new int[]{0,0,2,2},
                 new int[][]{{1},{},{3},{}});
     }
-    private static RolloutBot bot(GameState s, int me) throws Exception {
-        var bot = new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_SPREAD=1,USE_DISRUPT=0,NOISE=0"));
+    private static RolloutBotV10 bot(GameState s, int me) throws Exception {
+        var bot = new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_SPREAD=1,USE_DISRUPT=0,NOISE=0"));
         bot.init(s,me);
         pool(bot,me,new int[]{0,1,2,3,4,5,6,7,8,9},new int[]{20,21,22,23,24,25,26,27,28,29});
         ((Timer)field(bot,"timer")).start(60_000);
         return bot;
     }
-    private static int fill(RolloutBot b, GameState s, int me, int quota, int[] out) throws Exception {
+    private static int fill(RolloutBotV10 b, GameState s, int me, int quota, int[] out) throws Exception {
         return (int)call(b,"fillSpread",new Class<?>[]{GameState.class,int.class,int.class,int.class,int.class,int[].class},
                 s,me,0,1,quota,out);
     }
@@ -65,7 +67,7 @@ class RolloutSpreadTest {
     @Test void multiTurnForecastContinuesSplittingAndAccountsForDelayedIncome() throws Exception {
         for(int me=0;me<2;me++) {
             var s=board(); s.maxTurns=4; var b=bot(s,me);
-            var f=RolloutBot.class.getDeclaredField("ordinaryRootSize"); f.setAccessible(true); f.setInt(b,3);
+            var f=RolloutBotV10.class.getDeclaredField("ordinaryRootSize"); f.setAccessible(true); f.setInt(b,3);
             ((int[][])field(b,"roots"))[3]=new int[]{1,2,21};
             ((int[])field(b,"rootCounts"))[3]=3;
             ((int[])field(b,"spreadFirst"))[3]=0; ((int[])field(b,"spreadSecond"))[3]=1;
@@ -82,7 +84,7 @@ class RolloutSpreadTest {
     @Test void fullSearchEvaluatesBoundedSplitActionsWithoutChangingRouteGeneration() throws Exception {
         for(int me=0;me<2;me++) {
             var s=board(); Rules.updateConnections(s,new Pathing(s.size));
-            var base=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_DISRUPT=0,NOISE=0")); base.init(s,me);
+            var base=new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_DISRUPT=0,NOISE=0")); base.init(s,me);
             base.play(s,me,60_000);
             var b=bot(s,me); var actions=b.play(s,me,60_000);
             assertEquals(base.routeQueries,b.routeQueries);
@@ -97,6 +99,6 @@ class RolloutSpreadTest {
             for(int i=0;i<size;i++)assertEquals(i,order[i]);
         }
         assertFalse(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_SPREAD);
-        assertThrows(IllegalArgumentException.class,()->new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_SPREAD=1,USE_ROLLOUT_REPLAN=1")));
+        assertThrows(IllegalArgumentException.class,()->new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_SPREAD=1,USE_ROLLOUT_REPLAN=1")));
     }
 }

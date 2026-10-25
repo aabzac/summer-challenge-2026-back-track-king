@@ -1,13 +1,15 @@
-package btk.bot.current;
+package btk.bot.v10;
 
+import btk.bot.current.RolloutTestParams;
 import btk.bot.Params;
 import btk.core.*;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutRouteDependenciesTest {
     private static GameState bridge(int width, int owner) {
         int[] regions = new int[width];
@@ -34,29 +36,29 @@ class RolloutRouteDependenciesTest {
         return s;
     }
 
-    private static RolloutBot bot(GameState s, int me, boolean enabled, String extra) throws Exception {
+    private static RolloutBotV10 bot(GameState s, int me, boolean enabled, String extra) throws Exception {
         var p = RolloutTestParams.base("NOISE=0,USE_DISRUPT=0," + extra);
         p.USE_ROLLOUT_ROUTE_DEPENDENCIES = enabled;
-        var b = new RolloutBot(p);
+        var b = new RolloutBotV10(p);
         b.init(s, me);
         Arrays.fill((int[]) field(b, "threats"), -1);
         setInt(b, "quickPlayer", -1);
         return b;
     }
 
-    private static void propose(RolloutBot b, GameState s, int me, int pair) throws Exception {
+    private static void propose(RolloutBotV10 b, GameState s, int me, int pair) throws Exception {
         call(b, "propose", new Class<?>[]{GameState.class, int.class, int.class, int.class}, s, me, pair, 0);
     }
 
-    private static int[] build(RolloutBot b, GameState s, int me, int route) throws Exception {
+    private static int[] build(RolloutBotV10 b, GameState s, int me, int route) throws Exception {
         int[] cells = new int[3];
         int n = (int) call(b, "fillBuild", new Class<?>[]{GameState.class, int.class, int.class, int[].class},
                 s, me, route, cells);
         return Arrays.copyOf(cells, n);
     }
 
-    private static void setInt(RolloutBot b, String name, int value) throws Exception {
-        var f = RolloutBot.class.getDeclaredField(name);
+    private static void setInt(RolloutBotV10 b, String name, int value) throws Exception {
+        var f = RolloutBotV10.class.getDeclaredField(name);
         f.setAccessible(true);
         f.setInt(b, value);
     }

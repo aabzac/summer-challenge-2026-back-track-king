@@ -12,6 +12,9 @@ import java.lang.reflect.Modifier;
  * do not know about.
  */
 public class Params {
+    // Fields inside LOCAL_ONLY blocks are never read by the shipped rollout policy (current); FileMerger drops
+    // them (declarations and embedded values) from current rollout artifacts since prune-v1 (2026-10-25). Frozen
+    // packages, EvalBot/heuristic/neural policies and tools keep reading them; frozen exports keep every field.
 
     // TURN_BUDGET_BEGIN
     /** Current native rollout experiment: later-turn allowance including input preparation. */
@@ -52,8 +55,10 @@ public class Params {
     public boolean USE_NEURAL_FALLBACK = false;
     public int NEURAL_FALLBACK_MAX_INSTABILITY = 0;
 
+    // LOCAL_ONLY_BEGIN
     /** Independent Indrill-style action-value policy: extra route cost per instability level. */
     public int INDRILL_INK_PENALTY = 2;
+    // LOCAL_ONLY_END
 
     // Selected v09 policy; disable explicitly to use the retained EvalBot experiments.
     public boolean USE_ROLLOUT_POLICY = true;
@@ -69,10 +74,12 @@ public class Params {
     /** Selected v10: reuse immutable grid geometry during canonical route construction. */
     public boolean USE_FAST_CHEAPEST_PATH = true;
     // FAST_CHEAPEST_PATH_END
+    // LOCAL_ONLY_BEGIN
     /** Current-only route proposal: charge instability on existing tracks as well as free cells. */
     public boolean USE_ROLLOUT_ALL_CELL_RISK = false;
     /** Current-only experiment: score and emit the same filled first action. */
     public boolean USE_ROLLOUT_ROOT_FILL = false;
+    // LOCAL_ONLY_END
     // MISSED_DEADLINE_BEGIN
     /** Current-only experiment: honor a missed, repeatedly forecast sabotage deadline. */
     public boolean USE_ROLLOUT_MISSED_DEADLINE = false;
@@ -105,6 +112,7 @@ public class Params {
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;
+    // LOCAL_ONLY_BEGIN
     public boolean USE_ROLLOUT_QUICK_EARLY = false;
     public boolean USE_ROLLOUT_QUICK_VALUE = false;
     public boolean USE_ROLLOUT_QUICK_SAFE = false;
@@ -115,7 +123,9 @@ public class Params {
     public boolean USE_ROLLOUT_SPREAD = false;
     public int ROLLOUT_SPREAD_ROOTS = 2;
     public boolean USE_ROLLOUT_NETWORK = false;
+    // LOCAL_ONLY_END
     public boolean USE_ROLLOUT_NETWORK_AFTER_BASE = true;
+    // LOCAL_ONLY_BEGIN
     /** Abandon simulated continuations when a canonical completed-path bridge is destroyed. */
     public boolean USE_ROLLOUT_ROUTE_DEPENDENCIES = false;
     /** Affordable two/three-cell network roots, after ordinary and single-cell comparisons. */
@@ -124,6 +134,7 @@ public class Params {
     public boolean USE_ROLLOUT_RHEA = false;
     public int ROLLOUT_RHEA_MUTATIONS = 12;
     public int ROLLOUT_RHEA_ELITES = 2;
+    // LOCAL_ONLY_END
     /** Selected v09 policy: spend leftover paint on stable/protected cells next to own rails (boss/leader cell study). */
     public boolean USE_ROLLOUT_FILL = true;
     public int ROLLOUT_FILL_MAX_INSTABILITY = 0;
@@ -148,6 +159,7 @@ public class Params {
     public double ROLLOUT_ROUTE_HORIZON = 16.0;
     public double ROLLOUT_THREAT_WEIGHT = 0.5;
     public double ROLLOUT_WIN_VALUE = 1000000.0;
+    // LOCAL_ONLY_BEGIN
     /**
      * Sabotage the opponent's live project: regions where it placed tracks within the last
      * ROLLOUT_LIVE_TURNS observed turns gain ROLLOUT_LIVE_WEIGHT per such cell (income x turns).
@@ -168,9 +180,11 @@ public class Params {
     public double ROLLOUT_OWN_TRACK_VALUE = 6.0;
     /** Apply the track valuation only to our own chooser; the simulated opponent keeps the v08 term. */
     public boolean ROLLOUT_TRACK_VALUE_SELF_ONLY = false;
+    // LOCAL_ONLY_END
 
     // Independent simple policy; off in the selected v06 strategy.
     public boolean USE_HEURISTIC_POLICY = false;
+    // LOCAL_ONLY_BEGIN
     public boolean HEURISTIC_EMERGENCY_STOP = true;
     public int HEURISTIC_MAX_ROUTES = 64;
     public double HEURISTIC_TARGET_STICKINESS = 1.3;
@@ -183,7 +197,9 @@ public class Params {
     public int HEURISTIC_DETOUR_REGIONS = 4;
     public int HEURISTIC_DETOUR_PAIRS = 4;
     public int HEURISTIC_DETOUR_CAP = 12;
+    // LOCAL_ONLY_END
 
+    // LOCAL_ONLY_BEGIN
     // ---- greedy pair selection ----
     /** Weight of opponent-owned cells on a candidate path (they earn while we build). */
     public double W_OPP = 1.0;
@@ -197,17 +213,21 @@ public class Params {
     // ---- v02 eval bot: building ----
     /** Consider "own route" candidates that avoid opponent tracks (ownership stealing). */
     public boolean USE_STEAL = true;
+    // LOCAL_ONLY_END
     /** Extra paint-cost per instability point for routing through unstable regions. */
     public double UNSTABLE_COST = 1.0;
+    // LOCAL_ONLY_BEGIN
     /** Value multiplier lost per instability point on the riskiest new cell (0..1 per 4 points). */
     public double W_RISK = 0.6;
     /** Weight of opponent income change in candidate evaluation. */
     public double W_OPP_INCOME = 1.0;
+    // LOCAL_ONLY_END
 
     // ---- v02 eval bot: disrupt ----
     public boolean USE_DISRUPT = true;
     /** Stop route/idle search this many ms before the turn deadline; 0 restores v04 scheduling. */
     public int DISRUPT_RESERVE_MS = 6;
+    // LOCAL_ONLY_BEGIN
     /** Weight of our own income lost when inking a region (vs opponent's loss = 1). */
     public double W_SELF_LOSS = 1.2;
     /** Value per opponent track destroyed that is not (yet) earning. */
@@ -271,6 +291,7 @@ public class Params {
     public boolean ALWAYS_DISRUPT = true;
     /** Experimental: precompute a ready-to-ink target before route search as a timeout fallback. */
     public boolean EARLY_DISRUPT_FALLBACK = false;
+    // LOCAL_ONLY_END
 
     // ---- symmetry breaking / benches ----
     /** Relative multiplicative noise on candidate values (0 = deterministic). Breaks self-play mirrors. */
@@ -282,6 +303,7 @@ public class Params {
     /** Verified submission-runtime warmup; frozen strategy implementations do not consume it. */
     public boolean ISOLATED_ROUTE_WARMUP = true;
     public int WARMUP_SLICE_MS = 36;
+    // LOCAL_ONLY_BEGIN
     /** Diagnostic counters only; leave off in strength benches and submissions. */
     public boolean PROFILE_SEARCH = false;
     /** Default-off experiment: discard incomplete vulnerability evaluations at build cutoff. */
@@ -301,6 +323,7 @@ public class Params {
     public boolean MESSAGE = false;
     /** Log per-turn diagnostics to stderr. */
     public boolean DEBUG = false;
+    // LOCAL_ONLY_END
 
     public Params() {}
 

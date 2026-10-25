@@ -677,8 +677,11 @@ The merged artifact removes leading/trailing line indentation while preserving t
 and ordinary string literals. Java text blocks are rejected by the line-based merger; source
 files themselves retain their formatting.
 
-`submit` defaults to `current`, now v09. To reproduce the selected frozen policy, use
-`gradlew submit -PsubmitVersion=v09`; `v08`, `v07`, `v06` and `v05` also remain available. The merger
+`submit` defaults to `current`, now v10 "Boss Model" as pruned by `prune-v1` (2026-10-25, 70,397 of
+100,000 characters: the rejected rollout experiments and the `Params` fields the policy never reads are
+left out of current rollout artifacts; see `docs/prune-v1.md`). To reproduce the selected frozen policy
+with every historical mechanism, use `gradlew submit -PsubmitVersion=v10`; `v09`, `v08`, `v07`, `v06`
+and `v05` also remain available. The merger
 includes only the selected strategy as `EvalBot`, embedding its complete resolved parameters
 in `MainBot` for both default and frozen builds. Frozen files and working source stay unchanged.
 This reproduces the strategy, not a byte-for-byte historical artifact (shared core, runtime and

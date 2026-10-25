@@ -1,13 +1,15 @@
-package btk.bot.current;
+package btk.bot.v10;
 
+import btk.bot.current.RolloutTestParams;
 import btk.bot.Params;
 import btk.bot.Timer;
 import btk.core.*;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
-import static btk.bot.current.RolloutDiverseRepliesTest.*;
+import static btk.bot.v10.RolloutDiverseRepliesTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/** Moved from btk.bot.current by prune-v1 (2026-10-25): the mechanism under test now lives only in frozen v10. */
 class RolloutNetworkTest {
     private static GameState chord(int owner) {
         int[] regions = new int[63];
@@ -16,14 +18,14 @@ class RolloutNetworkTest {
         for (int c : new int[]{29,30,21,22,23,32,33}) s.owner[c] = owner;
         s.turn = 10; Rules.updateConnections(s,new Pathing(s.size)); return s;
     }
-    private static RolloutBot bot(GameState s,int me,String overrides) {
-        var b = new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1,NOISE=0,USE_DISRUPT=0"+overrides));
+    private static RolloutBotV10 bot(GameState s,int me,String overrides) {
+        var b = new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,USE_ROLLOUT_NETWORK=1,NOISE=0,USE_DISRUPT=0"+overrides));
         b.init(s,me); return b;
     }
     @Test void findsMissingMixedNetworkChordOnBothSidesAndEmitsOnlyItsActualCell() throws Exception {
         for (int me = 0; me < 2; me++) {
             var s=chord(1-me); var b=bot(s,me,""); int[] owners=s.owner.clone();
-            var off=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0")); off.init(s,me);
+            var off=new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0")); off.init(s,me);
             assertEquals("WAIT",Action.format(off.play(s,me,60_000)));
             var actions=b.play(s,me,60_000);
             assertEquals("PLACE_TRACKS 4 3",Action.format(actions));
@@ -56,7 +58,7 @@ class RolloutNetworkTest {
         for(int me=0;me<2;me++) {
             var s=chord(1-me);s.maxTurns=12;var b=bot(s,me,"");
             pool(b,me,new int[]{0,1,2});pool(b,1-me,new int[]{31});
-            var ordinary=RolloutBot.class.getDeclaredField("ordinaryRootSize");ordinary.setAccessible(true);ordinary.setInt(b,2);
+            var ordinary=RolloutBotV10.class.getDeclaredField("ordinaryRootSize");ordinary.setAccessible(true);ordinary.setInt(b,2);
             ((int[][])field(b,"roots"))[2][0]=31;((int[])field(b,"rootCounts"))[2]=1;
             ((Timer)field(b,"timer")).start(60_000);
             double value=(double)call(b,"rollout",new Class<?>[]{GameState.class,int.class,int.class,int.class,int.class},s,me,2,-1,0);
@@ -68,7 +70,7 @@ class RolloutNetworkTest {
     }
     @Test void boundedScanDeduplicatesOrdinarySingletonAndExpiredPlayClearsDiagnostics() throws Exception {
         var s=chord(1);var b=bot(s,0,"");
-        var ordinary=RolloutBot.class.getDeclaredField("ordinaryRootSize");ordinary.setAccessible(true);ordinary.setInt(b,2);
+        var ordinary=RolloutBotV10.class.getDeclaredField("ordinaryRootSize");ordinary.setAccessible(true);ordinary.setInt(b,2);
         ((int[][])field(b,"roots"))[0][0]=31;((int[])field(b,"rootCounts"))[0]=1;
         ((Timer)field(b,"timer")).start(60_000);
         int size=(int)call(b,"addNetworkRoots",new Class<?>[]{GameState.class,int.class,int.class,int.class},s,0,2,12);
@@ -85,12 +87,12 @@ class RolloutNetworkTest {
     }
     @Test void flagOffRetainsPriorDecisionsAndRejectsMixedExperiments() throws Exception {
         assertFalse(btk.bot.LiveTargetExperimentParams.v09Params().USE_ROLLOUT_NETWORK);
-        var s=chord(1);var b=new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0"));b.init(s,0);
+        var s=chord(1);var b=new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_QUICK_ROUTE=1,NOISE=0,USE_DISRUPT=0"));b.init(s,0);
         assertEquals("WAIT",Action.format(b.play(s,0,60_000)));assertNull(field(b,"networkCells"));
         for(String variant:new String[]{"USE_ROLLOUT_SPREAD=1","USE_ROLLOUT_REPLAN=1","USE_ROLLOUT_SECOND_TARGET=1",
                 "USE_ROLLOUT_DIVERSE_REPLIES=1","USE_ROLLOUT_QUICK_EARLY=1","ROLLOUT_NETWORK_MAX_CELLS=0",
                 "ROLLOUT_NETWORK_ROOTS=3","ROLLOUT_NETWORK_RESERVE_MS=-1"})
-            assertThrows(IllegalArgumentException.class,()->new RolloutBot(RolloutTestParams.base("USE_ROLLOUT_NETWORK=1,"+variant)));
+            assertThrows(IllegalArgumentException.class,()->new RolloutBotV10(RolloutTestParams.base("USE_ROLLOUT_NETWORK=1,"+variant)));
     }
     @Test void rootOrderingIsAPermutationAndImmediateInkRemovesTheNewIncome() throws Exception {
         for(int me=0;me<2;me++) {

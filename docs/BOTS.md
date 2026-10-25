@@ -27,6 +27,17 @@ config sha `f0e507ac…` = the arena entry (build `2f896714…`, agent 6807052),
 25 pre-existing failures. The boss-v2 proxy spec is now `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0`.
 [Protocol](v10-promotion.md), [evidence](evidence/v10-promotion/). v09 is historical.
 
+**`prune-v1` — 2026-10-25, a code change to `current`, not a strength candidate:** the 17 rejected
+rollout experiments and their helpers left `RolloutBot` (1,601 → 1,076 lines) and 86 never-read `Params`
+fields moved into `// LOCAL_ONLY` blocks that `FileMerger` drops from current rollout artifacts; default
+artifact **99,676 → 70,397 chars** (sha `5047c83a…`, build `f7caee04…`, config `f0e507ac…` unchanged),
+frozen `v10` export byte-identical. Equivalence: `PruneV1Test` lockstep vs `v10` with ample time — identical
+decisions and counters on every turn (PASS); timed guard on pool 1001000: 50.7 % head-to-head vs `v10`,
+68.3 % vs boss-v2 against `v10`'s 70.3 % on the same maps (paired −2.0 ± 6.5 pp); strict 4-game process
+check 0 problems. The historical mechanisms run on `v10?FLAG=1` (tests in `btk.bot.v10`); `current?FLAG=1`
+is refused. Arena entry since 2026-10-24/25: agent 6811139 (the fresh default v10 artifact, 29W/21L on its
+first 50). [Protocol and results](prune-v1.md), [evidence](evidence/prune-v1/).
+
 **Live boss, 2026-10-23 (`stage2-d-live-boss-v1`, v5 step c session 1):** D's exact arena artifact vs v09
 in the same IDE session, matched 40 maps × 2 builds = 80 API games vs boss 6767608 — **D 18/40 = 45.0 %,
 v09 9/40 = 22.5 %**, discordant pairs 13 : 4, one-sided p = 0.0245, **paired +22.5 pp → PASS** (threshold

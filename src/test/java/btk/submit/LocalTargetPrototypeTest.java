@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class LocalTargetPrototypeTest {
     @Test void defaultArtifactRemainsByteIdenticalAndCandidateCannotBeMislabeled() throws Exception {
         String source = FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT);
-        assertEquals(98709, source.length());
-        assertEquals("ab0954a4545f25222fce6bccf8fa11866d276266e96b4728b502c83996d847e5", FileMerger.sha256(source));
+        assertEquals(66737, source.length()); // prune-v1 (was 98,709)
+        assertEquals("bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78", FileMerger.sha256(source));
         assertFalse(source.contains("USE_NEURAL_TARGET_PROPOSAL"));
         assertThrows(IllegalArgumentException.class,
                 () -> FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_NEURAL_TARGET_PROPOSAL=1"));

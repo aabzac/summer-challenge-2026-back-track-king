@@ -8442,3 +8442,66 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   configuration, no re-upload needed). Next: `prune-v1` (99,676 / 100,000), then Stage 3–4
   valuation; the optional second live session stays available as a later check. Nothing uploaded
   or pushed to the arena by the agent.
+
+## 2026-10-25 — `prune-v1`: the rejected rollout experiments leave `current`; the default artifact drops from 99,676 to 70,397 characters
+
+- **Why now.** v10 shipped 324 characters under the 100,000 limit; the Stage 3–4 valuation work needs
+  source. Protocol, the predeclared equivalence check and the results table in [prune-v1.md](prune-v1.md).
+- **Arena first.** `cgFetch -Pplayer=aabzac` found a **new entry: puzzle agent 6811139** — the user
+  uploaded the fresh default v10 artifact after the promotion (marker `build=8c7ef3d9… config=f0e507ac…`,
+  the same configuration as D's `2f896714…`). Its first 50 games: **29W/21L**, 0 failed turns, tall maps
+  (h ≥ 19) 11-6, 30×20 **5-3**, 29×19 6-3, 27×18 4-2, 26×17 4-2, 24×16 4-6, 23×15 4-3, 21×14 2-2; rank 356 /
+  score 26.83 on the puzzle leaderboard (`evidence/arena-2026-10-25-v10-agent-6811139.json`; D's own
+  record stays `evidence/arena-2026-10-22-D-agent-6807052.json`).
+- **What left `current`.** Seventeen default-false rollout experiments and everything reachable only
+  through them (`RolloutBot` 1,601 → 1,076 lines): all-cell risk (+`TacticalPathing`), root fill,
+  quick early/value/safe, diverse replies, replan, second target, spread, pre-base network roots,
+  route dependencies, network chords (+`NetworkChords`), RHEA (already a refusal), live target, always
+  disrupt, track value (+ self-only). `USE_ROLLOUT_NETWORK_AFTER_BASE`, quick route, fill, the protected
+  opening, the seven v10 flags and the `MISSED_DEADLINE` / `BOSS_SABOTAGE` blocks stay.
+- **What left the artifact only.** 86 `Params` fields the shipped rollout never reads (the pruned
+  flags and their companions, the EvalBot/heuristic/pressure/forecast weights, `MESSAGE`/`DEBUG`) now
+  sit in `// LOCAL_ONLY_BEGIN/END` blocks; `FileMerger` drops them, their values in the embedded
+  `new Params("…")` and the two unused core classes from **current rollout artifacts only**
+  (`FileMerger.prunesLocalOnly`, `localOnlyParams`; `TacticalPathing` still ships with the boss-sabotage
+  proxy, which uses it). The fields stay in `Params.java` for the frozen packages, EvalBot/HeuristicBot
+  and the tools; every frozen export is byte-identical (`v10`: 99,598 chars, `9c3b4008…`; `v09`:
+  `aca0be45…`). `BotFactory.configuration()` is unchanged (130 values), so the arena identity's
+  `config=f0e507ac…` did not move — only `build=` did.
+- **Guards.** `BotFactory.PRUNED_ROLLOUT_FLAGS` / `V10_FLAGS_OFF`: a true pruned flag on `current`/`main`
+  is refused in `parameters()` and in the `RolloutBot` constructor (never silently ignored); `v10?FLAG=1`
+  runs the mechanism in the frozen copy. Twelve mechanism tests moved `btk.bot.current` → `btk.bot.v10`
+  (`RolloutBot → RolloutBotV10`, `current? → v10?`; `RolloutTestParams` public, `RolloutTestSupport` holds
+  the reflection helpers); `RolloutQuickRouteTest` keeps its three live quick-route tests on current;
+  `RolloutRiskStudy`, `RolloutRiskPolicyCheck`, `RolloutFillPolicyCheck` run on v10;
+  `NeuralProposalStudy` no longer calls the removed `searchRoot` (identity for the v09 baseline).
+- **Equivalence.** `PruneV1Test`: `current` and `v10` play the same seat in lockstep against a `v10`
+  opponent with 60 s budgets on one generated map per board size (21×14 … 30×20) and both seats, up to
+  60 turns — identical action lists and identical `routeQueries` / `completedComparisons` /
+  `simulatedTurns` / `selectedValue` / `selectedRoute` / `selectedTarget` / `networkRoots` / `fillCells`
+  on every turn → **PASS**. `PruneV1SubmissionTest`: the default artifact declares none of the
+  local-only fields, embeds only declared fields, carries neither `NetworkChords` nor `TacticalPathing`,
+  resolves to the same 130-value configuration; `FileMergerTest.checkFrozenDecisions("current")`
+  matches the compiled artifact's decisions.
+- **Artifact.** Default `gradlew submit` → `build/submit-prune-v1`: **70,397 / 100,000 chars**, sha
+  `5047c83a…`, build `f7caee04…`, config `f0e507ac…`. Strict process check vs v09 (4 games, zero
+  grace): **0 problem games**, 0 timeouts, first ≤ 668 ms, later ≤ 38.6 ms, 2/4 wins
+  (`evidence/prune-v1/`).
+- **Timed regression guard** (`tools/boss_proxy/run_prune_screen.sh`, fresh pool **1001000**, 300
+  paired games per cell, 2 workers, CG timing): `current` vs `v10` head-to-head **50.7 %** (151-147-2);
+  vs boss-v2 on the same maps/seeds/seats **68.3 %** against `v10`'s **70.3 %**, paired **−2.0 ± 6.5 pp**
+  (32/35/83 maps better/worse/equal); zero errors, pruned bot max 37 ms per move in both cells. The
+  same algorithm at the same speed, as the equivalence test predicts.
+- **Tests.** 822 tests, 25 failures, all pre-existing (19 retained-engine incl.
+  `FileMergerTest.characterLimitIsCheckedBeforePublishing` and `NeuralTargetSizeProbeTest`, 6
+  `PduhardBeamBotTest`). Pins of every current-rollout artifact moved: the v09 configuration on current
+  `ab0954a4` → `bfe4dd9b` (98,709 → 66,737 chars), BASE `5e58f6d3` → `719b5366`, GUARD `3bd070b3` →
+  `d35d23d1`, BASE+ink `26712505` → `a171f242`, +38 `4472cbbc` → `03552580`, +40 `972cd133` →
+  `3e50e65d`, +40+ink `fa3ae4cc` → `c204b6c7`, default 99,676/`1c891234` → 70,397/`5047c83a`;
+  `DeferredCommitCompactionTest` 24 → 22 classes, saving threshold 8,525 → 7,200. `V10PromotionTest`
+  keeps the frozen-identity hash for `BossSabotage`/`ProtectedOpening` only (current's `RolloutBot` is
+  the pruned algorithm now). New: `PruneV1Test` (2), `PruneV1SubmissionTest` (1).
+- **State:** `current` = v10 Boss Model, pruned; **29,279 characters of room** for Stage 3–4. No arena
+  upload (same configuration). Pool 1001000..1001149 consumed; next free range ≥ 1002000. Next: Stage
+  3–4 valuation (never waste the disrupt point; exposure-discounted own valuation + bypass), each step
+  its own `// NAME_BEGIN/END` block, screened vs the proxy with `current` as the same-map control.
