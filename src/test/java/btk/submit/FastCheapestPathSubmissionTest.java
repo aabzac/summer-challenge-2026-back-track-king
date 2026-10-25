@@ -52,12 +52,12 @@ class FastCheapestPathSubmissionTest {
 
     @Test void disabledArtifactsRetainExactHistoricalBytes() throws Exception {
         Map<String, String> historical = Map.of(
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "bfe4dd9b3e00fbee6c386411c486621cfb2b0f72b78b2e479a82659b0b3c1e78",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "82f166f30abba1fee25f5706559946064ddff9599fb8c75fe89bc56b34bfb18a",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
-                BASE, "719b536606924ad210f087372c57bdad26856475e22b82f0a0cebbb97e4202a3",
-                GUARD, "d35d23d10ed15e0b498f58d94d761189419db46d2bc0238efa0304b70e97845d",
+                BASE, "fa52a7d76df3775892aecebf25c5cb1f926906730c80e2707113ecda217002a4",
+                GUARD, "2c8cc252a47c233c4b337ac19465d5321842a97679674bdd18c090b7660b48e9",
                 BASE + ",USE_INCREMENTAL_INK_REFRESH=true",
-                "a171f2424b6d0c263bd95e9ef6340bacdc9f9e0f8c2b50eaa0b89833f7a98378");
+                "712581648535fa01ea21c6aaf332579c6c77df61c4a64a2c1984129ed5c7aa07");
         for (var entry : historical.entrySet()) {
             String spec = entry.getKey(), source = FileMerger.merge(spec);
             assertEquals(entry.getValue(), FileMerger.sha256(source), spec);
@@ -90,7 +90,7 @@ class FastCheapestPathSubmissionTest {
             assertTrue(compact.contains(FLAG + "=true"));
             assertTrue(compact.contains("enableFastCheapestPath"));
             assertTrue(compact.contains("prepareCheapestNeighbors"));
-            assertTrue(compact.contains("pathNeighbors==null?"), "safe original fallback stays available");
+            assertTrue(compact.contains("pathNeighbors == null ?"), "safe original fallback stays available");
             for (String absent : new String[]{"FAST_CHEAPEST_PATH_BEGIN", "FAST_CHEAPEST_PATH_OLD_BEGIN",
                     "btk.tools", "btk.referee", "btk.runner"}) assertFalse(compact.contains(absent), absent);
             assertDoesNotThrow(() -> FileMerger.manifest(spec, compact));

@@ -37,6 +37,13 @@ import java.util.stream.Stream;
  * blocks (Params fields the shipped policy never reads, local-only constructor guards), their values in
  * the embedded configuration, and the {@code NetworkChords}/{@code TacticalPathing} classes the pruned
  * policy no longer references. Frozen exports ({@code v10} included) keep every field and class.
+ *
+ * <p>Since readable-export-v1 (2026-10-25) a {@code current} export keeps its line structure and indentation
+ * (tabs, one level deeper inside {@code Player}; comments and blank-line runs are dropped) instead of being
+ * joined and compacted — it is compacted only when its readable form would exceed the source limit — and its
+ * first-turn MESSAGE leads with the strategy's display name
+ * ({@link BotFactory#displayName}) before the unchanged machine-readable {@code BTK_BUILD_V1} marker.
+ * Frozen exports keep their historical bytes: compact {@code v10}, bare marker.
  */
 public class FileMerger {
 
@@ -67,6 +74,9 @@ public class FileMerger {
         Path output = outputDir.resolve("Player.java");
         String source = merge(version);
         checkSourceSize(source);
+        String readable = mergeUncompressed(version);
+        if (!readable.equals(source)) System.out.printf("Readable form (%d characters) exceeds the %d limit: compacted%n",
+                readable.length(), MAX_SOURCE_CHARS);
         Files.createDirectories(outputDir);
         Files.writeString(output, source, StandardCharsets.UTF_8);
         compileCheck(output);
@@ -98,10 +108,12 @@ public class FileMerger {
         manifest.put("buildId", sha256(normalizeMarker(source)));
         manifest.put("configSha256", configSha256(version));
         String marker = marker(version, (String) manifest.get("buildId"));
+        String message = message(version, (String) manifest.get("buildId"));
         Matcher declaration = MARKER_DECLARATION.matcher(source);
-        if (!declaration.find() || !declaration.group(1).equals(marker))
+        if (!declaration.find() || !declaration.group(1).equals(message))
             throw new IllegalArgumentException("Source marker does not match requested strategy/configuration");
         manifest.put("marker", marker);
+        if (!message.equals(marker)) manifest.put("label", BotFactory.displayName(version));
         manifest.put("identityScheme", "sha256-source-with-empty-BUILD_MARKER-v1");
         manifest.put("attribution", "Replay MESSAGE is a self-reported identity. Matching the locally retained "
                 + "artifact verifies the marker mapping, not independently which source the server executed.");
@@ -112,7 +124,7 @@ public class FileMerger {
         return merge(version, true);
     }
 
-    /** Verification reference: preserves the enabled policy's source before lexical packaging. */
+    /** Verification reference: the enabled policy's source before lexical packaging (only {@code v10} is compacted). */
     static String mergeUncompressed(String version) throws IOException {
         return merge(version, false);
     }
@@ -238,6 +250,9 @@ public class FileMerger {
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
         int turnBudgetMs = BotFactory.parameters(spec).TURN_BUDGET_MS;
         boolean turnBudgetOverride = turnBudgetMs != 36;
+        // readable-export-v1: current exports keep line structure and indentation; frozen exports keep their bytes.
+        boolean readable = version.equals("current");
+        boolean pendingBlank = false;
         for (Path file : files) {
             if (!Files.exists(file)) throw new IOException("missing " + file);
             boolean inBlockComment = false;
@@ -531,7 +546,11 @@ public class FileMerger {
                     if (!trimmed.contains("*/")) inBlockComment = true;
                     continue;
                 }
-                if (trimmed.isEmpty() || trimmed.startsWith("//")) continue;
+                if (trimmed.isEmpty()) {
+                    pendingBlank = true;
+                    continue;
+                }
+                if (trimmed.startsWith("//")) continue;
                 if (PACKAGE.matcher(line).matches()) continue;
                 Matcher im = IMPORT.matcher(line);
                 if (im.matches()) {
@@ -543,12 +562,19 @@ public class FileMerger {
                 if (pt.find()) {
                     line = pt.group(1) + "static " + pt.group(2) + pt.group(3) + " " + line.substring(pt.end());
                 }
-                // Current rollout has optional experiments; punctuation already separates these tokens.
-                // Keep newlines around line comments. Historical artifacts retain their original bytes.
-                String code = line.strip();
-                body.append(code);
-                if (!(version.equals("current") && rollout && !code.contains("//")
-                        && (code.endsWith(";") || code.endsWith("{") || code.endsWith("}")))) body.append('\n');
+                if (readable) {
+                    // One blank line survives between statement groups and members. Indentation is kept as one
+                    // tab per four-space level plus one for the nesting in Player: the same layout with spaces
+                    // is 113,144 characters, over the 100,000 limit.
+                    if (pendingBlank && body.length() > 0 && !endsWithBlankLine(body)) body.append('\n');
+                    int indent = 0;
+                    while (indent < line.length() && line.charAt(indent) == ' ') indent++;
+                    body.append("\t".repeat(1 + (indent + 2) / 4)).append(line.strip()).append('\n');
+                } else {
+                    // Historical artifacts retain their original bytes: stripped lines, no blank lines.
+                    body.append(line.strip()).append('\n');
+                }
+                pendingBlank = false;
             }
             if (deadlineBlock) throw new IllegalArgumentException("Unclosed deadline block: " + file);
             if (bossBlock) throw new IllegalArgumentException("Unclosed boss-sabotage block: " + file);
@@ -574,7 +600,11 @@ public class FileMerger {
         sb.append("    }\n}\n");
 
         String normalized = sb.toString();
-        if (compactCandidate && (version.equals("current") || version.equals("v10")) && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath || bossSabotage || bossLite || bossModel || bossRoutes)) {
+        // The frozen v10 export is compacted (its readable form exceeds the limit). A current export stays readable
+        // while it fits and is compacted only when its readable form would exceed the limit (same tokens).
+        boolean compactFrozenV10 = version.equals("v10")
+                && (missedDeadline || batchedRefresh || incrementalInk || fastCheapestPath || bossSabotage || bossLite || bossModel || bossRoutes);
+        if (compactCandidate && (compactFrozenV10 || readable && normalized.length() > MAX_SOURCE_CHARS)) {
             normalized = JavaSourceCompactor.compact(normalized);
             String compactMarker = JavaSourceCompactor.compact(EMPTY_MARKER_DECLARATION).stripTrailing();
             if (normalized.indexOf(compactMarker) < 0
@@ -588,7 +618,12 @@ public class FileMerger {
             throw new IllegalStateException("Expected exactly one empty submission marker declaration");
         }
         return normalized.replace(EMPTY_MARKER_DECLARATION,
-                "public static final String BUILD_MARKER = \"" + marker(spec, sha256(normalized)) + "\";");
+                "public static final String BUILD_MARKER = \"" + message(spec, sha256(normalized)) + "\";");
+    }
+
+    private static boolean endsWithBlankLine(StringBuilder body) {
+        int n = body.length();
+        return n >= 2 && body.charAt(n - 1) == '\n' && body.charAt(n - 2) == '\n';
     }
 
     static String normalizeMarker(String source) {
@@ -607,9 +642,20 @@ public class FileMerger {
         return sha256(canonical.toString());
     }
 
+    /** The machine-readable provenance marker; its grammar is shared with tools/replay_capture.py. */
     private static String marker(String spec, String buildId) {
         return "BTK_BUILD_V1 strategy=" + spec.split("\\?", 2)[0]
                 + " build=" + buildId + " config=" + configSha256(spec);
+    }
+
+    /**
+     * The first-turn MESSAGE text. A current export leads with the strategy's display name
+     * ({@code "v10 Boss Model | BTK_BUILD_V1 strategy=current build=... config=..."}); frozen
+     * exports keep the bare marker so their historical bytes do not change.
+     */
+    static String message(String spec, String buildId) {
+        String marker = marker(spec, buildId);
+        return spec.split("\\?", 2)[0].equals("current") ? BotFactory.displayName(spec) + " | " + marker : marker;
     }
 
     static void register(Path registry, String source, String manifestJson, String buildId) throws IOException {

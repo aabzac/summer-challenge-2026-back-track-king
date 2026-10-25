@@ -23,8 +23,12 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 - Every experimental flag ships inside its own `// NAME_BEGIN/END` merger block (see
   `FileMerger`), so artifacts with the flag off stay byte-identical to the pinned hashes
   (`BossSabotageSubmissionTest`, `V07/V08/V09PromotionTest` pin the `Params` field count — bump it
-  when you add fields). Source limit 100,000 chars; since `prune-v1` (2026-10-25) the default artifact
-  is **70,397** chars. `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
+  when you add fields). Source limit 100,000 chars; since `readable-export-v1` (2026-10-25) a `current`
+  export is **readable** (one statement per line, tab indentation, comments dropped) and the default
+  artifact is **88,671** chars (`prune-v1`'s compact form was 70,397; a `current` export is compacted only
+  when its readable form would exceed the limit, frozen exports keep their historical bytes). The
+  first-turn `MESSAGE` reads `v10 Boss Model | BTK_BUILD_V1 strategy=current build=… config=…`
+  (`BotFactory.displayName`; bump `BotFactory.SELECTED_VERSION` / `VERSION_NAMES` at a promotion). `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
   blocks (stripped from current rollout artifacts only); a new field the bot reads goes outside them.
   The 17 pruned rollout flags (`BotFactory.PRUNED_ROLLOUT_FLAGS`) are refused on `current`; run their
   mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`).
@@ -37,8 +41,9 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 are `Params` defaults, `btk.bot.v10` is the frozen copy, the arena runs the same configuration (agent
 6811139 since 2026-10-24/25 = the fresh default artifact; D was 6807052). Pre-promotion tests express v09
 as `LiveTargetExperimentParams.V09_ON_CURRENT` (`current?` + `V10_OFF`). **`prune-v1` done 2026-10-25**
-(`docs/prune-v1.md`): `current` = v10 behaviour without the rejected experiments, artifact 70,397 chars.
-Next: Stage 3–4 valuation (never waste the disrupt point; exposure-discounted own valuation + bypass),
+(`docs/prune-v1.md`): `current` = v10 behaviour without the rejected experiments; **`readable-export-v1`
+done 2026-10-25** (DEVLOG): readable `current` exports, default artifact 88,671 chars, strategy name in the
+first-turn message, config `f0e507ac…` unchanged. Next: Stage 3–4 valuation (never waste the disrupt point; exposure-discounted own valuation + bypass),
 screened vs the proxy with `current` as the same-map control. History of the chain:
 
 Chain on the same maps, each ≥ its predecessor: v09 → `boss-sabotage-v2` (`USE_BOSS_LITE`,

@@ -8505,3 +8505,53 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   upload (same configuration). Pool 1001000..1001149 consumed; next free range ≥ 1002000. Next: Stage
   3–4 valuation (never waste the disrupt point; exposure-discounted own valuation + bypass), each step
   its own `// NAME_BEGIN/END` block, screened vs the proxy with `current` as the same-map control.
+
+## 2026-10-25 — `readable-export-v1`: `current` exports are readable again and the first-turn MESSAGE names the strategy
+
+- **Why.** User request before the next strength step: since the v09 runtime experiments the generated
+  `Player.java` of a `current` export was joined statement-by-statement and then compacted
+  (`JavaSourceCompactor`) into a few lines, unreadable in the CG IDE; and the first-turn
+  `MESSAGE BTK_BUILD_V1 strategy=current build=… config=…` named the spec id, not the strategy.
+- **Merger.** `FileMerger.merge` keeps the line structure of every `current` export: one statement per
+  line, the source's indentation as one tab per four-space level plus one tab for the nesting inside
+  `Player`, one blank line kept between groups; comments are still dropped. The same layout with spaces
+  is **113,144** characters (over the limit); with tabs **88,671**. Frozen exports keep their historical
+  bytes (`v10` compact 99,598 / `9c3b4008…` — its readable form would be 113,050; `v09` 95,312 /
+  `aca0be45…`; v05–v08, neural, spatial and indrill pins untouched). A `current` export is compacted only
+  when its readable form would exceed 100,000 characters (today only the EvalBot candidates
+  `current?…,USE_ROLLOUT_POLICY=0,…`: readable 100,500 → compact 80,169; `gradlew submit` prints a line
+  when this happens). The compactor's token / class-byte equivalence stays tested on a readable
+  candidate (`DeferredCommitCompactionTest`, 22 classes).
+- **Sizes** (readable, characters): default `current` **88,671** (sha `e5da0dcb…`, build `94f7cce9…`,
+  **config `f0e507ac…` unchanged** = the arena artifact's configuration; 2,531 lines); the boss-sabotage
+  proxy `current?USE_BOSS_SABOTAGE=1,<seven offs>` 86,825; the v09 configuration on current 75,920 (was
+  66,737 compact); lite + opponent/own model + routes on the v09 base 84,385. Room for Stage 3–4:
+  11,329 characters readable, ~30,000 more behind the automatic compaction fallback.
+- **First-turn MESSAGE.** `BotFactory.displayName(spec)`: the BOTS.md title of the version
+  (`v10 Boss Model`; `current`/`main` carry `BotFactory.SELECTED_VERSION = "v10"`), plus ` (modified)`
+  when the resolved configuration differs from the version's defaults (`current?NOISE=0.1` is not a
+  modification, the v09 configuration on current is). `current` artifacts print
+  `MESSAGE v10 Boss Model | BTK_BUILD_V1 strategy=current build=… config=…`; the machine marker and its
+  grammar are unchanged, the manifest gains `label` for current exports only, the registry's `marker`
+  stays the bare marker. `tools/replay_capture.py` reads the marker from `BTK_BUILD_V1` on (13 Python
+  tests incl. the new label case pass; `docs/boss-api.md` updated); frozen exports keep the bare marker.
+  At the next promotion: bump `SELECTED_VERSION`, add the title to `VERSION_NAMES`.
+- **Pins moved** (current-based artifacts only): default 70,397/`5047c83a` → 88,671/`e5da0dcb`; the v09
+  configuration on current `bfe4dd9b` → `82f166f3` (66,737 → 75,920); BASE `719b5366` → `fa52a7d7`;
+  GUARD `d35d23d1` → `2c8cc252`; BASE+ink `a171f242` → `71258164`; +38 `03552580` → `7f7d7fd2`;
+  +40 `3e50e65d` → `ea0eae2e`; +40+ink `c204b6c7` → `17350f22`. Three assertions on compact spelling now
+  read the readable text (`pathNeighbors == null ?`, `updateReusableConnectionsAfterInk(state, paths,
+  false)`, the `PruneV1SubmissionTest` field regex); `V10SubmissionTest` pins the label, the layout and
+  `displayName`.
+- **Tests.** `gradlew test`: 822 tests, **25 failures, all pre-existing** (the documented set: 19 via the
+  retained-engine pin incl. `FileMergerTest.characterLimitIsCheckedBeforePublishing` and
+  `NeuralTargetSizeProbeTest`, 6 `PduhardBeamBotTest`); `btk.submit` 94/95 green (the one red is that pin).
+  `tools/test_replay_capture.py`: 13/13.
+- **Process check.** Default `gradlew submit` → `build/submit` (88,671 chars, `e5da0dcb…`), strict `procCheck`
+  (zero grace, 4 games vs v09, pool `replays/cg`): **0 problem games**, 0 timeouts, first response ≤ 973 ms
+  (first input sent after 419 ms on that game), later responses ≤ 38.3 ms, 4/4 wins
+  (`evidence/readable-export-v1/default-artifact-process-check.json`, manifest alongside). A one-game process probe
+  (the artifact as a child process vs v09) shows its first output line ending in `MESSAGE v10 Boss Model | BTK_BUILD_V1 strategy=current build=94f7cce9…
+  config=f0e507ac…`.
+- **No upload.** The resolved configuration did not move; the arena entry (agent 6811139) plays the same
+  bot. The next upload — the first Stage 3–4 candidate — shows the new message.

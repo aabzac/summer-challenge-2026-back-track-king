@@ -13,7 +13,7 @@ gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg
 gradlew benchSuite -Pbot=current               # matched local opponent panel on development-v1
 gradlew botCatalog                            # names, categories and experiment status
 gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
-gradlew submit                                 # -> build/submit/Player.java (compile-checked)
+gradlew submit                                 # -> build/submit/Player.java (compile-checked; readable since readable-export-v1)
 gradlew submit -PsubmitVersion=indrill-q-v1 -PsubmitOut=build/submit-indrill # separate Q-learning candidate
 gradlew submit -PsubmitVersion=indrill-q-v2 -PsubmitOut=build/submit-indrill-v2 # learned position/WAIT candidate
 gradlew submit -PsubmitVersion=neural-v2 -PsubmitOut=build/submit-neural-v2 # outcome-tuned imitation candidate
