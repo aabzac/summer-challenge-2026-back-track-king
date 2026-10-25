@@ -17,6 +17,13 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`collision-avoidance-v1` = `current?USE_COLLISION_AVOIDANCE=true` — 2026-10-25 night, rejected:** a root's rollout value loses
+`COLLISION_PENALTY` points per cell shared with the opponent's predicted first-turn cells (own merger block, default off). Fresh pool
+1006000 vs boss-v2 with `current` (v12) as the same-map control: penalty 5 → 73.0 % vs 77.0 % (−4.0 ± 7.0 pp), penalty 15 → 71.7 %
+(−5.3 ± 6.5); head-to-head 48.0 % / 42.0 %. The search already prices collisions in its reply scenarios; the aversion yields contested
+cells. Closes the idle-cell line with `unstable-cost-v1` and `fill-off-v1`. [Protocol and results](collision-avoidance-v1.md),
+[evidence](evidence/collision-avoidance-v1/).
+
 **`fill-off-v1` — 2026-10-25 night, parameter screen on `current` = v12, rejected:** `USE_ROLLOUT_FILL=0` (the leftover-paint fill
 of v09 switched off, motivated by the idle-cell diagnostic `docs/idle-cells-v12.md`) vs boss-v2 on fresh pool 1005000 with `current`
 as the same-map control: 74.7 % vs 78.5 % (paired −3.8 ± 6.9 pp, tall maps 81 vs 92 %), head-to-head 43.0 % (small maps 37 %). The

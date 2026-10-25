@@ -118,6 +118,11 @@ public class Params {
     public boolean USE_EXPOSURE_INCOME = true;
     public double EXPOSURE_INCOME_WEIGHT = 1.0;
     // EXPOSURE_INCOME_END
+    // COLLISION_BEGIN
+    /** collision-avoidance-v1 (2026-10-25): a root's rollout value loses COLLISION_PENALTY points per cell it shares with the opponent's predicted first-turn placements (its reply routes packed into this turn's paint); the rollout already neutralises such cells in the reply scenarios, this adds an explicit aversion. docs/idle-cells-v12.md. */
+    public boolean USE_COLLISION_AVOIDANCE = false;
+    public double COLLISION_PENALTY = 5.0;
+    // COLLISION_END
     // BOSS_ROOT_BEGIN
     /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
     public boolean USE_BOSS_ROOT_TARGET = true;

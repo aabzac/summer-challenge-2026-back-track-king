@@ -205,6 +205,10 @@ public final class BotFactory {
             throw new IllegalArgumentException("Exposure income exists on current and v12 only (exposure-income-v1); frozen v11 and v10 never had it");
         if (!Double.isFinite(params.EXPOSURE_INCOME_WEIGHT) || params.EXPOSURE_INCOME_WEIGHT < 0 || params.EXPOSURE_INCOME_WEIGHT > 1)
             throw new IllegalArgumentException("EXPOSURE_INCOME_WEIGHT must be within [0, 1]");
+        if (params.USE_COLLISION_AVOIDANCE && (!version.equals("current") || !rolloutPolicy))
+            throw new IllegalArgumentException("Collision avoidance is a current-only rollout experiment (collision-avoidance-v1)");
+        if (!Double.isFinite(params.COLLISION_PENALTY) || params.COLLISION_PENALTY < 0)
+            throw new IllegalArgumentException("COLLISION_PENALTY must be a finite non-negative number");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
@@ -245,6 +249,8 @@ public final class BotFactory {
                 if (field.getName().equals("USE_BOSS_THREAT_MODEL") && !params.USE_BOSS_THREAT_MODEL) continue;
                 if ((field.getName().equals("USE_EXPOSURE_INCOME") || field.getName().equals("EXPOSURE_INCOME_WEIGHT"))
                         && !params.USE_EXPOSURE_INCOME) continue;
+                if ((field.getName().equals("USE_COLLISION_AVOIDANCE") || field.getName().equals("COLLISION_PENALTY"))
+                        && !params.USE_COLLISION_AVOIDANCE) continue;
                 if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
