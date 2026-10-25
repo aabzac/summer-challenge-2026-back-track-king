@@ -24,7 +24,8 @@ candidate E1 (`current?USE_EXPOSURE_INCOME=true`) became the default of `current
 session threshold met exactly, p = 0.40, tall maps 1 : 4 of 8) — the second session was skipped by the user. Default artifact
 91,349 chars (sha `109be1f3…`, build `ce1d3a3b…`, config `d7803b42…` = E1's), strict 4-game check 0 problems; 837 tests, 25
 pre-existing failures. **The boss-v2 proxy spec now needs `USE_EXPOSURE_INCOME=0` explicitly**; the v11 configuration on
-current is `current?USE_EXPOSURE_INCOME=0`. Arena upload pending (user). [Protocol](v12-promotion.md),
+current is `current?USE_EXPOSURE_INCOME=0`. **Arena: uploaded by the user the same night = puzzle agent 6813957, first 50 games
+32W/18L, 0 failed turns, tall 14-6** (`evidence/arena-2026-10-25-v12-agent-6813957.json`). [Protocol](v12-promotion.md),
 [evidence](evidence/v12-promotion/). v11 is historical.
 
 **`exposure-income-v1` = `current?USE_EXPOSURE_INCOME=true` — 2026-10-25 late evening, Stage 4 second half, v5 steps (a)+(b)
