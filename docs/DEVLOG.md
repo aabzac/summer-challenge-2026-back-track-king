@@ -8754,3 +8754,23 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **State:** `current` = **v12 Exposure Income** = the arena entry (agent 6813957). Next strength step: from
   `docs/PLAN.md` (Stage 2 compute cuts are the last unticked Stage item; or a new valuation idea), screened on fresh
   maps ≥ 1004000 with `current` (= v12) as the same-map control and the proxy spec with `USE_EXPOSURE_INCOME=0`.
+
+## 2026-10-25 (night) — `unstable-cost-v1`: the construction-side exposure penalty (UNSTABLE_COST 2 / 3) adds nothing on top of v12 — parked
+
+- **Why.** The user asked for the next step after merging PR #6 (v11, v12, both experiments, the marker change).
+  The one own-risk term of the construction the 2026-10-20 analysis named and nobody had touched:
+  `UNSTABLE_COST` (+1 paint per cell per instability level in the cheapest-path proposals); the boss builds
+  nothing in regions at instability ≥ 2 and ~45 % of our accepted arena cells never earn. A parameter screen, no
+  code: `current?UNSTABLE_COST=2` and `=3` on `current` = v12 ([unstable-cost-v1.md](unstable-cost-v1.md)).
+- **Screen** (`tools/boss_proxy/run_unstable_screen.sh`, fresh pool **1004000**, 300 paired games per cell, CG
+  486/36 ms, 2 workers, proxy spec with `USE_EXPOSURE_INCOME=0`; `evidence/unstable-cost-v1/`): vs boss-v2 on
+  the same maps — `current` **78.7 %**, U2 79.0 % (**+0.3 ± 6.6 pp**, 39/38/73), U3 80.7 % (**+2.0 ± 6.8 pp**,
+  43/35/72); head-to-head vs `current` — U2 52.7 %, U3 48.7 % (tall maps 42 % / 44 %). Zero errors.
+- **Reading.** Both fail v5 step (a) → **parked, the default 1.0 stays**. On top of v12's value-side discount the
+  cost-side penalty is noise against the proxy and loses head-to-head on tall maps, where detours cost real
+  paint. The exposure line is priced where it matters now; the next lever has to come from somewhere else
+  (candidates in PLAN: the open Stage 2 compute cuts, or a fresh look at the 45 % never-earning cells with a
+  per-cell diagnostic of the v12 arena replays — which regions ink, which routes never complete).
+- **Branch.** PR #6 was rebase-merged into master; the branch continues from a merge of `origin/master`
+  (identical trees), since a branch reset is refused by the permission classifier here.
+- **State:** `current` = v12 unchanged; pool 1004000..1004149 consumed, next free range ≥ 1005000.

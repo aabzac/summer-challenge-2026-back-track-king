@@ -70,6 +70,7 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] **User:** v5 step (c) for E1, session 1 (2026-10-25 17:57–18:59 UTC, 40 matched maps × 2 builds): **E1 20/40 vs v11 18/40, paired +5.0 pp (8 : 6 discordant, p = 0.40), 80/80 replays exact → the +5 pp session threshold met exactly**; tall maps 1 : 4 of 8. No upload.
   - [x] ~~User decision: session 2 for E1~~ — **E1 promoted to v12 "Exposure Income" on 2026-10-25 night (user decision, second live session skipped)** — `docs/v12-promotion.md`: default flag, frozen `btk.bot.v12`, catalog, tests, artifact 91,349 chars / config `d7803b42…`, strict 4-game check 0 problems; the proxy spec gains `USE_EXPOSURE_INCOME=0`.
   - [x] **User:** uploaded `build/submit-v12/Player.java` (2026-10-25 night) = puzzle agent 6813957; first 50 games fetched and analysed: **32W/18L**, 0 failed turns, tall 14-6, never-earned 44.9 % (`docs/evidence/arena-2026-10-25-v12-agent-6813957.json`).
+- [x] **`unstable-cost-v1` (2026-10-25 night, `docs/unstable-cost-v1.md`) — parked:** U2 +0.3 ± 6.6 pp, U3 +2.0 ± 6.8 pp vs boss-v2 over `current` (78.7 %), h2h 52.7 / 48.7 % — both fail step (a); default stays. Parameter screen of `UNSTABLE_COST` 2 and 3 (the cheapest-path penalty per cell per instability level, default 1) on `current` = v12 — pool 1004000, U2/U3 vs boss-v2 (proxy spec with `USE_EXPOSURE_INCOME=0`) with `current` as the same-map control (+3 pp), h2h vs `current` (≥ 48 %); `tools/boss_proxy/run_unstable_screen.sh`.
 
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 
