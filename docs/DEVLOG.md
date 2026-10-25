@@ -8774,3 +8774,24 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Branch.** PR #6 was rebase-merged into master; the branch continues from a merge of `origin/master`
   (identical trees), since a branch reset is refused by the permission classifier here.
 - **State:** `current` = v12 unchanged; pool 1004000..1004149 consumed, next free range ≥ 1005000.
+
+## 2026-10-25 (night) — idle-cell diagnostic of v12's arena games: the inked cells were placed into stable regions; the controllable waste is ~10 purposeless cells per game
+
+- **Why.** The user chose the diagnostic ("давай диагностику") over another blind screen. `gradlew cgCellStudy`
+  over the 50 games of agent 6813957 (one row per placed track of either player), summary in
+  [idle-cells-v12.md](idle-cells-v12.md), raw summary in `evidence/idle-cells-v12/` (the 13,662-row CSV is
+  reproducible from the replays and not committed).
+- **Numbers.** v12: 6,656 cells, **35.6 % never earn** (opponents 38.3 %) — 820 inked before earning, 456
+  neutralised by same-cell collisions, 1,093 kept idle to the end; idle share 17 % early, 34 % middle, 76 % in
+  the last third (both sides alike). **742 of the 820 inked idle cells were placed at instability 0** (median ~6
+  turns to the ink); only 2.4 % of our placements go into regions at instability ≥ 2 at all. Of the cells kept
+  idle with ≥ 10 turns left (734), **508 lay on no route hypothesis at placement** (not completion, steal, bypass
+  or extension).
+- **Reading.** We are not worse than the field; the exposure that inks our cells is *created by our construction*
+  (the boss-like chooser scores regions by our cell count), so placement-time instability rules cannot reach it
+  — the explanation of today's parked `unstable-cost-v1` and of why the value-side discount (v12) was the part
+  that paid. The one controllable bucket is the ~10 purposeless cells per game: leftover-paint fill
+  (`USE_ROLLOUT_FILL`, selected in v09 on a mirror result) and single-cell network roots add ink magnets without
+  a route behind them. Second bucket for later: collisions (6.9 % of our paint neutralised; needs code).
+- **Next step started:** `fill-off-v1` — `current?USE_ROLLOUT_FILL=0` vs boss-v2 with `current` (= v12) as the
+  same-map control and head-to-head, fresh pool 1005000 (`tools/boss_proxy/run_fill_screen.sh`).
