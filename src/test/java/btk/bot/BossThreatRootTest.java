@@ -15,9 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * byte-identical to the pinned default (V10SubmissionTest, BossThreatRootSubmissionTest).
  */
 class BossThreatRootTest {
-    static final String A = "current?USE_BOSS_THREAT_MODEL=true";
-    static final String B = "current?USE_BOSS_ROOT_TARGET=true";
-    static final String AB = "current?USE_BOSS_THREAT_MODEL=true,USE_BOSS_ROOT_TARGET=true";
+    // Since the v12 promotion the specs carry the exposure flag off, to stay the configurations the screen measured.
+    static final String A = "current?USE_BOSS_THREAT_MODEL=true,USE_EXPOSURE_INCOME=0";
+    static final String B = "current?USE_BOSS_ROOT_TARGET=true,USE_EXPOSURE_INCOME=0";
+    static final String AB = "current?USE_BOSS_THREAT_MODEL=true,USE_BOSS_ROOT_TARGET=true,USE_EXPOSURE_INCOME=0";
 
     private static Referee.Result play(Bot a, String b, long seed) {
         GameState initial = MapGenerator.generate(seed);

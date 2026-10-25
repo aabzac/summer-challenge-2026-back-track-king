@@ -8722,3 +8722,35 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   Step (c) is decided on 80 candidate games; a second 40-map session on another day completes it (one
   predeclared extension to 120). **No promotion, no upload** until the user decides (session 2, promote now
   as with v11, or stop). Live sessions of the line so far: D +22.5, B +2.5, E1 +5.0 pp.
+
+## 2026-10-25 (night) — v12 Exposure Income: candidate E1 promoted to the selected version on the user's decision
+
+- **Decision.** After the live session (E1 20/40 vs v11 18/40, +5.0 pp, the session threshold met exactly) the user
+  chose to promote ("Промоушн 12"); the second live session is skipped, the deviation from v5 step (c) is recorded in
+  [v12-promotion.md](v12-promotion.md) as at the v10 and v11 promotions. Nothing retuned: `USE_EXPOSURE_INCOME` becomes
+  a `Params` default (weight 1.0), everything else is v11.
+- **Mechanics (mirror of v11).** `FrozenParams` keeps the two fields off for every record without them (v11 included);
+  `btk.bot.v12` = byte copies of `current`'s `RolloutBot` / `BossSabotage` / `ProtectedOpening` with identity changes
+  only (`V12PromotionTest` hashes); `versions/v12.properties` + `v12-confirmed.properties` = 133 values;
+  `BotFactory`: `SELECTED_VERSION = "v12"`, display name `v12`, `v12` native rollout, the v11 flags allowed on it, the
+  pruned flags refused; `FileMerger` exports `v12` readably and pruned like `current`; catalog `v12` selected, `v11`
+  historical. **Guard rule:** a policy that never reads the flag drops the inherited default silently, an explicit
+  `=1` is refused; the v11 configuration on current is `current?USE_EXPOSURE_INCOME=0` (`V11_ON_CURRENT`, config
+  `179dcc66…`), `B_SPEC`/`D_SPEC` carry the off value. **Proxy spec:** the exposure discount does not depend on the
+  lite chooser, so `current?USE_BOSS_SABOTAGE=1,` + the seven v10 offs would now carry the v12 flag — **the boss-v2
+  proxy spec gains `USE_EXPOSURE_INCOME=0`** (CLAUDE.md, STATUS; the test helper `V10_OFF` carries it); the three
+  screens of today used the validated opponent (the flag did not exist or was off by default).
+- **Artifact.** Default `gradlew submit` → `build/submit-v12`: **91,349 / 100,000 chars**, sha `109be1f3…`, build
+  `ce1d3a3b…`, **config `d7803b42…` = E1's** (text differs from E1's artifact only in the initializer literal and the
+  label); frozen `v12` export 91,314 chars, `c89aa7ad…`. Strict `procCheck` vs v09 (4 games, zero grace): **0 problem
+  games**, 0 timeouts, first ≤ 650 ms, later ≤ 37.5 ms, 3/4 wins (`evidence/v12-promotion/`).
+- **Pins moved with the label** `v12 (modified)` (tokens unchanged): v09-on-current `a1043347` → `9ab8ebac`, GUARD
+  `a7001517` → `80245370`, BASE `f8595a4a` → `d3b3c7cd`, BASE+ink `50bd16a0` → `0920dbc3`, +38 `77fb8cb9` → `680b0d8e`,
+  +40 `bb40cea3` → `d2fd0db2`, +40+ink `572aa79b` → `89d5d9ff`, v10-on-current `f8754bca` → `ec331323`, the previous
+  default (v11-on-current) `cf1972a1` / build `35176f24` → `48c92aab` / `0b73d984` (88,990 → 89,012). Frozen `v11`,
+  `v10`, `v09` keep their bytes. New `V12PromotionTest` (2), `V12SubmissionTest` (2); `BotCatalogTest` expects `v12`.
+- **Tests.** `gradlew test`: 837 tests, **25 failures, all pre-existing**.
+- **State:** `current` = **v12 Exposure Income**; **the arena still runs v11 (agent 6813813) until the user uploads
+  `build/submit-v12/Player.java`**; then `cgFetch`/`cgAnalyze` of its first 50 games. Next strength step: from
+  `docs/PLAN.md` (Stage 2 compute cuts are the last unticked Stage item; or a new valuation idea), screened on fresh
+  maps ≥ 1004000 with `current` (= v12) as the same-map control and the proxy spec with `USE_EXPOSURE_INCOME=0`.

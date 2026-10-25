@@ -39,6 +39,7 @@ import btk.bot.v08.RolloutBotV08;
 import btk.bot.v09.RolloutBotV09;
 import btk.bot.v10.RolloutBotV10;
 import btk.bot.v11.RolloutBotV11;
+import btk.bot.v12.RolloutBotV12;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -74,7 +75,7 @@ public final class BotFactory {
     }
 
     /** The selected local version: {@code current} is its copy plus any later, not yet promoted work. */
-    public static final String SELECTED_VERSION = "v11";
+    public static final String SELECTED_VERSION = "v12";
 
     /**
      * Short human-readable strategy name for the first-turn MESSAGE and the artifact header: the version id
@@ -94,6 +95,8 @@ public final class BotFactory {
             + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
     /** The selected v11 flag switched off: the v10 configuration expressed on current or v11 (the lite chooser off implies it). */
     public static final String V11_FLAGS_OFF = "USE_BOSS_ROOT_TARGET=0";
+    /** The selected v12 flag switched off: the v11 configuration expressed on current or v12. */
+    public static final String V12_FLAGS_OFF = "USE_EXPOSURE_INCOME=0";
 
     /**
      * Rollout experiments removed from {@code current} by prune-v1 (2026-10-25) together with their code and their
@@ -189,10 +192,17 @@ public final class BotFactory {
         if (params.USE_BOSS_LITE_ROUTES && !params.USE_BOSS_LITE)
             throw new IllegalArgumentException("Boss lite route term requires USE_BOSS_LITE");
         if ((params.USE_BOSS_THREAT_MODEL || params.USE_BOSS_ROOT_TARGET)
-                && !version.equals("current") && !version.equals("main") && !version.equals("v11"))
-            throw new IllegalArgumentException("Boss threat model / root target exist on current and v11 only (stage4-threat-model-v1); frozen v10 has neither");
-        if (params.USE_EXPOSURE_INCOME && (!version.equals("current") || !rolloutPolicy))
-            throw new IllegalArgumentException("Exposure income is a current-only rollout experiment (exposure-income-v1)");
+                && !version.equals("current") && !version.equals("main") && !version.equals("v11") && !version.equals("v12"))
+            throw new IllegalArgumentException("Boss threat model / root target exist on current, v11 and v12 only (stage4-threat-model-v1); frozen v10 has neither");
+        // The selected v12 flag is rollout-only: a policy that never reads it drops the inherited default silently, an
+        // explicit request is refused (the v10/v11 rule); frozen versions before v12 never had it.
+        if (params.USE_EXPOSURE_INCOME && (!rolloutPolicy || !nativeRollout(version))) {
+            if (explicit(query, "USE_EXPOSURE_INCOME"))
+                throw new IllegalArgumentException("Exposure income requires the current native rollout policy");
+            params.USE_EXPOSURE_INCOME = false;
+        }
+        if (params.USE_EXPOSURE_INCOME && !version.equals("current") && !version.equals("main") && !version.equals("v12"))
+            throw new IllegalArgumentException("Exposure income exists on current and v12 only (exposure-income-v1); frozen v11 and v10 never had it");
         if (!Double.isFinite(params.EXPOSURE_INCOME_WEIGHT) || params.EXPOSURE_INCOME_WEIGHT < 0 || params.EXPOSURE_INCOME_WEIGHT > 1)
             throw new IllegalArgumentException("EXPOSURE_INCOME_WEIGHT must be within [0, 1]");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
@@ -201,7 +211,7 @@ public final class BotFactory {
             throw new IllegalArgumentException("Boss root target requires USE_BOSS_LITE (current native rollout)");
         if (params.BOSS_OPPONENT_REPLIES < 0 || params.BOSS_OPPONENT_REPLIES > params.ROLLOUT_REPLIES)
             throw new IllegalArgumentException("BOSS_OPPONENT_REPLIES must be between 0 and ROLLOUT_REPLIES");
-        if ((version.equals("current") || version.equals("main") || version.equals("v11")) && rolloutPolicy)
+        if ((version.equals("current") || version.equals("main") || version.equals("v11") || version.equals("v12")) && rolloutPolicy)
             for (String flag : PRUNED_ROLLOUT_FLAGS) if (flagValue(params, flag))
                 throw new IllegalArgumentException(flag + " was pruned from current (prune-v1, 2026-10-25); run it on v10");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
@@ -283,7 +293,7 @@ public final class BotFactory {
 
     /** Versions whose shipped policy is the native rollout with the selected v10 runtime/boss-lite blocks. */
     private static boolean nativeRollout(String version) {
-        return version.equals("current") || version.equals("main") || version.equals("v10") || version.equals("v11");
+        return version.equals("current") || version.equals("main") || version.equals("v10") || version.equals("v11") || version.equals("v12");
     }
 
     private static String version(String spec) {
@@ -316,6 +326,7 @@ public final class BotFactory {
             case "v09": return RolloutBotV09::new;
             case "v10": return RolloutBotV10::new;
             case "v11": return RolloutBotV11::new;
+            case "v12": return RolloutBotV12::new;
             case "pressure-v1": return PressureBot::new;
             case "leader-v1": return LeaderBot::new;
             case "leader-v2": return LeaderBot2::new;

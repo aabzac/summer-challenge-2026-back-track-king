@@ -114,8 +114,8 @@ public class Params {
     public boolean USE_BOSS_THREAT_MODEL = false;
     // BOSS_THREAT_END
     // EXPOSURE_INCOME_BEGIN
-    /** Stage 4 (exposure-income-v1): every connection's income is weighted by the survivability of the non-town regions its path crosses, (1 - EXPOSURE_INCOME_WEIGHT * instability / INK_THRESHOLD) each, in the rollout's tail and in the route proposals' completion gain; docs/stage4-exposure-income-v1.md. */
-    public boolean USE_EXPOSURE_INCOME = false;
+    /** Selected v12 (exposure-income-v1, 2026-10-25): every connection's income is weighted by the survivability of the non-town regions its path crosses, (1 - EXPOSURE_INCOME_WEIGHT * instability / INK_THRESHOLD) each, in the rollout's tail and in the route proposals' completion gain; docs/stage4-exposure-income-v1.md. */
+    public boolean USE_EXPOSURE_INCOME = true;
     public double EXPOSURE_INCOME_WEIGHT = 1.0;
     // EXPOSURE_INCOME_END
     // BOSS_ROOT_BEGIN

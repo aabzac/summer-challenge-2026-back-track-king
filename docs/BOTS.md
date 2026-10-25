@@ -17,8 +17,18 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**v12 Exposure Income — promoted 2026-10-25 night on the user's decision** ("Промоушн 12"): the exact stage4-exposure-income-v1
+candidate E1 (`current?USE_EXPOSURE_INCOME=true`) became the default of `current`; frozen copy `btk.bot.v12`; `v12.properties`
+= the 133 effective values = E1's artifact manifest. v5 record: proxy screen on pool 1003000 75.3 % vs boss-v2 against v11's
+71.7 % on the same maps (+3.7 ± 6.7 pp), 60.3 % head-to-head vs v11; live boss session 1 20/40 vs v11 18/40 (+5.0 pp, the
+session threshold met exactly, p = 0.40, tall maps 1 : 4 of 8) — the second session was skipped by the user. Default artifact
+91,349 chars (sha `109be1f3…`, build `ce1d3a3b…`, config `d7803b42…` = E1's), strict 4-game check 0 problems; 837 tests, 25
+pre-existing failures. **The boss-v2 proxy spec now needs `USE_EXPOSURE_INCOME=0` explicitly**; the v11 configuration on
+current is `current?USE_EXPOSURE_INCOME=0`. Arena upload pending (user). [Protocol](v12-promotion.md),
+[evidence](evidence/v12-promotion/). v11 is historical.
+
 **`exposure-income-v1` = `current?USE_EXPOSURE_INCOME=true` — 2026-10-25 late evening, Stage 4 second half, v5 steps (a)+(b)
-PASS, live pending:** every connection's income is weighted by the survivability of the unstable non-town regions its path
+PASS, live session 1 at the threshold, promoted to v12 the same night:** every connection's income is weighted by the survivability of the unstable non-town regions its path
 crosses, (1 − instability / 4) each, in the rollout's tail and in the route proposals' gains. Same-map screen on fresh pool
 1003000 (300 paired games/cell, CG timing, `docs/stage4-exposure-income-v1.md`): **75.3 % vs boss-v2 against v11's 71.7 %
 (paired +3.7 ± 6.7 pp, 41/31/78 maps — at the +3 pp gate)**, **60.3 % head-to-head vs v11** (181-119, the chain's largest),

@@ -12,7 +12,7 @@ class LocalTargetPrototypeTest {
     @Test void defaultArtifactRemainsByteIdenticalAndCandidateCannotBeMislabeled() throws Exception {
         String source = FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT);
         assertEquals(75925 /* v11 promotion + the 2026-10-25 marker change: version id in the label, selected version in the header comment */, source.length()); // readable-export-v1 (prune-v1: 66,737; before it 98,709)
-        assertEquals("a10433473e010e47ed909492a09939f45700d6e74407340123071e2baf8544e0", FileMerger.sha256(source));
+        assertEquals("9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792", FileMerger.sha256(source));
         assertFalse(source.contains("USE_NEURAL_TARGET_PROPOSAL"));
         assertThrows(IllegalArgumentException.class,
                 () -> FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_NEURAL_TARGET_PROPOSAL=1"));

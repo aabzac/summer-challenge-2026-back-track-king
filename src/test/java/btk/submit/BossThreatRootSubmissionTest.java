@@ -13,9 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * stay as V10SubmissionTest pins them.
  */
 class BossThreatRootSubmissionTest {
-    static final String A = "current?USE_BOSS_THREAT_MODEL=true";
-    static final String B = "current?USE_BOSS_ROOT_TARGET=true";
-    static final String AB = "current?USE_BOSS_THREAT_MODEL=true,USE_BOSS_ROOT_TARGET=true";
+    // Since the v12 promotion the three specs carry the exposure flag off, to stay the configurations the screen measured.
+    static final String A = "current?USE_BOSS_THREAT_MODEL=true,USE_EXPOSURE_INCOME=0";
+    static final String B = "current?USE_BOSS_ROOT_TARGET=true,USE_EXPOSURE_INCOME=0";
+    static final String AB = "current?USE_BOSS_THREAT_MODEL=true,USE_BOSS_ROOT_TARGET=true,USE_EXPOSURE_INCOME=0";
 
     /** Since the v11 promotion (2026-10-25) the "both flags off" configuration is the v10 one on current. */
     static final String OFF = btk.bot.LiveTargetExperimentParams.V10_ON_CURRENT;
@@ -33,7 +34,7 @@ class BossThreatRootSubmissionTest {
         assertEquals(132, BotFactory.configuration(AB).size());
         assertNotEquals(FileMerger.configSha256(OFF), FileMerger.configSha256(A));
         assertNotEquals(FileMerger.configSha256(OFF), FileMerger.configSha256(B));
-        assertEquals(FileMerger.configSha256("current"), FileMerger.configSha256(B), "B is the selected configuration");
+        assertEquals(FileMerger.configSha256(btk.bot.LiveTargetExperimentParams.V11_ON_CURRENT), FileMerger.configSha256(B), "B is the v11 configuration");
         String off = FileMerger.merge(OFF);
         for (String token : new String[]{"USE_BOSS_THREAT_MODEL", "USE_BOSS_ROOT_TARGET", "threatModelCalls", "BOSS_THREAT", "BOSS_ROOT"})
             assertFalse(off.contains(token), token + " must not ship while the flag is off");
@@ -49,8 +50,8 @@ class BossThreatRootSubmissionTest {
         Files.writeString(source, on);
         assertEquals(0, javax.tools.ToolProvider.getSystemJavaCompiler().run(null, null, null,
                 "-encoding", "UTF-8", "--release", "17", "-d", dir.toString(), source.toString()));
-        assertEquals("v11 (modified)", BotFactory.displayName(AB));
-        assertEquals("v11", BotFactory.displayName(B));
-        assertEquals("v11 (modified)", BotFactory.displayName(OFF));
+        assertEquals("v12 (modified)", BotFactory.displayName(AB));
+        assertEquals("v12 (modified)", BotFactory.displayName(B));
+        assertEquals("v12 (modified)", BotFactory.displayName(OFF));
     }
 }
