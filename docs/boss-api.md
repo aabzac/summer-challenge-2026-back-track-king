@@ -89,7 +89,7 @@ These checks establish packaging/protocol readiness, not strategy strength.
 `build/submission-registry/<buildId>/`. The first player output contains one
 `MESSAGE BTK_BUILD_V1 strategy=... build=... config=...`; since readable-export-v1
 (2026-10-25) a `current` export puts its display name in front of the marker
-(`MESSAGE v10 Boss Model | BTK_BUILD_V1 strategy=current build=... config=...`), and
+(`MESSAGE v11 | BTK_BUILD_V1 strategy=current build=... config=...`; the version id only since 2026-10-25), and
 `tools/replay_capture.py` reads the marker from `BTK_BUILD_V1` on. Canonical replays retain
 stdout, whereas stderr is not reliably available there. The build ID hashes the
 source with the marker declaration emptied; the manifest also hashes the final

@@ -28,6 +28,6 @@ class ExposureIncomeSubmissionTest {
         Files.writeString(source, on);
         assertEquals(0, javax.tools.ToolProvider.getSystemJavaCompiler().run(null, null, null,
                 "-encoding", "UTF-8", "--release", "17", "-d", dir.toString(), source.toString()));
-        assertEquals("v11 Root Target (modified)", BotFactory.displayName(E));
+        assertEquals("v11 (modified)", BotFactory.displayName(E));
     }
 }

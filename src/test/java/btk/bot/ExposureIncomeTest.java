@@ -38,7 +38,7 @@ class ExposureIncomeTest {
         assertFalse(BotFactory.configuration("current").containsKey("EXPOSURE_INCOME_WEIGHT"));
         assertEquals("true", BotFactory.configuration(E).get("USE_EXPOSURE_INCOME"));
         assertEquals("1.0", BotFactory.configuration(E).get("EXPOSURE_INCOME_WEIGHT"));
-        assertEquals("v11 Root Target (modified)", BotFactory.displayName(E));
+        assertEquals("v11 (modified)", BotFactory.displayName(E));
     }
 
     @Test void playsLegallyAndUsesTheDiscountedIncome() {
