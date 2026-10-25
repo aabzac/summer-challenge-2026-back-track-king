@@ -36,6 +36,10 @@ final class FrozenParams {
             if (!snapshot.containsKey("USE_BOSS_OPPONENT_MODEL")) params.USE_BOSS_OPPONENT_MODEL = false;
             if (!snapshot.containsKey("USE_BOSS_OWN_MODEL")) params.USE_BOSS_OWN_MODEL = false;
             if (!snapshot.containsKey("USE_BOSS_LITE_ROUTES")) params.USE_BOSS_LITE_ROUTES = false;
+            // Pre-v11 snapshots (v10 included) predate the root-target flag of the rollout; it stays off.
+            if (!snapshot.containsKey("USE_BOSS_ROOT_TARGET")) params.USE_BOSS_ROOT_TARGET = false;
+            // The parked sibling flag is excluded from every record while off; a reused Params object must not keep it.
+            if (!snapshot.containsKey("USE_BOSS_THREAT_MODEL")) params.USE_BOSS_THREAT_MODEL = false;
             // Historical strategies never read this independent policy's routing feature weight.
             if (!snapshot.containsKey("INDRILL_INK_PENALTY")) params.INDRILL_INK_PENALTY = 2;
             // Town context is opt-in even when a legacy snapshot is applied to a reused Params object.

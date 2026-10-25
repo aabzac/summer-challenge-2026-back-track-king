@@ -114,8 +114,8 @@ public class Params {
     public boolean USE_BOSS_THREAT_MODEL = false;
     // BOSS_THREAT_END
     // BOSS_ROOT_BEGIN
-    /** Stage 3 inside the rollout (root-target-v1): our first simulated turn disrupts the real-turn lite target for every root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE. */
-    public boolean USE_BOSS_ROOT_TARGET = false;
+    /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
+    public boolean USE_BOSS_ROOT_TARGET = true;
     // BOSS_ROOT_END
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;

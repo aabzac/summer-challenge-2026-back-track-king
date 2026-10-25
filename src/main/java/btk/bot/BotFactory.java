@@ -38,6 +38,7 @@ import btk.bot.v07.RolloutBotV07;
 import btk.bot.v08.RolloutBotV08;
 import btk.bot.v09.RolloutBotV09;
 import btk.bot.v10.RolloutBotV10;
+import btk.bot.v11.RolloutBotV11;
 import btk.core.Action;
 import btk.core.GameState;
 
@@ -73,12 +74,12 @@ public final class BotFactory {
     }
 
     /** The selected local version: {@code current} is its copy plus any later, not yet promoted work. */
-    public static final String SELECTED_VERSION = "v10";
+    public static final String SELECTED_VERSION = "v11";
 
     /** BOTS.md titles of the frozen versions, shown in the viewer on the first turn (readable-export-v1). */
     private static final Map<String, String> VERSION_NAMES = Map.of(
             "v05", "Disrupt Reserve", "v06", "Simultaneous Rollout", "v07", "Network After Base",
-            "v08", "Protected Opening", "v09", "Never Idle", "v10", "Boss Model");
+            "v08", "Protected Opening", "v09", "Never Idle", "v10", "Boss Model", "v11", "Root Target");
 
     /**
      * Short human-readable strategy name for the first-turn MESSAGE: the version's BOTS.md title
@@ -96,6 +97,8 @@ public final class BotFactory {
     /** The seven selected v10 flags switched off: the v09 configuration expressed on current or v10. */
     public static final String V10_FLAGS_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,"
             + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
+    /** The selected v11 flag switched off: the v10 configuration expressed on current or v11 (the lite chooser off implies it). */
+    public static final String V11_FLAGS_OFF = "USE_BOSS_ROOT_TARGET=0";
 
     /**
      * Rollout experiments removed from {@code current} by prune-v1 (2026-10-25) together with their code and their
@@ -172,6 +175,13 @@ public final class BotFactory {
                 params.USE_BOSS_LITE = params.USE_BOSS_OPPONENT_MODEL = params.USE_BOSS_OWN_MODEL = params.USE_BOSS_LITE_ROUTES = false;
             }
         }
+        // The selected v11 flag (root target) lives inside the lite chooser: switching the lite chooser off, or a policy
+        // that never reads it, drops the inherited default silently; an explicit request is still refused (same rule as v10).
+        if (params.USE_BOSS_ROOT_TARGET && (!params.USE_BOSS_LITE || !rolloutPolicy || !nativeRollout(version))) {
+            if (explicit(query, "USE_BOSS_ROOT_TARGET"))
+                throw new IllegalArgumentException("Boss root target requires USE_BOSS_LITE (current native rollout)");
+            params.USE_BOSS_ROOT_TARGET = false;
+        }
         if (params.USE_BOSS_SABOTAGE && (!nativeRollout(version) || !params.USE_ROLLOUT_POLICY
                 || params.USE_NEURAL_TARGET_PROPOSAL || params.USE_HEURISTIC_POLICY))
             throw new IllegalArgumentException("Boss sabotage requires the current native rollout policy");
@@ -183,15 +193,16 @@ public final class BotFactory {
             throw new IllegalArgumentException("Boss opponent/own models require USE_BOSS_LITE");
         if (params.USE_BOSS_LITE_ROUTES && !params.USE_BOSS_LITE)
             throw new IllegalArgumentException("Boss lite route term requires USE_BOSS_LITE");
-        if ((params.USE_BOSS_THREAT_MODEL || params.USE_BOSS_ROOT_TARGET) && !version.equals("current"))
-            throw new IllegalArgumentException("Boss threat model / root target are current-only experiments (stage4-threat-model-v1)");
+        if ((params.USE_BOSS_THREAT_MODEL || params.USE_BOSS_ROOT_TARGET)
+                && !version.equals("current") && !version.equals("main") && !version.equals("v11"))
+            throw new IllegalArgumentException("Boss threat model / root target exist on current and v11 only (stage4-threat-model-v1); frozen v10 has neither");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
             throw new IllegalArgumentException("Boss root target requires USE_BOSS_LITE (current native rollout)");
         if (params.BOSS_OPPONENT_REPLIES < 0 || params.BOSS_OPPONENT_REPLIES > params.ROLLOUT_REPLIES)
             throw new IllegalArgumentException("BOSS_OPPONENT_REPLIES must be between 0 and ROLLOUT_REPLIES");
-        if ((version.equals("current") || version.equals("main")) && rolloutPolicy)
+        if ((version.equals("current") || version.equals("main") || version.equals("v11")) && rolloutPolicy)
             for (String flag : PRUNED_ROLLOUT_FLAGS) if (flagValue(params, flag))
                 throw new IllegalArgumentException(flag + " was pruned from current (prune-v1, 2026-10-25); run it on v10");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && !version.equals("current"))
@@ -271,7 +282,7 @@ public final class BotFactory {
 
     /** Versions whose shipped policy is the native rollout with the selected v10 runtime/boss-lite blocks. */
     private static boolean nativeRollout(String version) {
-        return version.equals("current") || version.equals("main") || version.equals("v10");
+        return version.equals("current") || version.equals("main") || version.equals("v10") || version.equals("v11");
     }
 
     private static String version(String spec) {
@@ -303,6 +314,7 @@ public final class BotFactory {
             case "v08": return RolloutBotV08::new;
             case "v09": return RolloutBotV09::new;
             case "v10": return RolloutBotV10::new;
+            case "v11": return RolloutBotV11::new;
             case "pressure-v1": return PressureBot::new;
             case "leader-v1": return LeaderBot::new;
             case "leader-v2": return LeaderBot2::new;

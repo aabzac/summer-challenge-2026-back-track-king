@@ -34,13 +34,15 @@ class BotCatalogTest {
         assertEquals("v08 - Protected Opening", BotCatalog.displayName("v08"));
         assertEquals("v09 - Never Idle", BotCatalog.displayName("v09"));
         assertEquals("v10 - Boss Model", BotCatalog.displayName("v10"));
-        assertEquals("selected", BotCatalog.describe("v10").status());
+        assertEquals("v11 - Root Target", BotCatalog.displayName("v11"));
+        assertEquals("selected", BotCatalog.describe("v11").status());
+        assertEquals("historical", BotCatalog.describe("v10").status(), "v10 became historical at the v11 promotion (2026-10-25)");
         assertEquals("historical", BotCatalog.describe("v09").status(), "v09 became historical at the v10 promotion (2026-10-23)");
         assertEquals("historical", BotCatalog.describe("v08").status());
         assertEquals("historical", BotCatalog.describe("v07").status());
         assertEquals("historical", BotCatalog.describe("v06").status());
         assertEquals("historical", BotCatalog.describe("v05").status());
-        assertEquals(java.util.List.of("v10"), BotCatalog.entries().stream()
+        assertEquals(java.util.List.of("v11"), BotCatalog.entries().stream()
                 .filter(entry -> entry.status().equals("selected")).map(BotCatalog.Entry::id).toList());
         assertEquals("v04 - Network Extension [NOISE=0.2]", BotCatalog.displayName("v04?NOISE=0.2"));
         assertEquals("external player", BotCatalog.displayName("external player"));

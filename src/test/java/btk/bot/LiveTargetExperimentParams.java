@@ -20,11 +20,23 @@ public final class LiveTargetExperimentParams {
     }
 
     /** v09 already contains the earlier fields, so remove only the independent later policy field. */
-    /** v09 expressed on current after the v10 promotion (2026-10-23): the seven selected v10 flags switched off. */
-    public static final String V10_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0";
+    /**
+     * v09 expressed on current after the v10 promotion (2026-10-23): the seven selected v10 flags switched off; since the
+     * v11 promotion (2026-10-25) also the root-target flag, so that a historical spec that re-enables the lite chooser on
+     * this base (boss-sabotage-v2, opponent-model-v1, ...) keeps its measured configuration.
+     */
+    public static final String V10_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_BOSS_ROOT_TARGET=0";
     public static final String V09_ON_CURRENT = "current?" + V10_OFF;
-    /** The spec that was screened, process-checked and uploaded as D (= v10 since the 2026-10-23 promotion). */
-    public static final String D_SPEC = "current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true";
+    /** The selected v11 flag switched off (2026-10-25): the v10 configuration expressed on current. */
+    public static final String V11_OFF = "USE_BOSS_ROOT_TARGET=0";
+    public static final String V10_ON_CURRENT = "current?" + V11_OFF;
+    /**
+     * The spec that was screened, process-checked and uploaded as D (= v10 since the 2026-10-23 promotion); since the
+     * v11 promotion (2026-10-25) the same configuration needs the root-target flag off explicitly.
+     */
+    public static final String D_SPEC = "current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true," + V11_OFF;
+    /** The spec that was screened, process-checked and live-tested as B (= v11 since the 2026-10-25 promotion). */
+    public static final String B_SPEC = "current?USE_BOSS_ROOT_TARGET=true";
 
     /** Fresh parameters of the v09 configuration (the seven v10 flags off) for mechanism tests written before the promotion. */
     public static Params v09Params() {

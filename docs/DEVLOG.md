@@ -8616,3 +8616,38 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   passed steps (a)+(b), live session 1 inconclusive (+2.5 pp), **no promotion, no upload**; A parked. Pool 1002000..1002149 consumed; next free range ≥ 1003000. Next after the live
   result: if PASS, promotion to v11 with the flag as a default (v10 mechanics); the remaining Stage 4 half
   (exposure-discounted own valuation) is screened on top of B with B as the same-map control.
+
+## 2026-10-25 (evening) — v11 Root Target: candidate B promoted to the selected version on the user's decision
+
+- **Decision.** After the live session (B 21/40 vs v10 20/40, +2.5 pp, inconclusive) the user chose to promote
+  ("давай продвинем версию на арену"); the second live session is skipped, the deviation from v5 step (c) is
+  recorded in [v11-promotion.md](v11-promotion.md) exactly as D's was. Nothing retuned: `USE_BOSS_ROOT_TARGET`
+  becomes a `Params` default, everything else is v10.
+- **Mechanics (mirror of the v10 promotion).** `FrozenParams` keeps the flag off for every snapshot without the key
+  (v10 included); `btk.bot.v11` = byte copies of `current`'s `RolloutBot` / `BossSabotage` / `ProtectedOpening` with
+  identity changes only (`V11PromotionTest` hashes); `versions/v11.properties` + `v11-confirmed.properties` = 131
+  values; `BotFactory`: `SELECTED_VERSION = "v11"`, display name "v11 Root Target", `v11` native rollout, the pruned
+  flags refused on it; `FileMerger` exports `v11` readably and pruned like `current`; catalog `v11` selected, `v10`
+  historical. **Guard rule:** the flag lives inside the lite chooser, so `USE_BOSS_LITE=0` (explicit) or a policy that
+  never reads it drops the inherited default silently, an explicit `=1` is refused — hence the boss-v2 proxy spec and
+  `V09_ON_CURRENT` are unchanged, and the v10 configuration on current is `current?USE_BOSS_ROOT_TARGET=0`
+  (`V10_ON_CURRENT`, config `f0e507ac…`; `D_SPEC` carries the off value).
+- **Artifact.** Default `gradlew submit` → `build/submit-v11`: **88,997 / 100,000 chars**, sha `ff111d54…`, build
+  `002ca691…`, **config `179dcc66…` = B's** (text differs from B's artifact only in the initializer literal and the
+  display name); frozen `v11` export 88,955 chars, `b12a1943…`. Strict `procCheck` vs v09 (4 games, zero grace): **0
+  problem games**, 0 timeouts, first ≤ 577 ms, later ≤ 38.7 ms, 3/4 wins (`evidence/v11-promotion/`).
+- **Pins moved, tokens did not.** Since `readable-export-v1` the display name sits in `BUILD_MARKER`, so every
+  current-based artifact changed by the label text "v10 Boss Model …" → "v11 Root Target …": v09-on-current
+  `82f166f3` → `3fe0370e` (75,920 → 75,921), GUARD `2c8cc252` → `d4b8b59e`, BASE `fa52a7d7` → `7fa98f9a`, BASE+ink
+  `71258164` → `2554be21`, +38 `7f7d7fd2` → `82741e35`, +40 `ea0eae2e` → `29c83f91`, +40+ink `17350f22` → `1e69495a`,
+  the v10 default `e5da0dcb` → `3ec21a76` (88,671 → 88,683); build ids and config hashes untouched; frozen `v10`
+  `9c3b4008…` and `v09` `aca0be45…` keep their bytes. Tests measuring the v10 configuration say `V10_ON_CURRENT`
+  (`V10PromotionTest`, `V10SubmissionTest`, `PruneV1Test`, `PruneV1SubmissionTest`, `BossThreatRoot*Test`); new
+  `V11PromotionTest` (2), `V11SubmissionTest` (2); `BotCatalogTest` expects `v11` selected.
+- **Tests.** `gradlew test`: 830 tests, **25 failures, all pre-existing** (19 retained-engine incl.
+  `FileMergerTest.characterLimitIsCheckedBeforePublishing` and `NeuralTargetSizeProbeTest`, 6 `PduhardBeamBotTest`).
+  `BossThreatRootTest`'s paint assertion relaxed to 1.5 paint/turn (time-bounded search under suite load).
+- **State:** `current` = **v11 Root Target**; **the arena still runs v10 (agent 6811139) until the user uploads
+  `build/submit-v11/Player.java`**; then `cgFetch`/`cgAnalyze` of its first 50 games. Next strength step: the
+  exposure-discounted own valuation (Stage 4, second half) screened on fresh maps ≥ 1003000 with `current` (= v11) as
+  the same-map control; `USE_BOSS_THREAT_MODEL` stays parked.

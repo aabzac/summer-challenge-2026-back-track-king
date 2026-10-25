@@ -8,10 +8,10 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 ## Rules that bite most often
 
 - Selection policy is **v5** (`docs/benchmarking-v5.md`, AGENTS.md rule 3): proxy screen vs the
-  boss-like screening opponent — since the v10 promotion its spec is
+  boss-like screening opponent — since the v10 promotion its spec is (unchanged by v11: the lite chooser off drops the v11 flag)
   `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0`
   (`current?USE_BOSS_SABOTAGE=1` alone is refused; or `neural-v6` for a candidate that is itself the
-  proxy) — non-inferiority vs the selected version (`current` = v10), then 80 paired live boss games.
+  proxy) — non-inferiority vs the selected version (`current` = v11), then 80 paired live boss games.
   The local mirror vs v09 is a regression guard, never the objective.
 - **Compare a candidate only with a control measured on the same maps, seeds and seats, in the
   same run.** Absolute scores move 10 pp between map pools; deltas do not. The screen scripts in
@@ -25,19 +25,26 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
   (`BossSabotageSubmissionTest`, `V07/V08/V09PromotionTest` pin the `Params` field count — bump it
   when you add fields). Source limit 100,000 chars; since `readable-export-v1` (2026-10-25) a `current`
   export is **readable** (one statement per line, tab indentation, comments dropped) and the default
-  artifact is **88,671** chars (`prune-v1`'s compact form was 70,397; a `current` export is compacted only
+  artifact is **88,997** chars since the v11 promotion (v10's readable default was 88,671, `prune-v1`'s compact form 70,397; a `current` export is compacted only
   when its readable form would exceed the limit, frozen exports keep their historical bytes). The
-  first-turn `MESSAGE` reads `v10 Boss Model | BTK_BUILD_V1 strategy=current build=… config=…`
+  first-turn `MESSAGE` reads `v11 Root Target | BTK_BUILD_V1 strategy=current build=… config=…`
   (`BotFactory.displayName`; bump `BotFactory.SELECTED_VERSION` / `VERSION_NAMES` at a promotion). `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
   blocks (stripped from current rollout artifacts only); a new field the bot reads goes outside them.
   The 17 pruned rollout flags (`BotFactory.PRUNED_ROLLOUT_FLAGS`) are refused on `current`; run their
-  mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`).
+  mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`); they are refused on `v11` too. The v10 configuration on current is
+  `current?USE_BOSS_ROOT_TARGET=0` (`LiveTargetExperimentParams.V10_ON_CURRENT`); every current-based artifact pin moves at
+  a promotion because the display name sits in `BUILD_MARKER` (build ids and config hashes do not).
 - No arena upload, no promotion, no "selected version" change without the live step and a
   DEVLOG entry. Verdicts: one BOTS.md row, one DEVLOG entry, STATUS.md updated.
 
 ## Current line of work (2026-10-25)
 
-**v10 "Boss Model" is the selected version since 2026-10-23** (`docs/v10-promotion.md`): D's seven flags
+**v11 "Root Target" is the selected version since 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
+`stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
+session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
+88,997 chars / config `179dcc66…` (`build/submit-v11`), **arena upload by the user pending** (the arena still runs
+v10, agent 6811139). Next candidate = the exposure-discounted own valuation (Stage 4, second half) screened with
+`current` (= v11) as the same-map control; `USE_BOSS_THREAT_MODEL` is parked. Before it: **v10 "Boss Model" was the selected version from 2026-10-23** (`docs/v10-promotion.md`): D's seven flags
 are `Params` defaults, `btk.bot.v10` is the frozen copy, the arena runs the same configuration (agent
 6811139 since 2026-10-24/25 = the fresh default artifact; D was 6807052). Pre-promotion tests express v09
 as `LiveTargetExperimentParams.V09_ON_CURRENT` (`current?` + `V10_OFF`). **`prune-v1` done 2026-10-25**

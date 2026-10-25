@@ -41,7 +41,7 @@ class PruneV1Test {
             GameState s = map.copy();
             Pathing pathing = new Pathing(s.size);
             Rules.updateConnections(s, pathing);
-            RolloutBot current = (RolloutBot) BotFactory.create("current");
+            RolloutBot current = (RolloutBot) BotFactory.create(LiveTargetExperimentParams.V10_ON_CURRENT); // the v10 configuration since the v11 promotion
             RolloutBotV10 frozen = (RolloutBotV10) BotFactory.create("v10");
             Bot opponent = BotFactory.create("v10");
             current.init(s.copy(), seat); frozen.init(s.copy(), seat); opponent.init(s.copy(), 1 - seat);
@@ -88,7 +88,8 @@ class PruneV1Test {
             assertInstanceOf(RolloutBotV10.class, BotFactory.create(spec), spec);
         }
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v10?USE_ROLLOUT_RHEA=1"));
-        assertEquals(BotFactory.V10_FLAGS_OFF, LiveTargetExperimentParams.V10_OFF);
+        // Since the v11 promotion the test helper also switches the root-target flag off (the lite chooser off implies it).
+        assertEquals(BotFactory.V10_FLAGS_OFF + "," + BotFactory.V11_FLAGS_OFF, LiveTargetExperimentParams.V10_OFF);
         assertTrue(BotFactory.PRUNED_ROLLOUT_FLAGS.containsAll(List.of("USE_ROLLOUT_SPREAD", "USE_ROLLOUT_NETWORK_CHORDS",
                 "USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL", "USE_ROLLOUT_LIVE_TARGET", "USE_ROLLOUT_TRACK_VALUE")));
     }
