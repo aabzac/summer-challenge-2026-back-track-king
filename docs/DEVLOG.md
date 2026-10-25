@@ -8795,3 +8795,18 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   a route behind them. Second bucket for later: collisions (6.9 % of our paint neutralised; needs code).
 - **Next step started:** `fill-off-v1` — `current?USE_ROLLOUT_FILL=0` vs boss-v2 with `current` (= v12) as the
   same-map control and head-to-head, fresh pool 1005000 (`tools/boss_proxy/run_fill_screen.sh`).
+
+## 2026-10-25 (night) — `fill-off-v1`: the leftover-paint fill is a strength, not the idle-cell waste — rejected
+
+- **Screen** (`tools/boss_proxy/run_fill_screen.sh`, fresh pool **1005000**, 300 paired games per cell, CG 486/36 ms,
+  2 workers, proxy spec with `USE_EXPOSURE_INCOME=0`; `evidence/fill-off-v1/`): `current?USE_ROLLOUT_FILL=0` vs boss-v2
+  **74.7 %** against `current`'s **78.5 %** on the same maps (paired **−3.8 ± 6.9 pp**, 34/41/75; tall maps 81.0 vs
+  91.7 %); head-to-head vs `current` **43.0 %** (129-171, small maps 37 %). Zero errors.
+- **Reading.** Rejected on both steps; the fill stays. The idle-cell diagnostic's "no route hypothesis at placement"
+  bucket is not the fill: those cells earn later or protect rails. What remains controllable needs code —
+  collision avoidance at the real turn (6.9 % of our paint neutralised by same-cell placements; the rollout's
+  opponent model already predicts the opponent's first-turn cells) and a game-end forecast for the last third
+  (76 % idle on both sides). Placement-time instability rules (`unstable-cost-v1`) and the fill are closed as
+  levers after v12.
+- **State:** `current` = v12 unchanged (arena agent 6813957); pool 1005000..1005149 consumed, next free range
+  ≥ 1006000. Three screens and one diagnostic since the v12 promotion tonight; next step on the user's word.
