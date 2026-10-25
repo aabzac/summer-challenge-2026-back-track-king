@@ -92,7 +92,34 @@ larger than the proxy gain (+3.7), the same shape as every valuation change so f
   40 paired maps; the 80-game policy sample completes with a second session. **Recommended for another day**:
   80 API games were already played today (15:05–16:06) and the 2026-10-16 run hit the service limit near its
   70th request of a 160-game day. Launch, by the user on this machine:
+  *(The user launched it the same evening at 17:57 UTC; the 160th API request of the day went through without
+  an error.)*
 
   ```
   bash tools/run_boss_paced.sh build/cg-boss/stage4-e1-v11-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
   ```
+
+## Live boss, v5 step (c) session 1 (run by the user 2026-10-25 17:57–18:59 UTC, `evidence/stage4-exposure-income-v1/live-session-1/`)
+
+80 API games, 0 technical failures, 0 authorized retries, every replay carries the planned build marker,
+**80/80 replays reproduced exactly** by the local engine (`cgValidate` on both capture directories). Runner
+report: `complete: true`, `issues: []`, `protocolStatus: original fixed`.
+
+| vs live boss 6767608, 40 matched maps, same session | wins | score | exact 95 % |
+|---|---|---|---|
+| **E1** `current?USE_EXPOSURE_INCOME=true` (`582ad892…`) | **20/40** | **50.0 %** | 33.8–66.2 |
+| control `current` = v11 (`002ca691…`, the arena artifact) | 18/40 | 45.0 % | 29.3–61.5 |
+
+Paired over the 40 maps: candidate-only wins **8**, control-only wins **6**, equal 26 → **+5.0 pp**, one-sided
+p = 0.40. Seats P0 9/20 vs 9/20, P1 11/20 vs 9/20. By size (E1 pts / control pts / maps): 21×14 7/3/12,
+23×15 1/2/3, 24×16 3/4/5, 26×17 3/2/5, 27×18 5/3/7, 29×19 0/1/4, 30×20 1/3/4 — the gain sits on the small
+maps, the eight tall maps went 1 : 4 against E1 (the proxy screen had shown no tall-map loss: 84.7 % vs
+83.3 %). Running paired delta over the four chunks of 10 pairs: +10 → +15 → +10 → +5.
+
+**Reading (predeclared rule): the session threshold of +5 pp over the 40 paired maps is met exactly — a
+pass at the edge**, with p = 0.40 it is weak evidence and not the +8.8 pp the proxy promised. v5 step (c) is
+decided on 80 candidate games: a second 40-map session on another day (fresh plan, same-session `current`
+control) completes the sample and would settle the tall-map question (one predeclared extension to 120 if the
+pooled 80 sit within noise). Until the user decides, **E1 stays a screened candidate that passed its first
+live session at the threshold; no promotion, no arena upload.** For the record, the three live sessions of
+this line: D 18/40 vs v09 9/40 (+22.5), B 21/40 vs v10 20/40 (+2.5), E1 20/40 vs v11 18/40 (+5.0).
