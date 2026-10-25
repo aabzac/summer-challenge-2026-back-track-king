@@ -60,7 +60,8 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] Implemented, default off, own merger blocks; default artifact and config hash unchanged (`BossThreatRootTest`, `BossThreatRootSubmissionTest`).
   - [x] Screen read (2026-10-25, pool 1002000): control 64.7 % vs boss-v2; **B +8.8 ± 7.1 pp, 57.0 % h2h → v5 (a)+(b) PASS**; A +1.5 pp → **parked**; AB +6.0 < B → B alone goes forward. Verdict in BOTS/DEVLOG/STATUS.
   - [x] B: strict `procCheck` of `current?USE_BOSS_ROOT_TARGET=true` (`build/submit-stage4-b`, 89,008 chars, config `179dcc66…`): 0 problem games, 0 timeouts, later ≤ 37.4 ms; live plan `build/cg-boss/stage4-b-current-boss-40` (id `53e2fee9…`, 80 API games) frozen.
-  - [ ] **User:** v5 step (c) for B — 80 paired live boss games (`tools/run_boss_paced.sh`, `current` = v10 as the same-session control); upload only after the live result.
+  - [x] **User:** v5 step (c) for B, session 1 (2026-10-25, 40 matched maps × 2 builds): **B 21/40 vs `current` 20/40, paired +2.5 pp (10 : 9 discordant), 80/80 replays exact → inconclusive** (threshold +5 pp on the session). No upload.
+  - [ ] **User decision:** session 2 for B (fresh 40-map plan on another day, same-session `current` control) to decide step (c) on the pooled 80 (one predeclared extension to 120), or stop B here as "screened, live-neutral".
 
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 

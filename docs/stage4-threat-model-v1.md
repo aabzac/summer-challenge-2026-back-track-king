@@ -108,3 +108,28 @@ same-session control.
   `readable-export-v1` ("Registered source marker is malformed") because the declared `BUILD_MARKER` now leads with
   the display name; it reads the marker from `BTK_BUILD_V1` on, a prefix must be exactly `<name> | `
   (`test_replay_capture.py` 14/14, `test_boss_batch.py` 33/33, `test_boss_batch_audit.py` 9/9).
+
+## Live boss, v5 step (c) session 1 (run by the user 2026-10-25 15:05–16:06 UTC, `evidence/stage4-threat-model-v1/live-session-1/`)
+
+80 API games, 0 technical failures, 0 authorized retries, every replay carries the planned build marker,
+**80/80 replays reproduced exactly** by the local engine (`cgValidate` on both capture directories). Runner report:
+`complete: true`, `issues: []`, `protocolStatus: original fixed`.
+
+| vs live boss 6767608, 40 matched maps, same session | wins | score | exact 95 % |
+|---|---|---|---|
+| **B** `current?USE_BOSS_ROOT_TARGET=true` (`87973a8a…`) | **21/40** | **52.5 %** | 36.1–68.5 |
+| control `current` = v10 (`94f7cce9…`, the default artifact) | 20/40 | 50.0 % | 33.8–66.2 |
+
+Paired over the 40 maps: candidate-only wins **10**, control-only wins **9**, equal 21 → **+2.5 pp**, one-sided
+p = 0.50. Seats P0 10/20 vs 10/20, P1 11/20 vs 10/20. By size (B pts / control pts / maps): 21×14 3/5/7,
+23×15 1/1/2, 24×16 5/2/7, 26×17 2/3/5, 27×18 2/3/6, 29×19 3/1/5, 30×20 5/5/8. The running paired delta moved
+−10 → −5 → −6.7 → +2.5 over the four chunks of 10 pairs: the series is inside its own ±7.5 pp noise end to end.
+
+**Reading (predeclared rule): the session pass threshold of +5 pp over the 40 paired maps is not reached; the
+session is inconclusive**, neither the +8.8 pp the proxy promised nor a loss. v5 step (c) is decided on 80
+candidate games: a second 40-map session on another day (fresh plan, same-session `current` control) completes
+the sample, with one predeclared extension to 120 if the pooled 80 are within noise; the decision to spend it is
+the user's. Until then **B stays a screened candidate, not a promotion; no arena upload.** Two facts for that
+decision: the control itself scored 50 % against the live boss (D's session 1 on 2026-10-23 had 45 % vs v09's
+22.5 %), so v10 has little headroom left to show on this boss in 40 games; and B's proxy gain came with a
+compute dividend (7.9 vs 11.7 ms per move) that the live boss may simply not punish the way the proxy does.
