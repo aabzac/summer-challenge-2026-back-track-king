@@ -145,8 +145,15 @@
       "id": "v11",
       "title": "Root Target",
       "category": "version",
-      "status": "selected",
+      "status": "historical",
       "description": "Boss Model with every rollout root's first simulated turn disrupting the real-turn lite target (no per-root chooseTarget, no no-disrupt scenario); the exact stage4-threat-model-v1 candidate B (USE_BOSS_ROOT_TARGET), promoted 2026-10-25 on the user's decision after the proxy screen (+8.8 pp) and an inconclusive first live session (+2.5 pp)."
+    },
+    {
+      "id": "v12",
+      "title": "Exposure Income",
+      "category": "version",
+      "status": "selected",
+      "description": "Root Target with every connection's income weighted by the survivability of the unstable regions its path crosses (1 - instability / 4 each) in the rollout's tail and in the route proposals' gains; the exact stage4-exposure-income-v1 candidate E1 (USE_EXPOSURE_INCOME), promoted 2026-10-25 on the user's decision after the proxy screen (+3.7 pp over v11, 60.3 % head-to-head) and a first live session that met the +5 pp threshold exactly (20/40 vs 18/40)."
     },
     {
       "id": "pressure-v1",

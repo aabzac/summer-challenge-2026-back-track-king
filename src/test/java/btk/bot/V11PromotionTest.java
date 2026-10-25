@@ -44,22 +44,24 @@ class V11PromotionTest {
         assertEquals(v10, withoutFlag, "v11 = v10 + USE_BOSS_ROOT_TARGET, nothing retuned");
         var frozenExpected = new TreeMap<>(expected);
         LiveTargetExperimentParams.removeCurrentOnlyAndCheck(frozenExpected); // the frozen package omits the two current-only fields
-        for (String spec : new String[]{"current", "main", B_SPEC}) {
+        // Since the v12 promotion (2026-10-25 night) the v11 configuration is current with the exposure flag off.
+        for (String spec : new String[]{LiveTargetExperimentParams.V11_ON_CURRENT, B_SPEC}) {
             assertEquals(expected, new TreeMap<>(BotFactory.configuration(spec)), spec);
         }
         assertEquals(frozenExpected, new TreeMap<>(BotFactory.configuration("v11")), "v11");
         Params defaults = new Params();
         assertTrue(defaults.USE_BOSS_ROOT_TARGET);
         assertFalse(defaults.USE_BOSS_THREAT_MODEL, "the parked sibling flag stays off");
+        assertFalse(BotFactory.parameters("v11").USE_EXPOSURE_INCOME, "frozen v11 predates the v12 flag");
         assertFalse(defaults.USE_BOSS_SABOTAGE, "the screening proxy's chooser is never a default");
         assertInstanceOf(RolloutBot.class, BotFactory.create("current"));
         assertInstanceOf(MainBot.class, BotFactory.create("main"));
         assertInstanceOf(RolloutBotV11.class, BotFactory.create("v11"));
         assertInstanceOf(RolloutBotV10.class, BotFactory.create("v10"));
         assertEquals("v11", BotFactory.create("v11").name());
-        assertEquals("v11", BotFactory.displayName("current"));
+        assertEquals("v12", BotFactory.displayName("current"));
         assertEquals("v11", BotFactory.displayName("v11"));
-        assertEquals("v11 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V10_ON_CURRENT));
+        assertEquals("v12 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V10_ON_CURRENT));
         assertEquals("v10", BotFactory.displayName("v10"));
 
         Params dirty = new Params();
@@ -71,11 +73,12 @@ class V11PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 23, fields, "fields outside the v11 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 23, fields, "fields outside the v11 record: current-only experiments, neural/spatial/turn-budget overrides, the v12 flag and its weight");
         FrozenParams.applyTo("v11", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_BOSS_THREAT_MODEL); assertFalse(dirty.USE_BOSS_SABOTAGE);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK); assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
+        assertFalse(dirty.USE_EXPOSURE_INCOME); assertEquals(1.0, dirty.EXPOSURE_INCOME_WEIGHT);
         for (var entry : frozenExpected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
         // v10 keeps its measured configuration: its snapshot predates the flag and FrozenParams keeps it off.
@@ -98,6 +101,7 @@ class V11PromotionTest {
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_BOSS_ROOT_TARGET=1"));
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v11?USE_ROLLOUT_SPREAD=1"), "the pruned experiments are refused on v11 as on current");
         assertDoesNotThrow(() -> BotFactory.create("v11?USE_BOSS_THREAT_MODEL=1"), "the parked sibling flag exists on the frozen copy");
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v11?USE_EXPOSURE_INCOME=1"), "frozen v11 never had the v12 flag");
     }
 
     private static String normalizedSource(Path source) throws Exception {

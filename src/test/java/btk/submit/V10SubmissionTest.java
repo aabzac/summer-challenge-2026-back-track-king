@@ -23,8 +23,8 @@ class V10SubmissionTest {
         FileMerger.checkSourceSize(frozen);
         // prune-v1 (2026-10-25): the same configuration and decisions in 70,397 characters (was 99,676 at the promotion);
         // readable-export-v1 (2026-10-25): the same tokens laid out readably (tabs, one statement per line) in 88,671.
-        assertEquals(88687, current.length()); // v11 promotion (2026-10-25): the marker's display name reads "v11 (modified)"
-        assertEquals("f8754bcab30c5a31a500e2085e718482f19844e88661535cdd7eaa2432397ff8", FileMerger.sha256(current));
+        assertEquals(88687, current.length()); // v11 promotion (2026-10-25): the marker's display name reads "v12 (modified)"
+        assertEquals("ec331323b84a50605d292765f061a2cd4db19c484ac1c6297d27456bbdc23ecc", FileMerger.sha256(current));
         assertEquals(99598, frozen.length());
         assertEquals("9c3b40085db2d818b3a46212f4f5659f7ca6d6d2514eae026dd98daed21e4699", FileMerger.sha256(frozen));
         // Same resolved configuration as the uploaded D artifact: only the Params initializer literals differ in the text.
@@ -42,22 +42,22 @@ class V10SubmissionTest {
         assertTrue(current.contains("strategy=current build="));
         assertTrue(frozen.contains("strategy=v10 build="));
         // readable-export-v1: the viewer shows the strategy name first; the machine marker and the frozen bytes are unchanged.
-        assertTrue(current.contains("\n\t\tpublic static final String BUILD_MARKER = \"v11 (modified) | BTK_BUILD_V1 strategy=current build="));
+        assertTrue(current.contains("\n\t\tpublic static final String BUILD_MARKER = \"v12 (modified) | BTK_BUILD_V1 strategy=current build="));
         assertTrue(frozen.contains("public static final String BUILD_MARKER = \"BTK_BUILD_V1 strategy=v10 build="));
         assertTrue(current.contains("\n\tstatic final class Action {\n"), "one statement per line, tab-indented inside Player");
         assertTrue(current.lines().count() > 2000 && frozen.lines().count() < 100, "current readable, frozen v10 compact");
-        assertEquals("v11 (modified)", FileMerger.manifest(V10_ON_CURRENT, current).get("label"), "the v10 configuration is a modification of the selected v11");
+        assertEquals("v12 (modified)", FileMerger.manifest(V10_ON_CURRENT, current).get("label"), "the v10 configuration is a modification of the selected v11");
         assertNull(FileMerger.manifest("v10", frozen).get("label"));
-        assertEquals("v11", BotFactory.displayName("current"));
-        assertEquals("v11", BotFactory.displayName("current?NOISE=0.1"), "an equivalent spelling is not a modification");
-        assertEquals("v11 (modified)", BotFactory.displayName(LiveTargetExperimentParams.D_SPEC));
-        assertEquals("v11 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V09_ON_CURRENT));
+        assertEquals("v12", BotFactory.displayName("current"));
+        assertEquals("v12", BotFactory.displayName("current?NOISE=0.1"), "an equivalent spelling is not a modification");
+        assertEquals("v12 (modified)", BotFactory.displayName(LiveTargetExperimentParams.D_SPEC));
+        assertEquals("v12 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V09_ON_CURRENT));
         assertEquals("v10", BotFactory.displayName("v10"));
         assertEquals("v10 (modified)", BotFactory.displayName("v10?ROLLOUT_DEPTH=6"));
         assertEquals("v09", BotFactory.displayName("v09"));
         assertEquals("neural-v6", BotFactory.displayName("neural-v6"));
         // The v09-era baseline on current is laid out readably like every current export; frozen v09 itself is untouched.
-        assertEquals("a10433473e010e47ed909492a09939f45700d6e74407340123071e2baf8544e0",
+        assertEquals("9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
                 FileMerger.sha256(FileMerger.merge(LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac", FileMerger.sha256(FileMerger.merge("v09")));
         var currentParams = new TreeMap<>(BotFactory.configuration(V10_ON_CURRENT));

@@ -25,20 +25,25 @@ class ExposureIncomeTest {
 
     @Test void defaultsOffAndGuards() {
         Params defaults = new Params();
-        assertFalse(defaults.USE_EXPOSURE_INCOME);
+        assertTrue(defaults.USE_EXPOSURE_INCOME, "selected default since the v12 promotion (2026-10-25 night)");
         assertEquals(1.0, defaults.EXPOSURE_INCOME_WEIGHT);
+        assertFalse(BotFactory.parameters(LiveTargetExperimentParams.V11_ON_CURRENT).USE_EXPOSURE_INCOME);
+        assertFalse(BotFactory.parameters("v11").USE_EXPOSURE_INCOME);
         assertTrue(BotFactory.parameters(E).USE_EXPOSURE_INCOME);
         assertEquals(0.5, BotFactory.parameters(E + ",EXPOSURE_INCOME_WEIGHT=0.5").EXPOSURE_INCOME_WEIGHT);
-        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v11?USE_EXPOSURE_INCOME=true"), "current-only experiment");
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v11?USE_EXPOSURE_INCOME=true"), "frozen v11 never had the flag");
+        assertDoesNotThrow(() -> BotFactory.create("v12?USE_EXPOSURE_INCOME=true"), "the frozen v12 copy carries it");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v10?USE_EXPOSURE_INCOME=true"));
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_EXPOSURE_INCOME=true"), "rollout only");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create(E + ",EXPOSURE_INCOME_WEIGHT=1.5"), "weight in [0, 1]");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create(E + ",EXPOSURE_INCOME_WEIGHT=-0.1"));
-        assertFalse(BotFactory.configuration("current").containsKey("USE_EXPOSURE_INCOME"), "excluded from the configuration while off");
-        assertFalse(BotFactory.configuration("current").containsKey("EXPOSURE_INCOME_WEIGHT"));
+        assertFalse(BotFactory.configuration(LiveTargetExperimentParams.V11_ON_CURRENT).containsKey("USE_EXPOSURE_INCOME"), "excluded from the configuration while off");
+        assertFalse(BotFactory.configuration(LiveTargetExperimentParams.V11_ON_CURRENT).containsKey("EXPOSURE_INCOME_WEIGHT"));
+        assertFalse(BotFactory.parameters("current?USE_ROLLOUT_POLICY=0").USE_EXPOSURE_INCOME, "non-rollout policies drop the inherited default");
         assertEquals("true", BotFactory.configuration(E).get("USE_EXPOSURE_INCOME"));
         assertEquals("1.0", BotFactory.configuration(E).get("EXPOSURE_INCOME_WEIGHT"));
-        assertEquals("v11 (modified)", BotFactory.displayName(E));
+        assertEquals("v12", BotFactory.displayName(E));
+        assertEquals("v12 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V11_ON_CURRENT));
     }
 
     @Test void playsLegallyAndUsesTheDiscountedIncome() {
