@@ -257,6 +257,7 @@ public class FileMerger {
         boolean bossThreat = BotFactory.parameters(spec).USE_BOSS_THREAT_MODEL;
         boolean bossRoot = BotFactory.parameters(spec).USE_BOSS_ROOT_TARGET;
         boolean exposureIncome = BotFactory.parameters(spec).USE_EXPOSURE_INCOME;
+        boolean collisionAvoidance = BotFactory.parameters(spec).USE_COLLISION_AVOIDANCE;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -278,6 +279,7 @@ public class FileMerger {
             boolean threatBlock = false;
             boolean rootBlock = false;
             boolean exposureBlock = false;
+            boolean collisionBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -468,6 +470,17 @@ public class FileMerger {
                     continue;
                 }
                 if (exposureBlock && !exposureIncome) continue;
+                if (line.trim().equals("// COLLISION_BEGIN")) {
+                    if (collisionBlock) throw new IllegalArgumentException("Nested collision block: " + file);
+                    collisionBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// COLLISION_END")) {
+                    if (!collisionBlock) throw new IllegalArgumentException("Unbalanced collision block: " + file);
+                    collisionBlock = false;
+                    continue;
+                }
+                if (collisionBlock && !collisionAvoidance) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;

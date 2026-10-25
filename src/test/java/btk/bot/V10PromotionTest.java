@@ -71,7 +71,7 @@ class V10PromotionTest {
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
         // +2 since stage4-threat-model-v1 (2026-10-25): USE_BOSS_THREAT_MODEL, USE_BOSS_ROOT_TARGET (current-only, off by default).
-        assertEquals(expected.size() + 24, fields, "fields outside the v10 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 26, fields, "fields outside the v10 record: current-only experiments, neural/spatial/turn-budget overrides");
         FrozenParams.applyTo("v10", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK); assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);

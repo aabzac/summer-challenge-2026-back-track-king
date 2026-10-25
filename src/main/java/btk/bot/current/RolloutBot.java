@@ -144,6 +144,12 @@ public final class RolloutBot implements Bot {
     // BOSS_THREAT_BEGIN
     public int threatModelCalls;
     // BOSS_THREAT_END
+    // COLLISION_BEGIN
+    /** collision-avoidance-v1: the opponent's predicted first-turn cells (its reply routes packed into one turn of paint). */
+    private int[] collisionCells, collisionScratch;
+    private int collisionCount;
+    public int collisionRootsPenalised;
+    // COLLISION_END
     // EXPOSURE_INCOME_BEGIN
     /** Stage 4 (exposure-income-v1): income weighted by the survivability of the regions each connection crosses. */
     private final double[] exposureOut = new double[2], exposureBase = new double[2];
@@ -235,6 +241,12 @@ public final class RolloutBot implements Bot {
         // EXPOSURE_INCOME_BEGIN
         if (p.USE_EXPOSURE_INCOME) { exposureStamp = new int[s.regionCount]; exposureStampValue = 0; }
         // EXPOSURE_INCOME_END
+        // COLLISION_BEGIN
+        if (p.USE_COLLISION_AVOIDANCE) {
+            collisionCells = new int[p.ROLLOUT_REPLIES * GameState.PAINT_PER_TURN];
+            collisionScratch = new int[GameState.PAINT_PER_TURN];
+        }
+        // COLLISION_END
         if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) {
             networkCells = new int[s.size]; networkWeights = new int[s.size];
             networkPriority = new int[s.size]; networkGains = new int[s.size];
@@ -357,6 +369,9 @@ public final class RolloutBot implements Bot {
         selectedRoute = counts[me] == 0 ? -1 : 0;
         best = -Double.MAX_VALUE;
         int replies = Math.max(1, Math.min(p.ROLLOUT_REPLIES, counts[1 - me]));
+        // COLLISION_BEGIN
+        if (p.USE_COLLISION_AVOIDANCE) predictCollisions(s, me, replies);
+        // COLLISION_END
         boolean complete = searchRoots(s, me, 0, rootSize, replies);
         saveOrdinaryChoice(complete);
         if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) searchNetworkAfterBase(s, me, replies, budgetMs);
@@ -617,6 +632,12 @@ public final class RolloutBot implements Bot {
                     networkComparisons++; networkCompared[root] = true;
                 }
                 double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
+                // COLLISION_BEGIN
+                if (p.USE_COLLISION_AVOIDANCE) {
+                    int shared = collisions(roots[root], rootCounts[root]);
+                    if (shared > 0) { value -= p.COLLISION_PENALTY * shared; if (attack == 0) collisionRootsPenalised++; }
+                }
+                // COLLISION_END
                 if (value > best) {
                     best = value; selectedValue = value;
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
@@ -967,6 +988,28 @@ public final class RolloutBot implements Bot {
         out[1] = g1;
     }
     // EXPOSURE_INCOME_END
+
+    // COLLISION_BEGIN
+    /** The cells the opponent is predicted to place this turn in the reply scenarios the rollout will play (unique). */
+    private void predictCollisions(GameState s, int me, int replies) {
+        collisionCount = 0;
+        for (int reply = 0; reply < replies && reply < counts[1 - me]; reply++) {
+            int n = fillBuild(s, 1 - me, reply, collisionScratch);
+            for (int i = 0; i < n; i++) {
+                boolean seen = false;
+                for (int j = 0; j < collisionCount; j++) if (collisionCells[j] == collisionScratch[i]) { seen = true; break; }
+                if (!seen && collisionCount < collisionCells.length) collisionCells[collisionCount++] = collisionScratch[i];
+            }
+        }
+    }
+
+    private int collisions(int[] cells, int count) {
+        int shared = 0;
+        for (int i = 0; i < count; i++)
+            for (int j = 0; j < collisionCount; j++) if (cells[i] == collisionCells[j]) { shared++; break; }
+        return shared;
+    }
+    // COLLISION_END
 
     /** Cheap exposure shortlist, then exact core ink evaluation. No actual future enemy action is read. */
     private int chooseTarget(GameState s, int me) {
