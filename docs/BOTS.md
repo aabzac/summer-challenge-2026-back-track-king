@@ -17,6 +17,11 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`fill-off-v1` — 2026-10-25 night, parameter screen on `current` = v12, rejected:** `USE_ROLLOUT_FILL=0` (the leftover-paint fill
+of v09 switched off, motivated by the idle-cell diagnostic `docs/idle-cells-v12.md`) vs boss-v2 on fresh pool 1005000 with `current`
+as the same-map control: 74.7 % vs 78.5 % (paired −3.8 ± 6.9 pp, tall maps 81 vs 92 %), head-to-head 43.0 % (small maps 37 %). The
+fill is a strength; it stays. [Diagnostic and results](idle-cells-v12.md), [evidence](evidence/fill-off-v1/).
+
 **`unstable-cost-v1` — 2026-10-25 night, parameter screen on `current` = v12, parked:** `UNSTABLE_COST` 2 and 3 (the
 cheapest-path penalty per cell per instability level, default 1) vs boss-v2 on fresh pool 1004000 with `current` as the
 same-map control: U2 79.0 % vs 78.7 % (+0.3 ± 6.6 pp), U3 80.7 % (+2.0 ± 6.8) — both below the +3 pp gate; head-to-head

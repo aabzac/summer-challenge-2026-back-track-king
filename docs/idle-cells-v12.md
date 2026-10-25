@@ -48,7 +48,26 @@ instability 0. Overall we place 127 of 5,230 non-town cells into regions at inst
 5. The last third of a game is 76 % idle for both sides; a "cannot complete before the end" rule would need a
    game-end forecast the proposals do not have (they only cap the earning horizon). Low priority.
 
-## Next step taken
+## Next step taken — `fill-off-v1` (2026-10-25 night, `docs/evidence/fill-off-v1/`)
 
-`fill-off-v1`: `current?USE_ROLLOUT_FILL=0` vs boss-v2 with `current` (= v12) as the same-map control and
-head-to-head, fresh pool 1005000 (`tools/boss_proxy/run_fill_screen.sh`); a parameter change, no code.
+`current?USE_ROLLOUT_FILL=0` vs boss-v2 with `current` (= v12) as the same-map control and head-to-head, fresh
+pool 1005000, 300 paired games per cell (`tools/boss_proxy/run_fill_screen.sh`):
+
+| cell | rate | W-L-D | maps h < 19 | h ≥ 19 |
+|---|---|---|---|---|
+| `current` (v12) vs boss-v2 (control) | **78.5 %** | 235-64-1 | 73.4 % | 91.7 % |
+| fill off vs boss-v2 | 74.7 % | 224-76-0 | 72.2 % | 81.0 % |
+| fill off vs `current` | **43.0 %** | 129-171-0 | 37.0 % | 58.3 % |
+
+Paired vs the control against the proxy: **−3.8 ± 6.9 pp** (34/41/75 maps). Zero errors; the move-time maxima
+(74–97 ms, 1–3 moves per 300 games on both sides) are machine hiccups during this run.
+
+**Verdict: rejected, the fill stays.** Switching the leftover-paint fill off loses against the proxy
+(tall maps 81 % vs 92 %) and loses head-to-head (43 %, small maps 37 %). So the fill cells are not the
+purposeless bucket: cells that lie on no route hypothesis *at placement* earn later or protect rails, and the
+"≥ 10 turns idle, no route" group is dominated by something else (most likely route segments of pairs that
+were later connected along another path, and network roots). The idle-cell line therefore leaves two
+candidates for later, both needing code: **collision avoidance** in the real turn (6.9 % of our paint is
+neutralised; the rollout already predicts the opponent's first-turn cells from its portfolio and could
+penalise them in our own root choice) and a **game-end forecast** for the last third (76 % idle on both
+sides). Placement-time instability rules and the fill are closed as levers.

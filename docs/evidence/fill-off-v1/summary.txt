@@ -1,0 +1,27 @@
+fill-off-v1 screen (2026-10-25 night): tools/boss_proxy/run_fill_screen.sh, fresh pool seed 1005000 (150 maps x 2 seats = 300 paired games per cell), 2 workers, CG timing 486/36 ms, user's machine.
+F0 = current?USE_ROLLOUT_FILL=0, cur = current (v12), boss2 = the boss-like screening proxy (current?USE_BOSS_SABOTAGE=1 + the seven v10 flags off + USE_EXPOSURE_INCOME=0).
+
+-- F0-vs-boss2: current?USE_ROLLOUT_FILL=0 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1005000) 2026-10-25T21:15:04Z
+  A win rate: 74,7%  W-L-D 224-76-0
+  avg score diff (A-B): +433,4   avg turns: 61,4
+  time/move ms  A avg 13,04 max 97 slow 2 | B avg 22,16 max 43 slow 0
+  accepted disrupt A/B: 98,1% / 98,5%; early closures 293/300
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1005000) 2026-10-25T21:20:37Z
+  A win rate: 78,5%  W-L-D 235-64-1
+  avg score diff (A-B): +635,9   avg turns: 66,5
+  time/move ms  A avg 11,09 max 74 slow 1 | B avg 20,09 max 56 slow 2
+  accepted disrupt A/B: 98,3% / 99,8%; early closures 293/300
+-- F0-vs-cur: current?USE_ROLLOUT_FILL=0 vs current (300 games, seed 1005000) 2026-10-25T21:25:58Z
+  A win rate: 43,0%  W-L-D 129-171-0
+  avg score diff (A-B): -111,7   avg turns: 62,1
+  time/move ms  A avg 10,46 max 96 slow 3 | B avg 10,47 max 50 slow 0
+  accepted disrupt A/B: 98,2% / 96,9%; early closures 293/300
+FILL SCREEN DONE 2026-10-25T21:29:24Z
+
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+F0-vs-boss2             74.7%  224-76  0   63.6-85.8      0  13.0  22.2    97     2  72.2%  81.0%
+F0-vs-cur               43.0%  129-171 0   31.9-54.1      0  10.5  10.5    96     3  37.0%  58.3%
+cur-vs-boss2            78.5%  235-64  1   67.4-89.6      0  11.1  20.1    74     1  73.4%  91.7%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  F0-vs-boss2            vs cur-vs-boss2       maps 150  delta  -3.8 pp  +- 6.9 (95%)  maps better/worse/equal 34/41/75
