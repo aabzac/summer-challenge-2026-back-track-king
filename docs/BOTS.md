@@ -38,6 +38,18 @@ check 0 problems. The historical mechanisms run on `v10?FLAG=1` (tests in `btk.b
 is refused. Arena entry since 2026-10-24/25: agent 6811139 (the fresh default v10 artifact, 29W/21L on its
 first 50). [Protocol and results](prune-v1.md), [evidence](evidence/prune-v1/).
 
+**`root-target-v1` = `current?USE_BOSS_ROOT_TARGET=true` — 2026-10-25, Stage 3–4 step 1, v5 steps (a)+(b) PASS,
+live pending:** our first simulated turn in every rollout root disrupts the real-turn lite target (`liteHeld`), the
+per-root `chooseTarget` and the "no disrupt" scenario are gone — the construction is now valued under the sabotage line
+the real turn actually plays. Same-map screen on fresh pool 1002000 (300 paired games/cell, CG timing, 2 workers,
+`docs/stage4-threat-model-v1.md`): **73.5 % vs boss-v2 against `current`'s 64.7 % (paired +8.8 ± 7.1 pp, 54/32/64
+maps)**, **57.0 % head-to-head vs `current`** (171-129), zero errors, mean move 7.9 ms vs 11.7 (less work, not more).
+The sibling flag `USE_BOSS_THREAT_MODEL` (A: the route proposals' predicted opponent target from the lite chooser)
+is **parked**: +1.5 ± 7.1 pp vs the proxy (fails the +3 pp gate), 51.0 % h2h; A+B 70.7 % vs the proxy (+6.0) is below
+B alone. Default artifact unchanged (both flags off, own merger blocks `// BOSS_ROOT` / `// BOSS_THREAT`). Strict
+process check of B's exact artifact and the live step (80 paired boss games, user launch) in the DEVLOG entry.
+[Protocol and results](stage4-threat-model-v1.md), [evidence](evidence/stage4-threat-model-v1/).
+
 **Live boss, 2026-10-23 (`stage2-d-live-boss-v1`, v5 step c session 1):** D's exact arena artifact vs v09
 in the same IDE session, matched 40 maps × 2 builds = 80 API games vs boss 6767608 — **D 18/40 = 45.0 %,
 v09 9/40 = 22.5 %**, discordant pairs 13 : 4, one-sided p = 0.0245, **paired +22.5 pp → PASS** (threshold

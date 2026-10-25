@@ -46,7 +46,13 @@ def validate_local_build(project_dir, build_id):
     declarations = list(DECLARATION.finditer(source))
     if len(declarations) != 1:
         raise ValueError('Registered source has ambiguous or missing marker')
-    marker = MARKER.fullmatch(declarations[0].group(1))
+    declared = declarations[0].group(1)
+    # readable-export-v1 (2026-10-25): a current export declares "<display name> | BTK_BUILD_V1 ..."; the
+    # registered marker is the text from BTK_BUILD_V1 on, and any prefix must be exactly a display name + " | ".
+    start = declared.find(MARKER_START)
+    if start > 0 and not declared[:start].endswith(' | '):
+        raise ValueError('Registered source marker is malformed')
+    marker = MARKER.fullmatch(declared[max(start, 0):])
     if marker is None or ' note=' in marker.group(0):
         raise ValueError('Registered source marker is malformed')
     strategy, declared_build, config = marker.groups()

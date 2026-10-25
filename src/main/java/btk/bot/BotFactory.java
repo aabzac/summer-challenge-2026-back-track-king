@@ -183,6 +183,12 @@ public final class BotFactory {
             throw new IllegalArgumentException("Boss opponent/own models require USE_BOSS_LITE");
         if (params.USE_BOSS_LITE_ROUTES && !params.USE_BOSS_LITE)
             throw new IllegalArgumentException("Boss lite route term requires USE_BOSS_LITE");
+        if ((params.USE_BOSS_THREAT_MODEL || params.USE_BOSS_ROOT_TARGET) && !version.equals("current"))
+            throw new IllegalArgumentException("Boss threat model / root target are current-only experiments (stage4-threat-model-v1)");
+        if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
+            throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
+        if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
+            throw new IllegalArgumentException("Boss root target requires USE_BOSS_LITE (current native rollout)");
         if (params.BOSS_OPPONENT_REPLIES < 0 || params.BOSS_OPPONENT_REPLIES > params.ROLLOUT_REPLIES)
             throw new IllegalArgumentException("BOSS_OPPONENT_REPLIES must be between 0 and ROLLOUT_REPLIES");
         if ((version.equals("current") || version.equals("main")) && rolloutPolicy)
@@ -216,6 +222,8 @@ public final class BotFactory {
                         || field.getName().equals("USE_BOSS_OWN_MODEL")) && !params.USE_BOSS_LITE) continue;
                 if ((field.getName().equals("USE_BOSS_LITE_ROUTES") || field.getName().equals("BOSS_LITE_ROUTE_WEIGHT"))
                         && !params.USE_BOSS_LITE_ROUTES) continue;
+                if (field.getName().equals("USE_BOSS_THREAT_MODEL") && !params.USE_BOSS_THREAT_MODEL) continue;
+                if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
                 if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")

@@ -8555,3 +8555,55 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   config=f0e507ac…`.
 - **No upload.** The resolved configuration did not move; the arena entry (agent 6811139) plays the same
   bot. The next upload — the first Stage 3–4 candidate — shows the new message.
+
+## 2026-10-25 — `stage4-threat-model-v1`: the rollout's first simulated turn plays the real disrupt (`root-target-v1`, v5 steps a+b PASS); the lite-chooser threat for route proposals is parked
+
+- **Why.** First strength step after `prune-v1` / `readable-export-v1`, from the Stage 3–4 line of the 2026-10-20
+  plan. Since `opponent-model-v1` the rollout's opponent and our own later simulated turns disrupt with the two-stage
+  boss chooser and the real DISRUPT is its held target — but two places of the construction search still used the
+  symmetric `chooseTarget`: the threat our bypass routes (variant 2) and `protectedGain` are planned around, and our
+  own *first* simulated turn, where every root was evaluated with a self-like target *and* with no disrupt, the better
+  scenario choosing the construction, after which `actions()` overrode the target with `liteHeld` anyway. Protocol,
+  mechanism and the predeclared reading: [stage4-threat-model-v1.md](stage4-threat-model-v1.md).
+- **Flags** (default off, own merger blocks, current-only; `BotFactory` refuses them on frozen versions and without the
+  lite chooser / opponent model): **A `USE_BOSS_THREAT_MODEL`** (`// BOSS_THREAT`): `threats[me] = chooseBossLite(s,
+  1 − me, liteOppHeld)` — the opponent target the rollout's opponent plays on its first turn — instead of
+  `chooseTarget(s, 1 − me)`; one timer-checked chooser call replaces one of equal cost. **B `USE_BOSS_ROOT_TARGET`**
+  (`// BOSS_ROOT`): `rootTargets[i] = liteHeld` for every ordinary and network root, no per-root `chooseTarget` on the
+  placed board, and the `attack == 1` (no-disrupt) scenario is skipped — the real turn never wastes the point, so the
+  rollout should not either (Stage 3 inside the search). Removes ≈ 28 ink simulations and half the comparisons per turn.
+  Configuration hash carries a flag only while it is on (`BotFactory.configuration`), so `current` keeps
+  `config=f0e507ac…` and the default artifact its 88,671 chars / `e5da0dcb…` (`V10SubmissionTest`,
+  `BossThreatRootSubmissionTest`; `V10PromotionTest`'s field count +2). Legality / profile tests `BossThreatRootTest`.
+- **Screen** (`tools/boss_proxy/run_stage4_screen.sh`, fresh pool **1002000**, 300 paired games per cell, CG 486/36 ms,
+  2 workers, `evidence/stage4-threat-model-v1/`): vs boss-v2 on the same maps/seeds/seats — `current` **64.7 %**,
+  A 66.2 % (**+1.5 ± 7.1 pp**, 43/45/62 maps), **B 73.5 % (+8.8 ± 7.1 pp, 54/32/64)**, AB 70.7 % (+6.0 ± 7.2);
+  head-to-head vs `current` — A 51.0 %, **B 57.0 %** (171-129-0), AB 57.0 %. Zero errors; disrupt rate 98.4–98.5 %
+  in every arm; B's mean move time **7.9 ms vs 11.7** (the search finishes earlier — the gain is not compute);
+  B's maximum 39 ms once in 300 games (37 in the other cell, control 36).
+- **Reading.** **B passes v5 steps (a) and (b)** — the largest same-map proxy delta in the v2 → B → C → D chain (D over
+  C was +2–3 pp vs the proxy, 53.7 % head-to-head). **A fails step (a)** (+1.5 pp, inside the cell error; 51.0 % h2h)
+  → **parked**: the rollout's boss-like opponent already prices the held target into the route values, so which
+  threat the proposal stage bypasses matters little. **AB is below B** on the same maps (−2.8 pp vs the proxy, equal
+  h2h): A adds nothing on top of B → **B goes forward alone**, A stays in the code as a parked flag.
+  Tall maps (h ≥ 19): B 67.9 % vs the control's 62.3 % against the proxy (+5.6), 55.7 % head-to-head — no tall-map loss,
+  unlike every dividend candidate.
+- **B's artifact and process check.** `build/submit-stage4-b`: 89,008 chars, sha `ea4bfe7a…`, build `87973a8a…`,
+  config `179dcc66…`; strict `procCheck` (zero grace, 4 games vs v09): **0 problem games, 0 timeouts**, first ≤ 635 ms,
+  later ≤ 37.4 ms, 4/4 wins (`evidence/stage4-threat-model-v1/B-artifact-process-check.json`).
+- **Live plan (v5 step c) frozen, no network calls:** `build/cg-boss/stage4-b-current-boss-40/plan.json`
+  (id `53e2fee9…`, matched, 40 maps × 2 builds = 80 API games, boss 6767608, seed 2026102502, candidate
+  `build/submit-stage4-b`, control = the default `current` artifact `build/submit` / `e5da0dcb…`). The user launches it
+  (`docs/stage4-threat-model-v1.md` has the line); pass = B ≥ `current` + 5 pp over the 40 paired maps, the 80-game
+  policy sample completes with a second session. **No arena upload before the live result.**
+- **Tooling fix.** `tools/replay_capture.validate_local_build` refused every current artifact since
+  `readable-export-v1` ("Registered source marker is malformed"): the declared `BUILD_MARKER` now leads with the
+  display name. It reads the marker from `BTK_BUILD_V1` on (a prefix must be exactly `<name> | `); Python tests
+  14/14, 33/33, 9/9.
+- **Tests.** `gradlew test`: 826 tests (+4), **25 failures, all pre-existing** (19 retained-engine incl.
+  `FileMergerTest.characterLimitIsCheckedBeforePublishing` and `NeuralTargetSizeProbeTest`, 6 `PduhardBeamBotTest`).
+  The three Params field-count pins (`V07/V08/V09PromotionTest`) and `V10PromotionTest`'s moved by +2.
+- **State:** `current` unchanged (= v10, both flags off by default); candidate **B = `current?USE_BOSS_ROOT_TARGET=true`**
+  awaits the live step; A parked. Pool 1002000..1002149 consumed; next free range ≥ 1003000. Next after the live
+  result: if PASS, promotion to v11 with the flag as a default (v10 mechanics); the remaining Stage 4 half
+  (exposure-discounted own valuation) is screened on top of B with B as the same-map control.

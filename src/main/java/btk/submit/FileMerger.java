@@ -245,6 +245,8 @@ public class FileMerger {
         boolean bossLite = BotFactory.parameters(spec).USE_BOSS_LITE;
         boolean bossModel = BotFactory.parameters(spec).USE_BOSS_OPPONENT_MODEL || BotFactory.parameters(spec).USE_BOSS_OWN_MODEL;
         boolean bossRoutes = BotFactory.parameters(spec).USE_BOSS_LITE_ROUTES;
+        boolean bossThreat = BotFactory.parameters(spec).USE_BOSS_THREAT_MODEL;
+        boolean bossRoot = BotFactory.parameters(spec).USE_BOSS_ROOT_TARGET;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -262,6 +264,8 @@ public class FileMerger {
             boolean holdBlock = false;
             boolean modelBlock = false;
             boolean routesBlock = false;
+            boolean threatBlock = false;
+            boolean rootBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -419,6 +423,28 @@ public class FileMerger {
                     continue;
                 }
                 if (routesBlock && !bossRoutes) continue;
+                if (line.trim().equals("// BOSS_THREAT_BEGIN")) {
+                    if (threatBlock) throw new IllegalArgumentException("Nested boss-threat block: " + file);
+                    threatBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BOSS_THREAT_END")) {
+                    if (!threatBlock) throw new IllegalArgumentException("Unbalanced boss-threat block: " + file);
+                    threatBlock = false;
+                    continue;
+                }
+                if (threatBlock && !bossThreat) continue;
+                if (line.trim().equals("// BOSS_ROOT_BEGIN")) {
+                    if (rootBlock) throw new IllegalArgumentException("Nested boss-root block: " + file);
+                    rootBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BOSS_ROOT_END")) {
+                    if (!rootBlock) throw new IllegalArgumentException("Unbalanced boss-root block: " + file);
+                    rootBlock = false;
+                    continue;
+                }
+                if (rootBlock && !bossRoot) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;

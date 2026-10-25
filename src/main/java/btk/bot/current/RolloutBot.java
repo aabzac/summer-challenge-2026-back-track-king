@@ -141,6 +141,9 @@ public final class RolloutBot implements Bot {
     /** Per player: sum over that player's previous-turn portfolio routes of 1/paint-cost, per region crossed. */
     private double[][] liteRoutes;
     // BOSS_ROUTES_END
+    // BOSS_THREAT_BEGIN
+    public int threatModelCalls;
+    // BOSS_THREAT_END
 
     public void init(GameState s, int me) {
         pathing = new Pathing(s.size);
@@ -268,6 +271,10 @@ public final class RolloutBot implements Bot {
         }
         // BOSS_LITE_END
         threats[1 - me] = fallbackTarget;
+        // BOSS_THREAT_BEGIN
+        if (p.USE_BOSS_THREAT_MODEL) { threatModelCalls++; threats[me] = chooseBossLite(s, 1 - me, liteOppHeld); }
+        else
+        // BOSS_THREAT_END
         threats[me] = chooseTarget(s, 1 - me);
         Rules.incomePerTurn(s, income);
         if (p.USE_ROLLOUT_QUICK_ROUTE && income[me] == 0) quickPlayer = me;
@@ -311,6 +318,9 @@ public final class RolloutBot implements Bot {
         ordinaryRootSize = rootSize;
         for (int i = 0; i < rootSize; i++) {
             rootCounts[i] = i == counts[me] ? 0 : fillBuild(s, me, i, roots[i]);
+            // BOSS_ROOT_BEGIN
+            if (p.USE_BOSS_ROOT_TARGET) { rootTargets[i] = liteHeld; continue; }
+            // BOSS_ROOT_END
             targetBoard.set(s);
             placeOwn(targetBoard, me, roots[i], rootCounts[i]);
             rootTargets[i] = timer.up() ? fallbackTarget : chooseTarget(targetBoard.state, me);
@@ -567,6 +577,9 @@ public final class RolloutBot implements Bot {
             for (int attack = 0; attack < 2; attack++) {
                 int target = attack == 0 ? rootTargets[root] : -1;
                 if (attack == 1 && rootTargets[root] < 0) continue;
+                // BOSS_ROOT_BEGIN
+                if (attack == 1 && p.USE_BOSS_ROOT_TARGET) continue;
+                // BOSS_ROOT_END
                 double sum = 0, worst = Double.MAX_VALUE;
                 for (int reply = 0; reply < replies; reply++) {
                     double value = rollout(s, me, root, target, reply);
@@ -741,6 +754,9 @@ public final class RolloutBot implements Bot {
         for (int cell : networkBest) {
             if (cell < 0 || timer.up()) break;
             roots[size][0] = cell;
+            // BOSS_ROOT_BEGIN
+            if (p.USE_BOSS_ROOT_TARGET) { rootCounts[size] = 1; rootTargets[size] = liteHeld; size++; networkRoots++; continue; }
+            // BOSS_ROOT_END
             targetBoard.set(s); placeOwn(targetBoard, me, roots[size], 1);
             int target = chooseTarget(targetBoard.state, me);
             if (timer.up()) break;

@@ -23,13 +23,14 @@ class CaptureTest(unittest.TestCase):
             shutil.rmtree(self.project)
         self.addCleanup(cleanup)
 
-    def build(self, strategy='v07'):
+    def build(self, strategy='v07', label=None):
         params = {'NOISE': '0.1', 'USE_ROLLOUT_NETWORK_CHORDS': 'false'}
         normalized = 'class Player {\n' + EMPTY_DECLARATION + '\n}\n'
         build = sha256(normalized)
         marker = f'BTK_BUILD_V1 strategy={strategy} build={build} config={config_sha256(params)}'
+        declared = f'{label} | {marker}' if label else marker  # readable-export-v1: display name before the marker
         source = normalized.replace(EMPTY_DECLARATION,
-                                    f'public static final String BUILD_MARKER = "{marker}";')
+                                    f'public static final String BUILD_MARKER = "{declared}";')
         manifest = {'schemaVersion': 2, 'strategy': strategy, 'strategyId': strategy,
                     'buildId': build, 'configSha256': config_sha256(params), 'params': params,
                     'sha256': sha256(source), 'marker': marker, 'identityScheme': IDENTITY_SCHEME,
@@ -108,6 +109,15 @@ class CaptureTest(unittest.TestCase):
         raw = json.loads(self.replay(game=1235))
         raw['frames'][1]['stdout'] = 'WAIT;MESSAGE ' + marker
         self.assertEqual('unknown', self.capture(json.dumps(raw))['attribution']['status'])
+
+    def test_registered_source_may_declare_a_display_name_before_the_marker(self):
+        marker, manifest, directory = self.build(strategy='current', label='v10 Boss Model (modified)')
+        self.assertEqual(manifest, validate_local_build(self.project, manifest['buildId']))
+        self.assertEqual('marker-matches-local-artifact', self.capture(self.replay(marker))['attribution']['status'])
+        source = (directory / 'Player.java').read_text()
+        (directory / 'Player.java').write_bytes(source.replace(' | BTK_BUILD_V1', ' BTK_BUILD_V1').encode())
+        with self.assertRaisesRegex(ValueError, 'malformed'):
+            validate_local_build(self.project, manifest['buildId'])
 
     def test_tampered_source_or_config_does_not_receive_verified_directory(self):
         marker, manifest, directory = self.build()

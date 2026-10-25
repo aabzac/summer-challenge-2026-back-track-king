@@ -56,7 +56,7 @@ class V07PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 34 + SearchExperimentParams.DEFAULTS.size()
+        assertEquals(expected.size() + 36 + SearchExperimentParams.DEFAULTS.size()
                 + LiveTargetExperimentParams.DEFAULTS.size(), fields,
                 "retained later fields plus proposal/deadline/batched flags and turn-budget override");
         FrozenParams.applyTo("v07", dirty);

@@ -109,6 +109,14 @@ public class Params {
     public boolean USE_BOSS_LITE_ROUTES = true;
     public double BOSS_LITE_ROUTE_WEIGHT = 0.371747;
     // BOSS_ROUTES_END
+    // BOSS_THREAT_BEGIN
+    /** Stage 4 (threat-model-v1): the opponent target that the route proposals bypass and protect against (variant 2, protectedGain) comes from the two-stage boss chooser with the observed held target, i.e. what the rollout's opponent plays, instead of chooseTarget. Requires USE_BOSS_OPPONENT_MODEL. */
+    public boolean USE_BOSS_THREAT_MODEL = false;
+    // BOSS_THREAT_END
+    // BOSS_ROOT_BEGIN
+    /** Stage 3 inside the rollout (root-target-v1): our first simulated turn disrupts the real-turn lite target for every root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE. */
+    public boolean USE_BOSS_ROOT_TARGET = false;
+    // BOSS_ROOT_END
     // Selected cheap-income portfolio slot; frozen v06 does not read these fields.
     public boolean USE_ROLLOUT_QUICK_ROUTE = true;
     public int ROLLOUT_QUICK_MAX_PAINT = 6;
