@@ -1,0 +1,68 @@
+{
+  "capture": {
+    "attribution": {
+      "artifactSha256": "ff111d5484ed8698c9dfdf27806f1613145d05ccd043911a53e08ea91c76dfd1",
+      "buildId": "002ca691e67b3e9792fdd4e613749065657cf741f67679011be0da8696dd4f43",
+      "configSha256": "179dcc662b80eb83f1680a86c97180be25e752b126883afb0844d3b664405c96",
+      "executionIdentityIndependentlyVerified": false,
+      "marker": "BTK_BUILD_V1 strategy=current build=002ca691e67b3e9792fdd4e613749065657cf741f67679011be0da8696dd4f43 config=179dcc662b80eb83f1680a86c97180be25e752b126883afb0844d3b664405c96",
+      "reason": "Self-reported replay marker matches verified locally retained source/configuration; remote executed-source identity is not independently proven",
+      "retainedArtifactVerified": true,
+      "status": "marker-matches-local-artifact",
+      "strategyId": "current"
+    },
+    "boss": 0,
+    "capturedAt": "2026-10-25T18:51:58.633616+00:00",
+    "created": true,
+    "expectedBuildMatches": true,
+    "gameId": 911740366,
+    "kind": "boss",
+    "metadataPath": "replays/cg/boss/_metadata/911740366.json",
+    "ok": true,
+    "path": "replays/cg/boss/current/002ca691e67b3e9792fdd4e613749065657cf741f67679011be0da8696dd4f43/911740366.json",
+    "player": 1,
+    "rawSha256": "be16c6c1121682f83011db02948c17ddd18c598732d7150623e78861183742c5",
+    "schemaVersion": 1
+  },
+  "completedAt": "2026-10-25T18:51:58.637339+00:00",
+  "outcome": {
+    "boss": {
+      "agentId": 6767608,
+      "arenaboss": {
+        "league": {
+          "divisionCount": 6,
+          "divisionIndex": 3,
+          "divisionOffset": 0
+        },
+        "nickname": "Boss 4"
+      },
+      "index": 0,
+      "score": 30.53612908594473,
+      "valid": true
+    },
+    "gameId": 911740366,
+    "gameInformation": [],
+    "mapHash": "93e3bacd4903601a42af7954fb7028756568f0c214ec03c34b5fc6559d46af78",
+    "ranks": [
+      1,
+      0
+    ],
+    "refereeInput": "seed=2068316334\n",
+    "result": "W",
+    "scores": [
+      2583,
+      3123
+    ],
+    "seat": 1,
+    "seed": "2068316334"
+  },
+  "planId": "db85a30d551ad276c20fb29e7f8c4549d751c91c3edd2087a8fb3ef3d69d1ffb",
+  "requestAttempt": 1,
+  "slot": {
+    "arm": "control",
+    "pair": 35,
+    "seat": 1,
+    "seed": "2068316334",
+    "slot": 69
+  }
+}

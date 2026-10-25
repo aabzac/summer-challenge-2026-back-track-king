@@ -67,7 +67,8 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
   - [x] Implemented, default off, artifact and configuration unchanged while off (`ExposureIncomeTest`, `ExposureIncomeSubmissionTest`); field-count pins +2.
   - [x] Screen `tools/boss_proxy/run_stage4b_screen.sh`, pool 1003000 (2026-10-25): control 71.7 % vs boss-v2; **E1 +3.7 ± 6.7 pp (41/31/78), 60.3 % h2h → v5 (a)+(b) PASS**; E05 +1.0 pp → parked.
   - [x] E1: strict `procCheck` of `current?USE_EXPOSURE_INCOME=true` (`build/submit-stage4-e1`, 91,368 chars, config `d7803b42…`): 0 problem games, later ≤ 38.5 ms; live plan `build/cg-boss/stage4-e1-v11-boss-40` (id `db85a30d…`, 80 API games vs the v11 artifact) frozen.
-  - [ ] **User:** v5 step (c) for E1 — 80 paired live boss games vs v11 in one session (`tools/run_boss_paced.sh`, line in the protocol doc), preferably on another day; upload only after the live result.
+  - [x] **User:** v5 step (c) for E1, session 1 (2026-10-25 17:57–18:59 UTC, 40 matched maps × 2 builds): **E1 20/40 vs v11 18/40, paired +5.0 pp (8 : 6 discordant, p = 0.40), 80/80 replays exact → the +5 pp session threshold met exactly**; tall maps 1 : 4 of 8. No upload.
+  - [ ] **User decision:** session 2 for E1 (fresh 40-map plan on another day, same-session `current` control; decides step (c) on the pooled 80, one predeclared extension to 120), or promote E1 to v12 now, or stop.
 
 ## v09 ink45 versus ink40 local budget benchmark (2026-10-18)
 

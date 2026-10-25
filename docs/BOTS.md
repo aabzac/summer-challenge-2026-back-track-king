@@ -24,7 +24,10 @@ crosses, (1 − instability / 4) each, in the rollout's tail and in the route pr
 (paired +3.7 ± 6.7 pp, 41/31/78 maps — at the +3 pp gate)**, **60.3 % head-to-head vs v11** (181-119, the chain's largest),
 zero errors, move time unchanged. Half weight (E05): +1.0 pp vs the proxy, 54.0 % h2h → **parked**. Artifact
 `build/submit-stage4-e1` 91,368 chars, config `d7803b42…`, strict 4-game check 0 problems; live plan
-`build/cg-boss/stage4-e1-v11-boss-40` (80 API games vs the v11 artifact) frozen for the user's launch on another day.
+`build/cg-boss/stage4-e1-v11-boss-40` (80 API games vs the v11 artifact). **Live boss, v5 step (c) session 1 (2026-10-25,
+user launch): E1 20/40 = 50.0 % vs v11 18/40 = 45.0 % in the same session, discordant 8 : 6, paired +5.0 pp (p = 0.40),
+80/80 replays exact → the +5 pp session threshold met exactly (pass at the edge); tall maps 1 : 4 of 8; session 2 (40 more
+maps) would decide step (c) on the pooled 80 — the user's call. No promotion, no upload.**
 [Protocol and results](stage4-exposure-income-v1.md), [evidence](evidence/stage4-exposure-income-v1/).
 
 **v11 Root Target — promoted 2026-10-25 on the user's decision** ("давай продвинем версию на арену"): the exact

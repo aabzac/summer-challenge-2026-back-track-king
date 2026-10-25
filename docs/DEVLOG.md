@@ -8708,3 +8708,17 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   unchanged (a label prefix stays `<name> | `). Candidate artifacts built before this change (`build/submit-v11`
   on the arena, `build/submit-stage4-e1` in the live series) keep their old label and build id; the attribution
   reads the marker from `BTK_BUILD_V1` on, so nothing changes for them.
+
+## 2026-10-25 (night) — E1 against the live boss, v5 step (c) session 1: 20/40 vs v11's 18/40 in the same session — +5.0 pp, the session threshold met exactly
+
+- Run by the user 17:57–18:59 UTC right after the screen (the day's 160th API request went through); 80 API
+  games, 0 failures, 0 retries, **80/80 replays exact** (`cgValidate`, both capture directories). **E1 20/40 =
+  50.0 %, `current` (v11, the arena artifact) 18/40 = 45.0 %** against boss 6767608 on 40 matched maps;
+  discordant pairs **8 : 6**, paired **+5.0 pp**, one-sided p = 0.40; 21×14 7/3 of 12 maps, tall maps (h ≥ 19)
+  1 : 4 of 8 (`evidence/stage4-exposure-income-v1/live-session-1/`: plan, 80 result records, runner report,
+  paired summary, validation note).
+- **Reading:** the predeclared +5 pp session threshold is met exactly — a pass at the edge, weak evidence
+  (p = 0.40), with the gain on small maps and a 1 : 4 tall-map sample against E1 that the proxy did not show.
+  Step (c) is decided on 80 candidate games; a second 40-map session on another day completes it (one
+  predeclared extension to 120). **No promotion, no upload** until the user decides (session 2, promote now
+  as with v11, or stop). Live sessions of the line so far: D +22.5, B +2.5, E1 +5.0 pp.
