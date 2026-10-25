@@ -8750,7 +8750,7 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   default (v11-on-current) `cf1972a1` / build `35176f24` → `48c92aab` / `0b73d984` (88,990 → 89,012). Frozen `v11`,
   `v10`, `v09` keep their bytes. New `V12PromotionTest` (2), `V12SubmissionTest` (2); `BotCatalogTest` expects `v12`.
 - **Tests.** `gradlew test`: 837 tests, **25 failures, all pre-existing**.
-- **State:** `current` = **v12 Exposure Income**; **the arena still runs v11 (agent 6813813) until the user uploads
-  `build/submit-v12/Player.java`**; then `cgFetch`/`cgAnalyze` of its first 50 games. Next strength step: from
+- **v12 on the arena (2026-10-25, ~19:45 UTC): puzzle agent 6813957** (marker `build=ce1d3a3b… config=d7803b42…`), first 50 games **32W/18L**, 0 failed turns, 0 skipped actions, tall maps (h ≥ 19) 14-6, by size 30x20 6-1, 29x19 8-5, 27x18 6-3, 26x17 1-2, 24x16 7-3, 23x15 3-0, 21x14 1-4; seats P0 17-9, P1 15-9; accepted cells never earning 44.9 % (v11 46.6 %); rank 367 / score 26.09 during placement (`docs/evidence/arena-2026-10-25-v12-agent-6813957.json`). Placement opponents vary (v11 34/16, v10 29/21, D 30/20 on their first 50), so this is a sanity check, not a measurement.
+- **State:** `current` = **v12 Exposure Income** = the arena entry (agent 6813957). Next strength step: from
   `docs/PLAN.md` (Stage 2 compute cuts are the last unticked Stage item; or a new valuation idea), screened on fresh
   maps ≥ 1004000 with `current` (= v12) as the same-map control and the proxy spec with `USE_EXPOSURE_INCOME=0`.
