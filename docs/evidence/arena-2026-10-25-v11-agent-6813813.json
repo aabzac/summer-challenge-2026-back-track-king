@@ -1,0 +1,3010 @@
+{
+ "schemaVersion": 1,
+ "createdAt": "2026-10-25T17:15:51.380384600Z",
+ "input": "replays\\cg",
+ "agentId": 6813813,
+ "method": "Exact CG validation first; accepted actions from Rules.resolve; zero-based turns. Counterfactuals keep the opponent's recorded SAME-turn actions and reset to the actual state next turn. Immediate score-difference deltas are not match wins or additive lost final points. Agent id identifies the server entry, not an independently verified source-code hash.",
+ "note": "Puzzle agent 6813813 = the default v11 artifact (build/submit-v11, marker build=002ca691... config=179dcc66...) uploaded by the user on 2026-10-25 right after the v11 promotion. First 50 games fetched the same evening with cgFetch -Pplayer=aabzac -Plimit=50 and analysed with cgAnalyze -Pagent=6813813: 34W/16L, 0 failed turns, 0 skipped actions, tall maps (h>=19) 7-5, 30x20 3-4, seats P0 18-8 / P1 16-8, accepted cells never earning 46.6 % (v10's first 50: 46.3 %); rank 375 / score 25.36 on the puzzle leaderboard while placement games were still running (v10 after its first 50: rank 356 / 26.83). Per-turn traces removed as for the earlier records; the full report is reproducible from the replays.",
+ "games": [
+  {
+   "gameId": 911721597,
+   "file": "replays\\cg\\911721597.json",
+   "seed": "seed=-6419908233144422000",
+   "names": [
+    "Fraxure",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768979,
+    6813813
+   ],
+   "scores": [
+    2240,
+    2041
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 13,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    3
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    164,
+    145
+   ],
+   "paint": [
+    191,
+    185
+   ],
+   "placementTurns": [
+    67,
+    64
+   ],
+   "disruptTurns": [
+    65,
+    99
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    100,
+    83
+   ]
+  },
+  {
+   "gameId": 911721611,
+   "file": "replays\\cg\\911721611.json",
+   "seed": "seed=-5197951879163195000",
+   "names": [
+    "aabzac",
+    "GoodDevel"
+   ],
+   "agentIds": [
+    6813813,
+    6779590
+   ],
+   "scores": [
+    896,
+    654
+   ],
+   "me": 0,
+   "turns": 45,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 10,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    7,
+    0
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    105,
+    75
+   ],
+   "paint": [
+    135,
+    97
+   ],
+   "placementTurns": [
+    45,
+    33
+   ],
+   "disruptTurns": [
+    44,
+    44
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    63,
+    16
+   ]
+  },
+  {
+   "gameId": 911721618,
+   "file": "replays\\cg\\911721618.json",
+   "seed": "seed=8699869019312532000",
+   "names": [
+    "Limo",
+    "aabzac"
+   ],
+   "agentIds": [
+    6767635,
+    6813813
+   ],
+   "scores": [
+    4330,
+    6918
+   ],
+   "me": 1,
+   "turns": 73,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 52,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    3
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    153,
+    192
+   ],
+   "paint": [
+    192,
+    219
+   ],
+   "placementTurns": [
+    64,
+    73
+   ],
+   "disruptTurns": [
+    69,
+    72
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    32,
+    63
+   ]
+  },
+  {
+   "gameId": 911721641,
+   "file": "replays\\cg\\911721641.json",
+   "seed": "seed=7682268832754294000",
+   "names": [
+    "aabzac",
+    "Maram_Pradeep"
+   ],
+   "agentIds": [
+    6813813,
+    6806614
+   ],
+   "scores": [
+    2258,
+    2085
+   ],
+   "me": 0,
+   "turns": 85,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 13,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    4,
+    4
+   ],
+   "firstDisrupt": [
+    1,
+    4
+   ],
+   "cells": [
+    143,
+    138
+   ],
+   "paint": [
+    201,
+    187
+   ],
+   "placementTurns": [
+    68,
+    65
+   ],
+   "disruptTurns": [
+    84,
+    40
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    69,
+    85
+   ]
+  },
+  {
+   "gameId": 911721660,
+   "file": "replays\\cg\\911721660.json",
+   "seed": "seed=5707868741184638000",
+   "names": [
+    "Harv",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768440,
+    6813813
+   ],
+   "scores": [
+    1081,
+    1500
+   ],
+   "me": 1,
+   "turns": 52,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 18,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    0,
+    3
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    83,
+    128
+   ],
+   "paint": [
+    114,
+    156
+   ],
+   "placementTurns": [
+    38,
+    52
+   ],
+   "disruptTurns": [
+    48,
+    51
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    30,
+    53
+   ]
+  },
+  {
+   "gameId": 911721685,
+   "file": "replays\\cg\\911721685.json",
+   "seed": "seed=-1057627390450268700",
+   "names": [
+    "titia",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768978,
+    6813813
+   ],
+   "scores": [
+    435,
+    2622
+   ],
+   "me": 1,
+   "turns": 50,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 13,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    2
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    33,
+    129
+   ],
+   "paint": [
+    35,
+    149
+   ],
+   "placementTurns": [
+    12,
+    50
+   ],
+   "disruptTurns": [
+    46,
+    43
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    6,
+    35
+   ]
+  },
+  {
+   "gameId": 911721716,
+   "file": "replays\\cg\\911721716.json",
+   "seed": "seed=6358081250650500000",
+   "names": [
+    "Alcie",
+    "aabzac"
+   ],
+   "agentIds": [
+    6767810,
+    6813813
+   ],
+   "scores": [
+    1944,
+    1868
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 44,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    3
+   ],
+   "firstDisrupt": [
+    5,
+    1
+   ],
+   "cells": [
+    206,
+    191
+   ],
+   "paint": [
+    267,
+    268
+   ],
+   "placementTurns": [
+    91,
+    90
+   ],
+   "disruptTurns": [
+    69,
+    99
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    101,
+    99
+   ]
+  },
+  {
+   "gameId": 911721728,
+   "file": "replays\\cg\\911721728.json",
+   "seed": "seed=-6145724372781185000",
+   "names": [
+    "luvoco",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768333,
+    6813813
+   ],
+   "scores": [
+    2950,
+    7011
+   ],
+   "me": 1,
+   "turns": 63,
+   "width": 27,
+   "height": 18,
+   "towns": 9,
+   "pairs": 24,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    4,
+    4
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    83,
+    142
+   ],
+   "paint": [
+    110,
+    187
+   ],
+   "placementTurns": [
+    39,
+    63
+   ],
+   "disruptTurns": [
+    59,
+    62
+   ],
+   "skippedActions": [
+    3,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    28,
+    39
+   ]
+  },
+  {
+   "gameId": 911721742,
+   "file": "replays\\cg\\911721742.json",
+   "seed": "seed=-4478652923767462400",
+   "names": [
+    "aabzac",
+    "CheaterAK"
+   ],
+   "agentIds": [
+    6813813,
+    6768408
+   ],
+   "scores": [
+    4383,
+    2270
+   ],
+   "me": 0,
+   "turns": 62,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 13,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    11,
+    5
+   ],
+   "firstDisrupt": [
+    1,
+    3
+   ],
+   "cells": [
+    155,
+    71
+   ],
+   "paint": [
+    182,
+    85
+   ],
+   "placementTurns": [
+    61,
+    32
+   ],
+   "disruptTurns": [
+    61,
+    59
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    63,
+    13
+   ]
+  },
+  {
+   "gameId": 911721757,
+   "file": "replays\\cg\\911721757.json",
+   "seed": "seed=802319044316064100",
+   "names": [
+    "LeProfesseur",
+    "aabzac"
+   ],
+   "agentIds": [
+    6778803,
+    6813813
+   ],
+   "scores": [
+    4078,
+    4616
+   ],
+   "me": 1,
+   "turns": 63,
+   "width": 29,
+   "height": 19,
+   "towns": 11,
+   "pairs": 37,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    0,
+    1
+   ],
+   "cells": [
+    144,
+    145
+   ],
+   "paint": [
+    189,
+    186
+   ],
+   "placementTurns": [
+    63,
+    62
+   ],
+   "disruptTurns": [
+    63,
+    62
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    49,
+    46
+   ]
+  },
+  {
+   "gameId": 911721774,
+   "file": "replays\\cg\\911721774.json",
+   "seed": "seed=-9198027802393586000",
+   "names": [
+    "aabzac",
+    "Elbarto"
+   ],
+   "agentIds": [
+    6813813,
+    6768570
+   ],
+   "scores": [
+    3676,
+    1339
+   ],
+   "me": 0,
+   "turns": 72,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 16,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    6,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    4
+   ],
+   "cells": [
+    161,
+    86
+   ],
+   "paint": [
+    211,
+    113
+   ],
+   "placementTurns": [
+    71,
+    38
+   ],
+   "disruptTurns": [
+    71,
+    68
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    88,
+    29
+   ]
+  },
+  {
+   "gameId": 911721870,
+   "file": "replays\\cg\\911721870.json",
+   "seed": "seed=5632681193308792000",
+   "names": [
+    "mermalat",
+    "aabzac"
+   ],
+   "agentIds": [
+    6769042,
+    6813813
+   ],
+   "scores": [
+    551,
+    673
+   ],
+   "me": 1,
+   "turns": 41,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 13,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    6,
+    5
+   ],
+   "firstDisrupt": [
+    0,
+    1
+   ],
+   "cells": [
+    82,
+    102
+   ],
+   "paint": [
+    96,
+    121
+   ],
+   "placementTurns": [
+    32,
+    41
+   ],
+   "disruptTurns": [
+    41,
+    40
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    16,
+    47
+   ]
+  },
+  {
+   "gameId": 911721895,
+   "file": "replays\\cg\\911721895.json",
+   "seed": "seed=-4509375316260265000",
+   "names": [
+    "aabzac",
+    "Enael23-jpauline"
+   ],
+   "agentIds": [
+    6813813,
+    6768342
+   ],
+   "scores": [
+    1743,
+    2619
+   ],
+   "me": 0,
+   "turns": 68,
+   "width": 27,
+   "height": 18,
+   "towns": 9,
+   "pairs": 26,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    4,
+    4
+   ],
+   "firstDisrupt": [
+    1,
+    0
+   ],
+   "cells": [
+    150,
+    148
+   ],
+   "paint": [
+    204,
+    204
+   ],
+   "placementTurns": [
+    68,
+    68
+   ],
+   "disruptTurns": [
+    67,
+    68
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    71,
+    58
+   ]
+  },
+  {
+   "gameId": 911721924,
+   "file": "replays\\cg\\911721924.json",
+   "seed": "seed=5795151919772872000",
+   "names": [
+    "aabzac",
+    "OneMoreGame"
+   ],
+   "agentIds": [
+    6813813,
+    6768800
+   ],
+   "scores": [
+    2327,
+    2065
+   ],
+   "me": 0,
+   "turns": 100,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 20,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    2
+   ],
+   "firstDisrupt": [
+    1,
+    2
+   ],
+   "cells": [
+    209,
+    110
+   ],
+   "paint": [
+    275,
+    138
+   ],
+   "placementTurns": [
+    94,
+    47
+   ],
+   "disruptTurns": [
+    79,
+    54
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    133,
+    29
+   ]
+  },
+  {
+   "gameId": 911721958,
+   "file": "replays\\cg\\911721958.json",
+   "seed": "seed=3729969057419962000",
+   "names": [
+    "EricSMSO",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768346,
+    6813813
+   ],
+   "scores": [
+    5814,
+    7431
+   ],
+   "me": 1,
+   "turns": 82,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 49,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    5
+   ],
+   "firstDisrupt": [
+    7,
+    1
+   ],
+   "cells": [
+    131,
+    209
+   ],
+   "paint": [
+    167,
+    243
+   ],
+   "placementTurns": [
+    56,
+    82
+   ],
+   "disruptTurns": [
+    49,
+    81
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    34,
+    96
+   ]
+  },
+  {
+   "gameId": 911721982,
+   "file": "replays\\cg\\911721982.json",
+   "seed": "seed=-6734944281651942000",
+   "names": [
+    "Kortola",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768935,
+    6813813
+   ],
+   "scores": [
+    1741,
+    1536
+   ],
+   "me": 1,
+   "turns": 79,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 18,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    0,
+    0
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    107,
+    181
+   ],
+   "paint": [
+    121,
+    224
+   ],
+   "placementTurns": [
+    45,
+    79
+   ],
+   "disruptTurns": [
+    75,
+    77
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    53,
+    121
+   ]
+  },
+  {
+   "gameId": 911721998,
+   "file": "replays\\cg\\911721998.json",
+   "seed": "seed=-6386180343262248000",
+   "names": [
+    "MiGhTy_iT",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768480,
+    6813813
+   ],
+   "scores": [
+    9027,
+    13883
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 18,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    4
+   ],
+   "firstDisrupt": [
+    11,
+    1
+   ],
+   "cells": [
+    149,
+    232
+   ],
+   "paint": [
+    198,
+    293
+   ],
+   "placementTurns": [
+    68,
+    98
+   ],
+   "disruptTurns": [
+    21,
+    99
+   ],
+   "skippedActions": [
+    77,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    34,
+    142
+   ]
+  },
+  {
+   "gameId": 911722019,
+   "file": "replays\\cg\\911722019.json",
+   "seed": "seed=-8902102729640374000",
+   "names": [
+    "aabzac",
+    "enilhan"
+   ],
+   "agentIds": [
+    6813813,
+    6768403
+   ],
+   "scores": [
+    1163,
+    860
+   ],
+   "me": 0,
+   "turns": 42,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 10,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    5,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    5
+   ],
+   "cells": [
+    87,
+    70
+   ],
+   "paint": [
+    116,
+    96
+   ],
+   "placementTurns": [
+    40,
+    35
+   ],
+   "disruptTurns": [
+    41,
+    32
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    29,
+    27
+   ]
+  },
+  {
+   "gameId": 911722057,
+   "file": "replays\\cg\\911722057.json",
+   "seed": "seed=-7391213017162707000",
+   "names": [
+    "aabzac",
+    "Xkr_"
+   ],
+   "agentIds": [
+    6813813,
+    6767710
+   ],
+   "scores": [
+    2697,
+    2204
+   ],
+   "me": 0,
+   "turns": 68,
+   "width": 27,
+   "height": 18,
+   "towns": 9,
+   "pairs": 24,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    0
+   ],
+   "cells": [
+    147,
+    110
+   ],
+   "paint": [
+    202,
+    141
+   ],
+   "placementTurns": [
+    68,
+    47
+   ],
+   "disruptTurns": [
+    67,
+    68
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    65,
+    18
+   ]
+  },
+  {
+   "gameId": 911722100,
+   "file": "replays\\cg\\911722100.json",
+   "seed": "seed=-4151742606043058000",
+   "names": [
+    "aabzac",
+    "guryelf"
+   ],
+   "agentIds": [
+    6813813,
+    6768385
+   ],
+   "scores": [
+    6746,
+    6214
+   ],
+   "me": 0,
+   "turns": 95,
+   "width": 29,
+   "height": 19,
+   "towns": 11,
+   "pairs": 38,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    4,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    5
+   ],
+   "cells": [
+    233,
+    146
+   ],
+   "paint": [
+    276,
+    165
+   ],
+   "placementTurns": [
+    94,
+    55
+   ],
+   "disruptTurns": [
+    94,
+    90
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    129,
+    33
+   ]
+  },
+  {
+   "gameId": 911722131,
+   "file": "replays\\cg\\911722131.json",
+   "seed": "seed=1846417112078925800",
+   "names": [
+    "aabzac",
+    "Sardonix"
+   ],
+   "agentIds": [
+    6813813,
+    6768084
+   ],
+   "scores": [
+    1346,
+    2309
+   ],
+   "me": 0,
+   "turns": 83,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 16,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    0
+   ],
+   "cells": [
+    130,
+    147
+   ],
+   "paint": [
+    159,
+    168
+   ],
+   "placementTurns": [
+    53,
+    57
+   ],
+   "disruptTurns": [
+    81,
+    83
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    66,
+    63
+   ]
+  },
+  {
+   "gameId": 911722160,
+   "file": "replays\\cg\\911722160.json",
+   "seed": "seed=-6450839923926388000",
+   "names": [
+    "EltonChou",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768691,
+    6813813
+   ],
+   "scores": [
+    1014,
+    1183
+   ],
+   "me": 1,
+   "turns": 85,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 12,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    2
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    139,
+    152
+   ],
+   "paint": [
+    180,
+    181
+   ],
+   "placementTurns": [
+    60,
+    61
+   ],
+   "disruptTurns": [
+    84,
+    84
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    75,
+    84
+   ]
+  },
+  {
+   "gameId": 911722193,
+   "file": "replays\\cg\\911722193.json",
+   "seed": "seed=-7215930694380303000",
+   "names": [
+    "aabzac",
+    "Wld"
+   ],
+   "agentIds": [
+    6813813,
+    6769181
+   ],
+   "scores": [
+    3325,
+    2506
+   ],
+   "me": 0,
+   "turns": 45,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 17,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    2
+   ],
+   "firstDisrupt": [
+    1,
+    2
+   ],
+   "cells": [
+    113,
+    120
+   ],
+   "paint": [
+    134,
+    135
+   ],
+   "placementTurns": [
+    45,
+    45
+   ],
+   "disruptTurns": [
+    44,
+    43
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    36,
+    45
+   ]
+  },
+  {
+   "gameId": 911722238,
+   "file": "replays\\cg\\911722238.json",
+   "seed": "seed=-3086963308756791300",
+   "names": [
+    "aabzac",
+    "baskinbey"
+   ],
+   "agentIds": [
+    6813813,
+    6768399
+   ],
+   "scores": [
+    3253,
+    3603
+   ],
+   "me": 0,
+   "turns": 100,
+   "width": 29,
+   "height": 19,
+   "towns": 11,
+   "pairs": 39,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    0
+   ],
+   "cells": [
+    199,
+    226
+   ],
+   "paint": [
+    246,
+    288
+   ],
+   "placementTurns": [
+    85,
+    96
+   ],
+   "disruptTurns": [
+    99,
+    97
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    128,
+    128
+   ]
+  },
+  {
+   "gameId": 911722283,
+   "file": "replays\\cg\\911722283.json",
+   "seed": "seed=4592409959158278700",
+   "names": [
+    "M_C",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768328,
+    6813813
+   ],
+   "scores": [
+    1215,
+    2930
+   ],
+   "me": 1,
+   "turns": 42,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 17,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    104,
+    109
+   ],
+   "paint": [
+    126,
+    124
+   ],
+   "placementTurns": [
+    42,
+    42
+   ],
+   "disruptTurns": [
+    39,
+    41
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    35,
+    35
+   ]
+  },
+  {
+   "gameId": 911722309,
+   "file": "replays\\cg\\911722309.json",
+   "seed": "seed=6795828664988202000",
+   "names": [
+    "aabzac",
+    "Wld"
+   ],
+   "agentIds": [
+    6813813,
+    6769181
+   ],
+   "scores": [
+    623,
+    559
+   ],
+   "me": 0,
+   "turns": 42,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 9,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    2
+   ],
+   "cells": [
+    89,
+    102
+   ],
+   "paint": [
+    125,
+    126
+   ],
+   "placementTurns": [
+    42,
+    42
+   ],
+   "disruptTurns": [
+    41,
+    35
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    44,
+    57
+   ]
+  },
+  {
+   "gameId": 911722332,
+   "file": "replays\\cg\\911722332.json",
+   "seed": "seed=-5747368296710215000",
+   "names": [
+    "timbersson",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768413,
+    6813813
+   ],
+   "scores": [
+    112,
+    210
+   ],
+   "me": 1,
+   "turns": 32,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 9,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    5,
+    6
+   ],
+   "firstDisrupt": [
+    0,
+    1
+   ],
+   "cells": [
+    49,
+    67
+   ],
+   "paint": [
+    70,
+    96
+   ],
+   "placementTurns": [
+    25,
+    32
+   ],
+   "disruptTurns": [
+    32,
+    31
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    31,
+    27
+   ]
+  },
+  {
+   "gameId": 911722358,
+   "file": "replays\\cg\\911722358.json",
+   "seed": "seed=4651895501596652000",
+   "names": [
+    "aabzac",
+    "baskinbey"
+   ],
+   "agentIds": [
+    6813813,
+    6768399
+   ],
+   "scores": [
+    2969,
+    3019
+   ],
+   "me": 0,
+   "turns": 100,
+   "width": 27,
+   "height": 18,
+   "towns": 9,
+   "pairs": 25,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    8,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    0
+   ],
+   "cells": [
+    153,
+    212
+   ],
+   "paint": [
+    200,
+    244
+   ],
+   "placementTurns": [
+    67,
+    82
+   ],
+   "disruptTurns": [
+    99,
+    72
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    81,
+    115
+   ]
+  },
+  {
+   "gameId": 911722379,
+   "file": "replays\\cg\\911722379.json",
+   "seed": "seed=3544672075682204700",
+   "names": [
+    "timbersson",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768413,
+    6813813
+   ],
+   "scores": [
+    1536,
+    2325
+   ],
+   "me": 1,
+   "turns": 46,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 15,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    2
+   ],
+   "firstDisrupt": [
+    0,
+    1
+   ],
+   "cells": [
+    98,
+    120
+   ],
+   "paint": [
+    112,
+    138
+   ],
+   "placementTurns": [
+    42,
+    46
+   ],
+   "disruptTurns": [
+    46,
+    45
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    23,
+    34
+   ]
+  },
+  {
+   "gameId": 911722405,
+   "file": "replays\\cg\\911722405.json",
+   "seed": "seed=-1861354410039817000",
+   "names": [
+    "PSaver",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768614,
+    6813813
+   ],
+   "scores": [
+    1039,
+    2083
+   ],
+   "me": 1,
+   "turns": 45,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 9,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    2
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    62,
+    109
+   ],
+   "paint": [
+    78,
+    132
+   ],
+   "placementTurns": [
+    28,
+    44
+   ],
+   "disruptTurns": [
+    38,
+    44
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    23,
+    47
+   ]
+  },
+  {
+   "gameId": 911722435,
+   "file": "replays\\cg\\911722435.json",
+   "seed": "seed=8197432435196911000",
+   "names": [
+    "aabzac",
+    "Louka2b"
+   ],
+   "agentIds": [
+    6813813,
+    6768339
+   ],
+   "scores": [
+    9416,
+    8557
+   ],
+   "me": 0,
+   "turns": 62,
+   "width": 29,
+   "height": 19,
+   "towns": 11,
+   "pairs": 44,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    6,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    4
+   ],
+   "cells": [
+    152,
+    126
+   ],
+   "paint": [
+    186,
+    148
+   ],
+   "placementTurns": [
+    62,
+    53
+   ],
+   "disruptTurns": [
+    61,
+    58
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    43,
+    17
+   ]
+  },
+  {
+   "gameId": 911722451,
+   "file": "replays\\cg\\911722451.json",
+   "seed": "seed=9055318944424693000",
+   "names": [
+    "cmplx-xyttmt",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768479,
+    6813813
+   ],
+   "scores": [
+    2282,
+    4768
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 29,
+   "height": 19,
+   "towns": 11,
+   "pairs": 36,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    2
+   ],
+   "firstDisrupt": [
+    5,
+    1
+   ],
+   "cells": [
+    122,
+    236
+   ],
+   "paint": [
+    152,
+    295
+   ],
+   "placementTurns": [
+    51,
+    99
+   ],
+   "disruptTurns": [
+    91,
+    82
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    23,
+    98
+   ]
+  },
+  {
+   "gameId": 911722481,
+   "file": "replays\\cg\\911722481.json",
+   "seed": "seed=2683697803444434400",
+   "names": [
+    "aabzac",
+    "fstiffo"
+   ],
+   "agentIds": [
+    6813813,
+    6767749
+   ],
+   "scores": [
+    890,
+    863
+   ],
+   "me": 0,
+   "turns": 39,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 16,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    83,
+    75
+   ],
+   "paint": [
+    108,
+    99
+   ],
+   "placementTurns": [
+    36,
+    33
+   ],
+   "disruptTurns": [
+    38,
+    28
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    20,
+    14
+   ]
+  },
+  {
+   "gameId": 911722513,
+   "file": "replays\\cg\\911722513.json",
+   "seed": "seed=1148122219003454500",
+   "names": [
+    "aabzac",
+    "Jazzcript"
+   ],
+   "agentIds": [
+    6813813,
+    6768791
+   ],
+   "scores": [
+    2383,
+    1452
+   ],
+   "me": 0,
+   "turns": 47,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 11,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    4
+   ],
+   "cells": [
+    106,
+    71
+   ],
+   "paint": [
+    140,
+    104
+   ],
+   "placementTurns": [
+    47,
+    37
+   ],
+   "disruptTurns": [
+    46,
+    43
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    28,
+    21
+   ]
+  },
+  {
+   "gameId": 911722527,
+   "file": "replays\\cg\\911722527.json",
+   "seed": "seed=-7466415010154990000",
+   "names": [
+    "KAKAROT_MPL",
+    "aabzac"
+   ],
+   "agentIds": [
+    6767736,
+    6813813
+   ],
+   "scores": [
+    819,
+    669
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 23,
+   "height": 15,
+   "towns": 6,
+   "pairs": 13,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    4
+   ],
+   "firstDisrupt": [
+    3,
+    1
+   ],
+   "cells": [
+    126,
+    128
+   ],
+   "paint": [
+    191,
+    190
+   ],
+   "placementTurns": [
+    66,
+    65
+   ],
+   "disruptTurns": [
+    45,
+    99
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    78,
+    65
+   ]
+  },
+  {
+   "gameId": 911722557,
+   "file": "replays\\cg\\911722557.json",
+   "seed": "seed=4901070462306804000",
+   "names": [
+    "TSM540",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768330,
+    6813813
+   ],
+   "scores": [
+    3003,
+    2826
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 51,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    4
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    125,
+    226
+   ],
+   "paint": [
+    169,
+    291
+   ],
+   "placementTurns": [
+    58,
+    100
+   ],
+   "disruptTurns": [
+    99,
+    87
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    16,
+    134
+   ]
+  },
+  {
+   "gameId": 911722576,
+   "file": "replays\\cg\\911722576.json",
+   "seed": "seed=2265860817495811300",
+   "names": [
+    "aabzac",
+    "cde-laro"
+   ],
+   "agentIds": [
+    6813813,
+    6768325
+   ],
+   "scores": [
+    1702,
+    1828
+   ],
+   "me": 0,
+   "turns": 57,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 18,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    0,
+    0
+   ],
+   "firstDisrupt": [
+    1,
+    5
+   ],
+   "cells": [
+    132,
+    116
+   ],
+   "paint": [
+    171,
+    165
+   ],
+   "placementTurns": [
+    57,
+    57
+   ],
+   "disruptTurns": [
+    56,
+    52
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    51,
+    33
+   ]
+  },
+  {
+   "gameId": 911722591,
+   "file": "replays\\cg\\911722591.json",
+   "seed": "seed=474449405579680200",
+   "names": [
+    "aabzac",
+    "Ando_Riccardo"
+   ],
+   "agentIds": [
+    6813813,
+    6813817
+   ],
+   "scores": [
+    762,
+    562
+   ],
+   "me": 0,
+   "turns": 38,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 9,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    5
+   ],
+   "firstDisrupt": [
+    1,
+    3
+   ],
+   "cells": [
+    105,
+    61
+   ],
+   "paint": [
+    114,
+    68
+   ],
+   "placementTurns": [
+    38,
+    23
+   ],
+   "disruptTurns": [
+    37,
+    35
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    59,
+    23
+   ]
+  },
+  {
+   "gameId": 911722605,
+   "file": "replays\\cg\\911722605.json",
+   "seed": "seed=3360290375326160400",
+   "names": [
+    "aabzac",
+    "Carlos4825"
+   ],
+   "agentIds": [
+    6813813,
+    6767768
+   ],
+   "scores": [
+    6786,
+    6800
+   ],
+   "me": 0,
+   "turns": 77,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 51,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    0
+   ],
+   "firstDisrupt": [
+    1,
+    4
+   ],
+   "cells": [
+    205,
+    158
+   ],
+   "paint": [
+    225,
+    179
+   ],
+   "placementTurns": [
+    75,
+    60
+   ],
+   "disruptTurns": [
+    76,
+    73
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    77,
+    4
+   ]
+  },
+  {
+   "gameId": 911722626,
+   "file": "replays\\cg\\911722626.json",
+   "seed": "seed=5825409931930602000",
+   "names": [
+    "stem",
+    "aabzac"
+   ],
+   "agentIds": [
+    6767843,
+    6813813
+   ],
+   "scores": [
+    973,
+    846
+   ],
+   "me": 1,
+   "turns": 40,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 18,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    72,
+    96
+   ],
+   "paint": [
+    87,
+    120
+   ],
+   "placementTurns": [
+    29,
+    40
+   ],
+   "disruptTurns": [
+    34,
+    39
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    20,
+    40
+   ]
+  },
+  {
+   "gameId": 911722640,
+   "file": "replays\\cg\\911722640.json",
+   "seed": "seed=4652041637104446000",
+   "names": [
+    "Jazzcript",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768791,
+    6813813
+   ],
+   "scores": [
+    2673,
+    1680
+   ],
+   "me": 1,
+   "turns": 100,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 45,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    6
+   ],
+   "firstDisrupt": [
+    6,
+    1
+   ],
+   "cells": [
+    121,
+    191
+   ],
+   "paint": [
+    164,
+    262
+   ],
+   "placementTurns": [
+    57,
+    90
+   ],
+   "disruptTurns": [
+    86,
+    99
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    21,
+    107
+   ]
+  },
+  {
+   "gameId": 911722672,
+   "file": "replays\\cg\\911722672.json",
+   "seed": "seed=-385161268382934200",
+   "names": [
+    "aabzac",
+    "stem"
+   ],
+   "agentIds": [
+    6813813,
+    6767843
+   ],
+   "scores": [
+    879,
+    1292
+   ],
+   "me": 0,
+   "turns": 79,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 10,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    172,
+    63
+   ],
+   "paint": [
+    214,
+    71
+   ],
+   "placementTurns": [
+    75,
+    27
+   ],
+   "disruptTurns": [
+    78,
+    23
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    111,
+    9
+   ]
+  },
+  {
+   "gameId": 911722694,
+   "file": "replays\\cg\\911722694.json",
+   "seed": "seed=-8178187191374807000",
+   "names": [
+    "aabzac",
+    "FlyingRaccoon"
+   ],
+   "agentIds": [
+    6813813,
+    6769052
+   ],
+   "scores": [
+    2061,
+    2028
+   ],
+   "me": 0,
+   "turns": 57,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 15,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    0,
+    0
+   ],
+   "firstDisrupt": [
+    1,
+    5
+   ],
+   "cells": [
+    144,
+    151
+   ],
+   "paint": [
+    170,
+    171
+   ],
+   "placementTurns": [
+    57,
+    57
+   ],
+   "disruptTurns": [
+    56,
+    44
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    86,
+    97
+   ]
+  },
+  {
+   "gameId": 911722708,
+   "file": "replays\\cg\\911722708.json",
+   "seed": "seed=-3362167066909695500",
+   "names": [
+    "cmplx-xyttmt",
+    "aabzac"
+   ],
+   "agentIds": [
+    6768479,
+    6813813
+   ],
+   "scores": [
+    877,
+    1288
+   ],
+   "me": 1,
+   "turns": 33,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 10,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    1,
+    3
+   ],
+   "firstDisrupt": [
+    4,
+    1
+   ],
+   "cells": [
+    57,
+    80
+   ],
+   "paint": [
+    71,
+    99
+   ],
+   "placementTurns": [
+    25,
+    33
+   ],
+   "disruptTurns": [
+    29,
+    32
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    15,
+    19
+   ]
+  },
+  {
+   "gameId": 911722724,
+   "file": "replays\\cg\\911722724.json",
+   "seed": "seed=-3587212055411977000",
+   "names": [
+    "aabzac",
+    "fstiffo"
+   ],
+   "agentIds": [
+    6813813,
+    6767749
+   ],
+   "scores": [
+    2204,
+    3251
+   ],
+   "me": 0,
+   "turns": 100,
+   "width": 26,
+   "height": 17,
+   "towns": 8,
+   "pairs": 18,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    1
+   ],
+   "firstDisrupt": [
+    1,
+    6
+   ],
+   "cells": [
+    199,
+    89
+   ],
+   "paint": [
+    287,
+    117
+   ],
+   "placementTurns": [
+    99,
+    40
+   ],
+   "disruptTurns": [
+    93,
+    30
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    127,
+    9
+   ]
+  },
+  {
+   "gameId": 911722742,
+   "file": "replays\\cg\\911722742.json",
+   "seed": "seed=-6970509217909782000",
+   "names": [
+    "stem",
+    "aabzac"
+   ],
+   "agentIds": [
+    6767843,
+    6813813
+   ],
+   "scores": [
+    987,
+    1065
+   ],
+   "me": 1,
+   "turns": 39,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 8,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    80,
+    105
+   ],
+   "paint": [
+    88,
+    114
+   ],
+   "placementTurns": [
+    31,
+    38
+   ],
+   "disruptTurns": [
+    26,
+    38
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    25,
+    58
+   ]
+  },
+  {
+   "gameId": 911722756,
+   "file": "replays\\cg\\911722756.json",
+   "seed": "seed=-1844796548160267800",
+   "names": [
+    "POTOP",
+    "aabzac"
+   ],
+   "agentIds": [
+    6783661,
+    6813813
+   ],
+   "scores": [
+    3019,
+    1862
+   ],
+   "me": 1,
+   "turns": 40,
+   "width": 24,
+   "height": 16,
+   "towns": 7,
+   "pairs": 16,
+   "outcome": "loss",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    2,
+    5
+   ],
+   "firstDisrupt": [
+    0,
+    1
+   ],
+   "cells": [
+    111,
+    102
+   ],
+   "paint": [
+    120,
+    117
+   ],
+   "placementTurns": [
+    40,
+    39
+   ],
+   "disruptTurns": [
+    40,
+    39
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    30,
+    29
+   ]
+  },
+  {
+   "gameId": 911722786,
+   "file": "replays\\cg\\911722786.json",
+   "seed": "seed=6220661352001346000",
+   "names": [
+    "aabzac",
+    "stem"
+   ],
+   "agentIds": [
+    6813813,
+    6767843
+   ],
+   "scores": [
+    3421,
+    1732
+   ],
+   "me": 0,
+   "turns": 76,
+   "width": 30,
+   "height": 20,
+   "towns": 12,
+   "pairs": 49,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    4,
+    4
+   ],
+   "firstDisrupt": [
+    1,
+    1
+   ],
+   "cells": [
+    176,
+    125
+   ],
+   "paint": [
+    228,
+    163
+   ],
+   "placementTurns": [
+    76,
+    57
+   ],
+   "disruptTurns": [
+    75,
+    56
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    61,
+    61
+   ]
+  },
+  {
+   "gameId": 911722823,
+   "file": "replays\\cg\\911722823.json",
+   "seed": "seed=-6710566059597234000",
+   "names": [
+    "aabzac",
+    "Jazzcript"
+   ],
+   "agentIds": [
+    6813813,
+    6768791
+   ],
+   "scores": [
+    2322,
+    2016
+   ],
+   "me": 0,
+   "turns": 54,
+   "width": 27,
+   "height": 18,
+   "towns": 9,
+   "pairs": 26,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    4,
+    4
+   ],
+   "firstDisrupt": [
+    1,
+    5
+   ],
+   "cells": [
+    136,
+    122
+   ],
+   "paint": [
+    160,
+    140
+   ],
+   "placementTurns": [
+    54,
+    48
+   ],
+   "disruptTurns": [
+    53,
+    49
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    49,
+    34
+   ]
+  },
+  {
+   "gameId": 911722844,
+   "file": "replays\\cg\\911722844.json",
+   "seed": "seed=7126902899653077000",
+   "names": [
+    "aabzac",
+    "poppu"
+   ],
+   "agentIds": [
+    6813813,
+    6767989
+   ],
+   "scores": [
+    957,
+    338
+   ],
+   "me": 0,
+   "turns": 39,
+   "width": 21,
+   "height": 14,
+   "towns": 5,
+   "pairs": 10,
+   "outcome": "win",
+   "failures": [
+    null,
+    null
+   ],
+   "firstIncome": [
+    3,
+    3
+   ],
+   "firstDisrupt": [
+    1,
+    3
+   ],
+   "cells": [
+    99,
+    46
+   ],
+   "paint": [
+    117,
+    66
+   ],
+   "placementTurns": [
+    39,
+    22
+   ],
+   "disruptTurns": [
+    38,
+    36
+   ],
+   "skippedActions": [
+    0,
+    0
+   ],
+   "acceptedCellsNeverEarned": [
+    25,
+    11
+   ]
+  }
+ ]
+}

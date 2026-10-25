@@ -24,8 +24,9 @@ stage4-threat-model-v1 candidate B (`current?USE_BOSS_ROOT_TARGET=true`) became 
 21/40 vs v10 20/40 (+2.5 pp, inconclusive) — the second session was skipped by the user, so the live evidence is neutral.
 Default artifact 88,997 chars (sha `ff111d54…`, build `002ca691…`, config `179dcc66…` = B's), strict 4-game check 0 problems;
 830 tests, 25 pre-existing failures. The boss-v2 proxy spec is unchanged (the lite chooser off drops the v11 flag); the v10
-configuration on current is `current?USE_BOSS_ROOT_TARGET=0`. Arena upload pending (user). [Protocol](v11-promotion.md),
-[evidence](evidence/v11-promotion/). v10 is historical.
+configuration on current is `current?USE_BOSS_ROOT_TARGET=0`. **Arena: uploaded by the user the same evening = puzzle agent
+6813813, first 50 games 34W/16L, 0 failed turns, tall 7-5, 30×20 3-4** (`evidence/arena-2026-10-25-v11-agent-6813813.json`).
+[Protocol](v11-promotion.md), [evidence](evidence/v11-promotion/). v10 is historical.
 
 **v10 Boss Model — promoted 2026-10-23 on the user's decision** ("без 2 сессии"): the exact stage2-compute-v1
 candidate D (`NOISE=0.1` + `USE_BOSS_LITE`, `USE_BOSS_OPPONENT_MODEL`, `USE_BOSS_OWN_MODEL`, `USE_BOSS_LITE_ROUTES`,
