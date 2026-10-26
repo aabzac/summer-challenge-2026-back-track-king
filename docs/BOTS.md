@@ -1,7 +1,8 @@
 # Bot versions
 
-Active strength policy (2026-10-21): **practical-v5** (`benchmarking-v5.md`): proxy screen vs the
-validated boss-like opponent (+3 pp over the control on the same maps), non-inferiority vs the
+Active strength policy (2026-10-21, step 1a added 2026-10-26): **practical-v5** (`benchmarking-v5.md`): proxy screen vs the
+validated boss-like opponent (+3 pp over the control on the same maps), **replication of a pass on a fresh pool (positive,
+pooled ≥ +3 pp)**, non-inferiority vs the
 selected version (≥ 48 %), 80 paired live boss games (≥ control + 5 pp; one extension to 120).
 For a candidate that is itself the proxy, the v4 pooled 1000-game run replaces the first two steps.
 Previous policy (2026-09-20 to 2026-10-20): **practical-1000-futility-boss-cache-v4**. One pooled
