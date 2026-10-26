@@ -9157,3 +9157,15 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Next (user decision):** a cell-level study of what the field builds in turns 10–20 (pairs completed, connections
   activated per completion, extension vs new network) on these 147 games and the 30 Ando games, as the source of the next
   construction mechanism under step 1a.
+
+## 2026-10-27 — middle-game construction study (turns 10–19, 147 arena games): same completions, our connections stop paying sooner
+
+- On the user's "Ок". `cgCellStudy` + `EndgameStudy` over the 147 v12 arena games; cells placed in turns 10–19
+  ([arena-refresh-v12.md](arena-refresh-v12.md), `evidence/arena-refresh-v12/midgame.txt`).
+- In the losses both sides switch on the same number of pairs (12.8 vs 13.3 per game, 3.5 vs 3.8 completion events);
+  the opponent's cells earn within one turn 53 % vs our 39 % and keep 1.55 connections per earning turn vs our 1.14
+  (wins: 1.58 vs 1.44); the opponent builds more bypasses (11 vs 6 % of its cells) and takes over our connections twice
+  as often (0.63 vs 0.31 pairs per earning cell), on shorter completions (8.9 vs 9.6 cells).
+- **Next (proposed):** a per-connection survival measure over the replays — for every active pair of each side, how
+  long it pays and why it ends (opponent's ink on the path, takeover through the opponent's cells, own disrupt) — to
+  decide the mechanism (redundancy for live connections, anti-takeover, route length).

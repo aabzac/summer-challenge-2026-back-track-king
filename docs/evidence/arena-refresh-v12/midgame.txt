@@ -1,0 +1,32 @@
+
+=== losses: 58 games, cells placed in turns 10-19 ===
+  v12: cells/game  24.8 | earn 82.8 % | earn within 1 turn 39.2 % | delay 3.24 | pairs at first earn 3.92 (of which inactive before 3.04, stolen 0.31, bypass 0.54, other 0.04) | max pairs 6.04 | conn/earning cell-turn 1.14 | points/cell placed  28.3 | inked before earning  8.1 %
+        class at placement: completion(own) 71.2 %, none  8.6 %, steal  5.9 %, bypass  5.8 %, completion(shared)  5.6 %, extend  2.9 % | adjacent to own track 48.3 %, to a town  9.6 % | completion route length  9.6 | instab>0 at placement  4.1 % | opp tracks in region 0.39, own 1.04
+        completion events with first income in turns 10-19: 3.47 per game, pairs switched on per event 3.70, pairs switched on per game 12.83
+  opp: cells/game  25.6 | earn 88.2 % | earn within 1 turn 52.8 % | delay 2.11 | pairs at first earn 3.75 (of which inactive before 2.51, stolen 0.63, bypass 0.55, other 0.06) | max pairs 6.77 | conn/earning cell-turn 1.55 | points/cell placed  41.1 | inked before earning  5.1 %
+        class at placement: completion(own) 59.4 %, none 12.4 %, bypass 10.8 %, completion(shared)  7.7 %, steal  6.7 %, extend  3.0 % | adjacent to own track 51.4 %, to a town 10.3 % | completion route length  8.9 | instab>0 at placement  5.7 % | opp tracks in region 0.63, own 1.04
+        completion events with first income in turns 10-19: 3.78 per game, pairs switched on per event 3.52, pairs switched on per game 13.29
+
+=== wins: 89 games, cells placed in turns 10-19 ===
+  v12: cells/game  25.4 | earn 85.6 % | earn within 1 turn 40.9 % | delay 3.18 | pairs at first earn 3.56 (of which inactive before 2.74, stolen 0.25, bypass 0.52, other 0.05) | max pairs 6.02 | conn/earning cell-turn 1.58 | points/cell placed  32.9 | inked before earning  4.2 %
+        class at placement: completion(own) 68.0 %, none 10.0 %, completion(shared)  7.1 %, steal  6.4 %, bypass  5.3 %, extend  3.2 % | adjacent to own track 46.2 %, to a town  9.1 % | completion route length  9.9 | instab>0 at placement  3.2 % | opp tracks in region 0.44, own 0.93
+        completion events with first income in turns 10-19: 3.67 per game, pairs switched on per event 3.31, pairs switched on per game 12.17
+  opp: cells/game  24.4 | earn 78.8 % | earn within 1 turn 42.2 % | delay 2.84 | pairs at first earn 3.12 (of which inactive before 2.22, stolen 0.57, bypass 0.30, other 0.03) | max pairs 5.46 | conn/earning cell-turn 1.44 | points/cell placed  25.1 | inked before earning  9.8 %
+        class at placement: completion(own) 56.4 %, none 16.0 %, bypass 10.0 %, completion(shared)  8.8 %, steal  5.7 %, extend  3.1 % | adjacent to own track 47.9 %, to a town  9.6 % | completion route length  9.7 | instab>0 at placement  7.8 % | opp tracks in region 0.70, own 1.00
+        completion events with first income in turns 10-19: 3.43 per game, pairs switched on per event 3.12, pairs switched on per game 10.69
+
+=== vs Ando_Riccardo, lost: 16 games, cells placed in turns 10-19 ===
+  v12: cells/game  24.3 | earn 79.4 % | earn within 1 turn 36.8 % | delay 3.28 | pairs at first earn 3.75 (of which inactive before 2.65, stolen 0.53, bypass 0.51, other 0.06) | max pairs 5.47 | conn/earning cell-turn 1.21 | points/cell placed  23.5 | inked before earning 10.5 %
+        class at placement: completion(own) 69.2 %, none 10.3 %, completion(shared)  6.4 %, steal  6.4 %, bypass  5.7 %, extend  2.1 % | adjacent to own track 49.1 %, to a town  9.0 % | completion route length  9.9 | instab>0 at placement  6.2 % | opp tracks in region 0.40, own 0.93
+        completion events with first income in turns 10-19: 3.25 per game, pairs switched on per event 4.04, pairs switched on per game 13.12
+  opp: cells/game  26.2 | earn 88.1 % | earn within 1 turn 58.9 % | delay 1.56 | pairs at first earn 3.95 (of which inactive before 2.43, stolen 0.82, bypass 0.62, other 0.08) | max pairs 6.13 | conn/earning cell-turn 1.55 | points/cell placed  35.5 | inked before earning  5.0 %
+        class at placement: completion(own) 55.1 %, none 15.0 %, bypass 12.6 %, completion(shared)  7.6 %, steal  6.9 %, extend  2.6 % | adjacent to own track 46.5 %, to a town  9.5 % | completion route length  8.9 | instab>0 at placement  6.4 % | opp tracks in region 0.62, own 0.86
+        completion events with first income in turns 10-19: 3.50 per game, pairs switched on per event 4.04, pairs switched on per game 14.12
+
+=== vs Ando_Riccardo, won: 14 games, cells placed in turns 10-19 ===
+  v12: cells/game  25.4 | earn 84.6 % | earn within 1 turn 39.9 % | delay 3.17 | pairs at first earn 3.55 (of which inactive before 2.60, stolen 0.44, bypass 0.44, other 0.07) | max pairs 5.36 | conn/earning cell-turn 1.62 | points/cell placed  29.4 | inked before earning  6.5 %
+        class at placement: completion(own) 68.8 %, none 12.6 %, steal  6.5 %, bypass  5.1 %, extend  3.7 %, completion(shared)  3.4 % | adjacent to own track 44.4 %, to a town  9.6 % | completion route length 10.6 | instab>0 at placement  7.0 % | opp tracks in region 0.45, own 1.01
+        completion events with first income in turns 10-19: 3.86 per game, pairs switched on per event 3.07, pairs switched on per game 11.86
+  opp: cells/game  25.8 | earn 85.6 % | earn within 1 turn 52.9 % | delay 1.79 | pairs at first earn 3.01 (of which inactive before 2.25, stolen 0.33, bypass 0.40, other 0.03) | max pairs 5.52 | conn/earning cell-turn 1.55 | points/cell placed  26.9 | inked before earning  5.8 %
+        class at placement: completion(own) 56.0 %, none 17.7 %, completion(shared)  9.7 %, steal  6.9 %, bypass  5.8 %, extend  3.9 % | adjacent to own track 45.4 %, to a town  9.4 % | completion route length  9.7 | instab>0 at placement 11.4 % | opp tracks in region 0.57, own 1.07
+        completion events with first income in turns 10-19: 3.86 per game, pairs switched on per event 3.19, pairs switched on per game 12.29

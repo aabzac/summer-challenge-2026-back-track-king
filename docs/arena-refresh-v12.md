@@ -65,3 +65,35 @@ time on the live sessions; the arena's 27–29 field beats it ~46 %). What a nex
 sharper picture of *what* the field builds in turns 10–20 — which pairs, how many connections a completion activates,
 whether they extend live networks or start new ones — measured on these 147 games and the 30 Ando games
 (`cgCellStudy`, `EndgameStudy`), and then a mechanism that copies it, screened under step 1a.
+
+## Middle-game construction, turns 10–19 (user's "Ок", `docs/evidence/arena-refresh-v12/midgame.txt`)
+
+`cgCellStudy` + `EndgameStudy` over the 147 games (38,528 placed tracks of both sides); the cells placed in turns 10–19:
+
+| per game, cells placed in turns 10–19 | losses: v12 / opponent | wins: v12 / opponent | lost to Ando: v12 / Ando |
+|---|---|---|---|
+| cells placed | 24.8 / 25.6 | 25.4 / 24.4 | 24.3 / 26.2 |
+| completion events with first income in the window / pairs switched on | 3.5 · 12.8 / 3.8 · 13.3 | 3.7 · 12.2 / 3.4 · 10.7 | 3.3 · 13.1 / 3.5 · 14.1 |
+| cells that earn / **earn within one turn** | 83 % · **39 %** / 88 % · **53 %** | 86 % · 41 % / 79 % · 42 % | 79 % · 37 % / 88 % · **59 %** |
+| delay from placement to first income | 3.2 / 2.1 | 3.2 / 2.8 | 3.3 / 1.6 |
+| inked before they earn | 8.1 % / 5.1 % | 4.2 % / 9.8 % | 10.5 % / 5.0 % |
+| **connections per earning cell-turn** over the cell's life | **1.14 / 1.55** | **1.58 / 1.44** | 1.21 / 1.55 |
+| points per cell placed | 28 / 41 | 33 / 25 | 24 / 36 |
+| class at placement: own completion / bypass / none | 71 / 6 / 9 % vs 59 / 11 / 12 % | 68 / 5 / 10 % vs 56 / 10 / 16 % | 69 / 6 / 10 % vs 55 / 13 / 15 % |
+| pairs taken over from the other side, per earning cell | 0.31 / 0.63 | 0.25 / 0.57 | 0.53 / 0.82 |
+| completion route length | 9.6 / 8.9 | 9.9 / 9.7 | 9.9 / 8.9 |
+
+1. **Both sides switch on the same number of pairs in turns 10–19** (12.8 vs 13.3 per game in the losses, the same number
+   of completion events and the same pairs per event): the losses are not about completing less.
+2. **What separates the losses is how fast and how long the cells pay.** The opponent's cells earn within one turn
+   53 % of the time against our 39 % (Ando 59 %), and keep **1.55 connections per earning turn against our 1.14**; in
+   the wins the last figure flips (ours 1.58, theirs 1.44). Our connections, once completed, stop paying sooner.
+3. **How the opponent builds differently:** fewer of its cells are its own route completions (59 vs 71 %), more are
+   **bypasses** (11 vs 6 %) and routes that take over connections we hold (0.63 vs 0.31 pairs per earning cell; Ando
+   0.82), on shorter completions (8.9 vs 9.6 cells). It routes around and through our network; we build long own routes.
+
+The open question for a mechanism is *why* our completed connections stop paying sooner in the losses: severed by the
+opponent's inks on the path, re-routed through the opponent's cells (a takeover), or cut by our own disrupts. The cell
+table cannot tell these apart; a per-connection survival measure over the replays (`btk.core` replay: for every active
+pair, the turn it ends and the cause) can, and it decides the candidate — redundancy for our live connections
+(bypass routes), anti-takeover, or route length.
