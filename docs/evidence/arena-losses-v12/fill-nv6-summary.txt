@@ -1,0 +1,6 @@
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+F0-vs-nv6               47.0%  141-159 0   35.9-58.1      0   8.0   1.7    61     2  48.6%  42.5%
+cur-vs-nv6              56.7%  170-130 0   45.6-67.8      0   8.4   1.8    36     0  57.7%  53.8%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  F0-vs-nv6              vs cur-vs-nv6         maps 150  delta  -9.7 pp  +- 6.9 (95%)  maps better/worse/equal 30/57/63

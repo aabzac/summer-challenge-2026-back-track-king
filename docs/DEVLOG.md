@@ -8787,7 +8787,9 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   turns to the ink); only 2.4 % of our placements go into regions at instability ≥ 2 at all. Of the cells kept
   idle with ≥ 10 turns left (734), **508 lay on no route hypothesis at placement** (not completion, steal, bypass
   or extension).
-- **Reading.** We are not worse than the field; the exposure that inks our cells is *created by our construction*
+- **Correction (2026-10-26, see the `arena-losses-v12` entry).** The split by `leader` was by our seat index, not by
+  side; the correct numbers are v12 44.9 % idle vs the opponents' 26.9 %, and "not worse than the field" is withdrawn.
+- **Reading (as written on 2026-10-25).** We are not worse than the field; the exposure that inks our cells is *created by our construction*
   (the boss-like chooser scores regions by our cell count), so placement-time instability rules cannot reach it
   — the explanation of today's parked `unstable-cost-v1` and of why the value-side discount (v12) was the part
   that paid. The one controllable bucket is the ~10 purposeless cells per game: leftover-paint fill
@@ -8858,3 +8860,31 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   ≥ 1008000. Since the v12 promotion: four parameter/flag screens (unstable cost, fill off, collision aversion,
   route horizon) and two diagnostics (idle cells, end forecast), all negative or closed. Open in PLAN: the Stage 2
   compute cuts (low priority) and the arena-loss diagnostic of v12 (who beats it and how).
+
+## 2026-10-26 — arena-loss diagnostic of v12: efficiency losses to the field's top half; the idle-cell split corrected; the fill confirmed against neural-v6
+
+- **Why.** The user asked for the losses ("Давай разберём поражения") after the end-forecast line closed. 18 losses in
+  v12's first 50 arena games (agent 6813957): `cgAnalyze` traces, `EndgameStudy` turns, `cgCellStudy` cells, the
+  replays' opponent scores. Write-up [arena-losses-v12.md](arena-losses-v12.md), evidence `evidence/arena-losses-v12/`.
+- **Correction first.** The idle-cell diagnostic of 2026-10-25 split the cell table by `leader`, which is our *seat
+  index*, not a side flag; its "v12 vs opponents" was P1-games vs P0-games. Correct split: **v12 44.9 % idle (3,439 of
+  7,657), opponents 26.9 % (1,614 of 6,005)**, the excess = 1,906 cells kept to the end on no connection vs 365. "Not
+  worse than the field" is withdrawn (erratum in `idle-cells-v12.md`); the screens that followed are unaffected
+  (measured vs the proxy and `current`).
+- **Cross-check.** `fill-off-v1` vs neural-v6 on fresh pool 1008000 with `current` as the same-map control
+  (`tools/boss_proxy/run_fill_nv6_screen.sh`): 47.0 % vs 56.7 %, **−9.7 ± 6.9 pp**, maps better/worse 30/57 — the fill
+  is worth more against the arena-like builder than against the proxy. Paint does not carry over (rules), so the fill
+  is free; "points per paint" was the wrong lens, and the opponents' 27 % placement-free turns are forgone cells.
+- **What the losses are.** Opponents scored ≥ 25.6: 6-10; below: 26-8. Equal cell counts, but from turn 10 on the
+  opponent's income is 1.3× ours (losses: 42 vs 32 points/turn at turn 10, 75 vs 55 at 20, 104 vs 82 at 30); no loss
+  was led past the midpoint. Per game: they have 95.7 earning cells of 128.6 placed, we 79.3 of 156.5; **their earning
+  cells serve 1.62 connections per turn, ours 1.25** (in the wins 1.56 vs 1.43 the other way); they earn 2.2 turns
+  after placement, we 4.3; their tracks are inked more often (68 % vs 57 %), so survival is not the gap; our disrupts
+  are worth more in the losses than in the wins, so sabotage is not either.
+- **Decision.** The idle-cell line is closed on the right reason now: the extra cells are free, the gap is
+  *multiplicity* — cells on corridors shared by several active connections, extended from paths that already earn;
+  `RolloutBot.propose` only ever bends a path by paint, opponent cells and the threatened region. **Next candidate:
+  shared-corridor routes** (a proposal variant whose path cost discounts cells on other pairs' shortest completion
+  paths, valued as the other proposals are), screened vs the proxy and vs neural-v6 with `current` as the control,
+  then live; the leader-corpus study (PLAN) confirms the shape first. Pool 1008000..1008149 consumed, next ≥ 1009000.
+- **Branch.** `claude/project-thread-xptone-v4` from master `c01ad5f`.

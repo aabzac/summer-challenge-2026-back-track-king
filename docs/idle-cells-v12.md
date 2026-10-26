@@ -1,5 +1,14 @@
 # Idle cells — why 35–45 % of our accepted cells never earn (v12's first 50 arena games, 2026-10-25)
 
+> **Erratum (2026-10-26, `docs/arena-losses-v12.md`).** The "v12 vs opponents" split below used the per-cell table's
+> `leader` column, which is the index of our *seat* in each game, not a side flag; the two columns are therefore
+> "games as P1" vs "games as P0", both sides mixed. The correct split: **v12 leaves 44.9 % of its cells idle
+> (3,439 of 7,657), the opponents 26.9 % (1,614 of 6,005)**; the excess is 1,906 cells kept to the end on no active
+> connection against the opponents' 365. The conclusions "we are not worse than the field" and "the controllable
+> waste is ~10 cells per game" are withdrawn; what stands is that inked idle cells are placed into stable regions on
+> both sides and that collisions are symmetric. Verdicts of the screens that followed (`fill-off-v1`,
+> `collision-avoidance-v1`, `end-forecast-v1`) are unaffected: they were measured against the proxy and `current`.
+
 Question from the user's "давай диагностику": what happens to the accepted cells that never earn a point.
 Source: the 50 games of puzzle agent 6813957 (v12, `docs/evidence/arena-2026-10-25-v12-agent-6813957.json`),
 replayed through `btk.core` by `gradlew cgCellStudy -Ppath=build/analysis/idle-v12/replays -Pplayer=aabzac`

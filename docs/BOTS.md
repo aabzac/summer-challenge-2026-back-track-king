@@ -15,7 +15,16 @@ not fresh confirmation. Engine, errors and exact-artifact process checks still a
 The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local selection follows
 [benchmarking.md](benchmarking.md). The former v3 local thresholds remain in historical entries.
 Historical entries retain the policy and verdict in force when those experiments ran.
-`current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+`current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
+`btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
+
+**`arena-losses-v12` — 2026-10-26, diagnostic + cross-check, closed:** v12's 18 arena losses (agent 6813957) are
+construction-efficiency losses to the field's top half (6-10 vs opponents scored ≥ 25.6, 26-8 below): equal cell counts, the
+opponent's earning cells serve 1.62 active connections per turn against our 1.25 and earn 2 turns earlier; sabotage and survival
+are not the gap. The idle-cell split of 2026-10-25 is corrected (v12 44.9 % idle vs the field's 26.9 %; erratum in
+`idle-cells-v12.md`). Cross-check `current?USE_ROLLOUT_FILL=0` vs neural-v6 on fresh pool 1008000 with `current` as the same-map
+control: 47.0 % vs 56.7 % (−9.7 ± 6.9 pp) — the fill stays on both opponents (paint does not carry over, so the fill is free).
+Next candidate: shared-corridor routes. [Write-up](arena-losses-v12.md), [evidence](evidence/arena-losses-v12/).
 
 **`end-forecast-v1` — 2026-10-26, study + parameter screen on `current` = v12, closed:** no board feature forecasts the
 remaining turns better than the existing 16-turn earning cap inside that cap (`btk.tools.EndgameStudy`, v12's 50 arena
