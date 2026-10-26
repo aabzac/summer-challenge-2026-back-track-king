@@ -1,0 +1,60 @@
+
+=== losses: 58 games, earning episodes that start in turns 10-19 ===
+  v12: episodes/game  17.5, mean length  7.2 turns (median 4.0), cells at start  9.7, path length 23.0, paid cell-turns/game   1040
+        end cause (share of episodes): inkOpp 36.6 %, inkOwn 56.9 %, inkBoth  5.1 %, takeover  1.0 %, reroute  0.0 %, end  0.4 %
+        income removed per game by cause (tracks on the path at the end): inkOpp  82.1, inkOwn  81.1, inkBoth  14.2, takeover   1.6, reroute   0.0  (total 179.0)
+        mean length when ended by the opponent's ink  7.0, by its own ink  7.0
+  opp: episodes/game  17.3, mean length  7.3 turns (median 4.0), cells at start 10.8, path length 23.1, paid cell-turns/game   1268
+        end cause (share of episodes): inkOpp 63.6 %, inkOwn 28.8 %, inkBoth  5.3 %, takeover  1.9 %, reroute  0.0 %, end  0.4 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 156.3, inkOwn  38.2, inkBoth  13.1, takeover   2.9, reroute   0.0  (total 210.6)
+        mean length when ended by the opponent's ink  6.8, by its own ink  7.8
+
+=== wins: 89 games, earning episodes that start in turns 10-19 ===
+  v12: episodes/game  14.5, mean length  6.5 turns (median 3.0), cells at start 10.8, path length 21.6, paid cell-turns/game    975
+        end cause (share of episodes): inkOpp 51.6 %, inkOwn 39.8 %, inkBoth  6.5 %, takeover  1.2 %, reroute  0.0 %, end  0.9 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 105.3, inkOwn  47.2, inkBoth  12.1, takeover   1.1, reroute   0.0  (total 165.7)
+        mean length when ended by the opponent's ink  6.2, by its own ink  6.3
+  opp: episodes/game  13.3, mean length  6.1 turns (median 3.0), cells at start  8.5, path length 22.2, paid cell-turns/game    660
+        end cause (share of episodes): inkOpp 49.2 %, inkOwn 40.8 %, inkBoth  6.8 %, takeover  2.1 %, reroute  0.1 %, end  0.9 %
+        income removed per game by cause (tracks on the path at the end): inkOpp  75.8, inkOwn  38.7, inkBoth   9.0, takeover   1.7, reroute   0.0  (total 125.2)
+        mean length when ended by the opponent's ink  6.2, by its own ink  5.9
+
+=== vs Ando_Riccardo, lost: 16 games, earning episodes that start in turns 10-19 ===
+  v12: episodes/game  17.4, mean length  6.3 turns (median 4), cells at start  9.3, path length 23.4, paid cell-turns/game    947
+        end cause (share of episodes): inkOpp 36.2 %, inkOwn 61.6 %, inkBoth  1.8 %, takeover  0.4 %, reroute  0.0 %, end  0.0 %
+        income removed per game by cause (tracks on the path at the end): inkOpp  80.2, inkOwn  84.5, inkBoth   5.2, takeover   1.2, reroute   0.0  (total 171.2)
+        mean length when ended by the opponent's ink  7.3, by its own ink  5.9
+  opp: episodes/game  17.6, mean length  6.3 turns (median 4), cells at start 10.6, path length 23.4, paid cell-turns/game   1139
+        end cause (share of episodes): inkOpp 63.7 %, inkOwn 30.2 %, inkBoth  2.1 %, takeover  3.9 %, reroute  0.0 %, end  0.0 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 153.9, inkOwn  44.6, inkBoth   5.8, takeover   6.9, reroute   0.0  (total 211.2)
+        mean length when ended by the opponent's ink  5.8, by its own ink  7.7
+
+=== vs Ando_Riccardo, won: 14 games, earning episodes that start in turns 10-19 ===
+  v12: episodes/game  13.0, mean length  6.9 turns (median 3.0), cells at start  9.9, path length 20.3, paid cell-turns/game    837
+        end cause (share of episodes): inkOpp 52.7 %, inkOwn 40.7 %, inkBoth  4.4 %, takeover  2.2 %, reroute  0.0 %, end  0.0 %
+        income removed per game by cause (tracks on the path at the end): inkOpp  88.8, inkOwn  39.0, inkBoth   8.6, takeover   1.8, reroute   0.0  (total 138.1)
+        mean length when ended by the opponent's ink  5.6, by its own ink  8.0
+  opp: episodes/game  12.1, mean length  6.7 turns (median 3.0), cells at start  8.9, path length 20.5, paid cell-turns/game    713
+        end cause (share of episodes): inkOpp 55.3 %, inkOwn 38.8 %, inkBoth  4.1 %, takeover  1.8 %, reroute  0.0 %, end  0.0 %
+        income removed per game by cause (tracks on the path at the end): inkOpp  74.6, inkOwn  39.6, inkBoth   5.7, takeover   0.6, reroute   0.0  (total 120.5)
+        mean length when ended by the opponent's ink  7.3, by its own ink  6.5
+
+=== losses, all start turns: 58 games, earning episodes that start in turns 0-199 ===
+  v12: episodes/game  55.2, mean length  6.5 turns (median 4.0), cells at start 10.3, path length 25.1, paid cell-turns/game   3168
+        end cause (share of episodes): inkOpp 38.2 %, inkOwn 55.2 %, inkBoth  5.1 %, takeover  1.1 %, reroute  0.0 %, end  0.5 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 294.4, inkOwn 262.8, inkBoth  38.4, takeover   3.2, reroute   0.0  (total 598.8)
+        mean length when ended by the opponent's ink  6.5, by its own ink  5.9
+  opp: episodes/game  55.4, mean length  6.5 turns (median 4.0), cells at start 11.9, path length 25.1, paid cell-turns/game   3754
+        end cause (share of episodes): inkOpp 60.9 %, inkOwn 31.8 %, inkBoth  5.1 %, takeover  1.6 %, reroute  0.0 %, end  0.7 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 508.0, inkOwn 158.9, inkBoth  40.5, takeover   6.7, reroute   0.0  (total 714.1)
+        mean length when ended by the opponent's ink  5.9, by its own ink  6.6
+
+=== wins, all start turns: 89 games, earning episodes that start in turns 0-199 ===
+  v12: episodes/game  48.5, mean length  6.0 turns (median 4), cells at start 12.4, path length 24.4, paid cell-turns/game   3282
+        end cause (share of episodes): inkOpp 52.2 %, inkOwn 38.7 %, inkBoth  7.6 %, takeover  1.1 %, reroute  0.0 %, end  0.3 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 407.9, inkOwn 164.1, inkBoth  53.6, takeover   2.7, reroute   0.0  (total 628.3)
+        mean length when ended by the opponent's ink  5.8, by its own ink  6.0
+  opp: episodes/game  47.5, mean length  5.8 turns (median 4.0), cells at start  9.1, path length 24.5, paid cell-turns/game   2270
+        end cause (share of episodes): inkOpp 45.6 %, inkOwn 44.6 %, inkBoth  7.5 %, takeover  1.9 %, reroute  0.1 %, end  0.3 %
+        income removed per game by cause (tracks on the path at the end): inkOpp 262.1, inkOwn 165.2, inkBoth  40.7, takeover   4.2, reroute   0.3  (total 472.4)
+        mean length when ended by the opponent's ink  6.0, by its own ink  5.6
