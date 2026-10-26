@@ -261,6 +261,7 @@ public class FileMerger {
         boolean corridorRoutes = BotFactory.parameters(spec).USE_CORRIDOR_ROUTES;
         boolean delayValuation = BotFactory.parameters(spec).USE_QUICK_ALWAYS || BotFactory.parameters(spec).DELAY_POWER != 1.0;
         boolean oppHold = BotFactory.parameters(spec).BOSS_OPP_HOLD_MARGIN >= 0;
+        boolean bossNoClose = BotFactory.parameters(spec).USE_BOSS_NO_CLOSE;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -286,6 +287,7 @@ public class FileMerger {
             boolean corridorBlock = false;
             boolean delayBlock = false;
             boolean oppHoldBlock = false;
+            boolean noCloseBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -520,6 +522,17 @@ public class FileMerger {
                     continue;
                 }
                 if (oppHoldBlock && !oppHold) continue;
+                if (line.trim().equals("// BOSS_NOCLOSE_BEGIN")) {
+                    if (noCloseBlock) throw new IllegalArgumentException("Nested no-close block: " + file);
+                    noCloseBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BOSS_NOCLOSE_END")) {
+                    if (!noCloseBlock) throw new IllegalArgumentException("Unbalanced no-close block: " + file);
+                    noCloseBlock = false;
+                    continue;
+                }
+                if (noCloseBlock && !bossNoClose) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;

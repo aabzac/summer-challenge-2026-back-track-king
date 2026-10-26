@@ -71,7 +71,7 @@ class V10PromotionTest {
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
         // +2 since stage4-threat-model-v1 (2026-10-25): USE_BOSS_THREAT_MODEL, USE_BOSS_ROOT_TARGET (current-only, off by default).
-        assertEquals(expected.size() + 31, fields, "fields outside the v10 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 32, fields, "fields outside the v10 record: current-only experiments, neural/spatial/turn-budget overrides");
         FrozenParams.applyTo("v10", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK); assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
@@ -98,6 +98,20 @@ class V10PromotionTest {
         return Files.readString(source).replace("\r\n", "\n");
     }
 
+    /** The source as a default-off export sees it: the named experiment blocks (and their marker lines) removed. */
+    private static String withoutBlocks(String text, String... blocks) {
+        StringBuilder out = new StringBuilder(); String inside = null;
+        for (String line : text.split("\n", -1)) {
+            String t = line.trim();
+            if (inside == null) {
+                for (String b : blocks) if (t.equals("// " + b + "_BEGIN")) inside = b;
+                if (inside != null) continue;
+                out.append(line).append('\n');
+            } else if (t.equals("// " + inside + "_END")) inside = null;
+        }
+        return out.substring(0, out.length() - 1);
+    }
+
     private static String sha(String text) throws Exception {
         return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8)));
     }
@@ -117,8 +131,8 @@ class V10PromotionTest {
             assertEquals(item[1], sha(measured), "measured source " + item[0]);
             // prune-v1 (2026-10-25) removed the rejected experiments from current's RolloutBot; the two helpers are untouched.
             if (!item[0].equals("RolloutBot"))
-                assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
-                        "current source " + item[0] + " at the freeze");
+                assertEquals(item[1], sha(withoutBlocks(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java")), "BOSS_NOCLOSE")),
+                        "current source " + item[0] + " at the freeze (default-off experiment blocks stripped)");
         }
     }
 }

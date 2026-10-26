@@ -73,7 +73,7 @@ class V12PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 28, fields, "fields outside the v12 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 29, fields, "fields outside the v12 record: current-only experiments, neural/spatial/turn-budget overrides");
         FrozenParams.applyTo("v12", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_BOSS_THREAT_MODEL); assertFalse(dirty.USE_BOSS_SABOTAGE);
@@ -105,6 +105,20 @@ class V12PromotionTest {
         return Files.readString(source).replace("\r\n", "\n");
     }
 
+    /** The source as a default-off export sees it: the named experiment blocks (and their marker lines) removed. */
+    private static String withoutBlocks(String text, String... blocks) {
+        StringBuilder out = new StringBuilder(); String inside = null;
+        for (String line : text.split("\n", -1)) {
+            String t = line.trim();
+            if (inside == null) {
+                for (String b : blocks) if (t.equals("// " + b + "_BEGIN")) inside = b;
+                if (inside != null) continue;
+                out.append(line).append('\n');
+            } else if (t.equals("// " + inside + "_END")) inside = null;
+        }
+        return out.substring(0, out.length() - 1);
+    }
+
     private static String sha(String text) throws Exception {
         return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8)));
     }
@@ -124,8 +138,8 @@ class V12PromotionTest {
             assertEquals(item[1], sha(measured), "measured source " + item[0]);
             // current's RolloutBot keeps evolving after the freeze; the two helpers stay pinned to current.
             if (!item[0].equals("RolloutBot"))
-                assertEquals(item[1], sha(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java"))),
-                        "current source " + item[0] + " at the freeze");
+                assertEquals(item[1], sha(withoutBlocks(normalizedSource(Path.of("src/main/java/btk/bot/current/" + item[0] + ".java")), "BOSS_NOCLOSE")),
+                        "current source " + item[0] + " at the freeze (default-off experiment blocks stripped)");
         }
     }
 }
