@@ -18,6 +18,13 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`opp-hold-v1` — 2026-10-26, hold-margin scan of the bot's boss model, closed (1.0 stays):** new field `BOSS_OPP_HOLD_MARGIN`
+(the lite chooser's margin when it plays the simulated opponent; `// OPP_HOLD` block, default inherit). Pool 1012000 vs boss-v2 with
+`current` as the same-map control: opponent model margin 0 **−8.2 ± 6.3 pp** (45.7 % h2h), margin 0 everywhere (`BOSS_HOLD_MARGIN=0`)
+**−9.0 ± 6.6 pp** (51.0 %); pool 1013000: margin 2 +0.0 ± 6.7 pp (51.3 %); against the margin-0 proxy all three within noise (+0.5 /
++1.5 / +3.0). The rollout's opponent model is worth its commitment, not its per-turn agreement with the boss. [Protocol and
+results](opp-hold-v1.md), [evidence](evidence/opp-hold-v1/).
+
 **`earning-delay-v1`: Q = `current?USE_QUICK_ALWAYS=true` — 2026-10-26, passed v5 (a)+(b), failed (c) against the live boss — parked:** the cheapest positive
 completion (≤ 6 paint) is kept among the root routes every turn, not only before the first income (`// DELAY` block, default off).
 Fresh pool 1011000 vs boss-v2 with `current` (v12) as the same-map control: **82.7 % vs 76.3 % (+6.3 ± 5.6 pp, maps 43/23/84)**,

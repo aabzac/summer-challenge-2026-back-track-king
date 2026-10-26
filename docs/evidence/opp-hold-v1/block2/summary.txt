@@ -1,0 +1,10 @@
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+O2-vs-boss2             78.0%  234-66  0   66.9-89.1      0  12.4  20.6    48     0  75.2%  84.0%
+O2-vs-boss2m0           78.0%  234-66  0   66.9-89.1      0  12.8  21.1    68     6  74.8%  85.1%
+O2-vs-cur               51.3%  154-146 0   40.2-62.4      0  12.2  12.2    50     0  53.9%  45.7%
+cur-vs-boss2            78.0%  234-66  0   66.9-89.1      0   8.3  17.1    36     0  76.7%  80.9%
+cur-vs-boss2m0          75.0%  225-75  0   63.9-86.1      0  13.0  20.9    74     1  68.4%  89.4%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  O2-vs-boss2            vs cur-vs-boss2       maps 150  delta  +0.0 pp  +- 6.7 (95%)  maps better/worse/equal 38/36/76
+  O2-vs-boss2m0          vs cur-vs-boss2m0     maps 150  delta  +3.0 pp  +- 6.3 (95%)  maps better/worse/equal 37/32/81

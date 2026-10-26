@@ -1,0 +1,26 @@
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1013000) 2026-10-26T19:54:46Z
+  A win rate: 78,0%  W-L-D 234-66-0
+  avg score diff (A-B): +570,9   avg turns: 68,4
+  time/move ms  A avg 8,33 max 36 slow 0 | B avg 17,08 max 39 slow 0
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 295/300
+-- O2-vs-boss2: current?BOSS_OPP_HOLD_MARGIN=2 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1013000) 2026-10-26T19:59:18Z
+  A win rate: 78,0%  W-L-D 234-66-0
+  avg score diff (A-B): +733,2   avg turns: 69,1
+  time/move ms  A avg 12,43 max 48 slow 0 | B avg 20,63 max 103 slow 18
+  accepted disrupt A/B: 98,4% / 99,8%; early closures 293/300
+-- O2-vs-cur: current?BOSS_OPP_HOLD_MARGIN=2 vs current (300 games, seed 1013000) 2026-10-26T20:05:11Z
+  A win rate: 51,3%  W-L-D 154-146-0
+  avg score diff (A-B): -134,6   avg turns: 69,3
+  time/move ms  A avg 12,21 max 50 slow 0 | B avg 12,24 max 51 slow 1
+  accepted disrupt A/B: 98,5% / 98,5%; early closures 295/300
+-- cur-vs-boss2m0: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0,BOSS_HOLD_MARGIN=0 (300 games, seed 1013000) 2026-10-26T20:09:37Z
+  A win rate: 75,0%  W-L-D 225-75-0
+  avg score diff (A-B): +748,4   avg turns: 69,2
+  time/move ms  A avg 12,97 max 74 slow 1 | B avg 20,85 max 134 slow 10
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 293/300
+-- O2-vs-boss2m0: current?BOSS_OPP_HOLD_MARGIN=2 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0,BOSS_HOLD_MARGIN=0 (300 games, seed 1013000) 2026-10-26T20:15:39Z
+  A win rate: 78,0%  W-L-D 234-66-0
+  avg score diff (A-B): +704,0   avg turns: 68,4
+  time/move ms  A avg 12,81 max 68 slow 6 | B avg 21,12 max 123 slow 6
+  accepted disrupt A/B: 98,4% / 99,9%; early closures 295/300
+OPPHOLD SCREEN DONE 2026-10-26T20:21:37Z

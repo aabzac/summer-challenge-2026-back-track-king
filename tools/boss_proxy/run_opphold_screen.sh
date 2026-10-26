@@ -5,6 +5,8 @@
 # CG timing (486/36 ms).
 #   O0 = current?BOSS_OPP_HOLD_MARGIN=0   margin 0 only for the simulated opponent inside the rollout; our own disrupt keeps 1.0
 #   H0 = current?BOSS_HOLD_MARGIN=0       margin 0 everywhere (our real disrupt and both models)
+#   O2 = current?BOSS_OPP_HOLD_MARGIN=2   follow-up block (pool 1013000): a stickier opponent model, after O0/H0 lost 8-9 pp
+#        run as  SEED=1013000 OUT=build/analysis/opphold-v1b CELLS="cur-vs-boss2 O2-vs-boss2 O2-vs-cur cur-vs-boss2m0 O2-vs-boss2m0"
 #   X-vs-boss2     each arm and the control against the policy's screening proxy (margin 1.0) on the same maps/seeds/seats;
 #                  the reading is the paired per-map delta vs cur-vs-boss2 (v5 step a: continue only at >= control + 3 pp)
 #   X-vs-cur       head-to-head with the selected version (v5 step b: continue only at >= 48 %)
@@ -20,6 +22,7 @@ OUT=${OUT:-build/analysis/opphold-v1}; mkdir -p "$OUT"
 CUR="current"
 O0="current?BOSS_OPP_HOLD_MARGIN=0"
 H0="current?BOSS_HOLD_MARGIN=0"
+O2="current?BOSS_OPP_HOLD_MARGIN=2"
 BOSS2="current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0"
 BOSS2M0="$BOSS2,BOSS_HOLD_MARGIN=0"
 GAMES=${GAMES:-300}; SEED=${SEED:-1012000}
@@ -36,6 +39,9 @@ for cell in $CELLS; do
     cur-vs-boss2m0) run $cell "$CUR" "$BOSS2M0" ;;
     O0-vs-boss2m0)  run $cell "$O0" "$BOSS2M0" ;;
     H0-vs-boss2m0)  run $cell "$H0" "$BOSS2M0" ;;
+    O2-vs-boss2)    run $cell "$O2" "$BOSS2" ;;
+    O2-vs-cur)      run $cell "$O2" "$CUR" ;;
+    O2-vs-boss2m0)  run $cell "$O2" "$BOSS2M0" ;;
     *) echo "unknown cell $cell"; exit 1 ;;
   esac
 done

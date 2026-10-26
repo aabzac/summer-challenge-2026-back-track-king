@@ -9048,3 +9048,28 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   after −5 pp); otherwise the next lever comes from the sabotage / valuation side of `docs/PLAN.md`, where the
   proxy's sign has held (D, B, E1). Live sessions of the line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0 pp.
 - **State.** `current` unchanged; no upload; branch `claude/project-thread-xptone-v5`.
+
+## 2026-10-26 — `opp-hold-v1`: the boss model's hold margin 1.0 is the optimum — margin 0 costs 8–9 pp against the proxy, margin 2 is flat; closed
+
+- **Why.** The user's "давай дальше" (after PR #11): the sabotage / valuation side. `boss-v3` measured the lite chooser at
+  margin 0 agreeing 4.5 pp more with the live boss's region than at the shipped 1.0, and the margin had never been
+  screened on the bot side, where the chooser is both our real disrupt and the rollout's opponent model. New field
+  `BOSS_OPP_HOLD_MARGIN` (default −1 = inherit, `// OPP_HOLD` block, current-only, needs the lite opponent model;
+  default artifact unchanged, `OppHoldTest`, `OppHoldSubmissionTest`, field-count pins +1). Write-up
+  [opp-hold-v1.md](opp-hold-v1.md), evidence `evidence/opp-hold-v1/` (block 2 in `block2/`).
+- **Block 1** (`tools/boss_proxy/run_opphold_screen.sh`, fresh pool 1012000, `current` as the same-map control): vs
+  boss-v2 `current` 81.3 %, **O0 (opponent model margin 0) 73.2 % = −8.2 ± 6.3 pp**, **H0 (margin 0 everywhere) 72.3
+  % = −9.0 ± 6.6 pp**; head-to-head O0 45.7 %, H0 51.0 %; vs the margin-0 proxy `current` 74.0 %, O0 +0.5 ± 7.1, H0
+  +1.5 ± 6.9 pp. Both rejected; the loss is the opponent model's (H0 ≈ O0).
+- **Block 2** (fresh pool 1013000): **O2 (margin 2) +0.0 ± 6.7 pp** vs boss-v2 (78.0 % both), 51.3 % h2h, +3.0 ± 6.3 pp
+  vs the margin-0 proxy (75.0 → 78.0 %) — flat.
+- **Reading.** The opponent model inside the rollout is worth its commitment (a held target predicts an ink that lands,
+  and the search prepares for it); a model that re-picks every turn spreads the predicted threat. Per-turn agreement
+  with the boss is the wrong objective for it. **Closed; the margin stays 1.0.** The cheap screened levers on the
+  sabotage / valuation side are spent with this (width / depth / replies parked on D, threat model A parked, unstable
+  cost parked, collision aversion rejected, hold margin here).
+- **Next (default, no API cost):** `boss-v4` — a study of what predicts the boss's attacks on our under-construction
+  concentrations (36–40 % of its disrupts, the proxy's blind spot) with the full feature table of `CgLeaderStudy`
+  (route-cost and own-route features, region size, previous hit — 25 columns against the 13 shipped), a holdout of the
+  80 K1-session games; if a feature set closes the blind spot it is the route to a proxy that can screen construction.
+- **State.** `current` unchanged; pools 1012000..1013149 consumed, next ≥ 1014000; branch `claude/project-thread-xptone-v6`.
