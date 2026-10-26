@@ -319,6 +319,9 @@ public final class RolloutBot implements Bot {
         if (p.USE_EXPOSURE_INCOME) exposureIncome(s, exposureBase);
         // EXPOSURE_INCOME_END
         if (p.USE_ROLLOUT_QUICK_ROUTE && income[me] == 0) quickPlayer = me;
+        // DELAY_BEGIN
+        if (p.USE_ROLLOUT_QUICK_ROUTE && p.USE_QUICK_ALWAYS) quickPlayer = me;
+        // DELAY_END
         for (int player = 0; player < 2; player++) {
             baseDiff[player] = income[player] - income[1 - player];
             threatDiff[player] = baseDiff[player];
@@ -746,6 +749,9 @@ public final class RolloutBot implements Bot {
         if (variant == 3) corridorProposals++;
         // CORRIDOR_END
         double value = gain * earning / turns * (1 + p.NOISE * (random.nextDouble() - 0.5));
+        // DELAY_BEGIN
+        if (p.DELAY_POWER != 1.0) value *= Math.pow(turns, 1 - p.DELAY_POWER);
+        // DELAY_END
         insert(s, me, n, value);
         // Different ends of a route are genuinely different affordable first actions.
         for (int i = 0, j = n - 1; i < j; i++, j--) { int c = path[i]; path[i] = path[j]; path[j] = c; }

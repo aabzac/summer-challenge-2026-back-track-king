@@ -259,6 +259,7 @@ public class FileMerger {
         boolean exposureIncome = BotFactory.parameters(spec).USE_EXPOSURE_INCOME;
         boolean collisionAvoidance = BotFactory.parameters(spec).USE_COLLISION_AVOIDANCE;
         boolean corridorRoutes = BotFactory.parameters(spec).USE_CORRIDOR_ROUTES;
+        boolean delayValuation = BotFactory.parameters(spec).USE_QUICK_ALWAYS || BotFactory.parameters(spec).DELAY_POWER != 1.0;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -282,6 +283,7 @@ public class FileMerger {
             boolean exposureBlock = false;
             boolean collisionBlock = false;
             boolean corridorBlock = false;
+            boolean delayBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -494,6 +496,17 @@ public class FileMerger {
                     continue;
                 }
                 if (corridorBlock && !corridorRoutes) continue;
+                if (line.trim().equals("// DELAY_BEGIN")) {
+                    if (delayBlock) throw new IllegalArgumentException("Nested delay block: " + file);
+                    delayBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// DELAY_END")) {
+                    if (!delayBlock) throw new IllegalArgumentException("Unbalanced delay block: " + file);
+                    delayBlock = false;
+                    continue;
+                }
+                if (delayBlock && !delayValuation) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
