@@ -209,6 +209,10 @@ public final class BotFactory {
             throw new IllegalArgumentException("Collision avoidance is a current-only rollout experiment (collision-avoidance-v1)");
         if (!Double.isFinite(params.COLLISION_PENALTY) || params.COLLISION_PENALTY < 0)
             throw new IllegalArgumentException("COLLISION_PENALTY must be a finite non-negative number");
+        if (params.USE_CORRIDOR_ROUTES && (!version.equals("current") || !rolloutPolicy))
+            throw new IllegalArgumentException("Corridor routes are a current-only rollout experiment (corridor-routes-v1)");
+        if (!Double.isFinite(params.CORRIDOR_WEIGHT) || params.CORRIDOR_WEIGHT < 0)
+            throw new IllegalArgumentException("CORRIDOR_WEIGHT must be a finite non-negative number");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
@@ -251,6 +255,8 @@ public final class BotFactory {
                         && !params.USE_EXPOSURE_INCOME) continue;
                 if ((field.getName().equals("USE_COLLISION_AVOIDANCE") || field.getName().equals("COLLISION_PENALTY"))
                         && !params.USE_COLLISION_AVOIDANCE) continue;
+                if ((field.getName().equals("USE_CORRIDOR_ROUTES") || field.getName().equals("CORRIDOR_WEIGHT"))
+                        && !params.USE_CORRIDOR_ROUTES) continue;
                 if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;

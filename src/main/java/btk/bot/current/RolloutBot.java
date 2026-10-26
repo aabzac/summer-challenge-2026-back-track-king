@@ -36,6 +36,12 @@ public final class RolloutBot implements Bot {
     private Random random;
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain;
+    // CORRIDOR_BEGIN
+    private static final int CORRIDOR_SCALE = 12;
+    private int[][] corridorPaths;
+    private int[] corridorLengths, corridorCount;
+    public int corridorQueries, corridorProposals;
+    // CORRIDOR_END
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
     private int ordinaryRootSize;
@@ -178,6 +184,11 @@ public final class RolloutBot implements Bot {
         routes = new int[2][p.ROLLOUT_WIDTH][s.size];
         lengths = new int[2][p.ROLLOUT_WIDTH]; values = new double[2][p.ROLLOUT_WIDTH];
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
+        // CORRIDOR_BEGIN
+        if (p.USE_CORRIDOR_ROUTES) {
+            corridorPaths = new int[s.pairCount][s.size]; corridorLengths = new int[s.pairCount]; corridorCount = new int[s.size];
+        }
+        // CORRIDOR_END
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
         roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_NETWORK_AFTER_BASE ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
@@ -263,6 +274,10 @@ public final class RolloutBot implements Bot {
         }
         // MISSED_DEADLINE_END
         routeQueries = completedComparisons = simulatedTurns = 0;
+        // CORRIDOR_BEGIN
+        corridorQueries = corridorProposals = 0;
+        if (p.USE_CORRIDOR_ROUTES) { Arrays.fill(corridorCount, 0); Arrays.fill(corridorLengths, 0); }
+        // CORRIDOR_END
         networkEligible = networkEvaluated = networkRoots = networkComparisons = 0;
         selectedNetwork = false; selectedNetworkCell = -1;
         networkPhaseComplete = false;
@@ -338,6 +353,9 @@ public final class RolloutBot implements Bot {
             }
             if (timer.up(reserve)) break;
         }
+        // CORRIDOR_BEGIN
+        if (p.USE_CORRIDOR_ROUTES) proposeCorridors(s, me, start, reserve);
+        // CORRIDOR_END
         if (quickLength > 0) retainQuickRoute(s, me);
         if (opening != null) openingPairs = opening.observedPairs;
         if (opening != null && s.turn < p.OPENING_TURNS && !timer.up()) {
@@ -673,6 +691,10 @@ public final class RolloutBot implements Bot {
 
     private void propose(GameState s, int me, int pair, int variant) {
         if (variant == 2 && threats[me] < 0) return;
+        // CORRIDOR_BEGIN
+        if (variant == 3) { if (!corridorCosts(s, pair)) return; corridorQueries++; }
+        else
+        // CORRIDOR_END
         for (int c = 0; c < s.size; c++) {
             extra[c] = (int) Math.round(p.UNSTABLE_COST * s.instability[c]);
             blocked[c] = variant == 1 ? s.owner[c] == 1 - me
@@ -682,6 +704,9 @@ public final class RolloutBot implements Bot {
                 path, variant == 0 ? null : blocked, extra);
         routeQueries++;
         if (n <= 0) return;
+        // CORRIDOR_BEGIN
+        if (p.USE_CORRIDOR_ROUTES && variant == 0 && me == realPlayer) corridorRecord(s, pair, n);
+        // CORRIDOR_END
         if (opening != null && s.turn < p.OPENING_TURNS && me == openingPlayer && variant == 0)
             opening.observe(s, pair, path, n);
         completion.set(s); int cost = 0;
@@ -717,12 +742,53 @@ public final class RolloutBot implements Bot {
             gain = (1 - p.ROLLOUT_THREAT_WEIGHT) * gain + p.ROLLOUT_THREAT_WEIGHT * protectedGain;
         }
         if (gain <= 0) return;
+        // CORRIDOR_BEGIN
+        if (variant == 3) corridorProposals++;
+        // CORRIDOR_END
         double value = gain * earning / turns * (1 + p.NOISE * (random.nextDouble() - 0.5));
         insert(s, me, n, value);
         // Different ends of a route are genuinely different affordable first actions.
         for (int i = 0, j = n - 1; i < j; i++, j--) { int c = path[i]; path[i] = path[j]; path[j] = c; }
         insert(s, me, n, value);
     }
+
+    // CORRIDOR_BEGIN
+    /** corridor-routes-v1 (2026-10-26): remember the free cells of this pair's cheapest path and count them per cell. */
+    private void corridorRecord(GameState s, int pair, int n) {
+        int len = 0;
+        for (int i = 0; i < n; i++) if (s.canBuild(path[i])) { corridorPaths[pair][len++] = path[i]; corridorCount[path[i]]++; }
+        corridorLengths[pair] = len;
+    }
+
+    /**
+     * Scaled path costs for the corridor variant: a free cell's paint is divided by (1 + CORRIDOR_WEIGHT x the number of
+     * other pairs whose cheapest path uses the cell); the instability surcharge is kept; nothing is blocked. False when
+     * no free cell of the board is shared with another pair, so the query is skipped.
+     */
+    private boolean corridorCosts(GameState s, int pair) {
+        boolean any = false;
+        for (int i = 0; i < corridorLengths[pair]; i++) corridorCount[corridorPaths[pair][i]]--;
+        for (int c = 0; c < s.size; c++) {
+            blocked[c] = false;
+            double cost = s.placeCost(c);
+            int shared = corridorCount[c];
+            if (shared > 0 && s.canBuild(c)) { any = true; cost /= 1 + p.CORRIDOR_WEIGHT * shared; }
+            extra[c] = (int) Math.round(CORRIDOR_SCALE * (cost + p.UNSTABLE_COST * s.instability[c])) - s.placeCost(c);
+        }
+        for (int i = 0; i < corridorLengths[pair]; i++) corridorCount[corridorPaths[pair][i]]++;
+        return any;
+    }
+
+    /** One corridor proposal per pair with a recorded cheapest path, under the same reserve as the ordinary proposals. */
+    private void proposeCorridors(GameState s, int me, int start, int reserve) {
+        for (int k = 0; k < s.pairCount; k++) {
+            if (timer.up(reserve) || corridorQueries >= p.ROLLOUT_MAX_ROUTES) break;
+            int pair = (start + k) % s.pairCount;
+            if (corridorLengths[pair] == 0) continue;
+            propose(s, me, pair, 3);
+        }
+    }
+    // CORRIDOR_END
 
     private void insert(GameState s, int me, int length, double value) {
         int n = pack(s, path, length, prefix, 0, GameState.PAINT_PER_TURN);
