@@ -8935,3 +8935,22 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   both capture directories: inked / idle / earning cells, the corridor cells' fate) before any further construction
   candidate; the proxy's weight in the policy for construction changes is in question (it predicted the sign wrongly).
 - **State.** `current` unchanged; no upload; branch `claude/project-thread-xptone-v5`.
+
+## 2026-10-26 — diagnostic of K1's 80 live games: no multiplicity gain against the boss, six more cells per game inked before earning — the proxy does not punish concentration
+
+- **Why.** The user asked ("Давай разбор") after K1's live loss. `cgCellStudy` + `EndgameStudy` over both capture
+  directories (K1's 40 games, v12's 40, same maps and seats vs the boss); write-up in
+  [corridor-routes-v1.md](corridor-routes-v1.md), outputs in `evidence/corridor-routes-v1/live-session-1/diagnostic/`.
+- **Numbers (per game).** Multiplicity 1.21 (K1) vs 1.24 (v12), delay 3.44 vs 3.55, cells 148 vs 146, earning 82.2
+  both, route length 10.2 vs 10.3 — the construction profile is the same. **Inked before earning 33.1 vs 27.1**, inked
+  in all 80.6 vs 73.2, kept idle 26.9 vs 30.5; the inked-before-earning cells sat in regions holding more of our tracks
+  (2.65 vs 2.43 at placement; 6.6 vs 6.1 of ours in the region at the ink); the boss lost fewer cells vs K1 (7.7 vs
+  8.8). Lead at turn 10/20/30: −53/−124/−240 vs −42/−94/−121; active connections at turn 20: 8.7 vs 10.3; games 69.2
+  vs 65.1 turns. The 9 maps v12 won and K1 lost: K1 151 cells / 88 inked / 1,699 points vs v12 123 / 53 / 2,202.
+- **Reading.** The corridor routes are taken but the boss inks them before they pay; shared corridors concentrate our
+  cells where the boss's disrupt goes. The proxy (boss-v2 chooser) and neural-v6 model the boss's targeting around
+  our own construction and reward concentration instead — the first wrong sign of the line, on its first
+  construction change (the earlier passes were valuation and sabotage changes).
+- **Decision.** `corridor-routes-v1` closed as rejected (flag parked off). **Next (user decision):** a proxy-agreement
+  study over these 80 games (`BossAgreementStudy` / `CgDisruptStudy`: proxy vs actual boss disrupt, split by our cell
+  concentration) to locate the proxy's blind spot before another construction candidate is screened.
