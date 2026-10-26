@@ -79,3 +79,27 @@ boss-like opponent; the live step decides, as it did for K1.
   ```
   bash tools/run_boss_paced.sh build/cg-boss/delay-q-v12-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
   ```
+
+## Live boss, v5 step (c) session 1 (2026-10-26 17:54–18:57 UTC, `evidence/earning-delay-v1/live-session-1/`)
+
+Launched by Claude on the user's "запускай" under the allow rule; the day's 81st–160th API requests all went through.
+80 API games, 0 technical failures, 0 authorized retries, **40/40 (Q) and 80/80 (the v12 capture directory, both
+sessions) replays exact** (`cgValidate`). **Q 18/40 = 45.0 %, `current` (v12, the arena artifact) 20/40 = 50.0 %**
+against boss 6767608 on 40 matched maps; discordant pairs **9 : 11** (20 equal: 9 both won, 11 both lost), paired
+**−5.0 pp**, one-sided p = 0.75; seat P0 10/20 vs 10/20, seat P1 8/20 vs 10/20; by map size (Q / v12 points over the
+maps): 21×14 1/2 (4), 23×15 3/5 (7), 24×16 3/2 (6), 26×17 3/1 (4), 27×18 5/2 (6), 29×19 1/2 (4), **30×20 2/6 (9)**.
+Mean own score Q 2,919 vs v12 3,015, the boss's 3,067 vs 3,058. Runner report: complete, 80 attempted requests,
+protocol "original fixed".
+
+**Verdict: Q fails step (c) (−5.0 pp against a +5 pp threshold) — parked; the flag stays in the code, default off.**
+Live sessions of the line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0 pp. The second construction trait of the
+arena's top half does not transfer to the live boss either: both candidates taken from `docs/arena-losses-v12.md`
+gained +6 pp against the boss-v2 proxy and lost against the boss (−15 and −5). Q's loss sits on the tall maps (30×20:
+2 vs 6 of 9), where a kept cheap completion displaces a longer route from the six slots. The policy's one
+predeclared extension (a second 40-map session, 120 games in all) is open to the user; the prior after −5 pp is low.
+
+**What this closes.** The construction line opened by the arena-loss diagnostic (multiplicity, earning delay) is
+exhausted at the proxy's level: the screen passes construction changes the live boss does not reward. Further
+construction candidates need either a screening opponent that models the boss's reaction to construction (which
+`boss-v3` could not fit) or a live step first. The remaining levers in `docs/PLAN.md` are on the sabotage and
+valuation side, where the proxy's sign has held so far.

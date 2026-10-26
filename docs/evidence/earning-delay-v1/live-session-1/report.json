@@ -1,0 +1,46 @@
+{
+  "arms": {
+    "candidate": {
+      "draws": 0,
+      "games": 40,
+      "halfWinScore": 0.45,
+      "losses": 22,
+      "winRate": 0.45,
+      "winRateExact95": [
+        0.29258835003988004,
+        0.6150932054659866
+      ],
+      "wins": 18
+    },
+    "control": {
+      "draws": 0,
+      "games": 40,
+      "halfWinScore": 0.5,
+      "losses": 20,
+      "winRate": 0.5,
+      "winRateExact95": [
+        0.3380178137372346,
+        0.6619821862627653
+      ],
+      "wins": 20
+    }
+  },
+  "attemptedRequests": 80,
+  "authorizedRetries": 0,
+  "bossScreen": "inconclusive for improvement",
+  "complete": true,
+  "completedGames": 80,
+  "completedRetryGames": 0,
+  "discordances": {
+    "candidateOnlyWin": 9,
+    "controlOnlyWin": 11
+  },
+  "excludedAttempts": [],
+  "issues": [],
+  "oneSidedP": 0.7482776641845703,
+  "planId": "f426db1c6e4f57b7bdbf5abb6ac712189aa7a7467f9b8bee695ce2fd2dc2e532",
+  "promotion": false,
+  "protocolAmendments": [],
+  "protocolStatus": "original fixed",
+  "scheduledGames": 80
+}

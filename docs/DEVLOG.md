@@ -9029,3 +9029,22 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   paired maps. 80 API games were played today already (K1's session); the launch — now (resumable on an API-limit
   stop) or tomorrow — is the user's call. Pool 1011000..1011149 consumed, next ≥ 1012000.
 - **State.** `current` unchanged; branch `claude/project-thread-xptone-v5`.
+
+## 2026-10-26 — `earning-delay-v1` against the live boss, v5 step (c): Q 18/40 vs v12's 20/40 — −5 pp, parked; the construction line from the arena diagnostic is exhausted at the proxy's level
+
+- Launched by Claude at 17:54 UTC on the user's "запускай" (allow rule; the day's 81st–160th API requests, no limit
+  stop); 80 API games 17:54–18:57 UTC, 0 failures, 0 retries, **40/40 + 80/80 replays exact**. **Q 18/40 = 45.0 %,
+  `current` (v12) 20/40 = 50.0 %** on 40 matched maps; discordant **9 : 11** (20 equal), paired **−5.0 pp**,
+  one-sided p = 0.75; seats P0 10 vs 10, P1 8 vs 10; 30×20 2 vs 6 of 9 maps, 27×18 5 vs 2 of 6
+  (`evidence/earning-delay-v1/live-session-1/`: plan, 80 result records, runner report, paired summary, validation
+  note).
+- **Reading.** The proxy gain (+6.3 pp) did not transfer (−5 pp live); the loss is on the tall maps, where the kept
+  cheap completion displaces a longer route from the six slots. Both construction traits of the arena's top half
+  (`docs/arena-losses-v12.md`: multiplicity → `corridor-routes-v1` −15 pp live, earning delay → `earning-delay-v1`
+  −5 pp live) passed the proxy and failed the boss. **Q parked (flag off); the construction line is closed at the
+  proxy's level** — the screen passes construction changes the live boss does not reward, and `boss-v3` showed the
+  proxy cannot be refitted into the boss's reaction to construction.
+- **Open to the user:** the predeclared extension of Q's live sample to 120 games (a second 40-map session, low prior
+  after −5 pp); otherwise the next lever comes from the sabotage / valuation side of `docs/PLAN.md`, where the
+  proxy's sign has held (D, B, E1). Live sessions of the line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0 pp.
+- **State.** `current` unchanged; no upload; branch `claude/project-thread-xptone-v5`.
