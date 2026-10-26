@@ -8831,3 +8831,30 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Tests.** Full suite with the flag: 840 tests, **25 failures, all pre-existing**. **State:** `current` = v12 unchanged (arena agent
   6813957); pool 1006000..1006149 consumed, next free range ≥ 1007000. Tonight since the v12 promotion: three
   parameter/flag screens (unstable cost, fill off, collision aversion) all negative, one diagnostic.
+
+## 2026-10-26 — `end-forecast-v1`: the end of the game is not forecastable from the board inside the bot's horizon, and the horizon itself is not a lever — closed
+
+- **Why.** The user's pick after the idle-cell diagnostic: 76 % of the paint placed in the last third never
+  earns (both sides); the proposals credit routes with `min(16, 100 − turn) − turns + 1` earning turns. New
+  tool `btk.tools.EndgameStudy` (one row per turn of every validated replay: active / still-connectable /
+  impossible pairs, inked and unstable regions, cells, score, true remaining turns), run over v12's 50 arena
+  games and the canonical boss corpus (1,104 games, 77,211 turns); fits in [end-forecast-v1.md](end-forecast-v1.md),
+  outputs in `evidence/end-forecast-v1/`.
+- **Finding.** The remaining turns are nearly unrelated to the number of still-connectable pairs (23–27 turns
+  remain on average with none connectable; the game lasts while the active connections survive the inking); the
+  best static fit still misses by 11–12 turns in the last third; and **inside the 16-turn horizon no forecast
+  beats the existing cap** (late error 3.6–4.5 turns for `100 − turn`, the same or worse for every fit, 6–8 for
+  simple rules). The end is decided by the opponent's future inking, which the board does not carry.
+- **Horizon screen** (`tools/boss_proxy/run_horizon_screen.sh`, fresh pool **1007000**, 300 paired games per cell,
+  CG 486/36 ms, 2 workers, proxy spec with `USE_EXPOSURE_INCOME=0`): vs boss-v2 on the same maps — `current`
+  **79.0 %**, `ROLLOUT_ROUTE_HORIZON=12` 78.3 % (**−0.7 ± 6.0 pp**, 28/32/90), `=10` 76.3 % (**−2.7 ± 5.8 pp**,
+  27/36/87); head-to-head 44.0 % / 52.7 %. Zero errors. **Both fail step (a); the default 16 stays.**
+- **Reading.** The last-third waste is neither a forecasting problem nor a horizon problem; if it is anything, it
+  is a different late-game construction (protect active connections instead of starting routes) — a mechanism to
+  look for in what the winners build in their last third, not a parameter. Line closed.
+- **Branch.** PR #8 (`claude/project-thread-xptone-v2`) was rebase-merged this morning; this work is on the fresh
+  branch `claude/project-thread-xptone-v3` from master.
+- **State:** `current` = v12 unchanged (arena agent 6813957); pool 1007000..1007149 consumed, next free range
+  ≥ 1008000. Since the v12 promotion: four parameter/flag screens (unstable cost, fill off, collision aversion,
+  route horizon) and two diagnostics (idle cells, end forecast), all negative or closed. Open in PLAN: the Stage 2
+  compute cuts (low priority) and the arena-loss diagnostic of v12 (who beats it and how).

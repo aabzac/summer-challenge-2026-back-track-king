@@ -1,0 +1,42 @@
+games 1104 rows 77211
+game length: min 1 median 65 max 100 capped at 100: 328
+
+--- baseline (100 - turn), MAE/bias: all 22.5/22.5, early 22.5/22.5, mid 22.6/22.6, late 22.5/22.5
+horizon view (min 16): late MAE 3.6 bias 3.6 (truth min16: 10.8)
+
+--- remaining by possibleInactive (mean, n):
+   0: mean  26.5  median  22  n=34718
+   1: mean  22.7  median  18  n=3697
+   2: mean  28.2  median  22  n=1835
+   3: mean  35.6  median  29  n=2034
+   4: mean  42.2  median  35  n=2828
+   5: mean  42.1  median  37  n=1884
+   6: mean  43.9  median  37  n=1492
+   7: mean  44.7  median  37  n=1699
+   8: mean  46.3  median  40  n=1522
+   9: mean  48.6  median  42  n=1668
+  10: mean  49.7  median  43  n=1530
+  11: mean  50.0  median  43  n=1165
+  12: mean  51.1  median  45  n=1335
+  13: mean  52.1  median  46  n=1127
+  14: mean  52.0  median  46  n=1231
+  15: mean  53.6  median  48  n=1089
+
+--- least-squares fits of remaining (capped prediction at 100 - turn):
+  poss                             coef=[1.19, 29.28]  MAE all 15.4 early 20.7 mid 14.1 late 11.3 | bias late +11.1 | late horizon MAE 3.6
+  poss+active                      coef=[1.16, 0.72, 25.54]  MAE all 15.4 early 19.9 mid 15.3 late 10.8 | bias late +10.2 | late horizon MAE 3.6
+  poss+active+inkedShare           coef=[0.6, 0.18, -55.58, 49.34]  MAE all 16.1 early 19.1 mid 17.1 late 12.0 | bias late +7.9 | late horizon MAE 4.0
+  poss+active+inkedShare+turn      coef=[0.62, 0.24, -19.67, -0.29, 49.46]  MAE all 16.1 early 19.0 mid 17.1 late 12.3 | bias late +8.2 | late horizon MAE 3.9
+  poss+unstable+inkedShare         coef=[0.58, 0.09, -57.86, 50.85]  MAE all 16.1 early 19.3 mid 16.8 late 12.1 | bias late +8.1 | late horizon MAE 4.0
+
+--- simple rule k*possible + c:
+  3*poss+2: MAE all 22.3 late 10.7 bias late -9.2 | late horizon MAE 7.8
+  4*poss+2: MAE all 22.2 late 11.0 bias late -8.6 | late horizon MAE 7.8
+  4*poss+4: MAE all 21.2 late 9.7 bias late -6.7 | late horizon MAE 6.4
+  5*poss+2: MAE all 22.4 late 11.2 bias late -8.1 | late horizon MAE 7.7
+  5*poss+4: MAE all 21.5 late 10.0 bias late -6.2 | late horizon MAE 6.4
+  6*poss+2: MAE all 22.7 late 11.5 bias late -7.6 | late horizon MAE 7.7
+
+--- remaining by possibleInactive, split by height>=19:
+  low  {0: 28.1, 1: 22.4, 2: 27.3, 3: 36.7, 4: 43.3, 5: 43.4, 6: 44.0, 7: 45.6, 8: 46.5, 9: 49.6, 10: 50.0}
+  tall {0: 22.0, 1: 23.2, 2: 29.7, 3: 32.0, 4: 37.0, 5: 38.3, 6: 43.3, 7: 41.4, 8: 45.5, 9: 42.7, 10: 48.6}

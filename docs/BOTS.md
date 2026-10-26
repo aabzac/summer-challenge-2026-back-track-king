@@ -17,6 +17,13 @@ The boss mechanism remains [the v3 cache rule](boss-cache-policy-v3.md); local s
 Historical entries retain the policy and verdict in force when those experiments ran.
 `current` = **v10 Boss Model** (since 2026-10-23), `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`end-forecast-v1` — 2026-10-26, study + parameter screen on `current` = v12, closed:** no board feature forecasts the
+remaining turns better than the existing 16-turn earning cap inside that cap (`btk.tools.EndgameStudy`, v12's 50 arena
+games + the 1,104-game boss corpus: late error 3.6–4.5 turns for `100 − turn`, the same or worse for every fit);
+`ROLLOUT_ROUTE_HORIZON` 12 / 10 vs boss-v2 on fresh pool 1007000 with `current` as the same-map control: −0.7 ± 6.0 /
+−2.7 ± 5.8 pp, head-to-head 44.0 / 52.7 % — the default 16 stays. [Study and results](end-forecast-v1.md),
+[evidence](evidence/end-forecast-v1/).
+
 **`collision-avoidance-v1` = `current?USE_COLLISION_AVOIDANCE=true` — 2026-10-25 night, rejected:** a root's rollout value loses
 `COLLISION_PENALTY` points per cell shared with the opponent's predicted first-turn cells (own merger block, default off). Fresh pool
 1006000 vs boss-v2 with `current` (v12) as the same-map control: penalty 5 → 73.0 % vs 77.0 % (−4.0 ± 7.0 pp), penalty 15 → 71.7 %
