@@ -1,0 +1,55 @@
+##### strong arena opponents (score >= 27), turns 10-19
+sets: train 609 (74 games), test 153; candidates per set 38.0
+  fitted model         top-1 0.183  top-3 0.386   (train top-1 0.176)
+  our proposal value   top-1 0.281  top-3 0.438   (train top-1 0.233)
+  cheapest route       top-1 0.131  top-3 0.216   (train top-1 0.161)
+  uniform (first)      top-1 0.183  top-3 0.281   (train top-1 0.095)
+  standardised weights (transformed features):
+    turns                -0.802
+    adjOwn               +0.530
+    ourValue             +0.523
+    gainDiff             +0.330
+    pairsActivated       -0.324
+    maxInstabFree        -0.300
+    variant              -0.278
+    ownOnPath            -0.247
+    dIncMe               +0.199
+    ownShare             +0.175
+    cost                 -0.159
+    pathLen              +0.151
+    active               +0.115
+    dIncOpp              -0.104
+    unstableRegionsPath  -0.082
+    instabFree           -0.072
+    oppOnPath            +0.019
+    completesNow         +0.011
+    touchOwn             -0.000
+  chosen-route means: cost 8.94, completesNow 0.23, gainDiff 41.70, dIncMe 60.19, dIncOpp 18.49, ourValue 235.03, pairsActivated 3.78, ownShare 632.79, oppOnPath 1.35, unstableRegionsPath 0.87, adjOwn 2.07, active 0.25, variant 0.49
+
+##### v12, turns 10-19
+sets: train 1031 (118 games), test 259; candidates per set 38.1
+  fitted model         top-1 0.108  top-3 0.293   (train top-1 0.139)
+  our proposal value   top-1 0.290  top-3 0.394   (train top-1 0.307)
+  cheapest route       top-1 0.124  top-3 0.212   (train top-1 0.138)
+  uniform (first)      top-1 0.046  top-3 0.120   (train top-1 0.158)
+  standardised weights (transformed features):
+    turns                -1.483
+    ourValue             +0.880
+    cost                 +0.780
+    pairsActivated       -0.716
+    variant              -0.377
+    gainDiff             +0.355
+    pathLen              +0.342
+    ownOnPath            -0.285
+    dIncMe               +0.275
+    maxInstabFree        -0.267
+    ownShare             +0.251
+    unstableRegionsPath  -0.234
+    instabFree           -0.209
+    oppOnPath            -0.130
+    active               -0.064
+    completesNow         +0.053
+    adjOwn               +0.032
+    dIncOpp              -0.023
+    touchOwn             -0.011
+  chosen-route means: cost 7.83, completesNow 0.21, gainDiff 48.85, dIncMe 65.46, dIncOpp 16.61, ourValue 306.86, pairsActivated 3.99, ownShare 680.08, oppOnPath 1.15, unstableRegionsPath 0.82, adjOwn 1.85, active 0.17, variant 0.44
