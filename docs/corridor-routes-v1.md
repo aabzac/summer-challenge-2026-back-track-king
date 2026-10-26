@@ -158,3 +158,10 @@ seats against the boss; our cells are the rows with `player == leader`.
 
 **`corridor-routes-v1` is closed as rejected; the lesson is about the screen, not the mechanism.** Next step (user
 decision): the proxy-agreement study above, or the next construction lever with the same risk.
+
+## Replication (2026-10-26, `docs/boss-v4.md` §5)
+
+K1 against the policy proxy on fresh pool 1014000 with `current` as the same-map control: **−1.7 ± 6.1 pp** (27 / 30 / 93 maps),
+against +6.5 ± 7.2 pp on its selection pool 1009000. The proxy pass was selection noise; on fresh maps the proxy agrees
+with the live sign (−15 pp). The diagnostic's mechanism (more cells inked before they earn) stands as a description of
+the 80 live games; the conclusion that the proxy cannot screen construction changes is withdrawn.

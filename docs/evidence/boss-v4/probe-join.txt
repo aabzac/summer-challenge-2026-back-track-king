@@ -1,0 +1,87 @@
+probe sets 4949 study sets 5374 common 4949
+
+K1 all: n=2505
+   study_argmax                                      71.9 %
+   probe_argmax_no_close                             71.2 %
+   proxy_m0                                          58.8 %
+   proxy_m1                                          53.9 %
+   winning_close_available                           15.9 %
+   proxy_m0_took_close                               15.9 %
+   boss_in_probe_candidates                          99.4 %
+   swap:oppPrev2                                     72.1 %
+   swap:oppTraffic                                   71.2 %
+   swap:routesAny                                    71.2 %
+   swap:adjTown                                      71.2 %
+   swap:logFree                                      71.2 %
+   swap:oppPrev2+oppTraffic                          71.9 %
+   swap:oppPrev2+oppTraffic+routesAny+adjTown+logFree+dOpp+dOwn  71.9 %
+
+K1 uc: n=993
+   study_argmax                                      82.3 %
+   probe_argmax_no_close                             81.3 %
+   proxy_m0                                          49.8 %
+   proxy_m1                                          46.5 %
+   winning_close_available                           38.4 %
+   proxy_m0_took_close                               38.4 %
+   boss_in_probe_candidates                          99.9 %
+   swap:oppPrev2                                     82.1 %
+   swap:oppTraffic                                   81.5 %
+   swap:routesAny                                    81.3 %
+   swap:adjTown                                      81.3 %
+   swap:logFree                                      81.3 %
+   swap:oppPrev2+oppTraffic                          82.3 %
+   swap:oppPrev2+oppTraffic+routesAny+adjTown+logFree+dOpp+dOwn  82.3 %
+
+v12 all: n=2375
+   study_argmax                                      68.7 %
+   probe_argmax_no_close                             68.0 %
+   proxy_m0                                          62.6 %
+   proxy_m1                                          58.1 %
+   winning_close_available                            6.8 %
+   proxy_m0_took_close                                6.8 %
+   boss_in_probe_candidates                          99.3 %
+   swap:oppPrev2                                     69.0 %
+   swap:oppTraffic                                   68.0 %
+   swap:routesAny                                    68.0 %
+   swap:adjTown                                      68.0 %
+   swap:logFree                                      68.0 %
+   swap:oppPrev2+oppTraffic                          68.6 %
+   swap:oppPrev2+oppTraffic+routesAny+adjTown+logFree+dOpp+dOwn  68.6 %
+
+v12 uc: n=854
+   study_argmax                                      81.9 %
+   probe_argmax_no_close                             81.1 %
+   proxy_m0                                          65.2 %
+   proxy_m1                                          61.9 %
+   winning_close_available                           17.2 %
+   proxy_m0_took_close                               17.2 %
+   boss_in_probe_candidates                         100.0 %
+   swap:oppPrev2                                     82.2 %
+   swap:oppTraffic                                   81.3 %
+   swap:routesAny                                    81.1 %
+   swap:adjTown                                      81.1 %
+   swap:logFree                                      81.1 %
+   swap:oppPrev2+oppTraffic                          81.9 %
+   swap:oppPrev2+oppTraffic+routesAny+adjTown+logFree+dOpp+dOwn  81.9 %
+
+feature mismatch, probe vs study, share of joined candidate rows:
+  v12: rows 47311, regions missing in study 491; dOpp 0.0 %, dOwn 0.0 %, oppCells 0.0 %, oppActive 0.0 %, ownCells 0.0 %, oppPrev2 5.9 %, instab 0.0 %, oppTraffic 26.9 %, routesAny 0.0 %, adjTown 0.0 %, neutralCells 0.0 %, freeCells 0.0 %
+  K1: rows 48322, regions missing in study 419; dOpp 0.0 %, dOwn 0.0 %, oppCells 0.0 %, oppActive 0.0 %, ownCells 0.0 %, oppPrev2 6.0 %, instab 0.0 %, oppTraffic 25.0 %, routesAny 0.0 %, adjTown 0.0 %, neutralCells 0.0 %, freeCells 0.0 %
+
+=== turns with a winning one-hit closure available to the boss (probe's own check) ===
+  K1 (probe-k1.csv): turns with a winning closure available 399, the boss takes it on 8 (2.0 %); games with such a turn 19, of which the boss went on to LOSE 0
+  v12 (probe-v12.csv): turns with a winning closure available 161, the boss takes it on 10 (6.2 %); games with such a turn 16, of which the boss went on to LOSE 0
+
+=== proxy agreement with the boss (BossTargetStudy rows, proxy-agreement-v1), split by whether a winning closure was available ===
+  K1  k1-proxy.csv     all                   : n 2505 agree  54.1 % | uc n  993 agree  46.8 % | >=10 tracks n  69 agree  29.0 %
+  K1  k1-proxy.csv     no closure available  : n 2106 agree  64.0 % | uc n  612 agree  75.8 % | >=10 tracks n  24 agree  83.3 %
+  K1  k1-proxy.csv     closure available     : n  399 agree   1.8 % | uc n  381 agree   0.3 % | >=10 tracks n  45 agree   0.0 %
+  v12 v12-proxy.csv    all                   : n 2374 agree  58.1 % | uc n  854 agree  61.8 % | >=10 tracks n  32 agree  46.9 %
+  v12 v12-proxy.csv    no closure available  : n 2213 agree  62.0 % | uc n  707 agree  74.7 % | >=10 tracks n  18 agree  83.3 %
+  v12 v12-proxy.csv    closure available     : n  161 agree   5.6 % | uc n  147 agree   0.0 % | >=10 tracks n  14 agree   0.0 %
+  K1  k1-proxy-m0.csv  all                   : n 2505 agree  58.8 % | uc n  993 agree  49.8 % | >=10 tracks n  69 agree  26.1 %
+  K1  k1-proxy-m0.csv  no closure available  : n 2106 agree  69.6 % | uc n  612 agree  80.7 % | >=10 tracks n  24 agree  75.0 %
+  K1  k1-proxy-m0.csv  closure available     : n  399 agree   1.8 % | uc n  381 agree   0.3 % | >=10 tracks n  45 agree   0.0 %
+  v12 v12-proxy-m0.csv all                   : n 2374 agree  62.6 % | uc n  854 agree  65.2 % | >=10 tracks n  32 agree  43.8 %
+  v12 v12-proxy-m0.csv no closure available  : n 2213 agree  66.8 % | uc n  707 agree  78.8 % | >=10 tracks n  18 agree  77.8 %
+  v12 v12-proxy-m0.csv closure available     : n  161 agree   5.6 % | uc n  147 agree   0.0 % | >=10 tracks n  14 agree   0.0 %

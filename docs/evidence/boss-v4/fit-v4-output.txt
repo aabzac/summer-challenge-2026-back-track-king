@@ -1,0 +1,74 @@
+parsed 1559588 rows in 39 s
+sets 73133; train 24917; holdout K1 commit 901 all 2505 uc 993; v12 commit 858 all 2375 uc 854
+shipped  train 0.529 | K1 commit 0.562 all 0.719 uc 0.822 | v12 commit 0.515 all 0.686 uc 0.819
+base     train 0.525 | K1 commit 0.556 all 0.718 uc 0.822 | v12 commit 0.509 all 0.688 uc 0.820  (329 s)
+      dOpp               +0.1300
+      dOwn               -0.1056
+      oppCells           +0.7629
+      oppActive          +0.0133
+      ownCells           -0.2699
+      oppPlacedPrev2     +0.2902
+      instab             +0.8925
+      oppRouteTraffic    +0.3083
+      routesAny          +0.0039
+      adjTownRegion      +0.3401
+      closes             -3.2549
+      neutralCells       +0.1633
+      logFree            +0.1279
+full     train 0.538 | K1 commit 0.564 all 0.716 uc 0.795 | v12 commit 0.513 all 0.687 uc 0.793  (404 s)
+      dOpp               +0.1322
+      dOwn               -0.1126
+      oppCells           +0.9010
+      oppActive          -0.0212
+      ownCells           -0.3396
+      oppPlacedPrev2     +0.0080
+      instab             +1.0177
+      oppRouteTraffic    +0.0128
+      routesAny          -0.0042
+      adjTownRegion      +0.3104
+      closes             -3.7314
+      neutralCells       +0.2908
+      logFree            +0.6868
+      ownActive          +0.5105
+      oppPlacedPrev      +0.4747
+      ownPlacedPrev      -0.1068
+      routesOppOwn       +0.0164
+      invCostOppOwn      -0.0104
+      nearCompleteOpp    +0.0980
+      routesMeOwn        -0.0226
+      invCostAny         +0.6535
+      hitPrevByOpp       -0.3905
+      logCells           -1.8486
+      instab2            -0.2756
+      instab3            -0.4802
+inter    train 0.537 | K1 commit 0.563 all 0.716 uc 0.797 | v12 commit 0.507 all 0.684 uc 0.792  (441 s)
+      dOpp               +0.1318
+      dOwn               -0.1123
+      oppCells           +0.4643
+      oppActive          +0.4175
+      ownCells           -0.3394
+      oppPlacedPrev2     +0.0108
+      instab             +1.0117
+      oppRouteTraffic    +0.0796
+      routesAny          -0.0041
+      adjTownRegion      +0.3114
+      closes             -3.7144
+      neutralCells       +0.2960
+      logFree            +0.6974
+      ownActive          +0.5184
+      oppPlacedPrev      +0.4736
+      ownPlacedPrev      -0.1077
+      routesOppOwn       +0.0123
+      invCostOppOwn      +0.0283
+      nearCompleteOpp    +0.4932
+      routesMeOwn        -0.0242
+      invCostAny         +0.6434
+      hitPrevByOpp       -0.3837
+      logCells           -1.8673
+      instab2            -0.2674
+      instab3            -0.4643
+      nonEarning         +0.4331
+      nonEarnXnear       -0.2373
+      nonEarnXroutes     -0.0004
+      underConstruction  +0.1004
+saved build/analysis/boss-v4/fit-v4.json (1215 s)

@@ -103,3 +103,10 @@ exhausted at the proxy's level: the screen passes construction changes the live 
 construction candidates need either a screening opponent that models the boss's reaction to construction (which
 `boss-v3` could not fit) or a live step first. The remaining levers in `docs/PLAN.md` are on the sabotage and
 valuation side, where the proxy's sign has held so far.
+
+## Replication (2026-10-26, `docs/boss-v4.md` §5)
+
+Q against the policy proxy on fresh pool 1014000 with `current` as the same-map control: **−6.0 ± 6.7 pp** (31 / 48 / 71 maps),
+against +6.3 ± 5.6 pp on its selection pool 1011000. The proxy pass was selection noise; on fresh maps the proxy agrees
+with the live sign (−5 pp). "The construction line is closed at the proxy's level" is withdrawn: neither construction
+candidate passed a replicated screen.

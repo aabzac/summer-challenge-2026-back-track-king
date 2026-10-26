@@ -5,6 +5,8 @@
 #   K1 (corridor-routes, live -15 pp) delta <= 0,  Q (earning-delay, live -5 pp) delta <= 0,
 #   and the v11 configuration (current?USE_EXPOSURE_INCOME=0; live: v12 beat it by +5 pp) delta <= 0.
 # K1 against the policy proxy runs on the same pool for a same-map comparison of the two proxies' verdicts.
+# Follow-up cell (after the screen): Q-vs-boss2, the replication of Q's policy-proxy pass on the same maps
+#   (CELLS="Q-vs-boss2" bash tools/boss_proxy/run_noclose_screen.sh).
 # Fresh pool seed 1014000 (first use), 300 paired games per cell, 2 workers, CG timing (486/36 ms).
 # Windows (docs/evidence/prune-v1/summary.txt has the classpath):
 #   CP="build/classes/java/main;build/resources/main;<gson jar>" bash tools/boss_proxy/run_noclose_screen.sh
@@ -31,6 +33,7 @@ for cell in $CELLS; do
     V11-vs-nc)    run $cell "$V11" "$NC" ;;
     cur-vs-boss2) run $cell "$CUR" "$BOSS2" ;;
     K1-vs-boss2)  run $cell "$K1" "$BOSS2" ;;
+    Q-vs-boss2)   run $cell "$Q" "$BOSS2" ;;
     *) echo "unknown cell $cell"; exit 1 ;;
   esac
 done
