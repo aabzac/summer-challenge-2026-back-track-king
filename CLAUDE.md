@@ -52,7 +52,9 @@ multiplicity: 1.62 connections per earning cell-turn vs our 1.25), and a candida
 well (`tools/boss_proxy/run_fill_nv6_screen.sh` pattern); the fill is free paint and stays. **`corridor-routes-v1` (2026-10-26) passed
 (a)+(b) and the neural-v6 cross-check** (K1 = `current?USE_CORRIDOR_ROUTES=true`: +6.5 pp vs the proxy, 51.7 % h2h, +7.7 pp vs
 neural-v6; artifact `build/submit-corridor-k1`, config `299cafd9…`) — **but it lost its live session 15 pp (18/40 vs v12's 24/40, 3 : 9 discordant) → rejected, flag parked off**; for a construction
-change the proxy and neural-v6 predicted the sign wrongly, so the next step is a diagnostic of those 80 live games (user decision).
+change the proxy and neural-v6 predicted the sign wrongly, and `proxy-agreement-v1` (2026-10-26, `docs/proxy-agreement-v1.md`) found why: the boss sends 36–40 % of its disrupts to our
+under-construction concentrations and finishes near inks, the income-scoring proxy does not (agreement 54 % in K1 games, 29 % at ≥ 10
+of our tracks in a region; neural-v6 41–44 %). Next (user decision): a `boss-v3` chooser fitted by agreement, K1 re-screened as the check.
 Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
