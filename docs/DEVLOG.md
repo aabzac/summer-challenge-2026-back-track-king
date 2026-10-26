@@ -8917,3 +8917,21 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **State.** `gradlew test`: 844 tests, the 25 pre-existing failures only (19 via the `Pathing.class` pin, 6
   `PduhardBeamBotTest`). `current` unchanged; pool 1009000..1009149 consumed, next ≥ 1010000; branch
   `claude/project-thread-xptone-v5` (from master `c9e79bc`).
+
+## 2026-10-26 — `corridor-routes-v1` against the live boss, v5 step (c): K1 18/40 vs v12's 24/40 — −15 pp, rejected
+
+- Launched by Claude at 12:04 UTC after the user's "Добавь правило" (allow rule `Bash(bash tools/run_boss_paced.sh *)`
+  in `.claude/settings.local.json`, the first series not launched by hand); 80 API games 12:04–13:04 UTC, 0 failures,
+  0 retries, **80/80 replays exact**. **K1 18/40 = 45.0 %, `current` (v12) 24/40 = 60.0 %** on 40 matched maps;
+  discordant **3 : 9**, paired **−15.0 pp**, one-sided p = 0.98; both seats (P0 9 vs 14, P1 9 vs 10); 23×15 4 vs 7 of 10,
+  29×19 4 vs 6 of 8 (`evidence/corridor-routes-v1/live-session-1/`: plan, 80 result records, runner report, paired
+  summary, validation note).
+- **Reading.** The clearest proxy-vs-live divergence of the line: +6.5 pp vs the proxy and +7.7 pp vs neural-v6,
+  −15 pp vs the boss. Both local opponents are models of the boss built around our own construction; routes bent toward
+  shared corridors (longer, concentrated) are something the real boss punishes — the obvious hypothesis is that the
+  shared corridors concentrate our cells in the regions it inks. **K1 rejected; the flag stays off (parked).** Live
+  sessions of the line: D +22.5, B +2.5, E1 +5.0, K1 −15.0 pp.
+- **Next (user decision).** A diagnostic of the 40 K1 games vs the 40 v12 games on the same maps (`cgCellStudy` over
+  both capture directories: inked / idle / earning cells, the corridor cells' fate) before any further construction
+  candidate; the proxy's weight in the policy for construction changes is in question (it predicted the sign wrongly).
+- **State.** `current` unchanged; no upload; branch `claude/project-thread-xptone-v5`.
