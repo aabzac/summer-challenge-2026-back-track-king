@@ -111,3 +111,50 @@ local opponents are models of the boss built around our own bots' construction; 
 concentrate our cells in the regions it inks. The next step, if the user wants it, is a diagnostic of these 80 games
 (`cgCellStudy` over both capture directories on the same maps: where K1's corridor cells end up — inked, idle, or earning
 less than v12's); and for construction changes the proxy's predictive value is in question.
+
+## Diagnostic of the 80 live games (2026-10-26, user request; `evidence/corridor-routes-v1/live-session-1/diagnostic/`)
+
+`cgCellStudy` and `EndgameStudy` over both capture directories — K1's 40 games and v12's 40 on the same maps and
+seats against the boss; our cells are the rows with `player == leader`.
+
+| per game, 40 games per arm | K1 ours | v12 ours | boss vs K1 | boss vs v12 |
+|---|---|---|---|---|
+| cells placed (paint) | 148.2 (183.6) | 145.6 (180.2) | 104.0 (130.7) | 103.6 (132.0) |
+| earning cells (share of placed) | 82.2 (55.5 %) | 82.2 (56.4 %) | 87.3 (83.9 %) | 85.9 (82.9 %) |
+| **connections served per earning cell-turn** | **1.21** | **1.24** | 1.49 | 1.56 |
+| turns from placement to first income | 3.44 | 3.55 | 2.10 | 2.11 |
+| points per earning cell | 32.9 | 31.7 | 35.0 | 34.2 |
+| **cells inked before they earn** | **33.1** | **27.1** | 7.7 | 8.8 |
+| cells inked in all (after earning too) | 80.6 | 73.2 | — | — |
+| kept idle to the end | 26.9 | 30.5 | 3.2 | 3.0 |
+| completion route length at placement (mean / median) | 10.17 / 9 | 10.32 / 10 | | |
+| own tracks already in the region at placement: all cells / cells later inked before earning | 1.75 / 2.65 | 1.64 / 2.43 | | |
+| our cells in the region when it is inked (never-earning inked cells) | 6.6 | 6.1 | | |
+| our lead at turn 10 / 20 / 30 / end | −53 / −124 / **−240** / −351 | −42 / −94 / **−121** / −332 | | |
+| active connections on the board at turn 20 / 30 | 8.7 / 9.1 | 10.3 / 10.2 | | |
+| game length; regions inked at the end | 69.2 turns; 56.4 % | 65.1; 54.1 % | | |
+| pairs: both won 15, both lost 13, **v12 won / K1 lost 9**, K1 won / v12 lost 3 | | | | |
+| the 9 maps v12 won and K1 lost: cells / inked / points | 150.7 / **87.6** / 1,699 | 122.7 / 53.3 / 2,202 | | |
+
+1. Against the boss the mechanism does not produce what it was built for: multiplicity 1.21 vs 1.24, delay 3.44 vs
+   3.55, route length and route-class mix identical, slightly fewer kept-idle cells (26.9 vs 30.5). The corridor
+   routes are proposed and taken, but the boss severs them before they pay.
+2. What K1 changes is where the cells die: **six more cells per game are inked before they earn** (33.1 vs 27.1;
+   80.6 vs 73.2 inked in all), placed into regions that already hold more of our tracks (2.65 vs 2.43 own tracks at
+   placement; 6.6 vs 6.1 of our cells in the region when it is inked), while the boss loses fewer cells against K1
+   (7.7 vs 8.8). The boss's disrupt goes where our construction is concentrated, and corridors shared by several
+   pairs concentrate it by design. The lead splits in the middle game (−124 → −240 by turn 30 against −94 → −121),
+   the board carries fewer active connections (8.7 vs 10.3 at turn 20), and the games run four turns longer, which
+   compounds the boss's lead.
+3. The 9 maps v12 won and K1 lost are the extreme of it: K1 placed 28 more cells there and had 34 more of them inked
+   (87.6 vs 53.3), for 500 fewer points.
+4. Why the proxy and neural-v6 rewarded it: both model the boss's targeting around our own construction (the boss-v2
+   chooser, an imitation net) and neither punishes concentration the way the live boss does. This is the first
+   candidate of the line whose proxy sign was wrong, and it is a construction change — the earlier passes were
+   valuation and sabotage changes. For construction changes the screen needs a check of the boss's *targeting*:
+   `BossAgreementStudy` / `CgDisruptStudy` over these 80 games (how often the proxy's disrupt choice matches the
+   boss's actual one, split by our cell concentration) would locate the proxy's blind spot before it is trusted on
+   another construction candidate.
+
+**`corridor-routes-v1` is closed as rejected; the lesson is about the screen, not the mechanism.** Next step (user
+decision): the proxy-agreement study above, or the next construction lever with the same risk.

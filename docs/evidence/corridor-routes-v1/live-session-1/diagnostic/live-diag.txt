@@ -1,0 +1,100 @@
+=== per-cell, both arms, both sides (40 games each, same maps/seats) ===
+K1 ours   games 40 cells/game  148.2 paint/game  183.6 | earning  82.2 (55.5 %) pts/earning cell  32.9 span  27.1 mult 1.21 delay 3.44 earning later lost 57.7 % | idle 44.5 %: inked 1326 (33.1/g) neutralised 235 kept 1078 (26.9/g)
+K1 boss   games 40 cells/game  104.0 paint/game  130.7 | earning  87.3 (83.9 %) pts/earning cell  35.0 span  23.5 mult 1.49 delay 2.10 earning later lost 68.6 % | idle 16.1 %: inked 306 ( 7.7/g) neutralised 235 kept 128 ( 3.2/g)
+v12 ours  games 40 cells/game  145.6 paint/game  180.2 | earning  82.2 (56.4 %) pts/earning cell  31.7 span  25.5 mult 1.24 delay 3.55 earning later lost 56.2 % | idle 43.6 %: inked 1083 (27.1/g) neutralised 234 kept 1220 (30.5/g)
+v12 boss  games 40 cells/game  103.6 paint/game  132.0 | earning  85.9 (82.9 %) pts/earning cell  34.2 span  21.9 mult 1.56 delay 2.11 earning later lost 66.5 % | idle 17.1 %: inked 354 ( 8.8/g) neutralised 234 kept 120 ( 3.0/g)
+
+=== our cells: route class at placement (all cells) and of the kept-idle ones ===
+  K1: all {'completion': 2003, 'none': 2546, 'steal': 478, 'bypass': 364, 'extend': 538} | kept idle {'extend': 224, 'none': 788, 'completion': 42, 'steal': 21, 'bypass': 3}
+      kept idle with >=10 turns left: 708 (17.7/game), class {'extend': 149, 'none': 506, 'completion': 35, 'steal': 16, 'bypass': 2}
+  v12: all {'completion': 1993, 'none': 2406, 'steal': 541, 'bypass': 379, 'extend': 504} | kept idle {'completion': 42, 'extend': 225, 'none': 890, 'bypass': 17, 'steal': 46}
+      kept idle with >=10 turns left: 780 (19.5/game), class {'completion': 40, 'extend': 145, 'none': 536, 'bypass': 17, 'steal': 42}
+
+=== our cells: route length at placement, slack, instability, opponent presence ===
+  K1: completion route len mean 10.17 median  9.0 (n=2003); instab at placement {0: 4349, 1: 78, 2: 18, 3: 11}; placed where boss already has tracks 31.3 %, where own tracks 63.5 %; adjOwn 59.7 %
+  v12: completion route len mean 10.32 median 10.0 (n=1993); instab at placement {0: 4240, 1: 77, 2: 26, 3: 16}; placed where boss already has tracks 34.3 %, where own tracks 62.0 %; adjOwn 57.5 %
+
+=== our inked cells (lost before earning): instability at placement, turns to ink, boss in region ===
+  K1: inked before earning 1326 (33.1/game), all inked (incl. after earning) 3225 (80.6/game), instab at placement {0: 1301, 1: 15, 2: 3, 3: 7}, turns to ink median 8.0, boss in region 435/1326
+      earning cells later inked: 1899 (47.5/game), mean points before loss 28.9
+  v12: inked before earning 1083 (27.1/game), all inked (incl. after earning) 2929 (73.2/game), instab at placement {0: 1060, 1: 12, 2: 2, 3: 9}, turns to ink median 7, boss in region 364/1083
+      earning cells later inked: 1846 (46.1/game), mean points before loss 29.3
+
+=== multiplicity buckets of our earning cells ===
+  K1: <1.2 48 %, 1.2-1.8 14 %, 1.8-2.5 13 %, >=2.5 25 %; maxPairs mean 5.30
+  v12: <1.2 50 %, 1.2-1.8 15 %, 1.8-2.5 11 %, >=2.5 24 %; maxPairs mean 5.12
+
+=== per-turn (EndgameStudy): our score lead, active pairs, inked regions at turns 10/20/30/40 and at the end ===
+  K1 T=10: our lead   -52.8 (n=40), active pairs  6.0, inked regions  2.7, cells ours/boss  23.8/ 20.0
+  K1 T=20: our lead  -123.7 (n=40), active pairs  8.7, inked regions  7.6, cells ours/boss  39.5/ 32.7
+  K1 T=30: our lead  -240.1 (n=40), active pairs  9.1, inked regions 12.5, cells ours/boss  52.5/ 42.6
+  K1 T=40: our lead  -275.8 (n=34), active pairs  7.0, inked regions 17.5, cells ours/boss  62.9/ 49.1
+  K1 end: our lead  -351.4, game length  69.2, regions inked at the end 56.4 %
+  v12 T=10: our lead   -42.1 (n=40), active pairs  6.0, inked regions  2.8, cells ours/boss  24.0/ 20.0
+  v12 T=20: our lead   -93.5 (n=40), active pairs 10.3, inked regions  7.4, cells ours/boss  41.1/ 34.1
+  v12 T=30: our lead  -121.0 (n=40), active pairs 10.2, inked regions 12.4, cells ours/boss  54.2/ 42.4
+  v12 T=40: our lead  -196.0 (n=33), active pairs  5.2, inked regions 17.8, cells ours/boss  62.5/ 49.5
+  v12 end: our lead  -331.8, game length  65.1, regions inked at the end 54.1 %
+
+=== per pair (same map, same seat): outcome and our score, K1 vs v12 ===
+  outcome combos (K1,v12): {'WW': 15, 'LL': 13, 'LW': 9, 'WL': 3}
+  pair map      seat K1  ours  boss | v12  ours  boss
+     1 27d6e05a    1 W    9017  8276 | W    4740  4249
+     2 9c055c0f    0 L    1239  1626 | L    1349  1409
+     3 fa0b6d22    0 L    1727  1954 | W    3623  2599
+     4 4f2521f9    1 W    2097  2042 | L    2914  3743
+     5 c105d195    1 L    1117  1274 | W    1671   906
+     6 33172006    1 L    1949  2244 | L    1797  2097
+     7 fb5088ed    1 W    4392  1772 | W    2677  1924
+     8 3975d833    1 L    1688  1911 | L    2577  4117
+     9 5ca94a76    0 W    1756  1416 | W     820   771
+    10 8d829414    0 L    2271  2809 | W    3031  2656
+    11 045e1095    0 W     498   235 | W     676   393
+    12 a9228f7e    0 L    5085  9556 | L    5957  9332
+    13 824e92ce    0 L    3501  6192 | L    2146  2709
+    14 bc9fb7bd    0 L    1803  3190 | W    3120  3004
+    15 f877475b    0 W    4230  3051 | W    2525  2117
+    16 9a47fbf3    0 W    2618  1982 | L    2009  3662
+    17 b8d6dfcb    0 L    2040  2737 | W    1922  1216
+    18 01084ea9    1 W    2094  1306 | W    3816  3206
+    19 774cdd53    1 L     894  1031 | L     967  1430
+    20 65807d08    1 L    1121  1159 | W    1348  1210
+    21 8297d654    0 W    5011  4430 | W    3007  2406
+    22 5b199757    0 L    4096  6568 | L    6095  9197
+    23 6cff2bb9    1 W    3123  2022 | W    3096  2498
+    24 f2c42507    1 L    1563  3195 | W    2388  1663
+    25 15c5d17f    0 W    1341  1192 | W    1803  1739
+    26 ee5aec5a    0 W    1123   805 | W    1196   784
+    27 c7f71e62    1 W    2469  1964 | W    1431  1314
+    28 243f1dfe    1 L    2063  2604 | L    2724  3239
+    29 802feadb    0 W     941   586 | W    1481   605
+    30 cfc714f4    0 L    1916  2026 | W    1567  1367
+    31 f5aad0cc    0 W    5651  5501 | W    3681  3401
+    32 97599be7    0 L    1282  1671 | L     740   926
+    33 687f5bfa    1 W    4629  3969 | W    5485  3463
+    34 813ec074    1 W    2671  2359 | L    1161  2015
+    35 8cae69aa    1 W    1617  1169 | W    2948  2102
+    36 f51f293d    1 L    2820  3054 | L    4223  6000
+    37 73b63e91    1 L    2539  3184 | L    1749  2042
+    38 16897030    0 L    1735  1970 | W    1149   759
+    39 c33da852    1 L    7281  9553 | L    4672  6126
+    40 e00d7b46    1 L    3257  8799 | L    3863 13041
+  mean ours K1 2707 vs v12 2604; boss vs K1 3060 vs boss vs v12 2936
+
+=== the 9 maps v12 won and K1 lost vs the 28 equal: our per-game cell stats by arm ===
+  v12 won, K1 lost   K1  n= 9: cells 150.7 earning  76.8 inked  87.6 points   1699 delay 3.59
+  v12 won, K1 lost   v12 n= 9: cells 122.7 earning  82.6 inked  53.3 points   2202 delay 3.07
+  K1 won, v12 lost   K1  n= 3: cells 116.7 earning  80.0 inked  46.0 points   2462 delay 2.80
+  K1 won, v12 lost   v12 n= 3: cells 133.0 earning  79.7 inked  50.3 points   2028 delay 2.86
+  both won           K1  n=15: cells 132.1 earning  88.1 inked  56.1 points   3193 delay 3.05
+  both won           v12 n=15: cells 145.1 earning  82.7 inked  69.3 points   2625 delay 3.43
+  both lost          K1  n=13: cells 172.4 earning  79.8 inked 112.1 points   2900 delay 3.75
+  both lost          v12 n=13: cells 164.8 earning  81.8 inked  96.8 points   2989 delay 3.79
+
+=== concentration of our cells over regions (per game) and own presence at placement ===
+  K1: HHI 0.0443, share in top-3 regions 20.4 %, regions used 29.7; own tracks already in region at placement: all cells 1.75, inked cells 1.68, inked-before-earning 2.65; boss tracks in region at placement: all 0.56, inked-before-earning 0.59
+      our cells in the inked region at the ink (never-earning inked cells): mean 6.63, median 7.0
+      completion route length: <=6 17 %, 7-11 51 %, >=12 32 %
+  v12: HHI 0.0433, share in top-3 regions 19.7 %, regions used 30.2; own tracks already in region at placement: all cells 1.64, inked cells 1.55, inked-before-earning 2.43; boss tracks in region at placement: all 0.63, inked-before-earning 0.61
+      our cells in the inked region at the ink (never-earning inked cells): mean 6.13, median 6
+      completion route length: <=6 17 %, 7-11 50 %, >=12 33 %
