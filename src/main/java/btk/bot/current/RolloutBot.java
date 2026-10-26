@@ -220,6 +220,9 @@ public final class RolloutBot implements Bot {
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
         // BOSS_SABOTAGE_BEGIN
         if (p.USE_BOSS_SABOTAGE) bossSabotage = new BossSabotage(s, p.BOSS_HOLD_MARGIN);
+        // BOSS_NOCLOSE_BEGIN
+        if (p.USE_BOSS_SABOTAGE && p.USE_BOSS_NO_CLOSE) bossSabotage.noClose(true);
+        // BOSS_NOCLOSE_END
         bossTarget = -1;
         // BOSS_SABOTAGE_END
         // BOSS_LITE_BEGIN

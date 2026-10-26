@@ -31,6 +31,12 @@ public final class BossSabotage {
     private final boolean[] adjTown, onActive, seen;
     private final int[] before = new int[2], after = new int[2];
     private int target = -1;
+    // BOSS_NOCLOSE_BEGIN
+    private boolean noClose;
+
+    /** boss-v4: skip one-hit closures (the live boss declines them 94-98 % of the time) instead of taking the winning ones. */
+    public BossSabotage noClose(boolean on) { noClose = on; return this; }
+    // BOSS_NOCLOSE_END
 
     public BossSabotage(GameState s, double holdMargin) {
         this.holdMargin = holdMargin;
@@ -119,6 +125,10 @@ public final class BossSabotage {
             if (oppCells[r] + ownCells[r] + neutralCells[r] > 0 || needed == 1) {
                 sim.copyFrom(s); Rules.ink(sim, r); Rules.updateConnections(sim, paths); Rules.incomePerTurn(sim, after);
                 dOpp = before[opp] - after[opp]; dOwn = before[me] - after[me];
+                // BOSS_NOCLOSE_BEGIN
+                if (noClose && needed == 1 && !Rules.anyPairPossible(sim, paths)) continue;
+                else
+                // BOSS_NOCLOSE_END
                 if (needed == 1 && !Rules.anyPairPossible(sim, paths)) {
                     if (s.score[me] + after[me] > s.score[opp] + after[opp]) return r;
                     continue;
