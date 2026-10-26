@@ -1,0 +1,116 @@
+games 50: wins 32, losses 18
+
+LOSSES (sorted by opponent score):
+game        opp                 oscore size   seat turns final maxLd minLd lastLd fIncMe fIncOp fDisOp inc1(me/op)  inc2       inc3       inkMe inkOp bInkMe bInkOp disMe disOp wMyDis wOpDis idleMe idleOp inkEnd cells
+911758192   irrraheri            26.6 29x19     1   100  -908     0 -1092      1      2      2      0 (1902, 2761) (1028, 879) (150, 348)    68   148      1      0    99    65   -626    382     45     29     64 184/201
+911756857   DmitryYudakov        26.5 26x17     0    59  -837   127  -841     22      5      5      4 (446, 427)   (1300, 1872) (313, 597)    47    59      0      0    58    55   -539    190     38     20     47 128/116
+911757577   LePiire              26.4 21x14     0    57   -94    75   -94     27      2      0      3 (515, 457)   (568, 666) (36, 90)      72    43      0      0    56    54    -65    148     69     18     60 155/65
+911758006   LePiire              26.4 24x16     1   100  -839   124  -839     20      2      1      4 (1209, 1544) (191, 491) (34, 238)     91    89      1      0    79    68   -175     90     52     26     73 135/121
+911758097   Titanmito            26.2 29x19     0   100 -2262     0 -2262      6      9      7      0 (2271, 3075) (3182, 4442) (99, 297)    132   155      0      0    99   100   -714    349     55     58     77 177/224
+911756967   TSM540               25.9 21x14     1    81  -697     0  -697      0      3      1      1 (897, 987)   (115, 436) (130, 416)   107    55      0      1    56    80   -181     98     62      8     71 150/77
+911757088   TSM540               25.9 27x18     1    57  -654     0  -678      1      3      2      1 (236, 595)   (311, 534) (209, 281)    54    69      0      0    56    56   -217    -19     48     21     48 141/135
+911755892   kurigen              25.8 30x20     1    78 -3411     0 -3739      2      7      3      4 (979, 2063)  (5366, 7951) (2255, 1997)    81   109      0      0    77    74  -1558    310     45     14     58 191/173
+911756032   FREELOADER           25.6 29x19     1    75 -1738    53 -1738     20      2      1      6 (1974, 2270) (4190, 5243) (637, 1026)    58    83      0      0    74    50   -586    467     45     12     48 186/129
+911756715   FREELOADER           25.6 29x19     0    97 -2415     0 -2435      0      1      1      6 (2675, 3371) (2764, 4338) (335, 480)    70   104      1      0    96    49   -615    343     53      5     57 206/136
+911756271   cde-laro             25.2 21x14     0   100  -413    65  -413     14      1      1      3 (907, 1046)  (117, 226) (33, 198)    104    69      0      1    73    72   -108     92     52     42     81 132/93
+911753683   poppu                25.1 26x17     1    61  -212     0  -825      1      2      2      4 (1358, 2077) (1491, 1207) (505, 282)    60    73      0      0    60    57   -292    305     38     15     49 153/108
+911754077   hannahlenk           24.8 27x18     0    89   -23   427   -85     36      3      9      0 (1658, 1382) (1374, 1703) (150, 120)   170    78      0      0    88    89   -272    175     61     14     78 220/107
+911754570   Carlos4825           24.6 27x18     0    53  -156   232  -553     21      5      5      4 (976, 747)   (2220, 3002) (1469, 1072)    55    73      0      0    52    49   -458    253     23     13     43 137/120
+911754856   Carlos4825           24.6 24x16     1    40 -1342    29 -1344     11      5      2      4 (256, 322)   (921, 1302) (459, 1354)    33    43      0      0    39    36   -344   -115     31     13     35 97/95
+911753840   Imperator555         24.2 24x16     0    58  -680   177  -680     26      3      3      1 (387, 210)   (323, 900) (196, 476)    24    68      1      1    57    34   -392     35     55     18     44 138/120
+911751282   Xkr_                 23.1 21x14     0    42   -47     0  -152      4      5      5      0 (250, 335)   (635, 591) (108, 114)    31    49      0      0    41    42   -152     48     45     29     45 86/73
+911751462   AlucardDH            22.4 29x19     1    88 -1292     0 -1292      0      2      1      0 (1318, 1915) (854, 1504) (205, 250)   111   126      0      1    87    88   -240    284     53     52     67 201/221
+
+AGGREGATES (mean) losses vs wins:
+  oscore         losses     25.3  wins     24.8
+  turns          losses     74.2  wins       66
+  maxLead        losses     72.7  wins   1122.8
+  firstIncMe     losses      3.4  wins      3.3
+  firstIncOpp    losses      2.8  wins      2.2
+  firstDisOpp    losses      2.5  wins      2.8
+  inkMe          losses       76  wins     64.1
+  inkOpp         losses     82.9  wins     69.8
+  builtInkedMe   losses      0.2  wins      0.1
+  builtInkedOpp  losses      0.2  wins      0.4
+  disMe          losses     69.3  wins     64.9
+  disOpp         losses     62.1  wins     57.6
+  wMyDis         losses   -418.6  wins   -210.3
+  wOppDis        losses    190.8  wins    331.0
+  idleMe         losses     48.3  wins     40.8
+  idleOpp        losses     22.6  wins     27.0
+  inkedEnd       losses     58.1  wins     52.2
+  cellsMe        losses    156.5  wins    151.2
+  cellsOpp       losses    128.6  wins    115.3
+  inc1 me/opp     losses 1123/1421.3   wins 1103/781.8
+  inc2 me/opp     losses 1497.2/2071.5   wins 1880.8/1343.2
+  inc3 me/opp     losses 406.8/535.3   wins 693.8/577.8
+
+losses: lead lost at (lastLead/turns): [0.0, 0.0, 0.0, 0.01, 0.02, 0.02, 0.03, 0.06, 0.1, 0.14, 0.2, 0.27, 0.28, 0.37, 0.4, 0.4, 0.45, 0.47]
+losses: never led (lastLead<=1): 6 ; led past half: 0
+losses by opp score bucket: Counter({'25-30': 12, '20-25': 6})
+wins by opp score bucket:   Counter({'20-25': 19, '25-30': 13})
+opponent disrupt rate (disOpp/turns): losses 0.85 wins 0.88
+final margin in losses: [-3411, -2415, -2262, -1738, -1342, -1292, -908, -839, -837, -697, -680, -654, -413, -212, -156, -94, -47, -23]
+
+=== losses2.py ===
+pooled idle share, win  games, me: 2049/4840 = 42.3 %
+pooled idle share, win  games, opp: 1023/3691 = 27.7 %
+pooled idle share, loss games, me: 1390/2817 = 49.3 %
+pooled idle share, loss games, opp: 591/2314 = 25.5 %
+
+opponents (W-L, arena score):
+  irrraheri            0-1  26.6
+  DmitryYudakov        0-1  26.5
+  LePiire              1-2  26.4
+  Titanmito            0-1  26.2
+  ChaosCat             1-0  25.9
+  TSM540               0-2  25.9
+  Ando_Riccardo        2-0  25.8
+  kurigen              1-1  25.8
+  akasapog             1-0  25.7
+  FREELOADER           2-2  25.6
+  Xa2017               3-0  25.6
+  gromano              1-0  25.3
+  cde-laro             1-1  25.2
+  poppu                0-1  25.1
+  fstiffo              1-0  25.0
+  Jazzcript            2-0  24.9
+  baskinbey            1-0  24.9
+  stem                 1-0  24.8
+  hannahlenk           3-1  24.8
+  Carlos4825           0-2  24.6
+  Imperator555         1-1  24.2
+  PSaver               1-0  24.1
+  Rokito               1-0  24.0
+  POTOP                2-0  24.0
+  Sardonix             1-0  23.8
+  leander314           1-0  23.8
+  Baal                 1-0  23.3
+  Xkr_                 0-1  23.1
+  CHOPK                1-0  23.0
+  hau                  1-0  22.9
+  AlucardDH            1-1  22.4
+
+loss games (n=18): cumulative income me/opp and cells me/opp at turns 5,10,15,20,24:
+  t= 5: income     20/    37   cells  16.7/ 17.2
+  t=10: income    163/   217   cells  30.2/ 31.2
+  t=15: income    428/   550   cells  43.2/ 44.1
+  t=20: income    693/   918   cells  55.4/ 56.8
+  t=24: income    979/  1297   cells  65.2/ 66.6
+
+win games (n=32): cumulative income me/opp and cells me/opp at turns 5,10,15,20,24:
+  t= 5: income     14/    41   cells  16.9/ 17.2
+  t=10: income    149/   151   cells  30.9/ 30.6
+  t=15: income    451/   368   cells  43.3/ 43.9
+  t=20: income    926/   725   cells  55.6/ 56.4
+  t=24: income   1418/  1053   cells  65.2/ 66.0
+loss: turn when cumulative income reaches   1: me   3.4  opp   2.8
+loss: turn when cumulative income reaches  20: me   6.7  opp   5.1
+loss: turn when cumulative income reaches  50: me   8.3  opp   7.2
+loss: turn when cumulative income reaches 100: me   9.9  opp   8.9
+win : turn when cumulative income reaches   1: me   3.3  opp   2.2
+win : turn when cumulative income reaches  20: me   6.4  opp   5.1
+win : turn when cumulative income reaches  50: me   8.1  opp   7.5
+win : turn when cumulative income reaches 100: me  10.3  opp   9.8
+loss: first 20 turns — value of my disrupts (score delta if omitted)   -113, of the opponent's     58; my tracks inked 10.6, theirs 15.0
+win : first 20 turns — value of my disrupts (score delta if omitted)    -62, of the opponent's     74; my tracks inked  8.8, theirs 14.8

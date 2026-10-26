@@ -1,0 +1,11 @@
+-- F0-vs-nv6: current?USE_ROLLOUT_FILL=0 vs neural-v6 (300 games, seed 1008000) 2026-10-26T07:09:56Z
+  A win rate: 47,0%  W-L-D 141-159-0
+  avg score diff (A-B): -35,7   avg turns: 57,8
+  time/move ms  A avg 8,03 max 61 slow 2 | B avg 1,71 max 36 slow 0
+  accepted disrupt A/B: 98,2% / 100,0%; early closures 299/300
+-- cur-vs-nv6: current vs neural-v6 (300 games, seed 1008000) 2026-10-26T07:11:31Z
+  A win rate: 56,7%  W-L-D 170-130-0
+  avg score diff (A-B): +152,4   avg turns: 60,9
+  time/move ms  A avg 8,41 max 36 slow 0 | B avg 1,76 max 39 slow 0
+  accepted disrupt A/B: 98,3% / 100,0%; early closures 298/300
+FILL NV6 SCREEN DONE 2026-10-26T07:13:14Z

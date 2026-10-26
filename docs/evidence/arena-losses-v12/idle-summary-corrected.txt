@@ -1,0 +1,40 @@
+games 50 cells 13662
+
+=== v12 (aabzac): 7657 cells, 9334 paint; never earned 3439 cells = 44.9 % (44.2 % of paint)
+  lost before earning: 1533 (44.6 % of idle; neutralised 445, inked 1088)
+  kept to the end, never on an active connection: 1906 (55.4 % of idle)
+  inked: instability at placement -> {0: 1042, 1: 24, 2: 11, 3: 11}
+  inked: turns placement->ink (capped 12) -> {0: 8, 1: 7, 2: 14, 3: 67, 4: 112, 5: 111, 6: 76, 7: 66, 8: 77, 9: 66, 10: 59, 11: 47, 12: 378}
+  inked: opponent already had tracks in the region at placement: 414/1088
+  inked: town regions (should be 0): 0
+  kept idle: turns to game end -> {'>=10': 1244, '3-9': 494, '<=2': 168}
+  kept idle: route class at placement -> {'steal': 56, 'none': 1466, 'extend': 273, 'bypass': 16, 'completion': 95}
+  kept idle with >=10 turns left: route class -> {'steal': 53, 'none': 868, 'extend': 229, 'bypass': 13, 'completion': 81} ; instab at placement -> {0: 1240, 1: 3, 2: 1}
+  all non-town placements by instability -> {0: 5440, 1: 110, 2: 53, 3: 21}
+  earned cells: median delay 2 turns, mean points 40.8
+  idle share by game phase -> {'early(<1/3)': '483/3031 = 16 %', 'mid': '1184/2552 = 46 %', 'late(>=2/3)': '1772/2074 = 85 %'}
+
+=== opponents: 6005 cells, 7271 paint; never earned 1614 cells = 26.9 % (26.6 % of paint)
+  lost before earning: 1249 (77.4 % of idle; neutralised 445, inked 804)
+  kept to the end, never on an active connection: 365 (22.6 % of idle)
+  inked: instability at placement -> {0: 691, 1: 48, 2: 37, 3: 28}
+  inked: turns placement->ink (capped 12) -> {0: 17, 1: 18, 2: 30, 3: 51, 4: 102, 5: 97, 6: 77, 7: 46, 8: 44, 9: 26, 10: 32, 11: 28, 12: 236}
+  inked: opponent already had tracks in the region at placement: 234/804
+  inked: town regions (should be 0): 0
+  kept idle: turns to game end -> {'>=10': 264, '3-9': 86, '<=2': 15}
+  kept idle: route class at placement -> {'none': 250, 'bypass': 16, 'extend': 24, 'completion': 61, 'steal': 14}
+  kept idle with >=10 turns left: route class -> {'none': 170, 'extend': 18, 'completion': 54, 'steal': 12, 'bypass': 10} ; instab at placement -> {0: 252, 1: 8, 3: 4}
+  all non-town placements by instability -> {0: 4626, 1: 189, 2: 102, 3: 78}
+  earned cells: median delay 1 turns, mean points 36.2
+  idle share by game phase -> {'early(<1/3)': '545/3103 = 18 %', 'mid': '630/2135 = 30 %', 'late(>=2/3)': '439/767 = 57 %'}
+
+=== v12 idle share by map (height) ===
+  21x14: idle 361/666 = 54 %
+  23x15: idle 229/410 = 56 %
+  24x16: idle 549/1274 = 43 %
+  26x17: idle 148/398 = 37 %
+  27x18: idle 691/1507 = 46 %
+  29x19: idle 1063/2401 = 44 %
+  30x20: idle 398/1001 = 40 %
+  win games: idle 2049/4840 = 42 %
+  loss games: idle 1390/2817 = 49 %

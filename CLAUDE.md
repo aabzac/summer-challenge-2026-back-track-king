@@ -47,7 +47,9 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 session 1 at the +5 pp threshold exactly): the flag is a `Params` default, `btk.bot.v12` the frozen copy, default artifact
 91,349 chars / config `d7803b42…` (`build/submit-v12`), **arena upload by the user pending** (the arena runs v11, agent
 6813813). Next candidate: whatever `docs/PLAN.md` lists next, screened with `current` (= v12) as the same-map control and the
-proxy spec above. Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
+proxy spec above — since `arena-losses-v12` (2026-10-26) that is **shared-corridor routes** (the field's top half beats v12 on
+multiplicity: 1.62 connections per earning cell-turn vs our 1.25), and a candidate aimed at the arena is screened vs neural-v6 as
+well (`tools/boss_proxy/run_fill_nv6_screen.sh` pattern); the fill is free paint and stays. Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
 88,997 chars / config `179dcc66…` (`build/submit-v11`), **arena upload by the user pending** (the arena still runs
