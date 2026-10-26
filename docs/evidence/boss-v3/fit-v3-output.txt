@@ -1,0 +1,54 @@
+parsed 1559588 boss candidate rows in 11 s, cached
+choice sets 73133 (usable 73133); commitment 26676: train 24917, holdout K1 901, v12 858; all disrupt turns in the holdout: K1 2505, v12 2375
+base (247 s): inner test top-1 0.527, train 0.525; holdout commitment top-1 K1 0.556 v12 0.509; all disrupt turns K1 0.718 v12 0.688
+      dOpp             +0.1300
+      dOwn             -0.1056
+      oppCells         +0.7629
+      oppActive        +0.0133
+      ownCells         -0.2699
+      oppPlacedPrev2   +0.2902
+      instab           +0.8925
+      oppRouteTraffic  +0.3083
+      routesAny        +0.0039
+      adjTownRegion    +0.3401
+      closes           -3.2549
+      neutralCells     +0.1633
+      logFree          +0.1279
+ink  (273 s): inner test top-1 0.537, train 0.524; holdout commitment top-1 K1 0.554 v12 0.507; all disrupt turns K1 0.719 v12 0.690
+      dOpp             +0.1298
+      dOwn             -0.1056
+      oppCells         +0.7589
+      oppActive        +0.0129
+      ownCells         -0.2682
+      oppPlacedPrev2   +0.2942
+      instab           +1.0130
+      oppRouteTraffic  +0.3041
+      routesAny        +0.0042
+      adjTownRegion    +0.3367
+      closes           -3.1768
+      neutralCells     +0.1621
+      logFree          +0.1251
+      instab2          -0.2214
+      instab3          -0.4271
+mix  (313 s): inner test top-1 0.521, train 0.517; holdout commitment top-1 K1 0.534 v12 0.498; all disrupt turns K1 0.679 v12 0.653
+      dOpp             +0.1272
+      dOwn             -0.1035
+      oppCells         +0.4304
+      oppActive        +0.4044
+      ownCells         -0.3080
+      oppPlacedPrev2   +0.2670
+      instab           +1.4020
+      oppRouteTraffic  +0.3100
+      routesAny        +0.0002
+      adjTownRegion    +0.3358
+      closes           -2.5024
+      neutralCells     +0.1624
+      logFree          +0.0993
+      instab2          -0.2359
+      instab3          -0.7289
+      oppCellsXinstab  -0.1334
+      nonEarning       +0.3935
+shipped W: train-set top-1 0.529; holdout commitment top-1 K1 0.562 v12 0.515; all disrupt turns K1 0.719 v12 0.686
+saved build/analysis/boss-v3/fit-v3.json (846 s)
+
+[exited with code 0]

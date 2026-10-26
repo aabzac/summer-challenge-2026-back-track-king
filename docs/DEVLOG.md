@@ -8981,3 +8981,27 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   amendment). Until then, construction candidates that concentrate tracks before they earn are not trusted on the
   proxy screen alone.
 - **State.** Branch `claude/project-thread-xptone-v5`; no bot change; `current` unchanged.
+
+## 2026-10-26 — `boss-v3`: the boss model cannot be refitted into the K1 blind spot; the hold margin is a uniform +4.5 pp that does not flip the sign — closed, proxy unchanged
+
+- **Why.** The user's "Давай" to the `boss-v3` proposal: refit the proxy's target chooser by agreement with the live
+  boss, re-screen K1 as the check. Write-up [boss-v3.md](boss-v3.md), evidence `evidence/boss-v3/`.
+- **Refit** (`tools/boss_proxy/fit_boss_target_v3.py`, the whole corpus: 1,180 games, 26,676 commitment turns, the 80
+  K1-session games held out by game): the shipped weights score 0.562 / 0.515 top-1 on the K1 / v12 holdout
+  commitment turns and 0.719 / 0.686 on every disrupt turn (argmax); the `base` refit 0.556 / 0.509, with
+  time-to-ink indicators 0.554 / 0.507, with the opponent's non-earning tracks and oppCells × instability 0.534 /
+  0.498 — **no gain; the shipped weights are the corpus optimum**. The refitted weights land within hundredths of
+  the shipped ones. A `USE_BOSS_V3` weight-set scaffold was built and reverted (it changes `BossSabotage.java`, a
+  frozen helper pinned by the V10–V12 promotion tests; nothing to ship).
+- **Hold margin** (`BossTargetStudy`, proxy at `BOSS_HOLD_MARGIN` 0 / 0.5 / 1 / 2 on the 80 games): agreement 58.8 /
+  62.6 % at 0 vs 54.1 / 58.1 % at the shipped 1.0 (K1 / v12 games) — uniform +4.5 pp, the K1 deficit untouched
+  (under-construction attacks 49.8 % vs 65.2 %, ≥ 10-track regions 26 %).
+- **Sign check** (`tools/boss_proxy/run_margin_screen.sh`, fresh pool 1010000, `current` as the same-map control vs the
+  margin-0 proxy): K1 74.7 % vs 72.3 %, **+2.3 ± 7.5 pp** (44/39 maps) — the sign does not flip (live: −15 pp).
+- **Decision.** Closed, proxy unchanged (a proxy revision needs its own fingerprint + live validation and would not
+  address the blind spot). Policy consequence, no amendment: construction changes that concentrate tracks before they
+  earn are not trusted on the proxy's sign; the live step decides. **Next candidate (user decision):** the other trait
+  of the arena's top half — two turns from placement to first income vs our four — as a proposal valuation that
+  prefers routes earning within a turn or two (extensions of active paths, one-turn completions), inside the proxy's
+  competent zone. Pool 1010000..1010149 consumed, next ≥ 1011000.
+- **State.** `current` unchanged; branch `claude/project-thread-xptone-v5`.

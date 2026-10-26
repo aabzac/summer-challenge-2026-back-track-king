@@ -1,0 +1,6 @@
+=== proxy agreement with the boss's region by hold margin (BOSS_HOLD_MARGIN), K1 games / v12 games ===
+margin   K1 same   K1 n   | v12 same  v12 n  | K1: by concentration <=5 / 6-9 / >=10 | under-construction attacks K1 / v12 | turns 11-45 K1 / v12
+0        58.8 %   2505  |   62.6 %   2374  |    66 /   49 /   26 %            |  49.8 % / 65.2 %                   |  65.8 % / 62.6 %
+0.5      56.4 %   2505  |   60.1 %   2374  |    63 /   47 /   26 %            |  48.2 % / 63.5 %                   |  63.7 % / 59.5 %
+1.0      54.1 %   2505  |   58.1 %   2374  |    61 /   45 /   29 %            |  46.8 % / 61.8 %                   |  61.3 % / 57.7 %
+2        49.7 %   2505  |   52.7 %   2374  |    54 /   43 /   30 %            |  44.4 % / 56.1 %                   |  56.4 % / 53.1 %
