@@ -9114,3 +9114,18 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   `tools/boss_proxy/pooled_delta.py` (per-pool and pooled paired deltas with the step-1a verdict). Applied
   retroactively: K1 pooled +2.4 ± 4.7 pp → stop; Q pooled +0.2 ± 4.4 pp → stop.
 - **First application:** the retro-replication of the last two promotions (B → v11, E1 → v12) on fresh pool 1015000.
+
+## 2026-10-26 (late) — retro-replication of the last two promotions under step 1a: both real
+
+- Fresh pool 1015000, 150 maps × 2 seats per cell, CG timing, the policy proxy; cells `current` (v12), v11 on current
+  (`current?USE_EXPOSURE_INCOME=0`), v10 on current (`current?USE_BOSS_ROOT_TARGET=0,USE_EXPOSURE_INCOME=0`):
+  82.7 / 74.3 / 67.7 % (`evidence/retro-replication-v1/`).
+- **Root target (B → v11):** v11 vs v10 **+6.7 ± 7.6 pp** (51/40/59 maps); pooled with its selection screen (+8.8 ± 7.1,
+  pool 1002000) **+7.8 ± 5.2 pp** → passes step 1a.
+- **Exposure income (E1 → v12):** v12 vs v11 **+8.3 ± 6.2 pp** (45/27/78); pooled with its selection screen (+3.7 ± 6.7,
+  pool 1003000) **+6.0 ± 4.6 pp** → passes step 1a.
+- v12 over v10 on the same maps: +15.0 ± 7.0 pp. The current version stands on two replicated gains; the two failures of
+  the day (K1, Q) were the only unreplicated passes. `tools/boss_proxy/pooled_delta.py` now takes a per-pool control name
+  (`dir:cell:control`). Pool 1015000..1015149 consumed, next ≥ 1016000.
+- **Next (default):** the never-screened `ROLLOUT_THREAT_WEIGHT` (0.5, the blend of plain and protected gain in the route
+  proposals, partly overlapping exposure income since v12) — arms 0.25 / 0.75, the first candidate under step 1a.

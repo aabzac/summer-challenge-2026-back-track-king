@@ -1,0 +1,4 @@
+  docs/evidence/stage4-threat-model-v1:B-vs-boss2           vs cur: maps 150  delta  +8.8 pp +- 7.1
+  build/analysis/retro-v1:v11-vs-boss2         vs v10: maps 150  delta  +6.7 pp +- 7.6
+  pooled over 2 pools: maps 300  delta  +7.8 pp +- 5.2
+  step 1a: replication positive, pooled +7.8 pp -> continue
