@@ -1,0 +1,40 @@
+end-forecast-v1 horizon screen (2026-10-26): tools/boss_proxy/run_horizon_screen.sh, fresh pool seed 1007000 (150 maps x 2 seats = 300 paired games per cell), 2 workers, CG timing 486/36 ms, user's machine.
+H12 = current?ROLLOUT_ROUTE_HORIZON=12, H10 = current?ROLLOUT_ROUTE_HORIZON=10, cur = current (v12), boss2 = the boss-like screening proxy (current?USE_BOSS_SABOTAGE=1 + the seven v10 flags off + USE_EXPOSURE_INCOME=0).
+
+-- H12-vs-boss2: current?ROLLOUT_ROUTE_HORIZON=12 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1007000) 2026-10-26T06:19:26Z
+  A win rate: 78,3%  W-L-D 235-65-0
+  avg score diff (A-B): +549,8   avg turns: 68,8
+  time/move ms  A avg 8,66 max 47 slow 0 | B avg 17,72 max 58 slow 1
+  accepted disrupt A/B: 98,3% / 99,7%; early closures 297/300
+-- H10-vs-boss2: current?ROLLOUT_ROUTE_HORIZON=10 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1007000) 2026-10-26T06:24:09Z
+  A win rate: 76,3%  W-L-D 229-71-0
+  avg score diff (A-B): +525,3   avg turns: 67,7
+  time/move ms  A avg 8,27 max 38 slow 0 | B avg 17,59 max 65 slow 1
+  accepted disrupt A/B: 98,4% / 99,8%; early closures 295/300
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1007000) 2026-10-26T06:28:42Z
+  A win rate: 79,0%  W-L-D 237-63-0
+  avg score diff (A-B): +544,3   avg turns: 67,6
+  time/move ms  A avg 8,24 max 36 slow 0 | B avg 17,56 max 49 slow 0
+  accepted disrupt A/B: 98,4% / 99,8%; early closures 291/300
+-- H12-vs-cur: current?ROLLOUT_ROUTE_HORIZON=12 vs current (300 games, seed 1007000) 2026-10-26T06:33:14Z
+  A win rate: 44,0%  W-L-D 132-168-0
+  avg score diff (A-B): -87,9   avg turns: 69,4
+  time/move ms  A avg 7,88 max 36 slow 0 | B avg 7,89 max 46 slow 0
+  accepted disrupt A/B: 98,5% / 98,4%; early closures 297/300
+-- H10-vs-cur: current?ROLLOUT_ROUTE_HORIZON=10 vs current (300 games, seed 1007000) 2026-10-26T06:36:10Z
+  A win rate: 52,7%  W-L-D 158-142-0
+  avg score diff (A-B): +41,2   avg turns: 70,1
+  time/move ms  A avg 7,72 max 40 slow 0 | B avg 7,76 max 36 slow 0
+  accepted disrupt A/B: 98,5% / 98,2%; early closures 297/300
+HORIZON SCREEN DONE 2026-10-26T06:39:05Z
+
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+H10-vs-boss2            76.3%  229-71  0   65.2-87.4      0   8.3  17.6    38     0  76.2%  76.7%
+H10-vs-cur              52.7%  158-142 0   41.6-63.8      0   7.7   7.8    40     0  51.9%  54.4%
+H12-vs-boss2            78.3%  235-65  0   67.2-89.4      0   8.7  17.7    47     0  78.1%  78.9%
+H12-vs-cur              44.0%  132-168 0   32.9-55.1      0   7.9   7.9    36     0  42.9%  46.7%
+cur-vs-boss2            79.0%  237-63  0   67.9-90.1      0   8.2  17.6    36     0  77.6%  82.2%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  H10-vs-boss2           vs cur-vs-boss2       maps 150  delta  -2.7 pp  +- 5.8 (95%)  maps better/worse/equal 27/36/87
+  H12-vs-boss2           vs cur-vs-boss2       maps 150  delta  -0.7 pp  +- 6.0 (95%)  maps better/worse/equal 28/32/90
