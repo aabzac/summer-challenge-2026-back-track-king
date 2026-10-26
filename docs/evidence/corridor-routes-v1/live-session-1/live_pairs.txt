@@ -1,0 +1,5 @@
+played: candidate 40 games 18.0 pts (45.0%), control 40 games 24.0 pts (60.0%); complete pairs 40
+paired over 40 maps: candidate-only wins 3, control-only wins 9, equal 28; mean diff -15.0 pp (pass needs >= +5.0 on 40 maps)
+  seat P0: candidate 9/20, control 14/20
+  seat P1: candidate 9/20, control 10/20
+  by map size (cand pts / ctrl pts / maps): {'21x14': (3.0, 3.0, 5), '23x15': (4.0, 7.0, 10), '24x16': (2.0, 2.0, 4), '26x17': (3.0, 2.0, 6), '27x18': (1.0, 3.0, 4), '29x19': (4.0, 6.0, 8), '30x20': (1.0, 1.0, 3)}

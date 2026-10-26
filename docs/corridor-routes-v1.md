@@ -92,3 +92,22 @@ is parked: a cell shared by one other pair at a third of its paint bends routes 
   ```
   bash tools/run_boss_paced.sh build/cg-boss/corridor-k1-v12-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
   ```
+
+## Live boss, v5 step (c) session 1 (2026-10-26 12:04–13:04 UTC, `evidence/corridor-routes-v1/live-session-1/`)
+
+Launched by Claude after the user's "Добавь правило" (allow rule `Bash(bash tools/run_boss_paced.sh *)` in
+`.claude/settings.local.json` — the first series not launched by hand). 80 API games, 0 technical failures, 0 authorized
+retries, **80/80 replays exact** (`cgValidate`, both capture directories). **K1 18/40 = 45.0 %, `current` (v12, the arena
+artifact) 24/40 = 60.0 %** against boss 6767608 on 40 matched maps; discordant pairs **3 : 9**, paired **−15.0 pp**,
+one-sided p = 0.98; seat P0 9/20 vs 14/20, seat P1 9/20 vs 10/20; by map size (K1 / v12 points over the maps): 21×14 3/3
+(5), 23×15 4/7 (10), 24×16 2/2 (4), 26×17 3/2 (6), 27×18 1/3 (4), 29×19 4/6 (8), 30×20 1/1 (3). Runner report: complete,
+80 attempted requests, protocol "original fixed".
+
+**Verdict: K1 fails step (c) — rejected; the flag stays in the code, default off (parked).** The corridor routes gain
++6.5 pp against the boss-v2 proxy and +7.7 pp against neural-v6 and lose 15 pp against the live boss on the same maps
+as the control — the clearest proxy-vs-live divergence of the line (D +22.5, B +2.5, E1 +5.0, K1 −15.0 pp live). Both
+local opponents are models of the boss built around our own bots' construction; routes bent toward shared corridors
+(longer, concentrated) are something the real boss punishes, and the obvious hypothesis is that the shared corridors
+concentrate our cells in the regions it inks. The next step, if the user wants it, is a diagnostic of these 80 games
+(`cgCellStudy` over both capture directories on the same maps: where K1's corridor cells end up — inked, idle, or earning
+less than v12's); and for construction changes the proxy's predictive value is in question.

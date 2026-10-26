@@ -51,8 +51,9 @@ proxy spec above — since `arena-losses-v12` (2026-10-26) that is **shared-corr
 multiplicity: 1.62 connections per earning cell-turn vs our 1.25), and a candidate aimed at the arena is screened vs neural-v6 as
 well (`tools/boss_proxy/run_fill_nv6_screen.sh` pattern); the fill is free paint and stays. **`corridor-routes-v1` (2026-10-26) passed
 (a)+(b) and the neural-v6 cross-check** (K1 = `current?USE_CORRIDOR_ROUTES=true`: +6.5 pp vs the proxy, 51.7 % h2h, +7.7 pp vs
-neural-v6; artifact `build/submit-corridor-k1`, config `299cafd9…`); its live session (`build/cg-boss/corridor-k1-v12-boss-40`, 80
-games vs v12) is the user's launch; a pass means v13 on the user's decision. Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
+neural-v6; artifact `build/submit-corridor-k1`, config `299cafd9…`) — **but it lost its live session 15 pp (18/40 vs v12's 24/40, 3 : 9 discordant) → rejected, flag parked off**; for a construction
+change the proxy and neural-v6 predicted the sign wrongly, so the next step is a diagnostic of those 80 live games (user decision).
+Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
 88,997 chars / config `179dcc66…` (`build/submit-v11`), **arena upload by the user pending** (the arena still runs
