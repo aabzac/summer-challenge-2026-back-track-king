@@ -9169,3 +9169,18 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Next (proposed):** a per-connection survival measure over the replays — for every active pair of each side, how
   long it pays and why it ends (opponent's ink on the path, takeover through the opponent's cells, own disrupt) — to
   decide the mechanism (redundancy for live connections, anti-takeover, route length).
+
+## 2026-10-27 — connection survival in the arena games: connections die by ink on shared paths for both sides; the opponent's construction out-produces our sabotage
+
+- New tool `btk.tools.ConnectionSurvivalStudy` (one row per earning episode of each side, with the cause of its end).
+  147 v12 arena games, 14,955 episodes: inked 98 % (opponent's ink 7,359, own ink 6,344, both 970), takeovers 213.
+- Episodes starting in turns 10–19: **our construction pays the same in wins and losses** (975 vs 1,040 paid cell-turns
+  per game); **the opponent's pays 1,268 in our losses vs 660 in our wins**, although our disrupts remove 508 vs 262 of
+  its income. Each side's inks remove ~0.5 units of its own income per unit of the victim's (shared paths);
+  net-negative inks 11–19 %, more frequent in our wins — self-harm is not the loss driver.
+- CodinGame metadata: track ownership share per active connection 37.1 vs 47.5 % in the losses, 47.9 vs 38.7 % in the
+  wins (first upload: 36.4 / 50.0, 45.6 / 38.3).
+- **Conclusion** ([arena-refresh-v12.md](arena-refresh-v12.md)): the losses are construction races against stronger
+  builders; no remaining flag-sized lever. Next (user decision): a construction policy that reproduces the stronger
+  players' turn-10–20 choices (route proposals learned from the arena opponents' and the leaders' placements), a larger
+  piece of work, or keep v12 and pause.

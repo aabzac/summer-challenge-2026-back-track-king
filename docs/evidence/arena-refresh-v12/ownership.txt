@@ -1,0 +1,6 @@
+=== v12 first upload (50): CodinGame replay metadata, ours / opponent ===
+  loss n= 18: track ownership share per active connection 36.4 % / 50.0 %; tracks placed   156/  129; enemy tracks inked out   74/  63; zones inked 17.9/14.9; extra tiles in connections   2817/  2817; river   14/  11, mountain 8.0/6.4
+  win  n= 32: track ownership share per active connection 45.6 % / 38.3 %; tracks placed   151/  115; enemy tracks inked out   62/  51; zones inked 17.3/13.2; extra tiles in connections   2541/  2490; river   13/  11, mountain 11.4/7.8
+=== v12 re-upload (147): CodinGame replay metadata, ours / opponent ===
+  loss n= 58: track ownership share per active connection 37.1 % / 47.5 %; tracks placed   162/  126; enemy tracks inked out   73/  69; zones inked 19.4/17.3; extra tiles in connections   2193/  2195; river   16/  12, mountain 10.8/7.3
+  win  n= 89: track ownership share per active connection 47.9 % / 38.7 %; tracks placed   136/  109; enemy tracks inked out   57/  48; zones inked 15.8/12.8; extra tiles in connections   1828/  1773; river   13/  10, mountain 9.7/8.0

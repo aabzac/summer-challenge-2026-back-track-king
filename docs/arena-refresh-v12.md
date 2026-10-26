@@ -97,3 +97,51 @@ opponent's inks on the path, re-routed through the opponent's cells (a takeover)
 table cannot tell these apart; a per-connection survival measure over the replays (`btk.core` replay: for every active
 pair, the turn it ends and the cause) can, and it decides the candidate — redundancy for our live connections
 (bypass routes), anti-takeover, or route length.
+
+## Why the connections stop paying — connection survival (`btk.tools.ConnectionSurvivalStudy`)
+
+New tool: replays every game through `btk.core` and writes one row per earning episode of each side (the turns a pair's
+active path held at least one of that side's tracks) with the cause of its end (`evidence/arena-refresh-v12/`:
+`connections.csv.gz`, `survival.txt`, `ink-events.txt`). 14,955 episodes over the 147 games; **nearly every episode ends
+by an ink on its path** (inkOpp 7,359, inkOwn 6,344, both 970) — takeovers 213, re-routes 3, still paying at the end 66.
+
+| episodes starting in turns 10–19, per game | losses: v12 / opponent | wins: v12 / opponent |
+|---|---|---|
+| episodes / mean length | 17.5 · 7.2 turns / 17.3 · 7.3 | 14.5 · 6.5 / 13.3 · 6.1 |
+| own tracks on the path at the start | 9.7 / 10.8 | 10.8 / 8.5 |
+| **paid cell-turns** | **1,040 / 1,268** | 975 / 660 |
+| ended by the opponent's ink / by its own ink | 37 % / 57 % vs 64 % / 29 % | 52 % / 40 % vs 49 % / 41 % |
+
+| ink events that cut paths, per game | income removed from the disrupter / from the victim | net-negative events |
+|---|---|---|
+| our disrupts, losses | 263 / 508 (ratio 0.52) | 11 % |
+| our disrupts, wins | 164 / 262 (0.63) | 19 % |
+| their disrupts, losses | 159 / 294 (0.54) | 13 % |
+| their disrupts, wins | 165 / 408 (0.40) | 4 % |
+
+CodinGame's own replay metadata (`ownership.txt`), track ownership share per active connection:
+
+| | losses: v12 / opponent | wins: v12 / opponent |
+|---|---|---|
+| re-upload (147) | **37.1 % / 47.5 %** | 47.9 % / 38.7 % |
+| first upload (50) | 36.4 % / 50.0 % | 45.6 % / 38.3 % |
+
+1. **Connections die by ink, on shared paths, for both sides alike.** A disrupt on a shared path ends the episode for
+   both players; each side's inks remove about half as much of its own income as of the victim's (0.52–0.54 in our
+   losses). Net-negative inks are rare (11–19 %) and *more* frequent in our wins — self-harm is a symmetric cost of
+   sabotage on shared paths, not what loses the games.
+2. **Our construction pays the same in wins and losses** (975 vs 1,040 paid cell-turns from the episodes of turns
+   10–19); **the opponent's pays twice as much in our losses** (1,268 vs 660) — more episodes, more of its own tracks on
+   each path — although our disrupts remove twice as much of its income there (508 vs 262 per game). The losses are to
+   opponents whose construction out-produces our sabotage; the ownership share on the active paths (37 vs 48 % in the
+   losses, 48 vs 39 % in the wins) is the scoreboard of that race.
+
+## Conclusion of the arena refresh
+
+v12 is a stable ~60 % entry, ~54 % against the 27–29 field it now meets. Its losses are construction races against
+stronger builders, decided in turns 10–20: the same number of completions on both sides, but the opponent's tracks earn
+sooner (53 vs 39 % within one turn) and hold a larger share of the active paths. Sabotage — ours and theirs — is not the
+difference, and our self-inflicted cuts are the normal price of hitting shared paths. The two construction mechanisms
+that targeted this (corridor routes, quick completions) did not replicate. What is left is a construction policy that
+reproduces the stronger players' choices in turns 10–20 — a larger piece of work than a flag (e.g. route proposals
+learned from the opponents' placements in these 147 games and the leader corpus, screened under step 1a).
