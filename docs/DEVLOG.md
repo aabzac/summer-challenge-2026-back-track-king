@@ -9073,3 +9073,30 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   (route-cost and own-route features, region size, previous hit — 25 columns against the 13 shipped), a holdout of the
   80 K1-session games; if a feature set closes the blind spot it is the route to a proxy that can screen construction.
 - **State.** `current` unchanged; pools 1012000..1013149 consumed, next ≥ 1014000; branch `claude/project-thread-xptone-v6`.
+
+## 2026-10-26 — `boss-v4`: the proxy has no construction blind spot — K1's and Q's proxy passes do not replicate on a fresh pool; the replay gap was the closure shortcut
+
+- **Why.** The default next step after `opp-hold-v1`: what predicts the boss's attacks on our under-construction
+  concentrations (`proxy-agreement-v1`'s blind spot). Write-up [boss-v4.md](boss-v4.md), evidence `evidence/boss-v4/`
+  and `evidence/boss-v4/noclose-screen/`.
+- **Weights** (`tools/boss_proxy/fit_boss_target_v4.py`, 25 features, K1-session holdout): the shipped weights predict
+  those attacks at 82 % in both arms; new features add nothing.
+- **Probe** (`btk.tools.BossChooserProbe`, a tools-side copy of BossSabotage with a feature dump): features match the
+  study; without its closure rule the proxy's argmax reaches 81 %. The rule (take a winning one-hit closure at once)
+  fires on 38 % of the K1 games' under-construction-attack turns (17 % in v12 games); the live boss declines those
+  closures 94–98 % of the time and won all 35 such games. Without those turns the proxy agrees 64.0 / 62.0 % (K1 / v12),
+  75.8 / 74.7 % on the construction attacks — **`proxy-agreement-v1`'s blind spot was an artifact** (correction note
+  added there).
+- **No-close proxy** (`USE_BOSS_NO_CLOSE`, `// BOSS_NOCLOSE` block in BossSabotage, default off, default and proxy
+  artifacts byte-identical; the V10–V12 helper pin now hashes current BossSabotage with default-off blocks stripped).
+  Predeclared validation (`tools/boss_proxy/run_noclose_screen.sh`, fresh pool 1014000): K1 +2.7 ± 5.7, Q +3.0 ± 6.0
+  (both needed ≤ 0 — fail), v11 configuration −3.7 ± 7.1 (passes) → **not validated**; `current` scores the same
+  against both proxies (80.7 / 80.3 %).
+- **Replication** (same pool, policy proxy): **K1 −1.7 ± 6.1 pp** (was +6.5 on pool 1009000), **Q −6.0 ± 6.7 pp** (was
+  +6.3 on pool 1011000). On fresh maps the proxy agrees with both live signs (−15, −5). The two construction "wrong
+  signs" were selection noise: best of two arms at ±7 pp through a +3 pp gate. Withdrawn: "the construction line is
+  closed at the proxy's level", "the proxy cannot screen construction", `proxy-agreement-v1`'s blind-spot reading.
+- **Proposal (user decision):** amend policy v5 — an arm passing step (a) is replicated on a fresh pool before (b) and
+  the live step, continuing only at a positive replication delta and a pooled delta ≥ +3 pp (≈ 10 min per arm; it
+  would have saved today's 160 API games). Pool 1014000..1014149 consumed, next ≥ 1015000.
+- **State.** `current` unchanged; branch `claude/project-thread-xptone-v6`.

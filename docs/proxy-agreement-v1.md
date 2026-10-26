@@ -1,5 +1,11 @@
 # proxy-agreement-v1 — where the boss's disrupt goes, and where the local boss models send it (2026-10-26)
 
+> **Correction (2026-10-26, `docs/boss-v4.md`).** The K1-specific deficit below is an artifact: on the turns where a
+> winning one-hit closure was available (2.5× more of them in the K1 games, the boss's won tails) the boss declines it
+> 94–98 % of the time and the proxy would take it; without those turns the proxy agrees 64.0 % (K1) vs 62.0 % (v12),
+> 75.8 vs 74.7 % on the under-construction attacks. The reading "the income-scoring proxy does not punish construction
+> concentration" is withdrawn; the numbers stand.
+
 Follow-up to `corridor-routes-v1` (user request after the live loss): K1 gained +6.5 pp against the boss-v2 proxy and
 +7.7 pp against neural-v6 and lost 15 pp against the live boss. The question: what does the live boss target that the
 local models do not? Tool: `btk.tools.BossTargetStudy` (`gradlew bossTargetStudy`), one row per boss turn with a

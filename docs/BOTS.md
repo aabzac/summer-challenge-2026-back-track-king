@@ -18,6 +18,14 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`boss-v4` — 2026-10-26, proxy diagnosis + no-close validation + replication, no bot change:** the boss's attacks on our
+under-construction regions are predicted at 82 % by the shipped weights; the replay agreement gap was the proxy's winning-closure
+shortcut (the live boss declines such closures 94–98 %); `USE_BOSS_NO_CLOSE` (proxy skips closures, default off) fails its predeclared
+validation (K1 +2.7, Q +3.0, v11 config −3.7 pp, pool 1014000). **Replication against the policy proxy on the same fresh pool: K1 −1.7 ±
+6.1 pp (was +6.5), Q −6.0 ± 6.7 pp (was +6.3)** — both construction passes were selection noise; on fresh maps the proxy agrees with
+the live signs. Proposed policy amendment: replicate step (a) on a fresh pool before the live step. [Study](boss-v4.md),
+[evidence](evidence/boss-v4/).
+
 **`opp-hold-v1` — 2026-10-26, hold-margin scan of the bot's boss model, closed (1.0 stays):** new field `BOSS_OPP_HOLD_MARGIN`
 (the lite chooser's margin when it plays the simulated opponent; `// OPP_HOLD` block, default inherit). Pool 1012000 vs boss-v2 with
 `current` as the same-map control: opponent model margin 0 **−8.2 ± 6.3 pp** (45.7 % h2h), margin 0 everywhere (`BOSS_HOLD_MARGIN=0`)
