@@ -123,6 +123,11 @@ public class Params {
     public boolean USE_COLLISION_AVOIDANCE = false;
     public double COLLISION_PENALTY = 5.0;
     // COLLISION_END
+    // CORRIDOR_BEGIN
+    /** corridor-routes-v1 (2026-10-26): a fourth route proposal per pair whose path cost divides a free cell's paint by (1 + CORRIDOR_WEIGHT x the number of other pairs whose cheapest path uses the cell), so routes bend toward corridors several connections would share. Current-only rollout experiment, default off. */
+    public boolean USE_CORRIDOR_ROUTES = false;
+    public double CORRIDOR_WEIGHT = 1.0;
+    // CORRIDOR_END
     // BOSS_ROOT_BEGIN
     /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
     public boolean USE_BOSS_ROOT_TARGET = true;

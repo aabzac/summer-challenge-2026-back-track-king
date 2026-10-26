@@ -258,6 +258,7 @@ public class FileMerger {
         boolean bossRoot = BotFactory.parameters(spec).USE_BOSS_ROOT_TARGET;
         boolean exposureIncome = BotFactory.parameters(spec).USE_EXPOSURE_INCOME;
         boolean collisionAvoidance = BotFactory.parameters(spec).USE_COLLISION_AVOIDANCE;
+        boolean corridorRoutes = BotFactory.parameters(spec).USE_CORRIDOR_ROUTES;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -280,6 +281,7 @@ public class FileMerger {
             boolean rootBlock = false;
             boolean exposureBlock = false;
             boolean collisionBlock = false;
+            boolean corridorBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -481,6 +483,17 @@ public class FileMerger {
                     continue;
                 }
                 if (collisionBlock && !collisionAvoidance) continue;
+                if (line.trim().equals("// CORRIDOR_BEGIN")) {
+                    if (corridorBlock) throw new IllegalArgumentException("Nested corridor block: " + file);
+                    corridorBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// CORRIDOR_END")) {
+                    if (!corridorBlock) throw new IllegalArgumentException("Unbalanced corridor block: " + file);
+                    corridorBlock = false;
+                    continue;
+                }
+                if (corridorBlock && !corridorRoutes) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
