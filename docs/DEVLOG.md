@@ -9129,3 +9129,13 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   (`dir:cell:control`). Pool 1015000..1015149 consumed, next ≥ 1016000.
 - **Next (default):** the never-screened `ROLLOUT_THREAT_WEIGHT` (0.5, the blend of plain and protected gain in the route
   proposals, partly overlapping exposure income since v12) — arms 0.25 / 0.75, the first candidate under step 1a.
+
+## 2026-10-27 — `threat-weight-v1`: the threat blend 0.5 stays (0.25 −4.3 pp, 0.75 −1.0 pp vs the proxy)
+
+- `ROLLOUT_THREAT_WEIGHT` (never screened; the blend of plain and protected gain in the route proposals) at 0.25 / 0.75,
+  fresh pool 1016000, `current` as the same-map control ([threat-weight-v1.md](threat-weight-v1.md),
+  `evidence/threat-weight-v1/`): vs boss-v2 `current` 79.0 %, T25 −4.3 ± 6.6 pp, T75 −1.0 ± 6.6 pp; head-to-head 49.3 /
+  54.0 %. Both fail step (a); no step 1a needed. Pool 1016000..1016149 consumed, next ≥ 1017000.
+- **State of the levers.** With this the cheap screened levers are spent on both sides: construction (corridor routes,
+  earning delay — both non-replicating), sabotage / valuation (hold margin, threat weight, threat model A, unstable cost,
+  width / depth / replies, collision aversion). The next candidate needs new information — the user's choice of direction.
