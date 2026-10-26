@@ -53,6 +53,42 @@ seats = 300 paired games per cell, CG 486/36 ms, two workers, the user's machine
 
 Then, for an arm that passes, v5 step (c): 80 paired live boss games (≥ control + 5 pp).
 
-## Results
+## Results (2026-10-26, `docs/evidence/corridor-routes-v1/`)
 
-(filled in when the screen completes — `docs/evidence/corridor-routes-v1/`)
+| cell (300 paired games) | rate | W-L-D | paired delta vs `current` (150 maps) | maps better / worse / equal |
+|---|---|---|---|---|
+| `cur-vs-boss2` | 71.5 % | 214-85-1 | — | — |
+| **`K1-vs-boss2`** (weight 1) | **78.0 %** | 234-66-0 | **+6.5 ± 7.2 pp** | 50 / 32 / 68 |
+| `K2-vs-boss2` (weight 2) | 72.7 % | 218-82-0 | +1.2 ± 6.8 pp | 45 / 44 / 61 |
+| **`K1-vs-cur`** | **51.7 %** | 155-145-0 | — (small maps 50.0 %, h ≥ 19: 55.0 %) | — |
+| `K2-vs-cur` | 50.3 % | 151-149-0 | — (52.0 % / 47.0 %) | — |
+| `cur-vs-nv6` | 57.0 % | 171-129-0 | — | — |
+| **`K1-vs-nv6`** | **64.7 %** | 194-106-0 | **+7.7 ± 7.4 pp** | 50 / 33 / 67 |
+| `K2-vs-nv6` | 62.3 % | 187-113-0 | +5.3 ± 8.0 pp | 49 / 37 / 64 |
+
+Time per move: K1 8.6 ms, K2 8.3 ms, `current` 9.7 ms (the corridor pass runs under the existing route reserve; no
+cost). 0 errors in 2,400 games.
+
+**K1 (weight 1) passes v5 step (a) (+6.5 pp, above +3) and step (b) (51.7 %, above 48 %), and it gains the same
+against neural-v6 (+7.7 pp)** — the first candidate since the proxy line started whose gain shows against the
+arena-like builder as well, which is what the arena-loss diagnostic asked for. K2 (weight 2) fails (a) (+1.2 pp) and
+is parked: a cell shared by one other pair at a third of its paint bends routes too far.
+
+## K1's artifact, strict process check and the live plan (2026-10-26)
+
+- `gradlew submit "-PsubmitVersion=current?USE_CORRIDOR_ROUTES=true" -PsubmitOut=build/submit-corridor-k1` →
+  **93,468 / 100,000 chars** (readable), sha `deeefb19…`, build `ae716f57…`, **config `299cafd9…`**, label
+  `v12 (modified)` (`evidence/corridor-routes-v1/K1-artifact-manifest.json`).
+- Strict `procCheck` (zero grace, 4 games vs v09): **0 problem games, 0 timeouts**, first response ≤ 725 ms, later
+  responses ≤ 38.1 ms (2/4 wins — four games say nothing about strength;
+  `evidence/corridor-routes-v1/K1-artifact-process-check.json`).
+- Live plan for v5 step (c), frozen with no network calls: `build/cg-boss/corridor-k1-v12-boss-40/plan.json`
+  (copy in `evidence/corridor-routes-v1/live-plan.json`), id `67ba025f…`, matched design, 40 maps × 2 builds = 80 API
+  games, boss 6767608, schedule seed 2026102601, candidate = `build/submit-corridor-k1`, control = `build/submit-v12`
+  (the selected v12 artifact, build `ce1d3a3b…`, the arena entry), bound to the puzzle-IDE session like every series.
+  Pass rule as before: K1 ≥ v12 + 5 pp over the 40 paired maps; the 80-game policy sample completes with a second
+  session. No API games were played today before this plan. Launch, by the user on this machine:
+
+  ```
+  bash tools/run_boss_paced.sh build/cg-boss/corridor-k1-v12-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
+  ```

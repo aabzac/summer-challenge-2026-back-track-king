@@ -1,0 +1,15 @@
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+K1-vs-boss2             78.0%  234-66  0   66.9-89.1      0   8.6  17.0    37     0  78.0%  78.0%
+K1-vs-cur               51.7%  155-145 0   40.6-62.8      0   8.4   8.1    46     0  50.0%  55.0%
+K1-vs-nv6               64.7%  194-106 0   53.6-75.8      0   9.1   2.1    77     2  65.5%  63.0%
+K2-vs-boss2             72.7%  218-82  0   61.6-83.8      0   8.3  17.0    37     0  72.0%  74.0%
+K2-vs-cur               50.3%  151-149 0   39.2-61.4      0   8.2   8.0    39     0  52.0%  47.0%
+K2-vs-nv6               62.3%  187-113 0   51.2-73.4      0   9.3   2.1    41     0  67.5%  52.0%
+cur-vs-boss2            71.5%  214-85  1   60.4-82.6      0   9.7  18.4    60     1  68.8%  77.0%
+cur-vs-nv6              57.0%  171-129 0   45.9-68.1      0   9.1   2.1    50     0  57.5%  56.0%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  K1-vs-boss2            vs cur-vs-boss2       maps 150  delta  +6.5 pp  +- 7.2 (95%)  maps better/worse/equal 50/32/68
+  K1-vs-nv6              vs cur-vs-nv6         maps 150  delta  +7.7 pp  +- 7.4 (95%)  maps better/worse/equal 50/33/67
+  K2-vs-boss2            vs cur-vs-boss2       maps 150  delta  +1.2 pp  +- 6.8 (95%)  maps better/worse/equal 45/44/61
+  K2-vs-nv6              vs cur-vs-nv6         maps 150  delta  +5.3 pp  +- 8.0 (95%)  maps better/worse/equal 49/37/64

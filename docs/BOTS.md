@@ -18,6 +18,14 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`corridor-routes-v1` = `current?USE_CORRIDOR_ROUTES=true` (K1) — 2026-10-26, passed v5 (a)+(b), live step pending:** a fourth
+route proposal per pair bent toward cells that other pairs' cheapest paths use (a free cell's paint ÷ (1 + `CORRIDOR_WEIGHT` × other
+pairs), valued like every proposal; `// CORRIDOR` block, default off). Fresh pool 1009000 vs boss-v2 with `current` (v12) as the
+same-map control: **78.0 % vs 71.5 % (+6.5 ± 7.2 pp)**, head-to-head **51.7 %**; vs neural-v6 **64.7 % vs 57.0 % (+7.7 ± 7.4 pp)**.
+Weight 2: +1.2 pp vs the proxy (fails a), 50.3 % h2h, +5.3 pp vs neural-v6 — parked. Artifact 93,468 chars (config `299cafd9…`),
+strict procCheck 0 problems; live plan `build/cg-boss/corridor-k1-v12-boss-40` (80 games vs v12, pass ≥ +5 pp) awaits the user's
+launch. [Protocol and results](corridor-routes-v1.md), [evidence](evidence/corridor-routes-v1/).
+
 **`arena-losses-v12` — 2026-10-26, diagnostic + cross-check, closed:** v12's 18 arena losses (agent 6813957) are
 construction-efficiency losses to the field's top half (6-10 vs opponents scored ≥ 25.6, 26-8 below): equal cell counts, the
 opponent's earning cells serve 1.62 active connections per turn against our 1.25 and earn 2 turns earlier; sabotage and survival

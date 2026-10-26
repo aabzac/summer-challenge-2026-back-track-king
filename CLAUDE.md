@@ -49,7 +49,10 @@ session 1 at the +5 pp threshold exactly): the flag is a `Params` default, `btk.
 6813813). Next candidate: whatever `docs/PLAN.md` lists next, screened with `current` (= v12) as the same-map control and the
 proxy spec above — since `arena-losses-v12` (2026-10-26) that is **shared-corridor routes** (the field's top half beats v12 on
 multiplicity: 1.62 connections per earning cell-turn vs our 1.25), and a candidate aimed at the arena is screened vs neural-v6 as
-well (`tools/boss_proxy/run_fill_nv6_screen.sh` pattern); the fill is free paint and stays. Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
+well (`tools/boss_proxy/run_fill_nv6_screen.sh` pattern); the fill is free paint and stays. **`corridor-routes-v1` (2026-10-26) passed
+(a)+(b) and the neural-v6 cross-check** (K1 = `current?USE_CORRIDOR_ROUTES=true`: +6.5 pp vs the proxy, 51.7 % h2h, +7.7 pp vs
+neural-v6; artifact `build/submit-corridor-k1`, config `299cafd9…`); its live session (`build/cg-boss/corridor-k1-v12-boss-40`, 80
+games vs v12) is the user's launch; a pass means v13 on the user's decision. Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
 88,997 chars / config `179dcc66…` (`build/submit-v11`), **arena upload by the user pending** (the arena still runs
@@ -73,7 +76,7 @@ arena fetch/analyse). Details per step: `docs/boss-sabotage-v2.md`,
 
 ## Known test state
 
-`gradlew test` (822 tests on 2026-10-25): 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
+`gradlew test` (844 tests on 2026-10-26): 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
 on `btk/core/Pathing.class` (`experiment-engine-v1.json`, see `docs/bot_catalog.md`; remedy is a
 new snapshot with new experiment ids, a user decision) and 6 `PduhardBeamBotTest` (bot never
 registered). Anything else red is new.
