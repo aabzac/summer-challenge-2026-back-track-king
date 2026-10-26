@@ -18,13 +18,15 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-**`earning-delay-v1`: Q = `current?USE_QUICK_ALWAYS=true` — 2026-10-26, passed v5 (a)+(b), live step pending:** the cheapest positive
+**`earning-delay-v1`: Q = `current?USE_QUICK_ALWAYS=true` — 2026-10-26, passed v5 (a)+(b), failed (c) against the live boss — parked:** the cheapest positive
 completion (≤ 6 paint) is kept among the root routes every turn, not only before the first income (`// DELAY` block, default off).
 Fresh pool 1011000 vs boss-v2 with `current` (v12) as the same-map control: **82.7 % vs 76.3 % (+6.3 ± 5.6 pp, maps 43/23/84)**,
 head-to-head **52.7 %**; vs neural-v6 58.7 % vs 58.7 % (+0.0 ± 7.1 pp). D2 = `current?DELAY_POWER=2` (the proposal value's
 turns-to-complete divisor squared): +0.3 pp vs the proxy, 49.7 % h2h, +5.0 pp vs neural-v6 — fails (a), parked. Q artifact 91,619
-chars (config `41996066…`), strict procCheck 0 problems; live plan `build/cg-boss/delay-q-v12-boss-40` (80 games vs v12) awaits
-the launch. [Protocol and results](earning-delay-v1.md), [evidence](evidence/earning-delay-v1/).
+chars (config `41996066…`), strict procCheck 0 problems; live session 1 (80 games vs v12 on 40 matched maps, launched by Claude on the user's word): **Q 18/40 =
+45.0 % vs v12 20/40 = 50.0 %, paired −5.0 pp (9 : 11 discordant, p = 0.75), 40/40 + 80/80 replays exact → parked, flag off**; the
+loss sits on the tall maps (30×20 2 vs 6 of 9). Both construction traits of the arena's top half passed the proxy and failed the boss
+(K1 −15, Q −5): the construction line is closed at the proxy's level. [Protocol and results](earning-delay-v1.md), [evidence](evidence/earning-delay-v1/).
 
 **`boss-v3` — 2026-10-26, boss-model refit + hold-margin study + sign check, closed, proxy unchanged:** the target logit refitted on the
 whole corpus (1,180 games) with the 80 K1-session games held out scores no better than the shipped weights (holdout commitment top-1
