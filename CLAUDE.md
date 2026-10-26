@@ -59,8 +59,9 @@ of our tracks in a region; neural-v6 41–44 %). `boss-v3` (2026-10-26, `docs/bo
 changes that concentrate tracks before they earn are not trusted on the proxy's sign. `earning-delay-v1` (2026-10-26, `docs/earning-delay-v1.md`): **Q = `current?USE_QUICK_ALWAYS=true` passed (a)+(b)**
 (+6.3 ± 5.6 pp vs the proxy, 52.7 % h2h, neutral vs neural-v6; artifact `build/submit-delay-q`, config `41996066…`); **but its live
 session lost 5 pp (18/40 vs v12's 20/40, 9 : 11 discordant) → parked, flag off**. Both construction traits of the arena's top half passed the proxy
-and failed the live boss (K1 −15, Q −5): the construction line is closed at the proxy's level; the next lever is on the sabotage / valuation
-side of `docs/PLAN.md` (user decision), or Q's predeclared 120-game extension.
+and failed the live boss (K1 −15, Q −5): the construction line is closed at the proxy's level. `opp-hold-v1` (2026-10-26) then closed the
+sabotage / valuation side's last cheap lever (the boss model's hold margin: 0 → −8 pp, 2 → flat; 1.0 stays); next by default is `boss-v4`, a
+study of what predicts the boss's attacks on our under-construction concentrations (the proxy's blind spot), no API cost.
 Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
