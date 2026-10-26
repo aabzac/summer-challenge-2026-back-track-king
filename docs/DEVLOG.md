@@ -9139,3 +9139,21 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **State of the levers.** With this the cheap screened levers are spent on both sides: construction (corridor routes,
   earning delay — both non-replicating), sabotage / valuation (hold margin, threat weight, threat model A, unstable cost,
   width / depth / replies, collision aversion). The next candidate needs new information — the user's choice of direction.
+
+## 2026-10-27 — arena refresh of v12: re-uploaded as agent 6814073, 89W/58L against a harder field; the losses open in turns 10–20 on construction
+
+- **Why.** The user's "Давай арену" (refresh the arena analysis) after `threat-weight-v1`. Write-up
+  [arena-refresh-v12.md](arena-refresh-v12.md), evidence `evidence/arena-2026-10-27-v12-agent-6814073.json` (trace
+  stripped) and `evidence/arena-refresh-v12/`.
+- **Entry.** `cgFetch -Pplayer=aabzac -Plimit=200` → 150 new replays of **puzzle agent 6814073**, marker `v12 | … build=ce1d3a3b…
+  config=d7803b42…` = the selected v12 artifact, re-uploaded by the user (the first v12 upload was 6813957). Rank 316,
+  score 29.40. `cgAnalyze`: 147 validated games, 0 failed turns.
+- **Record.** **89-58 (60.5 %)**; median opponent score 27.2 (first upload: 25.1); vs ≥ 28: 26-23, vs 26–28: 34-29, vs
+  24–26: 16-6, vs < 24: 13-0; tall 22-18, 30×20 14-9; Ando_Riccardo (score 29.2) 14-16 over 30 games.
+- **Losses.** Points per paint 12.6 vs 21.4 with more paint and cells; income level at turn 10 (28 vs 25), then turns
+  10–20: our income +44 vs the opponent's +71 with equal cells placed (24.8 vs 25.6) and equal tracks inked (8.7 vs
+  8.6); our disrupts are worth more in the losses than in the wins. The construction-productivity diagnosis of
+  `arena-losses-v12`, on three times the sample, located in the middle game.
+- **Next (user decision):** a cell-level study of what the field builds in turns 10–20 (pairs completed, connections
+  activated per completion, extension vs new network) on these 147 games and the 30 Ando games, as the source of the next
+  construction mechanism under step 1a.

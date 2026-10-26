@@ -1,0 +1,31 @@
+
+===== v12 first upload (6813957): 50 games, record 32-18 (64.0 %) =====
+  opponent arena score at game time: median 25.09, range 22.44..26.62
+  26-28           : 1-5 (16.7 %)  n=6
+  24-26           : 23-11 (67.6 %)  n=34
+  < 24            : 8-2 (80.0 %)  n=10
+  tall h>=19      : 14-6 (70.0 %)
+  30x20           : 6-1 (85.7 %)
+  small h<19      : 18-12 (60.0 %)
+  seat P0          : 17-9 (65.4 %)
+  seat P1          : 15-9 (62.5 %)
+  repeat opponents (>= 4 games): hannahlenk 3-1 (score 24.8); FREELOADER 2-2 (score 25.6)
+  loss n= 18: turns  74.2; final   3027/  4028; paint   186/  152; cells   156/  129; pts/paint  15.5/ 25.7; first income 3.4/2.8; income@10  31.8/ 42.4 @20  55.4/ 75.3 @30  82.3/103.6; tracks inked   76/  83; my disrupts worth  -419, theirs   191
+  win  n= 32: turns  66.0; final   3678/  2703; paint   187/  142; cells   151/  115; pts/paint  20.3/ 19.7; first income 3.3/2.2; income@10  31.1/ 23.7 @20 100.4/ 89.1 @30 115.8/ 76.3; tracks inked   64/  70; my disrupts worth  -210, theirs   331
+  losses: led past the midpoint 0/18, never led 6/18; margin median 767
+
+===== v12 re-upload (6814073): 147 games, record 89-58 (60.5 %) =====
+  opponent arena score at game time: median 27.16, range 5.68..30.86
+  opp score >= 28 : 26-23 (53.1 %)  n=49
+  26-28           : 34-29 (54.0 %)  n=63
+  24-26           : 16-6 (72.7 %)  n=22
+  < 24            : 13-0 (100.0 %)  n=13
+  tall h>=19      : 22-18 (55.0 %)
+  30x20           : 14-9 (60.9 %)
+  small h<19      : 67-40 (62.6 %)
+  seat P0          : 43-32 (57.3 %)
+  seat P1          : 46-26 (63.9 %)
+  repeat opponents (>= 4 games): Ando_Riccardo 14-16 (score 29.2); AIE4Enjoyer 2-3 (score 27.0); Online13 2-3 (score 27.3); DmitryYudakov 2-3 (score 25.7); TheMagicShop 3-2 (score 28.2); mattox 4-1 (score 28.2); Murat_Eroglu 2-2 (score 27.0); YahyaDS 4-0 (score 26.5); luigi_gelato 3-1 (score 29.9)
+  loss n= 58: turns  78.5; final   2568/  3250; paint   200/  153; cells   162/  126; pts/paint  12.6/ 21.4; first income 3.4/2.7; income@10  28.3/ 25.1 @20  72.5/ 96.3 @30  65.3/ 89.8; tracks inked   84/  82; my disrupts worth  -344, theirs   203
+  win  n= 89: turns  59.3; final   2766/  1945; paint   168/  135; cells   136/  109; pts/paint  15.3/ 13.8; first income 3.5/2.2; income@10  28.5/ 20.9 @20  71.4/ 59.0 @30  76.4/ 51.8; tracks inked   59/  63; my disrupts worth  -166, theirs   287
+  losses: led past the midpoint 7/58, never led 12/58; margin median 465
