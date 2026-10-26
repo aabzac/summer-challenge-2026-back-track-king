@@ -133,6 +133,10 @@ public class Params {
     public boolean USE_QUICK_ALWAYS = false;
     public double DELAY_POWER = 1.0;
     // DELAY_END
+    // OPP_HOLD_BEGIN
+    /** opp-hold-v1 (2026-10-26): the hold margin the lite chooser uses when it plays the simulated opponent (and the parked threat model); negative = BOSS_HOLD_MARGIN. boss-v3 measured margin 0 agreeing 4.5 pp more with the live boss than 1.0. Current-only rollout experiment, default inherit. */
+    public double BOSS_OPP_HOLD_MARGIN = -1.0;
+    // OPP_HOLD_END
     // BOSS_ROOT_BEGIN
     /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
     public boolean USE_BOSS_ROOT_TARGET = true;
