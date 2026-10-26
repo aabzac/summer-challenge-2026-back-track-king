@@ -8954,3 +8954,30 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Decision.** `corridor-routes-v1` closed as rejected (flag parked off). **Next (user decision):** a proxy-agreement
   study over these 80 games (`BossAgreementStudy` / `CgDisruptStudy`: proxy vs actual boss disrupt, split by our cell
   concentration) to locate the proxy's blind spot before another construction candidate is screened.
+
+## 2026-10-26 — `proxy-agreement-v1`: the boss attacks our under-construction concentrations and finishes near inks; the proxy scores income — the blind spot behind K1's wrong sign
+
+- **Why.** The user's "Ок" to the proposed study after the K1 diagnostic. New tool `btk.tools.BossTargetStudy`
+  (`gradlew bossTargetStudy`): one row per boss disrupt over the two live capture directories of the K1 session (80
+  games), the boss's region vs the region a local boss model would disrupt from the same public state, with our tracks,
+  our income from the region and the instability. Write-up [proxy-agreement-v1.md](proxy-agreement-v1.md), outputs in
+  `evidence/proxy-agreement-v1/`.
+- **The boss.** Its target is the region with the most of our tracks 51 % of the time (top-3 80 %; 65 % in turns 1–10,
+  40 % in 11–45, 60 % late); **40 % of its disrupts (K1 games; 36 % in v12 games) go to regions where we have ≥ 3
+  tracks and no income yet**; late (turn 46+) only one target in five holds any income of ours.
+- **The models.** Agreement with the boss's region: proxy 54.1 % (K1 games) / 58.1 % (v12 games), v12 in the boss's
+  seat 54.5 / 59.4 %, neural-v6 41.3 / 43.9 % (the proxy's validation level was 52 %). The proxy's agreement falls
+  with our concentration (61 % at ≤ 5 tracks in a region, 45 % at 6–9, **29 % at ≥ 10** in the K1 games vs 47 %) and
+  on the boss's attacks on our under-construction concentrations it is **46.8 % in the K1 games vs 61.8 %** in the
+  v12 games. In the middle game the proxy takes the bigger fresher income region (instability 0.5–0.7), the boss the
+  smaller one nearer the ink (1.3); late, the boss opens fresh regions holding our non-earning tracks while the proxy
+  keeps finishing inks.
+- **Reading.** Corridor routes converge several pairs' tracks on one region before any earns — the boss's favourite
+  target, which an income-scoring chooser (the proxy, and our own v12 threat model) does not punish. That is the
+  mechanism of the wrong sign (+6.5 pp vs the proxy, −15 pp live). neural-v6 is not a model of the boss's targeting.
+- **Next (user decision):** a boss-model candidate `boss-v3` (region score adds the opponent's non-earning tracks and a
+  time-to-ink term), fitted by agreement on the boss corpus with these 80 games as the holdout; a proxy at 62 %+ on
+  the K1 games that flips K1's sign in a re-screen becomes the policy's screening opponent (benchmarking-v5
+  amendment). Until then, construction candidates that concentrate tracks before they earn are not trusted on the
+  proxy screen alone.
+- **State.** Branch `claude/project-thread-xptone-v5`; no bot change; `current` unchanged.

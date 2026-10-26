@@ -486,6 +486,14 @@ tasks.register<JavaExec>("bossAgreementStudy") {
     args = listOf(prop("path", "replays/cg/boss"), prop("player", "Boss 4"), prop("bot", "boss-v1?NOISE=0"), prop("maxGames", ""))
 }
 
+tasks.register<JavaExec>("bossTargetStudy") {
+    group = "cg"
+    description = "One row per boss disrupt: the boss's region vs a local boss model's, with the opponent's tracks, income and instability (docs/proxy-agreement-v1.md)"
+    mainClass.set("btk.tools.BossTargetStudy")
+    classpath = sourceSets["main"].runtimeClasspath
+    args = listOf(prop("path", "replays/cg/boss"), prop("player", "Boss 4"), prop("bot", "neural-v6"), prop("out", "build/analysis/boss-target/targets.csv"), prop("maxGames", ""))
+}
+
 tasks.register<JavaExec>("bossChooserTiming") {
     group = "game"
     description = "Wall time of the real-turn BossSabotage chooser on v09-vs-v09 positions; run with -Pmaps=1 in separate JVMs for the cold (CG-like) figure"

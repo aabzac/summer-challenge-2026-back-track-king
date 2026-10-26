@@ -18,6 +18,14 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`proxy-agreement-v1` — 2026-10-26, study of the boss's targeting on K1's 80 live games (`BossTargetStudy`), no bot change:** the
+boss disrupts the region with the most of our tracks 51 % of the time and sends 36–40 % of its disrupts to our under-construction
+concentrations (≥ 3 tracks, no income yet); the boss-v2 proxy agrees with its region 58.1 % in the v12 games but 54.1 % in the K1
+games, 29 % when a region holds ≥ 10 of our tracks, 46.8 % on the under-construction attacks (61.8 % in v12 games); neural-v6
+41–44 %. The proxy scores income, the boss scores construction and time-to-ink — the blind spot behind K1's wrong sign. Next
+(user decision): a `boss-v3` chooser fitted by agreement, re-screen K1 as the check. [Study](proxy-agreement-v1.md),
+[evidence](evidence/proxy-agreement-v1/).
+
 **`corridor-routes-v1` = `current?USE_CORRIDOR_ROUTES=true` (K1) — 2026-10-26, passed v5 (a)+(b), failed (c) against the live boss — rejected:** a fourth
 route proposal per pair bent toward cells that other pairs' cheapest paths use (a free cell's paint ÷ (1 + `CORRIDOR_WEIGHT` × other
 pairs), valued like every proposal; `// CORRIDOR` block, default off). Fresh pool 1009000 vs boss-v2 with `current` (v12) as the
