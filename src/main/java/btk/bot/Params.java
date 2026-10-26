@@ -128,6 +128,11 @@ public class Params {
     public boolean USE_CORRIDOR_ROUTES = false;
     public double CORRIDOR_WEIGHT = 1.0;
     // CORRIDOR_END
+    // DELAY_BEGIN
+    /** earning-delay-v1 (2026-10-26): the arena's top half earns 2 turns after placement, we 4. USE_QUICK_ALWAYS keeps the cheapest positive completion (<= ROLLOUT_QUICK_MAX_PAINT) among the root routes every turn, not only before the first income; DELAY_POWER raises the turns-to-complete divisor of a proposal's value to this power (1 = unchanged). Current-only rollout experiments, defaults off. */
+    public boolean USE_QUICK_ALWAYS = false;
+    public double DELAY_POWER = 1.0;
+    // DELAY_END
     // BOSS_ROOT_BEGIN
     /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
     public boolean USE_BOSS_ROOT_TARGET = true;
