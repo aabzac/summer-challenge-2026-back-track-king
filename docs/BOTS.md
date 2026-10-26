@@ -18,6 +18,13 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`boss-v3` — 2026-10-26, boss-model refit + hold-margin study + sign check, closed, proxy unchanged:** the target logit refitted on the
+whole corpus (1,180 games) with the 80 K1-session games held out scores no better than the shipped weights (holdout commitment top-1
+0.556 / 0.509 vs 0.562 / 0.515; time-to-ink indicators and non-earning tracks add nothing); `BOSS_HOLD_MARGIN=0` agrees 58.8 / 62.6 %
+with the live boss vs 54.1 / 58.1 % at 1.0 (uniform, the K1 blind spot untouched); K1 vs the margin-0 proxy on fresh pool 1010000 with
+`current` as the control: 74.7 % vs 72.3 %, +2.3 ± 7.5 pp — the sign does not flip (live −15 pp). Construction changes that concentrate
+tracks before they earn are not trusted on the proxy's sign. [Study](boss-v3.md), [evidence](evidence/boss-v3/).
+
 **`proxy-agreement-v1` — 2026-10-26, study of the boss's targeting on K1's 80 live games (`BossTargetStudy`), no bot change:** the
 boss disrupts the region with the most of our tracks 51 % of the time and sends 36–40 % of its disrupts to our under-construction
 concentrations (≥ 3 tracks, no income yet); the boss-v2 proxy agrees with its region 58.1 % in the v12 games but 54.1 % in the K1
