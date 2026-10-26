@@ -9184,3 +9184,18 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   builders; no remaining flag-sized lever. Next (user decision): a construction policy that reproduces the stronger
   players' turn-10–20 choices (route proposals learned from the arena opponents' and the leaders' placements), a larger
   piece of work, or keep v12 and pause.
+
+## 2026-10-27 — `route-choice-v1` (construction line, step 1): the stronger players pick the same routes our proposal value ranks first
+
+- The user chose the construction line ("Строка" = «стройка»). New `btk.tools.RouteChoiceExport` (per placement turn:
+  our proposal step's candidate routes — cheapest completion per pair over any tracks and own-only, own-only for active
+  pairs — with 19 features and the chosen candidate by overlap with the placed cells) and
+  `tools/route_choice/fit_route_choice.py` (conditional logit, game-level holdout). Write-up
+  [route-choice-v1.md](route-choice-v1.md), data `evidence/route-choice-v1/`.
+- Turns 10–19, holdout top-1 / top-3: **our proposal value predicts the strong arena opponents' (score ≥ 27) route choice
+  0.281 / 0.438 and v12's own 0.290 / 0.394**; a 19-feature logit 0.183 / 0.386 (opponents); cheapest route 0.13.
+  Route-level imitation adds nothing: the stronger players and v12 choose much the same among these candidates.
+- Second-order differences of the chosen routes: routes over already active pairs (backup / takeover) 25 vs 17 %,
+  own-only 49 vs 44 %, adjacency to own tracks 2.07 vs 1.85.
+- **Next (user decision):** (a) cell order within multi-turn routes (the opponent's tracks earn sooner with the same
+  completions), (b) a backup-route flag for active pairs screened under step 1a, or pause the construction line.
