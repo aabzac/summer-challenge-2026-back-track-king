@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Pooled paired delta over several same-map screens (policy v5 step 1a, adopted 2026-10-26).
 
-usage: python tools/boss_proxy/pooled_delta.py <dir>:<cell> [<dir>:<cell> ...] [--control cur]
+usage: python tools/boss_proxy/pooled_delta.py <dir>:<cell>[:<control>] [<dir>:<cell>[:<control>] ...] [--control cur]
 
 Each argument names a candidate cell "X-vs-OPP" in a screen directory that also holds the control cell
-"<control>-vs-OPP" played on the same maps/seeds/seats. Prints each pool's paired per-map delta and the pooled delta
+"<control>-vs-OPP" played on the same maps/seeds/seats (a per-pool control name may follow the cell after a colon,
+for pools whose cells were named differently). Prints each pool's paired per-map delta and the pooled delta
 over all maps of all pools (candidate minus control, in pp, with the 95 % interval), and the step-1a verdict: continue
 only if the replication (every pool after the first) is positive and the pooled delta is >= +3 pp.
 """
@@ -37,10 +38,15 @@ def main():
         i = args.index('--control'); control = args[i + 1]; args = args[:i] + args[i + 2:]
     pooled, per_pool = [], []
     for item in args:
-        directory, _, cell = item.rpartition(':')
-        ds = deltas(directory, cell, control); pooled += ds
+        parts = item.split(':')
+        # Windows drive letters ("C:/...") stay with the directory
+        if len(parts) >= 2 and len(parts[0]) == 1 and parts[1][:1] in ('/', chr(92)):
+            parts = [parts[0] + ':' + parts[1]] + parts[2:]
+        directory, cell = parts[0], parts[1]
+        ctrl = parts[2] if len(parts) > 2 else control
+        ds = deltas(directory, cell, ctrl); pooled += ds
         m, ci, n = summary(ds); per_pool.append(m)
-        print(f"  {directory}:{cell:20} vs {control}: maps {n:3}  delta {m:+5.1f} pp +-{ci:4.1f}")
+        print(f"  {directory}:{cell:20} vs {ctrl}: maps {n:3}  delta {m:+5.1f} pp +-{ci:4.1f}")
     m, ci, n = summary(pooled)
     print(f"  pooled over {len(args)} pools: maps {n:3}  delta {m:+5.1f} pp +-{ci:4.1f}")
     replication_positive = all(x > 0 for x in per_pool[1:])

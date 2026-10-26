@@ -19,6 +19,11 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`retro-replication-v1` — 2026-10-26, step 1a applied to the last two promotions, both real:** retro-replication on fresh pool 1015000 vs the policy proxy (`tools/boss_proxy/run_replication.sh`, `docs/evidence/retro-replication-v1/`):
+**root target (v11 vs v10 on current) +6.7 ± 7.6 pp → pooled with its selection screen +7.8 ± 5.2 pp; exposure income (v12 vs v11)
++8.3 ± 6.2 pp → pooled +6.0 ± 4.6 pp; both pass step 1a**; v12 over v10 on the same maps +15.0 ± 7.0 pp.
+[Evidence](evidence/retro-replication-v1/).
+
 **`boss-v4` — 2026-10-26, proxy diagnosis + no-close validation + replication, no bot change:** the boss's attacks on our
 under-construction regions are predicted at 82 % by the shipped weights; the replay agreement gap was the proxy's winning-closure
 shortcut (the live boss declines such closures 94–98 %); `USE_BOSS_NO_CLOSE` (proxy skips closures, default off) fails its predeclared

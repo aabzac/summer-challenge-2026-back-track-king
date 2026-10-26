@@ -1,0 +1,4 @@
+  docs/evidence/stage4-exposure-income-v1:E1-vs-boss2          vs cur: maps 150  delta  +3.7 pp +- 6.7
+  build/analysis/retro-v1:cur-vs-boss2         vs v11: maps 150  delta  +8.3 pp +- 6.2
+  pooled over 2 pools: maps 300  delta  +6.0 pp +- 4.6
+  step 1a: replication positive, pooled +6.0 pp -> continue
