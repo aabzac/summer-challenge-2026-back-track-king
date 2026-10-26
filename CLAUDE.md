@@ -56,8 +56,9 @@ change the proxy and neural-v6 predicted the sign wrongly, and `proxy-agreement-
 under-construction concentrations and finishes near inks, the income-scoring proxy does not (agreement 54 % in K1 games, 29 % at ≥ 10
 of our tracks in a region; neural-v6 41–44 %). `boss-v3` (2026-10-26, `docs/boss-v3.md`) then showed the proxy cannot be refitted into that blind spot (shipped weights = corpus optimum;
 `BOSS_HOLD_MARGIN=0` +4.5 pp agreement uniformly; K1 vs the margin-0 proxy +2.3 pp, no sign flip) — closed, proxy unchanged; construction
-changes that concentrate tracks before they earn are not trusted on the proxy's sign. Next (user decision): the earning-delay valuation
-(routes that earn within a turn or two), inside the proxy's competent zone.
+changes that concentrate tracks before they earn are not trusted on the proxy's sign. `earning-delay-v1` (2026-10-26, `docs/earning-delay-v1.md`): **Q = `current?USE_QUICK_ALWAYS=true` passed (a)+(b)**
+(+6.3 ± 5.6 pp vs the proxy, 52.7 % h2h, neutral vs neural-v6; artifact `build/submit-delay-q`, config `41996066…`); its live
+session (`build/cg-boss/delay-q-v12-boss-40`, 80 games vs v12) awaits the user's word on the launch; a pass means v13 on the user's decision.
 Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact

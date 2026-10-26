@@ -1,0 +1,41 @@
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1011000) 2026-10-26T16:29:49Z
+  A win rate: 76,3%  W-L-D 229-71-0
+  avg score diff (A-B): +414,8   avg turns: 69,0
+  time/move ms  A avg 8,34 max 61 slow 1 | B avg 17,54 max 46 slow 0
+  accepted disrupt A/B: 98,4% / 99,9%; early closures 296/300
+-- Q-vs-boss2: current?USE_QUICK_ALWAYS=true vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1011000) 2026-10-26T16:34:28Z
+  A win rate: 82,7%  W-L-D 248-52-0
+  avg score diff (A-B): +514,0   avg turns: 66,4
+  time/move ms  A avg 8,44 max 46 slow 0 | B avg 18,05 max 60 slow 2
+  accepted disrupt A/B: 98,4% / 99,9%; early closures 297/300
+-- D2-vs-boss2: current?DELAY_POWER=2 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1011000) 2026-10-26T16:39:03Z
+  A win rate: 76,7%  W-L-D 230-70-0
+  avg score diff (A-B): +578,4   avg turns: 66,8
+  time/move ms  A avg 8,38 max 36 slow 0 | B avg 18,11 max 53 slow 1
+  accepted disrupt A/B: 98,5% / 100,0%; early closures 292/300
+-- Q-vs-cur: current?USE_QUICK_ALWAYS=true vs current (300 games, seed 1011000) 2026-10-26T16:43:39Z
+  A win rate: 52,7%  W-L-D 158-142-0
+  avg score diff (A-B): +1,1   avg turns: 68,1
+  time/move ms  A avg 7,70 max 37 slow 0 | B avg 7,73 max 39 slow 0
+  accepted disrupt A/B: 98,4% / 98,3%; early closures 292/300
+-- D2-vs-cur: current?DELAY_POWER=2 vs current (300 games, seed 1011000) 2026-10-26T16:46:29Z
+  A win rate: 49,7%  W-L-D 149-151-0
+  avg score diff (A-B): -0,6   avg turns: 69,0
+  time/move ms  A avg 7,73 max 36 slow 0 | B avg 7,78 max 38 slow 0
+  accepted disrupt A/B: 98,5% / 98,5%; early closures 291/300
+-- cur-vs-nv6: current vs neural-v6 (300 games, seed 1011000) 2026-10-26T16:49:21Z
+  A win rate: 58,7%  W-L-D 176-124-0
+  avg score diff (A-B): +156,0   avg turns: 62,9
+  time/move ms  A avg 8,96 max 45 slow 0 | B avg 2,03 max 70 slow 2
+  accepted disrupt A/B: 98,1% / 99,9%; early closures 296/300
+-- Q-vs-nv6: current?USE_QUICK_ALWAYS=true vs neural-v6 (300 games, seed 1011000) 2026-10-26T16:51:16Z
+  A win rate: 58,7%  W-L-D 176-124-0
+  avg score diff (A-B): +135,6   avg turns: 62,4
+  time/move ms  A avg 8,64 max 46 slow 0 | B avg 1,98 max 55 slow 2
+  accepted disrupt A/B: 98,4% / 100,0%; early closures 298/300
+-- D2-vs-nv6: current?DELAY_POWER=2 vs neural-v6 (300 games, seed 1011000) 2026-10-26T16:53:06Z
+  A win rate: 63,7%  W-L-D 191-109-0
+  avg score diff (A-B): +171,8   avg turns: 62,1
+  time/move ms  A avg 8,80 max 50 slow 0 | B avg 1,97 max 51 slow 1
+  accepted disrupt A/B: 98,3% / 100,0%; early closures 297/300
+DELAY SCREEN DONE 2026-10-26T16:54:57Z

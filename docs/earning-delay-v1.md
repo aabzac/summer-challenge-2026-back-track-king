@@ -37,6 +37,45 @@ games per cell, CG 486/36 ms, two workers, the user's machine; proxy spec with `
 Then, for an arm that passes, v5 step (c): 80 paired live boss games (≥ control + 5 pp), launched under the allow
 rule.
 
-## Results
+## Results (2026-10-26, `docs/evidence/earning-delay-v1/`)
 
-(filled in when the screen completes — `docs/evidence/earning-delay-v1/`)
+| cell (300 paired games) | rate | W-L-D | paired delta vs `current` (150 maps) | maps better / worse / equal |
+|---|---|---|---|---|
+| `cur-vs-boss2` | 76.3 % | 229-71-0 | — | — |
+| **`Q-vs-boss2`** (`USE_QUICK_ALWAYS`) | **82.7 %** | 248-52-0 | **+6.3 ± 5.6 pp** | 43 / 23 / 84 |
+| `D2-vs-boss2` (`DELAY_POWER=2`) | 76.7 % | 230-70-0 | +0.3 ± 6.7 pp | 42 / 39 / 69 |
+| **`Q-vs-cur`** | **52.7 %** | 158-142-0 | — (small maps 53.4 %, h ≥ 19: 51.1 %) | — |
+| `D2-vs-cur` | 49.7 % | 149-151-0 | — | — |
+| `cur-vs-nv6` | 58.7 % | 176-124-0 | — | — |
+| `Q-vs-nv6` | 58.7 % | 176-124-0 | +0.0 ± 7.1 pp | 40 / 37 / 73 |
+| `D2-vs-nv6` | 63.7 % | 191-109-0 | +5.0 ± 7.7 pp | 49 / 36 / 65 |
+
+Time per move: Q 8.4 ms, D2 8.4 ms, `current` 8.3 ms. 0 errors in 2,400 games.
+
+**Q passes v5 step (a) (+6.3 pp, the tightest paired interval of the line: 84 of 150 maps unchanged, 43 better, 23
+worse) and step (b) (52.7 %)**; against neural-v6 it is exactly neutral (+0.0 pp, 40/37). D2 fails (a) (+0.3 pp) and is
+parked: steeper ordering of the proposals changes nothing the rollout did not already decide. Q is a
+candidate-generation change — the rollout always sees the cheapest positive completion — and its gain is against the
+boss-like opponent; the live step decides, as it did for K1.
+
+## Q's artifact, strict process check and the live plan (2026-10-26)
+
+- `gradlew submit "-PsubmitVersion=current?USE_QUICK_ALWAYS=true" -PsubmitOut=build/submit-delay-q` →
+  **91,619 / 100,000 chars** (readable), sha `4584fb1d…`, build `a880a04a…`, **config `41996066…`**, label
+  `v12 (modified)` (`evidence/earning-delay-v1/Q-artifact-manifest.json`).
+- Strict `procCheck` (zero grace, 4 games vs v09): **0 problem games, 0 timeouts**, first response ≤ 725 ms, later
+  responses ≤ 49.3 ms (one game; the other three ≤ 38.1 ms) under the 50 ms zero-grace limit; 2/4 wins
+  (`evidence/earning-delay-v1/Q-artifact-process-check.json`).
+- Live plan for v5 step (c), frozen with no network calls: `build/cg-boss/delay-q-v12-boss-40/plan.json` (copy in
+  `evidence/earning-delay-v1/live-plan.json`), id `f426db1c…`, matched design, 40 maps × 2 builds = 80 API games,
+  boss 6767608, schedule seed 2026102602, candidate = `build/submit-delay-q`, control = `build/submit-v12` (the
+  selected v12 artifact, build `ce1d3a3b…`, the arena entry), bound to the puzzle-IDE session like every series.
+  Pass rule as before: Q ≥ v12 + 5 pp over the 40 paired maps. **80 API games were already played today (K1's
+  session, 12:04–13:04 UTC)**; a second 80 reaches the day's 160th request, which went through on 2026-10-25 but
+  the 2026-10-16 run hit the service limit near its 70th request of a 160-game day — the paced runner stops on an
+  API error and the plan is resumable from the first unplayed slot. Launch (Claude, under the allow rule, on the
+  user's word):
+
+  ```
+  bash tools/run_boss_paced.sh build/cg-boss/delay-q-v12-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
+  ```
