@@ -9005,3 +9005,27 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   prefers routes earning within a turn or two (extensions of active paths, one-turn completions), inside the proxy's
   competent zone. Pool 1010000..1010149 consumed, next ≥ 1011000.
 - **State.** `current` unchanged; branch `claude/project-thread-xptone-v5`.
+
+## 2026-10-26 — `earning-delay-v1`: the cheapest positive completion kept among the roots every turn passes v5 (a)+(b) — Q to the live step; the steeper proposal ordering does nothing
+
+- **Why.** The user's "Давай" to the earning-delay candidate (the arena's top half earns 2 turns after placement, we
+  4; `docs/arena-losses-v12.md`). Mechanism and protocol in [earning-delay-v1.md](earning-delay-v1.md): one
+  `// DELAY` block with `USE_QUICK_ALWAYS` (the v06 quick-income slot — the cheapest positive completion ≤ 6 paint
+  retained among the root routes — every turn instead of only before the first income) and `DELAY_POWER` (the
+  turns-to-complete divisor of a proposal's value raised to a power); current-only, defaults off, default artifact
+  unchanged (`EarningDelaySubmissionTest`), field-count pins +2.
+- **Screen** (`tools/boss_proxy/run_delay_screen.sh`, fresh pool 1011000, 150 maps × 2 seats per cell, CG timing,
+  `current` = v12 as the same-map control; evidence `evidence/earning-delay-v1/`): vs boss-v2 `current` 76.3 %,
+  **Q 82.7 % = +6.3 ± 5.6 pp** (maps better/worse/equal 43/23/84), D2 76.7 % = +0.3 ± 6.7 pp; head-to-head **Q
+  52.7 %**, D2 49.7 %; vs neural-v6 `current` 58.7 %, Q 58.7 % = +0.0 ± 7.1 pp, D2 63.7 % = +5.0 ± 7.7 pp. Time per
+  move unchanged (8.4 ms). **Q passes (a) and (b); D2 fails (a), parked.**
+- **Artifact and process check.** `gradlew submit "-PsubmitVersion=current?USE_QUICK_ALWAYS=true"
+  -PsubmitOut=build/submit-delay-q` → 91,619 / 100,000 chars, sha `4584fb1d…`, build `a880a04a…`, config
+  `41996066…`; strict `procCheck` (zero grace, 4 games vs v09): 0 problem games, 0 timeouts, first response ≤ 725
+  ms, later ≤ 49.3 ms (one game; the others ≤ 38.1 ms).
+- **Live plan** (v5 step c, frozen, no API calls): `build/cg-boss/delay-q-v12-boss-40/plan.json`, id `f426db1c…`,
+  matched, 40 maps × 2 builds = 80 API games, boss 6767608, schedule seed 2026102602, candidate
+  `build/submit-delay-q`, control `build/submit-v12` (build `ce1d3a3b…`); pass rule Q ≥ v12 + 5 pp over the 40
+  paired maps. 80 API games were played today already (K1's session); the launch — now (resumable on an API-limit
+  stop) or tomorrow — is the user's call. Pool 1011000..1011149 consumed, next ≥ 1012000.
+- **State.** `current` unchanged; branch `claude/project-thread-xptone-v5`.

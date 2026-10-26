@@ -18,6 +18,14 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
+**`earning-delay-v1`: Q = `current?USE_QUICK_ALWAYS=true` — 2026-10-26, passed v5 (a)+(b), live step pending:** the cheapest positive
+completion (≤ 6 paint) is kept among the root routes every turn, not only before the first income (`// DELAY` block, default off).
+Fresh pool 1011000 vs boss-v2 with `current` (v12) as the same-map control: **82.7 % vs 76.3 % (+6.3 ± 5.6 pp, maps 43/23/84)**,
+head-to-head **52.7 %**; vs neural-v6 58.7 % vs 58.7 % (+0.0 ± 7.1 pp). D2 = `current?DELAY_POWER=2` (the proposal value's
+turns-to-complete divisor squared): +0.3 pp vs the proxy, 49.7 % h2h, +5.0 pp vs neural-v6 — fails (a), parked. Q artifact 91,619
+chars (config `41996066…`), strict procCheck 0 problems; live plan `build/cg-boss/delay-q-v12-boss-40` (80 games vs v12) awaits
+the launch. [Protocol and results](earning-delay-v1.md), [evidence](evidence/earning-delay-v1/).
+
 **`boss-v3` — 2026-10-26, boss-model refit + hold-margin study + sign check, closed, proxy unchanged:** the target logit refitted on the
 whole corpus (1,180 games) with the 80 K1-session games held out scores no better than the shipped weights (holdout commitment top-1
 0.556 / 0.509 vs 0.562 / 0.515; time-to-ink indicators and non-earning tracks add nothing); `BOSS_HOLD_MARGIN=0` agrees 58.8 / 62.6 %
