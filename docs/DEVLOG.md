@@ -8888,3 +8888,32 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   paths, valued as the other proposals are), screened vs the proxy and vs neural-v6 with `current` as the control,
   then live; the leader-corpus study (PLAN) confirms the shape first. Pool 1008000..1008149 consumed, next ≥ 1009000.
 - **Branch.** `claude/project-thread-xptone-v4` from master `c01ad5f`.
+
+## 2026-10-26 — `corridor-routes-v1`: route proposals bent toward shared corridors pass v5 (a)+(b) and the neural-v6 cross-check — K1 to the live step
+
+- **Why.** The arena-loss diagnostic: the field's top half beats v12 on multiplicity (1.62 vs 1.25 connections per
+  earning cell-turn). The user chose the candidate ("Давай начнём"). Mechanism and protocol in
+  [corridor-routes-v1.md](corridor-routes-v1.md): `USE_CORRIDOR_ROUTES` + `CORRIDOR_WEIGHT` — a fourth proposal
+  variant per pair whose path search divides a free cell's paint by (1 + weight × the number of other pairs whose
+  cheapest path uses the cell), valued like every other proposal (full-board income, exposure discount, threat
+  scenario). Own `// CORRIDOR` block, current-only rollout experiment, default off; the default artifact is unchanged
+  (`CorridorRoutesSubmissionTest`), a hand-made corridor map yields corridor proposals (`CorridorRoutesTest`),
+  field-count pins +2.
+- **Screen** (`tools/boss_proxy/run_corridor_screen.sh`, fresh pool 1009000, 150 maps × 2 seats per cell, CG timing,
+  `current` = v12 as the same-map control; evidence `evidence/corridor-routes-v1/`): vs boss-v2 `current` 71.5 %,
+  **K1 (weight 1) 78.0 % = +6.5 ± 7.2 pp** (maps better/worse 50/32), K2 (weight 2) 72.7 % = +1.2 ± 6.8 pp;
+  head-to-head **K1 51.7 %**, K2 50.3 %; vs neural-v6 `current` 57.0 %, **K1 64.7 % = +7.7 ± 7.4 pp** (50/33), K2
+  62.3 % = +5.3 ± 8.0 pp. Time per move K1 8.6 ms vs 9.7 (the corridor pass runs under the route reserve). **K1 passes
+  (a) and (b) and gains as much against the arena-like builder; K2 fails (a), parked.**
+- **Artifact and process check.** `gradlew submit "-PsubmitVersion=current?USE_CORRIDOR_ROUTES=true"
+  -PsubmitOut=build/submit-corridor-k1` → 93,468 / 100,000 chars (readable), sha `deeefb19…`, build `ae716f57…`,
+  config `299cafd9…`, label `v12 (modified)`; strict `procCheck` (zero grace, 4 games vs v09): 0 problem games,
+  0 timeouts, first response ≤ 725 ms, later ≤ 38.1 ms.
+- **Live plan** (v5 step c, frozen, no API calls): `build/cg-boss/corridor-k1-v12-boss-40/plan.json`, id
+  `67ba025f…`, matched design, 40 maps × 2 builds = 80 API games, boss 6767608, schedule seed 2026102601, candidate
+  `build/submit-corridor-k1`, control `build/submit-v12` (build `ce1d3a3b…`, the arena artifact); pass rule K1 ≥ v12
+  + 5 pp over the 40 paired maps. Launch by the user (the launch line is in corridor-routes-v1.md); no API games
+  were played today before it.
+- **State.** `gradlew test`: 844 tests, the 25 pre-existing failures only (19 via the `Pathing.class` pin, 6
+  `PduhardBeamBotTest`). `current` unchanged; pool 1009000..1009149 consumed, next ≥ 1010000; branch
+  `claude/project-thread-xptone-v5` (from master `c9e79bc`).
