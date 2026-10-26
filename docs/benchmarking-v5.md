@@ -1,4 +1,4 @@
-# Selection policy v5 — proxy screen, non-inferiority, larger live sample (adopted 2026-10-21)
+# Selection policy v5 — proxy screen, non-inferiority, larger live sample (adopted 2026-10-21; step 1a replication added 2026-10-26)
 
 Status: **adopted 2026-10-21** (user decision), rule 3 of `AGENTS.md` updated. The v4 policy, its
 tools and all historical verdicts stay as recorded. Nothing in this document changes a strategy.
@@ -27,6 +27,15 @@ strict process check, source-size check.
    opponent (see "Proxy validity" below; `docs/boss-proxy-v1.md`), CG 486/36 ms, two workers. Continue only if the candidate's score
    is **at least the control's proxy score + 3 pp** (control = selected v09 on the same maps,
    seeds and seats, played in the same run). Draws = half.
+1a. **Replication** (amended 2026-10-26, user decision after `docs/boss-v4.md` §5). An arm that passes step 1 is
+   re-screened on a **fresh pool** — 300 paired games / 150 new maps against the same screening opponent, with
+   `current` as the control on the same maps, seeds and seats in the same run (`tools/boss_proxy/run_replication.sh`).
+   Continue only if the replication's paired delta is **positive** and the **pooled** delta over both pools is
+   **≥ +3 pp** (`tools/boss_proxy/pooled_delta.py`). Why: a 300-game step 1 has a ±6–7 pp interval per arm, and taking
+   the best of two arms through a +3 pp gate passes a null candidate about one screen in three; both construction
+   candidates of 2026-10-26 passed step 1 at +6.5 / +6.3 pp, fell to −1.7 / −6.0 pp on a fresh pool (pooled +2.4 /
+   +0.2) and lost their live sessions (−15 / −5 pp). The live step is the scarce resource (≈ 80 API games per
+   candidate, a daily limit); the replication costs ≈ 10 minutes.
 2. **Non-inferiority vs the selected version** — 300 paired games / 150 fresh maps, candidate
    vs v09. Continue only if the score is **≥ 48 %**. (The mirror is a regression guard, not the
    objective.)
@@ -36,7 +45,7 @@ strict process check, source-size check.
    Pass when the candidate's pooled score over 80 games is **≥ control + 5 pp**; otherwise an
    optional extension to 120 games is allowed once, predeclared, and the decision is made on the
    full 120. No other extensions, retries or pooling with historical games.
-4. Promotion = all three. A failure at any step stops the candidate; the evidence is retained.
+4. Promotion = steps 1, 1a, 2 and 3. A failure at any step stops the candidate; the evidence is retained.
 5. **Degenerate proxy** (amended 2026-10-21). When the candidate is itself the screening opponent
    (as `boss-sabotage-v1` was), or when no proxy is currently valid, step 1 is played against
    **`neural-v6`** (the version with the best live boss sample and the arena-like 100 % disrupt
@@ -67,6 +76,6 @@ clause applies.
 
 ## Reporting
 
-Each candidate: one summary with the three stage results, the control's proxy score, map pools,
+Each candidate: one summary with the stage results (1, 1a with the pooled delta, 2, 3), the control's proxy score, map pools,
 seeds, artifact hashes, and the proxy validation id in force. BOTS.md gets one row; DEVLOG one
 entry; STATUS.md the current verdict.

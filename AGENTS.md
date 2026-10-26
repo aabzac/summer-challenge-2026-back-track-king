@@ -18,7 +18,10 @@ finished.
    (a) **proxy screen** — 300 paired games on fresh maps, candidate vs the validated boss-like
    screening opponent (`current?USE_BOSS_SABOTAGE=1` while `docs/boss-proxy-v1.md` records it as
    valid), with the selected control on the same maps/seeds/seats in the same run; continue only
-   at candidate ≥ control + 3 pp. For a candidate that is itself the screening opponent, or when
+   at candidate ≥ control + 3 pp; **(a′) replication (amended 2026-10-26)** — an arm that passes (a) is
+   re-screened on a fresh pool against the same proxy with `current` as the same-map control, and continues only
+   at a positive replication delta and a pooled delta ≥ +3 pp (`tools/boss_proxy/run_replication.sh`,
+   `tools/boss_proxy/pooled_delta.py`). For a candidate that is itself the screening opponent, or when
    no proxy is valid, replace (a)+(b) by the v4 pooled 1000-game run vs the selected version
    (300/+200/+500, futility below 50 % at 300/500, pass ≥ 55 %).
    (b) **non-inferiority** — 300 paired games vs the selected version; continue only at ≥ 48 %.

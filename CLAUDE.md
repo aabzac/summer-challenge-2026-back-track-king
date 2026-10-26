@@ -12,7 +12,9 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
   `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0`
   (the v11 flag is dropped by the lite chooser off; the v12 flag must be switched off explicitly, or the proxy is not the validated opponent)
   (`current?USE_BOSS_SABOTAGE=1` alone is refused; or `neural-v6` for a candidate that is itself the
-  proxy) — non-inferiority vs the selected version (`current` = v12), then 80 paired live boss games.
+  proxy) — **since 2026-10-26 a step-(a) pass is replicated on a fresh pool before anything else (positive replication delta,
+  pooled delta ≥ +3 pp; `tools/boss_proxy/run_replication.sh` + `pooled_delta.py`)** — non-inferiority vs the selected version
+  (`current` = v12), then 80 paired live boss games.
   The local mirror vs v09 is a regression guard, never the objective.
 - **Compare a candidate only with a control measured on the same maps, seeds and seats, in the
   same run.** Absolute scores move 10 pp between map pools; deltas do not. The screen scripts in

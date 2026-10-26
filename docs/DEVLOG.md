@@ -9100,3 +9100,17 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   the live step, continuing only at a positive replication delta and a pooled delta ≥ +3 pp (≈ 10 min per arm; it
   would have saved today's 160 API games). Pool 1014000..1014149 consumed, next ≥ 1015000.
 - **State.** `current` unchanged; branch `claude/project-thread-xptone-v6`.
+
+## 2026-10-26 — policy v5 amended: step 1a, replication of a proxy-screen pass on a fresh pool
+
+- **Decision.** The user's "Да" to the proposal at the end of `boss-v4`. `docs/benchmarking-v5.md` gains step 1a: an arm
+  that passes step 1 is re-screened on a fresh pool (300 paired games, 150 new maps) against the same screening opponent
+  with `current` as the same-map control in the same run, and continues only if the replication delta is positive and
+  the pooled delta of both pools is ≥ +3 pp. AGENTS.md rule 3 (a′), CLAUDE.md and the BOTS header follow.
+- **Why.** Both construction candidates passed step 1 at +6.5 / +6.3 pp (best of two arms each), replicated at −1.7 /
+  −6.0 pp and lost their live sessions (−15 / −5 pp, 160 API games). With a ±6–7 pp interval per 300-game arm, the
+  best of two arms clears a +3 pp gate under the null about one screen in three.
+- **Tools.** `tools/boss_proxy/run_replication.sh` (control + candidate + optional extra arms on a fresh pool) and
+  `tools/boss_proxy/pooled_delta.py` (per-pool and pooled paired deltas with the step-1a verdict). Applied
+  retroactively: K1 pooled +2.4 ± 4.7 pp → stop; Q pooled +0.2 ± 4.4 pp → stop.
+- **First application:** the retro-replication of the last two promotions (B → v11, E1 → v12) on fresh pool 1015000.
