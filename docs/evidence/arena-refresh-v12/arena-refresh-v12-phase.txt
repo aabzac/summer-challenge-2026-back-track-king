@@ -1,0 +1,21 @@
+=== v12 re-upload (6814073), phase breakdown ===
+  losses                     n= 58 t0-10: income gain me  +28.3 / opp  +25.1; cells 28.1/28.3; placing turns 10.0/ 9.9; own tracks inked  1.7/ 5.0; built-then-inked  0.0/ 0.1; value of my disrupts    +21, of theirs     -6 (score swing they caused)
+  wins                       n= 89 t0-10: income gain me  +28.5 / opp  +20.9; cells 27.7/27.4; placing turns 10.0/10.0; own tracks inked  1.7/ 5.3; built-then-inked  0.0/ 0.0; value of my disrupts    +18, of theirs     -7 (score swing they caused)
+  vs Ando_Riccardo, lost     n= 16 t0-10: income gain me  +30.9 / opp  +25.8; cells 28.4/28.8; placing turns 10.0/10.0; own tracks inked  1.8/ 5.5; built-then-inked  0.1/ 0.0; value of my disrupts    +18, of theirs    -11 (score swing they caused)
+  vs Ando_Riccardo, won      n= 14 t0-10: income gain me  +26.7 / opp  +21.3; cells 27.1/27.4; placing turns 10.0/10.0; own tracks inked  1.9/ 5.1; built-then-inked  0.0/ 0.0; value of my disrupts    +16, of theirs    -15 (score swing they caused)
+
+  losses                     n= 58 t10-20: income gain me  +44.1 / opp  +71.2; cells 24.8/25.6; placing turns  9.9/10.0; own tracks inked  8.7/ 8.6; built-then-inked  0.0/ 0.0; value of my disrupts    +71, of theirs    -50 (score swing they caused)
+  wins                       n= 88 t10-20: income gain me  +42.9 / opp  +38.1; cells 25.5/24.5; placing turns 10.0/ 9.9; own tracks inked  8.2/ 9.6; built-then-inked  0.0/ 0.0; value of my disrupts    +42, of theirs    -71 (score swing they caused)
+  vs Ando_Riccardo, lost     n= 16 t10-20: income gain me  +29.8 / opp  +59.9; cells 24.3/26.2; placing turns 10.0/10.0; own tracks inked  9.1/ 8.6; built-then-inked  0.0/ 0.0; value of my disrupts    +61, of theirs    -65 (score swing they caused)
+  vs Ando_Riccardo, won      n= 14 t10-20: income gain me  +36.0 / opp  +60.0; cells 25.4/25.8; placing turns 10.0/ 9.9; own tracks inked  9.3/10.8; built-then-inked  0.0/ 0.0; value of my disrupts    +48, of theirs    -72 (score swing they caused)
+
+  losses                     n= 58 t20-30: income gain me   -7.1 / opp   -6.5; cells 23.4/23.4; placing turns  9.8/ 9.8; own tracks inked  9.5/11.8; built-then-inked  0.0/ 0.0; value of my disrupts   +117, of theirs    -70 (score swing they caused)
+  wins                       n= 85 t20-30: income gain me   +4.5 / opp   -8.0; cells 23.4/21.7; placing turns  9.9/ 9.5; own tracks inked  9.4/11.4; built-then-inked  0.1/ 0.0; value of my disrupts    +50, of theirs    -92 (score swing they caused)
+  vs Ando_Riccardo, lost     n= 16 t20-30: income gain me  -19.8 / opp  -24.8; cells 22.2/22.0; placing turns  9.7/10.0; own tracks inked  9.9/12.5; built-then-inked  0.0/ 0.0; value of my disrupts    +90, of theirs    -35 (score swing they caused)
+  vs Ando_Riccardo, won      n= 14 t20-30: income gain me  +16.9 / opp  -23.4; cells 25.6/22.9; placing turns  9.9/ 9.6; own tracks inked  9.1/12.7; built-then-inked  0.2/ 0.0; value of my disrupts    +83, of theirs    -62 (score swing they caused)
+
+  losses                     n= 56 t30-40: income gain me  -19.1 / opp  -32.5; cells 22.2/19.4; placing turns  9.5/ 8.6; own tracks inked 11.6/12.8; built-then-inked  0.1/ 0.0; value of my disrupts    +77, of theirs    -50 (score swing they caused)
+  wins                       n= 73 t30-40: income gain me  -14.1 / opp   -7.2; cells 22.2/19.0; placing turns  9.8/ 8.5; own tracks inked 11.2/12.7; built-then-inked  0.0/ 0.1; value of my disrupts    +48, of theirs    -90 (score swing they caused)
+  vs Ando_Riccardo, lost     n= 15 t30-40: income gain me  -12.7 / opp  -22.2; cells 23.5/16.5; placing turns  9.4/ 7.8; own tracks inked 12.6/12.1; built-then-inked  0.0/ 0.0; value of my disrupts    +46, of theirs    -24 (score swing they caused)
+  vs Ando_Riccardo, won      n= 10 t30-40: income gain me  -19.8 / opp  -15.8; cells 22.1/19.3; placing turns  9.8/ 8.7; own tracks inked 12.8/14.2; built-then-inked  0.2/ 0.0; value of my disrupts    +47, of theirs    -65 (score swing they caused)
+
