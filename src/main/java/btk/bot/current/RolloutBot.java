@@ -140,6 +140,9 @@ public final class RolloutBot implements Bot {
     // BOSS_MODEL_BEGIN
     /** Stage 1 opponent model: the opponent's observed held target, last real instabilities, simulated placement turns. */
     private int liteOppHeld = -1, liteLastRealTarget = -1;
+    // OPP_HOLD_BEGIN
+    public int oppHoldCalls;
+    // OPP_HOLD_END
     private int[] liteLastInstability, liteSimPlaced;
     public int bossModelCalls;
     // BOSS_MODEL_END
@@ -1251,6 +1254,12 @@ public final class RolloutBot implements Bot {
             if (v > bestScore) { bestScore = v; best = r; }
         }
         if (best < 0) return -1;
+        // OPP_HOLD_BEGIN
+        if (p.BOSS_OPP_HOLD_MARGIN >= 0 && me != realPlayer) {
+            oppHoldCalls++;
+            if (held >= 0 && heldScore > -Double.MAX_VALUE && bestScore < heldScore + p.BOSS_OPP_HOLD_MARGIN) return held;
+        } else
+        // OPP_HOLD_END
         if (held >= 0 && heldScore > -Double.MAX_VALUE && bestScore < heldScore + p.BOSS_HOLD_MARGIN) return held;
         if (liteOppCells[best] == 0 && s.regionInstability[best] == 0
                 // BOSS_ROUTES_BEGIN
