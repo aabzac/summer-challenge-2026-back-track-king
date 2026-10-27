@@ -36,7 +36,7 @@ class CollisionAvoidanceTest {
         assertFalse(BotFactory.configuration("current").containsKey("COLLISION_PENALTY"));
         assertEquals("true", BotFactory.configuration(C).get("USE_COLLISION_AVOIDANCE"));
         assertEquals("5.0", BotFactory.configuration(C).get("COLLISION_PENALTY"));
-        assertEquals("v12 (modified)", BotFactory.displayName(C));
+        assertEquals("v13 (modified)", BotFactory.displayName(C));
     }
 
     @Test void playsLegallyAndPenalisesSharedCells() {

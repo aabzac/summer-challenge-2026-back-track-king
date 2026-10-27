@@ -30,6 +30,6 @@ class EarningDelaySubmissionTest {
         }
         assertTrue(FileMerger.merge(Q).contains("USE_QUICK_ALWAYS=true"));
         assertTrue(FileMerger.merge(D2).contains("DELAY_POWER=2.0"));
-        assertEquals("v12 (modified)", BotFactory.displayName(Q));
+        assertEquals("v13 (modified)", BotFactory.displayName(Q));
     }
 }

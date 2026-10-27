@@ -89,7 +89,7 @@ class PruneV1Test {
         }
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v10?USE_ROLLOUT_RHEA=1"));
         // Since the v11 promotion the test helper also switches the root-target flag off (the lite chooser off implies it).
-        assertEquals(BotFactory.V10_FLAGS_OFF + "," + BotFactory.V11_FLAGS_OFF + "," + BotFactory.V12_FLAGS_OFF, LiveTargetExperimentParams.V10_OFF);
+        assertEquals(BotFactory.V10_FLAGS_OFF + "," + BotFactory.V11_FLAGS_OFF + "," + BotFactory.V12_FLAGS_OFF + "," + BotFactory.V13_FLAGS_OFF, LiveTargetExperimentParams.V10_OFF);
         assertTrue(BotFactory.PRUNED_ROLLOUT_FLAGS.containsAll(List.of("USE_ROLLOUT_SPREAD", "USE_ROLLOUT_NETWORK_CHORDS",
                 "USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL", "USE_ROLLOUT_LIVE_TARGET", "USE_ROLLOUT_TRACK_VALUE")));
     }

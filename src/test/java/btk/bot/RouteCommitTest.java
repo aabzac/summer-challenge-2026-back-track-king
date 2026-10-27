@@ -35,7 +35,7 @@ class RouteCommitTest {
         assertFalse(BotFactory.configuration("current").containsKey("COMMIT_BONUS"));
         assertEquals("true", BotFactory.configuration(C).get("USE_ROUTE_COMMIT"));
         assertEquals("10.0", BotFactory.configuration(C).get("COMMIT_BONUS"));
-        assertEquals("v12 (modified)", BotFactory.displayName(C));
+        assertEquals("v13 (modified)", BotFactory.displayName(C));
     }
 
     @Test void playsLegallyAndBonusesContinuations() {

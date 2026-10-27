@@ -74,7 +74,7 @@ class FileMergerTest {
         assertEquals("d9507cb3e0d68de4f526cfa9da06a2b1c909182e9992f4b7a3bb6cab3d24d6d7",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
         // Measured from the pre-v2 HEAD merger; the saved default Player.java is an older export.
-        assertEquals("9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+        assertEquals("92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
@@ -105,7 +105,7 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v1")));
         assertEquals("a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v2")));
-        assertEquals("9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+        assertEquals("92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
@@ -136,7 +136,7 @@ class FileMergerTest {
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v2")));
         assertEquals("2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 FileMerger.sha256(FileMerger.merge("spatial-ppo-v3")));
-        assertEquals("9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+        assertEquals("92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
@@ -190,7 +190,7 @@ class FileMergerTest {
                 "spatial-ppo-v2", "a3d0fdb7e587478fc4b6f63cd64bb6f607c34b64384cd41cc091bcec375107a1",
                 "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -282,7 +282,7 @@ class FileMergerTest {
                 "spatial-ppo-v3", "2e873833da40b7b73c585016fc8fe0039b77d256fe60445f60eaf1b4c967dfc7",
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -380,7 +380,7 @@ class FileMergerTest {
                 "spatial-ppo-v4", "a961638dca644f880a12224f4e385fcfbb9efbe52d5a3744e2a0c2267276bdb2",
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
                 "spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -491,7 +491,7 @@ class FileMergerTest {
                 "spatial-ppo-v5", "f5793756bf20c48af7302418b70b8fe92499b3c3eaefd3291999f1b4160550c2",
                 "spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6",
                 "spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74",
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 "neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9");
         for (var prior : hashes.entrySet()) {
@@ -577,7 +577,7 @@ class FileMergerTest {
                 Map.entry("spatial-ppo-v6", "4019ea1ab9c0e95081d5a56bcd27eff3a6b2ba9c87dbec2134b66ca94dd6d9e6"),
                 Map.entry("spatial-ppo-v7", "32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74"),
                 Map.entry("spatial-ppo-v8", "3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff"),
-                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792"),
+                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739"),
                 Map.entry("v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac"),
                 Map.entry("neural-v2", "16c49e637b808e82686651368155ea77032848faf9b3c83007433d69d6eb02a9"));
         for (var prior : hashes.entrySet()) {

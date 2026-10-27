@@ -21,11 +21,11 @@ class BossSabotageSubmissionTest {
     @Test void disabledFlagPreservesSelectedFrozenAndPreviousCandidateArtifacts() throws Exception {
         assertFalse(new Params().USE_BOSS_SABOTAGE);
         assertTrue(new Params().USE_BOSS_LITE, "selected default since the v10 promotion");
-        assertEquals("9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+        assertEquals("92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 FileMerger.sha256(FileMerger.merge(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT)));
         assertEquals("aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
                 FileMerger.sha256(FileMerger.merge("v09")));
-        assertEquals("80245370b0a0c11b8df8499538ec9a9e4094fc90f7a087ad2e102a169ecf8d1f",
+        assertEquals("1fa974e7615d6d40b3d5e51995071df5adca82f8e494053edeee547da3e9a034",
                 FileMerger.sha256(FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
         for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0.1,USE_BATCHED_REFRESH=true"}) {
             assertFalse(FileMerger.merge(spec).contains("BossSabotage"), spec);

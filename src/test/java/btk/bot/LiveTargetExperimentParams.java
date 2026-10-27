@@ -25,10 +25,13 @@ public final class LiveTargetExperimentParams {
      * v11 promotion (2026-10-25) also the root-target flag, so that a historical spec that re-enables the lite chooser on
      * this base (boss-sabotage-v2, opponent-model-v1, ...) keeps its measured configuration.
      */
-    public static final String V10_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_BOSS_ROOT_TARGET=0,USE_EXPOSURE_INCOME=0";
+    public static final String V10_OFF = "USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_BOSS_ROOT_TARGET=0,USE_EXPOSURE_INCOME=0,USE_BYPASS_ROUTES=0";
     public static final String V09_ON_CURRENT = "current?" + V10_OFF;
-    /** The selected v12 flag switched off (2026-10-25 night): the v11 configuration expressed on current. */
-    public static final String V12_OFF = "USE_EXPOSURE_INCOME=0";
+    /** The selected v13 flag switched off (2026-10-27): the v12 configuration expressed on current. */
+    public static final String V13_OFF = "USE_BYPASS_ROUTES=0";
+    public static final String V12_ON_CURRENT = "current?" + V13_OFF;
+    /** The selected v12 and v13 flags switched off (since 2026-10-27): the v11 configuration expressed on current. */
+    public static final String V12_OFF = "USE_EXPOSURE_INCOME=0," + V13_OFF;
     public static final String V11_ON_CURRENT = "current?" + V12_OFF;
     /** The selected v11 and v12 flags switched off: the v10 configuration expressed on current. */
     public static final String V11_OFF = "USE_BOSS_ROOT_TARGET=0," + V12_OFF;
@@ -40,8 +43,10 @@ public final class LiveTargetExperimentParams {
     public static final String D_SPEC = "current?NOISE=0.1,USE_BOSS_LITE=true,USE_BOSS_OPPONENT_MODEL=true,USE_BOSS_OWN_MODEL=true,USE_BOSS_LITE_ROUTES=true,USE_INCREMENTAL_INK_REFRESH=true,USE_FAST_CHEAPEST_PATH=true,USE_BATCHED_REFRESH=true," + V11_OFF;
     /** The spec that was screened, process-checked and live-tested as B (= v11 since the 2026-10-25 promotion); since v12 it needs the exposure flag off explicitly. */
     public static final String B_SPEC = "current?USE_BOSS_ROOT_TARGET=true," + V12_OFF;
-    /** The spec that was screened, process-checked and live-tested as E1 (= v12 since the 2026-10-25 promotion). */
-    public static final String E_SPEC = "current?USE_EXPOSURE_INCOME=true";
+    /** The spec that was screened, process-checked and live-tested as E1 (= v12 since the 2026-10-25 promotion); since v13 it needs the bypass flag off explicitly. */
+    public static final String E_SPEC = "current?USE_EXPOSURE_INCOME=true," + V13_OFF;
+    /** The spec that was screened, process-checked and live-tested as B2 (= v13 since the 2026-10-27 promotion). */
+    public static final String B2_SPEC = "current?USE_BYPASS_ROUTES=true";
 
     /** Fresh parameters of the v09 configuration (the seven v10 flags off) for mechanism tests written before the promotion. */
     public static Params v09Params() {

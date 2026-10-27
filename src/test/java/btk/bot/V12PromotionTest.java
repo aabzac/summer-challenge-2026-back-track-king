@@ -45,7 +45,8 @@ class V12PromotionTest {
         assertEquals(v11, withoutFlag, "v12 = v11 + USE_EXPOSURE_INCOME (weight 1.0), nothing retuned");
         var frozenExpected = new TreeMap<>(expected);
         LiveTargetExperimentParams.removeCurrentOnlyAndCheck(frozenExpected); // the frozen package omits the two current-only fields
-        for (String spec : new String[]{"current", "main", E_SPEC}) {
+        // Since the v13 promotion (2026-10-27) the v12 configuration is current with the bypass flag off.
+        for (String spec : new String[]{LiveTargetExperimentParams.V12_ON_CURRENT, E_SPEC}) {
             assertEquals(expected, new TreeMap<>(BotFactory.configuration(spec)), spec);
         }
         assertEquals(frozenExpected, new TreeMap<>(BotFactory.configuration("v12")), "v12");
@@ -59,9 +60,10 @@ class V12PromotionTest {
         assertInstanceOf(RolloutBotV12.class, BotFactory.create("v12"));
         assertInstanceOf(RolloutBotV11.class, BotFactory.create("v11"));
         assertEquals("v12", BotFactory.create("v12").name());
-        assertEquals("v12", BotFactory.displayName("current"));
+        assertEquals("v13", BotFactory.displayName("current"));
         assertEquals("v12", BotFactory.displayName("v12"));
-        assertEquals("v12 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V11_ON_CURRENT));
+        assertEquals("v13 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V11_ON_CURRENT));
+        assertFalse(BotFactory.parameters("v12").USE_BYPASS_ROUTES, "frozen v12 predates the v13 flag");
         assertEquals("v11", BotFactory.displayName("v11"));
 
         Params dirty = new Params();
@@ -73,11 +75,12 @@ class V12PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 34, fields, "fields outside the v12 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 34, fields, "fields outside the v12 record: current-only experiments, neural/spatial/turn-budget overrides, the v13 flag and its two parameters");
         FrozenParams.applyTo("v12", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_BOSS_THREAT_MODEL); assertFalse(dirty.USE_BOSS_SABOTAGE);
         assertFalse(dirty.USE_ROLLOUT_ALL_CELL_RISK); assertFalse(dirty.USE_ROLLOUT_ROOT_FILL);
+        assertFalse(dirty.USE_BYPASS_ROUTES); assertEquals(2, dirty.BYPASS_MIN_INSTABILITY); assertEquals(0.5, dirty.BYPASS_WEIGHT);
         for (var entry : frozenExpected.entrySet())
             assertEquals(entry.getValue(), String.valueOf(Params.class.getField(entry.getKey()).get(dirty)), entry.getKey());
         // v11 keeps its measured configuration: its snapshot predates the flag and FrozenParams keeps it off.
@@ -90,12 +93,14 @@ class V12PromotionTest {
         // A policy that never reads the flag drops the inherited default silently; explicit requests fail; the proxy spec is unchanged.
         assertFalse(BotFactory.parameters("current?USE_ROLLOUT_POLICY=0").USE_EXPOSURE_INCOME);
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_EXPOSURE_INCOME=1"));
-        assertDoesNotThrow(() -> BotFactory.create("current?USE_BOSS_SABOTAGE=1," + BotFactory.V10_FLAGS_OFF), "the boss-v2 proxy spec");
-        assertTrue(BotFactory.parameters("current?USE_BOSS_SABOTAGE=1," + BotFactory.V10_FLAGS_OFF).USE_EXPOSURE_INCOME,
-                "the exposure discount does not depend on the lite chooser: the proxy spec written without the v12 flag now carries it");
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_BOSS_SABOTAGE=1," + BotFactory.V10_FLAGS_OFF),
+                "since the v13 promotion a sabotage proxy spec must switch the bypass flag off explicitly");
+        assertTrue(BotFactory.parameters("current?USE_BOSS_SABOTAGE=1," + BotFactory.V10_FLAGS_OFF + "," + BotFactory.V13_FLAGS_OFF).USE_EXPOSURE_INCOME,
+                "the exposure discount does not depend on the lite chooser: the proxy spec written without the v12 flag carries it");
         assertFalse(BotFactory.parameters("current?USE_BOSS_SABOTAGE=1," + LiveTargetExperimentParams.V10_OFF).USE_EXPOSURE_INCOME,
                 "the test helper switches it off explicitly");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v11?USE_EXPOSURE_INCOME=1"), "frozen v11 never had the flag");
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v12?USE_BYPASS_ROUTES=1"), "frozen v12 never had the v13 flag");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v10?USE_EXPOSURE_INCOME=1"));
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v12?USE_ROLLOUT_SPREAD=1"), "the pruned experiments are refused on v12 as on current");
         assertDoesNotThrow(() -> BotFactory.create("v12?USE_BOSS_THREAT_MODEL=1"), "the parked sibling flag exists on the frozen copy");

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /** exposure-income-v1 (2026-10-25): the flag ships only inside its {@code // EXPOSURE_INCOME} block; the default artifact is untouched (V11SubmissionTest). */
 class ExposureIncomeSubmissionTest {
-    static final String E = "current?USE_EXPOSURE_INCOME=true";
+    static final String E = btk.bot.LiveTargetExperimentParams.E_SPEC; // since the v13 promotion: current?USE_EXPOSURE_INCOME=true,USE_BYPASS_ROUTES=0
 
     /** Since the v12 promotion (2026-10-25 night) the "flag off" configuration is the v11 one on current. */
     static final String OFF = btk.bot.LiveTargetExperimentParams.V11_ON_CURRENT;
@@ -24,7 +24,7 @@ class ExposureIncomeSubmissionTest {
         assertTrue(on.contains("private void exposureIncome(") && on.contains("exposureThreatDiff"));
         assertTrue(on.length() > off.length());
         assertNotEquals(FileMerger.configSha256(OFF), FileMerger.configSha256(E));
-        assertEquals(FileMerger.configSha256("current"), FileMerger.configSha256(E), "E1 is the selected configuration");
+        assertEquals(FileMerger.configSha256(btk.bot.LiveTargetExperimentParams.V12_ON_CURRENT), FileMerger.configSha256(E), "E1 is the v12 configuration");
         assertEquals(FileMerger.configSha256(E), FileMerger.configSha256(E + ",EXPOSURE_INCOME_WEIGHT=1.0"));
         assertNotEquals(FileMerger.configSha256(E), FileMerger.configSha256(E + ",EXPOSURE_INCOME_WEIGHT=0.5"));
         Path dir = Files.createTempDirectory("exposure-artifact");
@@ -32,6 +32,6 @@ class ExposureIncomeSubmissionTest {
         Files.writeString(source, on);
         assertEquals(0, javax.tools.ToolProvider.getSystemJavaCompiler().run(null, null, null,
                 "-encoding", "UTF-8", "--release", "17", "-d", dir.toString(), source.toString()));
-        assertEquals("v12", BotFactory.displayName(E));
+        assertEquals("v13 (modified)", BotFactory.displayName(E));
     }
 }

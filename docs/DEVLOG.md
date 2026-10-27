@@ -9275,3 +9275,20 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   P0 10 vs 9, P1 14 vs 12 (`evidence/bypass-routes-v1/live-session-1/`).
 - **Reading.** Passes the session threshold (+5 pp) on a thin sample. Live sessions of the line: D +22.5, B +2.5, E1 +5.0, K1 −15,
   Q −5, C10 −10, B2 +7.5. Decision open to the user: v13 now, or session 2 (another day; 160 API games were used today).
+
+## 2026-10-27 — Promote B2 to v13 "Bypass Routes" (user decision, session 2 skipped)
+
+- The user's "Делаем v13" after B2's live session 1 (24/40 vs v12 21/40, +7.5 pp, 5 : 2). Deviation from policy v5 recorded in
+  `docs/v13-promotion.md` (one live session instead of two, as at the v10–v12 promotions).
+- `USE_BYPASS_ROUTES` defaults to true; `btk.bot.v13` = byte copies of current's RolloutBot / BossSabotage / ProtectedOpening with
+  identity changes only; `versions/v13.properties` = 136 values (v12's 133 + the flag and its two parameters) = B2's manifest.
+  BotFactory selects v13; the inherited flag is dropped silently for non-rollout policies and refused when explicit; `v12?…=1`
+  refused; **a `USE_BOSS_SABOTAGE=1` spec with the bypass flag on is refused** (proxy spec gains `USE_BYPASS_ROUTES=0`;
+  `run_replication.sh` updated). FileMerger exports v13 readably; catalog v13 selected, v12 historical.
+- Tests: `V13PromotionTest`, `V13SubmissionTest`; v12 tests on `V12_ON_CURRENT`; helper specs carry `USE_BYPASS_ROUTES=0`. Every
+  current-based pin moved with the label; each was checked by merging the pinned spec from the last commit and from the new tree:
+  the artifacts differ only in the marker's label/build id and the header comment (configs unchanged); frozen v09–v12 exports keep
+  their bytes. `gradlew test`: 863 tests, the 25 known failures only.
+- Default artifact `build/submit-v13`: 94,816 chars, sha `3d3e861d…`, build `fb92323e…`, config `8c4b3d6d…` (= B2's); frozen export
+  94,781 chars (`7b7dac9a…`). Strict `procCheck` (zero grace, 4 games vs v09): 0 problem games, 0 timeouts, first ≤ 573 ms, later
+  ≤ 43.2 ms. Arena upload of `build/submit-v13/Player.java` is the user's step (the arena runs v12, agent 6814073).

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * tail and in the route proposals' completion gain. Default off; the artifact without it is byte-identical (ExposureIncomeSubmissionTest).
  */
 class ExposureIncomeTest {
-    static final String E = "current?USE_EXPOSURE_INCOME=true";
+    static final String E = LiveTargetExperimentParams.E_SPEC; // since the v13 promotion: current?USE_EXPOSURE_INCOME=true,USE_BYPASS_ROUTES=0
 
     private static Referee.Result play(Bot a, String b, long seed) {
         GameState initial = MapGenerator.generate(seed);
@@ -42,8 +42,8 @@ class ExposureIncomeTest {
         assertFalse(BotFactory.parameters("current?USE_ROLLOUT_POLICY=0").USE_EXPOSURE_INCOME, "non-rollout policies drop the inherited default");
         assertEquals("true", BotFactory.configuration(E).get("USE_EXPOSURE_INCOME"));
         assertEquals("1.0", BotFactory.configuration(E).get("EXPOSURE_INCOME_WEIGHT"));
-        assertEquals("v12", BotFactory.displayName(E));
-        assertEquals("v12 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V11_ON_CURRENT));
+        assertEquals("v13 (modified)", BotFactory.displayName(E), "the v12 configuration since the v13 promotion");
+        assertEquals("v13 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V11_ON_CURRENT));
     }
 
     @Test void playsLegallyAndUsesTheDiscountedIncome() {

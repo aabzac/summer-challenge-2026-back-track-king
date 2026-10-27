@@ -147,8 +147,8 @@ public class Params {
     public double COMMIT_BONUS = 10.0;
     // COMMIT_END
     // BYPASS_BEGIN
-    /** bypass-routes-v1 (2026-10-27): for each own earning connection that crosses non-town regions at instability >= BYPASS_MIN_INSTABILITY, the bot proposes the cheapest route avoiding all of them, valued by the income difference after those regions are inked with the route built against the same inks without it (weight BYPASS_WEIGHT, the rest is the plain income gain); docs/bypass-routes-v1.md. Current-only rollout experiment, default off. */
-    public boolean USE_BYPASS_ROUTES = false;
+    /** Selected v13 (bypass-routes-v1, 2026-10-27): for each own earning connection that crosses non-town regions at instability >= BYPASS_MIN_INSTABILITY, the bot proposes the cheapest route avoiding all of them, valued by the income difference after those regions are inked with the route built against the same inks without it (weight BYPASS_WEIGHT, the rest is the plain income gain); docs/bypass-routes-v1.md. */
+    public boolean USE_BYPASS_ROUTES = true;
     public int BYPASS_MIN_INSTABILITY = 2;
     public double BYPASS_WEIGHT = 0.5;
     // BYPASS_END
