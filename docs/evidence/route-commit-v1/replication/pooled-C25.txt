@@ -1,0 +1,4 @@
+  build/analysis/commit-v1:C25-vs-boss2         vs cur: maps 150  delta  +4.7 pp +- 5.6
+  build/analysis/commit-v1-rep:C25-vs-boss2         vs cur: maps 150  delta  +0.7 pp +- 6.1
+  pooled over 2 pools: maps 300  delta  +2.7 pp +- 4.1
+  step 1a: replication positive, pooled +2.7 pp -> stop

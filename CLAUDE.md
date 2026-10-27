@@ -67,6 +67,8 @@ showed there is **no construction blind spot**: on a fresh pool the policy proxy
 with both live signs — the passes were selection noise (best of two arms, ±7 pp, +3 pp gate). **Proposed policy-v5 amendment (user decision):
 replicate step (a) on a fresh pool before (b) and the live step.** `proxy-agreement-v1`'s blind spot was the proxy's winning-closure shortcut
 in the boss's won tails (`USE_BOSS_NO_CLOSE`, default off, not validated).
+**`route-commit-v1` (2026-10-27): C10 = `current?USE_ROUTE_COMMIT=true` passed (a) +7.0 pp, step 1a (pooled +4.8 ± 3.8 pp) and (b) 52.7 %**;
+its live session (`build/cg-boss/commit-c10-v12-boss-40`, 80 games vs v12) awaits the user's word; a pass means v13 on the user's decision.
 Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
