@@ -9229,3 +9229,22 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0, C10 −10.0 pp.
 - **Open to the user:** session 2 (80 API games) or park C10 (recommended). No upload, `current` unchanged.
 - **Verdict (08:20 UTC, the user's "Отложить"): C10 parked**, no second session; flag stays, default off.
+
+## 2026-10-27 — `late-game-v1`: what the winners build in their last third — not a lever
+
+- The user's "Да" (PLAN item from `end-forecast-v1`), fresh branch from master after the merge. Corpora: Indrill's 282 contest
+  games and v12's 147 arena games. New `btk.tools.InkRescueStudy` and `tools/diagnostics/late_game_{trajectory,cells,rescue}.py`;
+  the regenerated Indrill `cgCellStudy` export equals September's. Evidence `docs/evidence/late-game-v1/`, write-up
+  `docs/late-game-v1.md`.
+- **Score trajectory.** At 2/3 of the game 89 % (v12 wins), 94 % (v12 losses) and 83 % (Indrill wins) of the points are
+  scored; v12's leader changes after 2/3 L in 12 of 147 games (net +2 for us); a drawn last third would turn 5 of 58 losses.
+  The losses are decided between 0.2 L and 2/3 L (median gap −44 → −412).
+- **Last-third paint.** Indrill 2.72 paint/turn, 26 % earns, 1.2 pts/paint, 56 % filler; v12 in its wins 2.61, 21 %, 1.2, 58 %.
+  Same behaviour, same yield.
+- **Protection.** A connection one disrupt from ink is covered by an existing alternative for 17 / 16 % (v12 wins, v12 / opp),
+  14 / 13 % (losses), 25 / 25 % (Indrill / opp): a property of the game's rails, shared by both sides.
+- **Middle third.** v12's losses: its paint earns 35 % vs 62 %, 43 % filler (earning 9 %), bypass share 9 vs 20 %. v12 proposes
+  bypasses only around the single predicted threat region (`propose` variant 2; the instability surcharge applies to free cells,
+  so variant 0 never re-routes an active pair).
+- **Verdict:** late-game item closed; no candidate from the last third. Next direction = user decision (a middle-game bypass
+  candidate is the construction line's open option).

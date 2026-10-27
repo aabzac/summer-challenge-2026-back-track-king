@@ -1,0 +1,505 @@
+{
+ "label": "v12",
+ "games": {
+  "loss": 58,
+  "win": 89
+ },
+ "cells": {
+  "win": {
+   "1": {
+    "v12": {
+     "paintPerTurn": 2.99,
+     "cellsPerTurn": 2.65,
+     "earns": 0.856,
+     "lostUnearned": 0.121,
+     "pointsPerPaint": 33.2,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.122,
+       "earns": 0.874,
+       "pointsPerPaint": 33.1
+      },
+      "steal": {
+       "paintShare": 0.041,
+       "earns": 0.856,
+       "pointsPerPaint": 30.5
+      },
+      "complete": {
+       "paintShare": 0.808,
+       "earns": 0.855,
+       "pointsPerPaint": 33.8
+      },
+      "extend": {
+       "paintShare": 0.004,
+       "earns": 0.8,
+       "pointsPerPaint": 16.8
+      },
+      "filler": {
+       "paintShare": 0.025,
+       "earns": 0.835,
+       "pointsPerPaint": 21.8
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.852,
+      "pairsStolen": 0.053,
+      "pairsBypassed": 0.085,
+      "pairsOther": 0.011
+     }
+    },
+    "opponent": {
+     "paintPerTurn": 2.96,
+     "cellsPerTurn": 2.61,
+     "earns": 0.812,
+     "lostUnearned": 0.153,
+     "pointsPerPaint": 23.2,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.16,
+       "earns": 0.84,
+       "pointsPerPaint": 24.6
+      },
+      "steal": {
+       "paintShare": 0.041,
+       "earns": 0.754,
+       "pointsPerPaint": 22.8
+      },
+      "complete": {
+       "paintShare": 0.752,
+       "earns": 0.811,
+       "pointsPerPaint": 23.5
+      },
+      "extend": {
+       "paintShare": 0.009,
+       "earns": 0.857,
+       "pointsPerPaint": 11.7
+      },
+      "filler": {
+       "paintShare": 0.039,
+       "earns": 0.783,
+       "pointsPerPaint": 13.9
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.797,
+      "pairsStolen": 0.113,
+      "pairsBypassed": 0.081,
+      "pairsOther": 0.009
+     }
+    }
+   },
+   "2": {
+    "v12": {
+     "paintPerTurn": 2.91,
+     "cellsPerTurn": 2.23,
+     "earns": 0.626,
+     "lostUnearned": 0.192,
+     "pointsPerPaint": 12.3,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.179,
+       "earns": 0.831,
+       "pointsPerPaint": 19.0
+      },
+      "steal": {
+       "paintShare": 0.068,
+       "earns": 0.72,
+       "pointsPerPaint": 10.4
+      },
+      "complete": {
+       "paintShare": 0.472,
+       "earns": 0.758,
+       "pointsPerPaint": 15.7
+      },
+      "extend": {
+       "paintShare": 0.092,
+       "earns": 0.309,
+       "pointsPerPaint": 2.6
+      },
+      "filler": {
+       "paintShare": 0.19,
+       "earns": 0.228,
+       "pointsPerPaint": 2.9
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.657,
+      "pairsStolen": 0.075,
+      "pairsBypassed": 0.241,
+      "pairsOther": 0.027
+     }
+    },
+    "opponent": {
+     "paintPerTurn": 2.57,
+     "cellsPerTurn": 2.01,
+     "earns": 0.659,
+     "lostUnearned": 0.241,
+     "pointsPerPaint": 10.3,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.233,
+       "earns": 0.793,
+       "pointsPerPaint": 13.2
+      },
+      "steal": {
+       "paintShare": 0.055,
+       "earns": 0.653,
+       "pointsPerPaint": 8.0
+      },
+      "complete": {
+       "paintShare": 0.464,
+       "earns": 0.712,
+       "pointsPerPaint": 11.9
+      },
+      "extend": {
+       "paintShare": 0.053,
+       "earns": 0.702,
+       "pointsPerPaint": 6.2
+      },
+      "filler": {
+       "paintShare": 0.195,
+       "earns": 0.372,
+       "pointsPerPaint": 4.5
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.555,
+      "pairsStolen": 0.306,
+      "pairsBypassed": 0.111,
+      "pairsOther": 0.028
+     }
+    }
+   },
+   "3": {
+    "v12": {
+     "paintPerTurn": 2.61,
+     "cellsPerTurn": 1.97,
+     "earns": 0.208,
+     "lostUnearned": 0.238,
+     "pointsPerPaint": 1.2,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.063,
+       "earns": 0.732,
+       "pointsPerPaint": 5.2
+      },
+      "steal": {
+       "paintShare": 0.022,
+       "earns": 0.61,
+       "pointsPerPaint": 2.7
+      },
+      "complete": {
+       "paintShare": 0.189,
+       "earns": 0.515,
+       "pointsPerPaint": 3.0
+      },
+      "extend": {
+       "paintShare": 0.144,
+       "earns": 0.211,
+       "pointsPerPaint": 0.7
+      },
+      "filler": {
+       "paintShare": 0.583,
+       "earns": 0.056,
+       "pointsPerPaint": 0.3
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.523,
+      "pairsStolen": 0.082,
+      "pairsBypassed": 0.333,
+      "pairsOther": 0.062
+     }
+    },
+    "opponent": {
+     "paintPerTurn": 1.28,
+     "cellsPerTurn": 0.88,
+     "earns": 0.37,
+     "lostUnearned": 0.336,
+     "pointsPerPaint": 1.8,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.122,
+       "earns": 0.622,
+       "pointsPerPaint": 3.6
+      },
+      "steal": {
+       "paintShare": 0.016,
+       "earns": 0.286,
+       "pointsPerPaint": 0.9
+      },
+      "complete": {
+       "paintShare": 0.296,
+       "earns": 0.558,
+       "pointsPerPaint": 3.1
+      },
+      "extend": {
+       "paintShare": 0.111,
+       "earns": 0.44,
+       "pointsPerPaint": 1.2
+      },
+      "filler": {
+       "paintShare": 0.455,
+       "earns": 0.18,
+       "pointsPerPaint": 0.7
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.529,
+      "pairsStolen": 0.332,
+      "pairsBypassed": 0.113,
+      "pairsOther": 0.027
+     }
+    }
+   }
+  },
+  "loss": {
+   "1": {
+    "v12": {
+     "paintPerTurn": 2.98,
+     "cellsPerTurn": 2.58,
+     "earns": 0.805,
+     "lostUnearned": 0.156,
+     "pointsPerPaint": 27.0,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.135,
+       "earns": 0.914,
+       "pointsPerPaint": 30.1
+      },
+      "steal": {
+       "paintShare": 0.057,
+       "earns": 0.776,
+       "pointsPerPaint": 23.5
+      },
+      "complete": {
+       "paintShare": 0.729,
+       "earns": 0.829,
+       "pointsPerPaint": 28.9
+      },
+      "extend": {
+       "paintShare": 0.019,
+       "earns": 0.377,
+       "pointsPerPaint": 3.2
+      },
+      "filler": {
+       "paintShare": 0.061,
+       "earns": 0.427,
+       "pointsPerPaint": 7.3
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.782,
+      "pairsStolen": 0.095,
+      "pairsBypassed": 0.111,
+      "pairsOther": 0.012
+     }
+    },
+    "opponent": {
+     "paintPerTurn": 2.92,
+     "cellsPerTurn": 2.59,
+     "earns": 0.842,
+     "lostUnearned": 0.144,
+     "pointsPerPaint": 33.5,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.196,
+       "earns": 0.916,
+       "pointsPerPaint": 37.6
+      },
+      "steal": {
+       "paintShare": 0.053,
+       "earns": 0.88,
+       "pointsPerPaint": 27.5
+      },
+      "complete": {
+       "paintShare": 0.685,
+       "earns": 0.827,
+       "pointsPerPaint": 34.6
+      },
+      "extend": {
+       "paintShare": 0.01,
+       "earns": 0.765,
+       "pointsPerPaint": 22.1
+      },
+      "filler": {
+       "paintShare": 0.057,
+       "earns": 0.765,
+       "pointsPerPaint": 14.2
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.706,
+      "pairsStolen": 0.13,
+      "pairsBypassed": 0.146,
+      "pairsOther": 0.018
+     }
+    }
+   },
+   "2": {
+    "v12": {
+     "paintPerTurn": 2.77,
+     "cellsPerTurn": 2.17,
+     "earns": 0.351,
+     "lostUnearned": 0.379,
+     "pointsPerPaint": 5.7,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.089,
+       "earns": 0.769,
+       "pointsPerPaint": 14.1
+      },
+      "steal": {
+       "paintShare": 0.041,
+       "earns": 0.693,
+       "pointsPerPaint": 9.6
+      },
+      "complete": {
+       "paintShare": 0.333,
+       "earns": 0.566,
+       "pointsPerPaint": 9.8
+      },
+      "extend": {
+       "paintShare": 0.104,
+       "earns": 0.339,
+       "pointsPerPaint": 2.1
+      },
+      "filler": {
+       "paintShare": 0.432,
+       "earns": 0.093,
+       "pointsPerPaint": 1.2
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.625,
+      "pairsStolen": 0.222,
+      "pairsBypassed": 0.122,
+      "pairsOther": 0.031
+     }
+    },
+    "opponent": {
+     "paintPerTurn": 2.09,
+     "cellsPerTurn": 1.62,
+     "earns": 0.62,
+     "lostUnearned": 0.297,
+     "pointsPerPaint": 11.2,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.2,
+       "earns": 0.868,
+       "pointsPerPaint": 16.9
+      },
+      "steal": {
+       "paintShare": 0.052,
+       "earns": 0.705,
+       "pointsPerPaint": 10.2
+      },
+      "complete": {
+       "paintShare": 0.412,
+       "earns": 0.725,
+       "pointsPerPaint": 14.2
+      },
+      "extend": {
+       "paintShare": 0.075,
+       "earns": 0.603,
+       "pointsPerPaint": 5.5
+      },
+      "filler": {
+       "paintShare": 0.261,
+       "earns": 0.256,
+       "pointsPerPaint": 4.0
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.569,
+      "pairsStolen": 0.165,
+      "pairsBypassed": 0.234,
+      "pairsOther": 0.032
+     }
+    }
+   },
+   "3": {
+    "v12": {
+     "paintPerTurn": 1.88,
+     "cellsPerTurn": 1.43,
+     "earns": 0.088,
+     "lostUnearned": 0.351,
+     "pointsPerPaint": 0.5,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.031,
+       "earns": 0.689,
+       "pointsPerPaint": 6.7
+      },
+      "steal": {
+       "paintShare": 0.012,
+       "earns": 0.444,
+       "pointsPerPaint": 0.8
+      },
+      "complete": {
+       "paintShare": 0.102,
+       "earns": 0.304,
+       "pointsPerPaint": 1.5
+      },
+      "extend": {
+       "paintShare": 0.071,
+       "earns": 0.244,
+       "pointsPerPaint": 1.0
+      },
+      "filler": {
+       "paintShare": 0.785,
+       "earns": 0.022,
+       "pointsPerPaint": 0.1
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.36,
+      "pairsStolen": 0.295,
+      "pairsBypassed": 0.289,
+      "pairsOther": 0.056
+     }
+    },
+    "opponent": {
+     "paintPerTurn": 0.8,
+     "cellsPerTurn": 0.58,
+     "earns": 0.296,
+     "lostUnearned": 0.451,
+     "pointsPerPaint": 1.7,
+     "byClass": {
+      "bypass": {
+       "paintShare": 0.077,
+       "earns": 0.761,
+       "pointsPerPaint": 5.8
+      },
+      "steal": {
+       "paintShare": 0.026,
+       "earns": 0.762,
+       "pointsPerPaint": 3.9
+      },
+      "complete": {
+       "paintShare": 0.234,
+       "earns": 0.606,
+       "pointsPerPaint": 3.5
+      },
+      "extend": {
+       "paintShare": 0.064,
+       "earns": 0.38,
+       "pointsPerPaint": 1.8
+      },
+      "filler": {
+       "paintShare": 0.599,
+       "earns": 0.078,
+       "pointsPerPaint": 0.3
+      }
+     },
+     "firstEarnPairs": {
+      "pairsInactiveAtT": 0.522,
+      "pairsStolen": 0.191,
+      "pairsBypassed": 0.226,
+      "pairsOther": 0.061
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+Indrill: 282 games
+  win: 265 games, median length 48
+    at 0.20 L: median diff     -4, ahead  91/265, share of final points 0.05
+    at 0.33 L: median diff     19, ahead 163/265, share of final points 0.22
+    at 0.50 L: median diff    156, ahead 227/265, share of final points 0.56
+    at 0.67 L: median diff    244, ahead 253/265, share of final points 0.83
+    at 0.80 L: median diff    299, ahead 264/265, share of final points 0.94
+    at 1.00 L: median diff    339, ahead 265/265, share of final points 1.00
+    leader changes after 2/3 L: 12/265
+  loss: 17 games, median length 39
+    at 0.20 L: median diff    -11, ahead   3/17, share of final points 0.04
+    at 0.33 L: median diff    -25, ahead   6/17, share of final points 0.23
+    at 0.50 L: median diff    -33, ahead   3/17, share of final points 0.65
+    at 0.67 L: median diff    -63, ahead   2/17, share of final points 0.85
+    at 0.80 L: median diff    -38, ahead   2/17, share of final points 0.95
+    at 1.00 L: median diff    -20, ahead   0/17, share of final points 1.00
+    leader changes after 2/3 L: 2/17

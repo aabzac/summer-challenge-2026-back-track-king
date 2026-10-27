@@ -1,0 +1,26 @@
+=== v12 wins: 89 games ===
+  third 1 (1789 game-turns)
+    v12       at-risk pair-turns/turn 1.24 (tracks at stake  13.0/turn), covered  13% (tracks kept  10%) | hits/turn 0.94 (tracks   9.8/turn), rescued  17%, tracks kept  15%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.15 (tracks at stake  10.3/turn), covered  12% (tracks kept   9%) | hits/turn 0.90 (tracks   8.4/turn), rescued  15%, tracks kept  10%, prepared  99% of rescues
+  third 2 (1758 game-turns)
+    v12       at-risk pair-turns/turn 2.29 (tracks at stake  30.8/turn), covered  19% (tracks kept  17%) | hits/turn 1.54 (tracks  20.7/turn), rescued  19%, tracks kept  17%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 2.18 (tracks at stake  20.0/turn), covered  19% (tracks kept  14%) | hits/turn 1.47 (tracks  14.3/turn), rescued  19%, tracks kept  13%, prepared 100% of rescues
+  third 3 (1731 game-turns)
+    v12       at-risk pair-turns/turn 0.60 (tracks at stake   6.7/turn), covered  18% (tracks kept  13%) | hits/turn 0.47 (tracks   5.2/turn), rescued  18%, tracks kept  16%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 0.58 (tracks at stake   4.4/turn), covered  17% (tracks kept  13%) | hits/turn 0.46 (tracks   3.6/turn), rescued  17%, tracks kept  12%, prepared 100% of rescues
+  third all (5278 game-turns)
+    v12       at-risk pair-turns/turn 1.38 (tracks at stake  16.8/turn), covered  17% (tracks kept  15%) | hits/turn 0.99 (tracks  11.9/turn), rescued  18%, tracks kept  16%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.31 (tracks at stake  11.6/turn), covered  16% (tracks kept  12%) | hits/turn 0.95 (tracks   8.8/turn), rescued  17%, tracks kept  12%, prepared 100% of rescues
+=== v12 losss: 58 games ===
+  third 1 (1543 game-turns)
+    v12       at-risk pair-turns/turn 1.63 (tracks at stake  14.5/turn), covered  16% (tracks kept  13%) | hits/turn 1.27 (tracks  11.7/turn), rescued  21%, tracks kept  17%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.61 (tracks at stake  17.4/turn), covered  15% (tracks kept  12%) | hits/turn 1.24 (tracks  13.7/turn), rescued  20%, tracks kept  14%, prepared  99% of rescues
+  third 2 (1512 game-turns)
+    v12       at-risk pair-turns/turn 1.58 (tracks at stake  15.5/turn), covered  16% (tracks kept  11%) | hits/turn 1.09 (tracks  11.6/turn), rescued  19%, tracks kept  14%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.54 (tracks at stake  20.3/turn), covered  15% (tracks kept  11%) | hits/turn 1.08 (tracks  14.5/turn), rescued  18%, tracks kept  13%, prepared 100% of rescues
+  third 3 (1498 game-turns)
+    v12       at-risk pair-turns/turn 0.55 (tracks at stake   2.8/turn), covered   4% (tracks kept   6%) | hits/turn 0.20 (tracks   1.7/turn), rescued  12%, tracks kept  11%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 0.63 (tracks at stake   4.5/turn), covered   3% (tracks kept   3%) | hits/turn 0.20 (tracks   2.1/turn), rescued  11%, tracks kept  10%, prepared 100% of rescues
+  third all (4553 game-turns)
+    v12       at-risk pair-turns/turn 1.26 (tracks at stake  11.0/turn), covered  14% (tracks kept  11%) | hits/turn 0.86 (tracks   8.4/turn), rescued  19%, tracks kept  15%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.27 (tracks at stake  14.1/turn), covered  13% (tracks kept  11%) | hits/turn 0.85 (tracks  10.2/turn), rescued  19%, tracks kept  13%, prepared 100% of rescues
