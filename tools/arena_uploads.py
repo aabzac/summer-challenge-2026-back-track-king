@@ -9,13 +9,17 @@ the live entry's games under replays/arena/<label>/upload-N/ (gitignored):
 
 `compare` prints every upload and every version: CG score and rank at the end of placement, win rate, an
 opponent-adjusted performance rating, and stratified head-to-head deltas on the opponents two uploads or two
-versions share. The promotion rule that reads these numbers is docs/arena-uploads.md.
+versions share — within one league, since CG scores are not comparable across leagues. The promotion rule that
+reads these numbers is docs/arena-uploads.md.
 
+  python tools/arena_uploads.py watch [--version LABEL] [--interval 15]   # fetch every 15 min until placement ends
   python tools/arena_uploads.py fetch [--version LABEL] [--agent ID] [--no-replays]
   python tools/arena_uploads.py import --version v12 --agent 6814073 [--score 29.40 --rank 316 --complete]
   python tools/arena_uploads.py compare [LABEL ...] [--out docs/evidence/arena-uploads-<date>.json]
   python tools/arena_uploads.py relabel <candidate> vNN      # at a promotion (same configuration)
 
+CG lists the games of the live agent only, and a league promotion at the end of placement replaces the agent (the
+promoted one replays its placement in the new league): `watch` keeps the games of a placement that ends in a promotion.
 API cost of a fetch: one leaderboard request, one last-battles request (results of every game of the upload) and
 one request per replay not already on disk (replays/cg is searched first). `import` is offline.
 """
@@ -38,6 +42,7 @@ PUZZLE = 'summer-challenge-2026-back-track-king'
 PLAYER = 'aabzac'
 MARKER = re.compile(r'BTK_BUILD_V1 strategy=([a-z][a-z0-9_-]{0,39}) build=([0-9a-f]{64}) config=([0-9a-f]{64})')
 DEFAULT_SCALE = 2.0  # logistic scale (CG score points) when the joint fit is not identifiable
+LEAGUES = {0: 'Wood2', 1: 'Wood1', 2: 'Bronze', 3: 'Silver', 4: 'Gold', 5: 'Legend'}  # leaderboard divisionIndex
 
 
 class BudgetExhausted(Exception):
@@ -285,10 +290,10 @@ def fetch(args, api=None):
     live = entry is not None and entry.get('agentId') == agent_id
     battles = [b for b in api.battles(agent_id) if b.get('done')]
     print(f"agent {agent_id}{' (live entry)' if live else ''}: {len(battles)} finished games in the last-battles window")
-    if not battles and not live:
-        print('  CG lists the games of the live entry only: an upload has to be fetched before it is replaced')
-
     existing = next(((d, m) for d, m in uploads(root) if m.get('agentId') == agent_id), None)
+    if not battles and existing is None:
+        raise SystemExit('  nothing filed: no finished games' + ('' if live else ' (CG lists the games of the live entry '
+                                                                               'only: fetch an upload before it is replaced)'))
     games, marker = {}, (existing[1].get('marker') if existing else None)
     if existing is None:
         for battle in battles:
@@ -302,6 +307,12 @@ def fetch(args, api=None):
     if args.version and args.version != label:
         raise SystemExit(f'agent {agent_id} is filed as {label}, not {args.version}')
     meta.setdefault('player', args.player)
+    if live and existing is None:
+        promoted = promoted_from(root, label, (entry.get('league') or {}).get('divisionIndex'))
+        if promoted:
+            meta['promotedFrom'] = promoted
+            print(f'  league promotion: this agent replays the placement of {label} agent {promoted} in '
+                  f"{LEAGUES.get((entry.get('league') or {}).get('divisionIndex'), '?')}")
     if live:
         meta['userId'] = (entry.get('codingamer') or {}).get('userId')
         if entry.get('creationTime'):
@@ -359,6 +370,41 @@ def fetch(args, api=None):
     return directory
 
 
+def promoted_from(root, label, division):
+    """The agent of `label` last seen in a lower league, when the new live agent is its promotion (not a Submit)."""
+    latest = None
+    for _, meta in uploads(root):
+        snapshots = meta.get('snapshots') or []
+        if meta.get('label') == label and snapshots and snapshots[-1].get('at'):
+            if latest is None or snapshots[-1]['at'] > latest[1]['at']:
+                latest = (meta, snapshots[-1])
+    if latest and division is not None and latest[1].get('division') is not None and latest[1]['division'] < division:
+        return latest[0].get('agentId')
+    return None
+
+
+def watch(args, api_factory=None, sleep=time.sleep):
+    """Fetch the live entry every --interval minutes until its placement ends (a promotion replaces the agent)."""
+    deadline = time.time() + args.hours * 3600
+    while True:
+        try:
+            directory = fetch(args, api_factory() if api_factory else None)
+        except (urllib.error.URLError, OSError, ValueError) as error:
+            print(f'  fetch failed ({type(error).__name__}: {error}); retrying next round')
+            directory = None
+        last = {}
+        if directory is not None:
+            last = (read_json(directory / 'upload.json').get('snapshots') or [{}])[-1]
+            if last.get('percentage') == 100 and not last.get('inProgress'):
+                print(f'placement finished: {directory}')
+                return directory
+        if time.time() > deadline:
+            print('deadline reached; placement not finished')
+            return directory
+        # near the end of placement poll every few minutes: a promotion replaces the agent right after its last game
+        sleep(60 * (min(args.interval, 3) if (last.get('percentage') or 0) >= 85 else args.interval))
+
+
 def load_game(battle, caches, api, directory):
     """A replay from the upload directory, a cache (replays/cg), or the API (with btkNicknames like CgFetch)."""
     game_id = battle['gameId']
@@ -400,6 +446,8 @@ def import_upload(args):
     meta['source'] = 'import'
     if args.note:
         meta['note'] = args.note
+    if args.division is not None:
+        meta['division'] = args.division
     rows = load_rows(directory)
     for game_id, game in found.items():
         store_game(directory, game_id, game)
@@ -407,7 +455,7 @@ def import_upload(args):
     if args.score is not None:
         meta['snapshots'].append({'at': args.at or now(), 'rank': args.rank, 'score': args.score,
                                   'percentage': 100 if args.complete else None, 'games': args.games or len(rows),
-                                  'source': 'manual'})
+                                  'division': args.division, 'source': 'manual'})
     write_json(directory / 'upload.json', meta)
     save_rows(directory, rows)
     print(f'{label}/{directory.name}: {len(rows)} games of agent {args.agent} imported, marker '
@@ -574,40 +622,56 @@ def collect(root, labels=None):
     return found
 
 
+def league(meta):
+    """The league an upload placed in: its placement snapshot's division, else the latest one's, else a recorded one."""
+    for snapshot in [placement(meta)] + list(reversed(meta.get('snapshots') or [])):
+        if snapshot and snapshot.get('division') is not None:
+            return snapshot['division']
+    return meta.get('division')
+
+
 def compare(root, labels=None):
+    """Uploads, then versions and shared-opponent pairs within one league (CG scores do not compare across leagues)."""
     found = collect(root, labels)
     if not found:
         raise SystemExit(f'no uploads under {root}')
-    scale, fitted = fit_scale([rated(u['rows']) for u in collect(root)])
-    report = {'createdAt': now(), 'root': str(root), 'scale': scale, 'scaleFitted': fitted,
+    everything = collect(root)
+    scales = {lg: fit_scale([rated(u['rows']) for u in everything if league(u['meta']) == lg])
+              for lg in {league(u['meta']) for u in everything}}
+    report = {'createdAt': now(), 'root': str(root),
+              'scales': {LEAGUES.get(lg, '?'): {'scale': s, 'fitted': f} for lg, (s, f) in scales.items()},
               'uploads': [], 'versions': [], 'pairs': []}
     for u in found:
         meta = u['meta']
         snapshots = meta.get('snapshots') or []
         report['uploads'].append({'label': u['label'], 'upload': u['upload'], 'agentId': meta.get('agentId'),
+                                  'league': LEAGUES.get(league(meta)), 'promotedFrom': meta.get('promotedFrom'),
                                   'uploadedAt': meta.get('uploadedAt'), 'source': meta.get('source'),
                                   'build': (meta.get('marker') or {}).get('build'),
                                   'config': (meta.get('marker') or {}).get('config'),
                                   'placement': placement(meta), 'latest': snapshots[-1] if snapshots else None,
-                                  **summarize(u['rows'], scale)})
-    labels_seen = list(dict.fromkeys(u['label'] for u in found))
-    for label in labels_seen:
-        members = [u for u in found if u['label'] == label]
+                                  **summarize(u['rows'], scales[league(meta)][0])})
+    groups = list(dict.fromkeys((u['label'], league(u['meta'])) for u in found))
+    for label, lg in groups:
+        members = [u for u in found if u['label'] == label and league(u['meta']) == lg]
         scores = [p['score'] for p in (placement(u['meta']) for u in members) if p and p.get('score') is not None]
-        report['versions'].append({'label': label, 'uploads': len(members),
+        report['versions'].append({'label': label, 'league': LEAGUES.get(lg), 'uploads': len(members),
                                    'placementScores': scores,
                                    'placementScoreMean': statistics.mean(scores) if scores else None,
                                    'placementScoreSd': statistics.stdev(scores) if len(scores) >= 2 else None,
-                                   **summarize([r for u in members for r in u['rows']], scale)})
+                                   **summarize([r for u in members for r in u['rows']], scales[lg][0])})
         for i, a in enumerate(members):
             for b in members[i + 1:]:
                 report['pairs'].append({'a': f"{a['label']}/upload-{a['upload']}",
                                         'b': f"{b['label']}/upload-{b['upload']}", **shared(a['rows'], b['rows'])})
-    for i, label_a in enumerate(labels_seen):
-        for label_b in labels_seen[i + 1:]:
-            rows_a = [r for u in found if u['label'] == label_a for r in u['rows']]
-            rows_b = [r for u in found if u['label'] == label_b for r in u['rows']]
-            report['pairs'].append({'a': label_a, 'b': label_b, **shared(rows_a, rows_b)})
+    for i, (label_a, lg_a) in enumerate(groups):
+        for label_b, lg_b in groups[i + 1:]:
+            if lg_a != lg_b or label_a == label_b:
+                continue
+            rows_a = [r for u in found if u['label'] == label_a and league(u['meta']) == lg_a for r in u['rows']]
+            rows_b = [r for u in found if u['label'] == label_b and league(u['meta']) == lg_b for r in u['rows']]
+            name = f' ({LEAGUES.get(lg_a, "?")})'
+            report['pairs'].append({'a': label_a + name, 'b': label_b + name, **shared(rows_a, rows_b)})
     return report
 
 
@@ -626,23 +690,26 @@ def snapshot_text(snapshot):
 
 
 def print_report(report):
-    fitted = 'fitted' if report['scaleFitted'] else 'default'
-    print(f"\nPerformance rating: the opponent arena score at which the upload would score 50 %, logistic scale "
-          f"{report['scale']:.2f} ({fitted}).")
-    print('\nupload            agent    placement score     latest score        games  W-D-L      win %   ± se  '
+    scales = ', '.join(f"{name} {s['scale']:.2f} ({'fitted' if s['fitted'] else 'default'})"
+                       for name, s in report['scales'].items())
+    print('\nPerformance rating: the opponent arena score at which the upload would score 50 % (logistic scale per '
+          f'league: {scales}). Scores compare within a league only.')
+    print('\nupload            league  agent    placement score     latest score        games  W-D-L      win %   ± se  '
           'opp med  perf ± se       seats  small/tall/30x20')
     for u in report['uploads']:
-        print(f"{u['label'] + '/upload-' + str(u['upload']):17} {u['agentId']!s:8} {snapshot_text(u['placement']):19} "
+        print(f"{u['label'] + '/upload-' + str(u['upload']):17} {u['league'] or '?':7} {u['agentId']!s:8} "
+              f"{snapshot_text(u['placement']):19} "
               f"{snapshot_text(u['latest']):19} {u['games']:5}  {u['wins']}-{u['draws']}-{u['losses']:<6} "
               f"{pct(u['rate']):>5} {pct(u['se']):>5}  {num(u['opponentScoreMedian']):>7}  "
               f"{num(u['performance'])} ± {num(u['performanceSe'])}  {u['seat0'] or '—'}/{u['seat1'] or '—'}  "
-              f"{u['small'] or '—'} / {u['tall'] or '—'} / {u['30x20'] or '—'}")
-    print('\nversion  uploads  placement scores (mean ± sd)          games  win %   ± se  perf ± se')
+              f"{u['small'] or '—'} / {u['tall'] or '—'} / {u['30x20'] or '—'}"
+              + (f"  (promotion of {u['promotedFrom']})" if u.get('promotedFrom') else ''))
+    print('\nversion  league  uploads  placement scores (mean ± sd)          games  win %   ± se  perf ± se')
     for v in report['versions']:
         scores = ', '.join(num(s) for s in v['placementScores']) or '—'
         spread = f"{num(v['placementScoreMean'])} ± {num(v['placementScoreSd'])}" if v['placementScores'] else '—'
-        print(f"{v['label']:8} {v['uploads']:7}  {scores + ' (' + spread + ')':38} {v['games']:5}  {pct(v['rate']):>5} "
-              f"{pct(v['se']):>5}  {num(v['performance'])} ± {num(v['performanceSe'])}")
+        print(f"{v['label']:8} {v['league'] or '?':7} {v['uploads']:7}  {scores + ' (' + spread + ')':38} {v['games']:5}  "
+              f"{pct(v['rate']):>5} {pct(v['se']):>5}  {num(v['performance'])} ± {num(v['performanceSe'])}")
     if report['pairs']:
         print('\nshared opponents (by player)      opps  games A/B  score A / B on them  stratified delta A-B')
         for p in report['pairs']:
@@ -662,15 +729,23 @@ def main(argv=None):
     parser.add_argument('--root', default='replays/arena', help='where uploads are filed (gitignored)')
     commands = parser.add_subparsers(dest='command', required=True)
 
-    f = commands.add_parser('fetch', help="file the live entry's (or --agent's) arena games and a rating snapshot")
-    f.add_argument('--version', help='label; required for experiments ("(modified)" marker) and marker-less builds')
+    options = argparse.ArgumentParser(add_help=False)
+    options.add_argument('--version', help='label; required for experiments ("(modified)" marker) and marker-less builds')
+    options.add_argument('--player', default=PLAYER)
+    options.add_argument('--no-replays', action='store_true', help='results only: 2-3 requests instead of one per game')
+    options.add_argument('--max-requests', type=int, default=200, help='per fetch')
+    options.add_argument('--pause', type=float, default=0.5, help='seconds between requests')
+    options.add_argument('--cache', nargs='*', default=['replays/cg'], help='replay folders searched before the API')
+    options.add_argument('--force-label', action='store_true')
+
+    f = commands.add_parser('fetch', parents=[options],
+                            help="file the live entry's (or --agent's) arena games and a rating snapshot")
     f.add_argument('--agent', type=int, help='an earlier upload instead of the live entry (no rating snapshot)')
-    f.add_argument('--player', default=PLAYER)
-    f.add_argument('--no-replays', action='store_true', help='results only: 2-3 requests instead of one per game')
-    f.add_argument('--max-requests', type=int, default=200)
-    f.add_argument('--pause', type=float, default=0.5, help='seconds between requests')
-    f.add_argument('--cache', nargs='*', default=['replays/cg'], help='replay folders searched before the API')
-    f.add_argument('--force-label', action='store_true')
+
+    w = commands.add_parser('watch', parents=[options],
+                            help='fetch the live entry every --interval minutes until its placement ends')
+    w.add_argument('--interval', type=float, default=15, help='minutes between fetches (3 from 85 %% placement on)')
+    w.add_argument('--hours', type=float, default=6, help='give up after this long')
 
     i = commands.add_parser('import', help='file an earlier upload from replays already downloaded (offline)')
     i.add_argument('--version', help='label (default: the marker\'s clean version id)')
@@ -681,6 +756,7 @@ def main(argv=None):
     i.add_argument('--games', type=int, help='games played when --score was read')
     i.add_argument('--at', help='when --score was read (ISO date)')
     i.add_argument('--complete', action='store_true', help='--score was read after placement finished')
+    i.add_argument('--division', type=int, help='league (leaderboard divisionIndex: 3 Silver, 4 Gold)')
     i.add_argument('--note')
     i.add_argument('--force-label', action='store_true')
 
@@ -693,8 +769,10 @@ def main(argv=None):
     r.add_argument('new')
 
     args = parser.parse_args(argv)
-    if args.command == 'fetch':
-        directory = fetch(args)
+    if args.command in ('fetch', 'watch'):
+        if args.command == 'watch':
+            args.agent = None
+        directory = fetch(args) if args.command == 'fetch' else watch(args)
         print_report(compare(Path(args.root)))
         return directory
     if args.command == 'import':

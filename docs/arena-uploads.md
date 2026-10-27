@@ -1,6 +1,7 @@
 # Arena uploads: measure every upload, average across uploads, roll back when clearly worse (2026-10-27)
 
-Status: **adopted 2026-10-27**. This was the user's proposal, agreed in the project chat after v13's upload. It amends
+Status: **adopted 2026-10-27**; the first noise measurement and the league rules were added the same evening. This
+was the user's proposal, agreed in the project chat after v13's upload. It amends
 step 3 of policy v5 (`docs/benchmarking-v5.md`, AGENTS.md rule 3). The tool is `tools/arena_uploads.py`
 (`tools/test_arena_uploads.py`).
 
@@ -26,11 +27,15 @@ step 3 of policy v5 (`docs/benchmarking-v5.md`, AGENTS.md rule 3). The tool is `
 3. **Before every upload, fetch the live entry:** `python tools/arena_uploads.py fetch`. CodinGame lists the games
    of the **live agent only**. The v10–v12 agents return an empty list since they were replaced, so an upload that is
    not fetched before the next Submit keeps only the replays already downloaded.
-4. **Upload the candidate.** The user submits `build/submit-<candidate>/Player.java` after its strict `procCheck`.
-   Its first-turn marker reads `vNN (modified) | BTK_BUILD_V1 …`. After placement, run
-   `python tools/arena_uploads.py fetch --version <candidate-id>`. Placement is over when the leaderboard reports
-   `percentage` 100; the fetch records it. The first fetch after placement is the upload's **placement score**.
-5. **Re-upload the same artifact** and fetch it after its placement (upload-2 of the same label).
+4. **Upload the candidate and watch its placement.** The user submits `build/submit-<candidate>/Player.java` after
+   its strict `procCheck`. Its first-turn marker reads `vNN (modified) | BTK_BUILD_V1 …`. Right after the Submit, run
+   `python tools/arena_uploads.py watch --version <candidate-id>`. It fetches every 15 minutes, and every 3 minutes
+   from 85 % placement on, until the leaderboard reports `percentage` 100. That first fetch at 100 % is the upload's
+   **placement score**. Watching matters because **a league promotion at the end of placement replaces the agent**:
+   CG replays the placement in the new league as a new agent, and the old agent's game list is gone (v13's second
+   upload, 2026-10-27). `watch` keeps everything up to its last poll and files the promoted agent as the next upload
+   of the label, with `promotedFrom` set.
+5. **Re-upload the same artifact** and watch it again (upload-2 of the same label).
 6. **Decide on the means** with `python tools/arena_uploads.py compare <candidate-id> <selected>`:
    - **Roll back if the candidate is clearly worse.** That means its mean placement score is below the selected
      version's mean by more than the margin **M**, *and* its pooled performance rating is below the selected
@@ -46,20 +51,31 @@ step 3 of policy v5 (`docs/benchmarking-v5.md`, AGENTS.md rule 3). The tool is `
    - Win rate, opponent median and the shared-opponent delta are reported as context. They depend on the field the
      matchmaker serves at that hour; the rating and the performance rating already account for it.
 7. **M = 2 × the standard deviation of the placement score between uploads of one configuration** (`compare` prints
-   it for every version with two or more placement scores). It is **provisionally 1.0 CG point** until v13's two
-   uploads give the first measurement, and it is re-estimated as rollbacks and promotions add uploads.
+   it for every version with two or more placement scores). The first measurement, v13 in Silver, gives an SD of
+   0.71 and **M ≈ 1.4 CG points** (below). It rests on one pair and is re-estimated as rollbacks and promotions add
+   uploads.
+8. **Leagues.** CG scores do not compare across leagues, so `compare` groups uploads by the league they placed in,
+   and a decision compares uploads of one league only. A new Submit places in the current league. After a promotion,
+   the selected version's baseline has to be rebuilt in the new league.
 
-The selected version's baseline is its own uploads. A version needs at least two placement scores before a
-candidate is judged against it (v13: upload-1 done, upload-2 pending).
+The selected version's baseline is its own uploads in the current league. A version needs at least two placement
+scores there before a candidate is judged against it. **v13 in Gold:** upload-3, the promotion of upload-2, is placing
+now; one more v13 Submit in Gold completes the baseline.
 
 ## The tool
 
 ```
+python tools/arena_uploads.py watch [--version LABEL] [--interval 15] [--hours 6]
 python tools/arena_uploads.py fetch [--version LABEL] [--agent ID] [--no-replays]
-python tools/arena_uploads.py import --version v12 --agent 6814073 [--score 29.40 --rank 316 --games 147 --complete]
+python tools/arena_uploads.py import --version v12 --agent 6814073 [--score 29.40 --rank 316 --games 147 --complete] [--division 3]
 python tools/arena_uploads.py compare [LABEL ...] [--out docs/evidence/arena-uploads-<date>.json]
 python tools/arena_uploads.py relabel <candidate-id> vNN
 ```
+
+- **watch** repeats `fetch` until the live entry's placement reaches 100 %. It retries after a failed round, follows a
+  promotion to the new agent, and gives up after `--hours`. A round costs 2 requests plus the new replays.
+- **fetch** refuses to file an agent without finished games, because a replaced agent's list is empty. A new live agent
+  of the same label whose league is above the label's last snapshot is recorded as a promotion (`promotedFrom`).
 
 - **Layout** (`replays/` is gitignored): `replays/arena/<label>/upload-N/upload.json` holds the agent, the marker
   (display name, build, config), the upload time and the rating snapshots (score, rank, percentage, division, games).
@@ -77,9 +93,9 @@ python tools/arena_uploads.py relabel <candidate-id> vNN
   the top 1,000); otherwise the score comes from the replay's `agents[].score`. Both are the opponent's score at
   download time, not at game time.
 - **Performance rating** = the opponent arena score at which the upload would score 50 %, from a logistic fit of
-  every result against the opponent's score. The scale is shared by all filed uploads (profile likelihood, 3.0–4.0
-  CG points on the data so far), and the standard error comes from the Fisher information. It corrects the win rate
-  for the field the matchmaker served.
+  every result against the opponent's score. The scale is shared by the uploads of one league (profile likelihood;
+  3.0–4.0 CG points in Silver; 2.0 by default until a league has 60 rated games), and the standard error comes from
+  the Fisher information. It corrects the win rate for the field the matchmaker served.
 - **Shared opponents** are matched by player. The delta is stratified by opponent, with weights
   1 / (1/n_a + 1/n_b), and its standard error is 0.5 / √Σw. It is printed for every pair of uploads of a version and
   for every pair of versions.
@@ -106,3 +122,34 @@ only the replays downloaded at the time exist, and their scores were noted in th
   performance ratings are comparable in principle, but their ±0.9 errors make them context only.
 - Shared opponents so far: v12 vs v13 has 18 opponents, 46 / 65 games, and a delta of −6.6 ± 11.5 pp. The
   stratified head-to-head is too thin to decide anything at one upload each, and it is reported as context.
+
+## First noise measurement: v13 uploaded twice (2026-10-27, `docs/evidence/arena-uploads-v13-noise-2026-10-27.json`)
+
+The user re-uploaded `build/submit-v13/Player.java` at about 17:30 UTC as agent 6818421, the same bytes as upload-1.
+A leaderboard check every 15 minutes recorded its placement in Silver:
+
+| placement | 12 % | 30 % | 49 % | 65 % | 83 % | 92 % |
+|---|---|---|---|---|---|---|
+| score / rank | 23.92 / 398 | 27.37 / 340 | 27.78 / 325 | 28.33 / 321 | 30.01 / 316 | **30.24 / 316** |
+
+At the end of its placement (~20:00 UTC) it overtook the Silver boss and **CG promoted v13 to Gold**. The promotion
+created a new agent, 6818546, which replays the placement in Gold, and CG stopped listing 6818421's games. **85 of its
+~120 results were recovered** from the last-battles lists of 102 opponents (Silver players ranked 300–380 and upload-1's
+opponents; 104 requests, no replays). The table below is the same `compare` run, within Silver:
+
+| | upload-1 (6818214) | upload-2 (6818421) |
+|---|---|---|
+| CG score | **29.23** at 100 %, rank 316, stayed in Silver | **30.24** at 92 %, rank 316, then promoted |
+| record | 75-45 (62.5 ± 4.4 %) | 54-31 (63.5 ± 5.2 %), 85 recovered games |
+| opponents' median score | 28.20 | 27.97 |
+| performance rating (Silver scale 3.58) | 29.15 ± 0.71 | 29.76 ± 0.82 |
+| shared opponents | 15 players, 67 / 64 games: 52.2 vs 64.1 %, stratified −14.2 ± 8.8 pp | |
+
+- **The same artifact placed about one point apart**: 29.23 against at least 30.24, one upload at the top of Silver
+  and the other promoted. With these two scores the SD is 0.71, so **M ≈ 1.4** (one pair; a provisional value).
+- The win rates (62.5 vs 63.5 %) and the performance ratings (+0.61 ± 1.08) agree within their errors. The
+  shared-opponent delta is −14 ± 9 pp for the same bytes, so it is context only and never a decision criterion.
+- The recovered games over-represent the end of placement (strong opponents, the lists of top-Silver players), and
+  they have no replays.
+- **Consequences:** `watch` during every placement; comparisons within one league; the v13 baseline is rebuilt in
+  Gold (upload-3 placing, one more Submit needed).

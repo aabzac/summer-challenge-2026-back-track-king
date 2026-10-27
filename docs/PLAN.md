@@ -113,8 +113,12 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
       live session as a filter (delta ≥ 0), then two arena uploads of the candidate, rollback when clearly worse than the
       selected version's uploads; tool `tools/arena_uploads.py` (fetch / import / compare / relabel), v10–v12 imported
       from `replays/cg`; AGENTS.md rule 3, `docs/benchmarking-v5.md`, README.
-- [ ] **User:** re-upload `build/submit-v13/Player.java` (v13 upload-2); then `python tools/arena_uploads.py fetch`
-      after its placement and record the upload-to-upload spread → the rollback margin M (provisionally 1.0).
+- [x] **User:** re-upload `build/submit-v13/Player.java` (v13 upload-2) — done 2026-10-27 ~17:30 UTC: agent 6818421
+      reached 30.24 at 92 % of its Silver placement (upload-1: 29.23 at 100 %) and was **promoted to Gold**; the
+      promotion replaced the agent and its list (85 of ~120 results recovered from opponents' lists) → SD 0.71,
+      **M ≈ 1.4** (`docs/arena-uploads.md`); tool gains `watch`, promotion detection and per-league comparison.
+- [ ] v13's Gold placement (upload-3 = agent 6818546, recorded by `watch`), then **User:** one more Submit of
+      `build/submit-v13/Player.java` in Gold (watched) → v13's Gold baseline of two placement scores.
 - [x] **repo-cleanup-v1 (2026-10-27, `docs/repo-cleanup-v1.md`):** evidence archives / csv.gz gitignored and untracked (manifest
       `docs/evidence/untracked-evidence-2026-10-27.json`), journals split into `docs/archive/`, the 25 red tests removed with the
       `exp-*` engine and `pduhard-beam-v1`, prune-v2 of the parked experiments (run them on `v13?FLAG=1`); 0 red tests.

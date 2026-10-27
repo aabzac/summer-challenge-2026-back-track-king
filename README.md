@@ -553,12 +553,14 @@ counterfactual recommendations. Boss replays are excluded.
 
 ### Our arena uploads, by version
 
-Every Submit is a new agent that plays ~120 placement games; CodinGame lists the games of the live agent only.
-`tools/arena_uploads.py` files them by version and upload and compares uploads and versions (rule:
+Every Submit is a new agent that plays ~120 placement games; CodinGame lists the games of the live agent only, and a
+league promotion at the end of placement replaces the agent (watch every placement). `tools/arena_uploads.py` files
+the games by version and upload and compares uploads and versions within one league (rule:
 [arena-uploads.md](docs/arena-uploads.md)):
 
 ```bash
 python tools/arena_uploads.py fetch                       # live entry -> replays/arena/<label>/upload-N/ + rating snapshot
+python tools/arena_uploads.py watch --version <candidate> # right after a Submit: fetch until placement reaches 100 %
 python tools/arena_uploads.py fetch --version <candidate> # an experiment's artifact ("(modified)" marker)
 python tools/arena_uploads.py compare                     # score/rank at placement, win %, performance rating, shared opponents
 python tools/arena_uploads.py relabel <candidate> vNN     # at a promotion

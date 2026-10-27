@@ -63,9 +63,9 @@ class FakeApi(arena.Api):
         return json.loads(json.dumps(self.games[body[0]]))
 
 
-def board(agent, score=29.23, rank=316, percentage=100, others=()):
+def board(agent, score=29.23, rank=316, percentage=100, others=(), division=3):
     users = [{'pseudo': 'aabzac', 'agentId': agent, 'rank': rank, 'score': score, 'percentage': percentage,
-              'inProgress': percentage != 100, 'league': {'divisionIndex': 3}, 'creationTime': 1793110979048,
+              'inProgress': percentage != 100, 'league': {'divisionIndex': division}, 'creationTime': 1793110979048,
               'codingamer': {'userId': ME}}]
     users += [{'pseudo': f'p{a}', 'agentId': a, 'rank': 300 + i, 'score': s} for i, (a, s) in enumerate(others)]
     return {'users': users, 'count': 1634}
@@ -220,12 +220,41 @@ class FetchTest(unittest.TestCase):
                                                   encoding='utf-8')
         (self.cache / '9.json').write_text(json.dumps(replay(9, 555, 200)), encoding='utf-8')
         args = argparse.Namespace(root=str(self.root), cache=[str(self.cache)], agent=100, version=None, note='x',
-                                  score=26.0, rank=360, games=3, at='2026-10-25', complete=False, force_label=False)
+                                  score=26.0, rank=360, games=3, at='2026-10-25', complete=False, force_label=False,
+                                  division=3)
         directory = arena.import_upload(args)
         rows = arena.load_rows(directory)
         self.assertEqual({1: 'win', 2: 'loss', 3: 'win'}, {k: r['result'] for k, r in rows.items()})
         meta = arena.read_json(directory / 'upload.json')
-        self.assertEqual(('import', None), (meta['source'], arena.placement(meta)))
+        self.assertEqual(('import', None, 3), (meta['source'], arena.placement(meta), arena.league(meta)))
+
+    def test_an_agent_without_games_is_not_filed(self):
+        with self.assertRaises(SystemExit):
+            arena.fetch(fetch_args(self.root, agent=555, version='v13'), FakeApi(board(100), {}, {}))
+        self.assertEqual([], arena.uploads(self.root))
+
+    def test_promotion_is_recognised_and_watch_follows_it_to_the_end_of_placement(self):
+        games = {g: replay(g, 100 if g < 10 else 101, 200) for g in range(1, 13)}
+        rounds = [
+            FakeApi(board(100, percentage=50), {100: [battle(1, 100, 200), battle(2, 100, 200)]}, games),
+            FakeApi(board(100, percentage=92), {100: [battle(g, 100, 200) for g in (1, 2, 3)]}, games),
+            FakeApi(board(101, score=10.5, rank=290, percentage=5, division=4), {101: [battle(10, 101, 200)]}, games),
+            FakeApi(board(101, score=12.0, rank=280, percentage=100, division=4),
+                    {101: [battle(g, 101, 200) for g in (10, 11, 12)]}, games),
+        ]
+        sleeps = []
+        args = fetch_args(self.root, interval=15, hours=1)
+        directory = arena.watch(args, api_factory=lambda: rounds.pop(0), sleep=sleeps.append)
+        self.assertEqual([900, 180, 900], sleeps)  # every 3 minutes from 85 % placement on
+        filed = {m['agentId']: (m['label'], m['upload'], m.get('promotedFrom'), arena.league(m))
+                 for _, m in arena.uploads(self.root)}
+        self.assertEqual({100: ('v13', 1, None, 3), 101: ('v13', 2, 100, 4)}, filed)
+        self.assertEqual(self.root / 'v13' / 'upload-2', directory)
+        self.assertEqual(3, len(arena.load_rows(directory)))
+        self.assertIsNone(arena.placement(arena.read_json(self.root / 'v13' / 'upload-1' / 'upload.json')))
+        report = arena.compare(self.root)
+        self.assertEqual([('v13', 'Silver'), ('v13', 'Gold')], [(v['label'], v['league']) for v in report['versions']])
+        self.assertEqual([], report['pairs'])  # no comparison across leagues
 
 
 class StatisticsTest(unittest.TestCase):
@@ -263,7 +292,7 @@ class StatisticsTest(unittest.TestCase):
         self.assertEqual((2, 8, [29.1, 29.2]), (version['uploads'], version['games'], version['placementScores']))
         self.assertEqual(('v13/upload-1', 'v13/upload-2', 2), (report['pairs'][0]['a'], report['pairs'][0]['b'],
                                                               report['pairs'][0]['opponents']))
-        self.assertFalse(report['scaleFitted'])
+        self.assertEqual({'?': {'scale': arena.DEFAULT_SCALE, 'fitted': False}}, report['scales'])
 
 
 if __name__ == '__main__':

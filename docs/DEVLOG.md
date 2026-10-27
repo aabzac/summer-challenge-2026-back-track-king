@@ -1435,3 +1435,25 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Check:** 15 merged artifacts (default `3d3e861d…`, proxy spec, v12 configuration, non-rollout / heuristic current, v05–v13,
   neural-v6 — now pinned at `0597d5b7…`) byte-identical between a scratch build of `9fb2aa4` and the tree. `gradlew test`:
   429 tests, 0 failures, 5 min 11 s (the long tests — PruneV1, FileMerger, V09Promotion — are kept ones).
+
+## 2026-10-27 — v13 uploaded twice: the first upload-to-upload noise, and v13 reaches Gold
+
+- The user re-uploaded `build/submit-v13/Player.java` (~17:30 UTC; agent 6818421, the same bytes as upload-1). A
+  leaderboard check every 15 minutes recorded its Silver placement: 23.92 at 12 %, 27.78 at 49 %, 30.01 at 83 %, **30.24 /
+  rank 316 at 92 %**. At the end of placement (~20:00 UTC) it overtook the Silver boss and **CG promoted v13 to Gold**: a
+  new agent, 6818546, replays the placement in Gold (4-6 at 5 %, score 10.47, rank 290), and 6818421's game list was
+  gone at the next fetch (`findLastBattlesByTestSessionHandle` lists the live agent too).
+- **Recovery:** 85 of 6818421's ~120 results came from the last-battles lists of 102 opponents (upload-1's opponents plus
+  Silver ranks 300–380; 104 requests, results only): **54-31 (63.5 ± 5.2 %)**, opponents' median 27.97, performance rating
+  29.76 ± 0.82. Upload-1: 75-45 (62.5 %), 29.15 ± 0.71 (both on the Silver scale 3.58).
+- **Noise:** the same artifact placed 29.23 (stayed Silver #1) and ≥ 30.24 (promoted). SD 0.71 → **M ≈ 1.4 CG points**
+  (one pair, provisional). Win rate and performance rating agree within their errors. The shared-opponent delta for
+  the same bytes is −14.2 ± 8.8 pp (15 players), so it is context only.
+- **Tool (16 tests):** `watch` fetches every 15 minutes, and every 3 minutes from 85 % on, until placement reaches 100 %,
+  and follows a promotion. `fetch` no longer files an agent without games, and it records a promoted agent with
+  `promotedFrom`. `compare` groups uploads by league (scores do not compare across leagues), and `import --division`
+  marks the imported v10–v12 as Silver. Filed: v13/upload-2 = 6818421 (recovered, `source: recovered`), v13/upload-3 =
+  6818546 (Gold; `watch` running). Evidence `docs/evidence/arena-uploads-v13-noise-2026-10-27.json`; rule updated in
+  `docs/arena-uploads.md` (watch during every placement, comparisons within a league, M).
+- **Next:** v13's Gold placement completes (upload-3), then one more v13 Submit in Gold gives the second Gold placement
+  score, which is the baseline a candidate is judged against.
