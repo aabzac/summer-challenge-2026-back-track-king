@@ -2,7 +2,7 @@
  "schema": "untracked-evidence-v1",
  "date": "2026-10-27",
  "reason": "Evidence archives and binary exports left the index (repo-cleanup); they stay in git history and on the author machine. Restore one with: git show <addedIn>:<path> > <path>",
- "lastTrackedIn": "993872ea12bbb2c24ffa511e9ec0d15b821d8576",
+ "lastTrackedIn": "13f92acb1e20aa52ce27b5409624cd01c803ed45",
  "totalBytes": 512651900,
  "files": [
   {

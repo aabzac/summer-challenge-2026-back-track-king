@@ -17,22 +17,22 @@ Clone sizes are `git pack-objects` repacks of all history with and without the a
 
 ## What changed
 
-1. **Archives and binary exports leave the index** (`540b9a1`). `docs/evidence/**/*.{zip,tar.gz,tgz,csv.gz}` and
+1. **Archives and binary exports leave the index** (`2d18d03`). `docs/evidence/**/*.{zip,tar.gz,tgz,csv.gz}` and
    `.claude/settings.local.json` are gitignored; 68 files (512.7 MB) were untracked, not deleted: they stay on the author's
    disk and in history. `docs/evidence/untracked-evidence-2026-10-27.json` lists path, size, sha256, git blob and the commit
    that added each (`git show <addedIn>:<path> > <path>` restores one). The two tests that read an archive now read the
    extracted `Player.java` under `src/test/resources/historical/` (sha256 pinned, as recorded in the evidence manifests).
    History is not rewritten: the SHAs are cited throughout the evidence.
-2. **Journals keep their live part** (`9833706`). DEVLOG entries before 2026-10-20, PLAN sections before Stage 0 and the
+2. **Journals keep their live part** (`8961a2b`). DEVLOG entries before 2026-10-20, PLAN sections before Stage 0 and the
    BOTS per-experiment sections up to 2026-10-06 moved verbatim to `docs/archive/` (relative links rebased); live files
    125 / 27 / 74 KB. Lossless: archive + live parts concatenate to the original non-blank lines.
-3. **Tier 1 — the 25 red tests** (`9538023`). The six `exp-*` recipes (rejected on v05) ran on an archived EvalBot engine
+3. **Tier 1 — the 25 red tests** (`db1ca80`). The six `exp-*` recipes (rejected on v05) ran on an archived EvalBot engine
    (`RetainedEngine`, `experiment-engine-v1*.json`) whose manifest pins `btk/core/Pathing.class`; fast cheapest path
    changed that class on 2026-10-18, so the recipes could not run and 19 tests stayed red. Removed with the catalog entries,
    the BotCatalog/BotFactory experiment paths, the reply-study capture/analysis and `JointReplyStudy`/`JointActionCheck`
    (`ReplyStudy`/`ReplyProbe` keep the helpers other tools use). `pduhard-beam-v1` was never registered (6 red tests):
    bot and test removed, its doc and evidence stay. 863 tests / 25 red → 831 / 0.
-4. **Tier 2 — prune-v2** (`7c66eda`). The experiments of v12's time that were rejected or parked leave `current`:
+4. **Tier 2 — prune-v2** (`d3de9d5`). The experiments of v12's time that were rejected or parked leave `current`:
    `USE_COLLISION_AVOIDANCE` (collision-avoidance-v1), `USE_CORRIDOR_ROUTES` (K1), `USE_QUICK_ALWAYS` / `DELAY_POWER` (Q),
    `BOSS_OPP_HOLD_MARGIN` (opp-hold-v1), `USE_BOSS_NO_CLOSE` (boss-v4), `USE_ROUTE_COMMIT` (C10), `USE_BOSS_THREAT_MODEL`
    (stage4-threat-model-v1). Their merger blocks are cut from `current/RolloutBot.java` (−173 lines) and
