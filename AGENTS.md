@@ -13,8 +13,8 @@ finished.
    benches are only trusted while the engine reproduces downloaded CG games. When the local bench
    and the CG arena disagree, run `cgValidate` first, then form hypotheses.
 3. **One change, one version, one bench.** Record every experiment in `docs/BOTS.md`.
-   Practical strength gate **v5 (adopted 2026-10-21, `docs/benchmarking-v5.md`)**, three required
-   steps, a failure at any step stops the candidate and keeps its evidence:
+   Practical strength gate **v5 (adopted 2026-10-21, `docs/benchmarking-v5.md`; step (c) amended 2026-10-27)**,
+   three required steps, a failure at any step stops the candidate and keeps its evidence:
    (a) **proxy screen** — 300 paired games on fresh maps, candidate vs the validated boss-like
    screening opponent (`current?USE_BOSS_SABOTAGE=1` while `docs/boss-proxy-v1.md` records it as
    valid), with the selected control on the same maps/seeds/seats in the same run; continue only
@@ -25,10 +25,14 @@ finished.
    no proxy is valid, replace (a)+(b) by the v4 pooled 1000-game run vs the selected version
    (300/+200/+500, futility below 50 % at 300/500, pass ≥ 55 %).
    (b) **non-inferiority** — 300 paired games vs the selected version; continue only at ≥ 48 %.
-   (c) **live confirmation** — 80 paired games against the live boss: 40 on the cached control's
-   maps/seeds/seats plus 40 on a second fixed pool with a fresh same-session control; pass at
-   candidate ≥ control + 5 pp over the 80; one predeclared extension to 120 games, decided on
-   all 120. No other extensions, retries or pooling with historical games.
+   (c) **live filter + arena (amended 2026-10-27, `docs/arena-uploads.md`)** — one 40-game live boss session on
+   the cached control's maps/seeds/seats with a same-session control; continue at a paired delta ≥ 0. Then the
+   candidate goes to the arena: fetch the live entry before every upload (`python tools/arena_uploads.py fetch`;
+   CG lists the live agent's games only), upload the candidate, fetch it after placement (~120 games), re-upload
+   the same artifact and fetch again; roll back to the selected version when the candidate's mean placement score
+   is below the selected version's by more than M (2 × the upload-to-upload SD, provisionally 1.0) and its
+   performance rating is lower by more than 2 SE; otherwise promote. The former 80/120-game live
+   confirmation is historical.
    New heuristic bots (not flags on `current`) get a predeclared tuning budget on development
    maps before step (a). Draws = half. Confidence intervals are diagnostics, not a gate. Engine,
    errors and exact-artifact process checks remain mandatory. Keep the timed strength bench at
@@ -87,6 +91,8 @@ docs/                       rules/, PLAN.md, BOTS.md, DEVLOG.md, replay_format.m
 - `gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg`
 - `gradlew submit` then `gradlew procCheck -Pbot=v01 -Pgames=4`
 - `gradlew cgFetch -Ptop=20 -Plimit=10`, `gradlew cgFetch -Pplayer=<pseudo>`
+- `python tools/arena_uploads.py fetch` before every upload and after each placement; `... compare` — our uploads by
+  version under `replays/arena/<label>/upload-N/` (`docs/arena-uploads.md`)
 - `gradlew cgValidate`; `gradlew cgRender "-Ppath=replays/cg/<gameId>.json"` for visualizer JSON
 - `gradlew cgStudy "-Pbot=current"` — what winners do in the replays + agreement of our bot with them
 - `gradlew cgNeuralExport` then `python tools/neural/train_neural.py` — retrain `neural-v1` (docs/neural-policy-v1.md)

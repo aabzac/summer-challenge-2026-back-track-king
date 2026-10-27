@@ -1,4 +1,4 @@
-# Selection policy v5 — proxy screen, non-inferiority, larger live sample (adopted 2026-10-21; step 1a replication added 2026-10-26)
+# Selection policy v5 — proxy screen, non-inferiority, larger live sample (adopted 2026-10-21; step 1a replication added 2026-10-26; step 3 = live filter + arena uploads since 2026-10-27)
 
 Status: **adopted 2026-10-21** (user decision), rule 3 of `AGENTS.md` updated. The v4 policy, its
 tools and all historical verdicts stay as recorded. Nothing in this document changes a strategy.
@@ -39,13 +39,21 @@ strict process check, source-size check.
 2. **Non-inferiority vs the selected version** — 300 paired games / 150 fresh maps, candidate
    vs v09. Continue only if the score is **≥ 48 %**. (The mirror is a regression guard, not the
    objective.)
-3. **Live confirmation** — **80 paired games** against the live boss: 40 new candidate games on
+3. **Live filter + arena (amended 2026-10-27, `docs/arena-uploads.md`).** One 40-game live boss session on the
+   cached control's maps/seeds/seats with a same-session control is a cheap filter: continue at a paired delta ≥ 0.
+   Then the candidate is uploaded to the arena twice (~120 placement games each) and fetched after each placement
+   with `tools/arena_uploads.py`; it is rolled back when its mean placement score is below the selected version's
+   uploads by more than M (2 × the upload-to-upload SD of one artifact, provisionally 1.0 CG point) and its
+   performance rating is lower by more than 2 SE, and promoted otherwise. The live-confirmation rule below is
+   historical (it applied to the v10–v13 promotions, each made after its first session).
+   *Historical:* **Live confirmation** — **80 paired games** against the live boss: 40 new candidate games on
    the cached control's 40 maps/seeds/seats **and** 40 more on a second fixed pool, with a fresh
    40-game v09 control on that second pool played in the same session (boss metadata may change).
    Pass when the candidate's pooled score over 80 games is **≥ control + 5 pp**; otherwise an
    optional extension to 120 games is allowed once, predeclared, and the decision is made on the
    full 120. No other extensions, retries or pooling with historical games.
-4. Promotion = steps 1, 1a, 2 and 3. A failure at any step stops the candidate; the evidence is retained.
+4. Promotion = steps 1, 1a, 2 and 3 (the live filter and the arena uploads). A failure at any step stops the candidate;
+   the evidence is retained.
 5. **Degenerate proxy** (amended 2026-10-21). When the candidate is itself the screening opponent
    (as `boss-sabotage-v1` was), or when no proxy is currently valid, step 1 is played against
    **`neural-v6`** (the version with the best live boss sample and the arena-like 100 % disrupt
@@ -76,6 +84,7 @@ clause applies.
 
 ## Reporting
 
-Each candidate: one summary with the stage results (1, 1a with the pooled delta, 2, 3), the control's proxy score, map pools,
+Each candidate: one summary with the stage results (1, 1a with the pooled delta, 2, 3 — the live session and the
+arena uploads' placement scores / performance ratings from `tools/arena_uploads.py compare`), the control's proxy score, map pools,
 seeds, artifact hashes, and the proxy validation id in force. BOTS.md gets one row; DEVLOG one
 entry; STATUS.md the current verdict.
