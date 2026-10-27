@@ -7,7 +7,6 @@ import btk.core.Pathing;
 import btk.core.Rules;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Local referee. Plays a full game between two {@link Bot}s on a given initial state, recording
@@ -39,8 +38,6 @@ public final class Referee {
         public final int[] placedCells = new int[2], paintSpent = new int[2];
         public boolean closedEarly;
         public Replay replay;
-        /** Optional local target-prototype totals, captured after play outside every timed turn. */
-        public Map<String, Long> targetProposalP0, targetProposalP1;
 
         public String summary() {
             return String.format("score %d-%d winner=%s turns=%d maxMs=[%d,%d]%s%s",
@@ -105,8 +102,6 @@ public final class Referee {
             replay.finish(res);
             res.replay = replay;
         }
-        if (b0 instanceof btk.tools.target.TargetHybridBot hybrid) res.targetProposalP0 = hybrid.diagnostics();
-        if (b1 instanceof btk.tools.target.TargetHybridBot hybrid) res.targetProposalP1 = hybrid.diagnostics();
         return res;
     }
 }

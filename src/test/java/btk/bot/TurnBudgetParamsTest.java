@@ -22,7 +22,7 @@ class TurnBudgetParamsTest {
         expected.put("TURN_BUDGET_MS", String.valueOf(budgetMs));
         assertEquals(expected, BotFactory.configuration(BASE + "," + query));
         assertEquals(BotFactory.configuration(BASE), BotFactory.configuration(BASE + ",TURN_BUDGET_MS=36"));
-        for (String spec : new String[]{"v09?" + query, "neural-v1?" + query,
+        for (String spec : new String[]{"v09?" + query, "neural-v6?" + query,
                 "current?" + LiveTargetExperimentParams.V10_OFF + "," + query + ",USE_ROLLOUT_POLICY=false",
                 "current?" + LiveTargetExperimentParams.V10_OFF + "," + query + ",USE_HEURISTIC_POLICY=true",
                 "current?" + LiveTargetExperimentParams.V10_OFF + "," + query + ",USE_NEURAL_TARGET_PROPOSAL=true"})

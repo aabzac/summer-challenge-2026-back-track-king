@@ -25,7 +25,7 @@ class BatchedRefreshSubmissionTest {
                 FileMerger.sha256(FileMerger.merge("v09")));
         assertEquals("1fa974e7615d6d40b3d5e51995071df5adca82f8e494053edeee547da3e9a034",
                 FileMerger.sha256(FileMerger.merge("current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0,USE_ROLLOUT_MISSED_DEADLINE=true")));
-        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v1", "spatial-ppo-v10"}) {
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "v09", "neural-v6"}) {
             assertFalse(FileMerger.merge(spec).contains("batchedRefresh"));
             assertFalse(BotFactory.configuration(spec).containsKey("USE_BATCHED_REFRESH"));
         }

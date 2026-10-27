@@ -1,30 +1,7 @@
 package btk.bot;
 
 import btk.bot.current.EvalBot;
-import btk.bot.current.IndrillBot;
-import btk.bot.current.IndrillV2Bot;
-import btk.bot.forum.IndrillForumBot;
-import btk.bot.neural.NeuralBot;
-import btk.bot.neural.NeuralV2Bot;
-import btk.bot.neural.NeuralV3Bot;
-import btk.bot.neural.NeuralV4Bot;
-import btk.bot.neural.NeuralV5Bot;
 import btk.bot.neural.NeuralV6Bot;
-import btk.bot.neural.NeuralV7Bot;
-import btk.bot.neural.SpatialBot;
-import btk.bot.neural.SpatialInitialWeights;
-import btk.bot.neural.SpatialV2Weights;
-import btk.bot.neural.SpatialV3Bot;
-import btk.bot.neural.SpatialV4Bot;
-import btk.bot.neural.SpatialV5Bot;
-import btk.bot.neural.SpatialV6Bot;
-import btk.bot.neural.SpatialV7Bot;
-import btk.bot.neural.SpatialV8Bot;
-import btk.bot.neural.SpatialV9Bot;
-import btk.bot.neural.SpatialV10Bot;
-import btk.bot.neural.SpatialVariantBot;
-import btk.bot.reference.LeaderBot;
-import btk.bot.reference.LeaderBot2;
 import btk.bot.reference.BossBot;
 import btk.bot.reference.PressureBot;
 import btk.bot.v00.AutoplaceBot;
@@ -62,8 +39,6 @@ public final class BotFactory {
     public static Bot create(String spec) {
         String version = version(spec);
         Params params = parameters(spec);
-        if (version.equals("current") && params.USE_NEURAL_TARGET_PROPOSAL)
-            return new btk.tools.target.TargetHybridBot(params);
         return lookup(version).apply(params);
     }
 
@@ -124,11 +99,7 @@ public final class BotFactory {
         }
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
-        if (version.equals("pressure-v1") || version.equals("leader-v1") || version.equals("leader-v2") || version.equals("boss-v1")
-                || version.equals("neural-v1") || version.equals("neural-v2") || version.equals("neural-v3")
-                || version.equals("neural-v4") || version.equals("neural-v5") || version.equals("neural-v6") || version.equals("neural-v7")
-                || version.equals("indrill-q-v1")
-                || version.equals("indrill-q-v2") || spatialVersion(version)) FrozenParams.applyTo(version, params);
+        if (version.equals("pressure-v1") || version.equals("boss-v1") || version.equals("neural-v6")) FrozenParams.applyTo(version, params);
         params.apply(query);
         if (params.TURN_BUDGET_MS != 36 && params.TURN_BUDGET_MS != 38 && params.TURN_BUDGET_MS != 40 && params.TURN_BUDGET_MS != 45)
             throw new IllegalArgumentException("Turn budget must be 36, 38, 40 or 45 ms");
@@ -247,8 +218,8 @@ public final class BotFactory {
             throw new IllegalArgumentException("Missed-deadline correction is a current-only experiment");
         if (params.USE_ROLLOUT_MISSED_DEADLINE && (!params.USE_ROLLOUT_POLICY || params.USE_NEURAL_TARGET_PROPOSAL))
             throw new IllegalArgumentException("Missed-deadline correction requires the current native rollout");
-        if (params.USE_NEURAL_TARGET_PROPOSAL && !version.equals("current"))
-            throw new IllegalArgumentException("Neural target proposal is a local current-only experiment");
+        if (params.USE_NEURAL_TARGET_PROPOSAL)
+            throw new IllegalArgumentException("The neural target proposal (TargetHybridBot) was removed with the closed neural line (repo-cleanup tier 3, 2026-10-27)");
         return params;
     }
 
@@ -286,29 +257,14 @@ public final class BotFactory {
                 if (field.getName().startsWith("BYPASS_") || field.getName().equals("USE_BYPASS_ROUTES")) { if (!params.USE_BYPASS_ROUTES) continue; }
                 if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
-                if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
-                if ((field.getName().equals("USE_SPATIAL_V8_SEARCH") || field.getName().equals("SPATIAL_V8_MIN_SEARCH_MS")
-                        || field.getName().equals("SPATIAL_V8_DEPTH")) && !version(spec).equals("spatial-ppo-v8")) continue;
-                if ((field.getName().equals("USE_SPATIAL_V7_SEARCH") || field.getName().equals("SPATIAL_V7_MIN_SEARCH_MS")
-                        || field.getName().equals("SPATIAL_V7_DEPTH")) && !version(spec).equals("spatial-ppo-v7")
-                        && !version(spec).equals("spatial-ppo-v8")) continue;
-                if ((field.getName().equals("USE_SPATIAL_V6_SEARCH") || field.getName().equals("SPATIAL_V6_MIN_SEARCH_MS")
-                        || field.getName().equals("SPATIAL_V6_DEPTH")) && !version(spec).equals("spatial-ppo-v6")
-                        && !version(spec).equals("spatial-ppo-v7") && !version(spec).equals("spatial-ppo-v8")) continue;
-                if ((field.getName().equals("USE_SPATIAL_V5_SEARCH") || field.getName().equals("SPATIAL_V5_MIN_SEARCH_MS"))
-                        && !version(spec).equals("spatial-ppo-v5") && !version(spec).equals("spatial-ppo-v6")
-                        && !version(spec).equals("spatial-ppo-v7") && !version(spec).equals("spatial-ppo-v8")) continue;
-                if (field.getName().equals("SPATIAL_RESERVE_MS") && !spatialVersion(version(spec))) continue;
+                // Fields of the removed spatial-ppo line (repo-cleanup tier 3): never part of a configuration.
+                if (field.getName().startsWith("USE_SPATIAL_") || field.getName().startsWith("SPATIAL_")) continue;
                 if ((field.getName().equals("USE_ROLLOUT_ALL_CELL_RISK") || field.getName().equals("USE_ROLLOUT_ROOT_FILL"))
                         && (!(version(spec).equals("current") || version(spec).equals("main"))
                         || !params.USE_ROLLOUT_POLICY)) continue;
                 // Only deadline-aware neural bots consume this field; historical configurations stay exact.
-                if (field.getName().equals("NEURAL_DEADLINE_RESERVE_MS")
-                        && !version(spec).equals("neural-v3") && !version(spec).equals("neural-v4")
-                        && !version(spec).equals("neural-v5") && !version(spec).equals("neural-v6")
-                        && !version(spec).equals("neural-v7")) continue;
-                if ((field.getName().equals("USE_NEURAL_FALLBACK") || field.getName().equals("NEURAL_FALLBACK_MAX_INSTABILITY"))
-                        && !version(spec).equals("neural-v7")) continue;
+                if (field.getName().equals("NEURAL_DEADLINE_RESERVE_MS") && !version(spec).equals("neural-v6")) continue;
+                if (field.getName().equals("USE_NEURAL_FALLBACK") || field.getName().equals("NEURAL_FALLBACK_MAX_INSTABILITY")) continue;
                 if (!Modifier.isStatic(field.getModifiers())) values.put(field.getName(), String.valueOf(field.get(params)));
             }
         } catch (IllegalAccessException e) {
@@ -340,14 +296,6 @@ public final class BotFactory {
         return q < 0 ? spec : spec.substring(0, q);
     }
 
-    private static boolean spatialVersion(String version) {
-        return version.equals("spatial-ppo-v1") || version.equals("spatial-ppo-v2")
-                || version.equals("spatial-ppo-v2-init") || version.equals("spatial-ppo-v3")
-                || version.equals("spatial-ppo-v4") || version.equals("spatial-ppo-v5") || version.equals("spatial-ppo-v6")
-                || version.equals("spatial-ppo-v7") || version.equals("spatial-ppo-v8") || version.equals("spatial-ppo-v9")
-                || version.equals("spatial-ppo-v10");
-    }
-
     private static Function<Params, Bot> lookup(String version) {
         switch (version) {
             case "current": return MainBot::newStrategy;
@@ -367,30 +315,8 @@ public final class BotFactory {
             case "v12": return RolloutBotV12::new;
             case "v13": return RolloutBotV13::new;
             case "pressure-v1": return PressureBot::new;
-            case "leader-v1": return LeaderBot::new;
-            case "leader-v2": return LeaderBot2::new;
             case "boss-v1": return BossBot::new;
-            case "neural-v1": return NeuralBot::new;
-            case "neural-v2": return NeuralV2Bot::new;
-            case "neural-v3": return NeuralV3Bot::new;
-            case "neural-v4": return NeuralV4Bot::new;
-            case "neural-v5": return NeuralV5Bot::new;
             case "neural-v6": return NeuralV6Bot::new;
-            case "neural-v7": return NeuralV7Bot::new;
-            case "spatial-ppo-v1": return SpatialBot::new;
-            case "spatial-ppo-v2": return p -> new SpatialVariantBot(p, "spatial-ppo-v2", SpatialV2Weights.DATA);
-            case "spatial-ppo-v2-init": return p -> new SpatialVariantBot(p, "spatial-ppo-v2-init", SpatialInitialWeights.DATA);
-            case "spatial-ppo-v3": return SpatialV3Bot::new;
-            case "spatial-ppo-v4": return SpatialV4Bot::new;
-            case "spatial-ppo-v5": return SpatialV5Bot::new;
-            case "spatial-ppo-v6": return SpatialV6Bot::new;
-            case "spatial-ppo-v7": return SpatialV7Bot::new;
-            case "spatial-ppo-v8": return SpatialV8Bot::new;
-            case "spatial-ppo-v9": return SpatialV9Bot::new;
-            case "spatial-ppo-v10": return SpatialV10Bot::new;
-            case "indrill-q-v1": return IndrillBot::new;
-            case "indrill-q-v2": return IndrillV2Bot::new;
-            case "indrill-forum-v1": return IndrillForumBot::new;
             default: return null;
         }
     }

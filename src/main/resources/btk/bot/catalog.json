@@ -2,69 +2,6 @@
   "schemaVersion": 1,
   "entries": [
     {
-      "id": "spatial-ppo-v8",
-      "title": "Spatial Paired Lookahead Search",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Frozen v4 policy with the v7 construction pair and exact-score comparison at matched depths 2/4/6/8. Deadline cutoff retains the deepest completed pair under fixed root-prior continuation. No learned value, retraining or promotion; historical spatial-ppo name retained."
-    },
-    {
-      "id": "spatial-ppo-v7",
-      "title": "Spatial Conditional Construction Search",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Frozen v4 policy weights with one alternative first build, a freshly recomputed conditional suffix, and bounded two-turn exact-score comparison. No learned value, retraining or promotion; historical spatial-ppo name retained."
-    },
-    {
-      "id": "spatial-ppo-v6",
-      "title": "Spatial Construction Search",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Frozen v4 policy weights with two construction candidates and a bounded two-turn rollout using exact core score differences. No learned value, retraining or promotion; historical spatial-ppo name retained."
-    },
-    {
-      "id": "spatial-ppo-v5",
-      "title": "Spatial Value-Guided Search",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Value-head calibration on frozen v4 features and a bounded two-candidate disruption search, with separate generated SpatialV5Weights. Historical spatial-ppo name retained; no PPO or promotion."
-    },
-    {
-      "id": "spatial-ppo-v4",
-      "title": "Distillation From V09",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Supervised distillation from frozen v09 hard actions, with separate generated SpatialV4Weights and the unchanged spatial model/runtime. No PPO in this stage; historical spatial-ppo naming retained. No promotion."
-    },
-    {
-      "id": "spatial-ppo-v3",
-      "title": "Spatial PPO Fixed Opponent Pool",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Warm-started from frozen spatial-ppo-v2 weights, with one learner seat against a fixed opponent pool. Unchanged spatial-v1 observation, network and runtime; separate generated SpatialV3Weights and no promotion. docs/spatial-ppo-v3.md."
-    },
-    {
-      "id": "spatial-ppo-v2",
-      "title": "Spatial PPO Longer Training",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "New generated weights from a longer fixed PPO run using the unchanged spatial-v1 observation, network and runtime; not promoted. docs/spatial-ppo-v2.md."
-    },
-    {
-      "id": "spatial-ppo-v2-init",
-      "title": "Spatial PPO Untrained Initializer",
-      "category": "reference",
-      "status": "local_only",
-      "description": "Frozen seed-20261008 initializer, before gradients, in the unchanged spatial-v1 runtime. Matched learning diagnostic control for spatial-ppo-v2; not a selected policy."
-    },
-    {
-      "id": "spatial-ppo-v1",
-      "title": "Spatial PPO Prototype",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Independent 3439-weight spatial policy/value, four-update PPO technical run; no search or promotion. docs/spatial-ppo-v1.md."
-    },
-    {
       "id": "v00",
       "title": "Autoplace",
       "category": "version",
@@ -170,102 +107,11 @@
       "description": "Independent sticky-target sabotage with short-horizon route construction."
     },
     {
-      "id": "leader-v1",
-      "title": "Leader Style",
-      "category": "reference",
-      "status": "local_only",
-      "description": "Fast heuristic calibrated on the arena leader (Indrill): a sticky DISRUPT every turn on unfinished opponent construction, greedy cheapest-route construction (places on ~42% of turns), protected opening. Frozen; never retuned."
-    },
-    {
-      "id": "leader-v2",
-      "title": "Leader Style, Never Idle",
-      "category": "reference",
-      "status": "local_only",
-      "description": "leader-v1 sabotage with construction rebuilt from the per-cell replay study: most valuable completion route over a 24-turn horizon (shared or enemy-avoiding), cheapest remaining completion as fallback, leftover paint next to own earning rails. Frozen; never retuned."
-    },
-    {
-      "id": "neural-v1",
-      "title": "Neural Imitation",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Behaviour-cloned policy: two small conditional-logit MLPs (sabotage region, sequential placement cell) over engine-grounded candidate features, trained on the arena leader's replays. Hard rules only for closing inks. Weights in btk.bot.neural.NeuralWeights."
-    },
-    {
-      "id": "neural-v2",
-      "title": "Neural Outcome Fine-tuning",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Outcome fine-tuning of neural-v1, fixed 1536 training games: 645/1000 vs v09 (64.5%), local PASS_1000. Strict process 1/8 timeout; boss unplayed, not ready or promoted. Generated NeuralV2Weights; docs/neural-policy-v2.md."
-    },
-    {
-      "id": "neural-v3",
-      "title": "Neural Cooperative Deadline",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Exact neural-v2 weights and completed decisions with cooperative deadlines in features and scoring. Incomplete passes are discarded while earlier completed actions remain. Separate timing experiment; no retraining or promotion."
-    },
-    {
-      "id": "neural-v4",
-      "title": "Neural Lower Build Exploration",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Fixed outcome-training repeat from neural-v1 with construction sampling temperature 0.5, sabotage and teacher temperature 1. Unchanged neural-v3 deadline-aware runtime and features; new generated NeuralV4Weights. Separate unpromoted experiment; docs/neural-policy-v4.md."
-    },
-    {
-      "id": "neural-v5",
-      "title": "Neural Exact Feature Optimization",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Exact neural-v3 weights, candidate order, greedy decisions and cooperative deadline with optimized feature preparation. No retraining or policy change; separate unpromoted runtime experiment."
-    },
-    {
       "id": "neural-v6",
       "title": "Neural Resumable Feature Paths",
       "category": "candidate",
       "status": "local_only",
       "description": "Exact neural-v5 weights, features, candidate order and cooperative deadline with resumable Dijkstra per source town and semantic block mask. No retraining or policy change; separate unpromoted runtime experiment."
-    },
-    {
-      "id": "neural-v7",
-      "title": "Neural Deadline Extension",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Frozen V6 policy and V2 weights with bounded stable own-network construction only after a neural deadline cutoff; completed choices and ample-time behavior are preserved."
-    },
-    {
-      "id": "spatial-ppo-v9",
-      "title": "Global Town Context",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Separate greedy spatial policy with distance-weighted town embeddings broadcast over the board. Fixed supervised experiment; no search or strategy promotion. docs/spatial-ppo-v9.md."
-    },
-    {
-      "id": "spatial-ppo-v10",
-      "title": "Longer Full-Corpus Imitation",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Continue the original v4 supervised run on its unchanged full training corpus. Same spatial model, ordered imitation objective and greedy runtime; no search or strategy promotion. docs/spatial-ppo-v10.md."
-    },
-    {
-      "id": "indrill-q-v1",
-      "title": "Indrill Action Values",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Compact prototype inspired by Indrill's forum post: risk-aware connection observations, a neural Q model trained from score and terminal outcomes, additive whole-quota construction and region ink decisions. Rejected locally (0/300 vs v09). Generated weights in btk.bot.current.IndrillWeights."
-    },
-    {
-      "id": "indrill-q-v2",
-      "title": "Learned Position Value",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Q-learning follow-up: learned board-value baseline and WAIT plus additive construction/ink advantages. Fixed 960-game/14,000-update training; rejected locally (0/300 vs v09), not promoted. docs/indrill-q-v2.md."
-    },
-    {
-      "id": "indrill-forum-v1",
-      "title": "Indrill Forum Readout",
-      "category": "candidate",
-      "status": "local_only",
-      "description": "Hand readout of Indrill's published route observation: priority-path and good-cell scores, exact paint-3 knapsack, mean region ink. No learned weights. Rejected locally (14/300 vs v09). docs/indrill-forum-v1.md."
     },
     {
       "id": "current",

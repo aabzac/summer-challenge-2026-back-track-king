@@ -61,41 +61,10 @@ tasks.register<JavaExec>("benchSuite") {
 
 tasks.register<JavaExec>("botCatalog") {
     group = "game"
-    description = "List named versions, local references and pinned experiments; -Pbot=<id> for details"
+    description = "List named versions, local references and candidates; -Pbot=<id> for details"
     mainClass.set("btk.tools.BotCatalogTool")
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("bot", ""))
-}
-
-/** Persistent exact-core interface; Python starts it directly using spatialRuntime metadata. */
-tasks.register<JavaExec>("spatialBridge") {
-    group = "game"
-    mainClass.set("btk.tools.spatial.SpatialBridge")
-    classpath = sourceSets["main"].runtimeClasspath
-    standardInput = System.`in`
-}
-
-/** V9 numerical parity bridge; game operations still delegate to the frozen bridge. */
-tasks.register<JavaExec>("spatialV9Bridge") {
-    group = "game"
-    mainClass.set("btk.tools.spatial.SpatialV9Bridge")
-    classpath = sourceSets["main"].runtimeClasspath
-    standardInput = System.`in`
-}
-
-tasks.register("spatialRuntime") {
-    group = "game"
-    dependsOn("classes")
-    doLast {
-        val out = layout.buildDirectory.file("spatial-runtime.json").get().asFile
-        fun quoted(s: String) = "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
-        val javaName = if (System.getProperty("os.name").startsWith("Windows")) "java.exe" else "java"
-        val executable = file(System.getProperty("java.home") + "/bin/" + javaName).absolutePath
-        out.writeText("{\"java\":" + quoted(executable) + ",\"classpath\":" + quoted(sourceSets["main"].runtimeClasspath.asPath) + "}")
-        val command = listOf(executable, "-Xmx1g", "-cp", sourceSets["main"].runtimeClasspath.asPath,
-            "btk.tools.spatial.SpatialBridge")
-        layout.buildDirectory.file("spatial-java.json").get().asFile.writeText(command.joinToString(",", "[", "]") { quoted(it) })
-    }
 }
 
 /** Merge core + bot.current into build/submit/Player.java and compile-check it. */
@@ -168,92 +137,6 @@ tasks.register<JavaExec>("cgLeaderStudy") {
     args = listOf(prop("path", "replays/cg-indrill"), prop("player", "Indrill"), prop("out", "build/analysis/leader-study"))
 }
 
-/** Candidate-set datasets for the neural imitation policy. -Ppath/-Pplayer comma lists, -Pholdout, -Pnegatives */
-tasks.register<JavaExec>("cgNeuralExport") {
-    group = "cg"
-    description = "Export DISRUPT/PLACE decisions of named players as NeuralFeatures candidate rows (training data)"
-    mainClass.set("btk.tools.CgNeuralExport")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg-indrill"), prop("player", "Indrill"), prop("out", "build/analysis/neural-data"),
-        prop("holdout", "40"), prop("negatives", "40"), prop("seed", "20260920"))
-}
-
-/** Terminal-outcome decisions from the retained imitation policy, with its original feature space. */
-tasks.register<JavaExec>("neuralV2Collect") {
-    group = "game"
-    description = "Collect local outcome fine-tuning decisions for neural-v2 against frozen opponents"
-    mainClass.set("btk.tools.NeuralV2Collect")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("games", "64"), prop("seed", "2200000"), prop("weights", "build/analysis/neural-v2/weights-0.json"),
-        prop("out", "build/analysis/neural-v2/round-1"), prop("temp", "1.0"))
-}
-
-/** Register existing corpus maps or score fixed probe rows; creates no games. */
-tasks.register<JavaExec>("neuralV2Verify") {
-    group = "game"
-    description = "Write-once neural-v2 corpus exclusions or generated-weight numerical parity"
-    mainClass.set("btk.tools.NeuralV2Verify")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("mode", "maps"), prop("path", "replays/cg-indrill,replays/cg/boss,replays/cg/903510176.json"),
-        prop("weights", "build/analysis/neural-v2/weights-0.json"), prop("out", "build/bench/neural-v2-corpus-excluded.json"))
-}
-
-/** Per-head exploration follow-up; retained V2 collection remains unchanged. */
-tasks.register<JavaExec>("neuralV4Collect") {
-    group = "game"
-    description = "Collect neural-v4 decisions with sabotage T=1 and construction T=0.5"
-    mainClass.set("btk.tools.NeuralV4Collect")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("games", "192"), prop("seed", "3100000"), prop("weights", "build/analysis/neural-v4/weights-0.json"),
-        prop("out", "build/analysis/neural-v4/round-1"), prop("sabotageTemp", "1.0"), prop("buildTemp", "0.5"))
-}
-
-/** Register existing maps or compare fixed probe rows with the new generated weights. */
-tasks.register<JavaExec>("neuralV4Verify") {
-    group = "game"
-    description = "Write-once neural-v4 corpus exclusions or generated-weight numerical parity"
-    mainClass.set("btk.tools.NeuralV4Verify")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("mode", "maps"), prop("path", "replays/cg-indrill,replays/cg/boss,replays/cg/903510176.json"),
-        prop("weights", "build/analysis/neural-v4/weights-0.json"), prop("out", "build/bench/neural-v4-corpus-excluded.json"))
-}
-
-/** Local terminal-outcome data for the independent Indrill-style action-value model. */
-tasks.register<JavaExec>("indrillCollect") {
-    group = "game"
-    description = "Collect local sequential action-value training rows; no arena or boss API calls"
-    mainClass.set("btk.tools.IndrillCollect")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("games", "48"), prop("seed", "2000000"), prop("weights", "build/analysis/indrill-q/weights-0.bin"),
-        prop("out", "build/analysis/indrill-q/round-1.bin.gz"), prop("epsilon", "0.25"), prop("opponent", "mixed"))
-}
-
-/** Float32 cross-language model parity and fixed training-map exclusions. */
-tasks.register<JavaExec>("indrillV2Collect") {
-    group = "game"
-    description = "Collect v2 learned-state-value Q episodes, alternating frozen opponent seats"
-    mainClass.set("btk.tools.IndrillV2Collect")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("games", "128"), prop("seed", "2100000"), prop("weights", "build/analysis/indrill-q-v2/weights-0.bin"),
-        prop("out", "build/analysis/indrill-q-v2/round-1.bin.gz"), prop("epsilon", "0.30"), prop("opponent", "mixed"))
-}
-
-tasks.register<JavaExec>("indrillV2Probe") {
-    group = "game"
-    description = "Register v2's 960 training maps and export value/advantage numerical parity observations"
-    mainClass.set("btk.tools.IndrillV2Probe")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("weights", "build/analysis/indrill-q-v2/weights-6.bin"), prop("out", "build/analysis/indrill-q-v2/probe"))
-}
-
-tasks.register<JavaExec>("indrillProbe") {
-    group = "game"
-    description = "Register training-map exclusions and export fixed float32 inference parity observations"
-    mainClass.set("btk.tools.IndrillProbe")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("weights", "build/indrill/round4.bin"), prop("out", "build/analysis/indrill-q/parity"))
-}
-
 tasks.register<JavaExec>("cgCellStudy") {
     group = "cg"
     description = "Per-cell construction study of one named player: routes at placement time and what each track did later"
@@ -270,14 +153,6 @@ tasks.register<JavaExec>("cgAnalyze") {
     args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""))
 }
 
-tasks.register<JavaExec>("cgForecast") {
-    group = "cg"
-    description = "Offline adaptive sabotage forecast; chronological observations, opponent-group holdout"
-    mainClass.set("btk.tools.CgForecastStudy")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg"), prop("agent", ""), prop("out", ""), prop("params", ""))
-}
-
 tasks.register<JavaExec>("cgDisrupt") {
     group = "cg"
     description = "Known-state sabotage valuation vs timed search on validated replay prefixes"
@@ -285,77 +160,6 @@ tasks.register<JavaExec>("cgDisrupt") {
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("targets", "replays/cg/903970829.json@0@43+46,replays/cg/903956941.json@1@19+28"),
         prop("out", "build/analysis/disrupt-diagnostic.json"))
-}
-
-tasks.register<JavaExec>("rolloutRiskStudy") {
-    group = "game"
-    description = "Bounded saved-position audit of all-cell-risk route candidates"
-    mainClass.set("btk.tools.RolloutRiskStudy")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
-        prop("out", "build/analysis/rollout-risk-v1/mechanism.json"))
-}
-
-tasks.register<JavaExec>("rolloutRiskPolicyCheck") {
-    group = "game"
-    description = "Check actual risk-candidate policy coverage on the same saved positions"
-    mainClass.set("btk.tools.RolloutRiskPolicyCheck")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
-        prop("out", "build/analysis/rollout-risk-v1/policy-check.json"))
-}
-
-tasks.register<JavaExec>("v09ContinuationStudy") {
-    group = "diagnostics"
-    description = "Audit deferred sabotage and missed closures on the fixed 40-game v09 cohort"
-    dependsOn("classes")
-    classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("btk.tools.V09ContinuationStudy")
-    args = listOf(prop("audit", "docs/evidence/neural-v7-control-boss.json"),
-        prop("out", "build/analysis/v09-continuation-v1/run"),
-        prop("historical", "replays/cg/boss/904554072.json"))
-}
-
-tasks.register<JavaExec>("v09FullActionStudy") {
-    group = "diagnostics"
-    description = "Compare complete v09 construction with sabotage and trace repeated decisions"
-    dependsOn("classes")
-    classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("btk.tools.V09FullActionStudy")
-    maxHeapSize = "1536m"
-    args = listOf(prop("selection", "build/analysis/v09-full-action-v1/selection.json"),
-        prop("out", "build/analysis/v09-full-action-v1/run"))
-}
-
-tasks.register<JavaExec>("v09DeferredCommitStudy") {
-    group = "diagnostics"
-    description = "Screen the missed-deadline correction on the fixed v09 development cases"
-    dependsOn("classes")
-    classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("btk.tools.V09DeferredCommitStudy")
-    maxHeapSize = "1536m"
-    args = listOf(prop("selection", "build/analysis/v09-deferred-commit-v1/selection.json"),
-        prop("out", "build/analysis/v09-deferred-commit-v1/run"))
-}
-
-tasks.register<JavaExec>("rolloutFillStudy") {
-    group = "diagnostics"
-    description = "Audit first-turn leftover fill in the existing rollout on saved development states"
-    dependsOn("classes")
-    classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("btk.tools.RolloutFillStudy")
-    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
-        prop("out", "build/analysis/rollout-fill-root-v1/mechanism.json"))
-}
-
-tasks.register<JavaExec>("rolloutFillPolicyCheck") {
-    group = "diagnostics"
-    description = "Verify the first-turn fill policy against the saved mechanism check"
-    classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("btk.tools.RolloutFillPolicyCheck")
-    args = listOf(prop("capture", "build/analysis/reply-study-v1/capture"),
-        prop("mechanism", "build/analysis/rollout-fill-root-v1/mechanism.json"),
-        prop("out", "build/analysis/rollout-fill-root-v1/policy-check.json"))
 }
 
 tasks.register<JavaExec>("rolloutCheck") {
@@ -383,32 +187,6 @@ tasks.register<JavaExec>("cgTiming") {
     classpath = sourceSets["main"].runtimeClasspath
     args = listOf(prop("paths", "replays/cg/903509641.json,replays/cg/903508669.json"),
         prop("params", ""), prop("out", "build/analysis/search-timing.json"))
-}
-
-tasks.register<JavaExec>("cgBossStudy") {
-    group = "cg"
-    description = "Inspect observed boss defense on an explicit validated replay sample"
-    mainClass.set("btk.tools.CgBossDefenseStudy")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("paths", ""), prop("out", "build/analysis/boss-defense-" + System.currentTimeMillis() + ".json"))
-}
-
-tasks.register<JavaExec>("cgBossLossStudy") {
-    group = "cg"
-    description = "Validated descriptive comparison of explicitly counted chronological boss cohorts"
-    mainClass.set("btk.tools.CgBossLossStudy")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "replays/cg/boss"), prop("before", "16"), prop("total", "30"),
-        prop("out", "build/analysis/boss-v06-losses-v2/cohorts.json"))
-}
-
-tasks.register<JavaExec>("cgRolloutBossProbe") {
-    group = "cg"
-    description = "Known-state frozen rollout diagnostics on a previously recorded boss cohort"
-    mainClass.set("btk.tools.CgRolloutBossProbe")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("input", "build/analysis/boss-v06-losses-v2/cohorts.json"),
-        prop("out", "build/analysis/boss-v06-losses-v2/rollout-probe.json"))
 }
 
 tasks.register<JavaExec>("networkCellStudy") {
