@@ -1,0 +1,6 @@
+cell                     rate       W-L-D        95% CI   err   msA   msB  maxA slowA    <19   >=19
+B2-vs-boss2             84.0%  252-48  0   72.9-95.1      0  13.8  21.0    48     0  80.8%  91.9%
+cur-vs-boss2            78.7%  236-64  0   67.6-89.8      0  15.3  22.4    46     0  72.9%  93.0%
+
+paired per-map deltas (candidate - control, same maps/seeds/seats):
+  B2-vs-boss2            vs cur-vs-boss2       maps 150  delta  +5.3 pp  +- 5.9 (95%)  maps better/worse/equal 40/26/84

@@ -263,6 +263,7 @@ public class FileMerger {
         boolean oppHold = BotFactory.parameters(spec).BOSS_OPP_HOLD_MARGIN >= 0;
         boolean bossNoClose = BotFactory.parameters(spec).USE_BOSS_NO_CLOSE;
         boolean routeCommit = BotFactory.parameters(spec).USE_ROUTE_COMMIT;
+        boolean bypassRoutes = BotFactory.parameters(spec).USE_BYPASS_ROUTES;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -290,6 +291,7 @@ public class FileMerger {
             boolean oppHoldBlock = false;
             boolean noCloseBlock = false;
             boolean commitBlock = false;
+            boolean bypassBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -546,6 +548,17 @@ public class FileMerger {
                     continue;
                 }
                 if (commitBlock && !routeCommit) continue;
+                if (line.trim().equals("// BYPASS_BEGIN")) {
+                    if (bypassBlock) throw new IllegalArgumentException("Nested bypass block: " + file);
+                    bypassBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// BYPASS_END")) {
+                    if (!bypassBlock) throw new IllegalArgumentException("Unbalanced bypass block: " + file);
+                    bypassBlock = false;
+                    continue;
+                }
+                if (bypassBlock && !bypassRoutes) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;
