@@ -28,9 +28,10 @@ finished.
    (c) **live filter + arena (amended 2026-10-27, `docs/arena-uploads.md`)** — one 40-game live boss session on
    the cached control's maps/seeds/seats with a same-session control; continue at a paired delta ≥ 0. Then the
    candidate goes to the arena: fetch the live entry before every upload (`python tools/arena_uploads.py fetch`;
-   CG lists the live agent's games only), upload the candidate, fetch it after placement (~120 games), re-upload
-   the same artifact and fetch again; roll back to the selected version when the candidate's mean placement score
-   is below the selected version's by more than M (2 × the upload-to-upload SD, provisionally 1.0) and its
+   CG lists the live agent's games only), upload the candidate and run `... watch` through its placement (~120
+   games; a league promotion replaces the agent at the end), re-upload the same artifact and watch again; roll back
+   to the selected version when the candidate's mean placement score is below the selected version's uploads in
+   the same league by more than M (2 × the upload-to-upload SD, ≈ 1.4 after v13's two uploads) and its
    performance rating is lower by more than 2 SE; otherwise promote. The former 80/120-game live
    confirmation is historical.
    New heuristic bots (not flags on `current`) get a predeclared tuning budget on development
@@ -91,7 +92,7 @@ docs/                       rules/, PLAN.md, BOTS.md, DEVLOG.md, replay_format.m
 - `gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg`
 - `gradlew submit` then `gradlew procCheck -Pbot=v01 -Pgames=4`
 - `gradlew cgFetch -Ptop=20 -Plimit=10`, `gradlew cgFetch -Pplayer=<pseudo>`
-- `python tools/arena_uploads.py fetch` before every upload and after each placement; `... compare` — our uploads by
+- `python tools/arena_uploads.py fetch` before every upload, `... watch` through each placement; `... compare` — our uploads by
   version under `replays/arena/<label>/upload-N/` (`docs/arena-uploads.md`)
 - `gradlew cgValidate`; `gradlew cgRender "-Ppath=replays/cg/<gameId>.json"` for visualizer JSON
 - `gradlew cgStudy "-Pbot=current"` — what winners do in the replays + agreement of our bot with them

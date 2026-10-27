@@ -41,9 +41,10 @@ strict process check, source-size check.
    objective.)
 3. **Live filter + arena (amended 2026-10-27, `docs/arena-uploads.md`).** One 40-game live boss session on the
    cached control's maps/seeds/seats with a same-session control is a cheap filter: continue at a paired delta ≥ 0.
-   Then the candidate is uploaded to the arena twice (~120 placement games each) and fetched after each placement
-   with `tools/arena_uploads.py`; it is rolled back when its mean placement score is below the selected version's
-   uploads by more than M (2 × the upload-to-upload SD of one artifact, provisionally 1.0 CG point) and its
+   Then the candidate is uploaded to the arena twice (~120 placement games each), each placement watched with
+   `tools/arena_uploads.py watch`; it is rolled back when its mean placement score is below the selected version's
+   uploads in the same league by more than M (2 × the upload-to-upload SD of one artifact, ≈ 1.4 CG points after
+   v13's two uploads on 2026-10-27) and its
    performance rating is lower by more than 2 SE, and promoted otherwise. The live-confirmation rule below is
    historical (it applied to the v10–v13 promotions, each made after its first session).
    *Historical:* **Live confirmation** — **80 paired games** against the live boss: 40 new candidate games on
