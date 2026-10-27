@@ -1097,7 +1097,7 @@ class FileMergerTest {
     /**
      * prune-v1 (2026-10-25): the all-cell-risk and root-fill experiments left current. Their artifacts can no
      * longer be built (the request is refused, never silently ignored); the default artifact ships neither the
-     * flags nor TacticalPathing; the mechanisms themselves are covered on the frozen copy by btk.bot.v10.
+     * flags nor TacticalPathing; the mechanisms stay runnable on the frozen v10 copy (their tests left with prune-v2).
      */
     @Test void prunedRiskAndRootFillExperimentsCannotBePackagedFromCurrentAndLeftTheDefaultArtifact() throws Exception {
         for (String flag : new String[]{"USE_ROLLOUT_ALL_CELL_RISK", "USE_ROLLOUT_ROOT_FILL"}) {

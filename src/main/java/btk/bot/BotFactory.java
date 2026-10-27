@@ -191,28 +191,29 @@ public final class BotFactory {
             throw new IllegalArgumentException("Exposure income exists on current, v12 and v13 only (exposure-income-v1); frozen v11 and v10 never had it");
         if (!Double.isFinite(params.EXPOSURE_INCOME_WEIGHT) || params.EXPOSURE_INCOME_WEIGHT < 0 || params.EXPOSURE_INCOME_WEIGHT > 1)
             throw new IllegalArgumentException("EXPOSURE_INCOME_WEIGHT must be within [0, 1]");
-        if (params.USE_COLLISION_AVOIDANCE && (!version.equals("current") || !rolloutPolicy))
-            throw new IllegalArgumentException("Collision avoidance is a current-only rollout experiment (collision-avoidance-v1)");
+        // prune-v2 (2026-10-27): the rejected/parked experiments below left current; frozen v13 still carries their code.
+        if (params.USE_COLLISION_AVOIDANCE && (!version.equals("v13") || !rolloutPolicy))
+            throw new IllegalArgumentException("Collision avoidance (collision-avoidance-v1) was pruned from current (prune-v2); run it on v13");
         if (!Double.isFinite(params.COLLISION_PENALTY) || params.COLLISION_PENALTY < 0)
             throw new IllegalArgumentException("COLLISION_PENALTY must be a finite non-negative number");
-        if (params.USE_CORRIDOR_ROUTES && (!version.equals("current") || !rolloutPolicy))
-            throw new IllegalArgumentException("Corridor routes are a current-only rollout experiment (corridor-routes-v1)");
+        if (params.USE_CORRIDOR_ROUTES && (!version.equals("v13") || !rolloutPolicy))
+            throw new IllegalArgumentException("Corridor routes (corridor-routes-v1) were pruned from current (prune-v2); run them on v13");
         if (!Double.isFinite(params.CORRIDOR_WEIGHT) || params.CORRIDOR_WEIGHT < 0)
             throw new IllegalArgumentException("CORRIDOR_WEIGHT must be a finite non-negative number");
-        if ((params.USE_QUICK_ALWAYS || params.DELAY_POWER != 1.0) && (!version.equals("current") || !rolloutPolicy))
-            throw new IllegalArgumentException("Quick-always / delay power are current-only rollout experiments (earning-delay-v1)");
+        if ((params.USE_QUICK_ALWAYS || params.DELAY_POWER != 1.0) && (!version.equals("v13") || !rolloutPolicy))
+            throw new IllegalArgumentException("Quick-always / delay power (earning-delay-v1) were pruned from current (prune-v2); run them on v13");
         if (params.USE_QUICK_ALWAYS && !params.USE_ROLLOUT_QUICK_ROUTE)
             throw new IllegalArgumentException("USE_QUICK_ALWAYS requires USE_ROLLOUT_QUICK_ROUTE");
         if (!Double.isFinite(params.DELAY_POWER) || params.DELAY_POWER <= 0)
             throw new IllegalArgumentException("DELAY_POWER must be a finite positive number");
         if (!Double.isFinite(params.BOSS_OPP_HOLD_MARGIN))
             throw new IllegalArgumentException("BOSS_OPP_HOLD_MARGIN must be finite (negative = BOSS_HOLD_MARGIN)");
-        if (params.BOSS_OPP_HOLD_MARGIN >= 0 && (!version.equals("current") || !rolloutPolicy || !params.USE_BOSS_LITE || !params.USE_BOSS_OPPONENT_MODEL))
-            throw new IllegalArgumentException("BOSS_OPP_HOLD_MARGIN is a current-only experiment of the lite opponent model (opp-hold-v1)");
-        if (params.USE_BOSS_NO_CLOSE && (!version.equals("current") || !params.USE_BOSS_SABOTAGE))
-            throw new IllegalArgumentException("USE_BOSS_NO_CLOSE is a current-only switch of the BossSabotage proxy (boss-v4)");
-        if (params.USE_ROUTE_COMMIT && (!version.equals("current") || !rolloutPolicy))
-            throw new IllegalArgumentException("Route commitment is a current-only rollout experiment (route-commit-v1)");
+        if (params.BOSS_OPP_HOLD_MARGIN >= 0 && (!version.equals("v13") || !rolloutPolicy || !params.USE_BOSS_LITE || !params.USE_BOSS_OPPONENT_MODEL))
+            throw new IllegalArgumentException("BOSS_OPP_HOLD_MARGIN (opp-hold-v1) was pruned from current (prune-v2); run it on v13 with the lite opponent model");
+        if (params.USE_BOSS_NO_CLOSE && (!version.equals("v13") || !params.USE_BOSS_SABOTAGE))
+            throw new IllegalArgumentException("USE_BOSS_NO_CLOSE (boss-v4) was pruned from current (prune-v2); run the no-close proxy on v13");
+        if (params.USE_ROUTE_COMMIT && (!version.equals("v13") || !rolloutPolicy))
+            throw new IllegalArgumentException("Route commitment (route-commit-v1) was pruned from current (prune-v2); run it on v13");
         if (!Double.isFinite(params.COMMIT_BONUS) || params.COMMIT_BONUS < 0)
             throw new IllegalArgumentException("COMMIT_BONUS must be a finite non-negative number");
         // The selected v13 flag is rollout-only: a policy that never reads it drops the inherited default silently, an
@@ -231,6 +232,8 @@ public final class BotFactory {
             throw new IllegalArgumentException("BYPASS_MIN_INSTABILITY must be 1, 2 or 3");
         if (!Double.isFinite(params.BYPASS_WEIGHT) || params.BYPASS_WEIGHT < 0 || params.BYPASS_WEIGHT > 1)
             throw new IllegalArgumentException("BYPASS_WEIGHT must be in [0, 1]");
+        if (params.USE_BOSS_THREAT_MODEL && (version.equals("current") || version.equals("main")))
+            throw new IllegalArgumentException("Boss threat model (stage4-threat-model-v1) was pruned from current (prune-v2); run it on v11, v12 or v13");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)

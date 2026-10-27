@@ -100,7 +100,9 @@ class V13PromotionTest {
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v12?USE_BYPASS_ROUTES=1"), "frozen v12 never had the flag");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v11?USE_BYPASS_ROUTES=1"));
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v13?USE_ROLLOUT_SPREAD=1"), "the pruned experiments are refused on v13 as on current");
-        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v13?USE_ROUTE_COMMIT=1"), "current-only experiments stay current-only");
+        // prune-v2 (2026-10-27): the parked experiments left current; the frozen v13 copy still carries and runs them.
+        assertDoesNotThrow(() -> BotFactory.create("v13?USE_ROUTE_COMMIT=1"), "parked experiments run on frozen v13");
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_ROUTE_COMMIT=1"), "pruned from current");
         assertDoesNotThrow(() -> BotFactory.create("v13?USE_BOSS_THREAT_MODEL=1"), "the parked sibling flag exists on the frozen copy");
     }
 
