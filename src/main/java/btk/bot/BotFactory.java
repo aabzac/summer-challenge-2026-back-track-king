@@ -53,7 +53,7 @@ import java.util.TreeMap;
 /**
  * Creates bots by spec string: {@code "<version>"} or {@code "<version>?KEY=v,KEY2=v"}.
  * Versions: {@code current} (working copy), {@code main} (what ships), {@code vNN} (frozen).
- * Local-only {@code exp-*} recipes and readable labels are described by {@link BotCatalog}.
+ * Readable labels of local-only bots are described by {@link BotCatalog}.
  */
 public final class BotFactory {
 
@@ -64,15 +64,7 @@ public final class BotFactory {
         Params params = parameters(spec);
         if (version.equals("current") && params.USE_NEURAL_TARGET_PROPOSAL)
             return new btk.tools.target.TargetHybridBot(params);
-        Bot bot = version.startsWith("exp-") ? BotCatalog.createExperiment(spec) : lookup(version).apply(params);
-        if (!version.startsWith("exp-")) return bot;
-        // Preserve a named preset in generic referee replays without touching strategy classes.
-        return new Bot() {
-            public String name() { return spec; }
-            public void init(GameState s, int me) { bot.init(s, me); }
-            public List<Action> play(GameState s, int me, long ms) { return bot.play(s, me, ms); }
-            public void warmup(GameState s, int me, long ms) { bot.warmup(s, me, ms); }
-        };
+        return lookup(version).apply(params);
     }
 
     /** The selected local version: {@code current} is its copy plus any later, not yet promoted work. */
@@ -129,15 +121,6 @@ public final class BotFactory {
         if (lookup(version) == null) throw new IllegalArgumentException("unknown bot: " + version);
         if ((version.equals("main") || version.equals("v00")) && !query.isBlank()) {
             throw new IllegalArgumentException(version + " does not accept parameter overrides");
-        }
-        if (version.startsWith("exp-")) {
-            for (String item : query.split("[&,]")) if (!item.isBlank()) {
-                int eq = item.indexOf('=');
-                if (eq < 0 || !BotCatalog.parameterNames(version).contains(item.substring(0, eq).trim())) {
-                    throw new IllegalArgumentException("Parameter absent from retained engine: " + item);
-                }
-            }
-            return BotCatalog.experimentParameters(version).apply(query);
         }
         Params params = new Params();
         if (version.startsWith("v") && !version.equals("v00")) FrozenParams.applyTo(version, params);
@@ -323,7 +306,6 @@ public final class BotFactory {
                         && !version(spec).equals("neural-v7")) continue;
                 if ((field.getName().equals("USE_NEURAL_FALLBACK") || field.getName().equals("NEURAL_FALLBACK_MAX_INSTABILITY"))
                         && !version(spec).equals("neural-v7")) continue;
-                if (version(spec).startsWith("exp-") && !BotCatalog.parameterNames(version(spec)).contains(field.getName())) continue;
                 if (!Modifier.isStatic(field.getModifiers())) values.put(field.getName(), String.valueOf(field.get(params)));
             }
         } catch (IllegalAccessException e) {
@@ -406,9 +388,7 @@ public final class BotFactory {
             case "indrill-q-v1": return IndrillBot::new;
             case "indrill-q-v2": return IndrillV2Bot::new;
             case "indrill-forum-v1": return IndrillForumBot::new;
-            default:
-                if (version.startsWith("exp-") && BotCatalog.entry(version).category().equals("experiment")) return EvalBot::new;
-                return null;
+            default: return null;
         }
     }
 }

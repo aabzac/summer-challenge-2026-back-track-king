@@ -9,8 +9,10 @@ assert.equal(label({source:'cg', bots:['v05','exp-income-guard']},0,entries),'v0
 assert.equal(label({source:'cg', bots:['v05','exp-income-guard']},1,entries),'exp-income-guard');
 assert.equal(label({source:'local', bots:['custom-name']},0,entries),'custom-name');
 assert.equal(label({source:'local', bots:['v05']},0),'v05');
-assert.equal(label({source:'local', bots:['exp-income-guard']},0,entries),
+// The exp-* recipes left the catalog (2026-10-27); old local replays still carry their recorded labels.
+assert.equal(label({source:'local', bots:['exp-income-guard']},0,entries),'exp-income-guard');
+assert.equal(label({source:'local', bots:['exp-income-guard'],botDetails:[{displayName:'exp-income-guard - Income Guard',category:'experiment'}]},0,entries),
   'exp-income-guard - Income Guard (experiment, not promoted)');
 assert.equal(label({source:'local', bots:['v05'],botDetails:[{displayName:'Recorded title',category:'version'}]},0,entries),'Recorded title');
 assert.equal(label({source:'cg', bots:['v05'],botDetails:[{displayName:'Do not use this',category:'version'}]},0,entries),'v05');
-console.log('9 bot-label checks passed');
+console.log('10 bot-label checks passed');
