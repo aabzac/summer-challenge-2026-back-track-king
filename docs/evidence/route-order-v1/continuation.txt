@@ -1,0 +1,4 @@
+  v12 loss: consecutive labeled placement turns 861; next turn builds the same pair 20.8 %; after starting a route that needed > 3 paint, the next turn continues it 24.1 % (n=717)
+  v12 win : consecutive labeled placement turns 1205; next turn builds the same pair 23.2 %; after starting a route that needed > 3 paint, the next turn continues it 27.2 % (n=962)
+  opp loss: consecutive labeled placement turns 750; next turn builds the same pair 26.7 %; after starting a route that needed > 3 paint, the next turn continues it 32.1 % (n=586)
+  opp win : consecutive labeled placement turns 1031; next turn builds the same pair 26.5 %; after starting a route that needed > 3 paint, the next turn continues it 30.3 % (n=852)

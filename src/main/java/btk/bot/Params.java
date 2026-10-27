@@ -141,6 +141,11 @@ public class Params {
     /** boss-v4 (2026-10-26): the screening proxy's BossSabotage skips one-hit closures instead of taking the winning ones at once; the live boss declines them 94-98 % of the time (docs/boss-v4.md). Current-only, needs USE_BOSS_SABOTAGE, default off. */
     public boolean USE_BOSS_NO_CLOSE = false;
     // BOSS_NOCLOSE_END
+    // COMMIT_BEGIN
+    /** route-commit-v1 (2026-10-27): the bot remembers the unbuilt cells of the route it chose last turn; a root that places a cell on that route gets COMMIT_BONUS rollout-value points, so half-built routes are finished before new ones start (docs/route-commit-v1.md). Current-only rollout experiment, default off. */
+    public boolean USE_ROUTE_COMMIT = false;
+    public double COMMIT_BONUS = 10.0;
+    // COMMIT_END
     // BOSS_ROOT_BEGIN
     /** Selected v11 (root-target-v1, 2026-10-25): our first simulated turn disrupts the real-turn lite target for every rollout root (no chooseTarget per root, no no-disrupt alternative), as the real turn does. Requires USE_BOSS_LITE; docs/stage4-threat-model-v1.md. */
     public boolean USE_BOSS_ROOT_TARGET = true;

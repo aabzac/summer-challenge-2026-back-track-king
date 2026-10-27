@@ -73,7 +73,7 @@ class V12PromotionTest {
             else if (field.getType() == int.class) field.setInt(dirty, -999);
             else if (field.getType() == double.class) field.setDouble(dirty, -999);
         }
-        assertEquals(expected.size() + 29, fields, "fields outside the v12 record: current-only experiments, neural/spatial/turn-budget overrides");
+        assertEquals(expected.size() + 31, fields, "fields outside the v12 record: current-only experiments, neural/spatial/turn-budget overrides");
         FrozenParams.applyTo("v12", dirty);
         assertEquals(36, dirty.TURN_BUDGET_MS);
         assertFalse(dirty.USE_BOSS_THREAT_MODEL); assertFalse(dirty.USE_BOSS_SABOTAGE);

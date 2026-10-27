@@ -1,0 +1,12 @@
+
+=== loss: 58 games, completion events with first income in turns 10-25 ===
+  v12: events  6.7/game; turns from half the paint to income 2.92 (median 2); cells placed >= 4 turns before income 29.7 %; events with an isolated seed (first cell >= 3 turns before the second) 25.8 %; core excess (late cells only) +0.09
+        early cells (>= 4 turns before income), class at placement: completion(own) 81.5 %, none  7.3 %, completion(shared)  4.5 %, steal  3.4 %, bypass  2.8 %, extend  0.6 %
+  opp: events  8.4/game; turns from half the paint to income 1.49 (median 1.0); cells placed >= 4 turns before income 13.3 %; events with an isolated seed (first cell >= 3 turns before the second) 12.3 %; core excess (late cells only) -0.28
+        early cells (>= 4 turns before income), class at placement: completion(own) 65.3 %, none 15.1 %, bypass  7.6 %, completion(shared)  6.7 %, steal  3.6 %, extend  1.7 %
+
+=== win: 89 games, completion events with first income in turns 10-25 ===
+  v12: events  7.0/game; turns from half the paint to income 2.92 (median 2); cells placed >= 4 turns before income 29.6 %; events with an isolated seed (first cell >= 3 turns before the second) 23.0 %; core excess (late cells only) +0.07
+        early cells (>= 4 turns before income), class at placement: completion(own) 79.9 %, none 10.1 %, completion(shared)  3.5 %, bypass  2.9 %, steal  2.3 %, extend  1.3 %
+  opp: events  6.9/game; turns from half the paint to income 2.02 (median 1); cells placed >= 4 turns before income 20.0 %; events with an isolated seed (first cell >= 3 turns before the second) 11.6 %; core excess (late cells only) -0.13
+        early cells (>= 4 turns before income), class at placement: completion(own) 63.5 %, none 18.5 %, bypass  7.5 %, completion(shared)  6.8 %, steal  2.2 %, extend  1.5 %

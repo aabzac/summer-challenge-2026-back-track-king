@@ -36,6 +36,11 @@ public final class RolloutBot implements Bot {
     private Random random;
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain;
+    // COMMIT_BEGIN
+    private int[] commitCells;
+    private int commitLen, commitTurn = -99;
+    public int commitRootsBonused;
+    // COMMIT_END
     // CORRIDOR_BEGIN
     private static final int CORRIDOR_SCALE = 12;
     private int[][] corridorPaths;
@@ -187,6 +192,9 @@ public final class RolloutBot implements Bot {
         routes = new int[2][p.ROLLOUT_WIDTH][s.size];
         lengths = new int[2][p.ROLLOUT_WIDTH]; values = new double[2][p.ROLLOUT_WIDTH];
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
+        // COMMIT_BEGIN
+        if (p.USE_ROUTE_COMMIT) { commitCells = new int[s.size]; commitLen = 0; commitTurn = -99; }
+        // COMMIT_END
         // CORRIDOR_BEGIN
         if (p.USE_CORRIDOR_ROUTES) {
             corridorPaths = new int[s.pairCount][s.size]; corridorLengths = new int[s.pairCount]; corridorCount = new int[s.size];
@@ -280,6 +288,10 @@ public final class RolloutBot implements Bot {
         }
         // MISSED_DEADLINE_END
         routeQueries = completedComparisons = simulatedTurns = 0;
+        // COMMIT_BEGIN
+        commitRootsBonused = 0;
+        if (p.USE_ROUTE_COMMIT && s.turn == 0) { commitLen = 0; commitTurn = -99; } // warm-up turns never carry over
+        // COMMIT_END
         // CORRIDOR_BEGIN
         corridorQueries = corridorProposals = 0;
         if (p.USE_CORRIDOR_ROUTES) { Arrays.fill(corridorCount, 0); Arrays.fill(corridorLengths, 0); }
@@ -422,6 +434,9 @@ public final class RolloutBot implements Bot {
         // MISSED_DEADLINE_BEGIN
         if (p.USE_ROLLOUT_MISSED_DEADLINE) correctMissedDeadline(s);
         // MISSED_DEADLINE_END
+        // COMMIT_BEGIN
+        if (p.USE_ROUTE_COMMIT) recordCommitment(s);
+        // COMMIT_END
         List<Action> result = new ArrayList<>(4);
         for (int i = 0; i < bestCount; i++) result.add(Action.place(s.x(bestCells[i]), s.y(bestCells[i])));
         if (selectedTarget >= 0) result.add(Action.disrupt(selectedTarget));
@@ -665,6 +680,11 @@ public final class RolloutBot implements Bot {
                     if (shared > 0) { value -= p.COLLISION_PENALTY * shared; if (attack == 0) collisionRootsPenalised++; }
                 }
                 // COLLISION_END
+                // COMMIT_BEGIN
+                if (p.USE_ROUTE_COMMIT && commitLen > 0 && commitTurn == s.turn - 1 && onCommitted(roots[root], rootCounts[root])) {
+                    value += p.COMMIT_BONUS; if (attack == 0) commitRootsBonused++;
+                }
+                // COMMIT_END
                 if (value > best) {
                     best = value; selectedValue = value;
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
@@ -801,6 +821,28 @@ public final class RolloutBot implements Bot {
         }
     }
     // CORRIDOR_END
+
+    // COMMIT_BEGIN
+    /** route-commit-v1: the unbuilt cells of the chosen route after this turn's placements; kept for one turn. */
+    private void recordCommitment(GameState s) {
+        if (selectedRoute < 0 || selectedRoute >= counts[realPlayer]) { commitLen = 0; return; }
+        int[] route = routes[realPlayer][selectedRoute];
+        int n = 0;
+        for (int i = 0; i < lengths[realPlayer][selectedRoute]; i++) {
+            int c = route[i];
+            if (!s.canBuild(c)) continue;
+            boolean placedNow = false;
+            for (int j = 0; j < bestCount; j++) if (bestCells[j] == c) { placedNow = true; break; }
+            if (!placedNow) commitCells[n++] = c;
+        }
+        commitLen = n; commitTurn = s.turn;
+    }
+
+    private boolean onCommitted(int[] cells, int count) {
+        for (int i = 0; i < count; i++) for (int j = 0; j < commitLen; j++) if (cells[i] == commitCells[j]) return true;
+        return false;
+    }
+    // COMMIT_END
 
     private void insert(GameState s, int me, int length, double value) {
         int n = pack(s, path, length, prefix, 0, GameState.PAINT_PER_TURN);
