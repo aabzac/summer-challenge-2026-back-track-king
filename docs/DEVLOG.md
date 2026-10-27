@@ -9199,3 +9199,20 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   own-only 49 vs 44 %, adjacency to own tracks 2.07 vs 1.85.
 - **Next (user decision):** (a) cell order within multi-turn routes (the opponent's tracks earn sooner with the same
   completions), (b) a backup-route flag for active pairs screened under step 1a, or pause the construction line.
+
+## 2026-10-27 — `route-order-v1` → `route-commit-v1`: v12 leaves routes half-built; a continuation bonus passes steps (a), 1a and (b) — C10 to the live step
+
+- **Order study** (the user's "Порядок", [route-order-v1.md](route-order-v1.md)): over the 147 arena games v12's
+  completions take +4.2–4.4 turns longer than their paint requires (opponents +1.2–1.9, Ando +0.4); 30 % of a completion's
+  cells are placed ≥ 4 turns before its income (opponents 13 %); the final push is as fast as the opponents'; the delay
+  is cross-turn switching (start A, start B, finish A later); route continuation next turn 24–27 % vs 30–32 %.
+- **Candidate** ([route-commit-v1.md](route-commit-v1.md)): `USE_ROUTE_COMMIT` + `COMMIT_BONUS` (`// COMMIT` block,
+  current-only, default off; default artifact unchanged, field-count pins +2): the chosen route's unbuilt cells are kept
+  for one turn; a root placing a cell on them gets the bonus in `searchRoots`.
+- **Step (a)**, fresh pool 1017000 vs boss-v2 with `current` as the control: **C10 82.3 % vs 75.3 % = +7.0 ± 5.5 pp**
+  (40/21/89), C25 +4.7 ± 5.6 pp; head-to-head C10 52.7 %, C25 49.0 %.
+- **Step 1a**, fresh pool 1018000: C10 +2.5 ± 5.1 pp → **pooled +4.8 ± 3.8 pp, continue**; C25 +0.7 → pooled +2.7, stop.
+  The first replicated proxy gain since v12.
+- **Artifact** `build/submit-commit-c10`: 92,813 chars, sha `63e26828…`, build `45dc8325…`, config `f3229a23…`; strict
+  procCheck 0 problems, later ≤ 37.7 ms. **Live plan** `build/cg-boss/commit-c10-v12-boss-40` (id `4cb1514d…`, seed
+  2026102701, 80 API games vs v12) frozen; launch on the user's word. Pools 1017000..1018149 consumed, next ≥ 1019000.

@@ -1,0 +1,16 @@
+-- cur-vs-boss2: current vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1018000) 2026-10-27T06:31:05Z
+  A win rate: 77,7%  W-L-D 233-67-0
+  avg score diff (A-B): +422,4   avg turns: 67,8
+  time/move ms  A avg 6,83 max 36 slow 0 | B avg 15,77 max 46 slow 0
+  accepted disrupt A/B: 98,5% / 99,9%; early closures 297/300
+-- C10-vs-boss2: current?USE_ROUTE_COMMIT=true vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1018000) 2026-10-27T06:35:05Z
+  A win rate: 80,2%  W-L-D 240-59-1
+  avg score diff (A-B): +531,8   avg turns: 66,9
+  time/move ms  A avg 6,99 max 36 slow 0 | B avg 15,96 max 48 slow 0
+  accepted disrupt A/B: 98,3% / 99,7%; early closures 294/300
+-- C25-vs-boss2: current?USE_ROUTE_COMMIT=true,COMMIT_BONUS=25 vs current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0 (300 games, seed 1018000) 2026-10-27T06:39:06Z
+  A win rate: 78,3%  W-L-D 235-65-0
+  avg score diff (A-B): +477,2   avg turns: 67,1
+  time/move ms  A avg 6,83 max 36 slow 0 | B avg 16,00 max 60 slow 1
+  accepted disrupt A/B: 98,3% / 99,8%; early closures 299/300
+REPLICATION DONE 2026-10-27T06:43:06Z
