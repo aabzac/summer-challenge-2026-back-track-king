@@ -262,6 +262,7 @@ public class FileMerger {
         boolean delayValuation = BotFactory.parameters(spec).USE_QUICK_ALWAYS || BotFactory.parameters(spec).DELAY_POWER != 1.0;
         boolean oppHold = BotFactory.parameters(spec).BOSS_OPP_HOLD_MARGIN >= 0;
         boolean bossNoClose = BotFactory.parameters(spec).USE_BOSS_NO_CLOSE;
+        boolean routeCommit = BotFactory.parameters(spec).USE_ROUTE_COMMIT;
         boolean batchedRefresh = BotFactory.parameters(spec).USE_BATCHED_REFRESH;
         boolean incrementalInk = BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH;
         boolean fastCheapestPath = BotFactory.parameters(spec).USE_FAST_CHEAPEST_PATH;
@@ -288,6 +289,7 @@ public class FileMerger {
             boolean delayBlock = false;
             boolean oppHoldBlock = false;
             boolean noCloseBlock = false;
+            boolean commitBlock = false;
             boolean batchBlock = false;
             boolean turnBudgetBlock = false;
             boolean inkBlock = false;
@@ -533,6 +535,17 @@ public class FileMerger {
                     continue;
                 }
                 if (noCloseBlock && !bossNoClose) continue;
+                if (line.trim().equals("// COMMIT_BEGIN")) {
+                    if (commitBlock) throw new IllegalArgumentException("Nested commit block: " + file);
+                    commitBlock = true;
+                    continue;
+                }
+                if (line.trim().equals("// COMMIT_END")) {
+                    if (!commitBlock) throw new IllegalArgumentException("Unbalanced commit block: " + file);
+                    commitBlock = false;
+                    continue;
+                }
+                if (commitBlock && !routeCommit) continue;
                 if (file.endsWith("Params.java") && line.contains("public boolean USE_NEURAL_TARGET_PROPOSAL =")) continue;
                 if (!spatialV9 && file.endsWith("Params.java")
                         && line.contains("public boolean USE_SPATIAL_V9_TOWN_CONTEXT =")) continue;

@@ -225,6 +225,10 @@ public final class BotFactory {
             throw new IllegalArgumentException("BOSS_OPP_HOLD_MARGIN is a current-only experiment of the lite opponent model (opp-hold-v1)");
         if (params.USE_BOSS_NO_CLOSE && (!version.equals("current") || !params.USE_BOSS_SABOTAGE))
             throw new IllegalArgumentException("USE_BOSS_NO_CLOSE is a current-only switch of the BossSabotage proxy (boss-v4)");
+        if (params.USE_ROUTE_COMMIT && (!version.equals("current") || !rolloutPolicy))
+            throw new IllegalArgumentException("Route commitment is a current-only rollout experiment (route-commit-v1)");
+        if (!Double.isFinite(params.COMMIT_BONUS) || params.COMMIT_BONUS < 0)
+            throw new IllegalArgumentException("COMMIT_BONUS must be a finite non-negative number");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
@@ -273,6 +277,7 @@ public final class BotFactory {
                 if (field.getName().equals("DELAY_POWER") && params.DELAY_POWER == 1.0) continue;
                 if (field.getName().equals("BOSS_OPP_HOLD_MARGIN") && params.BOSS_OPP_HOLD_MARGIN < 0) continue;
                 if (field.getName().equals("USE_BOSS_NO_CLOSE") && !params.USE_BOSS_NO_CLOSE) continue;
+                if ((field.getName().equals("USE_ROUTE_COMMIT") || field.getName().equals("COMMIT_BONUS")) && !params.USE_ROUTE_COMMIT) continue;
                 if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;

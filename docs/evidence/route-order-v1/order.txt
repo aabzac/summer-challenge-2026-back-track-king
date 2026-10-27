@@ -1,0 +1,24 @@
+
+=== losses: 58 games ===
+  v12: completion events (first income in turns 10-25)  6.7/game; cells per event  4.9, paint per event  5.8; turns from first cell to income 6.65 (median 4), minimum possible 2.30, **excess +4.35** (events with excess >= 2: 52.2 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 17.7 %, mean distinct completions fed per turn 1.07; cells placed in these turns that never earn 20.1 %
+  opp: completion events (first income in turns 10-25)  8.4/game; cells per event  4.2, paint per event  5.0; turns from first cell to income 3.22 (median 2.0), minimum possible 1.99, **excess +1.23** (events with excess >= 2: 27.0 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 28.0 %, mean distinct completions fed per turn 1.23; cells placed in these turns that never earn 14.1 %
+
+=== wins: 89 games ===
+  v12: completion events (first income in turns 10-25)  7.0/game; cells per event  5.1, paint per event  6.0; turns from first cell to income 6.57 (median 5), minimum possible 2.35, **excess +4.21** (events with excess >= 2: 53.3 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 19.5 %, mean distinct completions fed per turn 1.11; cells placed in these turns that never earn 17.8 %
+  opp: completion events (first income in turns 10-25)  6.9/game; cells per event  4.4, paint per event  5.3; turns from first cell to income 3.98 (median 2), minimum possible 2.08, **excess +1.90** (events with excess >= 2: 33.8 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 23.2 %, mean distinct completions fed per turn 1.12; cells placed in these turns that never earn 22.3 %
+
+=== vs Ando_Riccardo, lost: 16 games ===
+  v12: completion events (first income in turns 10-25)  6.4/game; cells per event  4.5, paint per event  5.5; turns from first cell to income 6.36 (median 3.0), minimum possible 2.24, **excess +4.13** (events with excess >= 2: 49.0 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 16.4 %, mean distinct completions fed per turn 1.05; cells placed in these turns that never earn 24.0 %
+  opp: completion events (first income in turns 10-25)  8.5/game; cells per event  4.2, paint per event  5.1; turns from first cell to income 2.38 (median 1.5), minimum possible 2.01, **excess +0.37** (events with excess >= 2: 16.9 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 21.4 %, mean distinct completions fed per turn 1.16; cells placed in these turns that never earn 14.1 %
+
+=== vs Ando_Riccardo, won: 14 games ===
+  v12: completion events (first income in turns 10-25)  7.4/game; cells per event  5.0, paint per event  5.8; turns from first cell to income 6.70 (median 5), minimum possible 2.28, **excess +4.42** (events with excess >= 2: 54.4 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 19.2 %, mean distinct completions fed per turn 1.05; cells placed in these turns that never earn 22.1 %
+  opp: completion events (first income in turns 10-25)  7.7/game; cells per event  4.5, paint per event  5.3; turns from first cell to income 3.11 (median 2.0), minimum possible 2.05, **excess +1.06** (events with excess >= 2: 24.1 %)
+        placement turns 7-25: turns whose earning cells feed >1 future completion 20.5 %, mean distinct completions fed per turn 1.12; cells placed in these turns that never earn 16.8 %
