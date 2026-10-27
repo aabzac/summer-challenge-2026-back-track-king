@@ -33,7 +33,7 @@ class OppHoldTest {
         assertFalse(BotFactory.configuration("current").containsKey("BOSS_OPP_HOLD_MARGIN"), "excluded from the configuration at the default");
         assertEquals("0.0", BotFactory.configuration(O0).get("BOSS_OPP_HOLD_MARGIN"));
         assertEquals("1.0", BotFactory.configuration(O0).get("BOSS_HOLD_MARGIN"), "the own margin is untouched");
-        assertEquals("v12 (modified)", BotFactory.displayName(O0));
+        assertEquals("v13 (modified)", BotFactory.displayName(O0));
     }
 
     @Test void opponentModelUsesItsOwnMarginAndPlaysLegally() {

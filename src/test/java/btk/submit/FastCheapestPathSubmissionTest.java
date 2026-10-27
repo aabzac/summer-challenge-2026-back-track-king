@@ -52,12 +52,12 @@ class FastCheapestPathSubmissionTest {
 
     @Test void disabledArtifactsRetainExactHistoricalBytes() throws Exception {
         Map<String, String> historical = Map.of(
-                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792",
+                btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739",
                 "v09", "aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac",
-                BASE, "d3b3c7cdb3acb2cb99ed5070b47e15d5e01eb4b28ada9cc8793a51ac434cac21",
-                GUARD, "80245370b0a0c11b8df8499538ec9a9e4094fc90f7a087ad2e102a169ecf8d1f",
+                BASE, "a04462aea88ed214283a7111e766d0929ac312497db366e9d7d359af93c4f01a",
+                GUARD, "1fa974e7615d6d40b3d5e51995071df5adca82f8e494053edeee547da3e9a034",
                 BASE + ",USE_INCREMENTAL_INK_REFRESH=true",
-                "0920dbc3bcdfbaec03972ee9bad681f9b84bbe9753f0ce6ec081b2c4e1f96969");
+                "61121860effe4ea26f42bb3a23b836191b9eef0040282fd45044ca37acc65d70");
         for (var entry : historical.entrySet()) {
             String spec = entry.getKey(), source = FileMerger.merge(spec);
             assertEquals(entry.getValue(), FileMerger.sha256(source), spec);

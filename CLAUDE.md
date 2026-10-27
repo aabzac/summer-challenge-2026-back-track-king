@@ -8,13 +8,14 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 ## Rules that bite most often
 
 - Selection policy is **v5** (`docs/benchmarking-v5.md`, AGENTS.md rule 3): proxy screen vs the
-  boss-like screening opponent — since the v12 promotion (2026-10-25 night) its spec is
-  `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0`
-  (the v11 flag is dropped by the lite chooser off; the v12 flag must be switched off explicitly, or the proxy is not the validated opponent)
+  boss-like screening opponent — since the v13 promotion (2026-10-27) its spec is
+  `current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0,USE_BYPASS_ROUTES=0`
+  (the v11 flag is dropped by the lite chooser off; the v12 flag must be switched off explicitly, or the proxy is not the validated opponent;
+  a sabotage spec with the v13 bypass flag on is refused)
   (`current?USE_BOSS_SABOTAGE=1` alone is refused; or `neural-v6` for a candidate that is itself the
   proxy) — **since 2026-10-26 a step-(a) pass is replicated on a fresh pool before anything else (positive replication delta,
   pooled delta ≥ +3 pp; `tools/boss_proxy/run_replication.sh` + `pooled_delta.py`)** — non-inferiority vs the selected version
-  (`current` = v12), then 80 paired live boss games.
+  (`current` = v13), then 80 paired live boss games.
   The local mirror vs v09 is a regression guard, never the objective.
 - **Compare a candidate only with a control measured on the same maps, seeds and seats, in the
   same run.** Absolute scores move 10 pp between map pools; deltas do not. The screen scripts in
@@ -28,23 +29,29 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
   (`BossSabotageSubmissionTest`, `V07/V08/V09PromotionTest` pin the `Params` field count — bump it
   when you add fields). Source limit 100,000 chars; since `readable-export-v1` (2026-10-25) a `current`
   export is **readable** (one statement per line, tab indentation, comments dropped) and the default
-  artifact is **91,349** chars since the v12 promotion (v11's readable default 88,997 / 88,990 after the marker change, v10's 88,671, `prune-v1`'s compact form 70,397; a `current` export is compacted only
+  artifact is **94,816** chars since the v13 promotion (v12's 91,349; v11's readable default 88,997 / 88,990 after the marker change, v10's 88,671, `prune-v1`'s compact form 70,397; a `current` export is compacted only
   when its readable form would exceed the limit, frozen exports keep their historical bytes). The
-  first-turn `MESSAGE` reads `v12 | BTK_BUILD_V1 strategy=current build=… config=…` (the version id only, `(modified)` for
-  experiments; the header comment of a current export reads `// BTK strategy: current, v12`)
+  first-turn `MESSAGE` reads `v13 | BTK_BUILD_V1 strategy=current build=… config=…` (the version id only, `(modified)` for
+  experiments; the header comment of a current export reads `// BTK strategy: current, v13`)
   (`BotFactory.displayName`; bump `BotFactory.SELECTED_VERSION` / `VERSION_NAMES` at a promotion). `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
   blocks (stripped from current rollout artifacts only); a new field the bot reads goes outside them.
   The 17 pruned rollout flags (`BotFactory.PRUNED_ROLLOUT_FLAGS`) are refused on `current`; run their
-  mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`); they are refused on `v11`/`v12` too. The v11 configuration on current is
-  `current?USE_EXPOSURE_INCOME=0` (`LiveTargetExperimentParams.V11_ON_CURRENT`), the v10 one adds `USE_BOSS_ROOT_TARGET=0`
-  (`V10_ON_CURRENT`); every current-based artifact pin moves at a promotion because the display name sits in `BUILD_MARKER`
+  mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`); they are refused on `v11`/`v12`/`v13` too. The v12 configuration on current is
+  `current?USE_BYPASS_ROUTES=0` (`LiveTargetExperimentParams.V12_ON_CURRENT`), the v11 one adds `USE_EXPOSURE_INCOME=0`
+  (`V11_ON_CURRENT`), the v10 one `USE_BOSS_ROOT_TARGET=0` (`V10_ON_CURRENT`); every current-based artifact pin moves at a promotion because the display name sits in `BUILD_MARKER`
   and the selected version in the header comment (config hashes do not move).
 - No arena upload, no promotion, no "selected version" change without the live step and a
   DEVLOG entry. Verdicts: one BOTS.md row, one DEVLOG entry, STATUS.md updated.
 
-## Current line of work (2026-10-25)
+## Current line of work (2026-10-27)
 
-**v12 "Exposure Income" is the selected version since 2026-10-25 night** (`docs/v12-promotion.md`, user decision after
+**v13 "Bypass Routes" is the selected version since 2026-10-27** (`docs/v13-promotion.md`, user decision "Делаем v13" after
+`bypass-routes-v1`: B2 = `current?USE_BYPASS_ROUTES=true`, +3.0 pp vs the proxy over v12 replicated to pooled +4.2 pp, 55.0 % h2h,
+live session 1 +7.5 pp, 24/40 vs 21/40; session 2 skipped on the user's choice): the flag is a `Params` default, `btk.bot.v13` the
+frozen copy, default artifact 94,816 chars / config `8c4b3d6d…` (`build/submit-v13`, strict procCheck 0 problems), **arena upload
+by the user pending** (the arena runs v12, agent 6814073). Next candidate: screened with `current` (= v13) as the same-map control
+and the proxy spec above (with `USE_BYPASS_ROUTES=0`), step 1a, h2h, live vs `current`. Before it:
+**v12 "Exposure Income" was the selected version from 2026-10-25 night** (`docs/v12-promotion.md`, user decision after
 `stage4-exposure-income-v1`: E1 = `current?USE_EXPOSURE_INCOME=true`, +3.7 pp vs the proxy over v11, 60.3 % h2h, live
 session 1 at the +5 pp threshold exactly): the flag is a `Params` default, `btk.bot.v12` the frozen copy, default artifact
 91,349 chars / config `d7803b42…` (`build/submit-v12`), **arena upload by the user pending** (the arena runs v11, agent

@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * bypass-routes-v1 (2026-10-27): USE_BYPASS_ROUTES proposes, for each own earning connection that crosses regions at
- * instability >= BYPASS_MIN_INSTABILITY, the cheapest route avoiding them. Default off; the artifact without it is
- * byte-identical (BypassRoutesSubmissionTest).
+ * instability >= BYPASS_MIN_INSTABILITY, the cheapest route avoiding them. A default since the v13 promotion (2026-10-27);
+ * the v12 configuration is current with the flag off (BypassRoutesSubmissionTest, V13PromotionTest).
  */
 class BypassRoutesTest {
     static final String B = "current?USE_BYPASS_ROUTES=true";
@@ -25,21 +25,24 @@ class BypassRoutesTest {
 
     @Test void defaultsOffAndGuards() {
         Params defaults = new Params();
-        assertFalse(defaults.USE_BYPASS_ROUTES);
+        assertTrue(defaults.USE_BYPASS_ROUTES, "selected v13");
         assertEquals(2, defaults.BYPASS_MIN_INSTABILITY);
         assertEquals(0.5, defaults.BYPASS_WEIGHT);
         assertTrue(BotFactory.parameters(B).USE_BYPASS_ROUTES);
         assertEquals(3, BotFactory.parameters(B + ",BYPASS_MIN_INSTABILITY=3").BYPASS_MIN_INSTABILITY);
-        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v12?USE_BYPASS_ROUTES=true"), "current-only experiment");
+        assertThrows(IllegalArgumentException.class, () -> BotFactory.create("v12?USE_BYPASS_ROUTES=true"), "frozen v12 never had it");
+        assertFalse(BotFactory.parameters("v12").USE_BYPASS_ROUTES);
+        assertFalse(BotFactory.parameters("current?USE_ROLLOUT_POLICY=0").USE_BYPASS_ROUTES, "a policy that never reads it drops the default");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create("current?USE_ROLLOUT_POLICY=0,USE_BYPASS_ROUTES=true"), "rollout only");
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create(B + ",BYPASS_MIN_INSTABILITY=4"));
         assertThrows(IllegalArgumentException.class, () -> BotFactory.create(B + ",BYPASS_WEIGHT=1.5"));
         for (String key : new String[]{"USE_BYPASS_ROUTES", "BYPASS_MIN_INSTABILITY", "BYPASS_WEIGHT"})
-            assertFalse(BotFactory.configuration("current").containsKey(key), key + " excluded from the configuration while off");
+            assertFalse(BotFactory.configuration(LiveTargetExperimentParams.V12_ON_CURRENT).containsKey(key), key + " excluded from the configuration while off");
         assertEquals("true", BotFactory.configuration(B).get("USE_BYPASS_ROUTES"));
         assertEquals("2", BotFactory.configuration(B).get("BYPASS_MIN_INSTABILITY"));
         assertEquals("0.5", BotFactory.configuration(B).get("BYPASS_WEIGHT"));
-        assertEquals("v12 (modified)", BotFactory.displayName(B));
+        assertEquals("v13", BotFactory.displayName(B), "the B2 spec is the v13 default");
+        assertEquals("v13 (modified)", BotFactory.displayName(LiveTargetExperimentParams.V12_ON_CURRENT));
     }
 
     @Test void playsLegallyAndProposesBypasses() {

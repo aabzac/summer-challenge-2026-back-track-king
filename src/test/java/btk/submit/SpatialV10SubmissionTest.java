@@ -80,7 +80,7 @@ class SpatialV10SubmissionTest {
                 Map.entry("spatial-ppo-v7","32235e07e7582a0ed9929c2c7e6bb53a1a9cdeed54870cf949dd884f159bae74"),
                 Map.entry("spatial-ppo-v8","3a477686dd9606029da960d2d38380da30ebffb22307e0a41af3abaa5572aaff"),
                 Map.entry("spatial-ppo-v9","da8b3bb160ea90d0e20076060339f5e33584399906c82ea5523e453920fb2a76"),
-                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT,"9ab8ebac55e185d829f4603f2605dbf531181d1d5e8cae49a1f2e1ec3999c792"),
+                Map.entry(btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT,"92d508882c42c4ad799847c83eb00d356dd88ea5ee7f83320f471ad5c7c85739"),
                 Map.entry("v09","aca0be459116e78b97400ba0a0abfaa151aca7cc97db7804b8466e8cda788fac"));
         for (var entry : hashes.entrySet()) assertEquals(entry.getValue(),FileMerger.sha256(FileMerger.merge(entry.getKey())),entry.getKey());
     }

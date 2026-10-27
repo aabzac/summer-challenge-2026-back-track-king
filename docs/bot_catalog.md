@@ -15,8 +15,8 @@ accept the original ids; the labels do not rename frozen Java classes or change 
 
 - **Versions**: v00 Autoplace, v01 Greedy Routes, v02 Route Evaluation, v03 Risk Aware,
   v04 Network Extension, v05 Disrupt Reserve, v06 Simultaneous Rollout,
-  v07 Network After Base, v08 Protected Opening, v09 Never Idle, v10 Boss Model, v11 Root Target, **v12 Exposure
-  Income (selected, 2026-10-25 night: the exact stage4-exposure-income-v1 candidate E1)**.
+  v07 Network After Base, v08 Protected Opening, v09 Never Idle, v10 Boss Model, v11 Root Target, v12 Exposure Income,
+  **v13 Bypass Routes (selected, 2026-10-27: the exact bypass-routes-v1 candidate B2)**.
   `selected` identifies the chosen policy, not proof
   of the exact arena upload or process-timing readiness. Historical versions remain reference
   opponents; their numbers are a development history, not an ordering against every possible bot.

@@ -41,8 +41,8 @@ class EarningDelayTest {
         assertFalse(BotFactory.configuration(Q).containsKey("DELAY_POWER"));
         assertEquals("2.0", BotFactory.configuration(D2).get("DELAY_POWER"));
         assertFalse(BotFactory.configuration(D2).containsKey("USE_QUICK_ALWAYS"));
-        assertEquals("v12 (modified)", BotFactory.displayName(Q));
-        assertEquals("v12 (modified)", BotFactory.displayName(D2));
+        assertEquals("v13 (modified)", BotFactory.displayName(Q));
+        assertEquals("v13 (modified)", BotFactory.displayName(D2));
     }
 
     @Test void bothArmsPlayLegally() {

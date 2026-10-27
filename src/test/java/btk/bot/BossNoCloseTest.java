@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class BossNoCloseTest {
     static final String PROXY = "current?USE_BOSS_SABOTAGE=1,USE_BOSS_LITE=0,USE_BOSS_OPPONENT_MODEL=0,USE_BOSS_OWN_MODEL=0,USE_BOSS_LITE_ROUTES=0,"
-            + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0";
+            + "USE_INCREMENTAL_INK_REFRESH=0,USE_FAST_CHEAPEST_PATH=0,USE_BATCHED_REFRESH=0,USE_EXPOSURE_INCOME=0,USE_BYPASS_ROUTES=0";
     static final String NC = PROXY + ",USE_BOSS_NO_CLOSE=true";
 
     private static Referee.Result play(String a, String b, long seed) {

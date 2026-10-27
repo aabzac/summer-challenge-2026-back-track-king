@@ -26,6 +26,6 @@ class CorridorRoutesSubmissionTest {
         Files.writeString(source, on);
         assertEquals(0, javax.tools.ToolProvider.getSystemJavaCompiler().run(null, null, null,
                 "-encoding", "UTF-8", "--release", "17", "-d", dir.toString(), source.toString()));
-        assertEquals("v12 (modified)", BotFactory.displayName(C));
+        assertEquals("v13 (modified)", BotFactory.displayName(C));
     }
 }

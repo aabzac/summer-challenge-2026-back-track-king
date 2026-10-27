@@ -60,7 +60,7 @@ class CorridorRoutesTest {
         assertFalse(BotFactory.configuration("current").containsKey("CORRIDOR_WEIGHT"));
         assertEquals("true", BotFactory.configuration(C).get("USE_CORRIDOR_ROUTES"));
         assertEquals("1.0", BotFactory.configuration(C).get("CORRIDOR_WEIGHT"));
-        assertEquals("v12 (modified)", BotFactory.displayName(C));
+        assertEquals("v13 (modified)", BotFactory.displayName(C));
     }
 
     @Test void sharedCorridorYieldsCorridorProposals() {
