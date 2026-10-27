@@ -1,0 +1,4 @@
+  build/analysis/bypass-v1:B2-vs-boss2          vs cur: maps 150  delta  +3.0 pp +- 5.3
+  build/analysis/bypass-v1-rep:B2-vs-boss2          vs cur: maps 150  delta  +5.3 pp +- 5.9
+  pooled over 2 pools: maps 300  delta  +4.2 pp +- 4.0
+  step 1a: replication positive, pooled +4.2 pp -> continue

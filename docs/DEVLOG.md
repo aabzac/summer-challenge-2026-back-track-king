@@ -9248,3 +9248,20 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   so variant 0 never re-routes an active pair).
 - **Verdict:** late-game item closed; no candidate from the last third. Next direction = user decision (a middle-game bypass
   candidate is the construction line's open option).
+
+## 2026-10-27 — `bypass-routes-v1`: bypass proposals for threatened own connections — B2 passes (a), 1a and (b)
+
+- The user's "Давай обходы" after `late-game-v1`. `USE_BYPASS_ROUTES` (+ `BYPASS_MIN_INSTABILITY` 2, `BYPASS_WEIGHT` 0.5) in a
+  `// BYPASS` block, current-only, default off: after the ordinary and corridor proposals, for each pair whose active path holds an
+  own track and crosses non-town regions at instability ≥ the threshold, the cheapest route with those regions blocked (≤ 16
+  queries, same reserve), valued (1 − w) × plain gain + w × (income difference after inking those regions with the route built −
+  the same inks without it), exposure-discounted. FrozenParams, BotFactory guards and configuration exclusion, FileMerger block,
+  `BypassRoutesTest`, `BypassRoutesSubmissionTest`, field-count pins +3; the default artifact is unchanged (V12 pins pass).
+- **Screen, pool 1019000** (300 paired games per cell): `cur-vs-boss2` 79.3 %, B2 82.3 % (**+3.0 ± 5.3 pp**, 32/23/95), B3 83.0 %
+  (+3.7 ± 5.1); h2h **B2 55.0 %**, B3 46.7 % → B3 stops. **Replication, pool 1020000:** cur 78.7 %, B2 84.0 % (+5.3 ± 5.9) →
+  **pooled +4.2 ± 4.0 pp**, step 1a passes. 0 errors; per-move times in the control's band (the machine ran ~15 ms/move for every
+  cell, this morning ~7).
+- **Artifact** `build/submit-bypass-b2`: 94,839 chars, build `f62155d3…`, config `8c4b3d6d…`; strict `procCheck` (zero grace, 4 games
+  vs v09): 0 problem games, 0 timeouts, first ≤ 657 ms, later ≤ 38.9 ms. **Live plan** `build/cg-boss/bypass-b2-v12-boss-40` (id
+  `6063fbb0…`, seed 2026102702, matched, 40 maps × 2 = 80 API games vs v12, 1,278 maps excluded), no API games played; launch on the
+  user's word.

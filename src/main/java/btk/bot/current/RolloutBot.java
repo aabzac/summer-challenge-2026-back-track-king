@@ -41,6 +41,12 @@ public final class RolloutBot implements Bot {
     private int commitLen, commitTurn = -99;
     public int commitRootsBonused;
     // COMMIT_END
+    // BYPASS_BEGIN
+    private static final int BYPASS_MAX_QUERIES = 16;
+    private int[] bypassRisk;
+    private boolean[] bypassMark;
+    public int bypassQueries, bypassProposals;
+    // BYPASS_END
     // CORRIDOR_BEGIN
     private static final int CORRIDOR_SCALE = 12;
     private int[][] corridorPaths;
@@ -195,6 +201,9 @@ public final class RolloutBot implements Bot {
         // COMMIT_BEGIN
         if (p.USE_ROUTE_COMMIT) { commitCells = new int[s.size]; commitLen = 0; commitTurn = -99; }
         // COMMIT_END
+        // BYPASS_BEGIN
+        if (p.USE_BYPASS_ROUTES) { bypassRisk = new int[s.regionCount]; bypassMark = new boolean[s.regionCount]; }
+        // BYPASS_END
         // CORRIDOR_BEGIN
         if (p.USE_CORRIDOR_ROUTES) {
             corridorPaths = new int[s.pairCount][s.size]; corridorLengths = new int[s.pairCount]; corridorCount = new int[s.size];
@@ -292,6 +301,9 @@ public final class RolloutBot implements Bot {
         commitRootsBonused = 0;
         if (p.USE_ROUTE_COMMIT && s.turn == 0) { commitLen = 0; commitTurn = -99; } // warm-up turns never carry over
         // COMMIT_END
+        // BYPASS_BEGIN
+        bypassQueries = bypassProposals = 0;
+        // BYPASS_END
         // CORRIDOR_BEGIN
         corridorQueries = corridorProposals = 0;
         if (p.USE_CORRIDOR_ROUTES) { Arrays.fill(corridorCount, 0); Arrays.fill(corridorLengths, 0); }
@@ -377,6 +389,9 @@ public final class RolloutBot implements Bot {
         // CORRIDOR_BEGIN
         if (p.USE_CORRIDOR_ROUTES) proposeCorridors(s, me, start, reserve);
         // CORRIDOR_END
+        // BYPASS_BEGIN
+        if (p.USE_BYPASS_ROUTES) proposeBypasses(s, me, start, reserve);
+        // BYPASS_END
         if (quickLength > 0) retainQuickRoute(s, me);
         if (opening != null) openingPairs = opening.observedPairs;
         if (opening != null && s.turn < p.OPENING_TURNS && !timer.up()) {
@@ -843,6 +858,80 @@ public final class RolloutBot implements Bot {
         return false;
     }
     // COMMIT_END
+
+    // BYPASS_BEGIN
+    /** bypass-routes-v1: one bypass proposal per own earning connection at risk, under the same reserve as the ordinary proposals. */
+    private void proposeBypasses(GameState s, int me, int start, int reserve) {
+        for (int k = 0; k < s.pairCount; k++) {
+            if (timer.up(reserve) || bypassQueries >= BYPASS_MAX_QUERIES) break;
+            proposeBypass(s, me, (start + k) % s.pairCount);
+        }
+    }
+
+    /**
+     * The cheapest route between the pair's towns that avoids every non-town region of its active path at instability >=
+     * BYPASS_MIN_INSTABILITY, when that path holds own tracks; valued as (1 - BYPASS_WEIGHT) x the plain income gain +
+     * BYPASS_WEIGHT x (income difference after those regions are inked with the route built - the same inks without it).
+     */
+    private void proposeBypass(GameState s, int me, int pair) {
+        int[] active = s.pairPath[pair];
+        if (active == null) return;
+        int own = 0, risks = 0;
+        for (int i = 0; i < s.pairPathLen[pair]; i++) {
+            int c = active[i], r = s.regionId[c];
+            if (s.owner[c] == me) own++;
+            if (bypassMark[r] || s.regionInked[r] || s.regionHasTown(r) || s.regionInstability[r] < p.BYPASS_MIN_INSTABILITY) continue;
+            bypassMark[r] = true; bypassRisk[risks++] = r;
+        }
+        for (int j = 0; j < risks; j++) bypassMark[bypassRisk[j]] = false;
+        if (own == 0 || risks == 0) return;
+        for (int j = 0; j < risks; j++) bypassMark[bypassRisk[j]] = true;
+        for (int c = 0; c < s.size; c++) {
+            extra[c] = (int) Math.round(p.UNSTABLE_COST * s.instability[c]);
+            blocked[c] = bypassMark[s.regionId[c]];
+        }
+        for (int j = 0; j < risks; j++) bypassMark[bypassRisk[j]] = false;
+        int n = pathing.cheapestPath(s, s.townCell[s.pairFrom[pair]], s.townCell[s.pairTo[pair]], path, blocked, extra);
+        bypassQueries++;
+        if (n <= 0) return;
+        int cost = 0;
+        for (int i = 0; i < n; i++) if (s.canBuild(path[i])) cost += s.placeCost(path[i]);
+        if (cost == 0) return; // an alternative is already built
+        int turns = (cost + GameState.PAINT_PER_TURN - 1) / GameState.PAINT_PER_TURN;
+        double earning = Math.min(p.ROLLOUT_ROUTE_HORIZON, s.turnsLeft()) - turns + 1;
+        if (earning <= 0) return;
+        completion.set(s);
+        for (int j = 0; j < risks; j++) Rules.ink(completion.state, bypassRisk[j]);
+        completion.refresh();
+        double inkedDiff = bypassDiff(completion.state, me);
+        completion.set(s);
+        for (int i = 0; i < n; i++) if (s.canBuild(path[i])) completion.state.owner[path[i]] = me;
+        completion.refresh();
+        double base = baseDiff[me];
+        // EXPOSURE_INCOME_BEGIN
+        if (p.USE_EXPOSURE_INCOME) base = exposureBaseDiff[me];
+        // EXPOSURE_INCOME_END
+        double gain = bypassDiff(completion.state, me) - base;
+        for (int j = 0; j < risks; j++) Rules.ink(completion.state, bypassRisk[j]);
+        completion.refresh();
+        double protectedGain = bypassDiff(completion.state, me) - inkedDiff;
+        gain = (1 - p.BYPASS_WEIGHT) * gain + p.BYPASS_WEIGHT * protectedGain;
+        if (gain <= 0) return;
+        bypassProposals++;
+        double value = gain * earning / turns * (1 + p.NOISE * (random.nextDouble() - 0.5));
+        insert(s, me, n, value);
+        for (int i = 0, j = n - 1; i < j; i++, j--) { int c = path[i]; path[i] = path[j]; path[j] = c; }
+        insert(s, me, n, value);
+    }
+
+    private double bypassDiff(GameState st, int me) {
+        // EXPOSURE_INCOME_BEGIN
+        if (p.USE_EXPOSURE_INCOME) { exposureIncome(st, exposureOut); return exposureOut[me] - exposureOut[1 - me]; }
+        // EXPOSURE_INCOME_END
+        Rules.incomePerTurn(st, income);
+        return income[me] - income[1 - me];
+    }
+    // BYPASS_END
 
     private void insert(GameState s, int me, int length, double value) {
         int n = pack(s, path, length, prefix, 0, GameState.PAINT_PER_TURN);

@@ -229,6 +229,12 @@ public final class BotFactory {
             throw new IllegalArgumentException("Route commitment is a current-only rollout experiment (route-commit-v1)");
         if (!Double.isFinite(params.COMMIT_BONUS) || params.COMMIT_BONUS < 0)
             throw new IllegalArgumentException("COMMIT_BONUS must be a finite non-negative number");
+        if (params.USE_BYPASS_ROUTES && (!version.equals("current") || !rolloutPolicy))
+            throw new IllegalArgumentException("Bypass routes are a current-only rollout experiment (bypass-routes-v1)");
+        if (params.BYPASS_MIN_INSTABILITY < 1 || params.BYPASS_MIN_INSTABILITY > 3)
+            throw new IllegalArgumentException("BYPASS_MIN_INSTABILITY must be 1, 2 or 3");
+        if (!Double.isFinite(params.BYPASS_WEIGHT) || params.BYPASS_WEIGHT < 0 || params.BYPASS_WEIGHT > 1)
+            throw new IllegalArgumentException("BYPASS_WEIGHT must be in [0, 1]");
         if (params.USE_BOSS_THREAT_MODEL && !params.USE_BOSS_OPPONENT_MODEL)
             throw new IllegalArgumentException("Boss threat model requires USE_BOSS_OPPONENT_MODEL (current native rollout)");
         if (params.USE_BOSS_ROOT_TARGET && !params.USE_BOSS_LITE)
@@ -278,6 +284,7 @@ public final class BotFactory {
                 if (field.getName().equals("BOSS_OPP_HOLD_MARGIN") && params.BOSS_OPP_HOLD_MARGIN < 0) continue;
                 if (field.getName().equals("USE_BOSS_NO_CLOSE") && !params.USE_BOSS_NO_CLOSE) continue;
                 if ((field.getName().equals("USE_ROUTE_COMMIT") || field.getName().equals("COMMIT_BONUS")) && !params.USE_ROUTE_COMMIT) continue;
+                if (field.getName().startsWith("BYPASS_") || field.getName().equals("USE_BYPASS_ROUTES")) { if (!params.USE_BYPASS_ROUTES) continue; }
                 if (field.getName().equals("USE_BOSS_ROOT_TARGET") && !params.USE_BOSS_ROOT_TARGET) continue;
                 if (field.getName().equals("USE_NEURAL_TARGET_PROPOSAL") && !params.USE_NEURAL_TARGET_PROPOSAL) continue;
                 if (field.getName().equals("USE_SPATIAL_V9_TOWN_CONTEXT") && !version(spec).equals("spatial-ppo-v9")) continue;
