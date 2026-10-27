@@ -71,8 +71,8 @@ in the boss's won tails (`USE_BOSS_NO_CLOSE`, default off, not validated).
 **but its live session 1 lost 10 pp (18/40 vs v12's 22/40, 3 : 7 discordant) → parked (user's decision, no session 2), flag off**. `late-game-v1` (2026-10-27, `docs/late-game-v1.md`): the last third is not a lever
 (6–11 % of v12's points, 5 of 58 losses within a drawn last third; protection is shared by both sides); the gap is the middle third
 (v12's paint earns 35 vs 62 % in its losses, bypass share 9 vs 20 %). **`bypass-routes-v1` (2026-10-27): B2 = `current?USE_BYPASS_ROUTES=true`
-passed (a) +3.0 pp, 1a (pooled +4.2 ± 4.0 pp) and (b) 55.0 %**; artifact `build/submit-bypass-b2` (config `8c4b3d6d…`); its live session
-(`build/cg-boss/bypass-b2-v12-boss-40`, 80 games vs v12) awaits the user's word.
+passed (a) +3.0 pp, 1a (pooled +4.2 ± 4.0 pp) and (b) 55.0 %**; artifact `build/submit-bypass-b2` (config `8c4b3d6d…`); **its live session 1
+won +7.5 pp (24/40 vs v12's 21/40, 5 : 2 discordant)**; v13 now or session 2 first is the user's decision.
 Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact

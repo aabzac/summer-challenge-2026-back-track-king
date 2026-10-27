@@ -19,13 +19,14 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-**`bypass-routes-v1`: B2 = `current?USE_BYPASS_ROUTES=true` — 2026-10-27, passed v5 (a), 1a and (b), live step pending:** for each own
+**`bypass-routes-v1`: B2 = `current?USE_BYPASS_ROUTES=true` — 2026-10-27, passed v5 (a), 1a and (b), live session 1 +7.5 pp:** for each own
 earning connection crossing non-town regions at instability ≥ 2 the bot proposes the cheapest route avoiding them, valued half by the
 plain income gain and half by the income kept after those regions are inked (`// BYPASS` block, default off), from `late-game-v1` (the
 losses are decided in the middle third, where v12 puts 9 % of its paint on bypasses vs the opponents' 20 %). Step (a), pool 1019000:
 **+3.0 ± 5.3 pp** over `current` vs boss-v2 (82.3 vs 79.3 %), h2h **55.0 %**; step 1a, pool 1020000: +5.3 ± 5.9 → **pooled +4.2 ±
 4.0 pp**. B3 (instability ≥ 3): +3.7 pp but h2h 46.7 % → stop. Artifact 94,839 chars (config `8c4b3d6d…`), strict procCheck 0 problems;
-live plan `build/cg-boss/bypass-b2-v12-boss-40` (80 games vs v12). [Protocol and results](bypass-routes-v1.md),
+live session 1 (80 games vs v12 on 40 matched maps): **B2 24/40 vs v12 21/40, +7.5 pp (5 : 2 discordant, p = 0.23), 40/40 + 160/160
+replays exact** — passes the session threshold; v13 now or session 2 first is the user's decision. [Protocol and results](bypass-routes-v1.md),
 [evidence](evidence/bypass-routes-v1/).
 
 **`route-commit-v1`: C10 = `current?USE_ROUTE_COMMIT=true` — 2026-10-27, passed v5 (a), 1a and (b), live session 1 −10 pp → parked:** a root that
