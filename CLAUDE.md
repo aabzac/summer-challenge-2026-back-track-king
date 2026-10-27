@@ -115,7 +115,7 @@ arena fetch/analyse). Details per step: `docs/boss-sabotage-v2.md`,
 
 ## Known test state
 
-`gradlew test` (763 tests on 2026-10-27, after repo-cleanup): **0 failures expected**; anything red is new. The 25
+`gradlew test` (429 tests on 2026-10-27, after repo-cleanup tier 3): **0 failures expected**; anything red is new. The 25
 long-standing failures (the six `exp-*` recipes' engine pin and the unregistered `pduhard-beam-v1`) left with their code
 (`docs/repo-cleanup-v1.md`). Tests follow the code they test (AGENTS.md rule 9).
 
