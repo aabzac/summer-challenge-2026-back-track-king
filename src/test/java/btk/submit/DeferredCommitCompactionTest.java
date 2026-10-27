@@ -18,13 +18,10 @@ class DeferredCommitCompactionTest {
 
     @Test void compactionIsCandidateOnlyAndHistoricalReferenceRemainsExact() throws Exception {
         // Current may receive later runtime optimizations; the completed packaging reference is immutable.
-        try (var archive = new java.util.zip.ZipFile("docs/evidence/v09-deferred-commit-runtime-v1-artifacts.zip")) {
-            var entry = archive.getEntry("build/analysis/v09-deferred-commit-runtime-v1/reference-uncompressed/Player.java");
-            assertNotNull(entry);
-            String reference = new String(archive.getInputStream(entry).readAllBytes(), StandardCharsets.UTF_8);
-            assertEquals(108524, reference.length());
-            assertEquals("da4487e574fee5bc691724d81157183f7319bc74a39a2a699d5cea5a2b9e0c56", FileMerger.sha256(reference));
-        }
+        // Extracted from docs/evidence/v09-deferred-commit-runtime-v1-artifacts.zip (no longer tracked; sha in its manifest).
+        String reference = Files.readString(Path.of("src/test/resources/historical/v09-deferred-commit-runtime-v1/Player.java"), StandardCharsets.UTF_8);
+        assertEquals(108524, reference.length());
+        assertEquals("da4487e574fee5bc691724d81157183f7319bc74a39a2a699d5cea5a2b9e0c56", FileMerger.sha256(reference));
         for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",NOISE=0", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_MISSED_DEADLINE=false",
                 "v05", "v06", "v07", "v08", "v09", "neural-v1", "neural-v7", "spatial-ppo-v1", "spatial-ppo-v10"})
             assertEquals(FileMerger.mergeUncompressed(spec), FileMerger.merge(spec), spec);
