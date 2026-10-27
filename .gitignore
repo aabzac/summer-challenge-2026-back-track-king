@@ -25,3 +25,13 @@ desktop.ini
 replays/
 tmp/
 .playwright-mcp/
+
+# Evidence archives and binary data exports stay local (2026-10-27, repo-cleanup): the clone was 92 % archives.
+# Record their sha256 in a *-artifacts.json manifest instead; see AGENTS.md rule on committed evidence.
+docs/evidence/**/*.zip
+docs/evidence/**/*.tar.gz
+docs/evidence/**/*.tgz
+docs/evidence/**/*.csv.gz
+
+# Local Claude Code settings (allow rules for this machine)
+.claude/settings.local.json

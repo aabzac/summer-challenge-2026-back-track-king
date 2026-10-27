@@ -1,0 +1,485 @@
+{
+ "schema": "untracked-evidence-v1",
+ "date": "2026-10-27",
+ "reason": "Evidence archives and binary exports left the index (repo-cleanup); they stay in git history and on the author machine. Restore one with: git show <addedIn>:<path> > <path>",
+ "lastTrackedIn": "993872ea12bbb2c24ffa511e9ec0d15b821d8576",
+ "totalBytes": 512651900,
+ "files": [
+  {
+   "path": "docs/evidence/arena-refresh-v12/connections.csv.gz",
+   "bytes": 114808,
+   "sha256": "63cc8e383f67af02711f56a5b37779a1c53761acd80e461940d75c4ee469254f",
+   "gitBlob": "e0ddcf34bb4f3e68b1bbcdf771151e92021bc926",
+   "addedIn": "5f80699cf2a419b987235c0c86bf9fb5eaa59f51"
+  },
+  {
+   "path": "docs/evidence/boss-v4/probe-k1.csv.gz",
+   "bytes": 461412,
+   "sha256": "2063fb81023cef859a25ca343255107e5548cbf7ce6d9086bec7d8a6cb6be556",
+   "gitBlob": "2d8e65e88838e27fc5e979f7eca086b756a2b973",
+   "addedIn": "5279623a8ab760854c0f148f6af55bcd5ffdb976"
+  },
+  {
+   "path": "docs/evidence/boss-v4/probe-v12.csv.gz",
+   "bytes": 944387,
+   "sha256": "dce84525732070a2de6baca7db0d8d038d873f960aa5a72f12a89ffe15b7e476",
+   "gitBlob": "fb0744d65e98b1ce969717e9fa436795e50d4904",
+   "addedIn": "5279623a8ab760854c0f148f6af55bcd5ffdb976"
+  },
+  {
+   "path": "docs/evidence/indrill-build64-12k-v1-artifacts.zip",
+   "bytes": 11938938,
+   "sha256": "f7e7054832d9881e7aa6f6767e292271ee27783f629591126357f8371f27e661",
+   "gitBlob": "e9bd7ee9efef3eae3cf51b03edd9eabc683d04fb",
+   "addedIn": "5ffd81cbbf889e1940c240a7bf6177a22a498ffa"
+  },
+  {
+   "path": "docs/evidence/indrill-build64-long-v1-artifacts.zip",
+   "bytes": 19106278,
+   "sha256": "849c5b1257120c2d0ee92ea3925bfb1d85e43e5d42365321a5e1476330ed3879",
+   "gitBlob": "e22b52d2e6a56030797c1c7cdb469fe4b53839d7",
+   "addedIn": "188c436bb6e02a06ebb198a758073abba5e448bf"
+  },
+  {
+   "path": "docs/evidence/indrill-build64-v1-artifacts.zip",
+   "bytes": 6027939,
+   "sha256": "94f942018c927a24679e6ee92f89e50b1fc7e5a7d720b43252c4cb7c29875bbc",
+   "gitBlob": "7f0dc59541df09d66f75c86a1e97413e8feb8811",
+   "addedIn": "66d17b9953746ea6f164662a2fd016687baaa4d4"
+  },
+  {
+   "path": "docs/evidence/indrill-capacity-v1-artifacts.zip",
+   "bytes": 4955656,
+   "sha256": "e52acd6b8722dc249e0ba0722e11cb4e58ae6df5aaec18f5cb9ea4b9b8413d83",
+   "gitBlob": "a79b78a883c3692a6de35a5b5da099e8df1d76fd",
+   "addedIn": "1edb78c7f4a9b4ab3d4aa100f04b2b4e5db1e590"
+  },
+  {
+   "path": "docs/evidence/indrill-fit-one-v1-artifacts.zip",
+   "bytes": 7700236,
+   "sha256": "d37185b2a081f341077f9f65ab540a03f0b8554ba9d40344f0807a49ea1ceac2",
+   "gitBlob": "3ea1ba91b29a163a3e183e5a4234ca28b6d0c789",
+   "addedIn": "05aa5695a9be5c9d6843b280127f6636a44d12d1"
+  },
+  {
+   "path": "docs/evidence/indrill-fit512-v1-artifacts.tar.gz",
+   "bytes": 48479500,
+   "sha256": "5580014516224bf25f432673224e0e7df76651cb9813809fab208ef56aa80c16",
+   "gitBlob": "67203bdd9ff6575de2e2579daca9734e0459d027",
+   "addedIn": "a41700299c94b5cded1986a4118ba5d4d10b6431"
+  },
+  {
+   "path": "docs/evidence/indrill-generalization-v1-artifacts.zip",
+   "bytes": 31692635,
+   "sha256": "26ea06a6a0fd5d0b45e927585c05fe6c70907a1d83efc973f8a71861238c6a9d",
+   "gitBlob": "87273c0d28778930caefee37fa0d14f6fe143988",
+   "addedIn": "6b78fcb7213632c4a45d0470aa388ca208cb5255"
+  },
+  {
+   "path": "docs/evidence/indrill-joint64-12k-v1-artifacts.zip",
+   "bytes": 28260826,
+   "sha256": "67a949ae34ff51ff87bfaa748b7611482b84e900fd65f03f9d26dcae0c4c3072",
+   "gitBlob": "4d2cce4e42d642f760a4a105c9678ccc21d94368",
+   "addedIn": "eddeca40f4500b0194d85a517a0f9f5086275989"
+  },
+  {
+   "path": "docs/evidence/neural-component-audit-v1-artifacts.zip",
+   "bytes": 808682,
+   "sha256": "1f8604913c66b3cc2843ffbfd78a487a549686341ab86c7cd7b33f816b33fdf0",
+   "gitBlob": "644906fb892def1b8f8b6b62f68e52895ef13fac",
+   "addedIn": "af43e936be8122ba00656ba8e1a237932bd33d26"
+  },
+  {
+   "path": "docs/evidence/neural-proposal-audit-v1-artifacts.zip",
+   "bytes": 678576,
+   "sha256": "29a2e9c8591ab6d35473b8a428b422229013feab57d74b9a42866a6b95cb69f1",
+   "gitBlob": "bb8fe942ac4813b51938ccfcea99a4edae3c89a5",
+   "addedIn": "d39ed96e9ce0849cf8c36a22210407c9507c0be3"
+  },
+  {
+   "path": "docs/evidence/neural-target-feasibility-v1-artifacts.zip",
+   "bytes": 228446,
+   "sha256": "a311e0fe244a9ac4257580943eb98297e0dfcc9d9ba6350b377aec379d0f9821",
+   "gitBlob": "c9a722113f9f333ac13c9f6343a3f0acb6843592",
+   "addedIn": "c0740d0d95dcee70856006aa6eea9510a4836622"
+  },
+  {
+   "path": "docs/evidence/neural-target-strength-v1-artifacts.zip",
+   "bytes": 3598679,
+   "sha256": "351110bfa6340c9d2f09a871e6d10b331482e9835347938ff5be64b8af351b19",
+   "gitBlob": "cf661f3c79ab15669aa92e7246da38ae66685fb9",
+   "addedIn": "35126f7cc64d42d7f550d09fa7a1c8d373503a45"
+  },
+  {
+   "path": "docs/evidence/neural-v4-artifacts.zip",
+   "bytes": 1788382,
+   "sha256": "7e5fcd8c0bb09d80e6fb335ccdabf55d1101eaf1b1c51d64908f4e371d564c98",
+   "gitBlob": "69cce67cbe300d1c581d94db272a4b0e1300fbd6",
+   "addedIn": "d5c04630cde726b3631d99e840cdefece0779042"
+  },
+  {
+   "path": "docs/evidence/neural-v5-artifacts.zip",
+   "bytes": 4201887,
+   "sha256": "daaaf594d8787840ea47078eacad0add94dbae1243b538cc00d84ba161a52788",
+   "gitBlob": "360536e9107151c4b810870bcda05fce48669734",
+   "addedIn": "60e60273f8d8df63221c22ebac1e6b1a1e5ec518"
+  },
+  {
+   "path": "docs/evidence/neural-v6-artifacts.zip",
+   "bytes": 4659909,
+   "sha256": "f0dd452c9fba447e9f4e21d0ab4ee05bb7312be9fcdacad7e88878f6d9aab2d5",
+   "gitBlob": "580d2a62828f00a2eb8eddca87bfc30567cdef88",
+   "addedIn": "dfb1629f70a3fb3730453ac5c7d14da6e35fc820"
+  },
+  {
+   "path": "docs/evidence/neural-v7-live-artifacts.zip",
+   "bytes": 657157,
+   "sha256": "384ca48d3f4e287605ca17c57e3c26af5a34a9ac256d0ab5f5a839270010af66",
+   "gitBlob": "763653b75b793b7d04ffae262637ab6ea3f8a334",
+   "addedIn": "465fd12d5cd407a2268c836c46960dae73759d40"
+  },
+  {
+   "path": "docs/evidence/neural-v7-local-artifacts.zip",
+   "bytes": 5786395,
+   "sha256": "adcb1b967ce4e8c10e7144c163c3c8b914a9ccc7e0ed50be1ff31787b6a29ca5",
+   "gitBlob": "4e3e394e7012eeb6e868adb5bc956038934f9bbd",
+   "addedIn": "8db8a9ea7fa87d5ece8928c72feec3071d159edb"
+  },
+  {
+   "path": "docs/evidence/rollout-fill-root-v1-artifacts.zip",
+   "bytes": 2766556,
+   "sha256": "4bc635b783b401aaf3aaf80b916abe1c8aefdc23ea0aa35fcfa5b5cff199694b",
+   "gitBlob": "cecdc71cfe6aba7ac5155d60ddf79fb632772b14",
+   "addedIn": "d8af017e7a8300464230da31ba305786641265b1"
+  },
+  {
+   "path": "docs/evidence/rollout-fill-root-v1-boss-artifacts.zip",
+   "bytes": 1339760,
+   "sha256": "d6eb707de1660a014377fb71c47a0b4c21095f24fb5afcbc828825d0fd6a9423",
+   "gitBlob": "ffd500aa13c75b2f2368b4de9ddd8ba85081b1f7",
+   "addedIn": "a32d53821942742cfb733c79a3f2ab1d6760bbc3"
+  },
+  {
+   "path": "docs/evidence/rollout-risk-v1-artifacts.zip",
+   "bytes": 2706798,
+   "sha256": "f8fd71093913d911b357ad5a2b35642003087626cdd197b400d26c78a8117cd0",
+   "gitBlob": "f20e8274f9bf2799593b15227a509f36ca5d7355",
+   "addedIn": "804aa1439c59c4d1b050f538e1dfadadef24c68a"
+  },
+  {
+   "path": "docs/evidence/rollout-risk-v1-boss-artifacts.zip",
+   "bytes": 1300017,
+   "sha256": "2e656ac6256992cb1c041f8d0545e5d28a91826bda25cb46078c58a4f137342e",
+   "gitBlob": "193998bae7bfac3ef20f93c82b060ba10d284d7f",
+   "addedIn": "991220c7d7a01c8d2f4313bf44038a66fe7ce34d"
+  },
+  {
+   "path": "docs/evidence/route-choice-v1/opp-arena.csv.gz",
+   "bytes": 1990279,
+   "sha256": "3a3c17ef8ef8226f50b926cafa897e2e33fda4e31b1b1d11b35b0f2f810c5a41",
+   "gitBlob": "4629981dfce0642653805616d229fb12217d19f8",
+   "addedIn": "348dc159b2a1afcff5be633de99b5ac5ec907025"
+  },
+  {
+   "path": "docs/evidence/route-choice-v1/opp-arena50.csv.gz",
+   "bytes": 785574,
+   "sha256": "a05062cc23c6815f8d4870fab01eaf2e1694c15eaec284dbb7d2dee9ec86bc2f",
+   "gitBlob": "c1a6c24fc9231c950a7ba45d1011d9de6838ca09",
+   "addedIn": "348dc159b2a1afcff5be633de99b5ac5ec907025"
+  },
+  {
+   "path": "docs/evidence/route-choice-v1/us-arena.csv.gz",
+   "bytes": 1937843,
+   "sha256": "3c51d68525a5c86f4f8a2873d822c8a5c4b5f1847fba232b6eb6fbbba8d8e827",
+   "gitBlob": "526f2f59793dcd19ebed25e7f8e1e7d555d6f1c2",
+   "addedIn": "348dc159b2a1afcff5be633de99b5ac5ec907025"
+  },
+  {
+   "path": "docs/evidence/route-choice-v1/us-arena50.csv.gz",
+   "bytes": 732590,
+   "sha256": "7b52267b7213a7bc35357f9e90a9a4519a1995fba61e1f1893305d581638d2c0",
+   "gitBlob": "f3f666f8f5d97b2c72cfd5f8dad39b8c6e270950",
+   "addedIn": "348dc159b2a1afcff5be633de99b5ac5ec907025"
+  },
+  {
+   "path": "docs/evidence/route-order-v1/cells-arena-v12b.csv.gz",
+   "bytes": 737414,
+   "sha256": "8b326a9d9d40ab0e70eee9b84bb71ba19f3418a6493f2b5ec0eed737b8d93cfd",
+   "gitBlob": "1324aaa9931fd2eae2ad455b87cb71968286d934",
+   "addedIn": "df7220f002fb67928b7eb2200bf56f0d3197ff8d"
+  },
+  {
+   "path": "docs/evidence/spatial-fit-probe-v1-artifacts.zip",
+   "bytes": 1616009,
+   "sha256": "58bea96e5fcf9994549e235136920187a2ef78edd6bb23c470cae968673f0432",
+   "gitBlob": "8c69a0ff917fefd36e2c053d61c5543faf9503b9",
+   "addedIn": "43a02f1e771396ce68cc6b21573992a81c5ef9ad"
+  },
+  {
+   "path": "docs/evidence/spatial-label-audit-v1-artifacts.zip",
+   "bytes": 3837056,
+   "sha256": "c2d7a1cd999e8a1c2ecd88cb141961eb9ca3dc3cc182619e97cabc1f1d0f2371",
+   "gitBlob": "3277d2101bb2b89061a3bc8442cff53c2da6425d",
+   "addedIn": "9d56a345be76dccc060aca676f729cd6a4b6b9d1"
+  },
+  {
+   "path": "docs/evidence/spatial-learning-audit-v1-artifacts.zip",
+   "bytes": 5346198,
+   "sha256": "eda73e17257b77bec242ec58a47def9590288293c181881a67257d86e4128754",
+   "gitBlob": "d836277344f18a90c2ffa20d5ae4bcddde621cee",
+   "addedIn": "4e896e4839b7978300bd00b2c21e6daa7ac198ee"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v1-artifacts.zip",
+   "bytes": 2888982,
+   "sha256": "8e05eb3d5e4d42bc28cc892050022a1a394f57827f38c8efe6839d5fa51a5920",
+   "gitBlob": "7b90f48f2503cc6de46d4d3be5c4c2f89fbdbb45",
+   "addedIn": "7e245eccabee21d0e2afd5358e05d51144975c21"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v10-artifacts.zip",
+   "bytes": 6081018,
+   "sha256": "60d6d530342d4630d88a1604671b9990c358c0996cc68aba0a107877eed3a931",
+   "gitBlob": "30ba902e4548937deec8070d5339ce027adfe851",
+   "addedIn": "8f533d81e252d87993b3d01ddb3c7d441fa84811"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v2-artifacts.zip",
+   "bytes": 5811468,
+   "sha256": "943519fafc4ba84b563a6c3a6cbff26c833b1831b75401c6a6d5ff1b71fb8206",
+   "gitBlob": "4a186c2eb05ae2843613e9f0341f0e299c817fb2",
+   "addedIn": "1887f37734f76efe212657b82e155de301145bce"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v3-artifacts.zip",
+   "bytes": 6068873,
+   "sha256": "23f0d68f411705431b1a2d563d3afd2ff9906783576520ca36ab28bcc1b46b7f",
+   "gitBlob": "f9768144af37baebfac327f19a845d618a3a378b",
+   "addedIn": "9cd0008b4c98cea14318c7853cfd319e15eeefce"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v4-artifacts.zip",
+   "bytes": 35930947,
+   "sha256": "773b31e6c37b08549d879af9f63e8e35f57ca45607805d534d48d6362b1fba09",
+   "gitBlob": "04ef046c7f0ea2a27ca8d6e6a5725a12b49344d9",
+   "addedIn": "ebc5750a760ca8f59ae956696897d94e10860a51"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v5-artifacts.zip",
+   "bytes": 3867635,
+   "sha256": "427e68c8e1bdaf58dcce53a7f9170e73f76836a18906dba0f2bc446d478764a5",
+   "gitBlob": "6647b71296a70125f72d3c9b5eaf8458b7b970bf",
+   "addedIn": "ca8966648447d449b290f0b47dd71c4c803ba0bc"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v6-artifacts.zip",
+   "bytes": 2367120,
+   "sha256": "cf38fbd48c0ad9d775d42aca23a18fddf3a290fe56bffce7be0ff88af811a78b",
+   "gitBlob": "2841f42f3d8ae548dbd339a86162e1ba5672f2f3",
+   "addedIn": "bca3836330e39e74b66ec8748fd6906d00fe7f64"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v7-artifacts.zip",
+   "bytes": 2411297,
+   "sha256": "8087a631fbabc4676c594cb1571a562a256434e5041f84da811414bd1a45ad90",
+   "gitBlob": "8fe311278ce31f06882d10e2ac05b28b5c25b07c",
+   "addedIn": "9e6f8a21dc267fbc0e221033dc2d02321b9c8211"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v8-artifacts.zip",
+   "bytes": 2486205,
+   "sha256": "3c169142d7aae3fa3661f88328aee99a811feef696325f99fe4d9822f397b80a",
+   "gitBlob": "bc950b0914f6efe49de3270ee98716ebe670bdf0",
+   "addedIn": "794a482de8b4154578f88cb90385c219da1d6ec1"
+  },
+  {
+   "path": "docs/evidence/spatial-ppo-v9-artifacts.zip",
+   "bytes": 5548696,
+   "sha256": "5ca8a7810fea127d8ec236fa8a419400c67d08fd3514db0ef36518c6fbf8809a",
+   "gitBlob": "2084590539b580e369bd16c66a633f5b0f9fba95",
+   "addedIn": "e6198b34b7963eff5ec8e89c448ffdae36f33537"
+  },
+  {
+   "path": "docs/evidence/strategy-search-v1-artifacts.zip",
+   "bytes": 2596283,
+   "sha256": "f466b1b75533a66dab731cd070476563ef38150bb2ada1228cb4e04797c4ef12",
+   "gitBlob": "485e2ed56c03063e1e26eb128f9fdab1775a18d0",
+   "addedIn": "49df9225ce5ceb5dec2949f267292ad2f1fa589c"
+  },
+  {
+   "path": "docs/evidence/v08-promotion-artifacts.zip",
+   "bytes": 358129,
+   "sha256": "c2b435ae1eac20766bac3d8909196682dbaa32a59f7ea7179c274c980246c487",
+   "gitBlob": "eb7c190a5e5d45e0f2dc88771fa7d331446b67b2",
+   "addedIn": "9ed33b361710d8c8b3ea35f6b531e13d9eff6938"
+  },
+  {
+   "path": "docs/evidence/v09-batched-loss-diagnosis-v1-artifacts.zip",
+   "bytes": 2096211,
+   "sha256": "bfec44048798a220391acc31fb8c9a5407dcf61fe7e858c90954eea833a0fab3",
+   "gitBlob": "1fb4abe5ff40d80d7d21f250c53ba2c2191c7c18",
+   "addedIn": "6d4e2098c1ad56757ce400615ad3e5a2b82eaf08"
+  },
+  {
+   "path": "docs/evidence/v09-batched-refresh-boss-v1-artifacts.zip",
+   "bytes": 4611953,
+   "sha256": "cfbca48cb1ce6ae3689ea3e5da317e07ff1f672a304ac08927b2662ef6687cd0",
+   "gitBlob": "c636ace0bdb2ea432f75cb0ae15f4ff33614ebb7",
+   "addedIn": "7af74cba72970f6ddf57b2b306ce5839616235c6"
+  },
+  {
+   "path": "docs/evidence/v09-batched-refresh-boss-v2-artifacts.zip",
+   "bytes": 4003184,
+   "sha256": "0ac9d4146047c74032fe334e5c37811acad3f17502447d65188745b7e8185524",
+   "gitBlob": "c2f8b329a071c7217cb2abd6d289d0626546a310",
+   "addedIn": "3a115f396fee1a67a453148aa7ba74ee73ad05e2"
+  },
+  {
+   "path": "docs/evidence/v09-batched-refresh-v1-artifacts.zip",
+   "bytes": 28307701,
+   "sha256": "d9f4060cf888c12d5a33e0b670f28205ccca7548e1465bc5167c979e75707728",
+   "gitBlob": "393a54a0044dd7dcf453481f78687d7b0c36294d",
+   "addedIn": "3b3632e9ca6c9c7ad8f41738ee6180427337998a"
+  },
+  {
+   "path": "docs/evidence/v09-boss-budget40-followup-v1-artifacts.zip",
+   "bytes": 4382674,
+   "sha256": "ee67bba7513f72e54554cf9616c64c532254354ec835562919bdd4878d6fa489",
+   "gitBlob": "bdb14d730dd13046e6ff7872f607a3050fdafdb6",
+   "addedIn": "b5ddf83022ac65c5509ae004af73215bd47f3cb5"
+  },
+  {
+   "path": "docs/evidence/v09-budget-telemetry-v1-artifacts.zip",
+   "bytes": 435291,
+   "sha256": "7a4c5c2052833ac34330f9caf8d1be7e4c53105003769d2b460d6a6260b1710f",
+   "gitBlob": "46d82c02e47c29148525956783608c3b5259ee58",
+   "addedIn": "ec6367581b9018d0c987f387520a52553fb1dba0"
+  },
+  {
+   "path": "docs/evidence/v09-budget100-local-v1-artifacts.zip",
+   "bytes": 66887841,
+   "sha256": "7d1760a6ddd15d35047612211d72720d508e21909f79a3d86d03dc97ac1acd91",
+   "gitBlob": "f74ae6119989b5a923035541069ef6187f7075be",
+   "addedIn": "ee85359a8bd19efe27d5cf88975bd69e364d6fae"
+  },
+  {
+   "path": "docs/evidence/v09-budget38-v1-artifacts.zip",
+   "bytes": 8707143,
+   "sha256": "aa171d83187a0ed2f01c1fe68f94457ffcd624a0c6371b1c8cc16595dfe05349",
+   "gitBlob": "fe54e2cb957551bad6cc9ca61bd22fe280694919",
+   "addedIn": "72d5051f1cc9d263bf3587a3a61f7c196bf64614"
+  },
+  {
+   "path": "docs/evidence/v09-budget40-v1-artifacts.zip",
+   "bytes": 10325770,
+   "sha256": "5236f85add2f03e5d1ae1e18896ea8b1c1a647e0848c34fc14497020d8fd7db1",
+   "gitBlob": "6827dae2c7e6b758fde2a4f2670479b6b840cc72",
+   "addedIn": "822a7e91b20c3b69f5293476f203fce26f1dc0a5"
+  },
+  {
+   "path": "docs/evidence/v09-continuation-v1-artifacts.zip",
+   "bytes": 4987824,
+   "sha256": "6ceb187749a2c9f331c4e3c86b01fda77c6d54b4ba2c7f8105a6599c74c567ca",
+   "gitBlob": "033b234cb3ec760e5eb35f93e5b301d62045aa8a",
+   "addedIn": "55edb8d89cfffd241495d2ecd205398c64056c6b"
+  },
+  {
+   "path": "docs/evidence/v09-deferred-commit-runtime-v1-artifacts.zip",
+   "bytes": 10039146,
+   "sha256": "cc92c94c4386053c4e7dbe12135d8b75e5328f1b6a9083bff2b40836cf3a6136",
+   "gitBlob": "4cb6139851e068d84d7c78da8d566e896b47fdc3",
+   "addedIn": "4d8918d85fb6ef7efa9cca5777c6149f9be42bb6"
+  },
+  {
+   "path": "docs/evidence/v09-deferred-commit-v1-artifacts.zip",
+   "bytes": 8015800,
+   "sha256": "a0e9a5c2594e954b8832a1412774f84d4bcac1662ea047f5271177f8865473fd",
+   "gitBlob": "f79de3f3c85ec90b7fa1f1e097b1aa081e661053",
+   "addedIn": "863e8c03dfb614306b0b3f00d288332a761e298d"
+  },
+  {
+   "path": "docs/evidence/v09-deferred-forecast-reuse-v1-artifacts.zip",
+   "bytes": 10300384,
+   "sha256": "e54537d1f8b4cdfc438d34e3c9c9a4afbd437d8c899aef6a87ec521ff1b03670",
+   "gitBlob": "9b7d5dd79d7dc904892ab94e3278a0fc86ac5864",
+   "addedIn": "684f32555cc235593a7901abdc41655a9d45d739"
+  },
+  {
+   "path": "docs/evidence/v09-deferred-strength-v1-artifacts.zip",
+   "bytes": 21555618,
+   "sha256": "8037459a7526e227f6633f6fee66ff7e8acad411d9ef306d8930fd9aab406230",
+   "gitBlob": "53947ebfaf9c91064161fa64ca0de2bf70101a5f",
+   "addedIn": "2e0c84b6460c02bf9e716139bff116266ba082ce"
+  },
+  {
+   "path": "docs/evidence/v09-fast-path-v1-artifacts.zip",
+   "bytes": 5564818,
+   "sha256": "8aaf9eb0e8edd49707f42a58c7ecc727ed3f198ff66a3294ae6060477e96d8ae",
+   "gitBlob": "d32075d43577677a85f13f60f16a56e625803e15",
+   "addedIn": "32255bf7153b2be79b47c454b9fb257172eefa80"
+  },
+  {
+   "path": "docs/evidence/v09-full-action-v1-artifacts.zip",
+   "bytes": 6071307,
+   "sha256": "edb5eaf13bb2f84a2f4d38b82c2f1b580908ba3e5a3e9966886a133c0ef7304e",
+   "gitBlob": "9c6edad79c8af83794cbce3be4faf989deb9c25d",
+   "addedIn": "9b57a310362a04c24179986e064bf306dd9780b1"
+  },
+  {
+   "path": "docs/evidence/v09-ink-refresh-v1-artifacts.zip",
+   "bytes": 8635685,
+   "sha256": "d3bb6a346ee334deda83a1f42bb7803dbc5034c80c9623412b178f459b98de44",
+   "gitBlob": "b46cc316847da6ce4ff3565f8f08ad3e370cb1a0",
+   "addedIn": "04399a83731d9d3ffdb7040163cccff66fe06edc"
+  },
+  {
+   "path": "docs/evidence/v09-ink-strength-v1-artifacts.zip",
+   "bytes": 2218645,
+   "sha256": "d693c193cd0b7fc4d42844e1f8c807c130576fa757f0eb912aeeef7aeb3af425",
+   "gitBlob": "1c56e34ff97180ffb95b9502568827f474ebe97c",
+   "addedIn": "baf59a1206a89eefc7512ce1e8b598ca95655906"
+  },
+  {
+   "path": "docs/evidence/v09-ink40-boss-v1-artifacts.zip",
+   "bytes": 2308589,
+   "sha256": "abb9d4d2d4be2837d78ae80524aa6d30cf3461f0a27cfa49ce73c3eb92e5c484",
+   "gitBlob": "fa9997a39c1658f9cf34df5dd3d7bfe254d1d97e",
+   "addedIn": "60e7cf010896ea5c08a987337507ef44fb3b2709"
+  },
+  {
+   "path": "docs/evidence/v09-ink40-strength-v1-artifacts.zip",
+   "bytes": 2554633,
+   "sha256": "4e8fb4bf2498b73dda44ec3412a05903aef19f8debd611419163135ad0e51a6f",
+   "gitBlob": "d52208cad528dd2029580be04ed7ab7e203356ab",
+   "addedIn": "a8f0440fdf2f0bb250cf07905713ac15c89ff98d"
+  },
+  {
+   "path": "docs/evidence/v09-ink40-v1-artifacts.zip",
+   "bytes": 3301749,
+   "sha256": "cd3159104a840d6de77a363e4d22bea5e10a92f167ceecb17a4e0a7e3de56368",
+   "gitBlob": "8f666b5b6846a8398eace6dfb86d36b12d502c7a",
+   "addedIn": "8764233076dc4238851c279fc8e32fb948498469"
+  },
+  {
+   "path": "docs/evidence/v09-ink45-boss-v1-artifacts.zip",
+   "bytes": 2557774,
+   "sha256": "8283703a3a00de4f5db5b7476ecc07959f96ef29a031f01be6a4e44d373f1258",
+   "gitBlob": "66b2ef930864e1d315a26c07b892ad9d22b29fca",
+   "addedIn": "341741fc274abbd7708db89bb9a796c343060c8f"
+  },
+  {
+   "path": "docs/evidence/v09-ink45-strength-v1-artifacts.zip",
+   "bytes": 7006002,
+   "sha256": "8e20c881ca47308214601be6112d87c78b7fd8ba18906754d5731d85c575b2ef",
+   "gitBlob": "144a01482699bc9d1581930ce3459b7c9b1b2877",
+   "addedIn": "e9f1a5c21d60ec56489e01bbafd4cd39e0d242ee"
+  },
+  {
+   "path": "docs/evidence/v09-runtime-cause-v1-artifacts.zip",
+   "bytes": 4172683,
+   "sha256": "cb8a45fc993163d983a6824e47e2fe193373cf8e72ca984b31c34342b17db724",
+   "gitBlob": "ef4e71577e254b2a88035ac7a1554990cc0363a7",
+   "addedIn": "d3f74ca12a1a626c1d54aa90de776c8438ac560e"
+  }
+ ]
+}

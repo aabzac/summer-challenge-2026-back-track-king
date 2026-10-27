@@ -16,7 +16,6 @@ import java.nio.file.Path;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.zip.ZipFile;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -718,14 +717,11 @@ class FileMergerTest {
     }
 
     @Test void selectedSourcePreservesApprovedArtifactExceptTheDefaultFlagAndBuildMarker() throws Exception {
-        String approved;
-        try (var archive = new ZipFile("docs/evidence/strategy-search-v1-artifacts.zip")) {
-            var entry = archive.getEntry("build/cg-boss/artifacts/strategy-search-opening-v1/Player.java");
-            assertNotNull(entry, "approved source must remain in durable evidence");
-            try (var input = archive.getInputStream(entry)) {
-                approved = new String(input.readAllBytes(), StandardCharsets.UTF_8);
-            }
-        }
+        // Extracted from docs/evidence/strategy-search-v1-artifacts.zip (no longer tracked); the sha is the one
+        // recorded in docs/evidence/strategy-search-opening-v1-screen.json.
+        String approved = Files.readString(Path.of("src/test/resources/historical/strategy-search-opening-v1/Player.java"), StandardCharsets.UTF_8);
+        assertEquals("eac9ed574d1f54bcca04f911ee6d782011ca11d279c553be86bd86f482501362", FileMerger.sha256(approved),
+                "approved source must remain in durable evidence");
         String previousDefault = "public boolean USE_PROTECTED_OPENING = false;\n";
         assertEquals(approved.indexOf(previousDefault), approved.lastIndexOf(previousDefault));
         assertTrue(approved.contains(previousDefault));

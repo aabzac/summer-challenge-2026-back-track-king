@@ -35,3 +35,5 @@
 /docs/evidence/rollout-fill-root-v1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/evidence/rollout-fill-root-v1-boss.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /bench/pools/rollout-fill-root-v1-block*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Historical artifact sources extracted from the untracked evidence archives; byte identity is pinned by sha256.
+/src/test/resources/historical/** -text
