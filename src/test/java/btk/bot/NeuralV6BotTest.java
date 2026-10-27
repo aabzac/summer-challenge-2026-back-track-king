@@ -31,10 +31,12 @@ class NeuralV6BotTest {
             GameState state = MapGenerator.generate(2209000 + me);
             Pathing pathing = new Pathing(state.size);
             Rules.updateConnections(state, pathing);
-            Params p = BotFactory.parameters("neural-v5?NOISE=" + noise);
+            // neural-v5 left with the closed neural line (repo-cleanup tier 3); its bot and features stay in the test
+            // sources as the frozen oracle, on v6's configuration (identical to v5's).
+            Params p = BotFactory.parameters("neural-v6?NOISE=" + noise);
             NeuralV5Bot original = new NeuralV5Bot(p, () -> 0);
             NeuralV6Bot candidate = new NeuralV6Bot(p, () -> 0);
-            Bot opponent = BotFactory.create("neural-v1?SEED=19");
+            Bot opponent = BotFactory.create("pressure-v1");
             original.init(state, me); candidate.init(state, me); opponent.init(state, 1 - me);
             assertEquals("neural-v6", candidate.name());
             for (int turn = 0; turn < 15 && !Rules.gameOver(state, pathing); turn++) {

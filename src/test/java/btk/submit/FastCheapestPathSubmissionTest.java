@@ -36,8 +36,7 @@ class FastCheapestPathSubmissionTest {
             assertEquals(expected, BotFactory.configuration(spec));
             assertEquals(36, BotFactory.parameters(spec).TURN_BUDGET_MS);
         }
-        for (String spec : new String[]{"v09?", "v08?", "main?", "neural-v1?", "spatial-ppo-v10?",
-                "indrill-q-v2?", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=false,",
+        for (String spec : new String[]{"v09?", "v08?", "main?", "neural-v6?", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_ROLLOUT_POLICY=false,",
                 "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_HEURISTIC_POLICY=true,", "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + ",USE_NEURAL_TARGET_PROPOSAL=true,"}) {
             String enabled = spec + FLAG + "=true";
             assertThrows(IllegalArgumentException.class, () -> BotFactory.create(enabled), enabled);

@@ -23,7 +23,7 @@ class IncrementalInkRefreshSubmissionTest {
 
     @Test void optInChangesOnlyTheExplicitFlagAndRejectsOtherPolicies() {
         assertTrue(new Params().USE_INCREMENTAL_INK_REFRESH, "selected default since the v10 promotion");
-        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v6"}) {
             assertFalse(BotFactory.parameters(spec).USE_INCREMENTAL_INK_REFRESH);
             assertFalse(BotFactory.configuration(spec).containsKey(FLAG));
         }
@@ -38,8 +38,7 @@ class IncrementalInkRefreshSubmissionTest {
         }
         for (String spec : new String[]{
                 "v09?" + FLAG + "=true", "v08?" + FLAG + "=true",
-                "main?" + FLAG + "=true", "neural-v1?" + FLAG + "=true",
-                "spatial-ppo-v10?" + FLAG + "=true", "indrill-q-v2?" + FLAG + "=true",
+                "main?" + FLAG + "=true", "neural-v6?" + FLAG + "=true",
                 "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + FLAG + "=true,USE_ROLLOUT_POLICY=false",
                 "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + FLAG + "=true,USE_HEURISTIC_POLICY=true",
                 "current?" + btk.bot.LiveTargetExperimentParams.V10_OFF + "," + FLAG + "=true,USE_NEURAL_TARGET_PROPOSAL=true"}) {
@@ -55,7 +54,7 @@ class IncrementalInkRefreshSubmissionTest {
                 FileMerger.sha256(FileMerger.merge("v09")));
         assertEquals("a04462aea88ed214283a7111e766d0929ac312497db366e9d7d359af93c4f01a",
                 FileMerger.sha256(FileMerger.merge(BASE)));
-        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v1", "spatial-ppo-v10"}) {
+        for (String spec : new String[]{btk.bot.LiveTargetExperimentParams.V09_ON_CURRENT, BASE, "v09", "neural-v6"}) {
             String source = FileMerger.merge(spec);
             assertEquals(source, FileMerger.merge(spec + (spec.contains("?") ? "," : "?") + FLAG + "=false"));
             for (String absent : new String[]{FLAG, "INK_REFRESH_BEGIN", "INK_REFRESH_END",
