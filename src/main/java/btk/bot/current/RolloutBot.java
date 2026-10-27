@@ -36,23 +36,12 @@ public final class RolloutBot implements Bot {
     private Random random;
     private int[] quickPath;
     private int quickPlayer, quickLength, quickCost, quickGain;
-    // COMMIT_BEGIN
-    private int[] commitCells;
-    private int commitLen, commitTurn = -99;
-    public int commitRootsBonused;
-    // COMMIT_END
     // BYPASS_BEGIN
     private static final int BYPASS_MAX_QUERIES = 16;
     private int[] bypassRisk;
     private boolean[] bypassMark;
     public int bypassQueries, bypassProposals;
     // BYPASS_END
-    // CORRIDOR_BEGIN
-    private static final int CORRIDOR_SCALE = 12;
-    private int[][] corridorPaths;
-    private int[] corridorLengths, corridorCount;
-    public int corridorQueries, corridorProposals;
-    // CORRIDOR_END
     public int routeQueries, completedComparisons, simulatedTurns, selectedRoute, selectedTarget;
     public double selectedValue;
     private int ordinaryRootSize;
@@ -101,6 +90,10 @@ public final class RolloutBot implements Bot {
                 || p.USE_ROLLOUT_ROUTE_DEPENDENCIES || p.USE_ROLLOUT_NETWORK_CHORDS || p.USE_ROLLOUT_LIVE_TARGET
                 || p.ROLLOUT_ALWAYS_DISRUPT || p.USE_ROLLOUT_TRACK_VALUE || p.ROLLOUT_TRACK_VALUE_SELF_ONLY)
             throw new IllegalArgumentException("Pruned from current (prune-v1): run this rollout experiment on v10");
+        // prune-v2 (2026-10-27): the rejected/parked experiments of v12's time left current; frozen v13 runs them.
+        if (p.USE_COLLISION_AVOIDANCE || p.USE_CORRIDOR_ROUTES || p.USE_QUICK_ALWAYS || p.DELAY_POWER != 1.0
+                || p.BOSS_OPP_HOLD_MARGIN >= 0 || p.USE_BOSS_NO_CLOSE || p.USE_ROUTE_COMMIT || p.USE_BOSS_THREAT_MODEL)
+            throw new IllegalArgumentException("Pruned from current (prune-v2): run this experiment on v13");
         if (p.USE_OWN_BUILD_PLAN || p.USE_REPLY_RERANK || p.USE_JOINT_ACTION
                 || p.USE_DEFENSE_PRIORITY || p.USE_OPP_MODEL || p.GUARD_BUILD_INCOME
                 || p.CHOOSE_BUILD_DIRECTION || p.EARLY_DISRUPT_FALLBACK || p.INTERRUPT_VULN_EVAL)
@@ -151,9 +144,6 @@ public final class RolloutBot implements Bot {
     // BOSS_MODEL_BEGIN
     /** Stage 1 opponent model: the opponent's observed held target, last real instabilities, simulated placement turns. */
     private int liteOppHeld = -1, liteLastRealTarget = -1;
-    // OPP_HOLD_BEGIN
-    public int oppHoldCalls;
-    // OPP_HOLD_END
     private int[] liteLastInstability, liteSimPlaced;
     public int bossModelCalls;
     // BOSS_MODEL_END
@@ -161,15 +151,6 @@ public final class RolloutBot implements Bot {
     /** Per player: sum over that player's previous-turn portfolio routes of 1/paint-cost, per region crossed. */
     private double[][] liteRoutes;
     // BOSS_ROUTES_END
-    // BOSS_THREAT_BEGIN
-    public int threatModelCalls;
-    // BOSS_THREAT_END
-    // COLLISION_BEGIN
-    /** collision-avoidance-v1: the opponent's predicted first-turn cells (its reply routes packed into one turn of paint). */
-    private int[] collisionCells, collisionScratch;
-    private int collisionCount;
-    public int collisionRootsPenalised;
-    // COLLISION_END
     // EXPOSURE_INCOME_BEGIN
     /** Stage 4 (exposure-income-v1): income weighted by the survivability of the regions each connection crosses. */
     private final double[] exposureOut = new double[2], exposureBase = new double[2];
@@ -198,17 +179,9 @@ public final class RolloutBot implements Bot {
         routes = new int[2][p.ROLLOUT_WIDTH][s.size];
         lengths = new int[2][p.ROLLOUT_WIDTH]; values = new double[2][p.ROLLOUT_WIDTH];
         path = new int[s.size]; extra = new int[s.size]; blocked = new boolean[s.size];
-        // COMMIT_BEGIN
-        if (p.USE_ROUTE_COMMIT) { commitCells = new int[s.size]; commitLen = 0; commitTurn = -99; }
-        // COMMIT_END
         // BYPASS_BEGIN
         if (p.USE_BYPASS_ROUTES) { bypassRisk = new int[s.regionCount]; bypassMark = new boolean[s.regionCount]; }
         // BYPASS_END
-        // CORRIDOR_BEGIN
-        if (p.USE_CORRIDOR_ROUTES) {
-            corridorPaths = new int[s.pairCount][s.size]; corridorLengths = new int[s.pairCount]; corridorCount = new int[s.size];
-        }
-        // CORRIDOR_END
         trackBalance = new int[s.regionCount]; marked = new boolean[s.regionCount];
         priority = new double[s.regionCount]; shortlist = new int[p.ROLLOUT_TARGETS];
         roots = new int[p.ROLLOUT_WIDTH + 1 + (p.USE_ROLLOUT_NETWORK_AFTER_BASE ? p.ROLLOUT_NETWORK_ROOTS : 0)][GameState.PAINT_PER_TURN];
@@ -237,9 +210,6 @@ public final class RolloutBot implements Bot {
         if (p.USE_PROTECTED_OPENING) { opening = new ProtectedOpening(s, p); openingPlayer = me; }
         // BOSS_SABOTAGE_BEGIN
         if (p.USE_BOSS_SABOTAGE) bossSabotage = new BossSabotage(s, p.BOSS_HOLD_MARGIN);
-        // BOSS_NOCLOSE_BEGIN
-        if (p.USE_BOSS_SABOTAGE && p.USE_BOSS_NO_CLOSE) bossSabotage.noClose(true);
-        // BOSS_NOCLOSE_END
         bossTarget = -1;
         // BOSS_SABOTAGE_END
         // BOSS_LITE_BEGIN
@@ -275,12 +245,6 @@ public final class RolloutBot implements Bot {
         // EXPOSURE_INCOME_BEGIN
         if (p.USE_EXPOSURE_INCOME) { exposureStamp = new int[s.regionCount]; exposureStampValue = 0; }
         // EXPOSURE_INCOME_END
-        // COLLISION_BEGIN
-        if (p.USE_COLLISION_AVOIDANCE) {
-            collisionCells = new int[p.ROLLOUT_REPLIES * GameState.PAINT_PER_TURN];
-            collisionScratch = new int[GameState.PAINT_PER_TURN];
-        }
-        // COLLISION_END
         if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) {
             networkCells = new int[s.size]; networkWeights = new int[s.size];
             networkPriority = new int[s.size]; networkGains = new int[s.size];
@@ -297,17 +261,9 @@ public final class RolloutBot implements Bot {
         }
         // MISSED_DEADLINE_END
         routeQueries = completedComparisons = simulatedTurns = 0;
-        // COMMIT_BEGIN
-        commitRootsBonused = 0;
-        if (p.USE_ROUTE_COMMIT && s.turn == 0) { commitLen = 0; commitTurn = -99; } // warm-up turns never carry over
-        // COMMIT_END
         // BYPASS_BEGIN
         bypassQueries = bypassProposals = 0;
         // BYPASS_END
-        // CORRIDOR_BEGIN
-        corridorQueries = corridorProposals = 0;
-        if (p.USE_CORRIDOR_ROUTES) { Arrays.fill(corridorCount, 0); Arrays.fill(corridorLengths, 0); }
-        // CORRIDOR_END
         networkEligible = networkEvaluated = networkRoots = networkComparisons = 0;
         selectedNetwork = false; selectedNetworkCell = -1;
         networkPhaseComplete = false;
@@ -339,19 +295,12 @@ public final class RolloutBot implements Bot {
         }
         // BOSS_LITE_END
         threats[1 - me] = fallbackTarget;
-        // BOSS_THREAT_BEGIN
-        if (p.USE_BOSS_THREAT_MODEL) { threatModelCalls++; threats[me] = chooseBossLite(s, 1 - me, liteOppHeld); }
-        else
-        // BOSS_THREAT_END
         threats[me] = chooseTarget(s, 1 - me);
         Rules.incomePerTurn(s, income);
         // EXPOSURE_INCOME_BEGIN
         if (p.USE_EXPOSURE_INCOME) exposureIncome(s, exposureBase);
         // EXPOSURE_INCOME_END
         if (p.USE_ROLLOUT_QUICK_ROUTE && income[me] == 0) quickPlayer = me;
-        // DELAY_BEGIN
-        if (p.USE_ROLLOUT_QUICK_ROUTE && p.USE_QUICK_ALWAYS) quickPlayer = me;
-        // DELAY_END
         for (int player = 0; player < 2; player++) {
             baseDiff[player] = income[player] - income[1 - player];
             threatDiff[player] = baseDiff[player];
@@ -386,9 +335,6 @@ public final class RolloutBot implements Bot {
             }
             if (timer.up(reserve)) break;
         }
-        // CORRIDOR_BEGIN
-        if (p.USE_CORRIDOR_ROUTES) proposeCorridors(s, me, start, reserve);
-        // CORRIDOR_END
         // BYPASS_BEGIN
         if (p.USE_BYPASS_ROUTES) proposeBypasses(s, me, start, reserve);
         // BYPASS_END
@@ -423,9 +369,6 @@ public final class RolloutBot implements Bot {
         selectedRoute = counts[me] == 0 ? -1 : 0;
         best = -Double.MAX_VALUE;
         int replies = Math.max(1, Math.min(p.ROLLOUT_REPLIES, counts[1 - me]));
-        // COLLISION_BEGIN
-        if (p.USE_COLLISION_AVOIDANCE) predictCollisions(s, me, replies);
-        // COLLISION_END
         boolean complete = searchRoots(s, me, 0, rootSize, replies);
         saveOrdinaryChoice(complete);
         if (p.USE_ROLLOUT_NETWORK_AFTER_BASE) searchNetworkAfterBase(s, me, replies, budgetMs);
@@ -449,9 +392,6 @@ public final class RolloutBot implements Bot {
         // MISSED_DEADLINE_BEGIN
         if (p.USE_ROLLOUT_MISSED_DEADLINE) correctMissedDeadline(s);
         // MISSED_DEADLINE_END
-        // COMMIT_BEGIN
-        if (p.USE_ROUTE_COMMIT) recordCommitment(s);
-        // COMMIT_END
         List<Action> result = new ArrayList<>(4);
         for (int i = 0; i < bestCount; i++) result.add(Action.place(s.x(bestCells[i]), s.y(bestCells[i])));
         if (selectedTarget >= 0) result.add(Action.disrupt(selectedTarget));
@@ -689,17 +629,6 @@ public final class RolloutBot implements Bot {
                     networkComparisons++; networkCompared[root] = true;
                 }
                 double value = (1 - p.ROLLOUT_ROBUSTNESS) * sum / replies + p.ROLLOUT_ROBUSTNESS * worst;
-                // COLLISION_BEGIN
-                if (p.USE_COLLISION_AVOIDANCE) {
-                    int shared = collisions(roots[root], rootCounts[root]);
-                    if (shared > 0) { value -= p.COLLISION_PENALTY * shared; if (attack == 0) collisionRootsPenalised++; }
-                }
-                // COLLISION_END
-                // COMMIT_BEGIN
-                if (p.USE_ROUTE_COMMIT && commitLen > 0 && commitTurn == s.turn - 1 && onCommitted(roots[root], rootCounts[root])) {
-                    value += p.COMMIT_BONUS; if (attack == 0) commitRootsBonused++;
-                }
-                // COMMIT_END
                 if (value > best) {
                     best = value; selectedValue = value;
                     selectedRoute = root == counts[me] ? -1 : root; selectedTarget = target;
@@ -735,10 +664,6 @@ public final class RolloutBot implements Bot {
 
     private void propose(GameState s, int me, int pair, int variant) {
         if (variant == 2 && threats[me] < 0) return;
-        // CORRIDOR_BEGIN
-        if (variant == 3) { if (!corridorCosts(s, pair)) return; corridorQueries++; }
-        else
-        // CORRIDOR_END
         for (int c = 0; c < s.size; c++) {
             extra[c] = (int) Math.round(p.UNSTABLE_COST * s.instability[c]);
             blocked[c] = variant == 1 ? s.owner[c] == 1 - me
@@ -748,9 +673,6 @@ public final class RolloutBot implements Bot {
                 path, variant == 0 ? null : blocked, extra);
         routeQueries++;
         if (n <= 0) return;
-        // CORRIDOR_BEGIN
-        if (p.USE_CORRIDOR_ROUTES && variant == 0 && me == realPlayer) corridorRecord(s, pair, n);
-        // CORRIDOR_END
         if (opening != null && s.turn < p.OPENING_TURNS && me == openingPlayer && variant == 0)
             opening.observe(s, pair, path, n);
         completion.set(s); int cost = 0;
@@ -786,78 +708,14 @@ public final class RolloutBot implements Bot {
             gain = (1 - p.ROLLOUT_THREAT_WEIGHT) * gain + p.ROLLOUT_THREAT_WEIGHT * protectedGain;
         }
         if (gain <= 0) return;
-        // CORRIDOR_BEGIN
-        if (variant == 3) corridorProposals++;
-        // CORRIDOR_END
         double value = gain * earning / turns * (1 + p.NOISE * (random.nextDouble() - 0.5));
-        // DELAY_BEGIN
-        if (p.DELAY_POWER != 1.0) value *= Math.pow(turns, 1 - p.DELAY_POWER);
-        // DELAY_END
         insert(s, me, n, value);
         // Different ends of a route are genuinely different affordable first actions.
         for (int i = 0, j = n - 1; i < j; i++, j--) { int c = path[i]; path[i] = path[j]; path[j] = c; }
         insert(s, me, n, value);
     }
 
-    // CORRIDOR_BEGIN
-    /** corridor-routes-v1 (2026-10-26): remember the free cells of this pair's cheapest path and count them per cell. */
-    private void corridorRecord(GameState s, int pair, int n) {
-        int len = 0;
-        for (int i = 0; i < n; i++) if (s.canBuild(path[i])) { corridorPaths[pair][len++] = path[i]; corridorCount[path[i]]++; }
-        corridorLengths[pair] = len;
-    }
 
-    /**
-     * Scaled path costs for the corridor variant: a free cell's paint is divided by (1 + CORRIDOR_WEIGHT x the number of
-     * other pairs whose cheapest path uses the cell); the instability surcharge is kept; nothing is blocked. False when
-     * no free cell of the board is shared with another pair, so the query is skipped.
-     */
-    private boolean corridorCosts(GameState s, int pair) {
-        boolean any = false;
-        for (int i = 0; i < corridorLengths[pair]; i++) corridorCount[corridorPaths[pair][i]]--;
-        for (int c = 0; c < s.size; c++) {
-            blocked[c] = false;
-            double cost = s.placeCost(c);
-            int shared = corridorCount[c];
-            if (shared > 0 && s.canBuild(c)) { any = true; cost /= 1 + p.CORRIDOR_WEIGHT * shared; }
-            extra[c] = (int) Math.round(CORRIDOR_SCALE * (cost + p.UNSTABLE_COST * s.instability[c])) - s.placeCost(c);
-        }
-        for (int i = 0; i < corridorLengths[pair]; i++) corridorCount[corridorPaths[pair][i]]++;
-        return any;
-    }
-
-    /** One corridor proposal per pair with a recorded cheapest path, under the same reserve as the ordinary proposals. */
-    private void proposeCorridors(GameState s, int me, int start, int reserve) {
-        for (int k = 0; k < s.pairCount; k++) {
-            if (timer.up(reserve) || corridorQueries >= p.ROLLOUT_MAX_ROUTES) break;
-            int pair = (start + k) % s.pairCount;
-            if (corridorLengths[pair] == 0) continue;
-            propose(s, me, pair, 3);
-        }
-    }
-    // CORRIDOR_END
-
-    // COMMIT_BEGIN
-    /** route-commit-v1: the unbuilt cells of the chosen route after this turn's placements; kept for one turn. */
-    private void recordCommitment(GameState s) {
-        if (selectedRoute < 0 || selectedRoute >= counts[realPlayer]) { commitLen = 0; return; }
-        int[] route = routes[realPlayer][selectedRoute];
-        int n = 0;
-        for (int i = 0; i < lengths[realPlayer][selectedRoute]; i++) {
-            int c = route[i];
-            if (!s.canBuild(c)) continue;
-            boolean placedNow = false;
-            for (int j = 0; j < bestCount; j++) if (bestCells[j] == c) { placedNow = true; break; }
-            if (!placedNow) commitCells[n++] = c;
-        }
-        commitLen = n; commitTurn = s.turn;
-    }
-
-    private boolean onCommitted(int[] cells, int count) {
-        for (int i = 0; i < count; i++) for (int j = 0; j < commitLen; j++) if (cells[i] == commitCells[j]) return true;
-        return false;
-    }
-    // COMMIT_END
 
     // BYPASS_BEGIN
     /** bypass-routes-v1: one bypass proposal per own earning connection at risk, under the same reserve as the ordinary proposals. */
@@ -1198,27 +1056,6 @@ public final class RolloutBot implements Bot {
     }
     // EXPOSURE_INCOME_END
 
-    // COLLISION_BEGIN
-    /** The cells the opponent is predicted to place this turn in the reply scenarios the rollout will play (unique). */
-    private void predictCollisions(GameState s, int me, int replies) {
-        collisionCount = 0;
-        for (int reply = 0; reply < replies && reply < counts[1 - me]; reply++) {
-            int n = fillBuild(s, 1 - me, reply, collisionScratch);
-            for (int i = 0; i < n; i++) {
-                boolean seen = false;
-                for (int j = 0; j < collisionCount; j++) if (collisionCells[j] == collisionScratch[i]) { seen = true; break; }
-                if (!seen && collisionCount < collisionCells.length) collisionCells[collisionCount++] = collisionScratch[i];
-            }
-        }
-    }
-
-    private int collisions(int[] cells, int count) {
-        int shared = 0;
-        for (int i = 0; i < count; i++)
-            for (int j = 0; j < collisionCount; j++) if (cells[i] == collisionCells[j]) { shared++; break; }
-        return shared;
-    }
-    // COLLISION_END
 
     /** Cheap exposure shortlist, then exact core ink evaluation. No actual future enemy action is read. */
     private int chooseTarget(GameState s, int me) {
@@ -1388,12 +1225,6 @@ public final class RolloutBot implements Bot {
             if (v > bestScore) { bestScore = v; best = r; }
         }
         if (best < 0) return -1;
-        // OPP_HOLD_BEGIN
-        if (p.BOSS_OPP_HOLD_MARGIN >= 0 && me != realPlayer) {
-            oppHoldCalls++;
-            if (held >= 0 && heldScore > -Double.MAX_VALUE && bestScore < heldScore + p.BOSS_OPP_HOLD_MARGIN) return held;
-        } else
-        // OPP_HOLD_END
         if (held >= 0 && heldScore > -Double.MAX_VALUE && bestScore < heldScore + p.BOSS_HOLD_MARGIN) return held;
         if (liteOppCells[best] == 0 && s.regionInstability[best] == 0
                 // BOSS_ROUTES_BEGIN
