@@ -73,3 +73,19 @@ replicated proxy gain since v12, its pooled interval clear of zero; C25 stops (p
   ```
   bash tools/run_boss_paced.sh build/cg-boss/commit-c10-v12-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
   ```
+
+## Live boss, v5 step (c) session 1 (2026-10-27 06:56–07:58 UTC, `evidence/route-commit-v1/live-session-1/`)
+
+Launched by Claude on the user's "Запускай" under the allow rule. 80 API games, 0 technical failures, 0 authorized
+retries, **40/40 (C10) and 120/120 (the v12 capture directory, three sessions) replays exact** (`cgValidate`). **C10 18/40
+= 45.0 %, `current` (v12, the arena artifact) 22/40 = 55.0 %** against boss 6767608 on 40 matched maps; discordant pairs
+**3 : 7** (30 equal), paired **−10.0 pp**, one-sided p = 0.95; seat P0 11/20 vs 12/20, P1 7/20 vs 10/20; by map size
+(C10 / v12 points over the maps): 21×14 3/5 (6), 23×15 2/4 (6), 24×16 3/2 (5), 26×17 2/2 (3), 27×18 0/2 (2), 29×19 7/5 (12),
+30×20 1/2 (6).
+
+**Reading.** The session fails the +5 pp threshold. Policy v5 decides step (c) on 80 candidate games (a second 40-map
+session completes the sample); after −10 pp the second session would need about +20 pp for the pooled sample to reach
++5 pp. The proxy gain is replicated (pooled +4.8 ± 3.8 pp over 300 maps), the live sample is thin: only 10 of the 40
+pairs are discordant, and a 3 : 7 split is what an equal pair of bots produces about one time in six. Live sessions of
+the line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0, C10 −10.0 pp. **Decision open to the user:** the second session
+(80 API games) or park C10 (recommended; the flag stays in the code, default off).
