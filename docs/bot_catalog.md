@@ -21,20 +21,12 @@ accept the original ids; the labels do not rename frozen Java classes or change 
   of the exact arena upload or process-timing readiness. Historical versions remain reference
   opponents; their numbers are a development history, not an ordering against every possible bot.
 - **Local references**: pressure-v1 Sabotage First is an independent strategy intended to broaden
-  behavioral coverage, not an arena promotion. leader-v1 Leader Style is a fast heuristic
-  calibrated on the arena leader (Indrill; see [indrill-study-v1.md](indrill-study-v1.md)): full
-  paint every turn, a sticky DISRUPT on the opponent's unfinished construction, and a protected
-  opening. Its constants are frozen and never retuned. It reproduces the leader's relentless
-  sabotage meta (100% accepted disruption vs v08's ~62%), not the leader's arena strength, so it
-  is a screening opponent, not a strength benchmark or a claim to reproduce the player.
-- **Candidates**: neural-v1 Neural Imitation is an independent strategy with its own shipped
-  package (`btk.bot.neural`, `submit -PsubmitVersion=neural-v1`): two small conditional-logit
-  networks trained on the arena leader's replays choose the DISRUPT region and each placement
-  cell; only the closing-ink guard is hand-written. Its weights are a generated file
-  (`NeuralWeights`), so a retrained model is a new candidate, not a parameter override. See
-  [neural-policy-v1.md](neural-policy-v1.md). `indrill-forum-v1` is a separate local candidate:
-  a hand readout of Indrill's published route features, not a trained network. See
-  [indrill-forum-v1.md](indrill-forum-v1.md).
+  behavioral coverage (it is in the default `benchSuite` panel), not an arena promotion; boss-v1 is the
+  frozen boss imitation of the boss-proxy line. leader-v1/v2 were removed in repo-cleanup tier 3 (2026-10-27).
+- **Candidates**: neural-v6 Neural Resumable Feature Paths is the one learned bot kept, as the second
+  screening opponent (`submit -PsubmitVersion=neural-v6` ships its `btk.bot.neural` classes; its weights are a
+  frozen generated file). The other neural, spatial-ppo and indrill candidates were removed in repo-cleanup
+  tier 3; their verdicts stay in [the BOTS archive](archive/BOTS-2026-09-13_10-06.md) and DEVLOG.
 - **Experiments**: until 2026-10-27 six `exp-*` recipes of the v05 era (income guard, build direction, early
   disrupt, reply rerank, interruptible evaluation, delay 0.65; all `not_promoted`) ran on an archived EvalBot
   engine (`RetainedEngine`, `experiment-engine-v1*.json`). That engine stopped matching the shared core on

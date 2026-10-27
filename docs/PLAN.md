@@ -118,8 +118,9 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
 - [x] **repo-cleanup-v1 (2026-10-27, `docs/repo-cleanup-v1.md`):** evidence archives / csv.gz gitignored and untracked (manifest
       `docs/evidence/untracked-evidence-2026-10-27.json`), journals split into `docs/archive/`, the 25 red tests removed with the
       `exp-*` engine and `pduhard-beam-v1`, prune-v2 of the parked experiments (run them on `v13?FLAG=1`); 0 red tests.
-- [ ] Tier 3 of repo-cleanup (user: "позже"): the closed neural / spatial / indrill lines, the v05-era EvalBot flags and the
-      v09-era probe tools with their code and tests (≈ 330 tests); keep neural-v6 and what it depends on.
+- [x] Tier 3 of repo-cleanup (2026-10-27 evening, the user's "можно пока 4-й пункт"): the closed neural / spatial / indrill /
+      leader / target / PPO lines and the v09-era tools left with their code, tools and tests (763 → 429 tests); neural-v6,
+      pressure-v1 and boss-v1 kept; the v05-era EvalBot flags deliberately left in place (`docs/repo-cleanup-v1.md`).
 - [x] **`unstable-cost-v1` (2026-10-25 night, `docs/unstable-cost-v1.md`) — parked:** U2 +0.3 ± 6.6 pp, U3 +2.0 ± 6.8 pp vs boss-v2 over `current` (78.7 %), h2h 52.7 / 48.7 % — both fail step (a); default stays. Parameter screen of `UNSTABLE_COST` 2 and 3 (the cheapest-path penalty per cell per instability level, default 1) on `current` = v12 — pool 1004000, U2/U3 vs boss-v2 (proxy spec with `USE_EXPOSURE_INCOME=0`) with `current` as the same-map control (+3 pp), h2h vs `current` (≥ 48 %); `tools/boss_proxy/run_unstable_screen.sh`.
 
 Sections before Stage 0 (2026-09-13 to 2026-10-19) are in [archive/PLAN-2026-09-13_10-19.md](archive/PLAN-2026-09-13_10-19.md).

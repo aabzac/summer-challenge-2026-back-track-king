@@ -45,9 +45,28 @@ Clone sizes are `git pack-objects` repacks of all history with and without the a
 5. **Rules** — AGENTS.md rule 8 says what an experiment commits (evidence JSON/TXT yes, archives and binary exports never,
    files over 1 MB need a reason, closed periods move to `docs/archive/`); rule 9: tests follow the code they test.
 
-## Not done (user decision "4 позже")
+## Tier 3 — the closed research lines (2026-10-27 evening, the user's "можно пока 4-й пункт чистки ещё")
 
-Tier 3: the closed research lines (neural v1–v5/v7, spatial-ppo v1–v10, indrill, leader, pressure, the v05-era EvalBot flags,
-v09-era probe tools) with their code and `tools/{neural,spatial,indrill}` — about 330 more tests; neural-v6 stays as a
-screening opponent. Entangled (shared `CgDisruptStudy`, FileMerger special cases, packaging tests that use neural-v1 and
-spatial-ppo-v10 as controls), so a separate PR.
+**Removed with their code, tools and tests:** neural v1–v5 and v7, spatial-ppo v1–v10 (and v2-init), indrill-q v1/v2 and
+indrill-forum-v1, leader-v1/v2, the neural target proposal (`TargetHybridBot`, `USE_NEURAL_TARGET_PROPOSAL` now refused) and
+the PPO prototype, the v09-era probe tools (`V09*`, `GeneratedPolicy`), the prune-v1 mechanism studies (`RolloutRisk*`,
+`RolloutFill*`), the September boss-v07 studies (`CgBossDefenseStudy`, `CgBossLossStudy`, `CgRolloutBossProbe`) and the
+sabotage forecast (`SabotageForecast`, `CgForecastStudy`); their 22 gradle tasks plus `spatialRuntime`; their catalog
+entries and parameter snapshots; `tools/{neural,spatial,indrill}`, `tools/run_leader_coverage.py` and 17 `tools/diagnostics`
+scripts that called the removed code.
+
+**Kept on purpose:** neural-v6 (screening opponent) with exactly what it needs (`NeuralV6Bot/Features`, `NeuralNet`,
+`NeuralV2Weights`, `NeuralFeatures`); neural-v5's bot and features moved to the **test** sources as the frozen oracle of
+`FeaturePathsTest` and `NeuralV6*Test`. pressure-v1 (in the default `benchSuite` panel `bench/opponents-v1.json`) and
+boss-v1. `CgDisruptStudy`, `ReplyStudy`/`ReplyProbe` and the replay studies still used by live tools. The `Params` fields of
+the removed lines stay (frozen snapshots and the pinned `Params` field count read them; they never ship).
+
+**Not done, on purpose:** the v05-era EvalBot flags (income guard, build direction, early disrupt, reply rerank, joint
+action, interruptible eval, own build plan, defense priority). They live inside `current/EvalBot.java`, the non-rollout
+legacy policy, and are intertwined (reply rerank ↔ joint action ↔ own plan); `MainBot`, which ships in every artifact,
+selects between it and `HeuristicBot`. Removing them means rewriting ~400 lines of EvalBot without a byte-identity oracle,
+for 30-odd tests that cost < 1 s. Left as is; a separate decision if wanted.
+
+**Check:** 15 merged artifacts — the default (`3d3e861d…`), the proxy spec, the v12 configuration, the non-rollout and
+heuristic current, v05–v13 and neural-v6 (now pinned, `0597d5b7…`) — are byte-identical before and after (a scratch build
+of master `9fb2aa4` vs the tree). `gradlew test`: 429 tests, 0 failures (5 min 11 s; was 763).

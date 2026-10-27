@@ -1418,3 +1418,20 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   on disk (`docs/evidence/arena-uploads-2026-10-27.json`).
 - Decision: v13 is not clearly worse than v12 (−0.17 score, +0.35 performance rating, +2.5 pp against a field 1.0 point
   stronger). **Next: the user re-uploads v13 (upload-2)**; its placement gives the first upload-to-upload spread.
+
+## 2026-10-27 — repo-cleanup-v1 tier 3: the closed research lines leave the code (763 → 429 tests)
+
+- The user's "можно пока 4-й пункт чистки ещё" (relayed by the coordinator after PRs #13–#15 merged). Fresh branch from master
+  `9fb2aa4`; details in `docs/repo-cleanup-v1.md` (Tier 3).
+- **Removed with code, tools and tests:** neural v1–v5/v7, spatial-ppo v1–v10 (+ v2-init), indrill-q v1/v2, indrill-forum-v1,
+  leader-v1/v2, the neural target proposal (`TargetHybridBot`; `USE_NEURAL_TARGET_PROPOSAL` now refused) and the PPO prototype,
+  the `V09*` / `GeneratedPolicy` probe tools, the prune-v1 mechanism studies, the September boss-v07 studies and the sabotage
+  forecast; 23 gradle tasks; catalog entries and parameter snapshots; `tools/{neural,spatial,indrill}`,
+  `tools/run_leader_coverage.py` and 17 `tools/diagnostics` scripts that called the removed code.
+- **Kept:** neural-v6 (screening opponent) with its 5 classes; neural-v5's bot and features moved to the test sources as the
+  frozen oracle of `FeaturePathsTest` / `NeuralV6*Test`; pressure-v1 (default `benchSuite` panel) and boss-v1; the `Params`
+  fields of the removed lines (frozen snapshots, pinned field count; never shipped). Not done on purpose: the v05-era EvalBot
+  flags inside `current/EvalBot.java` (intertwined legacy non-rollout policy that `MainBot` selects; no byte oracle).
+- **Check:** 15 merged artifacts (default `3d3e861d…`, proxy spec, v12 configuration, non-rollout / heuristic current, v05–v13,
+  neural-v6 — now pinned at `0597d5b7…`) byte-identical between a scratch build of `9fb2aa4` and the tree. `gradlew test`:
+  429 tests, 0 failures, 5 min 11 s (the long tests — PruneV1, FileMerger, V09Promotion — are kept ones).
