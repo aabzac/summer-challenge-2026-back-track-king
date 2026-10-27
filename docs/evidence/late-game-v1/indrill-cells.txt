@@ -1,0 +1,44 @@
+=== Indrill wins: 265 games ===
+  third 1 (4670 game-turns)
+    Indrill   paint/turn 3.00, earns  74%, lost unearned  25%, 23.6 pts/paint
+      bypass 14.2% (earns  81%, 26.9 pts/paint) | steal  4.2% (earns  84%, 27.0 pts/paint) | complete 77.2% (earns  72%, 23.1 pts/paint) | extend  0.5% (earns  83%, 12.4 pts/paint) | filler  3.9% (earns  75%, 18.6 pts/paint)
+      pairs at first income: new 84%, taken over 6%, bypassed 9%, other 1%
+    opponent  paint/turn 3.00, earns  68%, lost unearned  27%, 16.9 pts/paint
+      bypass 12.4% (earns  70%, 19.6 pts/paint) | steal  4.6% (earns  79%, 15.8 pts/paint) | complete 78.4% (earns  68%, 16.8 pts/paint) | extend  0.7% (earns  87%, 15.2 pts/paint) | filler  3.9% (earns  60%, 10.4 pts/paint)
+      pairs at first income: new 83%, taken over 9%, bypassed 7%, other 0%
+  third 2 (4572 game-turns)
+    Indrill   paint/turn 2.99, earns  71%, lost unearned  20%,  9.8 pts/paint
+      bypass 18.9% (earns  79%, 13.8 pts/paint) | steal  5.5% (earns  81%, 13.4 pts/paint) | complete 50.8% (earns  80%, 10.6 pts/paint) | extend  4.7% (earns  63%,  5.7 pts/paint) | filler 20.2% (earns  40%,  4.2 pts/paint)
+      pairs at first income: new 66%, taken over 8%, bypassed 24%, other 2%
+    opponent  paint/turn 2.98, earns  50%, lost unearned  28%,  5.8 pts/paint
+      bypass 16.2% (earns  63%,  9.4 pts/paint) | steal  5.4% (earns  71%,  8.5 pts/paint) | complete 47.1% (earns  58%,  6.5 pts/paint) | extend  3.9% (earns  62%,  5.2 pts/paint) | filler 27.4% (earns  21%,  2.1 pts/paint)
+      pairs at first income: new 61%, taken over 26%, bypassed 13%, other 1%
+  third 3 (4482 game-turns)
+    Indrill   paint/turn 2.72, earns  26%, lost unearned  22%,  1.2 pts/paint
+      bypass  5.6% (earns  66%,  4.3 pts/paint) | steal  1.9% (earns  59%,  2.7 pts/paint) | complete 27.6% (earns  51%,  2.0 pts/paint) | extend  8.5% (earns  30%,  1.0 pts/paint) | filler 56.3% (earns   9%,  0.4 pts/paint)
+      pairs at first income: new 55%, taken over 11%, bypassed 30%, other 4%
+    opponent  paint/turn 2.65, earns  13%, lost unearned  22%,  0.6 pts/paint
+      bypass  3.8% (earns  40%,  3.2 pts/paint) | steal  1.5% (earns  36%,  1.1 pts/paint) | complete 25.5% (earns  26%,  1.0 pts/paint) | extend  4.5% (earns  32%,  1.4 pts/paint) | filler 64.6% (earns   5%,  0.2 pts/paint)
+      pairs at first income: new 49%, taken over 38%, bypassed 12%, other 1%
+=== Indrill losss: 17 games ===
+  third 1 (238 game-turns)
+    Indrill   paint/turn 3.00, earns  66%, lost unearned  30%, 10.4 pts/paint
+      bypass 18.5% (earns  78%,  9.6 pts/paint) | steal  4.6% (earns  70%,  9.4 pts/paint) | complete 72.4% (earns  64%, 10.8 pts/paint) | extend  0.4% (earns 100%,  5.7 pts/paint) | filler  4.1% (earns  60%,  8.6 pts/paint)
+      pairs at first income: new 81%, taken over 12%, bypassed 7%, other 0%
+    opponent  paint/turn 3.00, earns  71%, lost unearned  26%, 12.2 pts/paint
+      bypass 11.3% (earns  69%, 13.2 pts/paint) | steal  5.2% (earns  78%,  9.6 pts/paint) | complete 79.1% (earns  70%, 12.5 pts/paint) | extend  0.3% (earns 100%,  1.5 pts/paint) | filler  4.1% (earns  73%,  6.5 pts/paint)
+      pairs at first income: new 80%, taken over 6%, bypassed 14%, other 0%
+  third 2 (233 game-turns)
+    Indrill   paint/turn 3.00, earns  63%, lost unearned  23%,  4.6 pts/paint
+      bypass 17.0% (earns  59%,  5.6 pts/paint) | steal  5.7% (earns  59%,  6.1 pts/paint) | complete 64.5% (earns  66%,  4.2 pts/paint) | extend  2.1% (earns  70%,  5.3 pts/paint) | filler 10.6% (earns  50%,  4.0 pts/paint)
+      pairs at first income: new 66%, taken over 18%, bypassed 16%, other 1%
+    opponent  paint/turn 3.00, earns  52%, lost unearned  26%,  4.0 pts/paint
+      bypass 18.6% (earns  62%,  4.6 pts/paint) | steal  6.4% (earns  80%,  4.1 pts/paint) | complete 63.5% (earns  50%,  4.0 pts/paint) | extend  0.3% (earns   0%,  0.0 pts/paint) | filler 11.2% (earns  38%,  3.0 pts/paint)
+      pairs at first income: new 70%, taken over 13%, bypassed 17%, other 1%
+  third 3 (228 game-turns)
+    Indrill   paint/turn 2.92, earns  27%, lost unearned  22%,  0.7 pts/paint
+      bypass  3.5% (earns  50%,  0.6 pts/paint) | steal  2.4% (earns  50%,  2.1 pts/paint) | complete 40.7% (earns  39%,  1.1 pts/paint) | extend  5.9% (earns  47%,  0.6 pts/paint) | filler 47.6% (earns  11%,  0.2 pts/paint)
+      pairs at first income: new 63%, taken over 19%, bypassed 17%, other 1%
+    opponent  paint/turn 2.88, earns  16%, lost unearned  17%,  0.6 pts/paint
+      bypass  1.4% (earns  33%,  1.1 pts/paint) | steal  2.1% (earns  50%,  1.8 pts/paint) | complete 39.7% (earns  23%,  0.9 pts/paint) | extend  4.9% (earns  42%,  1.0 pts/paint) | filler 51.9% (earns   7%,  0.3 pts/paint)
+      pairs at first income: new 61%, taken over 20%, bypassed 17%, other 2%

@@ -1,0 +1,26 @@
+=== Indrill wins: 265 games ===
+  third 1 (4670 game-turns)
+    Indrill   at-risk pair-turns/turn 1.01 (tracks at stake   7.8/turn), covered  27% (tracks kept  21%) | hits/turn 0.70 (tracks   5.7/turn), rescued  29%, tracks kept  22%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.05 (tracks at stake   7.1/turn), covered  26% (tracks kept  20%) | hits/turn 0.73 (tracks   5.2/turn), rescued  29%, tracks kept  20%, prepared 100% of rescues
+  third 2 (4572 game-turns)
+    Indrill   at-risk pair-turns/turn 2.36 (tracks at stake  25.5/turn), covered  26% (tracks kept  21%) | hits/turn 1.51 (tracks  17.6/turn), rescued  25%, tracks kept  19%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 2.31 (tracks at stake  17.2/turn), covered  25% (tracks kept  19%) | hits/turn 1.48 (tracks  11.9/turn), rescued  25%, tracks kept  19%, prepared 100% of rescues
+  third 3 (4482 game-turns)
+    Indrill   at-risk pair-turns/turn 1.06 (tracks at stake   9.6/turn), covered  24% (tracks kept  20%) | hits/turn 0.60 (tracks   5.9/turn), rescued  22%, tracks kept  17%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.02 (tracks at stake   5.9/turn), covered  23% (tracks kept  18%) | hits/turn 0.58 (tracks   3.8/turn), rescued  21%, tracks kept  19%, prepared 100% of rescues
+  third all (13724 game-turns)
+    Indrill   at-risk pair-turns/turn 1.48 (tracks at stake  14.3/turn), covered  25% (tracks kept  21%) | hits/turn 0.94 (tracks   9.7/turn), rescued  25%, tracks kept  19%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.46 (tracks at stake  10.1/turn), covered  25% (tracks kept  19%) | hits/turn 0.93 (tracks   7.0/turn), rescued  25%, tracks kept  19%, prepared 100% of rescues
+=== Indrill losss: 17 games ===
+  third 1 (238 game-turns)
+    Indrill   at-risk pair-turns/turn 0.62 (tracks at stake   3.2/turn), covered  26% (tracks kept  15%) | hits/turn 0.45 (tracks   2.5/turn), rescued  27%, tracks kept  15%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 0.65 (tracks at stake   4.0/turn), covered  24% (tracks kept  17%) | hits/turn 0.49 (tracks   3.3/turn), rescued  25%, tracks kept  16%, prepared 100% of rescues
+  third 2 (233 game-turns)
+    Indrill   at-risk pair-turns/turn 1.67 (tracks at stake  11.1/turn), covered  25% (tracks kept  18%) | hits/turn 1.23 (tracks   8.8/turn), rescued  29%, tracks kept  20%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.69 (tracks at stake  12.2/turn), covered  26% (tracks kept  18%) | hits/turn 1.23 (tracks   9.5/turn), rescued  29%, tracks kept  19%, prepared 100% of rescues
+  third 3 (228 game-turns)
+    Indrill   at-risk pair-turns/turn 0.82 (tracks at stake   6.0/turn), covered  11% (tracks kept   4%) | hits/turn 0.64 (tracks   5.0/turn), rescued  12%, tracks kept   6%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 0.81 (tracks at stake   5.9/turn), covered  11% (tracks kept   6%) | hits/turn 0.62 (tracks   5.2/turn), rescued  12%, tracks kept   5%, prepared 100% of rescues
+  third all (699 game-turns)
+    Indrill   at-risk pair-turns/turn 1.04 (tracks at stake   6.7/turn), covered  22% (tracks kept  13%) | hits/turn 0.78 (tracks   5.4/turn), rescued  24%, tracks kept  15%, prepared 100% of rescues
+    opponent  at-risk pair-turns/turn 1.05 (tracks at stake   7.4/turn), covered  22% (tracks kept  15%) | hits/turn 0.78 (tracks   6.0/turn), rescued  24%, tracks kept  15%, prepared 100% of rescues

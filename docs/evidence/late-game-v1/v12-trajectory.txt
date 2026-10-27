@@ -1,0 +1,17 @@
+v12: 147 games
+  win: 89 games, median length 58
+    at 0.20 L: median diff    -13, ahead  39/89, share of final points 0.08
+    at 0.33 L: median diff     42, ahead  57/89, share of final points 0.28
+    at 0.50 L: median diff    313, ahead  75/89, share of final points 0.64
+    at 0.67 L: median diff    486, ahead  82/89, share of final points 0.89
+    at 0.80 L: median diff    472, ahead  85/89, share of final points 0.96
+    at 1.00 L: median diff    470, ahead  89/89, share of final points 1.00
+    leader changes after 2/3 L: 7/89
+  loss: 58 games, median length 82.0
+    at 0.20 L: median diff    -44, ahead  21/58, share of final points 0.18
+    at 0.33 L: median diff   -120, ahead  15/58, share of final points 0.51
+    at 0.50 L: median diff   -254, ahead   9/58, share of final points 0.83
+    at 0.67 L: median diff   -412, ahead   5/58, share of final points 0.94
+    at 0.80 L: median diff   -446, ahead   0/58, share of final points 0.98
+    at 1.00 L: median diff   -465, ahead   0/58, share of final points 1.00
+    leader changes after 2/3 L: 5/58
