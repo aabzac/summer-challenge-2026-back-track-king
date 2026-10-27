@@ -1457,3 +1457,16 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   `docs/arena-uploads.md` (watch during every placement, comparisons within a league, M).
 - **Next:** v13's Gold placement completes (upload-3), then one more v13 Submit in Gold gives the second Gold placement
   score, which is the baseline a candidate is judged against.
+
+## 2026-10-27 — v13's first Gold placement: 66-74, score 10.82, rank 287; the big maps lose
+
+- `watch` (20:05–22:45 UTC, 4–5 requests per round) recorded agent 6818546's whole Gold re-placement: **140 games,
+  66W/74L (47.1 ± 4.2 %), CG score 10.82, rank 287 of 1,634**. Gold holds ranks 37–316 (~280 agents), so this is about
+  251st of them. Opponents' median score 11.18; performance rating 11.06 ± 0.45 on the Gold scale (fitted 2.60): v13
+  scores at the median of the opponents the matchmaker served.
+- Maps: small 53-48, **tall 6-15, 30×20 7-11**. The big maps are where Gold beats v13; in Silver, upload-1 went 25-14 on
+  them (upload-2's recovered results have no map data). `cgAnalyze`: 140 games validated, 0 failed turns of ours; in 3 games on 30×20 the opponent
+  timed out.
+- Evidence `docs/evidence/arena-uploads-v13-gold-2026-10-27.json`; `docs/arena-uploads.md` gains the Gold section.
+  **Next:** one more v13 Submit in Gold (the user's step, then `watch`) for the two-score Gold baseline. The big-map
+  deficit is the first lead for a Gold-era candidate.

@@ -153,3 +153,20 @@ opponents; 104 requests, no replays). The table below is the same `compare` run,
   they have no replays.
 - **Consequences:** `watch` during every placement; comparisons within one league; the v13 baseline is rebuilt in
   Gold (upload-3 placing, one more Submit needed).
+
+## v13 in Gold: upload-3 (2026-10-27, `docs/evidence/arena-uploads-v13-gold-2026-10-27.json`)
+
+`watch` recorded the whole Gold re-placement of agent 6818546. It finished at 100 % after 140 games, about 22:45 UTC.
+
+| | v13/upload-3 (Gold) |
+|---|---|
+| CG score at placement | **10.82**, rank 287 of 1,634, about 251st of the ~280 Gold agents (ranks 37–316) |
+| record | **66-74 (47.1 ± 4.2 %)** |
+| opponents' median score | 11.18 (the Gold scale runs from −13 to 32) |
+| performance rating (Gold scale 2.60) | 11.06 ± 0.45: at the median of the opponents it met |
+| maps: small / tall / 30×20 | 53-48 / **6-15** / **7-11** |
+| `cgAnalyze` | 140 games validated; 0 failed turns of ours (in 3 games, all on 30×20, the opponent timed out) |
+
+- v13 holds about 50 % against the Gold field it met, and it loses on the big maps (13-26 on tall and 30×20 together).
+- This is v13's first Gold placement score. One more v13 Submit in Gold, watched, gives the two-score baseline a
+  candidate is judged against.
