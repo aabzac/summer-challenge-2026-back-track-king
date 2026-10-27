@@ -9216,3 +9216,15 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - **Artifact** `build/submit-commit-c10`: 92,813 chars, sha `63e26828…`, build `45dc8325…`, config `f3229a23…`; strict
   procCheck 0 problems, later ≤ 37.7 ms. **Live plan** `build/cg-boss/commit-c10-v12-boss-40` (id `4cb1514d…`, seed
   2026102701, 80 API games vs v12) frozen; launch on the user's word. Pools 1017000..1018149 consumed, next ≥ 1019000.
+
+## 2026-10-27 — `route-commit-v1` against the live boss, v5 step (c) session 1: C10 18/40 vs v12's 22/40 — −10 pp
+
+- Launched by Claude at 06:56 UTC on the user's "Запускай" (allow rule); 80 API games 06:56–07:58 UTC, 0 failures,
+  0 retries, **40/40 + 120/120 replays exact**. **C10 18/40 = 45.0 %, `current` (v12) 22/40 = 55.0 %**; discordant
+  **3 : 7** (30 equal), paired **−10.0 pp**, one-sided p = 0.95; P0 11 vs 12, P1 7 vs 10; 29×19 7 vs 5 of 12, 21×14 3 vs 5
+  of 6 (`evidence/route-commit-v1/live-session-1/`).
+- **Reading.** Fails the session threshold. The proxy gain is replicated (pooled +4.8 ± 3.8 pp over 300 maps) but does
+  not show against the boss; the live sample is thin (10 discordant pairs; 3 : 7 arises under no difference about one time
+  in six). The policy's second session would need ≈ +20 pp to bring the 80-game sample to +5 pp. Live sessions of the
+  line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0, C10 −10.0 pp.
+- **Open to the user:** session 2 (80 API games) or park C10 (recommended). No upload, `current` unchanged.
