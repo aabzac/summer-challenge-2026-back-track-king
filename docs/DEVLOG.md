@@ -9228,3 +9228,4 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   in six). The policy's second session would need ≈ +20 pp to bring the 80-game sample to +5 pp. Live sessions of the
   line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0, C10 −10.0 pp.
 - **Open to the user:** session 2 (80 API games) or park C10 (recommended). No upload, `current` unchanged.
+- **Verdict (08:20 UTC, the user's "Отложить"): C10 parked**, no second session; flag stays, default off.

@@ -19,13 +19,13 @@ Historical entries retain the policy and verdict in force when those experiments
 `current` = **v12 Exposure Income** (since 2026-10-25 night; v11 Root Target 2026-10-25, v10 Boss Model 2026-10-23),
 `btk.bot.current.RolloutBot`; frozen copies in `btk.bot.vNN`.
 
-**`route-commit-v1`: C10 = `current?USE_ROUTE_COMMIT=true` — 2026-10-27, passed v5 (a), 1a and (b), live session 1 −10 pp:** a root that
+**`route-commit-v1`: C10 = `current?USE_ROUTE_COMMIT=true` — 2026-10-27, passed v5 (a), 1a and (b), live session 1 −10 pp → parked:** a root that
 continues the unbuilt part of last turn's chosen route gets `COMMIT_BONUS` (10) rollout-value points (`// COMMIT` block, default off),
 from the order study `route-order-v1` (v12 leaves routes half-built: completions +4.3 turns over the minimum vs the opponents' +1.5).
 Step (a), pool 1017000: **+7.0 ± 5.5 pp** over `current` vs boss-v2 (82.3 vs 75.3 %), h2h **52.7 %**; step 1a, pool 1018000: +2.5 ± 5.1 →
 **pooled +4.8 ± 3.8 pp**. Bonus 25: +4.7 then +0.7 (pooled +2.7) → stop. Artifact 92,813 chars (config `f3229a23…`), strict procCheck 0
 problems; live session 1 (80 games vs v12 on 40 matched maps): **C10 18/40 vs v12 22/40, −10.0 pp (3 : 7 discordant, p = 0.95), 40/40 +
-120/120 replays exact** — fails the session threshold; session 2 or parking is the user's decision. [Protocol and results](route-commit-v1.md),
+120/120 replays exact** — fails the session threshold; **parked on the user's decision** ("Отложить", no second session). [Protocol and results](route-commit-v1.md),
 [evidence](evidence/route-commit-v1/).
 
 **`threat-weight-v1` — 2026-10-27, parameter screen, closed (0.5 stays):** `ROLLOUT_THREAT_WEIGHT` 0.25 / 0.75 vs boss-v2 on fresh pool
