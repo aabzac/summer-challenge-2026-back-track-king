@@ -105,7 +105,13 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
 - [x] **`bypass-routes-v1` (`docs/bypass-routes-v1.md`):** `USE_BYPASS_ROUTES` (instability ≥ 2, weight 0.5) passes (a) +3.0 ± 5.3 pp (pool 1019000), 1a +5.3 ± 5.9 → pooled +4.2 ± 4.0 pp (pool 1020000), (b) 55.0 %; B3 (≥ 3) fails (b) 46.7 %. Artifact `build/submit-bypass-b2` (config `8c4b3d6d…`, 94,839 chars), strict procCheck 0 problems.
 - [x] v5 step (c) for B2, session 1 (2026-10-27 10:41–12:58 UTC, on the user's "запускай"; one lookup interruption resumed without a new play): **B2 24/40 vs v12 21/40, +7.5 pp (5 : 2 discordant), 40/40 + 160/160 replays exact → passes the session threshold** (`docs/evidence/bypass-routes-v1/live-session-1/`).
 - [x] **User decision (2026-10-27 13:39 UTC, "Делаем v13"): B2 promoted to v13 "Bypass Routes"** without session 2 (`docs/v13-promotion.md`): default flag, frozen `btk.bot.v13`, default artifact `build/submit-v13` (94,816 chars, config `8c4b3d6d…`), strict procCheck 0 problems; the proxy spec gains `USE_BYPASS_ROUTES=0`.
-- [ ] **User:** upload `build/submit-v13/Player.java` to the arena; then `cgFetch` / `cgAnalyze` of the first games.
+- [x] **User:** upload `build/submit-v13/Player.java` to the arena (done 2026-10-27 ~16:18 UTC).
+- [ ] `cgFetch` / `cgAnalyze` of v13's first arena games; record the new agent id.
+- [x] **repo-cleanup-v1 (2026-10-27, `docs/repo-cleanup-v1.md`):** evidence archives / csv.gz gitignored and untracked (manifest
+      `docs/evidence/untracked-evidence-2026-10-27.json`), journals split into `docs/archive/`, the 25 red tests removed with the
+      `exp-*` engine and `pduhard-beam-v1`, prune-v2 of the parked experiments (run them on `v13?FLAG=1`); 0 red tests.
+- [ ] Tier 3 of repo-cleanup (user: "позже"): the closed neural / spatial / indrill lines, the v05-era EvalBot flags and the
+      v09-era probe tools with their code and tests (≈ 330 tests); keep neural-v6 and what it depends on.
 - [x] **`unstable-cost-v1` (2026-10-25 night, `docs/unstable-cost-v1.md`) — parked:** U2 +0.3 ± 6.6 pp, U3 +2.0 ± 6.8 pp vs boss-v2 over `current` (78.7 %), h2h 52.7 / 48.7 % — both fail step (a); default stays. Parameter screen of `UNSTABLE_COST` 2 and 3 (the cheapest-path penalty per cell per instability level, default 1) on `current` = v12 — pool 1004000, U2/U3 vs boss-v2 (proxy spec with `USE_EXPOSURE_INCOME=0`) with `current` as the same-map control (+3 pp), h2h vs `current` (≥ 48 %); `tools/boss_proxy/run_unstable_screen.sh`.
 
 Sections before Stage 0 (2026-09-13 to 2026-10-19) are in [archive/PLAN-2026-09-13_10-19.md](archive/PLAN-2026-09-13_10-19.md).

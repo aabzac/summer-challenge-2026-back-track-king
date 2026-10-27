@@ -54,6 +54,16 @@ finished.
    commit the experiment and its documentation without asking again, including rejected or
    inconclusive experiments. Respect a later request not to commit; exclude unrelated changes.
    This authorizes local commits, not pushes, arena uploads or strategy promotion.
+   **What an experiment commits (2026-10-27, repo-cleanup):** the protocol doc, the DEVLOG/BOTS/PLAN/STATUS
+   updates, the code and tests, and the evidence JSON/TXT under `docs/evidence/` (screen cells, live-session
+   results: `pooled_delta.py` and the replays checks read them). Never commit archives or binary exports
+   (`*.zip`, `*.tar.gz`, `*.csv.gz` are gitignored under `docs/evidence/`): keep them local and record their
+   sha256 in a JSON manifest when a result depends on them. A new file over 1 MB needs a reason in its DEVLOG entry.
+   DEVLOG/PLAN/BOTS stay short: closed periods move verbatim to `docs/archive/`.
+9. **Tests follow the code they test.** Keep tests for the selected version, the screening proxy and
+   neural-v6, the engine, referee, runner and packaging, and the frozen-version pins. A rejected or parked
+   experiment leaves `current` together with its tests (the prune-v1/v2 pattern; the frozen copy that still
+   carries it remains runnable). A red test is fixed or removed, never left as "expected".
 
 ## Layout
 
