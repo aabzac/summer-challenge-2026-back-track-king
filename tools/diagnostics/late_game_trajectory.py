@@ -2,8 +2,7 @@
 
 Reads a CgPlayerStudy report (``gradlew cgAnalyze`` / ``btk.tools.CgPlayerStudy``) and prints, for wins and
 losses separately, the score difference and the share of the game's final points scored at fixed fractions of
-the game length, how many games change their leader after two thirds of the game, and the paint each side
-spends per turn in each third.
+the game length, and how many games change their leader after two thirds of the game.
 
     python tools/diagnostics/late_game_trajectory.py build/analysis/agent-6814073.json --label v12
 """
@@ -20,17 +19,6 @@ def at(game, f):
     t = min(turns - 1, int(f * turns))
     by_turn = {x['turn']: x for x in game['trace']}
     return by_turn.get(t)
-
-
-def paint_by_third(game, side):
-    turns = game['turns']
-    out = [0.0, 0.0, 0.0]
-    count = [0, 0, 0]
-    for x in game['trace']:
-        third = min(2, int(3 * x['turn'] / turns))
-        count[third] += 1
-        out[third] += x.get('paint', [0, 0])[side] if isinstance(x.get('paint'), list) else 0
-    return [o / c if c else 0 for o, c in zip(out, count)]
 
 
 def main():
