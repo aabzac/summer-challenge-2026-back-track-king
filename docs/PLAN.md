@@ -106,7 +106,15 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
 - [x] v5 step (c) for B2, session 1 (2026-10-27 10:41–12:58 UTC, on the user's "запускай"; one lookup interruption resumed without a new play): **B2 24/40 vs v12 21/40, +7.5 pp (5 : 2 discordant), 40/40 + 160/160 replays exact → passes the session threshold** (`docs/evidence/bypass-routes-v1/live-session-1/`).
 - [x] **User decision (2026-10-27 13:39 UTC, "Делаем v13"): B2 promoted to v13 "Bypass Routes"** without session 2 (`docs/v13-promotion.md`): default flag, frozen `btk.bot.v13`, default artifact `build/submit-v13` (94,816 chars, config `8c4b3d6d…`), strict procCheck 0 problems; the proxy spec gains `USE_BYPASS_ROUTES=0`.
 - [x] **User:** upload `build/submit-v13/Player.java` to the arena (done 2026-10-27 ~16:18 UTC).
-- [ ] `cgFetch` / `cgAnalyze` of v13's first arena games; record the new agent id.
+- [x] ~~`cgFetch` / `cgAnalyze` of v13's first arena games; record the new agent id~~ — done 2026-10-27 with the new
+      `tools/arena_uploads.py`: agent 6818214 (submitted 14:23 UTC by the leaderboard's creation time), 120 placement games
+      75W/45L, CG score 29.23 / rank 316, 0 failed turns (`replays/arena/v13/upload-1/`).
+- [x] **`arena-uploads-v1` (2026-10-27, `docs/arena-uploads.md`, the user's proposal):** policy v5 step 3 = one 40-game
+      live session as a filter (delta ≥ 0), then two arena uploads of the candidate, rollback when clearly worse than the
+      selected version's uploads; tool `tools/arena_uploads.py` (fetch / import / compare / relabel), v10–v12 imported
+      from `replays/cg`; AGENTS.md rule 3, `docs/benchmarking-v5.md`, README.
+- [ ] **User:** re-upload `build/submit-v13/Player.java` (v13 upload-2); then `python tools/arena_uploads.py fetch`
+      after its placement and record the upload-to-upload spread → the rollback margin M (provisionally 1.0).
 - [x] **repo-cleanup-v1 (2026-10-27, `docs/repo-cleanup-v1.md`):** evidence archives / csv.gz gitignored and untracked (manifest
       `docs/evidence/untracked-evidence-2026-10-27.json`), journals split into `docs/archive/`, the 25 red tests removed with the
       `exp-*` engine and `pduhard-beam-v1`, prune-v2 of the parked experiments (run them on `v13?FLAG=1`); 0 red tests.

@@ -30,6 +30,7 @@ gradlew submit -PsubmitVersion=v05              # optional historical v05 refere
 gradlew procCheck -Pbot=v01 -Pgames=4          # Player.java as external process, CG protocol + timing
 gradlew cgFetch -Ptop=20 -Plimit=10            # download top players' replays -> replays/cg/
 gradlew cgFetch -Pgame=903337834               # download one known arena/IDE game id
+python tools/arena_uploads.py fetch            # our live upload's games -> replays/arena/<version>/upload-N/
 gradlew cgValidate                             # validate our engine against the arena replay corpus
 gradlew cgRender -Ppath=replays/cg/903337834.json # validated replay -> rendered/cg/arena
 gradlew cgMapValidate                          # regenerate CG maps from refereeInput seeds, compare exactly
@@ -559,6 +560,23 @@ by P0/P1; each game records `me`. Turns are zero-based. Counterfactuals change o
 simultaneous turn and then reset to the recorded state; their score deltas are not projected
 match outcomes and must not be summed as lost final points. Failed-server turns have no
 counterfactual recommendations. Boss replays are excluded.
+
+### Our arena uploads, by version
+
+Every Submit is a new agent that plays ~120 placement games; CodinGame lists the games of the live agent only.
+`tools/arena_uploads.py` files them by version and upload and compares uploads and versions (rule:
+[arena-uploads.md](docs/arena-uploads.md)):
+
+```bash
+python tools/arena_uploads.py fetch                       # live entry -> replays/arena/<label>/upload-N/ + rating snapshot
+python tools/arena_uploads.py fetch --version <candidate> # an experiment's artifact ("(modified)" marker)
+python tools/arena_uploads.py compare                     # score/rank at placement, win %, performance rating, shared opponents
+python tools/arena_uploads.py relabel <candidate> vNN     # at a promotion
+gradlew cgAnalyze -Ppath=replays/arena/v13/upload-1/games -Pagent=6818214
+```
+
+A fetch costs two requests plus one per replay not yet on disk (`replays/cg` is reused); `--no-replays` fetches the
+results only. Tests: `cd tools && python -m unittest test_arena_uploads`.
 
 ## Authentic maps by seed
 

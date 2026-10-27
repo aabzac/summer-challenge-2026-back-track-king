@@ -1390,3 +1390,31 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   in the next full run, and the code removed only runs with a parked flag on (default artifact and FileMergerTest's compiled
   decision parity unchanged). Tier 3 (closed neural / spatial / indrill lines with their code, ≈ 330 tests) is
   left for a separate PR on the user's word.
+
+## 2026-10-27 — arena-uploads-v1: candidates are judged on two arena uploads; `tools/arena_uploads.py`
+
+- The user's proposal after v13's upload, agreed in the project chat: after a good local bench the candidate goes to the
+  arena (each upload plays ~120 placement games). Its games are downloaded, the rating (not only the rank) and win
+  rate are recorded, and the same artifact is re-uploaded to average across uploads; the candidate is rolled back if it is
+  clearly worse. The first 40-game boss session stays as a cheap filter. Replays are saved by version name. Rule:
+  `docs/arena-uploads.md`; AGENTS.md rule 3 (c) and `docs/benchmarking-v5.md` step 3 amended. Provisional parts, to be
+  fixed after the noise measurement: the filter is delta ≥ 0, and M = 1.0 CG point until two uploads of one artifact
+  are measured.
+- Tool `tools/arena_uploads.py` (+ `tools/test_arena_uploads.py`, 14 tests). `fetch` reads the puzzle leaderboard
+  (our agent, score, rank, `percentage`, `creationTime`) and `findLastBattlesByAgentId`, which returns the results of all
+  the upload's games in one request. It then downloads the missing replays into `replays/arena/<label>/upload-N/games/`
+  (gitignored), reusing `replays/cg`. The label comes from the first-turn marker (`v13 | BTK_BUILD_V1 …`); an experiment
+  needs `--version`, and one label holds one configuration hash. `compare` prints the placement score, win rate,
+  opponent median, a performance rating (logistic in the opponent's score, shared scale) and stratified deltas on
+  shared opponents. `import` files earlier uploads from `replays/cg` offline; `relabel` moves a candidate's uploads at
+  a promotion.
+- **Finding:** CG lists the games of the **live agent only**. 6807052, 6811139, 6813813 and 6813957 return empty lists
+  now, so an upload that is not fetched before the next Submit keeps only the replays downloaded earlier. The rule
+  says: fetch before every upload.
+- **v13 upload-1 = agent 6818214** (submitted 14:23 UTC, placement finished 16:48 UTC): 120 games, **75W/45L (62.5 ± 4.4 %),
+  CG 29.23, rank 316 / 1,634**, opponents' median 28.20, performance rating 28.99 ± 0.62; `cgAnalyze` validated
+  118 games, 0 failed turns. 122 API requests. v12's re-upload (6814073, imported, 150 games): 90-60, 29.40 at 147 games,
+  rating 28.64 ± 0.55. v10 ×2 (D and 6811139, same config), v11 and v12's first upload have only the first 50 games
+  on disk (`docs/evidence/arena-uploads-2026-10-27.json`).
+- Decision: v13 is not clearly worse than v12 (−0.17 score, +0.35 performance rating, +2.5 pp against a field 1.0 point
+  stronger). **Next: the user re-uploads v13 (upload-2)**; its placement gives the first upload-to-upload spread.

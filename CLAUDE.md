@@ -16,8 +16,13 @@ by date or candidate id). Commands are in `README.md`.
   (`current?USE_BOSS_SABOTAGE=1` alone is refused; or `neural-v6` for a candidate that is itself the
   proxy) — **since 2026-10-26 a step-(a) pass is replicated on a fresh pool before anything else (positive replication delta,
   pooled delta ≥ +3 pp; `tools/boss_proxy/run_replication.sh` + `pooled_delta.py`)** — non-inferiority vs the selected version
-  (`current` = v13), then 80 paired live boss games.
+  (`current` = v13), then **since 2026-10-27 one 40-game live boss session as a filter (delta ≥ 0) and two arena uploads
+  of the candidate** (`docs/arena-uploads.md`; rollback when its mean placement score is below the selected version's uploads
+  by more than M and the performance rating agrees).
   The local mirror vs v09 is a regression guard, never the objective.
+- **Fetch our live arena entry before every upload** (`python tools/arena_uploads.py fetch`, files the games under the
+  gitignored `replays/arena/<label>/upload-N/`): CG lists the games of the live agent only, a replaced upload's game
+  list is gone. Fetch again after each placement (~120 games, leaderboard `percentage` 100); `... compare` reads them.
 - **Compare a candidate only with a control measured on the same maps, seeds and seats, in the
   same run.** Absolute scores move 10 pp between map pools; deltas do not. The screen scripts in
   `tools/boss_proxy/run_*.sh` carry their own controls — copy that pattern.
@@ -53,9 +58,10 @@ by date or candidate id). Commands are in `README.md`.
 **v13 "Bypass Routes" is the selected version since 2026-10-27** (`docs/v13-promotion.md`, user decision "Делаем v13" after
 `bypass-routes-v1`: B2 = `current?USE_BYPASS_ROUTES=true`, +3.0 pp vs the proxy over v12 replicated to pooled +4.2 pp, 55.0 % h2h,
 live session 1 +7.5 pp, 24/40 vs 21/40; session 2 skipped on the user's choice): the flag is a `Params` default, `btk.bot.v13` the
-frozen copy, default artifact 94,816 chars / config `8c4b3d6d…` (`build/submit-v13`, strict procCheck 0 problems), **uploaded to the
-arena by the user on 2026-10-27 ~16:18 UTC** (agent id to read from a replay; before it v12, agent 6814073). Next candidate: screened with `current` (= v13) as the same-map control
-and the proxy spec above (with `USE_BYPASS_ROUTES=0`), step 1a, h2h, live vs `current`. Before it:
+frozen copy, default artifact 94,816 chars / config `8c4b3d6d…` (`build/submit-v13`, strict procCheck 0 problems), **on the
+arena since 2026-10-27 = agent 6818214** (upload-1: 120 placement games 75W/45L, CG 29.23, rank 316; before it v12, agent 6814073);
+**the user re-uploads v13 for the first upload-to-upload noise measurement** (`docs/arena-uploads.md`). Next candidate: screened with `current` (= v13) as the same-map control
+and the proxy spec above (with `USE_BYPASS_ROUTES=0`), step 1a, h2h, the live filter vs `current`, then two arena uploads. Before it:
 **v12 "Exposure Income" was the selected version from 2026-10-25 night** (`docs/v12-promotion.md`, user decision after
 `stage4-exposure-income-v1`: E1 = `current?USE_EXPOSURE_INCOME=true`, +3.7 pp vs the proxy over v11, 60.3 % h2h, live
 session 1 at the +5 pp threshold exactly): the flag is a `Params` default, `btk.bot.v12` the frozen copy, default artifact
