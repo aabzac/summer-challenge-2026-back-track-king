@@ -74,3 +74,21 @@ pooled ≥ +3 pp). **B2 passes steps (a), 1a and (b).**
   ```
   bash tools/run_boss_paced.sh build/cg-boss/bypass-b2-v12-boss-40/plan.json build/cg-boss/private/v09-ink45-boss-v1/session.json 20 300 20 build/cg-boss/private/v09-ink45-boss-v1/start-session.json 0722a2fe30a43359747729078cfa150d027fc9c6fc7a9e3fbb102210563accba 1172955
   ```
+
+## Live boss, v5 step (c) session 1 (2026-10-27 10:41–12:58 UTC, `evidence/bypass-routes-v1/live-session-1/`)
+
+Launched by Claude on the user's "запускай" under the allow rule. 80 API games, 0 authorized retries, runner report complete
+with no issues, **40/40 (B2) and 160/160 (the v12 capture directory, four sessions) replays exact** (`cgValidate`). One
+interruption: at 11:28 UTC the read-only canonical lookup of slot 29 (game 912366310, already played, its play response saved)
+failed and the runner stopped after 28 results; the same command resumed it at 12:17 UTC and fetched slot 29 without a new
+play (the documented recovery, `docs/boss-api.md`); no slot was played twice.
+
+**B2 24/40 = 60.0 %, `current` (v12, the arena artifact) 21/40 = 52.5 %** against boss 6767608 on 40 matched maps; discordant
+pairs **5 : 2** (33 equal), paired **+7.5 pp** (threshold +5.0), one-sided p = 0.23; seat P0 10/20 vs 9/20, P1 14/20 vs 12/20;
+by map size (B2 / v12 points over the maps): 21×14 6/6 (9), 23×15 4/3 (7), 24×16 2/1 (3), 26×17 3/3 (5), 27×18 3/2 (6),
+29×19 5/5 (7), 30×20 1/1 (3).
+
+**Reading.** The session passes the +5 pp threshold, on 7 discordant pairs. Live sessions of the line: D +22.5, B +2.5, E1 +5.0
+(both promoted), K1 −15.0, Q −5.0, C10 −10.0, **B2 +7.5**. Policy v5 decides step (c) on 80 candidate games; a second 40-map
+session completes the sample (today already used 160 API games, so a second session belongs to another day). **Decision open
+to the user:** promote B2 to v13 now (as E1 was after its first session), or play session 2 first.

@@ -9265,3 +9265,13 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
   vs v09): 0 problem games, 0 timeouts, first ≤ 657 ms, later ≤ 38.9 ms. **Live plan** `build/cg-boss/bypass-b2-v12-boss-40` (id
   `6063fbb0…`, seed 2026102702, matched, 40 maps × 2 = 80 API games vs v12, 1,278 maps excluded), no API games played; launch on the
   user's word.
+
+## 2026-10-27 — `bypass-routes-v1` against the live boss, v5 step (c) session 1: B2 24/40 vs v12's 21/40 — +7.5 pp, passes
+
+- Launched by Claude at 10:41 UTC on the user's "запускай"; 80 API games, 0 retries, **40/40 + 160/160 replays exact**. The runner
+  stopped once at 11:28 UTC after 28 results (the read-only canonical lookup of slot 29, game 912366310, failed after its play
+  response was saved) and was resumed with the same command at 12:17 UTC (lookup only, no new play); complete 12:58 UTC.
+- **B2 24/40 = 60.0 %, `current` (v12) 21/40 = 52.5 %**; discordant **5 : 2** (33 equal), paired **+7.5 pp**, one-sided p = 0.23;
+  P0 10 vs 9, P1 14 vs 12 (`evidence/bypass-routes-v1/live-session-1/`).
+- **Reading.** Passes the session threshold (+5 pp) on a thin sample. Live sessions of the line: D +22.5, B +2.5, E1 +5.0, K1 −15,
+  Q −5, C10 −10, B2 +7.5. Decision open to the user: v13 now, or session 2 (another day; 160 API games were used today).
