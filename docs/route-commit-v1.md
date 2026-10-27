@@ -89,3 +89,6 @@ session completes the sample); after −10 pp the second session would need abou
 pairs are discordant, and a 3 : 7 split is what an equal pair of bots produces about one time in six. Live sessions of
 the line: D +22.5, B +2.5, E1 +5.0, K1 −15.0, Q −5.0, C10 −10.0 pp. **Decision open to the user:** the second session
 (80 API games) or park C10 (recommended; the flag stays in the code, default off).
+
+**Verdict (2026-10-27 08:20 UTC, the user's "Отложить"): C10 parked.** No second session; `USE_ROUTE_COMMIT` stays in the
+code, default off; `current` stays v12, no upload.

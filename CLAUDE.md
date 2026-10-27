@@ -68,7 +68,7 @@ with both live signs — the passes were selection noise (best of two arms, ±7 
 replicate step (a) on a fresh pool before (b) and the live step.** `proxy-agreement-v1`'s blind spot was the proxy's winning-closure shortcut
 in the boss's won tails (`USE_BOSS_NO_CLOSE`, default off, not validated).
 **`route-commit-v1` (2026-10-27): C10 = `current?USE_ROUTE_COMMIT=true` passed (a) +7.0 pp, step 1a (pooled +4.8 ± 3.8 pp) and (b) 52.7 %**;
-**but its live session 1 lost 10 pp (18/40 vs v12's 22/40, 3 : 7 discordant)**; session 2 or parking is the user's decision.
+**but its live session 1 lost 10 pp (18/40 vs v12's 22/40, 3 : 7 discordant) → parked (user's decision, no session 2), flag off**.
 Live series are now launched by Claude: allow rule `Bash(bash tools/run_boss_paced.sh *)` in `.claude/settings.local.json` (2026-10-26). Before it: **v11 "Root Target" was the selected version from 2026-10-25 evening** (`docs/v11-promotion.md`, user decision after
 `stage4-threat-model-v1`: B = `current?USE_BOSS_ROOT_TARGET=true`, +8.8 pp vs the proxy over v10, 57.0 % h2h, live
 session 1 inconclusive +2.5 pp): the flag is a `Params` default, `btk.bot.v11` is the frozen copy, default artifact
