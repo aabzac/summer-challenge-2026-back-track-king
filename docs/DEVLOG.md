@@ -1365,3 +1365,28 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - Default artifact `build/submit-v13`: 94,816 chars, sha `3d3e861d…`, build `fb92323e…`, config `8c4b3d6d…` (= B2's); frozen export
   94,781 chars (`7b7dac9a…`). Strict `procCheck` (zero grace, 4 games vs v09): 0 problem games, 0 timeouts, first ≤ 573 ms, later
   ≤ 43.2 ms. Arena upload of `build/submit-v13/Player.java` is the user's step (the arena runs v12, agent 6814073).
+
+## 2026-10-27 — repo-cleanup-v1: archives out of the index, journals split, the 25 red tests and the parked experiments removed
+
+- The user's ask: too many files are committed, and are the failing tests (or all tests) needed? Audit + plan shown first
+  (Claude doc "Чистка репозитория и тестов: план"); the user's answer "1, 3 да, 2 нет, 4 позже". Details in
+  `docs/repo-cleanup-v1.md`.
+- **Weight.** A fresh clone was ≈ 445 MB, ≈ 410 MB of it 60 evidence archives (59 zip + 1 tar.gz, 2026-09-19..10-18); without
+  them ≈ 35 MB. Each commit also rewrote 1.1 MB of journals.
+- **Done.** (1) `docs/evidence/**/*.{zip,tar.gz,tgz,csv.gz}` gitignored and 68 files (512.7 MB) untracked, not deleted;
+  `docs/evidence/untracked-evidence-2026-10-27.json` = path, size, sha256, blob, adding commit. Two tests read the extracted
+  `Player.java` under `src/test/resources/historical/`. No history rewrite (user: "2 нет"). (2) DEVLOG/PLAN/BOTS: the periods
+  before 2026-10-20 (BOTS: up to 2026-10-06) moved verbatim to `docs/archive/`; live files 125 / 27 / 74 KB. (3) Tier 1: the six
+  `exp-*` recipes and their archived engine (red since 2026-10-18, when fast cheapest path changed `Pathing.class`) and the
+  never-registered `pduhard-beam-v1` removed with their tests and tools: 863 tests / 25 red → 831 / 0. (4) Tier 2, prune-v2:
+  collision avoidance, corridor routes (K1), quick-always / delay power (Q), the opponent hold margin, the no-close proxy switch,
+  route commitment (C10) and the threat model left `current` (−183 lines); refused on current, still run on `v13?FLAG=1` (threat
+  model also v11/v12); their 12 test classes and the 12 `btk.bot.v10` classes of the prune-v1 flags removed; `PruneV2Test` added.
+  The default artifact stays byte-identical to `build/submit-v13/Player.java` (94,816 chars, sha `3d3e861d…`, V13SubmissionTest),
+  so the arena upload and its strict procCheck are unchanged. (5) AGENTS.md rules 8 (what an experiment commits) and 9 (tests
+  follow their code).
+- `gradlew test`: 763 tests, 0 failures, 5 min 1 s (was 863 / 25 red, 4 min 55 s). One earlier full run missed
+  `BossLiteTest`'s timing threshold once (`bossModelCalls` 808 vs > 10 × turns, at the start of the parallel run); green alone and
+  in the next full run, and the code removed only runs with a parked flag on (default artifact and FileMergerTest's compiled
+  decision parity unchanged). Tier 3 (closed neural / spatial / indrill lines with their code, ≈ 330 tests) is
+  left for a separate PR on the user's word.

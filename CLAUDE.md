@@ -2,8 +2,9 @@
 
 Read in this order, every session: `docs/STATUS.md` (one page, current state — keep it current),
 `AGENTS.md` (the working agreement; its rules apply to you unchanged), `docs/PLAN.md` (tick steps
-when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task needs (DEVLOG is
-600 KB; grep by date or candidate id). Commands are in `README.md`.
+when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task needs (since repo-cleanup
+2026-10-27 they keep only the period from 2026-10-20; older entries are verbatim in `docs/archive/` — grep there
+by date or candidate id). Commands are in `README.md`.
 
 ## Rules that bite most often
 
@@ -36,7 +37,11 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
   (`BotFactory.displayName`; bump `BotFactory.SELECTED_VERSION` / `VERSION_NAMES` at a promotion). `Params` fields the shipped rollout never reads live in `// LOCAL_ONLY_BEGIN/END`
   blocks (stripped from current rollout artifacts only); a new field the bot reads goes outside them.
   The 17 pruned rollout flags (`BotFactory.PRUNED_ROLLOUT_FLAGS`) are refused on `current`; run their
-  mechanisms on `v10?FLAG=1` (tests in `btk.bot.v10`); they are refused on `v11`/`v12`/`v13` too. The v12 configuration on current is
+  mechanisms on `v10?FLAG=1`; they are refused on `v11`/`v12`/`v13` too. **prune-v2 (2026-10-27)** removed the parked
+  experiments of v12's time from current — `USE_COLLISION_AVOIDANCE`, `USE_CORRIDOR_ROUTES`, `USE_QUICK_ALWAYS`/`DELAY_POWER`,
+  `BOSS_OPP_HOLD_MARGIN`, `USE_BOSS_NO_CLOSE`, `USE_ROUTE_COMMIT`, `USE_BOSS_THREAT_MODEL`: refused on current, run on
+  `v13?FLAG=1` (the threat model on v11–v13); `btk.bot.PruneV2Test`. Their `Params` fields and merger blocks stay for the frozen
+  copies. The v12 configuration on current is
   `current?USE_BYPASS_ROUTES=0` (`LiveTargetExperimentParams.V12_ON_CURRENT`), the v11 one adds `USE_EXPOSURE_INCOME=0`
   (`V11_ON_CURRENT`), the v10 one `USE_BOSS_ROOT_TARGET=0` (`V10_ON_CURRENT`); every current-based artifact pin moves at a promotion because the display name sits in `BUILD_MARKER`
   and the selected version in the header comment (config hashes do not move).
@@ -48,8 +53,8 @@ when done), then only the parts of `docs/DEVLOG.md` / `docs/BOTS.md` the task ne
 **v13 "Bypass Routes" is the selected version since 2026-10-27** (`docs/v13-promotion.md`, user decision "Делаем v13" after
 `bypass-routes-v1`: B2 = `current?USE_BYPASS_ROUTES=true`, +3.0 pp vs the proxy over v12 replicated to pooled +4.2 pp, 55.0 % h2h,
 live session 1 +7.5 pp, 24/40 vs 21/40; session 2 skipped on the user's choice): the flag is a `Params` default, `btk.bot.v13` the
-frozen copy, default artifact 94,816 chars / config `8c4b3d6d…` (`build/submit-v13`, strict procCheck 0 problems), **arena upload
-by the user pending** (the arena runs v12, agent 6814073). Next candidate: screened with `current` (= v13) as the same-map control
+frozen copy, default artifact 94,816 chars / config `8c4b3d6d…` (`build/submit-v13`, strict procCheck 0 problems), **uploaded to the
+arena by the user on 2026-10-27 ~16:18 UTC** (agent id to read from a replay; before it v12, agent 6814073). Next candidate: screened with `current` (= v13) as the same-map control
 and the proxy spec above (with `USE_BYPASS_ROUTES=0`), step 1a, h2h, live vs `current`. Before it:
 **v12 "Exposure Income" was the selected version from 2026-10-25 night** (`docs/v12-promotion.md`, user decision after
 `stage4-exposure-income-v1`: E1 = `current?USE_EXPOSURE_INCOME=true`, +3.7 pp vs the proxy over v11, 60.3 % h2h, live
@@ -104,14 +109,15 @@ arena fetch/analyse). Details per step: `docs/boss-sabotage-v2.md`,
 
 ## Known test state
 
-`gradlew test` (844 tests on 2026-10-26): 25 pre-existing failures are expected — 19 via the retained-engine bytecode pin
-on `btk/core/Pathing.class` (`experiment-engine-v1.json`, see `docs/bot_catalog.md`; remedy is a
-new snapshot with new experiment ids, a user decision) and 6 `PduhardBeamBotTest` (bot never
-registered). Anything else red is new.
+`gradlew test` (763 tests on 2026-10-27, after repo-cleanup): **0 failures expected**; anything red is new. The 25
+long-standing failures (the six `exp-*` recipes' engine pin and the unregistered `pduhard-beam-v1`) left with their code
+(`docs/repo-cleanup-v1.md`). Tests follow the code they test (AGENTS.md rule 9).
 
 ## Working style
 
-Git flow: branch → PR → merge; commit new files explicitly (`git add -A`, not `commit -a`).
+Git flow: branch → PR → merge; commit new files explicitly (`git add -A`, not `commit -a`). Evidence archives and
+binary exports (`*.zip`, `*.tar.gz`, `*.csv.gz` under `docs/evidence/`) are gitignored; the 68 files untracked on 2026-10-27
+are listed with sha256 and their adding commit in `docs/evidence/untracked-evidence-2026-10-27.json`.
 Long benches: 2 workers, CG 486/36 ms budgets, fresh seeds (next free range ≥ 980000; used
 ranges are listed in the evidence JSONs under `docs/evidence/`). Keep the Claude project doc
 (`claude/strategy-analysis-2026-10-20.md` in the claude.ai project) in sync at milestones.
