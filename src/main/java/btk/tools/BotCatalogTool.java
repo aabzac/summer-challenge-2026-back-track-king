@@ -12,22 +12,15 @@ public final class BotCatalogTool {
                         entry.category(), entry.status(), entry.description());
             }
             System.out.println("Details and resolved parameters: gradlew botCatalog -Pbot=<id>");
-            System.out.println("Historical evidence is not a new benchmark of the catalog snapshot. Experiments are not promoted.");
+            System.out.println("Candidates and references are local-only; only the selected version ships.");
             return;
         }
         String spec = args[0];
-        var params = BotFactory.configuration(spec); // Fail closed on stale engine / invalid parameters.
+        var params = BotFactory.configuration(spec); // Fail closed on invalid parameters.
         var identity = BotCatalog.describe(spec);
         var entry = BotCatalog.entry(spec.split("\\?", 2)[0]);
         System.out.println(identity.displayName() + " [" + identity.category() + " / " + identity.status() + "]");
         System.out.println(entry.description());
-        if (entry.recipe() != null) {
-            System.out.println("Recipe: " + entry.recipe());
-            System.out.println("Historical evidence (not remeasured here): " + entry.historicalEvidence());
-            System.out.println("Engine source revision: " + identity.sourceRevision());
-            System.out.println("Verified classpath SHA-256: " + identity.implementationSha256());
-            System.out.println("Pinned preset SHA-256: " + identity.presetSha256());
-        }
         System.out.println("Explicit query overrides: " + identity.explicitOverrides());
         params.forEach((key, value) -> System.out.println("  " + key + "=" + value));
     }

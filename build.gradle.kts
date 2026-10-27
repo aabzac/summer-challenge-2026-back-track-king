@@ -287,34 +287,6 @@ tasks.register<JavaExec>("cgDisrupt") {
         prop("out", "build/analysis/disrupt-diagnostic.json"))
 }
 
-tasks.register<JavaExec>("replyStudy") {
-    group = "game"
-    description = "Capture a fixed local sample, then audit narrow reply prediction on shared states (tools only)"
-    mainClass.set("btk.tools.ReplyStudy")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("mode", "analyze"), prop("path", "build/analysis/reply-study-v1/capture"),
-        prop("out", "build/analysis/reply-study-v1/report.json"))
-}
-
-tasks.register<JavaExec>("jointReplyStudy") {
-    group = "game"
-    description = "Audit joint first-build/own-sabotage values on the retained replyStudy sample (tools only)"
-    mainClass.set("btk.tools.JointReplyStudy")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "build/analysis/reply-study-v1/capture"),
-        prop("prior", "build/analysis/reply-study-v1/report.json"),
-        prop("out", "build/analysis/reply-study-v1/joint-report.json"))
-}
-
-tasks.register<JavaExec>("jointActionCheck") {
-    group = "game"
-    description = "Serial 36-ms cost check for the joint-action candidate on saved states"
-    mainClass.set("btk.tools.JointActionCheck")
-    classpath = sourceSets["main"].runtimeClasspath
-    args = listOf(prop("path", "build/analysis/reply-study-v1/capture"),
-        prop("out", "build/analysis/joint-action-v1/cost.json"))
-}
-
 tasks.register<JavaExec>("rolloutRiskStudy") {
     group = "game"
     description = "Bounded saved-position audit of all-cell-risk route candidates"

@@ -20,16 +20,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BenchmarkRunnerTest {
-    @Test void reportsPreserveMachineIdsAlongsideLabelsAndExperimentIdentity() throws Exception {
-        var stats = new BenchmarkRunner.Stats("exp-reply-rerank", "v05");
-        assertEquals("exp-reply-rerank", stats.a);
+    @Test void reportsPreserveMachineIdsAlongsideLabelsAndBotIdentity() throws Exception {
+        var stats = new BenchmarkRunner.Stats("current?NOISE=0", "v05");
+        assertEquals("current?NOISE=0", stats.a);
         assertEquals("v05", stats.b);
-        assertEquals("not_promoted", stats.botA.status());
+        assertEquals("mutable", stats.botA.status());
+        assertTrue(stats.botA.explicitOverrides());
         assertEquals("v05 - Disrupt Reserve", stats.botB.displayName());
-        assertNotNull(stats.botA.implementationSha256());
-        assertEquals("true", stats.paramsA.get("USE_REPLY_RERANK"));
-        assertTrue(stats.report().contains("Reply Rerank"));
-        assertTrue(stats.report().contains("not_promoted"));
+        assertEquals("0.0", stats.paramsA.get("NOISE"));
+        assertTrue(stats.report().contains("Working Copy"));
+        assertTrue(stats.report().contains("mutable"));
     }
     @TempDir Path temp;
     record Seen(String bot, int side, String map) {}

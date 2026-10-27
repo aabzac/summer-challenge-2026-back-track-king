@@ -11,8 +11,8 @@ gradlew test                                   # rules unit tests
 gradlew run -Pbot0=current -Pbot1=v01 -Pseed=3  # one game -> replays/local/*.json
 gradlew bench -Pbot1=current -Pbot2=v01 -Pgames=300 -Pmaps=replays/cg
 gradlew benchSuite -Pbot=current               # matched local opponent panel on development-v1
-gradlew botCatalog                            # names, categories and experiment status
-gradlew botCatalog -Pbot=exp-income-guard      # pinned recipe, implementation identity and parameters
+gradlew botCatalog                            # names, categories and status
+gradlew botCatalog -Pbot=v12                   # one bot's label and resolved parameters
 gradlew submit                                 # -> build/submit/Player.java (compile-checked; readable since readable-export-v1)
 gradlew submit -PsubmitVersion=indrill-q-v1 -PsubmitOut=build/submit-indrill # separate Q-learning candidate
 gradlew submit -PsubmitVersion=indrill-q-v2 -PsubmitOut=build/submit-indrill-v2 # learned position/WAIT candidate
@@ -75,18 +75,8 @@ and can prevent a timely winning closure. Selected v09 remains unchanged.
 
 Bots have stable command ids and descriptive labels: `v03 - Risk Aware`, `v04 - Network Extension`,
 `v05 - Disrupt Reserve`, `v06 - Simultaneous Rollout`, `v07 - Network After Base`,
-`v08 - Protected Opening`, `v09 - Never Idle` (selected). Six retained, **not promoted** experiments can also be selected by name:
-`exp-income-guard`, `exp-build-direction`, `exp-early-disrupt`, `exp-reply-rerank`,
-`exp-interruptible-vuln`, `exp-disrupt-delay065`. For example:
-
-```powershell
-.\gradlew.bat bench "-Pbot1=exp-income-guard" "-Pbot2=v05" "-Ppool=bench/pools/development-v1.json"
-```
-
-Named experiments pin complete parameters and verify their compiled engine snapshot; they do not
-silently follow future `current` changes. They are optional local opponents, not additions to the
-default panel or allowed `submitVersion` values. See [the bot catalog](docs/bot_catalog.md) for
-historical evidence, limitations and how to retain/revise an experiment.
+`v08 - Protected Opening`, `v09 - Never Idle` … `v13 - Bypass Routes` (selected). The six retained `exp-*` recipes of the v05 era
+(not promoted) were removed on 2026-10-27 with their archived engine; their verdicts stay in `docs/archive/BOTS-2026-09-13_10-06.md`.
 
 `bench` requires an even number of games: 200 games means 100 map pairs, each played with A as
 P0 and P1. Reference bots `v01`–`v09` load fixed parameter snapshots; explicit query overrides
@@ -721,15 +711,8 @@ see [process diagnostics](docs/benchmarking.md#optional-process-input-diagnostic
 
 ## Opponent prediction study
 
-`replyStudy` audits the retained narrow reply-reranking model against `pressure-v1`: first capture
-the fixed local sample, then analyze saved shared states in a separate invocation. It separates
-known-state, predicted-response and recorded-action oracle evaluations, plus nominal/ample-time
-full-play choices. See [the protocol and limitations](docs/reply-study.md). It does not alter v05
-or build a new submission.
-
-`jointReplyStudy` reuses that capture and report, compares build prefixes with known-state own
-sabotage targets, and checks every simultaneous combination through core. It does not replay
-new games or rerun timing measurements. See [joint-action findings](docs/joint-reply-study.md).
+The September `replyStudy` / `jointReplyStudy` tools audited the retained `exp-reply-rerank` engine; they left with that
+engine on 2026-10-27 ([protocol](docs/reply-study.md), [joint-action findings](docs/joint-reply-study.md) stay as records).
 
 The subsequent opt-in `USE_JOINT_ACTION` screen did not pass promotion; that feature remains
 off. Historical recipes require `USE_ROLLOUT_POLICY=0` now that v06 is selected.
