@@ -18,7 +18,7 @@ by date or candidate id). Commands are in `README.md`.
   pooled delta ≥ +3 pp; `tools/boss_proxy/run_replication.sh` + `pooled_delta.py`)** — non-inferiority vs the selected version
   (`current` = v13), then **since 2026-10-27 one 40-game live boss session as a filter (delta ≥ 0) and two arena uploads
   of the candidate** (`docs/arena-uploads.md`; rollback when its mean placement score is below the selected version's uploads
-  in the same league by more than M ≈ 1.4 and the performance rating agrees).
+  in the same league by more than M ≈ 1.0 and the performance rating agrees; v13's Gold baseline is 10.82 / 10.65, mean 10.73).
   The local mirror vs v09 is a regression guard, never the objective.
 - **Fetch our live arena entry before every upload** (`python tools/arena_uploads.py fetch`, files the games under the
   gitignored `replays/arena/<label>/upload-N/`): CG lists the games of the live agent only, a replaced upload's game
@@ -62,8 +62,9 @@ by date or candidate id). Commands are in `README.md`.
 live session 1 +7.5 pp, 24/40 vs 21/40; session 2 skipped on the user's choice): the flag is a `Params` default, `btk.bot.v13` the
 frozen copy, default artifact 94,816 chars / config `8c4b3d6d…` (`build/submit-v13`, strict procCheck 0 problems), **on the
 arena since 2026-10-27** (upload-1 = agent 6818214: 120 placement games 75W/45L, CG 29.23, rank 316, Silver; before it v12, agent 6814073);
-**its re-upload (6818421) reached 30.24 at 92 % and was promoted to Gold** — first noise measurement, M ≈ 1.4 (`docs/arena-uploads.md`);
-v13's Gold placement = agent 6818546 (upload-3), and one more v13 Submit in Gold completes the Gold baseline. Next candidate: screened with `current` (= v13) as the same-map control
+**its re-upload (6818421) reached 30.24 at 92 % and was promoted to Gold** (`docs/arena-uploads.md`);
+**v13's Gold baseline: upload-3 = 6818546 (10.82, 66-74) and upload-4 = 6818773 (10.65, 70-71; the live entry since 2026-10-28), mean 10.73, M ≈ 1.0**;
+both lose on tall / 30×20 maps (27-41 together). Next candidate: screened with `current` (= v13) as the same-map control
 and the proxy spec above (with `USE_BYPASS_ROUTES=0`), step 1a, h2h, the live filter vs `current`, then two arena uploads. Before it:
 **v12 "Exposure Income" was the selected version from 2026-10-25 night** (`docs/v12-promotion.md`, user decision after
 `stage4-exposure-income-v1`: E1 = `current?USE_EXPOSURE_INCOME=true`, +3.7 pp vs the proxy over v11, 60.3 % h2h, live

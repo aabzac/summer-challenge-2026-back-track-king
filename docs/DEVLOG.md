@@ -1470,3 +1470,18 @@ entry D, selected local version v09. New tools: `tools/run_boss_paced.sh`,
 - Evidence `docs/evidence/arena-uploads-v13-gold-2026-10-27.json`; `docs/arena-uploads.md` gains the Gold section.
   **Next:** one more v13 Submit in Gold (the user's step, then `watch`) for the two-score Gold baseline. The big-map
   deficit is the first lead for a Gold-era candidate.
+
+## 2026-10-28 — v13's Gold baseline: 10.82 and 10.65 (mean 10.73); M ≈ 1.0
+
+- The user submitted v13 once more in Gold ("перезалил ещё раз", 07:42 UTC): agent 6818773, whose placement had already
+  finished when `watch` started. The first round filed it whole: **141 games, 70W/71L (49.6 %), CG 10.65, rank 289 of
+  1,635**, opponents' median 10.58, performance rating 10.70 ± 0.70. Maps: small 56-56, tall 4-5, 30×20 10-10.
+  `cgAnalyze`: 141 validated, 0 failed turns of ours (4 opponent timeouts). The night games upload-3 played after its
+  22:58 fetch were lost by the Submit, a few at most (placement was over).
+- **Baseline:** upload-3 10.82, upload-4 10.65 → mean **10.73**, SD 0.12. The Gold scale refits to 4.05 on 281 games
+  (upload-3: 10.96 ± 0.70). Pooled with the Silver pair (SD 0.71) the upload-to-upload SD is 0.51 → **M ≈ 1.0**: a
+  Gold candidate is rolled back when its mean placement score is below ~9.7 and its performance rating agrees.
+- Over the two Gold placements v13 is 136-145 (48.4 %); tall and 30×20 together 27-41 (40 %), small maps 109-104. The
+  shared-opponent delta for identical bytes is +8.5 ± 7.3 pp (23 players), context only. Evidence
+  `docs/evidence/arena-uploads-v13-gold-baseline-2026-10-28.json`; rule text M and the baseline updated
+  (`docs/arena-uploads.md`, AGENTS.md rule 3, `docs/benchmarking-v5.md`, CLAUDE.md, STATUS, PLAN).
