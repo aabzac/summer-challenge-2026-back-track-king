@@ -31,7 +31,7 @@ finished.
    CG lists the live agent's games only), upload the candidate and run `... watch` through its placement (~120
    games; a league promotion replaces the agent at the end), re-upload the same artifact and watch again; roll back
    to the selected version when the candidate's mean placement score is below the selected version's uploads in
-   the same league by more than M (2 × the upload-to-upload SD, ≈ 1.4 after v13's two uploads) and its
+   the same league by more than M (2 × the upload-to-upload SD, ≈ 1.0 from v13's Silver and Gold pairs) and its
    performance rating is lower by more than 2 SE; otherwise promote. The former 80/120-game live
    confirmation is historical.
    New heuristic bots (not flags on `current`) get a predeclared tuning budget on development

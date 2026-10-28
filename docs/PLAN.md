@@ -120,8 +120,9 @@ Plan: claude/strategy-analysis-2026-10-20.md (Claude project). Order: 0 → 1 �
 - [x] v13's Gold placement (upload-3 = agent 6818546, recorded by `watch`): 140 games 66-74 (47.1 %), score 10.82,
       rank 287 (~251st of ~280 in Gold), performance rating 11.06 ± 0.45 vs the opponents' median 11.18; tall 6-15,
       30×20 7-11; 0 failed turns (`docs/arena-uploads.md`).
-- [ ] **User:** one more Submit of `build/submit-v13/Player.java` in Gold (then `python tools/arena_uploads.py watch`)
-      → v13's Gold baseline of two placement scores.
+- [x] **User:** one more Submit of `build/submit-v13/Player.java` in Gold (then `python tools/arena_uploads.py watch`)
+      → v13's Gold baseline of two placement scores — done 2026-10-28: upload-4 = agent 6818773, 70-71, 10.65 / rank 289;
+      baseline 10.82 / 10.65 (mean 10.73, SD 0.12), M ≈ 1.0 pooled with the Silver pair; big maps 27-41 over both.
 - [x] **repo-cleanup-v1 (2026-10-27, `docs/repo-cleanup-v1.md`):** evidence archives / csv.gz gitignored and untracked (manifest
       `docs/evidence/untracked-evidence-2026-10-27.json`), journals split into `docs/archive/`, the 25 red tests removed with the
       `exp-*` engine and `pduhard-beam-v1`, prune-v2 of the parked experiments (run them on `v13?FLAG=1`); 0 red tests.

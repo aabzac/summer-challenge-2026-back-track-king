@@ -51,16 +51,15 @@ step 3 of policy v5 (`docs/benchmarking-v5.md`, AGENTS.md rule 3). The tool is `
    - Win rate, opponent median and the shared-opponent delta are reported as context. They depend on the field the
      matchmaker serves at that hour; the rating and the performance rating already account for it.
 7. **M = 2 × the standard deviation of the placement score between uploads of one configuration** (`compare` prints
-   it for every version with two or more placement scores). The first measurement, v13 in Silver, gives an SD of
-   0.71 and **M ≈ 1.4 CG points** (below). It rests on one pair and is re-estimated as rollbacks and promotions add
-   uploads.
+   it for every version with two or more placement scores). v13's two pairs give SDs of 0.71 in Silver and 0.12 in
+   Gold, pooled 0.51, so **M ≈ 1.0 CG point** (below). It is re-estimated as rollbacks and promotions add uploads.
 8. **Leagues.** CG scores do not compare across leagues, so `compare` groups uploads by the league they placed in,
    and a decision compares uploads of one league only. A new Submit places in the current league. After a promotion,
    the selected version's baseline has to be rebuilt in the new league.
 
 The selected version's baseline is its own uploads in the current league. A version needs at least two placement
-scores there before a candidate is judged against it. **v13 in Gold:** upload-3, the promotion of upload-2, is placing
-now; one more v13 Submit in Gold completes the baseline.
+scores there before a candidate is judged against it. **v13's Gold baseline (2026-10-28):** placement scores 10.82
+and 10.65, mean **10.73**, so a candidate is rolled back below a mean of about 9.7 when its performance rating agrees.
 
 ## The tool
 
@@ -170,3 +169,25 @@ opponents; 104 requests, no replays). The table below is the same `compare` run,
 - v13 holds about 50 % against the Gold field it met, and it loses on the big maps (13-26 on tall and 30×20 together).
 - This is v13's first Gold placement score. One more v13 Submit in Gold, watched, gives the two-score baseline a
   candidate is judged against.
+
+## v13's Gold baseline: upload-4 (2026-10-28, `docs/evidence/arena-uploads-v13-gold-baseline-2026-10-28.json`)
+
+The user submitted `build/submit-v13/Player.java` once more in Gold, as agent 6818773. Its placement had finished
+when `watch` started, so the first round filed it whole (141 games, 143 requests). With 281 Gold games the scale
+refits to 4.05, which moves upload-3's performance rating from 11.06 ± 0.45 to 10.96 ± 0.70.
+
+| | upload-3 (6818546) | upload-4 (6818773) |
+|---|---|---|
+| CG score / rank at placement | 10.82 / 287 | 10.65 / 289 of 1,635 |
+| record | 66-74 (47.1 %) | 70-71 (49.6 %) |
+| opponents' median score | 11.18 | 10.58 |
+| performance rating (Gold scale 4.05) | 10.96 ± 0.70 | 10.70 ± 0.70 |
+| maps: small / tall / 30×20 | 53-48 / 6-15 / 7-11 | 56-56 / 4-5 / 10-10 |
+| failed turns of ours | 0 (3 opponent timeouts) | 0 (4 opponent timeouts) |
+| shared opponents | 23 players, 118 / 94 games: stratified +8.5 ± 7.3 pp for the same bytes | |
+
+- **Baseline: mean 10.73, SD 0.12.** The Gold pair is much tighter than the Silver one (0.71). Pooled over the two
+  pairs the SD is 0.51, so **M ≈ 1.0**: a Gold candidate is rolled back when its mean placement score falls below
+  about 9.7 and its performance rating agrees.
+- The big maps lose in both Gold placements: tall and 30×20 together 27-41 (40 %), against 109-104 on small maps.
+- The shared-opponent delta again moves by a standard error for identical bytes (+8.5 ± 7.3 pp), so it stays context.
